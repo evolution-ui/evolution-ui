@@ -6,3 +6,4 @@
 - Run `sass --watch components:css` to automatically compile scss.
 - Use your named html file in the `html-temp` folder to write up your components.
 - If you need fonts, Google Material icons have been added to each html file. (https://material.io/icons/ for usage instructions)
+- All classes to be prefixed with `su_`
