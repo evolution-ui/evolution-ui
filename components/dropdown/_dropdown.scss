@@ -3,7 +3,7 @@
 
   .su_dropdown-toggle,
   .su_dropdown-menu {
-    border-radius: 3px;
+    @include radius;
     box-shadow: 0px 3px 3px 0px su_color('background', 'dark');
   }
 
