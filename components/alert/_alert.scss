@@ -1,0 +1,46 @@
+/**********************
+ALERTS
+**********************/
+.alert {
+  display: block;
+  padding: 10px;
+  .alert-star {
+    vertical-align: -20%;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  .alert-close {
+    vertical-align: -20%;
+    float: right;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  &.transparent {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}
+
+.alert-success {
+  color:  su_color('primary', 'dark');
+  background-color: su_color('primary', 'base', 0.4);
+  border: 1px solid su_color('primary', 'base', 1);
+}
+
+.alert-info {
+  color:  su_color('accent', 'dark');
+  background-color: su_color('accent', 'base', 0.4);
+  border: 1px solid su_color('accent', 'base', 1);
+}
+
+.alert-warning {
+  color: darken(#FEB100, 10%);
+  background-color: rgba(254, 177, 0, 0.4);
+  border: 1px solid rgba(254, 177, 0, 1);
+}
+
+.alert-error {
+  color: darken(#E40425, 10%);
+  background-color: rgba(228, 4, 37, 0.4);
+  border: 1px solid rgba(228, 4, 37, 1);
+}
