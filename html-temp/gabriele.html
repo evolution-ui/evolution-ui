@@ -18,6 +18,11 @@
         .divisor {
           margin: 40px 0;
         }
+
+        .su_cell {
+          background-color: initial;
+          border: initial;
+        }
       </style>
     </head>
     <body>
@@ -86,6 +91,38 @@
           <div class="su_progress-bar su_progress-bar--indeterminate su_progress-bar--rounded">
             <div class="su_bar su_bar--warn su_bar--fb"></div>
           </div>
+
+        </div>
+
+        <hr class="divisor">
+
+        <div class="g-container">
+          <h2>Forms</h2>
+
+
+          <form class="su_form">
+          <div class="su_line">
+
+            <div class="su_cell">
+              <div class="su_field">
+                <input class="su_input su_input--txt su_validate" id="name" placeholder="" type="text" required>
+                <label for="">Name</label>
+              </div>
+            </div>
+            <div class="su_cell">
+              <div class="su_field">
+                <input class="su_input su_input--txt su_validate" id="surname" placeholder="" type="text" required>
+                <label for="surname">Surname</label>
+              </div>
+            </div>
+            <div class="su_cell">
+              <div class="su_field">
+                <input class="su_input su_input--pwd su_validate" id="password" placeholder="" type="password" required>
+                <label for="password">Password</label>
+              </div>
+            </div>
+          </div>
+          </form>
 
         </div>
 

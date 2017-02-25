@@ -29,6 +29,7 @@
         left: -10%;
         width: 10%;
         animation: progress 2.2s infinite forwards linear;
+        -webkit-animation: progress 2.2s infinite forwards linear;
       }
 
     }
@@ -60,11 +61,13 @@
           right: 0;
           left: 110%;
           animation: progress-b 2.2s infinite forwards linear;
+          -webkit-animation: progress-b 2.2s infinite forwards linear;
         }
 
         // .su_bar--fb  INFINITE LOADING - Farward & Backward
         @include m('fb') {
           animation: progress-fb 2.2s infinite forwards linear;
+          -webkit-animation: progress-fb 2.2s infinite forwards linear;
         }
     }
 
