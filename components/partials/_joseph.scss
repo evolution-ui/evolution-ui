@@ -1,3 +1,11 @@
+$accent-color: #db1580;
+$base-color: #1a5707;
+$light-color: #dadad0;
+$body-bg-color: #f5f5f5;
+body {
+  padding: 80px;
+}
+
 @import '../combobox/combobox';
 @import '../dropdown/dropdown';
 @import '../card/card';
