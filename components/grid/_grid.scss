@@ -1,1 +1,38 @@
+/*
+* GRID COMPONENT
+*/
 
+.su_line {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.su_gutters{
+  margin-left: -1em;
+}
+
+.su_gutters .su_cell{
+  margin-left: 1em;
+}
+
+.su_cell {
+  padding: 1em;
+  margin-bottom: 1em;
+  transition: background-color 0.3s ease;
+  background: #ade576;
+  border: 1px solid #72c024;
+  border-radius: 4px;
+  width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .su_cell {
+    flex: 1;
+  }
+}
+
+
+/*
+* END GRID COMPONENT
+*/
