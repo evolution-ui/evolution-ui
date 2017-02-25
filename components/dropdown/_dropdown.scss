@@ -17,14 +17,14 @@
   }
 
   .su_dropdown-toggle {
-    background-color: su_color('accent', 'base');
+    background-color: su_color();
     border: none;
     color: su_color('background', 'light');
     margin-bottom: 0.3125rem;
     padding: 0.625rem 1.25rem;
 
     &:hover {
-      background-color: su_color('accent', 'light');
+      background-color: su_color('primary', 'light');
     }
 
     &:active,
@@ -49,7 +49,7 @@
     &:active,
     &:focus {
       outline: none;
-      background-color: su_color('accent', 'dark');
+      background-color: su_color('primary', 'dark');
     }
   }
 

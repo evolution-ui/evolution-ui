@@ -30,7 +30,7 @@
     }
 
     .su_list-item-label {
-      background-color: su_color();
+      background-color: su_color('accent');
       @include radius;
       color: su_color('background', 'light');
       display: inline-block;
