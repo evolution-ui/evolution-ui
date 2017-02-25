@@ -1,3 +1,40 @@
-.example-class {
-  color: red;
+
+$su_typography_font-size: 16px;
+$su_typography_font-weight: 300;
+
+$su_typography_line-height: 1.375rem;
+
+html {
+  font-size: $su_typography_font-size;
+  line-height: $su_typography_line-height;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: $su_typography_font-weight;
+}
+h1 { font-size: 2rem; line-height: 1.25; }
+h2 { font-size: 1.625rem; line-height: 1.153;}
+h3 { font-size: 1.375rem; line-height: 1.13; }
+h4 { font-size: 1.125rem; line-height: 1.125;}
+h5 { font-size: 1rem; line-height: 1;}
+h6 { font-size: .9rem; line-height: .9;}
+
+/* Larger than phablet */
+@media (min-width: 750px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.125rem; }
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.875rem; }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.25rem; }
+  h3 { font-size: 1.75rem; }
+}
+
