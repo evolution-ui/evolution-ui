@@ -1,2 +1,18 @@
 
+._su-preview {
+  position: relative;
+}
 
+._su-preview-page {
+  opacity: 0;
+  position: absolute;
+  height: 400px;
+  width: 300px;
+  top:220px;
+  left:50%;
+  transform:translate(-50%, -50%);
+}
+
+._su_preview-link:hover + ._su-preview-page {
+  opacity: 1;
+}
