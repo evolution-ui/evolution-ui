@@ -36,12 +36,12 @@ TABLES
 
 .su_table-striped {
   tr:nth-child(even) {
-    background-color: lighten(su_color('primary', 'base', 0.4), 30%);
+    background-color: #f0f0ed;
   }
 }
 
 .su_table-hover {
-  td:hover {
-    background-color: su_color('primary', 'base', 0.4);
+  tbody tr:hover {
+    background-color: darken(#f0f0ed, 10%);
   }
 }
