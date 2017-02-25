@@ -9,6 +9,20 @@
   }
 }
 
+
+.su_form-box {
+  padding: 40px;
+  border: 2px solid su-color('primary', 'dark');
+
+  .su_form-box-header {
+
+  }
+
+  .su_form-title {
+    text-transform: capitalize;
+  }
+}
+
 .su_form {
 
   & * { box-sizing: border-box; }
@@ -16,26 +30,55 @@
 
   .su_field {
     position: relative;
+    margin: 10px 0;
 
-    .su_input--txt,
-    .su_input--pwd {
+    .su_input {
+      width: 100%;
+
+      // .su_input--bordered
+      @include m('bordered') {
+        padding: 30px;
+        border: 1px solid rgb(0, 0, 0);
+      }
+    }
+
+    input[type='text'],
+    input[type='password'] {
       height: 2rem;
       padding: 10px;
       border: 0;
       border-bottom: 1px solid rgba(0,0,0,.2);
-
-      &:focus + label,
-      &:valid + label {
-        top: -90%;
-        font-size: smaller;
-      };
     }
+  }
 
-    & label {
-      position: absolute;
-      left: 0;
-      top: 0;
-      transition: top .1s ease;
-    }
+   .su_field-label-up {
+
+      input[type='text'],
+      input[type='password'] {
+        &:focus + label,
+        &:valid + label {
+          top: -90%;
+          font-size: smaller;
+        }
+      }
+
+      & label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: top .1s ease;
+      }
    }
+}
+
+@media screen and (min-width: 750px) {
+  .su_form-box {
+    width: 500px;
+  }
+
+
+  input[type='text'],
+  input[type='password'] {
+    width: 300px;
+  }
 }
