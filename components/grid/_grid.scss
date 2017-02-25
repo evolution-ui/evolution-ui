@@ -16,9 +16,10 @@ $su_10of12: percentage(10/12);
 $su_11of12: percentage(11/12);
 
 .su_line {
+  display: -webkit-flex;
   display: flex;
-  flex-flow: row;
   flex-wrap: wrap;
+  flex-flow: row;
 }
 
 .su_gutters{
@@ -36,6 +37,8 @@ $su_11of12: percentage(11/12);
   background: #ade576;
   border: 1px solid #72c024;
   border-radius: 4px;
+  word-wrap: break-word;
+  text-align: center;
   width: 100%;
 }
 
@@ -47,47 +50,58 @@ $su_11of12: percentage(11/12);
   /* Asymetric grid */
 
   .su_cells_1 {
-    flex: 0 0 calc(#{$su_1of12} - #{$su_gutter}*2);
+    flex: 0 0 calc(#{$su_1of12} - #{$su_gutter});
+    max-width: calc(#{$su_1of12} - #{$su_gutter});
   }
 
   .su_cells_2 {
     flex: 0 0 calc(#{$su_2of12} - #{$su_gutter});
+    max-width: calc(#{$su_2of12} - #{$su_gutter});
   }
 
   .su_cells_3 {
     flex: 0 0 calc(#{$su_3of12} - #{$su_gutter});
+    max-width: calc(#{$su_3of12} - #{$su_gutter});
   }
 
   .su_cells_4 {
     flex: 0 0 calc(#{$su_4of12} - #{$su_gutter});
+    max-width: calc(#{$su_4of12} - #{$su_gutter});
   }
 
   .su_cells_5 {
     flex: 0 0 calc(#{$su_5of12} - #{$su_gutter});
+    max-width: calc(#{$su_5of12} - #{$su_gutter});
   }
 
   .su_cells_6 {
     flex: 0 0 calc(#{$su_6of12} - #{$su_gutter});
+    max-width: calc(#{$su_6of12} - #{$su_gutter});
   }
 
   .su_cells_7 {
     flex: 0 0 calc(#{$su_7of12} - #{$su_gutter});
+    max-width: calc(#{$su_7of12} - #{$su_gutter});
   }
 
   .su_cells_8 {
     flex: 0 0 calc(#{$su_8of12} - #{$su_gutter});
+    max-width: calc(#{$su_8of12} - #{$su_gutter});
   }
 
   .su_cells_9 {
     flex: 0 0 calc(#{$su_9of12} - #{$su_gutter});
+    max-width: calc(#{$su_9of12} - #{$su_gutter});
   }
 
   .su_cells_10 {
     flex: 0 0 calc(#{$su_10of12} - #{$su_gutter});
+    max-width: calc(#{$su_10of12} - #{$su_gutter});
   }
 
   .su_cells_11 {
     flex: 0 0 calc(#{$su_11of12} - #{$su_gutter});
+    max-width: calc(#{$su_11of12} - #{$su_gutter});
   }
     /* End asymetric grid */
 }
