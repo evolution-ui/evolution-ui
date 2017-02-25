@@ -114,7 +114,7 @@
 
             <div class="su_cell">
               <div class="su_field su_field-label-up">
-                <input class="su_input su_validate" id="name" placeholder="" type="text" required>
+                <input class="su_input" id="name" placeholder="" type="text" required>
                 <label for="">Name</label>
               </div>
             </div>
@@ -125,9 +125,10 @@
               </div>
             </div>
             <div class="su_cell">
-              <div class="su_field su_field-label-up">
-                <input class="su_input su_validate" id="password" placeholder="" type="password" required>
+              <div class="su_field su_field-label-up su_has-error">
+                <input class="su_input su_validate" id="password" placeholder="" type="password" value="test12345678910" required>
                 <label for="password">Password</label>
+                <div class="su_error-message">Wrong Password. Try Again</div>
               </div>
             </div>
           </div>
@@ -136,47 +137,171 @@
           <div class="su_line">
 
             <div class="su_cell">
-              <div class="su_field">
-                <input class="su_input su_input-checkbox" id="checkbox-1" type="checkbox">
-                <label for="checkbox-1">Check Box 1</label>
-                <input class="su_input su_input-checkbox" id="checkbox-2" type="checkbox">
-                <label for="checkbox-2">Check Box 2</label>
-                <input class="su_input su_input-checkbox" id="checkbox-3" type="checkbox">
-                <label for="checkbox-3">Check Box 3</label>
-              </div>
-            </div>
-            <div class="su_cell">
-              <div class="su_field">
-                <select class="su_input">
 
-                </select>
-                <label for="surname">Surname</label>
-              </div>
-            </div>
-            <div class="su_cell">
               <div class="su_field">
-                <input class="su_input su_validate" id="password" placeholder="" type="password" required>
-                <label for="password">Password</label>
+                <input class="su_input-checkbox" id="checkbox-1" type="checkbox">
+                <label for="checkbox-1"><span>Check Box [default]</span></label>
+                <input class="su_input-checkbox su_input-checkbox--red" id="checkbox-2" type="checkbox">
+                <label for="checkbox-2">Check Box Red</label>
+                <input class="su_input-checkbox su_input-checkbox--green-dark" id="checkbox-3" type="checkbox">
+                <label for="checkbox-3">Check Box Dark Green</label>
+                <input class="su_input-checkbox su_input-checkbox--pink" id="checkbox-4" type="checkbox">
+                <label for="checkbox-4">Check Box Pink</label>
               </div>
             </div>
           </div>
 
-          </form>
+          <!-- Line 4 -->
+          <div class="su_line">
 
-
-          <div class="su_form-box">
-            <form class="su_form">
-            <div class="su_form-box-header">
-              <h2 class="su_form-title">join us</h2>
-            </div>
-            <div class="su_form-box-body">
-              <div class="su_field su_input--bordered su_input-icon">
-                <i class="material-icons">person</i>
-                <input class="su_input" id="name" placeholder="Username" type="text" required>
+            <div class="su_cell">
+              <div class="su_field">
+                <input class="su_input-checkbox su_input-checkbox--x" id="checkbox-5" type="checkbox">
+                <label for="checkbox-5"><span>Check Box [default]</span></label>
+                <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--red" id="checkbox-6" type="checkbox">
+                <label for="checkbox-6">Check Box Red</label>
+                <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--green-dark" id="checkbox-7" type="checkbox">
+                <label for="checkbox-7">Check Box Dark Green</label>
+                <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--pink" id="checkbox-8" type="checkbox">
+                <label for="checkbox-8">Check Box Pink</label>
               </div>
             </div>
-            </form>
           </div>
+
+
+          <!-- Line 5 -->
+          <div class="su_line">
+
+            <div class="su_cell">
+              <div class="su_field">
+                <input class="su_input-radio" id="radio-1" name="radio-1" type="radio">
+                <label for="radio-1"><span>Radio [default]</span></label>
+                <input class="su_input-radio su_input-radio--red" id="radio-2" name="radio-1" type="radio">
+                <label for="radio-2">Radio Red</label>
+                <input class="su_input-radio su_input-radio--green-dark" id="radio-3" name="radio-1" type="radio">
+                <label for="radio-3">Radio Green Dark</label>
+                <input class="su_input-radio su_input-radio--pink" id="radio-4" name="radio-1" type="radio">
+                <label for="radio-4">Radio Pink</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Line 6 -->
+          <div class="su_line">
+
+            <div class="su_cell">
+              <div class="su_form-box">
+                <form class="su_form">
+                <div class="su_form-box-header">
+                  <h2 class="su_form-title">join us</h2>
+                </div>
+                <div class="su_form-box-body">
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">person</i>
+                    </span>
+                    <input class="su_input" id="name" placeholder="Username" type="text" required>
+                  </div>
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">email</i>
+                    </span>
+                    <input class="su_input" id="email" placeholder="Email" type="email" required>
+                  </div>
+                </div>
+
+                  <div class="su_field su_field--border su_has-error">
+                    <span class="su_input-icon">
+                      <i class="material-icons">lock</i>
+                    </span>
+                    <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
+                    <div class="su_error-message">Wrong Password. Try Again</div>
+                  </div>
+
+                </div>
+
+                </form>
+              </div>
+            </div><!-- end cell -->
+
+            <div class="su_cell">
+
+              <div class="su_form-box su_form-box--border-pink">
+                <form class="su_form">
+
+                <div class="su_form-box-header">
+                  <h2 class="su_form-title">join us</h2>
+                </div>
+                <div class="su_form-box-body">
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">person</i>
+                    </span>
+                    <input class="su_input" id="name" placeholder="Username" type="text" required>
+                  </div>
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">email</i>
+                    </span>
+                    <input class="su_input" id="email" placeholder="Email" type="email" required>
+                  </div>
+
+                  <div class="su_field su_field--border su_has-error">
+                    <span class="su_input-icon">
+                      <i class="material-icons">lock</i>
+                    </span>
+                    <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
+                    <div class="su_error-message">Wrong Password. Try Again</div>
+                  </div>
+                </div>
+
+                </form>
+              </div>
+
+            </div><!-- end cell -->
+
+
+            <div class="su_cell">
+
+              <div class="su_form-box su_form-box--type-2">
+                <form class="su_form">
+
+                <div class="su_form-box-header">
+                  <h2 class="su_form-title">join us</h2>
+                </div>
+                <div class="su_form-box-body">
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">person</i>
+                    </span>
+                    <input class="su_input" id="name" placeholder="Username" type="text" required>
+                  </div>
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">email</i>
+                    </span>
+                    <input class="su_input" id="email" placeholder="Email" type="email" required>
+                  </div>
+
+                  <div class="su_field su_field--border su_has-error">
+                    <span class="su_input-icon">
+                      <i class="material-icons">lock</i>
+                    </span>
+                    <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
+                    <div class="su_error-message">Wrong Password. Try Again</div>
+                  </div>
+                </div>
+
+                </form>
+              </div>
+
+            </div><!-- end cell -->
 
         </div>
 
