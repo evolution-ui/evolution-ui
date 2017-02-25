@@ -1,18 +1,23 @@
-
-._su-preview {
+.su_preview {
   position: relative;
 }
 
-._su-preview-page {
+.su_preview-page {
   opacity: 0;
+  overflow: hidden;
   position: absolute;
   height: 400px;
-  width: 300px;
+  width: 320px;
   top:220px;
   left:50%;
   transform:translate(-50%, -50%);
 }
 
-._su_preview-link:hover + ._su-preview-page {
+.su_preview-page iframe {
+  height: 100%;
+  width: 340px;
+}
+
+.su_preview-link:hover + .su_preview-page,  .su_preview-page:hover{
   opacity: 1;
 }
