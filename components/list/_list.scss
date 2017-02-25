@@ -55,7 +55,7 @@
     }
 
     .su_img-rounded {
-      @include radius(50%);
+      border-radius: 50%;
     }
   }
 
