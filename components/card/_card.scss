@@ -1,0 +1,24 @@
+.su_cell.su_bg-fix {
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.su_card {
+  border-radius: 4px;
+  padding: 1.5rem;
+
+  &.su_color-primary {
+    background-color: su_color();
+    color: su_color('background', 'light');
+  }
+
+  .su_card-title {
+    margin-bottom: 0.875rem;
+  }
+
+  p {
+    font-weight: 300;
+  }
+
+}
