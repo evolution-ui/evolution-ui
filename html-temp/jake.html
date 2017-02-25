@@ -1,100 +1,245 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="../css/main.css">
-    </head>
-    <body>
-        <h1 id="top-of-page">Buttons</h1>
-        <h3>Semantic buttons</h3>
-        <button type="button" class="su_btn su_btn-primary">Primary</button>
-        <button type="button" class="su_btn su_btn-secondary">Secondary</button>
-        <button type="button" class="su_btn su_btn-warning">Warning</button>
-        <button type="button" class="su_btn su_btn-danger">Danger</button>
-        <h3>Floating buttons</h3>
-        <a href="#" class="su_btn-floating su_red"><i class="material-icons">accessibility</i></a>
-        <a href="#" class="su_btn-floating su_green-light"><i class="material-icons">android</i></a>
-        <a href="#" class="su_btn-floating su_green-dark"><i class="material-icons">code</i></a>
-        <a href="#" class="su_btn-floating su_pink"><i class="material-icons">description</i></a>
-        <h3 id="top-of-page">Back to top button</h3>
-        <p>Example is at the bottom right corner of this page. Add the id "top-of-page" to an element at the top to activate.</p>
-        <a href="#top-of-page" class="su_btn-to-top su_pink"><i class="material-icons">keyboard_arrow_up</i></a>
-        <h3>Button with icons</h3>
-        <button type="button" class="su_btn su_btn-primary"><i class="material-icons left">autorenew</i>Left</button>
-        <button type="button" class="su_btn su_btn-secondary">Right<i class="material-icons right">done</i></button>
-        <h3>Checkboxes</h3>
-        <p>Make sure the corresponding labels and inputs have the same for/id attributes</p>
-        <div class="su_btn-group">
-          <input type="checkbox" class="su_checkbox-input" id="option-1">
-          <label for="option-1" class="su_btn su_btn-warning su_checkbox-label">
-            Option 1
-          </label>
-          <input type="checkbox" class="su_checkbox-input" id="option-2">
-          <label for="option-2" class="su_btn su_btn-warning su_checkbox-label">
-            Option 2
-          </label>
-          <input type="checkbox" class="su_checkbox-input" id="option-3">
-          <label for="option-3" class="su_btn su_btn-warning su_checkbox-label">
-            Option 3
-          </label>
-        </div>
-        <br>
-        <br>
-        <h3>Radio Buttons</h3>
-        <div class="su_btn-group">
-          <input type="radio" name="su_radio" class="su_radio-input" id="option-4">
-          <label for="option-4" class="su_btn su_btn-danger su_radio-label">
-            Option 4
-          </label>
-          <input type="radio" name="su_radio" class="su_radio-input" id="option-5">
-          <label for="option-5" class="su_btn su_btn-danger su_radio-label">
-            Option 5
-          </label>
-          <input type="radio" name="su_radio" class="su_radio-input" id="option-6">
-          <label for="option-6" class="su_btn su_btn-danger su_radio-label">
-            Option 6
-          </label>
-        </div>
-        <br>
-        <br>
-        <h3>Switches</h3>
-        <div class="su_switch-thin">
-            <input type="checkbox" name="su_switch-thin" class="su_switch-thin-checkbox" id="su-switch-thin" checked>
-            <label class="su_switch-thin-label" for="su-switch-thin">
-                <span class="su_switch-thin-switch"></span>
-            </label>
-        </div>
-        <br>
-        <div class="su_switch-fat">
-            <input type="checkbox" name="su_switch-fat" class="su_switch-fat-checkbox" id="su-switch-fat" checked>
-            <label class="su_switch-fat-label" for="su-switch-fat">
-                <span class="su_switch-fat-switch"></span>
-            </label>
-        </div>
-        <br>
-        <div class="su_switch-square">
-            <input type="checkbox" name="su_switch-square" class="su_switch-square-checkbox" id="su-switch-square" checked>
-            <label class="su_switch-square-label" for="su-switch-square">
-                <span class="su_switch-square-switch"></span>
-            </label>
-        </div>
-        <hr class="divisor">
-        <h1>Alerts</h1>
-        <div class="su_alert su_alert-success"><i class="su_alert-star material-icons">star</i>This is a success alert.<i class="su_alert-close material-icons">close</i></div>
-        <br>
-        <div class="su_alert su_alert-info"><i class="su_alert-star material-icons">info</i>This is an info alert.<i class="su_alert-close material-icons">close</i></div>
-        <br>
-        <div class="su_alert su_alert-warning"><i class="su_alert-star material-icons">warning</i>This is a warning.<i class="su_alert-close material-icons">close</i></div>
-        <br>
-        <div class="su_alert su_alert-error"><i class="su_alert-star material-icons">error</i>This is an error alert.<i class="su_alert-close material-icons">close</i></div>
-        <br>
-    </body>
-    <script type="text/javascript" src="../components/alert/alert.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+  <h1 id="top-of-page">Buttons</h1>
+  <h3>Semantic buttons</h3>
+  <button type="button" class="su_btn su_btn-primary">Primary</button>
+  <button type="button" class="su_btn su_btn-secondary">Secondary</button>
+  <button type="button" class="su_btn su_btn-warning">Warning</button>
+  <button type="button" class="su_btn su_btn-danger">Danger</button>
+  <h3>Floating buttons</h3>
+  <a href="#" class="su_btn-floating su_red"><i class="material-icons">accessibility</i></a>
+  <a href="#" class="su_btn-floating su_green-light"><i class="material-icons">android</i></a>
+  <a href="#" class="su_btn-floating su_green-dark"><i class="material-icons">code</i></a>
+  <a href="#" class="su_btn-floating su_pink"><i class="material-icons">description</i></a>
+  <h3 id="top-of-page">Back to top button</h3>
+  <p>Example is at the bottom right corner of this page. Add the id "top-of-page" to an element at the top to activate.</p>
+  <a href="#top-of-page" class="su_btn-to-top su_pink"><i class="material-icons">keyboard_arrow_up</i></a>
+  <h3>Button with icons</h3>
+  <button type="button" class="su_btn su_btn-primary"><i class="material-icons left">autorenew</i>Left</button>
+  <button type="button" class="su_btn su_btn-secondary">Right<i class="material-icons right">done</i></button>
+  <h3>Checkboxes</h3>
+  <p>Make sure the corresponding labels and inputs have the same for/id attributes</p>
+  <div class="su_btn-group">
+    <input type="checkbox" class="su_checkbox-input" id="option-1">
+    <label for="option-1" class="su_btn su_btn-warning su_checkbox-label">
+      Option 1
+    </label>
+    <input type="checkbox" class="su_checkbox-input" id="option-2">
+    <label for="option-2" class="su_btn su_btn-warning su_checkbox-label">
+      Option 2
+    </label>
+    <input type="checkbox" class="su_checkbox-input" id="option-3">
+    <label for="option-3" class="su_btn su_btn-warning su_checkbox-label">
+      Option 3
+    </label>
+  </div>
+  <br>
+  <br>
+  <h3>Radio Buttons</h3>
+  <div class="su_btn-group">
+    <input type="radio" name="su_radio" class="su_radio-input" id="option-4">
+    <label for="option-4" class="su_btn su_btn-danger su_radio-label">
+      Option 4
+    </label>
+    <input type="radio" name="su_radio" class="su_radio-input" id="option-5">
+    <label for="option-5" class="su_btn su_btn-danger su_radio-label">
+      Option 5
+    </label>
+    <input type="radio" name="su_radio" class="su_radio-input" id="option-6">
+    <label for="option-6" class="su_btn su_btn-danger su_radio-label">
+      Option 6
+    </label>
+  </div>
+  <br>
+  <br>
+  <h3>Switches</h3>
+  <div class="su_switch-thin">
+    <input type="checkbox" name="su_switch-thin" class="su_switch-thin-checkbox" id="su-switch-thin" checked>
+    <label class="su_switch-thin-label" for="su-switch-thin">
+      <span class="su_switch-thin-switch"></span>
+    </label>
+  </div>
+  <br>
+  <div class="su_switch-fat">
+    <input type="checkbox" name="su_switch-fat" class="su_switch-fat-checkbox" id="su-switch-fat" checked>
+    <label class="su_switch-fat-label" for="su-switch-fat">
+      <span class="su_switch-fat-switch"></span>
+    </label>
+  </div>
+  <br>
+  <div class="su_switch-square">
+    <input type="checkbox" name="su_switch-square" class="su_switch-square-checkbox" id="su-switch-square" checked>
+    <label class="su_switch-square-label" for="su-switch-square">
+      <span class="su_switch-square-switch"></span>
+    </label>
+  </div>
+  <hr class="divisor">
+  <h1>Alerts</h1>
+  <div class="su_alert su_alert-success"><i class="su_alert-star material-icons">star</i>This is a success alert.<i class="su_alert-close material-icons">close</i></div>
+  <br>
+  <div class="su_alert su_alert-info"><i class="su_alert-star material-icons">info</i>This is an info alert.<i class="su_alert-close material-icons">close</i></div>
+  <br>
+  <div class="su_alert su_alert-warning"><i class="su_alert-star material-icons">warning</i>This is a warning.<i class="su_alert-close material-icons">close</i></div>
+  <br>
+  <div class="su_alert su_alert-error"><i class="su_alert-star material-icons">error</i>This is an error alert.<i class="su_alert-close material-icons">close</i></div>
+  <br>
+  <h1>Tables</h1>
+  <p>All table styles can be combined as desired using the associated classes.</p>
+  <h3>Basic table</h3>
+  <table class="su_table">
+    <thead>
+      <tr>
+        <th>Beans</th>
+        <th>Apples</th>
+        <th>Oranges</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Green</td>
+        <td>Brown</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Red</td>
+        <td>Green</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Orange</td>
+        <td>Orange</td>
+        <td>Orange</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Bordered table</h3>
+  <table class="su_table su_table-bordered">
+    <thead>
+      <tr>
+        <th>Beans</th>
+        <th>Apples</th>
+        <th>Oranges</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Green</td>
+        <td>Brown</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Red</td>
+        <td>Green</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Orange</td>
+        <td>Orange</td>
+        <td>Orange</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Striped table</h3>
+  <table class="su_table su_table-striped">
+    <thead>
+      <tr>
+        <th>Beans</th>
+        <th>Apples</th>
+        <th>Oranges</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Green</td>
+        <td>Brown</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Red</td>
+        <td>Green</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Orange</td>
+        <td>Orange</td>
+        <td>Orange</td>
+      </tr>
+      <tr>
+        <td>Red</td>
+        <td>Green</td>
+        <td>Yellow</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Hover table</h3>
+  <table class="su_table su_table-hover">
+    <thead>
+      <tr>
+        <th>Beans</th>
+        <th>Apples</th>
+        <th>Oranges</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Green</td>
+        <td>Brown</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Red</td>
+        <td>Green</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Orange</td>
+        <td>Orange</td>
+        <td>Orange</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Table with all classes</h3>
+  <table class="su_table su_table-hover su_table-striped su_table-bordered">
+    <thead>
+      <tr>
+        <th>Beans</th>
+        <th>Apples</th>
+        <th>Oranges</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Green</td>
+        <td>Brown</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Red</td>
+        <td>Green</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>Orange</td>
+        <td>Orange</td>
+        <td>Orange</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+<script type="text/javascript" src="../components/alert/alert.js"></script>
+
 </html>
