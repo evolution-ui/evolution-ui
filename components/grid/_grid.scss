@@ -2,6 +2,7 @@
 * GRID COMPONENT
 */
 
+
 .su_line {
   display: flex;
   flex-flow: row;
@@ -17,7 +18,7 @@
 }
 
 .su_cell {
-  padding: 1em;
+  padding: 0.5em;
   margin-bottom: 1em;
   transition: background-color 0.3s ease;
   background: #ade576;
@@ -30,9 +31,62 @@
   .su_cell {
     flex: 1;
   }
+
+  /* Asymetric grid */
+
+  .su_cells_1 {
+    flex: 0 0 8.3%;
+  }
+
+  .su_cells_2 {
+    flex: 0 0 16.7%;
+  }
+
+  .su_cells_3 {
+    flex: 0 0 25%;
+  }
+
+  .su_cells_4 {
+    flex: 0 0 33.3%;
+  }
+
+  .su_cells_5 {
+    flex: 0 0 41.7%;
+  }
+
+  .su_cells_6 {
+    flex: 0 0 50%;
+  }
+
+  .su_cells_7 {
+    flex: 0 0 58.3%;
+  }
+
+  .su_cells_8 {
+    flex: 0 0 58.3%;
+  }
+
+  .su_cells_9 {
+    flex: 0 0 75%;
+  }
+
+  .su_cells_10 {
+    flex: 0 0 83.3;
+  }
+
+  .su_cells_11 {
+    flex: 0 0 91.7%;
+  }
+    /* End asymetric grid */
 }
 
+@media screen and (min-width: 961px) {
+  .su_container {
+    width: 960px;
+    margin: 0 auto;
+  }
 
+}
 /*
 * END GRID COMPONENT
 */
