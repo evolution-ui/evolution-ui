@@ -1,6 +1,6 @@
 .su_list {
-  @include radius;
-  @include default-shadow;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0px su_color('background', 'base');
   list-style-type: none;
   min-width: 300px;
   overflow: auto;
@@ -31,7 +31,7 @@
 
     .su_list-item-label {
       background-color: su_color('accent');
-      @include radius;
+      border-radius: 4px;
       color: su_color('background', 'light');
       display: inline-block;
       float: right;
@@ -41,7 +41,7 @@
     }
 
     img {
-      @include radius;
+      border-radius: 4px;
       float: left;
       height: 70px;
       margin-right: .625rem;

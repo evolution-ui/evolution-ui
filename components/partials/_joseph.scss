@@ -1,11 +1,3 @@
-@mixin radius ($radius: 3px) {
-  border-radius: $radius;
-}
-
-@mixin default-shadow () {
-  box-shadow: 0 2px 2px 0px su_color('background', 'base');
-}
-
 @import '../combobox/combobox';
 @import '../dropdown/dropdown';
 @import '../card/card';
