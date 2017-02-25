@@ -24,11 +24,6 @@
     margin-bottom: 0.3125rem;
     padding: 0.625rem 1.25rem;
 
-    > i {
-      vertical-align: bottom;
-      line-height: .8;
-    }
-
     &:hover {
       background-color: lighten($accent-color, 10%);
     }
@@ -44,6 +39,10 @@
           font-size: inherit;
         }
 
+        i {
+          font-size: 24px;
+        }
+
       }
 
     }
@@ -56,15 +55,16 @@
   }
 
   .su_dropdown-menu {
+    background-color: $body-bg-color;
     position: absolute;
     z-index: 1000;
 
     .su_dropdown-item {
       color: invert($body-bg-color);
       display: block;
+      font-size: 0;
       padding: 0;
       text-decoration: none;
-      font-size: 0;
       transition: padding .5s;
 
       &:last-child {
@@ -74,7 +74,16 @@
       &:hover {
         background-color: $light-color;
       }
+
+      > i {
+        font-size: 0;
+      }
     }
+  }
+
+  i {
+    vertical-align: bottom;
+    line-height: .8;
   }
 
 }
