@@ -75,7 +75,7 @@ $su_opacity: (
 ///
 
 @function black($opacity: 1){
-  @return rgba(0, 0, 0, $opacity)
+  @return rgba(0, 0, 0, $opacity);
 }
 
 ///
@@ -86,5 +86,5 @@ $su_opacity: (
 ///
 
 @function white($opacity: 1){
-  @return rgba(255, 255, 255, $opacity)
+  @return rgba(255, 255, 255, $opacity);
 }
