@@ -1,8 +1,8 @@
 //  VARIABLES
 
-$highlight: transparent; // highlight color for the area that is being focused for reading
-// $background: #1b5709; // color used to dim the rest of the page
-$background: #000; // color used to dim the rest of the page
+$highlight: white(0); // highlight color for the area that is being focused for reading
+// $background: su_color('secondary', 'base'); // color used to dim the rest of the page
+$background: black(1); // color used to dim the rest of the page
 
 @mixin fixed-containers {
   position: fixed;
@@ -13,17 +13,17 @@ $background: #000; // color used to dim the rest of the page
   opacity: 0.8;
 }
 
-.su_slit-top,
-.su_slit-bottom {
+.su_eyelids-top,
+.su_eyelids-bottom {
   @include fixed-containers;
 }
 
-.su_slit-top {
+.su_eyelids-top {
   top: 0;
   background-image: linear-gradient(to top, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
 }
 
-.su_slit-bottom {
+.su_eyelids-bottom {
   bottom: 0;
   background-image: linear-gradient(to bottom, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
 }
