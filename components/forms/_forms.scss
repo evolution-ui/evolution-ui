@@ -1,3 +1,41 @@
-.example-class {
-  color: red;
+//------------------------------------------------------------------------------
+//                       Forms Component
+//------------------------------------------------------------------------------
+
+
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+.su_form {
+
+  & * { box-sizing: border-box; }
+  & *:focus { outline: 0; }
+
+  .su_field {
+    position: relative;
+
+    .su_input--txt,
+    .su_input--pwd {
+      height: 2rem;
+      padding: 10px;
+      border: 0;
+      border-bottom: 1px solid rgba(0,0,0,.2);
+
+      &:focus + label,
+      &:valid + label {
+        top: -90%;
+        font-size: smaller;
+      };
+    }
+
+    & label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: top .1s ease;
+    }
+   }
 }
