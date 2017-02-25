@@ -8,9 +8,88 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="../css/main.css">
+
+      <style>
+        .g-container {
+          padding: 40px;
+        }
+        .divisor {
+          margin: 40px 0;
+        }
+      </style>
     </head>
     <body>
-        <p>Hello world!</p>
+
+      <div class="g-container">
+
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Reprehenderit iusto adipisci,
+          cupiditate animi, itaque qui aspernatur vel corrupti labore minima,
+          excepturi ab, fuga rem dolores. Ratione sunt autem iusto aliquid.
+        </p>
+
+        <hr class="divisor">
+
+        <div class="g-container">
+          <h2>Progress Bars</h2>
+
+          <div class="su_progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar su_bar--success" style="width: 10%"></span>
+          </div>
+
+          <div class="su_progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar su_bar--warn" style="width: 25%"></span>
+          </div>
+
+          <div class="su_progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar su_bar--error" style="width: 50%"></span>
+          </div>
+
+          <div class="su_progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar" style="width: 100%"></span>
+          </div>
+
+          <h4>Rounded</h4>
+
+          <div class="su_progress-bar su_progress-bar--rounded" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar su_bar--warn" style="width: 25%"></span>
+          </div>
+
+          <div class="su_progress-bar su_progress-bar--rounded" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar" style="width: 100%"></span>
+          </div>
+
+          <h2>Infinite Loading</h2>
+
+          <div class="su_progress-bar su_progress-bar--rounded su_progress-bar--indeterminate">
+            <div class="su_bar"></div>
+          </div>
+
+          <h4>Backward</h4>
+
+          <div class="su_progress-bar su_progress-bar--indeterminate">
+            <div class="su_bar su_bar--b"></div>
+          </div>
+
+          <h4>Forward and Backward</h4>
+
+          <div class="su_progress-bar su_progress-bar--indeterminate su_progress-bar--rounded">
+            <div class="su_bar su_bar--warn su_bar--fb"></div>
+          </div>
+
+        </div>
+
+      </div>
+
     </body>
 </html>
