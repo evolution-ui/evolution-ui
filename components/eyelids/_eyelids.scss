@@ -2,7 +2,7 @@
 
 $highlight: white(0); // highlight color for the area that is being focused for reading
 // $background: su_color('secondary', 'base'); // color used to dim the rest of the page
-$background: black(1); // color used to dim the rest of the page
+$background: black(0.8); // color used to dim the rest of the page
 
 @mixin fixed-containers {
   position: fixed;
@@ -10,7 +10,7 @@ $background: black(1); // color used to dim the rest of the page
   width: 100%;
   content: '';
   display: block;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .su_eyelids-top,
