@@ -1,0 +1,38 @@
+/*
+* SNEAK PEAK COMPONENT
+*/
+
+
+.su_preview {
+  position: relative;
+}
+
+.su_preview-page {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  height: 400px;
+  width: 320px;
+  top:220px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border-radius: 4px;
+  border: 1px solid #8c8c8c;
+}
+
+.su_preview-page iframe {
+  height: 100%;
+  width: 340px;
+}
+
+.su_preview-link:hover + .su_preview-page,  .su_preview-page:hover{
+  display: block;
+}
+
+
+/*
+* END SNEAK PEAK COMPONENT
+*/
+
+
+
