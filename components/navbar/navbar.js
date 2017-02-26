@@ -39,7 +39,7 @@
       }
     }
 
-  }
+  };
 
   menuControl.init();
 
