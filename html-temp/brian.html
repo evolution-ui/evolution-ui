@@ -12,9 +12,106 @@
         <link rel="stylesheet" href="../css/main.css">
     </head>
     <body>
-        <p>Hello world!</p>
-        <h2>Tooltip</h2>
-        <p class="su_contains_tooltip">Lorem ipsum dolor sit amet, <span class="su_tooltip">consectetur<span class="su_tooltip_text">consectetur - to imitate, to follow example of</span></span> adipisicing elit. Non alias recusandae <span class="su_tooltip su_tip_top">natus (tooltip top)<span class="su_tooltip_text">natus - born, arisen</span></span> <span title="Auto Tooltip">accusamus</span> nihil maxime, consequuntur pariatur mollitia nobis atque consectetur sunt vitae fuga, esse est? Cupiditate voluptas autem laboriosam.</p>
-        <p class="su_contains_tooltip">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non alias recusandae natus accusamus nihil maxime, consequuntur <span class="su_tooltip">pariatur (tooltip left)<span class="su_tooltip_text">pariatur - to bear</span></span> mollitia nobis atque consectetur sunt vitae fuga, esse est? <span class="su_tooltip">Cupiditate (tooltip right)<span class="su_tooltip_text">Cupiditate - enthusiasm, eagerness, passion</span></span> voluptas autem laboriosam.</p>
+        <h2>Utilities Component</h2>
+        <h3>Float Classes</h3>
+        <p>Add the class <code>.su_left</code> or <code>.su_right</code> to float an element left or right respectively.  Then, add the class <code>.su_clear</code> class to clear floated elements.  Examples:</p>
+        <div class="su_right su_primary-bg su_radius">Div 1 Floated Right</div>
+        <div class="su_left su_foreground-bg su_radius">Div 2 Floated Left</div>
+        <div class="su_clear su_background-bg su_radius">Cleared Div</div>
+
+        <h3>Full Width Classes</h3>
+        <p>The full width classes expand the element they are applied to to the full width of it's parent element using the <code>.su_full-width</code> class.  Examples:</p>
+        <div class="su_foreground-bg su_radius">
+          A container parent element.<span></span>
+        </div>
+
+        <h3>Radius &amp; Round Classes</h3>
+        <p>Add the class <code>.su_radius</code> to apply the default radius size on elements.  Add the class <code>.su_round</code> class to create a pill or capsule rounding effect on elements.  They can be applied to many different elements.  Examples:</p>
+        <p>This paragraph highlights the radius effect on the phrase <span class="su_radius su_accent-bg">"Seed UI Framework"</span> and the rounding effect applied to a Seed UI button and a div:</p>
+        <button type="button" class="su_btn su_btn-primary su_round">Button With Round Class Applied</button>
+        <div class="su_round su_background-bg">Div With Round Class Applied</div>
+
+        <h3>Color Classes</h3>
+        <p>Seed UI Framework comes with a number of built in colors that can be customized for your website's style guide.  You can change the background color of elements or the text color by applying their associated classes.  Examples:</p>
+
+        <h4>Background Color Classes</h4>
+        <table class="su_table su_table-bordered">
+          <thead>
+            <tr>
+              <th>Light Background Colors</th>
+              <th>Base Background Colors</th>
+              <th>Dark Background Colors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="su_primary-bg-light">.su_primary-bg-light</td>
+              <td class="su_primary-bg">.su_primary-bg</td>
+              <td class="su_primary-bg-dark">.su_primary-bg-dark</td>
+            </tr>
+            <tr>
+              <td class="su_accent-bg-light">.su_accent-bg-light</td>
+              <td class="su_accent-bg">.su_accent-bg</td>
+              <td class="su_accent-bg-dark">.su_accent-bg-dark</td>
+            </tr>
+            <tr>
+              <td class="su_secondary-bg-light">.su_secondary-bg-light</td>
+              <td class="su_secondary-bg">.su_secondary-bg</td>
+              <td class="su_secondary-bg-dark">.su_secondary-bg-dark</td>
+            </tr>
+            <tr>
+              <td class="su_foreground-bg-light">.su_foreground-bg-light</td>
+              <td class="su_foreground-bg">.su_foreground-bg</td>
+              <td class="su_foreground-bg-dark">.su_foreground-bg-dark</td>
+            </tr>
+            <tr>
+              <td class="su_background-bg-light">.su_background-bg-light</td>
+              <td class="su_background-bg">.su_background-bg</td>
+              <td class="su_background-bg-dark">.su_secondary-bg-dark</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Text Color Classes</h4>
+        <table class="su_table su_table-bordered">
+          <thead>
+            <tr>
+              <th>Light Text Colors</th>
+              <th>Base Text Colors</th>
+              <th>Dark Text Colors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="su_primary-light">.su_primary-light</td>
+              <td class="su_primary">.su_primary</td>
+              <td class="su_primary-dark">.su_primary-dark</td>
+            </tr>
+            <tr>
+              <td class="su_accent-light">.su_accent-light</td>
+              <td class="su_accent">.su_accent</td>
+              <td class="su_accent-dark">.su_accent-dark</td>
+            </tr>
+            <tr>
+              <td class="su_secondary-light">.su_secondary-light</td>
+              <td class="su_secondary">.su_secondary</td>
+              <td class="su_secondary-dark">.su_secondary-dark</td>
+            </tr>
+            <tr>
+              <td class="su_foreground-light">.su_foreground-light</td>
+              <td class="su_foreground">.su_foreground</td>
+              <td class="su_foreground-dark">.su_foreground-dark</td>
+            </tr>
+            <tr>
+              <td class="su_background-light">.su_background-light</td>
+              <td class="su_background">.su_background</td>
+              <td class="su_background-dark">.su_secondary-dark</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Tooltip Component</h2>
+        <p class="su_contains_tooltip">Lorem ipsum dolor sit amet, <span class="su_tooltip">consectetur<span class="su_tooltip-text su_radius">consectetur - to imitate, to follow example of</span></span> adipisicing elit. Non alias recusandae <span class="su_tooltip su_tip_top">natus (tooltip top)<span class="su_tooltip-text su_radius">natus - born, arisen</span></span> <span title="Auto Tooltip">accusamus</span> nihil maxime, consequuntur pariatur mollitia nobis atque consectetur sunt vitae fuga, esse est? Cupiditate voluptas autem laboriosam.</p>
+        <p class="su_contains_tooltip">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non alias recusandae natus accusamus nihil maxime, consequuntur <span class="su_tooltip">pariatur (tooltip left)<span class="su_tooltip-text su_radius">pariatur - to bear</span></span> mollitia nobis atque consectetur sunt vitae fuga, esse est? <span class="su_tooltip">Cupiditate (tooltip right)<span class="su_tooltip-text su_radius">Cupiditate - enthusiasm, eagerness, passion</span></span> voluptas autem laboriosam.</p>
     </body>
 </html>

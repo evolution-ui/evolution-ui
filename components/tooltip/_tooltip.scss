@@ -1,14 +1,16 @@
-/*  Tooltip  */
+//------------------------------------------------------------------------------
+//                       Tooltip Component
+//------------------------------------------------------------------------------
 
 .su_tooltip {
   position: relative;
   display: inline-block;
   z-index: 50;
-  border-bottom: dotted 2px #da137f;
+  border-bottom: dotted 2px su_color('accent', 'base');
   cursor: help;
 }
 
-.su_tooltip_text {
+.su_tooltip-text {
   display: none;
 }
 
@@ -18,22 +20,22 @@
   // display: block;
 }
 
-.su_tooltip:hover .su_tooltip_text,
-.su_tooltip:focus .su_tooltip_text {
+.su_tooltip:hover .su_tooltip-text,
+.su_tooltip:focus .su_tooltip-text {
   display: block;
   position: absolute;
   width: 10rem;
   padding: 8px;
-  background-color: #72c024;
-  color: #fff;
-  border: #ff0000;
-  border-radius: 3px;
+  background-color: su_color('primary', 'base');
+  color: white(1);
+  // border: #ff0000;
+  // border-radius: 4px;
   font-size: 12px;
   top: calc(100% + 8px);
   // left: calc(-50% + 8px);
 }
 
-.su_tooltip_text::before {
+.su_tooltip-text::before {
   width: 0;
   height: 0;
   display: block;
@@ -44,5 +46,5 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
 
-  border-bottom: 8px solid #72c024;
+  border-bottom: 8px solid su_color('primary', 'base');
 }
