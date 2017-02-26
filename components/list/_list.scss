@@ -1,3 +1,6 @@
+.su_list * {
+  box-sizing: border-box;
+}
 .su_list {
   border-radius: 4px;
   box-shadow: 0 2px 2px 0px su_color('background', 'base');

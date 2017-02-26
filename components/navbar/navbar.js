@@ -16,7 +16,7 @@
     },
 
     addEvents: function(elements, event, eventHandler) {
-      var i, len = elements.length;
+      var i, len = elements && elements.length;
 
       for ( i = 0; i < len; i++ ) {
         elements[i].addEventListener(event, eventHandler);
@@ -29,7 +29,7 @@
     },
 
     highlightLink: function(e) {
-      var i, len = this.menuLinks.length;
+      var i, len = this.menuLinks && this.menuLinks.length;
       for ( i = 0; i < len; i++ ) {
         if ( e.target === this.menuLinks[i] ) {
           this.menuLinks[i].classList.add('su_link-active');
