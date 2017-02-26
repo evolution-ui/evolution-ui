@@ -34,16 +34,13 @@
     &:active,
     &:focus {
 
-      + .su_dropdown-menu {
+      ~ .su_dropdown-menu {
         overflow: auto;
+        opacity: 1;
+        pointer-events: auto;
 
         .su_dropdown-item {
           padding: 0.625rem 1.25rem;
-          font-size: inherit;
-        }
-
-        i {
-          font-size: 24px;
         }
 
       }
@@ -60,15 +57,16 @@
   .su_dropdown-menu {
     background-color: su_color('background', 'light');
     position: absolute;
-    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s;
 
     .su_dropdown-item {
       color: invert(su_color('background', 'light'));
       display: block;
-      font-size: 0;
       padding: 0;
       text-decoration: none;
-      transition: padding .5s;
+      transition: padding .5s, background-color .3s;
 
       &:first-child {
         margin-top: 0.625rem;
@@ -80,10 +78,6 @@
 
       &:hover {
         background-color: su_color('background', 'base');
-      }
-
-      > i {
-        font-size: 0;
       }
     }
   }

@@ -29,4 +29,12 @@
   .active {
     z-index: -1;
   }
+
+  .su_primary-color {
+    border-bottom-color: su_color('primary') !important;
+  }
+
+  .su_accent-color {
+    border-bottom-color: su_color('accent') !important;
+  }
 }
