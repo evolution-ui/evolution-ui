@@ -6,7 +6,7 @@ $background: black(0.85); // color used to dim the rest of the page
 
 @mixin fixed-containers {
   position: fixed;
-  z-index: 99999;
+  z-index: 9999;
   width: 100%;
   content: '';
   display: block;

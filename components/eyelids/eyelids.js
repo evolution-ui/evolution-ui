@@ -9,7 +9,7 @@
 
     init: function() {
       this.cacheDom();
-      this.addEvent(this.bodyElement, 'keydown', this.toggle.bind(this));
+      this.addEvent(this.bodyElement, 'keypress', this.toggle.bind(this));
     },
 
     cacheDom: function() {
