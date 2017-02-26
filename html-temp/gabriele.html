@@ -8,9 +8,304 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="../css/main.css">
+
+      <style>
+        .g-container {
+          padding: 10px;
+        }
+
+        @media screen and (min-width: 750px) {
+          .g-container {
+            padding: 40px;
+          }
+        }
+
+        .divisor {
+          margin: 40px 0;
+        }
+
+        .su_cell {
+          background-color: initial;
+          border: initial;
+        }
+      </style>
     </head>
     <body>
-        <p>Hello world!</p>
+
+      <div class="g-container">
+
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Reprehenderit iusto adipisci,
+          cupiditate animi, itaque qui aspernatur vel corrupti labore minima,
+          excepturi ab, fuga rem dolores. Ratione sunt autem iusto aliquid.
+        </p>
+
+        <hr class="divisor">
+
+        <div class="g-container">
+          <h2>Progress Bars</h2>
+
+          <div class="su_progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar su_bar--success" style="width: 10%"></span>
+          </div>
+
+          <div class="su_progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar su_bar--warn" style="width: 25%"></span>
+          </div>
+
+          <div class="su_progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar su_bar--error" style="width: 50%"></span>
+          </div>
+
+          <div class="su_progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar" style="width: 100%"></span>
+          </div>
+
+          <h4>Rounded</h4>
+
+          <div class="su_progress-bar su_progress-bar--rounded" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar su_bar--warn" style="width: 25%"></span>
+          </div>
+
+          <div class="su_progress-bar su_progress-bar--rounded" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            <span class="su_bar" style="width: 100%"></span>
+          </div>
+
+          <h2>Infinite Loading</h2>
+
+          <div class="su_progress-bar su_progress-bar--rounded su_progress-bar--indeterminate">
+            <div class="su_bar"></div>
+          </div>
+
+          <h4>Backward</h4>
+
+          <div class="su_progress-bar su_progress-bar--indeterminate">
+            <div class="su_bar su_bar--b"></div>
+          </div>
+
+          <h4>Forward and Backward</h4>
+
+          <div class="su_progress-bar su_progress-bar--indeterminate su_progress-bar--rounded">
+            <div class="su_bar su_bar--warn su_bar--fb"></div>
+          </div>
+
+        </div>
+
+        <hr class="divisor">
+
+        <div class="g-container">
+          <h2>Forms</h2>
+
+
+          <form class="su_form">
+
+          <!-- Line 1 -->
+          <div class="su_line">
+
+            <div class="su_cell">
+              <div class="su_field su_field-label-up">
+                <input class="su_input" id="name" placeholder="" type="text" required>
+                <label for="">Name</label>
+              </div>
+            </div>
+            <div class="su_cell">
+              <div class="su_field su_field-label-up">
+                <input class="su_input su_validate" id="surname" placeholder="" type="text" required>
+                <label for="surname">Surname</label>
+              </div>
+            </div>
+            <div class="su_cell">
+              <div class="su_field su_field-label-up su_has-error">
+                <input class="su_input su_validate" id="password" placeholder="" type="password" value="test12345678910" required>
+                <label for="password">Password</label>
+                <div class="su_error-message">Wrong Password. Try Again</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Line 2 -->
+          <div class="su_line">
+
+            <div class="su_cell">
+
+              <div class="su_field">
+                <input class="su_input-checkbox" id="checkbox-1" type="checkbox">
+                <label for="checkbox-1"><span>Check Box [default]</span></label>
+                <input class="su_input-checkbox su_input-checkbox--red" id="checkbox-2" type="checkbox">
+                <label for="checkbox-2">Check Box Red</label>
+                <input class="su_input-checkbox su_input-checkbox--green-dark" id="checkbox-3" type="checkbox">
+                <label for="checkbox-3">Check Box Dark Green</label>
+                <input class="su_input-checkbox su_input-checkbox--pink" id="checkbox-4" type="checkbox">
+                <label for="checkbox-4">Check Box Pink</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Line 4 -->
+          <div class="su_line">
+
+            <div class="su_cell">
+              <div class="su_field">
+                <input class="su_input-checkbox su_input-checkbox--x" id="checkbox-5" type="checkbox">
+                <label for="checkbox-5"><span>Check Box [default]</span></label>
+                <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--red" id="checkbox-6" type="checkbox">
+                <label for="checkbox-6">Check Box Red</label>
+                <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--green-dark" id="checkbox-7" type="checkbox">
+                <label for="checkbox-7">Check Box Dark Green</label>
+                <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--pink" id="checkbox-8" type="checkbox">
+                <label for="checkbox-8">Check Box Pink</label>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Line 5 -->
+          <div class="su_line">
+
+            <div class="su_cell">
+              <div class="su_field">
+                <input class="su_input-radio" id="radio-1" name="radio-1" type="radio">
+                <label for="radio-1"><span>Radio [default]</span></label>
+                <input class="su_input-radio su_input-radio--red" id="radio-2" name="radio-1" type="radio">
+                <label for="radio-2">Radio Red</label>
+                <input class="su_input-radio su_input-radio--green-dark" id="radio-3" name="radio-1" type="radio">
+                <label for="radio-3">Radio Green Dark</label>
+                <input class="su_input-radio su_input-radio--pink" id="radio-4" name="radio-1" type="radio">
+                <label for="radio-4">Radio Pink</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Line 6 -->
+          <div class="su_line">
+
+            <div class="su_cell">
+              <div class="su_form-box">
+                <form class="su_form">
+                <div class="su_form-box-header">
+                  <h2 class="su_form-title">join us</h2>
+                </div>
+                <div class="su_form-box-body">
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">person</i>
+                    </span>
+                    <input class="su_input" id="name" placeholder="Username" type="text" required>
+                  </div>
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">email</i>
+                    </span>
+                    <input class="su_input" id="email" placeholder="Email" type="email" required>
+                  </div>
+                </div>
+
+                  <div class="su_field su_field--border su_has-error">
+                    <span class="su_input-icon">
+                      <i class="material-icons">lock</i>
+                    </span>
+                    <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
+                    <div class="su_error-message">Wrong Password. Try Again</div>
+                  </div>
+
+                </div>
+
+                </form>
+              </div>
+            </div><!-- end cell -->
+
+            <div class="su_cell">
+
+              <div class="su_form-box su_form-box--border-pink">
+                <form class="su_form">
+
+                <div class="su_form-box-header">
+                  <h2 class="su_form-title">join us</h2>
+                </div>
+                <div class="su_form-box-body">
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">person</i>
+                    </span>
+                    <input class="su_input" id="name" placeholder="Username" type="text" required>
+                  </div>
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">email</i>
+                    </span>
+                    <input class="su_input" id="email" placeholder="Email" type="email" required>
+                  </div>
+
+                  <div class="su_field su_field--border su_has-error">
+                    <span class="su_input-icon">
+                      <i class="material-icons">lock</i>
+                    </span>
+                    <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
+                    <div class="su_error-message">Wrong Password. Try Again</div>
+                  </div>
+                </div>
+
+                </form>
+              </div>
+
+            </div><!-- end cell -->
+
+
+            <div class="su_cell">
+
+              <div class="su_form-box su_form-box--type-2">
+                <form class="su_form">
+
+                <div class="su_form-box-header">
+                  <h2 class="su_form-title">join us</h2>
+                </div>
+                <div class="su_form-box-body">
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">person</i>
+                    </span>
+                    <input class="su_input" id="name" placeholder="Username" type="text" required>
+                  </div>
+
+                  <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">email</i>
+                    </span>
+                    <input class="su_input" id="email" placeholder="Email" type="email" required>
+                  </div>
+
+                  <div class="su_field su_field--border su_has-error">
+                    <span class="su_input-icon">
+                      <i class="material-icons">lock</i>
+                    </span>
+                    <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
+                    <div class="su_error-message">Wrong Password. Try Again</div>
+                  </div>
+                </div>
+
+                </form>
+              </div>
+
+            </div><!-- end cell -->
+
+        </div>
+
+      </div>
+
     </body>
 </html>

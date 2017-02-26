@@ -1,0 +1,49 @@
+.su_cell.su_bg-fix {
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.su_card {
+  border-radius: 4px;
+  box-shadow: 0px 3px 3px 0px su_color('background', 'dark');
+  min-width: 300px;
+  padding: 1.5rem;
+
+  &.su_color-primary {
+    background-color: su_color();
+    color: su_color('background', 'light');
+  }
+
+  &.su_color-info {
+    background-color: su_color('accent');
+    color: su_color('background', 'light');
+  }
+
+  .su_card-title {
+    margin-bottom: 0.875rem;
+  }
+
+  .su_card-image {
+    margin-bottom: 1.25rem;
+
+    > img {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+    }
+
+    &.su_full-width {
+      margin: -1.25rem -1.5rem 1rem -1.5rem;
+    }
+  }
+
+
+  .su_card-body {
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-weight: 300;
+  }
+
+}
