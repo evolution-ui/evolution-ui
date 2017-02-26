@@ -36,7 +36,7 @@ body {
   /*width: 100%;*/
   min-width: 0;
 }
-.su_list .su_list-item {
+#nav_links .su_list-item {
   border: 0;
 }
 
@@ -51,4 +51,5 @@ footer li {
 
 ul {
     padding-left: 0px;
+    list-style: none;
 }
