@@ -38,6 +38,7 @@
 .su_bellow-content {
   max-height: 0;
   overflow: hidden;
+  overflow-y: scroll;
   transition: all .5s;
 }
 
@@ -48,4 +49,7 @@
 
 .su_bellow input:checked ~ .su_bellow-content {
   max-height: 12.5rem;
+  @media screen and (max-width: 550px) {
+
+  }
 }

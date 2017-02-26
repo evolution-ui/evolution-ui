@@ -40,6 +40,7 @@ $su_round-size: 500px;
 
 .su_round {
   border-radius: $su_round-size;
+  // border-radius: calc($element-height/2);
   padding: 15px 25px;
 }
 
@@ -216,6 +217,7 @@ $su_round-size: 500px;
   padding: 5px;
 
 }
+
 /* Styles for brian.html Presentation */
 
 .brian-div {
