@@ -18,6 +18,11 @@
   transform:translate(-50%, -50%);
   border-radius: 4px;
   border: 1px solid #8c8c8c;
+  z-index: 2;
+}
+
+.su_preview-link {
+  z-index: 1;
 }
 
 .su_preview-page iframe {
@@ -27,6 +32,19 @@
 
 .su_preview-link:hover + .su_preview-page,  .su_preview-page:hover{
   display: block;
+  visibility: visible;
+  opacity: 1;
+  animation: fade 0.8s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 
