@@ -23,20 +23,20 @@ $su_round-size: 500px;
   clear: both;
 }
 
-/* Full Width Classes */
+/* Full Width Class */
 
 .su_full-width {
   width: 100%;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
-/* Radius Classes */
+/* Radius Class */
 
 .su_radius {
   border-radius: $su_border-radius;
 }
 
-/* Round Classes */
+/* Round Class */
 
 .su_round {
   border-radius: $su_round-size;
@@ -149,4 +149,85 @@ $su_round-size: 500px;
 }
 .su_background-dark {
   color: su_color('background', 'dark');
+}
+
+/* Visibility & Hidden Class */
+
+.su_hide {
+  display: none;
+}
+
+.su_invisible {
+  visibility: hidden;
+}
+
+/* Screen Reader Only Content */
+
+.su_sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+/* Text Alignment Classes */
+
+.su_align-left {
+  text-align: left;
+}
+
+.su_align-right {
+  text-align: right;
+}
+
+.su_align-center {
+  text-align: center;
+}
+
+.su_align-justify {
+  text-align: justify-all;
+  text-align-last: justify;
+  // text-justify: inter-word;
+}
+
+/* Text Transform Classes */
+
+.su_lowercase {
+  text-transform: lowercase;
+}
+
+.su_uppercase {
+  text-transform: uppercase;
+}
+
+.su_capitalize {
+  text-transform: capitalize;
+}
+
+/* Code Class */
+
+.su_code {
+  background-color: su_color('secondary', 'dark');
+  color: su_color('background', 'light');
+  // border: 1px solid su_color('accent', 'light');
+  border-radius: $su_border-radius;
+  // font-weight: 300;
+  padding: 5px;
+
+}
+/* Styles for brian.html Presentation */
+
+.brian-div {
+  padding: 10px;
+  margin: 3px;
+}
+
+.brian-div:hover,
+.brian-div:focus {
+
+}
+
+.brian-span {
+  padding: 5px;
 }

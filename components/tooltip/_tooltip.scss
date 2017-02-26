@@ -12,6 +12,8 @@
 
 .su_tooltip-text {
   display: none;
+  // visibility: hidden;
+  // transition: visibility 1s;
 }
 
 .su_tooltip:hover,
@@ -23,6 +25,7 @@
 .su_tooltip:hover .su_tooltip-text,
 .su_tooltip:focus .su_tooltip-text {
   display: block;
+  // visibility: visible;
   position: absolute;
   width: 10rem;
   padding: 8px;
