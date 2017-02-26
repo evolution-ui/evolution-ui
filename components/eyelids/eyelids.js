@@ -9,11 +9,15 @@
 
     init: function() {
       this.cacheDom();
+      this.notify();
       this.addEvent(this.bodyElement, 'keypress', this.toggle.bind(this));
+      this.addEvent(this.notification, 'mouseenter', this.notifyStop.bind(this));
+      this.addEvent(this.notification, 'click', this.notify.bind(this));
     },
 
     cacheDom: function() {
       this.bodyElement = document.querySelector('body');
+      this.notification = document.querySelector('.su_eyelids-notification');
       this.top = document.createElement('div');
       this.bottom = document.createElement('div');
       this.top.classList.add('su_eyelids-top');
@@ -21,11 +25,23 @@
     },
 
     addEvent: function(target, eventType, eventHandler) {
-      target.addEventListener(eventType, eventHandler);
+      if ( target ) {
+        target.addEventListener(eventType, eventHandler);
+      } else return;
     },
 
     removeEvent: function(target, eventType, eventHandler) {
-      target.removeEventListener(eventType, eventHandler);
+      if ( target ) {
+        target.removeEventListener(eventType, eventHandler);
+      } else return;
+    },
+
+    notify: function() {
+      this.notification && this.notification.classList.add('su_active');
+    },
+
+    notifyStop: function() {
+      this.notification && this.notification.classList.remove('su_active');
     },
 
     enable: function() {
