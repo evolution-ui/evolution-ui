@@ -1,3 +1,5 @@
+(function() {
+
 window.addEventListener('load', function() {
 
   document.addEventListener('keydown', function(e) {
@@ -6,7 +8,7 @@ window.addEventListener('load', function() {
         body = document.querySelector('body'),
         eyelidsEnabled = body.classList.contains('su_eyelids-enabled');
 
-    if ( key === 's' && shift && eyelidsEnabled || key === 'escape' ) {
+    if ( eyelidsEnabled && (key === 's' && shift || key === 'escape') ) {
       body.classList.remove('su_eyelids-enabled');
       eyelidsDisable(body);
       document.removeEventListener('mousemove', eyelidsFollow);
@@ -47,3 +49,5 @@ window.addEventListener('load', function() {
   }
 
 });
+
+})();
