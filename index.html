@@ -15,7 +15,7 @@
     <body>
       <header>
         <div class="su_line">
-            <h1 class="su_cell su_cells_12">Seed UI</h1>
+            <h1 class="su_cell su_cells_12">Seed UI Garden</h1>
         </div>
       </header>
       <div class="su_line">
@@ -544,13 +544,24 @@
           <h2>A simple modal</h2>
 
           <p>This simple modal component provides clean and quick way to display simple textual information to the user.</p>
-          <p>To display the information in a modal, a toggle element is needed with "data-modal-trigger" attribute set: <code class="su_code">data-modal-trigger="simple"</code>, and the "data-info" attribute set: <code class="su_code">data-info="This is a short information that is being presented to the user in a simple modal."</code></p>
+          <p>To display the information in a modal, a toggle element is needed with the following "data" attributes set:</p>
 
-          <p>See the modal one: <span class="material-icons" data-modal-trigger="simple" data-info="Nothing to see here, please move along!">search</span></p>
+          <ul>
+            <li>
+              <code class="su_code">data-modal-trigger="simple"</code>
+            </li>
+            <li>
+              <code class="su_code">data-info="This is a short information that is being presented to the user in a simple modal."</code>
+            </li>
+          </ul>
 
-          <p>See the modal two: <span class="material-icons" data-modal-trigger="simple" data-info="Sorry, the search is temporary disabled.">search</span></p>
+          <p>Click the buttons bellow to see different notifications.</p>
 
-          <p>See the modal three: <span class="material-icons" data-modal-trigger="simple" data-info="No can do now, come back later, dude!">search</span></p>
+          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="Nothing to see here, please move along!">Modal 1</button>
+
+          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="Sorry, the search is temporary disabled.">Modal 2</button>
+
+          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="No can do now, come back later, dude!">Modal 3</button>
 
           <div class="su_modal su_modal-simple" data-modal-type="simple">
             <span class="su_modal-close material-icons">close</span>
