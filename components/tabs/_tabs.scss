@@ -14,7 +14,7 @@
   cursor: pointer;
   text-decoration: none;
   text-align: center;
-  background: #f0f0f0;
+  background: #dadad0;
   padding: 1em 0;
 }
 
@@ -33,12 +33,20 @@
 }
 
 .su_tabs .su_tab-content {
-  height: 400px;
-  padding-top: 20px;
+  padding: 70px 10px 10px 10px;
+  border: 1px solid #c4c4b3;
+  border-top: none;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-img {
-  max-height: 100%;
+.su_tabs img {
+  max-height: 350px;
+  border-radius: 4px;
+}
+
+.su_tabs p {
+  padding: 10px;
 }
 
 #su_tab_1:checked ~ #su_content_1,
