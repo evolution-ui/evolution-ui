@@ -12,3 +12,11 @@ body {
   /*margin: 0;*/
 }
 
+footer img {
+  max-width: 5em;
+  border-radius: 50%
+}
+
+footer li {
+  list-style-type: none;
+}

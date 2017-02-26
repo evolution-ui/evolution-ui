@@ -275,6 +275,15 @@ $su_round-size: 500px;
   margin-left: 100px;
 }
 
+/* Center Content Class */
+
+.su_center-content {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 /* Styles for brian.html Presentation */
 
 .brian-div {
@@ -284,7 +293,11 @@ $su_round-size: 500px;
 
 .brian-div:hover,
 .brian-div:focus {
+}
 
+.brian-div2 {
+  max-width: 12rem;
+  padding: 10px;
 }
 
 .brian-span {
