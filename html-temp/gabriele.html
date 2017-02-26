@@ -16,6 +16,11 @@
           padding: 10px;
         }
 
+        .g_column {
+          display: flex;
+          flex-direction: column;
+        }
+
         @media screen and (min-width: 750px) {
           .g-container {
             padding: 40px;
@@ -107,7 +112,7 @@
           <h2>Forms</h2>
 
 
-          <form class="su_form">
+          <form class="su_form"><!-- Start Form 1 -->
 
           <!-- Line 1 -->
           <div class="su_line">
@@ -131,14 +136,14 @@
                 <div class="su_error-message">Wrong Password. Try Again</div>
               </div>
             </div>
+
           </div>
 
           <!-- Line 2 -->
           <div class="su_line">
 
             <div class="su_cell">
-
-              <div class="su_field">
+              <div class="su_field g_column">
                 <input class="su_input-checkbox" id="checkbox-1" type="checkbox">
                 <label for="checkbox-1"><span>Check Box [default]</span></label>
                 <input class="su_input-checkbox su_input-checkbox--red" id="checkbox-2" type="checkbox">
@@ -149,13 +154,14 @@
                 <label for="checkbox-4">Check Box Pink</label>
               </div>
             </div>
+
           </div>
 
           <!-- Line 4 -->
           <div class="su_line">
 
             <div class="su_cell">
-              <div class="su_field">
+              <div class="su_field g_column">
                 <input class="su_input-checkbox su_input-checkbox--x" id="checkbox-5" type="checkbox">
                 <label for="checkbox-5"><span>Check Box [default]</span></label>
                 <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--red" id="checkbox-6" type="checkbox">
@@ -166,6 +172,7 @@
                 <label for="checkbox-8">Check Box Pink</label>
               </div>
             </div>
+
           </div>
 
 
@@ -173,7 +180,7 @@
           <div class="su_line">
 
             <div class="su_cell">
-              <div class="su_field">
+              <div class="su_field g_column">
                 <input class="su_input-radio" id="radio-1" name="radio-1" type="radio">
                 <label for="radio-1"><span>Radio [default]</span></label>
                 <input class="su_input-radio su_input-radio--red" id="radio-2" name="radio-1" type="radio">
@@ -184,7 +191,29 @@
                 <label for="radio-4">Radio Pink</label>
               </div>
             </div>
+
           </div>
+
+          <!-- Line 5 -->
+          <div class="su_line">
+
+            <div class="su_cell">
+              <div class="su_field">
+                <input class="su_input" type="button" value="Button">
+                <a class="su_input su_input--button">
+                  <span>Button 2</span>
+                  <i class="material-icons">file_download</i>
+                </a>
+                <div class="su_input su_input--button">
+                  <span>Button 3</span>
+                  <i class="material-icons">send</i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          </form><!-- End Form 1 -->
 
           <!-- Line 6 -->
           <div class="su_line">
@@ -196,22 +225,21 @@
                   <h2 class="su_form-title">join us</h2>
                 </div>
                 <div class="su_form-box-body">
-
+                  <!-- username -->
                   <div class="su_field su_field--border">
                     <span class="su_input-icon">
                       <i class="material-icons">person</i>
                     </span>
                     <input class="su_input" id="name" placeholder="Username" type="text" required>
                   </div>
-
+                  <!-- email -->
                   <div class="su_field su_field--border">
                     <span class="su_input-icon">
                       <i class="material-icons">email</i>
                     </span>
                     <input class="su_input" id="email" placeholder="Email" type="email" required>
                   </div>
-                </div>
-
+                  <!-- password -->
                   <div class="su_field su_field--border su_has-error">
                     <span class="su_input-icon">
                       <i class="material-icons">lock</i>
@@ -219,37 +247,40 @@
                     <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
                     <div class="su_error-message">Wrong Password. Try Again</div>
                   </div>
-
                 </div>
-
+                <div class="su_form-box-footer">
+                  <div class="su_field su_field--border">
+                    <input class="su_input " type="submit" value="Sign Up">
+                  </div>
+                </div>
                 </form>
-              </div>
+              </div><!-- end su_form-box -->
+
             </div><!-- end cell -->
 
             <div class="su_cell">
 
               <div class="su_form-box su_form-box--border-pink">
                 <form class="su_form">
-
                 <div class="su_form-box-header">
                   <h2 class="su_form-title">join us</h2>
                 </div>
                 <div class="su_form-box-body">
-
+                  <!-- username -->
                   <div class="su_field su_field--border">
                     <span class="su_input-icon">
                       <i class="material-icons">person</i>
                     </span>
                     <input class="su_input" id="name" placeholder="Username" type="text" required>
                   </div>
-
+                  <!-- email -->
                   <div class="su_field su_field--border">
                     <span class="su_input-icon">
                       <i class="material-icons">email</i>
                     </span>
                     <input class="su_input" id="email" placeholder="Email" type="email" required>
                   </div>
-
+                  <!-- password -->
                   <div class="su_field su_field--border su_has-error">
                     <span class="su_input-icon">
                       <i class="material-icons">lock</i>
@@ -258,9 +289,13 @@
                     <div class="su_error-message">Wrong Password. Try Again</div>
                   </div>
                 </div>
-
+                <div class="su_form-box-footer">
+                  <div class="su_field su_field--border">
+                    <input class="su_input " type="submit" value="Sign Up">
+                  </div>
+                </div>
                 </form>
-              </div>
+              </div><!-- end su_form-box -->
 
             </div><!-- end cell -->
 
@@ -269,26 +304,25 @@
 
               <div class="su_form-box su_form-box--type-2">
                 <form class="su_form">
-
                 <div class="su_form-box-header">
                   <h2 class="su_form-title">join us</h2>
                 </div>
                 <div class="su_form-box-body">
-
+                  <!-- username -->
                   <div class="su_field su_field--border">
                     <span class="su_input-icon">
                       <i class="material-icons">person</i>
                     </span>
                     <input class="su_input" id="name" placeholder="Username" type="text" required>
                   </div>
-
+                  <!-- email -->
                   <div class="su_field su_field--border">
                     <span class="su_input-icon">
                       <i class="material-icons">email</i>
                     </span>
                     <input class="su_input" id="email" placeholder="Email" type="email" required>
                   </div>
-
+                  <!-- password -->
                   <div class="su_field su_field--border su_has-error">
                     <span class="su_input-icon">
                       <i class="material-icons">lock</i>
@@ -297,9 +331,13 @@
                     <div class="su_error-message">Wrong Password. Try Again</div>
                   </div>
                 </div>
-
+                <div class="su_form-box-footer">
+                  <div class="su_field su_field--border">
+                    <input class="su_input " type="submit" value="Sign Up">
+                  </div>
+                </div>
                 </form>
-              </div>
+              </div><!-- end su_form-box -->
 
             </div><!-- end cell -->
 
