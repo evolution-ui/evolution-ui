@@ -18,10 +18,6 @@ h2, footer {
   color: #E7E7E7;
 }
 
-.su_list-item .active {
-  border-right: 2px solid red;
-}
-
 #nav_links {
   border-radius: 0;
   box-shadow: none;
@@ -30,12 +26,21 @@ h2, footer {
 #nav_links a {
   color: #70869A;
   border-radius: 0;
+  transition: all .5s;
 }
 
 #nav_links a:hover,
 #nav_links a:focus {
   color: #3CBCD5;
   border-right: 5px solid #3CBCD5;
+}
+
+.su_list {
+  /*width: 100%;*/
+  min-width: 0;
+}
+.su_list .su_list-item {
+  border: 0;
 }
 
 footer img {
