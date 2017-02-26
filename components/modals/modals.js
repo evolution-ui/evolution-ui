@@ -13,6 +13,7 @@
       this.simpleModal = document.querySelector('.su_modal-simple');
       this.imageModal = document.querySelector('.su_modal-image');
       this.videoModal = document.querySelector('.su_modal-video');
+      console.log(this.modalTriggers);
     },
 
     addEvents: function() {
