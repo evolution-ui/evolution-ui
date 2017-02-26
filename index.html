@@ -9,7 +9,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="prod/main.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -506,7 +506,7 @@
 
           <h2>Eyelids</h2>
 
-          <p>Write-up</p>
+          <p>Eyelids is an innovative web component that can be useful to the people who read a lot on the computer screen. It helps you focus on the text or other content in cases of pages with a long chunks of text, or even to help cover up the distracting parts of the complex web page. To use it, just hit <code class="su_code">Shift + S</code> on the keyboard. The eyelids will close down vertically on your mouse position and will follow its movement allowing you a clean horizontal area for better focus on the content. To dismiss it, just hit <code class="su_code">Shift + S</code> again.</p>
 
           <h2>Basic navigation bar:</h2>
 
@@ -534,16 +534,29 @@
                   </div>
                 </form>
               </div>
-        <span class="su_menu-toggle">
-          <span class="su_icon su_icon-menu material-icons">menu</span>
-          <span class="su_icon su_icon-close material-icons">close</span>
-        </span>
+              <span class="su_menu-toggle">
+                <span class="su_icon su_icon-menu material-icons">menu</span>
+                <span class="su_icon su_icon-close material-icons">close</span>
+              </span>
             </div>
           </div>
 
-          <h2>Modal</h2>
+          <h2>A simple modal</h2>
 
-          <p>write-up</p>
+          <p>This simple modal component provides clean and quick way to display simple textual information to the user.</p>
+          <p>To display the information in a modal, a toggle element is needed with "data-modal-trigger" attribute set: <code class="su_code">data-modal-trigger="simple"</code>, and the "data-info" attribute set: <code class="su_code">data-info="This is a short information that is being presented to the user in a simple modal."</code></p>
+
+          <p>See the modal one: <span class="material-icons" data-modal-trigger="simple" data-info="Nothing to see here, please move along!">search</span></p>
+
+          <p>See the modal two: <span class="material-icons" data-modal-trigger="simple" data-info="Sorry, the search is temporary disabled.">search</span></p>
+
+          <p>See the modal three: <span class="material-icons" data-modal-trigger="simple" data-info="No can do now, come back later, dude!">search</span></p>
+
+          <div class="su_modal su_modal-simple" data-modal-type="simple">
+            <span class="su_modal-close material-icons">close</span>
+            <div class="su_modal-content su_align-center"></div>
+          </div>
+
 
           <h1>Typography</h1>
 
