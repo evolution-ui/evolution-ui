@@ -932,6 +932,10 @@ h6 {
   .su_container {
     width: 960px;
     margin: 0 auto; } }
+.su_demo_hackhaton {
+  padding: 2em;
+  background-color: #fff; }
+
 .su_demo .su_cell {
   border: 1px solid #72c024;
   border-radius: 4px; }
@@ -1213,7 +1217,6 @@ h6 {
   border-radius: 4px;
   box-shadow: 0 2px 2px 0px #dadad0;
   list-style-type: none;
-  min-width: 300px;
   overflow: auto;
   padding: 0; }
   .su_list a.su_list-item,
@@ -1603,60 +1606,52 @@ body {
   bottom: 0;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(26, 26, 26, 0.85) 10%, rgba(0, 0, 0, 0.85) 60%); }
 
-/* THE CODE FOR MODAL THAT SHOWS WHEN THE SEARCH IS DISABLED */
+/* THE MODAL COMPONENT */
 .su_modal {
+  box-sizing: border-box;
   position: fixed;
   width: 80vw;
   height: 80vh;
-  top: 0;
-  left: 0;
+  top: 10vw;
+  left: 10vw;
   opacity: 0;
   z-index: -1;
+  background-color: rgba(98, 168, 33, 0.9);
   transition: all 0.2s ease-in-out 0s; }
+  .su_modal * {
+    box-sizing: border-box; }
   .su_modal.su_modal-active {
     width: 100vw;
     height: 100vh;
-    opacity: 0.9;
+    top: 0;
+    left: 0;
+    opacity: 1;
     z-index: 99999;
     transition: all 0.2s ease-in-out 0s; }
+  .su_modal .su_modal-close {
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    font-size: 5em;
+    cursor: pointer;
+    color: #1b5709;
+    transition: all 0.2s ease-in-out 0s; }
+    .su_modal .su_modal-close:hover {
+      color: #113806; }
+  .su_modal .su_modal-content {
+    position: relative;
+    padding: 20px 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    height: 50vh;
+    min-height: 300px;
+    width: 80vw;
+    max-width: 800px;
+    background-color: #dadad0;
+    box-shadow: 0 3px 8px 1px rgba(17, 56, 6, 0.7); }
 
-.su_search-disabled {
-  opacity: 0;
-  position: fixed;
-  top: 10vh;
-  left: 10vw;
-  width: 80%;
-  z-index: -1;
-  background-color: rgba(255, 165, 0, 0.9);
-  transition: all 0.2s ease-in-out 0s; }
-
-#search-disabled:checked + .su_search-disabled {
-  opacity: 1;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: 5000;
-  transition: all 0.2s ease-in-out 0s; }
-
-#search-disabled:checked ~ .container {
-  height: 100vh;
-  overflow-y: hidden; }
-
-.modal.su_search-disabled label {
-  position: absolute;
-  right: 10px;
-  top: 25px;
-  color: rgba(0, 0, 0, 0.5); }
-
-.modal.su_search-disabled label:hover {
-  cursor: pointer;
-  color: black; }
-
-.modal.su_search-disabled p {
-  font-size: 5em;
-  text-align: center; }
-
+/* END MODAL COMPONENT */
 /* Variables */
 /* Float Classes */
 .su_right {

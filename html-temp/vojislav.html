@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
-    <link href="../css/main.css" rel="stylesheet">
+    <link href="../dist/main.css" rel="stylesheet">
   </head>
   <body>
 
@@ -17,7 +17,7 @@
 
     <div class="su_modal su_modal-simple" data-modal-type="simple">
       <span class="su_modal-close material-icons">close</span>
-      <div class="su_modal-content"></div>
+      <div class="su_modal-content su_align-center"></div>
     </div>
 
     <header class="su_navigation su_navigation-fixed su_navigation-top su_nav-theme-light">
@@ -34,10 +34,10 @@
         </nav>
         <div class="su_search" role="search">
           <form>
-            <span class="su_submit-search material-icons">search</span>
+            <span class="su_submit-search material-icons" data-modal-trigger="simple" data-info="Nothing to see here, please move along!">search</span>
             <div class="su_search-field">
               <input type="text" name="search" id="su_search-header">
-              <label class="su_search-label" for="su_search-header" data-modal-trigger="simple" data-info="Nothing to see here, please move along!">Search</label>
+              <label class="su_search-label" for="su_search-header">Search</label>
             </div>
           </form>
         </div>
@@ -82,10 +82,10 @@
         </nav>
         <div class="su_search" role="search">
           <form>
-            <span class="su_submit-search material-icons">search</span>
+            <span class="su_submit-search material-icons" data-modal-trigger="simple" data-info="Sorry, the search is temporary disabled.">search</span>
             <div class="su_search-field">
               <input type="text" name="search" id="su_search-body">
-              <label class="su_search-label" for="su_search-body" data-modal-trigger="simple" data-info="Sorry, the search is temporary disabled.">Search</label>
+              <label class="su_search-label" for="su_search-body">Search</label>
             </div>
           </form>
         </div>
@@ -125,10 +125,10 @@
         </nav>
         <div class="su_search" role="search">
           <form>
-            <span class="su_submit-search material-icons">search</span>
+            <span class="su_submit-search material-icons" data-modal-trigger="simple" data-info="No can do now, come back later, dude!">search</span>
             <div class="su_search-field">
               <input type="text" name="search" id="su_search-footer">
-              <label class="su_search-label" for="su_search-footer" data-modal-trigger="simple" data-info="No can do now, come back later, dude!">Search</label>
+              <label class="su_search-label" for="su_search-footer">Search</label>
             </div>
           </form>
         </div>
@@ -141,6 +141,6 @@
 
   </div>
 
-  <script type="text/javascript" src="../prod/main.js"></script>
+  <script type="text/javascript" src="../dist/main.js"></script>
   </body>
 </html>
