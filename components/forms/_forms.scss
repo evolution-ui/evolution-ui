@@ -14,17 +14,23 @@ $su_field--border-radius: 3px;
 $su_input--height: 3rem;
 $su_input--button-width: 200px;
 
+%border-pink {
+  border-color: su-color('accent')!important;
+}
+
+%border-green {
+  border-color: su-color('primary')!important;
+}
+
+
 /// Form BOX
 
 .su_form-box {
   padding: 20px;
 
-  @include m('type-2') {
-
-  }
-
-  @include m('border-pink') {
-    border: 2px solid su-color('accent');
+  @include m('border') {
+    @extend %border-pink;
+    border: 2px solid;
     color: su_color('accent');
 
     & .su_input-icon {
@@ -73,11 +79,11 @@ $su_input--button-width: 200px;
 
     }
 
-    input[type='email'],
-    input[type='text'],
-    input[type='password'],
-    input[type='submit'],
-    input[type='button'] {
+    .su_input[type='email'],
+    .su_input[type='text'],
+    .su_input[type='password'],
+    .su_input[type='submit'],
+    .su_input[type='button'] {
       height: $su_input--height;
       border: 0;
       border-bottom: 1px solid rgba(0,0,0,.2);
@@ -93,11 +99,17 @@ $su_input--button-width: 200px;
         width: $su_input--button-width;
         border: 1px solid su_color('accent', 'light')!important;
         background-color: white();
+        transition: all .2s linear;
 
         &:hover {
           color: white();
           background-color: su_color('accent', 'light');
         }
+      }
+
+      //. su_input--border-green
+      @include m('border-green') {
+        @extend %border-green;
       }
 
       // .su_input--button
@@ -110,6 +122,7 @@ $su_input--button-width: 200px;
         justify-content: center;
         cursor: pointer;
         user-select: none;
+        transition: all .2s linear;
 
           & span {
             padding: 0 5px;
@@ -314,11 +327,5 @@ $su_input--button-width: 200px;
   .su_form-box {
     width: 500px;
     padding: 40px;
-  }
-
-
-  input[type='text'],
-  input[type='password'] {
-    width: 300px;
   }
 }

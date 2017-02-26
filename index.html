@@ -9,75 +9,1736 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="prod/main.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
       <header>
-        NAVIGATION CONTENT HERE
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id est veritatis maxime, nisi velit cupiditate necessitatibus, placeat, culpa impedit esse officiis at, quo in voluptatibus eveniet perspiciatis soluta explicabo possimus?
+        <div class="su_line">
+            <h1 class="su_cell su_cells_12">Seed UI Garden</h1>
+        </div>
       </header>
       <div class="su_line">
-        <div class="su_cells_4">
-          <h3 class="su_align-center">UI Components</h3>
-          <div class="su_list">
-            <a href="#" class="su_uppercase su_list-item active">buttons</a>
-            <a href="#" class="su_uppercase su_list-item">cards</a>
-            <a href="#" class="su_uppercase su_list-item">accordion</a>
-            <a href="#" class="su_uppercase su_list-item">tabs</a>
-            <a href="#" class="su_uppercase su_list-item">forms</a>
-            <a href="#" class="su_uppercase su_list-item">pagination</a>
-            <a href="#" class="su_uppercase su_list-item">carousel</a>
-          </div>
-        </div>
-        <div class="su_cells_8 su_background-bg-light">
-          <div class="">
-            <p class="">UI Components Here</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod veritatis veniam cumque, explicabo perspiciatis, quaerat quibusdam quisquam eaque dolores vel atque voluptas laudantium voluptate provident debitis doloremque illum, excepturi expedita.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod veritatis veniam cumque, explicabo perspiciatis, quaerat quibusdam quisquam eaque dolores vel atque voluptas laudantium voluptate provident debitis doloremque illum, excepturi expedita.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod veritatis veniam cumque, explicabo perspiciatis, quaerat quibusdam quisquam eaque dolores vel atque voluptas laudantium voluptate provident debitis doloremque illum, excepturi expedita.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod veritatis veniam cumque, explicabo perspiciatis, quaerat quibusdam quisquam eaque dolores vel atque voluptas laudantium voluptate provident debitis doloremque illum, excepturi expedita.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod veritatis veniam cumque, explicabo perspiciatis, quaerat quibusdam quisquam eaque dolores vel atque voluptas laudantium voluptate provident debitis doloremque illum, excepturi expedita.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod veritatis veniam cumque, explicabo perspiciatis, quaerat quibusdam quisquam eaque dolores vel atque voluptas laudantium voluptate provident debitis doloremque illum, excepturi expedita.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod veritatis veniam cumque, explicabo perspiciatis, quaerat quibusdam quisquam eaque dolores vel atque voluptas laudantium voluptate provident debitis doloremque illum, excepturi expedita.</p>
-          </div>
-        </div>
-      </div>
+        <div class="su_cell su_cells_3">
+          <h2 class="su_align-center su_background-dark">UI Components</h2>
+          <nav class="su_list su_align-right" id="nav_links">
+            <a href="#" class="su_uppercase su_list-item active">Utility classes</a>
+            <a href="#" class="su_uppercase su_list-item">Tooltip</a>
+            <a href="#" class="su_uppercase su_list-item">Accordion</a>
+            <a href="#" class="su_uppercase su_list-item">Buttons</a>
+            <a href="#" class="su_uppercase su_list-item">Alerts</a>
+            <a href="#" class="su_uppercase su_list-item">Tables</a>
+            <a href="#" class="su_uppercase su_list-item">Carousel</a>
+            <a href="#" class="su_uppercase su_list-item">Navigation</a>
+            <a href="#" class="su_uppercase su_list-item">Eyelids</a>
+            <a href="#" class="su_uppercase su_list-item">Modal</a>
+            <a href="#" class="su_uppercase su_list-item">Typography</a>
+            <a href="#" class="su_uppercase su_list-item">Progress Bars</a>
+            <a href="#" class="su_uppercase su_list-item">Infinite loading</a>
+            <a href="#" class="su_uppercase su_list-item">Forms</a>
+            <a href="#" class="su_uppercase su_list-item">Dropdowns</a>
+            <a href="#" class="su_uppercase su_list-item">Lists</a>
+            <a href="#" class="su_uppercase su_list-item">Cards</a>
+            <a href="#" class="su_uppercase su_list-item">Combobox</a>
+            <a href="#" class="su_uppercase su_list-item">Sneak Peek</a>
+            <a href="#" class="su_uppercase su_list-item">Grid</a>
+            <a href="#" class="su_uppercase su_list-item">Tabs</a>
+            <a href="#" class="su_uppercase su_list-item">Video Embed</a>
 
-      <footer class="su_cell">
-        <div class="su_line">
-          <h4 class="su_cell su_align-center">SeedUI Developed by:</h4>
+          </nav>
         </div>
-          <ul class="su_line">
-            <li class="su_cell su_cells_2 su_align-center">
-              <img src="img/jake.png" alt="">
-              <p>Jake Tom</p>
+        <div class="su_cell su_cells_9 su_demo_hackhaton">
+
+            <h2>Utilities Component</h2>
+            <h3>Float Classes</h3>
+            <p>Add the class <code class="su_code">.su_left</code> or <code class="su_code">.su_right</code> to float an element left or right respectively.  Then, add the <code class="su_code">.su_clear</code> class to clear floated elements.  Examples:</p>
+            <div class="su_right su_primary-bg su_radius brian-div"><i class="material-icons">settings</i>Div 1 Floated Right</div>
+            <div class="su_left su_foreground-bg su_radius brian-div"><i class="material-icons">menu</i>Div 2 Floated Left</div>
+            <div class="su_clear su_background-bg su_radius brian-div"><i class="material-icons">face</i>Cleared Div</div>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Full Width Class</h3>
+            <p>The full width classes expand the element they are applied to to the full width of it's parent element using the <code class="su_code">.su_full-width</code> class.  Example:</p>
+            <div class="su_foreground-bg su_radius brian-div">
+              A container parent element.
+              <div class="su_primary-bg-light su_full-width brian-div"> Full Width Content.</div>
+              Some more content.
+            </div>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Radius &amp; Round Classes</h3>
+            <p>Add the class <code class="su_code">.su_radius</code> to apply the default radius size on elements.  Add the class <code class="su_code">.su_round</code> class to create a pill or capsule rounding effect on elements.  They can be applied to different types of elements.  Examples:</p>
+            <p>This paragraph highlights the radius effect on the phrase <span class="su_radius su_accent-bg-light brian-span su_background-light">"Seed UI"</span> and the rounding effect applied to a Seed UI button and a div:</p>
+
+            <div class="su_space-top--small"></div>
+            <button type="button" class="su_btn su_btn-primary su_round">Button With Round Class Applied</button>
+            <div class="su_space-top--small"></div>
+            <div class="su_round su_background-bg">Div With Round Class Applied</div>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Color Classes</h3>
+            <h5>Seed UI comes with a number of built in colors that can be customized to your website's style guide.  You can change the background color of elements or the text color by applying their associated classes.  Examples:</h5>
+
+            <h5>Background Color Classes</h5>
+            <table class="su_table su_table-bordered">
+              <thead>
+              <tr>
+                <th>Light Background Colors</th>
+                <th>Base Background Colors</th>
+                <th>Dark Background Colors</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="su_primary-bg-light">.su_primary-bg-light</td>
+                <td class="su_primary-bg">.su_primary-bg</td>
+                <td class="su_primary-bg-dark">.su_primary-bg-dark</td>
+              </tr>
+              <tr>
+                <td class="su_accent-bg-light">.su_accent-bg-light</td>
+                <td class="su_accent-bg">.su_accent-bg</td>
+                <td class="su_accent-bg-dark">.su_accent-bg-dark</td>
+              </tr>
+              <tr>
+                <td class="su_secondary-bg-light">.su_secondary-bg-light</td>
+                <td class="su_secondary-bg">.su_secondary-bg</td>
+                <td class="su_secondary-bg-dark">.su_secondary-bg-dark</td>
+              </tr>
+              <tr>
+                <td class="su_foreground-bg-light">.su_foreground-bg-light</td>
+                <td class="su_foreground-bg">.su_foreground-bg</td>
+                <td class="su_foreground-bg-dark">.su_foreground-bg-dark</td>
+              </tr>
+              <tr>
+                <td class="su_background-bg-light">.su_background-bg-light</td>
+                <td class="su_background-bg">.su_background-bg</td>
+                <td class="su_background-bg-dark">.su_background-bg-dark</td>
+              </tr>
+              </tbody>
+            </table>
+
+            <div class="su_space-top--small"></div>
+            <h5>Text Color Classes</h5>
+            <table class="su_table su_table-bordered">
+              <thead>
+              <tr>
+                <th>Light Text Colors</th>
+                <th>Base Text Colors</th>
+                <th>Dark Text Colors</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="su_primary-light">.su_primary-light</td>
+                <td class="su_primary">.su_primary</td>
+                <td class="su_primary-dark">.su_primary-dark</td>
+              </tr>
+              <tr>
+                <td class="su_accent-light">.su_accent-light</td>
+                <td class="su_accent">.su_accent</td>
+                <td class="su_accent-dark">.su_accent-dark</td>
+              </tr>
+              <tr>
+                <td class="su_secondary-light">.su_secondary-light</td>
+                <td class="su_secondary">.su_secondary</td>
+                <td class="su_secondary-dark">.su_secondary-dark</td>
+              </tr>
+              <tr>
+                <td class="su_foreground-light">.su_foreground-light</td>
+                <td class="su_foreground">.su_foreground</td>
+                <td class="su_foreground-dark">.su_foreground-dark</td>
+              </tr>
+              <tr>
+                <td class="su_background-light">.su_background-light</td>
+                <td class="su_background">.su_background</td>
+                <td class="su_background-dark">.su_background-dark</td>
+              </tr>
+              </tbody>
+            </table>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Visibility &amp; Hidden Classes</h3>
+            <p>Add the class <code class="su_code">.su_hide</code> to an element to remove it from the page view.  The number 4 <code class="su_code">span</code> element in the following list is hidden:</p>
+            <span class="su_accent-bg-light brian-span su_radius">1</span>
+            <span class="su_accent-bg-light brian-span su_radius">2</span>
+            <span class="su_accent-bg-light brian-span su_radius">3</span>
+            <span class="su_accent-bg-light brian-span su_radius su_hide">4</span>
+            <span class="su_accent-bg-light brian-span su_radius">5</span>
+            <span class="su_accent-bg-light brian-span su_radius">6</span>
+            <p>Add the class <code class="su_code">.su_invisible</code> to make the visibility of an element hidden but still retain its space in the DOM.  The number 4 <code class="su_code">span</code> element in the following list is invisible:</p>
+            <span class="su_accent-bg-light brian-span su_radius">1</span>
+            <span class="su_accent-bg-light brian-span su_radius">2</span>
+            <span class="su_accent-bg-light brian-span su_radius">3</span>
+            <span class="su_accent-bg-light brian-span su_radius su_invisible">4</span>
+            <span class="su_accent-bg-light brian-span su_radius">5</span>
+            <span class="su_accent-bg-light brian-span su_radius">6</span>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Screen Reader Only Class</h3>
+            <p>The next paragraph is only accessible to screen readers since it has the <code class="su_code">.su_sr-only</code> class applied to it.</p>
+            <p class="su_sr-only">The quick brown fox jumped over the lazy dog.</p>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Text Alignment Classes</h3>
+            <p>Use the following classes to change the text alignment on elements.</p>
+            <div class="su_background-bg brian-div su_radius"><code class="su_code">.su_align-left</code> for left alignment.<i class="material-icons su_right su_accent">format_align_left</i><p class="su_align-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias culpa, libero qui quo esse natus aliquid laborum harum! At atque ex voluptatum error rerum, quis ipsa odit esse inventore laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias perspiciatis rem provident voluptas quia distinctio, nesciunt laborum eligendi? Quisquam praesentium eum consequuntur, adipisci enim mollitia. Iste impedit esse a laborum.</p></div>
+            <div class="su_background-bg brian-div su_radius"><code class="su_code">.su_align-center</code class="su_code"> for center alignment.<i class="material-icons su_right su_accent">format_align_center</i><p class="su_align-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic atque corporis blanditiis magnam numquam unde ducimus, veniam adipisci quo ipsam est, iste deleniti, consectetur iusto, et animi quidem voluptatum asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut odio distinctio modi ipsa, doloribus optio molestiae beatae libero. Iure iusto aliquid laborum perferendis expedita quibusdam praesentium, doloribus optio, maxime cumque.</p></div>
+            <div class="su_background-bg brian-div su_radius"><code class="su_code">.su_align-right</code> for right alignment.<i class="material-icons su_right su_accent">format_align_right</i><p class="su_align-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum ab natus asperiores est adipisci, laborum repellat cupiditate cum maiores deleniti mollitia. Totam ut molestias porro vero culpa, sit ullam officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis alias voluptas aliquid odio quasi accusantium quos repellendus velit. Dolores, eos ab. Provident hic praesentium laboriosam porro. Quod earum quisquam neque!</p></div>
+            <div class="su_background-bg brian-div su_radius"><code class="su_code">.su_align-justify</code> for justified alignment.<i class="material-icons su_right su_accent">format_align_justify</i><p class="su_align-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non dolorum fugiat aperiam eius necessitatibus ea, consequuntur assumenda ad, blanditiis et debitis consequatur eveniet dolor architecto magnam quas. Ipsa, similique, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero sed iure molestiae, aliquid quibusdam eaque modi hic quo cumque omnis harum nisi officiis necessitatibus, doloribus natus nemo adipisci accusantium laudantium!</p></div>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Text Transform Classes</h3>
+            <p class="su_lowercase">Use the <code class="su_code">.su_lowercase</code> class to transform text of an element to all lowercase.</p>
+            <p class="su_uppercase">use the <code class="su_code">.su_uppercase</code> class to transform text of an element to all uppercase.</p>
+            <p class="su_capitalize">Use the <code class="su_code">.su_capitalize</code> class to transform text of an element to use uppercase letters for the beginning of each word.</p>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Code Class</h3>
+            <p>Add the class <code class="su_code">.su_code</code> to give some default styling to displayed computer code.  Examples:</p>
+<pre class="su_code">
+    <code>&lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;title&gt;Document&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</code>
+</pre>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Spacer Classes</h3>
+            <p>A collection of classes that have varying margin values on different sides for quick spacing fixes.</p>
+
+            <p><code class="su_code">.su_space-top--small</code> applies a <code class="su_code">margin-top: 20px</code></p>
+            <p><code class="su_code">.su_space-top--medium</code> applies a <code class="su_code">margin-top: 50px</code></p>
+            <p><code class="su_code">.su_space-top--large</code> applies a <code class="su_code">margin-top: 100px</code></p>
+
+            <p><code class="su_code">.su_space-right--small</code> applies a <code class="su_code">margin-right: 20px</code></p>
+            <p><code class="su_code">.su_space-right--medium</code> applies a <code class="su_code">margin-right: 50px</code></p>
+            <p><code class="su_code">.su_space-right--large</code> applies a <code class="su_code">margin-right: 100px</code></p>
+
+            <p><code class="su_code">.su_space-bottom--small</code> applies a <code class="su_code">margin-bottom: 20px</code></p>
+            <p><code class="su_code">.su_space-bottom--medium</code> applies a <code class="su_code">margin-bottom: 50px</code></p>
+            <p><code class="su_code">.su_space-bottom--large</code> applies a <code class="su_code">margin-bottom: 100px</code></p>
+
+            <p><code class="su_code">.su_space-left--small</code> applies a <code class="su_code">margin-left: 20px</code></p>
+            <p><code class="su_code">.su_space-left--medium</code> applies a <code class="su_code">margin-left: 50px</code></p>
+            <p><code class="su_code">.su_space-left--large</code> applies a <code class="su_code">margin-left: 100px</code></p>
+
+            <div class="su_space-top--medium"></div>
+            <h3>Center Content Class</h3>
+            <p>Add the <code class="su_code">.su_center-content</code> class to an elementfor an easy way to add auto margins for centering content blocks.  Example:</p>
+            <div class="su_center-content brian-div2 su_primary-bg-dark su_radius">This div box is centered on this page since it has the <code class="su_code">.su_center-content</code> class applied to it.</div>
+
+            <div class="su_space-top--medium"></div>
+            <hr>
+            <div class="su_space-top--medium"></div>
+
+            <h2>Tooltip Component</h2>
+            <p class="su_contains_tooltip">The tooltip component allows you to add useful pieces of information <span class="su_tooltip">hidden<span class="su_tooltip-text su_radius">Yes, like this you see.</span></span> from normal view so users can choose to hover over them or not to find out more.<span class="su_tooltip su_tip_top">natus (tooltip top)<span class="su_tooltip-text su_radius">natus - born, arisen</span></span> <span title="Auto Tooltip">accusamus</span> nihil maxime, consequuntur pariatur mollitia nobis atque consectetur sunt vitae fuga, esse est? Cupiditate voluptas autem laboriosam.</p>
+            <p class="su_contains_tooltip">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non alias recusandae natus accusamus nihil maxime, consequuntur <span class="su_tooltip">pariatur (tooltip left)<span class="su_tooltip-text su_radius">pariatur - to bear</span></span> mollitia nobis atque consectetur sunt vitae fuga, esse est? <span class="su_tooltip">Cupiditate (tooltip right)<span class="su_tooltip-text su_radius">Cupiditate - enthusiasm, eagerness, passion</span></span> voluptas autem laboriosam.</p>
+
+            <div class="su_space-top--medium"></div>
+            <hr>
+            <div class="su_space-top--medium"></div>
+
+            <h2>Accordion Component</h2>
+            <p>The Seed UI Accordion let's you customize some of its looks depending on which classes are applied to its components.  Also, did you know that the parts of an actual accordion that squish are called bellows?  So think of these tabs as bellows.</p>
+            <div class="su_accordion">
+              <div class="su_bellow">
+                <input id="bellow1" type="radio" name="bellows">
+                <label for="bellow1">Bellow One</label>
+                <div class="su_bellow-content su_background-bg">
+                  <p>This bellow has a class of <code class="su_code">su_background-bg</code> on it giving the content it's background color. Sequi tempora aperiam, itaque maiores laudantium earum delectus! Laboriosam rerum eius sed, corporis illum, nostrum qui provident ad, enim dolorum, quod quia!</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi tempora aperiam, itaque maiores laudantium earum delectus! Laboriosam rerum eius sed, corporis illum, nostrum qui provident ad, enim dolorum, quod quia!</p>
+                </div>
+              </div>
+              <div class="su_bellow">
+                <input id="bellow2" type="radio" name="bellows">
+                <label for="bellow2">Bellow Two</label>
+                <div class="su_bellow-content su_background-bg">
+                  <p>This bellow has a class of <code class="su_code">su_background-bg</code> on it giving the content it's background color. Laboriosam rerum eius sed, corporis illum, nostrum qui provident ad, enim dolorum, quod quia!</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi tempora aperiam, itaque maiores laudantium earum delectus! Laboriosam rerum eius sed, corporis illum, nostrum qui provident ad, enim dolorum, quod quia!</p>
+                </div>
+              </div>
+              <div class="su_bellow">
+                <input id="bellow3" type="radio" name="bellows">
+                <label for="bellow3" class="su_radius">Bellow Three</label>
+                <div class="su_bellow-content">
+                  <p>This bellow has a class of <code class="su_code">su_radius</code> on its label giving the bellow its curved corners.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi tempora aperiam, itaque maiores laudantium earum delectus! Laboriosam rerum eius sed, corporis illum, nostrum qui provident ad, enim dolorum, quod quia!</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi tempora aperiam, itaque maiores laudantium earum delectus! Laboriosam rerum eius sed, corporis illum, nostrum qui provident ad, enim dolorum, quod quia!</p>
+                </div>
+              </div>
+              <div class="su_bellow">
+                <input id="bellow4" type="radio" name="bellows">
+                <label for="bellow4" class="su_round">Bellow Four</label>
+                <div class="su_bellow-content">
+                  <p>This bellow has a class of <code class="su_code">su_round</code> on its label giving the bellow its ultra curved corners.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi tempora aperiam, itaque maiores laudantium earum delectus! Laboriosam rerum eius sed, corporis illum, nostrum qui provident ad, enim dolorum, quod quia!</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi tempora aperiam, itaque maiores laudantium earum delectus! Laboriosam rerum eius sed, corporis illum, nostrum qui provident ad, enim dolorum, quod quia!</p>
+                </div>
+              </div>
+            </div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2 id="top-of-page">Buttons</h2>
+          <h3>Semantic buttons</h3>
+          <button type="button" class="su_btn su_btn-primary">Primary</button>
+          <button type="button" class="su_btn su_btn-secondary">Secondary</button>
+          <button type="button" class="su_btn su_btn-warning">Warning</button>
+          <button type="button" class="su_btn su_btn-danger">Danger</button>
+
+          <div class="su_space-top--medium"></div>
+          <h3>Floating buttons</h3>
+          <a href="#" class="su_btn-floating su_red"><i class="material-icons">accessibility</i></a>
+          <a href="#" class="su_btn-floating su_green-light"><i class="material-icons">android</i></a>
+          <a href="#" class="su_btn-floating su_green-dark"><i class="material-icons">code</i></a>
+          <a href="#" class="su_btn-floating su_pink"><i class="material-icons">description</i></a>
+
+          <div class="su_space-top--medium"></div>
+          <h3 id="top-of-page">Back to top button</h3>
+          <p>Example is at the bottom right corner of this page. Add the id "top-of-page" to an element at the top to activate.</p>
+          <a href="#" class="su_btn-to-top su_pink"><i class="material-icons">keyboard_arrow_up</i></a>
+
+          <div class="su_space-top--medium"></div>
+          <h3>Button with icons</h3>
+          <button type="button" class="su_btn su_btn-primary"><i class="material-icons left">autorenew</i>Left</button>
+          <button type="button" class="su_btn su_btn-secondary">Right<i class="material-icons right">done</i></button>
+
+          <div class="su_space-top--medium"></div>
+          <h3>Checkboxes</h3>
+          <p>Make sure the corresponding labels and inputs have the same for/id attributes</p>
+          <div class="su_btn-group">
+            <input type="checkbox" class="su_checkbox-input" id="option-1">
+            <label for="option-1" class="su_btn su_btn-warning su_checkbox-label">
+              Option 1
+            </label>
+            <input type="checkbox" class="su_checkbox-input" id="option-2">
+            <label for="option-2" class="su_btn su_btn-warning su_checkbox-label">
+              Option 2
+            </label>
+            <input type="checkbox" class="su_checkbox-input" id="option-3">
+            <label for="option-3" class="su_btn su_btn-warning su_checkbox-label">
+              Option 3
+            </label>
+          </div>
+
+          <div class="su_space-top--medium"></div>
+
+          <h3>Radio Buttons</h3>
+          <div class="su_btn-group">
+            <input type="radio" name="su_radio" class="su_radio-input" id="option-4">
+            <label for="option-4" class="su_btn su_btn-danger su_radio-label">
+              Option 4
+            </label>
+            <input type="radio" name="su_radio" class="su_radio-input" id="option-5">
+            <label for="option-5" class="su_btn su_btn-danger su_radio-label">
+              Option 5
+            </label>
+            <input type="radio" name="su_radio" class="su_radio-input" id="option-6">
+            <label for="option-6" class="su_btn su_btn-danger su_radio-label">
+              Option 6
+            </label>
+          </div>
+
+          <div class="su_space-top--medium"></div>
+
+          <h3>Switches</h3>
+          <div class="su_switch-thin">
+            <input type="checkbox" name="su_switch-thin" class="su_switch-thin-checkbox" id="su-switch-thin" checked>
+            <label class="su_switch-thin-label" for="su-switch-thin">
+              <span class="su_switch-thin-switch"></span>
+            </label>
+          </div>
+          <br>
+          <div class="su_switch-fat">
+            <input type="checkbox" name="su_switch-fat" class="su_switch-fat-checkbox" id="su-switch-fat" checked>
+            <label class="su_switch-fat-label" for="su-switch-fat">
+              <span class="su_switch-fat-switch"></span>
+            </label>
+          </div>
+          <br>
+          <div class="su_switch-square">
+            <input type="checkbox" name="su_switch-square" class="su_switch-square-checkbox" id="su-switch-square" checked>
+            <label class="su_switch-square-label" for="su-switch-square">
+              <span class="su_switch-square-switch"></span>
+            </label>
+          </div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Alerts</h2>
+          <div class="su_alert su_alert-success"><i class="su_alert-star material-icons">star</i>This is a success alert.<i class="su_alert-close material-icons">close</i></div>
+          <br>
+          <div class="su_alert su_alert-info"><i class="su_alert-star material-icons">info</i>This is an info alert.<i class="su_alert-close material-icons">close</i></div>
+          <br>
+          <div class="su_alert su_alert-warning"><i class="su_alert-star material-icons">warning</i>This is a warning.<i class="su_alert-close material-icons">close</i></div>
+          <br>
+          <div class="su_alert su_alert-error"><i class="su_alert-star material-icons">error</i>This is an error alert.<i class="su_alert-close material-icons">close</i></div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Tables</h2>
+          <p>All table styles can be combined as desired using the associated classes.</p>
+
+          <h3>Basic table</h3>
+          <table class="su_table">
+            <thead>
+            <tr>
+              <th>Beans</th>
+              <th>Apples</th>
+              <th>Oranges</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Green</td>
+              <td>Brown</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Red</td>
+              <td>Green</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Orange</td>
+              <td>Orange</td>
+              <td>Orange</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="su_space-top--medium"></div>
+
+          <h3>Bordered table</h3>
+          <table class="su_table su_table-bordered">
+            <thead>
+            <tr>
+              <th>Beans</th>
+              <th>Apples</th>
+              <th>Oranges</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Green</td>
+              <td>Brown</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Red</td>
+              <td>Green</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Orange</td>
+              <td>Orange</td>
+              <td>Orange</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="su_space-top--medium"></div>
+
+          <h3>Striped table</h3>
+          <table class="su_table su_table-striped">
+            <thead>
+            <tr>
+              <th>Beans</th>
+              <th>Apples</th>
+              <th>Oranges</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Green</td>
+              <td>Brown</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Red</td>
+              <td>Green</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Orange</td>
+              <td>Orange</td>
+              <td>Orange</td>
+            </tr>
+            <tr>
+              <td>Red</td>
+              <td>Green</td>
+              <td>Yellow</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="su_space-top--medium"></div>
+
+          <h3>Hover table</h3>
+          <table class="su_table su_table-hover">
+            <thead>
+            <tr>
+              <th>Beans</th>
+              <th>Apples</th>
+              <th>Oranges</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Green</td>
+              <td>Brown</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Red</td>
+              <td>Green</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Orange</td>
+              <td>Orange</td>
+              <td>Orange</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="su_space-top--medium"></div>
+
+          <h3>Table with all classes</h3>
+          <table class="su_table su_table-hover su_table-striped su_table-bordered">
+            <thead>
+            <tr>
+              <th>Beans</th>
+              <th>Apples</th>
+              <th>Oranges</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Green</td>
+              <td>Brown</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Red</td>
+              <td>Green</td>
+              <td>Yellow</td>
+            </tr>
+            <tr>
+              <td>Orange</td>
+              <td>Orange</td>
+              <td>Orange</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Carousel</h2>
+          <div class="su_line">
+            <div class="su_cell su_cells_8">
+              <div class="su_carousel-wrap">
+                <ul class="su_carousel">
+                  <li class="su_carousel-item su_carousel-visible"><img src="http://lorempixel.com/1000/500/food/6" alt=""></li>
+                  <li class="su_carousel-item"><img src="http://lorempixel.com/1000/500/food/1" alt=""></li>
+                  <li class="su_carousel-item"><img src="http://lorempixel.com/1000/500/food/2" alt=""></li>
+                  <li class="su_carousel-item"><img src="http://lorempixel.com/1000/500/food/3" alt=""></li>
+                  <li class="su_carousel-item"><img src="http://lorempixel.com/1000/500/food/4" alt=""></li>
+                  <li class="su_carousel-item"><img src="http://lorempixel.com/1000/500/food/5" alt=""></li>
+                </ul>
+                <div class="su_carousel-controls">
+                  <button class="su_carousel-prev su_btn-floating su_green-light"><i class="material-icons">keyboard_arrow_left</i></button>
+                  <button class="su_carousel-next su_btn-floating su_green-light"><i class="material-icons">keyboard_arrow_right</i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Eyelids</h2>
+
+          <p>Eyelids is an innovative web component that can be useful to the people who read a lot on the computer screen. It helps you focus on the text or other content in cases of pages with a long chunks of text, or even to help cover up the distracting parts of the complex web page. To use it, just hit <code class="su_code">Shift + S</code> on the keyboard. The eyelids will close down vertically on your mouse position and will follow its movement allowing you a clean horizontal area for better focus on the content. To dismiss it, just hit <code class="su_code">Shift + S</code> again.</p>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Basic Navigation Bar</h2>
+
+          <p>Code applied:</p>
+
+          <pre class="su_code su_align-center"><code>&lt;div class="su_navigation"&gt;</code></pre>
+
+          <div class="su_navigation">
+            <div class="su_navigation-container">
+              <span class="su_logo">SeedUI</span>
+              <nav class="su_menu-main" role="navigation">
+                <ul>
+                  <li><a href="#item1">Item 1</a></li>
+                  <li><a href="#item2">Item 2</a></li>
+                  <li><a href="#item3">Item 3</a></li>
+                  <li><a href="#item4">Item 4</a></li>
+                </ul>
+              </nav>
+              <div class="su_search" role="search">
+                <form>
+                  <span class="su_submit-search material-icons">search</span>
+                  <div class="su_search-field">
+                    <input type="text" name="search" id="su_search-body">
+                    <label class="su_search-label" for="su_search-body">Search</label>
+                  </div>
+                </form>
+              </div>
+              <span class="su_menu-toggle">
+                <span class="su_icon su_icon-menu material-icons">menu</span>
+                <span class="su_icon su_icon-close material-icons">close</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>A simple modal</h2>
+
+          <p>This simple modal component provides clean and quick way to display simple textual information to the user.</p>
+          <p>To display the information in a modal, a toggle element is needed with the following "data" attributes set:</p>
+
+          <ul>
+            <li>
+              <code class="su_code">data-modal-trigger="simple"</code>
             </li>
-            <li class="su_cells su_cells_2 su_align-center">
-              <img src="img/gabriele.jpeg" alt="">
-              <p>Gabriele Romeo</p>
-            </li>
-            <li class="su_cells_2 su_align-center">
-              <img src="img/lena.jpeg" alt="">
-              <p>Lena Faure</p>
-            </li>
-            <li class="su_cells_2 su_align-center">
-              <img src="img/brian.jpeg" alt="">
-              <p>Brian Hernandez</p>
-            </li>
-            <li class="su_cells_2 su_align-center">
-              <img src="img/joseph.jpeg" alt="">
-              <p>Joseph Matembu</p>
-            </li>
-            <li class="su_cells_2 su_align-center">
-              <img src="img/vojislav.jpeg" alt="">
-              <p>Vojislav Grujic</p>
+            <li>
+              <code class="su_code">data-info="This is a short information that is being presented to the user in a simple modal."</code>
             </li>
           </ul>
+
+          <p>Click the buttons bellow to see different notifications.</p>
+
+          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="Nothing to see here, please move along!">Modal 1</button>
+
+          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="Sorry, the search is temporary disabled.">Modal 2</button>
+
+          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="No can do now, come back later, dude!">Modal 3</button>
+
+          <div class="su_modal su_modal-simple" data-modal-type="simple">
+            <span class="su_modal-close material-icons">close</span>
+            <div class="su_modal-content su_align-center"></div>
           </div>
-        <!-- </div> -->
+
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Typography</h2>
+
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <p>Heading 4</p>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+
+
+          <div>
+            <p>
+              <em>Seed-ui</em> uses a <em>Responsive Typography</em> system for headings.
+            </p>
+          </div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <div class="g-container">
+            <h2>Progress Bars</h2>
+
+            <p>
+              Add the class <code class="su_code">.su_progress-bar</code> to implement a progress bar element.
+              Then, add the <code class="su_code">.su_bar</code> class to the child span element.  Examples:
+            </p>
+
+            <p>
+              To implement the progression add a value between 0% and 100% to the
+              <code class="su_code">width</code> property of a bar element.
+            </p>
+
+            <p>
+              Add one of the following classes to a <em>bar</em> to get some extra colors:
+            <ul>
+              <li>Add the class <code class="su_code">.su_bar--success</code> to get a light green bar</li>
+              <li>Add the class <code class="su_code">.su_bar--warn</code> to get a light pink bar</li>
+              <li>Add the class <code class="su_code">.su_bar--error</code> to get a dark pink bar</li>
+            </ul>
+            </p>
+
+            <div class="su_progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+              <span class="su_bar su_bar--success" style="width: 10%"></span>
+            </div>
+
+            <div class="su_progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              <span class="su_bar su_bar--warn" style="width: 25%"></span>
+            </div>
+
+            <div class="su_progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+              <span class="su_bar su_bar--error" style="width: 50%"></span>
+            </div>
+
+            <div class="su_progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="su_bar" style="width: 100%"></span>
+            </div>
+
+            <p>
+              Add the class <code class="su_code">.su_progress-bar--rounded</code> to a progress-bar element to make its borders rounded.  Examples:
+            </p>
+
+            <div class="su_progress-bar su_progress-bar--rounded" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              <span class="su_bar su_bar--warn" style="width: 25%"></span>
+            </div>
+
+            <div class="su_progress-bar su_progress-bar--rounded" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="su_bar" style="width: 100%"></span>
+            </div>
+
+            <div class="su_space-top--medium"></div>
+            <hr>
+            <div class="su_space-top--medium"></div>
+
+            <h2>Infinite Loading</h2>
+
+            <p>
+              Add the class <code class="su_code">.su_progress-bar--indeterminate</code>
+              to a progress-bar element to make it an <em>indeterminated</em> progress bar.  Examples:
+            </p>
+
+            <div class="su_progress-bar su_progress-bar--rounded su_progress-bar--indeterminate">
+              <div class="su_bar"></div>
+            </div>
+
+            <p>Backward</p>
+
+            <p>
+              Add the class <code class="su_code">.su_bar--b</code> to the child span element of the progress-bar element to get a <em>backward</em> animation.
+            </p>
+
+            <div classd" rolrogress-bar su_progress-bar--indeterminate">
+              <div class="su_bar su_bar--b"></div>
+            </div>
+
+            <p>Forward and Backward</p>
+
+            <p>
+              Add the class <code class="su_code">.su_bar--fb</code> to the child span element of the progress-bar element to get a <em>forward and backward</em> animation.
+            </p>
+
+            <div class="su_progress-bar su_progress-bar--indeterminate su_progress-bar--rounded">
+              <div class="su_bar su_bar--warn su_bar--fb"></div>
+            </div>
+
+          </div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <div class="g-container">
+            <h2>Forms</h2>
+
+            <p>
+              Add the class <code class="su_code">.su_form</code> to a form element.
+              Then add each input element inside a container field and give it the class <code class="su_code">.su_field</code>.
+            </p>
+            <p>
+              Add the class <code class="su_code">.su_field-label-up</code> to the
+              field to get the label up when the user click inside the input.
+            </p>
+            <p>
+              Add the class <code class="su_code">.su_input</code> to every input element.
+            </p>
+            <p>
+              Add the class <code class="su_code">.su_has-error</code> to the field and
+              add an element with class <code class="su_code">.su_error-message</code>
+              if you want to provide  an error message to the end-user.
+            </p>
+
+            <form class="su_form"><!-- Start Form 1 -->
+
+              <!-- Line 1 -->
+              <div class="su_line">
+
+                <div class="su_cell">
+                  <div class="su_field su_field-label-up">
+                    <input class="su_input" id="name" placeholder="" type="text" required>
+                    <label for="">Name</label>
+                  </div>
+                </div>
+                <div class="su_cell">
+                  <div class="su_field su_field-label-up">
+                    <input class="su_input" id="surname" placeholder="" type="text" required>
+                    <label for="surname">Surname</label>
+                  </div>
+                </div>
+                <div class="su_cell">
+                  <div class="su_field su_field-label-up su_has-error">
+                    <input class="su_input" id="password" placeholder="" type="password" value="test12345678910" required>
+                    <label for="password">Password</label>
+                    <div class="su_error-message">Wrong Password. Try Again</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Line 2 -->
+              <div class="su_line">
+
+                <div class="su_cell">
+
+                  <p>
+                    Add the class <code class="su_code">.su_input-checkbox</code> to a <em>seed</em> checkbox element.
+                  </p>
+
+                  <p>
+                    Add one of the following classes to a <em>checkbox</em> or <em>radio</em> to get some extra colors:
+                  <ul>
+                    <li>Add the class <code class="su_code">.su_input-checkbox--red</code> to get a red checkbox</li>
+                    <li>Add the class <code class="su_code">.su_input-checkbox--green-dark</code> to get a dark green checkbox</li>
+                    <li>Add the class <code class="su_code">.su_input-checkbox--pink</code> to get a pink checkbox</li>
+                  </ul>
+                  <ul>
+                    <li>Add the class <code class="su_code">.su_input-radio--red</code> to get a red radio</li>
+                    <li>Add the class <code class="su_code">.su_input-radio--green-dark</code> to get a dark green radio</li>
+                    <li>Add the class <code class="su_code">.su_input-radio--pink</code> to get a pink radio</li>
+                  </ul>
+                  </p>
+
+
+                  <div class="su_field g_column">
+                    <input class="su_input-checkbox" id="checkbox-1" type="checkbox">
+                    <label for="checkbox-1"><span>Check Box [default]</span></label>
+                    <input class="su_input-checkbox su_input-checkbox--red" id="checkbox-2" type="checkbox">
+                    <label for="checkbox-2">Check Box Red</label>
+                    <input class="su_input-checkbox su_input-checkbox--green-dark" id="checkbox-3" type="checkbox">
+                    <label for="checkbox-3">Check Box Dark Green</label>
+                    <input class="su_input-checkbox su_input-checkbox--pink" id="checkbox-4" type="checkbox">
+                    <label for="checkbox-4">Check Box Pink</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Line 4 -->
+              <div class="su_line">
+
+                <div class="su_cell">
+
+                  <p>
+                    Add the class <code class="su_code">.su_input-checkbox--x</code> to a checkbox element.
+                  </p>
+
+                  <div class="su_field g_column">
+                    <input class="su_input-checkbox su_input-checkbox--x" id="checkbox-5" type="checkbox">
+                    <label for="checkbox-5"><span>Check Box [default]</span></label>
+                    <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--red" id="checkbox-6" type="checkbox">
+                    <label for="checkbox-6">Check Box Red</label>
+                    <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--green-dark" id="checkbox-7" type="checkbox">
+                    <label for="checkbox-7">Check Box Dark Green</label>
+                    <input class="su_input-checkbox su_input-checkbox--x su_input-checkbox--pink" id="checkbox-8" type="checkbox">
+                    <label for="checkbox-8">Check Box Pink</label>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <!-- Line 5 -->
+              <div class="su_line">
+
+                <div class="su_cell">
+
+                  <p>
+                    Add the class <code class="su_code">.su_input-radio</code> to a radio element.
+                  </p>
+
+                  <div class="su_field g_column">
+                    <input class="su_input-radio" id="radio-1" name="radio-1" type="radio">
+                    <label for="radio-1"><span>Radio [default]</span></label>
+                    <input class="su_input-radio su_input-radio--red" id="radio-2" name="radio-1" type="radio">
+                    <label for="radio-2">Radio Red</label>
+                    <input class="su_input-radio su_input-radio--green-dark" id="radio-3" name="radio-1" type="radio">
+                    <label for="radio-3">Radio Green Dark</label>
+                    <input class="su_input-radio su_input-radio--pink" id="radio-4" name="radio-1" type="radio">
+                    <label for="radio-4">Radio Pink</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Line 5 -->
+              <div class="su_line">
+
+                <div class="su_cell">
+
+                  <p>
+                    Add the class <code class="su_code">.su_input</code> to button
+                    element or add the class both the classes
+                    <code class="su_code">.su_input .su_input--button</code> to a
+                    &lt;A&gt; or &lt;DIV&gt; element.<br />
+                    Add the class <code class="su_code">.su_input--button--3D</code>
+                    to get a 3D button.
+                  </p>
+
+                  <p>
+                    Add one of the following classes to a <em>button</em> to get some extra colors:
+                  <ul>
+                    <li>Add the class <code class="su_code">.su_input--button--dark-pink</code> to get a dark pink button</li>
+                    <li>Add the class <code class="su_code">.su_input--button--light-green</code> to get a light green button</li>
+                    <li>Add the class <code class="su_code">.su_input--button--green</code> to get a green button</li>
+                  </ul>
+                  </p>
+
+                  <div class="su_field">
+                    <input class="su_input" type="button" value="Button">
+                    <a class="su_input su_input--button">
+                      <span>Button 2</span>
+                      <i class="material-icons">file_download</i>
+                    </a>
+                    <div class="su_input su_input--button su_input--button--dark-pink">
+                      <span>Button 3</span>
+                      <i class="material-icons">settings</i>
+                    </div>
+                    <div class="su_input su_input--button su_input--button--light-green">
+                      <span>Button 4</span>
+                      <i class="material-icons">send</i>
+                    </div>
+                    <div class="su_input su_input--button su_input--button--green">
+                      <span>Button 5</span>
+                    </div>
+                    <a class="su_input su_input--button su_input--button--3D">
+                      <span>3D Button</span>
+                      <i class="material-icons">file_download</i>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+            </form><!-- End Form 1 -->
+
+            <div class="su_space-top--medium"></div>
+            <hr>
+            <div class="su_space-top--medium"></div>
+
+            <div class="su_line">
+              <div class="su_cell">
+                <h2>Form Boxes</h2>
+              </div>
+            </div>
+
+            <div class="su_line">
+              <div class="su_cell">
+
+                <p>
+                  Add the class <code class="su_code">.su_form-box</code> to a container and use the class
+                  <code class="su_code">.su_form-box--border</code> if you want to give it a rounded border.
+                </p>
+                <p>
+                  Add the class <code class="su_code">.su_field--border</code> to get a field with a rounded edge.
+                </p>
+                <p>
+                  Add the class <code class="su_code">.su_input--full-width</code> to make the input full width (100%)
+                </p>
+                <p>
+                  Add the class <code class="su_code">.su_field--border</code> to get a field with a rounded edge.
+                </p>
+                <p>
+                  Add the class <code class="su_code">.su_input-icon</code> icons' containers and use the
+                  <code class="su_code">.su_input-icon--up</code> to get the icon up to the input.
+                </p>
+
+              </div>
+            </div>
+
+            <!-- Line 6 -->
+            <div class="su_line">
+
+              <div class="su_cell">
+
+                <div class="su_form-box">
+                  <form class="su_form">
+                    <div>
+                      <h2 class="su_form-title">join us</h2>
+                    </div>
+                    <div class="su_form-box-body">
+                      <!-- username -->
+                      <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">person</i>
+                    </span>
+                        <input class="su_input" id="name" placeholder="Username" type="text" required>
+                      </div>
+                      <!-- email -->
+                      <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">email</i>
+                    </span>
+                        <input class="su_input" id="email" placeholder="Email" type="email" required>
+                      </div>
+                      <!-- password -->
+                      <div class="su_field su_field--border su_has-error">
+                    <span class="su_input-icon">
+                      <i class="material-icons">lock</i>
+                    </span>
+                        <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
+                        <div class="su_error-message">Wrong Password. Try Again</div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="su_field su_field--border">
+                        <input class="su_input su_input--button--3D" type="submit" value="Sign Up">
+                      </div>
+                    </div>
+                  </form>
+                </div><!-- end su_form-box -->
+
+              </div><!-- end cell -->
+
+              <div class="su_cell">
+
+                <div class="su_form-box su_form-box--border">
+                  <form class="su_form">
+                    <div>
+                      <h2 class="su_form-title">join us</h2>
+                    </div>
+                    <div class="su_form-box-body">
+                      <!-- username -->
+                      <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">person</i>
+                    </span>
+                        <input class="su_input" id="name" placeholder="Username" type="text" required>
+                      </div>
+                      <!-- email -->
+                      <div class="su_field su_field--border">
+                    <span class="su_input-icon">
+                      <i class="material-icons">email</i>
+                    </span>
+                        <input class="su_input" id="email" placeholder="Email" type="email" required>
+                      </div>
+                      <!-- password -->
+                      <div class="su_field su_field--border su_has-error">
+                    <span class="su_input-icon">
+                      <i class="material-icons">lock</i>
+                    </span>
+                        <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
+                        <div class="su_error-message">Wrong Password. Try Again</div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="su_field su_field--border">
+                        <input class="su_input su_input--full-width" type="submit" value="Sign Up">
+                      </div>
+                    </div>
+                  </form>
+                </div><!-- end su_form-box -->
+
+              </div><!-- end cell -->
+
+
+              <div class="su_cell">
+
+                <div class="su_form-box su_form-box--type-2">
+                  <form class="su_form">
+                    <div>
+                      <h2 class="su_form-title">join us</h2>
+                    </div>
+                    <div class="su_form-box-body">
+                      <!-- username -->
+                      <div class="su_field su_field--border">
+                    <span class="su_input-icon su_input-icon--up">
+                      Username
+                      <i class="material-icons">person</i>
+                    </span>
+                        <input class="su_input" id="name" placeholder="" type="text" required>
+                      </div>
+                      <!-- email -->
+                      <div class="su_field su_field--border">
+                    <span class="su_input-icon su_input-icon--up">
+                      Email
+                      <i class="material-icons">email</i>
+                    </span>
+                        <input class="su_input" id="email" placeholder="" type="email" required>
+                      </div>
+                      <!-- password -->
+                      <div class="su_field su_field--border">
+                        <div class="su_input-icon su_input-icon--up">
+                          <span>Password</span>
+                          <i class="material-icons">lock</i>
+                        </div>
+                        <input class="su_input su_input--border-green" id="password" placeholder="" type="password" value="test12345678910" required>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="su_field su_field--border">
+                        <input class="su_input su_input--button--dark-pink su_input--full-width" type="submit" value="Sign Up">
+                      </div>
+                    </div>
+                  </form>
+                </div><!-- end su_form-box -->
+
+              </div><!-- end cell -->
+
+            </div>
+
+          </div>
+
+        <section>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Dropdowns</h2>
+
+          <article>
+            <h3>Default Dropdown</h3>
+            <div class="su_dropdown">
+              <button class="su_dropdown-toggle">
+                Take Action
+                <i class="material-icons">arrow_drop_down</i>
+              </button>
+              <div class="su_dropdown-menu">
+                <a href="#" class="su_dropdown-item">Action</a>
+                <a href="#" class="su_dropdown-item">Another action</a>
+                <a href="#" class="su_dropdown-item">An another action</a>
+                <a href="#" class="su_dropdown-item">An even longer action</a>
+                <a href="#" class="su_dropdown-item">Last action</a>
+              </div>
+            </div>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>Rounded Dropdown</h3>
+            <p>Add the class <code>.su_dropdown-toggle-rounded</code> to create a rounded dropdown like the one below.</p>
+            <div class="su_dropdown">
+              <button class="su_dropdown-toggle su_radius">
+                Take Action
+                <i class="material-icons">arrow_drop_down</i>
+              </button>
+              <div class="su_dropdown-menu">
+                <a href="#" class="su_dropdown-item">Action</a>
+                <a href="#" class="su_dropdown-item">Another action</a>
+                <a href="#" class="su_dropdown-item">An another action</a>
+                <a href="#" class="su_dropdown-item">An even longer action</a>
+                <a href="#" class="su_dropdown-item">Last action</a>
+              </div>
+            </div>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>Dropdown with icons</h3>
+            <p>Simply add icons of your choice to the button and dropdown menu items.</p>
+            <div class="su_dropdown">
+              <button class="su_dropdown-toggle">
+                <i class="material-icons">star_border</i>
+                Take Action
+                <i class="material-icons">arrow_drop_down</i>
+              </button>
+              <div class="su_dropdown-menu">
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Action</a>
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Another action</a>
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> An another action</a>
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> An even longer action</a>
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Last action</a>
+              </div>
+            </div>
+          </article>
+
+        </section>
+        <section>
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>List Groups</h2>
+
+          <article>
+            <h3>Basic List Group</h3>
+            <ul class="su_list">
+              <li class="su_list-item">Item 1</li>
+              <li class="su_list-item">Item 2</li>
+              <li class="su_list-item">Item 3</li>
+              <li class="su_list-item">Item 4</li>
+              <li class="su_list-item">Item 5</li>
+            </ul>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>List Group with Icons</h3>
+            <p>Simply add icons of your choice to list items.</p>
+            <ul class="su_list">
+              <li class="su_list-item"><i class="material-icons">face</i> Item 1</li>
+              <li class="su_list-item"><i class="material-icons">star_border</i> Item 2</li>
+              <li class="su_list-item"><i class="material-icons">face</i> Item 3</li>
+              <li class="su_list-item"><i class="material-icons">star_border</i> Item 4</li>
+              <li class="su_list-item"><i class="material-icons">face</i> Item 5</li>
+            </ul>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>List Group with Labels</h3>
+            <p>Wrap the labels withing a <code>.su_list-item-label</code> class.</p>
+            <ul class="su_list">
+              <li class="su_list-item">Item 1 <span class="su_list-item-label">6</span></li>
+              <li class="su_list-item">Item 2 <span class="su_list-item-label">123</span></li>
+              <li class="su_list-item">Item 3 <span class="su_list-item-label">99</span></li>
+              <li class="su_list-item">Item 4 <span class="su_list-item-label">5</span></li>
+              <li class="su_list-item">Item 5 <span class="su_list-item-label">1</span></li>
+            </ul>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>List Group as Links</h3>
+            <p>You can create a list of links instead. To show an active list item, add the <code>.active</code> class to it.</p>
+            <div class="su_list ">
+              <a href="#" class="su_list-item active">Item 1</a>
+              <a href="#" class="su_list-item">Item 2</a>
+              <a href="#" class="su_list-item">Item 3</a>
+              <a href="#" class="su_list-item">Item 4</a>
+              <a href="#" class="su_list-item">Item 5</a>
+            </div>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>Content List Group with Image</h3>
+            <p>Create a list with your custom content. Simply add your content within the <code>li</code> items.</p>
+            <ul class="su_list">
+              <li class="su_list-item">
+                <img src="components/list/images/face.jpg">
+                <p>John Doe</p>
+                <p>To fourth divide good. Multiply also subdue may all fill hath place can&#39;t place brought second tree. Beast created were.</p>
+              </li>
+              <li class="su_list-item">
+                <img src="components/list/images/face.jpg">
+                <p>John Doe</p>
+                <p>To fourth divide good. Multiply also subdue may all fill hath place can&#39;t place brought second tree. Beast created were.</p>
+              </li>
+              <li class="su_list-item">
+                <img src="components/list/images/face.jpg">
+                <p>John Doe</p>
+                <p>Living blessed in second. Deep abundantly fly hath midst fly the, spirit cattle rule life stars grass form lights fruitful.</p>
+              </li>
+            </ul>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>Content List Group with Rounded Image</h3>
+            <p>The same as above, but with rounded images. You will need to apply <code>.su_img-rounded</code> class to each image.</p>
+            <ul class="su_list">
+              <li class="su_list-item">
+                <img class="su_img-rounded" src="components/list/images/face.jpg">
+                <p>John Doe</p>
+                <p>To fourth divide good. Multiply also subdue may all fill hath place can&#39;t place brought second tree. Beast created were.</p>
+              </li>
+              <li class="su_list-item">
+                <img class="su_img-rounded" src="components/list/images/face.jpg">
+                <p>John Doe</p>
+                <p>To fourth divide good. Multiply also subdue may all fill hath place can&#39;t place brought second tree. Beast created were.</p>
+              </li>
+              <li class="su_list-item">
+                <img class="su_img-rounded" src="components/list/images/face.jpg">
+                <p>John Doe</p>
+                <p>Living blessed in second. Deep abundantly fly hath midst fly the, spirit cattle rule life stars grass form lights fruitful.</p>
+              </li>
+            </ul>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>List Group with content in Columns</h3>
+            <p>Divide your content into simple columns. Each list item should have the <code>.su_has-columns</code> class. You can then separate your content by wrapping it around a span or div element with a class of <code>su_col</code>. To create a grid, see our grid structure instead.</p>
+            <ul class="su_list">
+              <li class="su_list-item su_has-columns">
+                <div class="su_col">
+                  <p>Living blessed in second.</p>
+                </div>
+                <div class="su_col">
+                  <p>Deep abundantly fly hath midst fly.</p>
+                </div>
+              </li>
+              <li class="su_list-item su_has-columns">
+                <div class="su_col"><p>Fish morning day the living darkness fowl</p></div>
+                <div class="su_col"><p>Living blessed in second. </p></div>
+                <div class="su_col"><p>Fish morning day the living darkness.</p></div>
+              </li>
+              <li class="su_list-item su_has-columns">
+                <div class="su_col"><p>Fish morning day.</p></div>
+                <div class="su_col"><p>Living blessed in second.</p></div>
+                <div class="su_col"><p>Living blessed in second.</p></div>
+                <div class="su_col"><p>Fish morning day the living darkness.</p></div>
+              </li>
+            </ul>
+          </article>
+
+        </section>
+
+        <div class="su_space-top--medium"></div>
+        <hr>
+        <div class="su_space-top--medium"></div>
+
+        <section>
+          <h2>Cards</h2>
+
+          <article>
+            <h3>Basic Card</h3>
+            <p>Use any of the color classes to change the background of the cards.</p>
+            <div class="su_line">
+              <div class="su_cell su_cells_4 ">
+                <div class="su_card su_color-primary">
+                  <p class="su_card-title">Card Title</p>
+                  <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                </div>
+              </div>
+              <div class="su_cell su_cells_4 ">
+                <div class="su_card su_color-info">
+                  <p class="su_card-title">Card Title</p>
+                  <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>Card with action button</h3>
+            <p>These cards use buttons from the seed-ui framework but you can replace them with your own buttons or icons.</p>
+            <div class="su_line">
+              <div class="su_cell su_cells_6 ">
+                <div class="su_card">
+                  <div class="su_card-body">
+                    <p class="su_card-title">Card Title</p>
+                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                  </div>
+                  <div class="su_card-footer">
+                    <button type="button" class="su_btn su_btn-warning">Cancel</button>
+                    <button type="button" class="su_btn su_btn-secondary">Continue</button>
+                  </div>
+                </div>
+              </div>
+              <div class="su_cell su_cells_6 ">
+                <div class="su_card">
+                  <div class="su_card-body">
+                    <p class="su_card-title">Card Title</p>
+                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                  </div>
+                  <div class="su_card-footer">
+                    <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
+                    <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="su_space-top--medium"></div>
+
+          <article>
+            <h3>Card with Image</h3>
+
+            <p>Card 1</p>
+            <p>Wrap the image within a div or span with a class of <code>.su_card-image</code>.</p>
+            <div class="su_line">
+              <div class="su_cell su_cells_6 ">
+                <div class="su_card">
+                  <div class="su_card-image">
+                    <img src="components/card/images/1.jpg">
+                  </div>
+                  <div class="su_card-body">
+                    <p class="su_card-title">Card Title</p>
+                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                  </div>
+                  <div class="su_card-footer">
+                    <button type="button" class="su_btn su_btn-warning">Cancel</button>
+                    <button type="button" class="su_btn su_btn-secondary">Continue</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="su_space-top--medium"></div>
+
+            <p>Card 2</p>
+            <p>Add <code>.su_img-fill</code> to the wrapping element (<code>.su_card</code>).</p>
+            <div class="su_line">
+              <div class="su_cell su_cells_6 ">
+                <div class="su_card su_img-fill">
+                  <div class="su_card-image">
+                    <img src="components/card/images/1.jpg">
+                  </div>
+                  <p class="su_card-title">Card Title</p>
+                  <div class="su_card-body">
+                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                  </div>
+                  <div class="su_card-footer">
+                    <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
+                    <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="su_space-top--medium"></div>
+
+            <p>Card 3</p>
+            <p>Use <code>.su_img-overlap</code> together with the <code>.su_card</code> class.</p>
+            <div class="su_line">
+              <div class="su_cell su_cells_6 ">
+                <div class="su_card su_img-overlap">
+                  <div class="su_card-image">
+                    <img src="components/card/images/1.jpg">
+                  </div>
+                  <div class="su_card-body">
+                    <p class="su_card-title">Card Title</p>
+                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                  </div>
+                  <div class="su_card-footer">
+                    <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
+                    <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="su_space-top--medium"></div>
+
+            <p>Card 4</p>
+            <p>Use <code>.su_card-product</code> together with the <code>.su_card</code> class. You may use <code>.su_img-fill</code> or <code>.su_img-overlap</code> as you see fit.</p>
+            <div class="su_line">
+              <div class="su_cell su_cells_4">
+                <div class="su_card su_img-fill su_card-product su_align-center">
+                  <div class="su_card-image">
+                    <img src="components/card/images/3.jpg">
+                  </div>
+                  <div class="su_card-body">
+                    <h3 class="su_card-title">Red Shoe</h3>
+                    <p>Replenish, earth tree replenish</p>
+                  </div>
+                  <div class="su_card-footer">
+                    <span class="su_product-price su_left">$29.99</span>
+                    <span class="su_product-share su_right"><i class="material-icons">share</i></span>
+                  <span class="su_clear">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </section>
+
+        <div class="su_space-top--medium"></div>
+        <hr>
+        <div class="su_space-top--medium"></div>
+
+        <section>
+          <h2>Combobox (Text field with a Select Box)</h2>
+
+          <article>
+            <h3>Basic Combobox</h3>
+            <div class="su_line">
+              <div class="su_cell su_cells_4 su_form">
+                <p>This is the default combobox.</p>
+                <div class="su_combobox su_field su_field-label-up">
+                  <input type="text" class="su_input" name="fruits" list="su_fruits" placeholder="Type to select">
+                  <label>Select Fruit</label>
+                  <datalist id="su_fruits">
+                    <option value="Bananas">
+                    <option value="Grapes">
+                    <option value="Mangoes">
+                    <option value="Passion">
+                  </datalist>
+                </div>
+              </div>
+              <div class="su_cell su_cells_4 su_form">
+                <p>Add <code>su_accent-primary</code> to the text field.</p>
+
+                <div class="su_combobox su_field su_field-label-up">
+                  <input type="text" class="su_input su_primary-color" name="fruits" list="su_fruits" placeholder="Type to select">
+                  <label>Select Fruit</label>
+                  <datalist id="su_fruits">
+                    <option value="Bananas">
+                    <option value="Grapes">
+                    <option value="Mangoes">
+                    <option value="Passion">
+                  </datalist>
+                </div>
+
+              </div>
+              <div class="su_cell su_cells_4 su_form">
+                <p>Add <code>su_accent-color</code> to the text field.</p>
+
+                <div class="su_combobox su_field su_field-label-up">
+                  <input type="text" class="su_input su_accent-color" name="fruits" list="su_fruits" placeholder="Type to select">
+                  <label>Select Fruit</label>
+                  <datalist id="su_fruits">
+                    <option value="Bananas">
+                    <option value="Grapes">
+                    <option value="Mangoes">
+                    <option value="Passion">
+                  </datalist>
+                </div>
+
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <div class="su_space-top--medium"></div>
+        <hr>
+        <div class="su_space-top--medium"></div>
+
+        <div class="su_demo">
+          <div class="su_space-top--medium"></div>
+          <h2>Sneak Peek</h2>
+          <h4>Hover on links to have a preview of the page it leads to</h4>
+          <h4>Simply add your url and the web page will appear in a scrollable media box: you can take a sneak peek at the page before clicking the link</h4>
+          <p>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a <span class="su_preview"><a href="#" class="su_preview-link su_accent"><strong>paradisematic country</strong></a> <span class="su_preview-page"><iframe src="https://blog.bovacademy.com/" frameBorder="0"></iframe></span></span>, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of <span class="su_preview"><a href="#" class="su_preview-link su_accent"><strong>Alphabet Village</strong></a> <span class="su_preview-page"><iframe src="https://www.vice.com/fr" frameBorder="0"></iframe></span> </span> and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then.
+          </p>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Responsive Grid (12 columns)</h2>
+
+          <h3>Basic Grid</h3>
+          <p>Add the class <code>su_cells_{number}</code> to your cell</p>
+          <div class="su_line su_align-center">
+            <div class="su_cell su_cells_12 su_primary-bg-light">12</div>
+          </div>
+          <div class="su_line su_align-center">
+            <div class="su_cell su_cells_6 su_primary-bg-light">6</div>
+            <div class="su_cell su_cells_6 su_primary-bg-light">6</div>
+          </div>
+          <div class="su_line su_align-center">
+            <div class="su_cell su_cells_3 su_primary-bg-light">3</div>
+            <div class="su_cell su_cells_5 su_primary-bg-light">5</div>
+            <div class="su_cell su_cells_4 su_primary-bg-light">4</div>
+          </div>
+          <div class="su_line su_align-center">
+            <div class="su_cell su_cells_11 su_primary-bg-light">11</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+          </div>
+          <div class="su_line su_align-center">
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+            <div class="su_cell su_cells_1 su_primary-bg-light">1</div>
+          </div>
+
+          <div class="su_space-top--small"></div>
+          <h3>Grid with Spacing</h3>
+          <p>Simply add the class <code>su_gutters</code> to your line</p>
+
+          <div class="su_line su_gutters su_align-center">
+            <div class="su_cell su_cells_6 su_accent-bg-light">6</div>
+            <div class="su_cell su_cells_6 su_accent-bg-light">6</div>
+          </div>
+          <div class="su_line su_gutters su_align-center">
+            <div class="su_cell su_cells_3 su_accent-bg-light">3</div>
+            <div class="su_cell su_cells_5 su_accent-bg-light">5</div>
+            <div class="su_cell su_cells_4 su_accent-bg-light">4</div>
+          </div>
+          <div class="su_line su_gutters su_align-center">
+            <div class="su_cell su_cells_1 su_accent-bg-light">11</div>
+            <div class="su_cell su_cells_11 su_accent-bg-light">1</div>
+          </div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Tabs</h2>
+
+          <div class="su_tabs">
+            <input id="su_tab_1" type="radio" name="tabs" checked>
+            <label for="su_tab_1"><i class="fa fa-code"></i><span>Code</span></label>
+
+            <input id="su_tab_2" type="radio" name="tabs">
+            <label for="su_tab_2"><i class="fa fa-pencil-square-o"></i><span>Image</span></label>
+
+            <input id="su_tab_3" type="radio" name="tabs">
+            <label for="su_tab_3"><i class="fa fa-bar-chart-o"></i><span>Text</span></label>
+
+            <input id="su_tab_4" type="radio" name="tabs">
+            <label for="su_tab_4"><i class="fa fa-folder-open-o"></i><span>Map</span></label>
+
+            <input id="su_tab_5" type="radio" name="tabs">
+            <label for="su_tab_5"><i class="fa fa-envelope-o"></i><span>Contact</span></label>
+
+            <section id="su_content_1" >
+              <div class="su_tab-content">
+                <div class="su_line">
+                  <div class="su_cells su_cells_8 ">
+                    <img class="su_full-width" src="https://static.pexels.com/photos/102896/pexels-photo-102896.jpeg">
+                  </div>
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="su_content_2">
+              <div class="su_tab-content">
+                <div class="su_line">
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+                  <div class="su_cells su_cells_8">
+                    <img class="su_full-width" src="https://images.pexels.com/photos/190339/pexels-photo-190339.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="su_content_3">
+              <div class="su_tab-content">
+                <div class="su_line">
+                  <div class="su_cells su_cells_8">
+                    <img class="su_full-width" src="https://images.pexels.com/photos/7591/garden-flower-green-room-7591.jpg?w=940&h=650&auto=compress&cs=tinysrgb">
+                  </div>
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+            <section id="su_content_4">
+              <div class="su_tab-content">
+                <div class="su_line">
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+                  <div class="su_cells su_cells_8">
+                    <img class="su_full-width" src="https://images.pexels.com/photos/59044/pexels-photo-59044.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="su_content_5">
+              <div class="su_tab-content">
+                <div class="su_line">
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+                  <div class="su_cells su_cells_8">
+                    <img class="su_full-width" src="https://images.pexels.com/photos/99548/water-lilies-bud-pond-green-99548.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <div class="su_space-top--medium"></div>
+          <hr>
+          <div class="su_space-top--medium"></div>
+
+          <h2>Responsive Video Embed</h2>
+          <div class="su_video_container">
+            <iframe src="https://www.youtube.com/embed/KK-kuKF8n9A?showinfo=0&controls=0" frameborder="0" width="560" height="315"></iframe>
+          </div>
+
+
+          <div class="su_space-bottom--large"></div>
+        </div>
+
+        </div> <!-- end .su-cells_9-->
+      </div> <!-- end .su-line -->
+
+      <footer class="su_background-dark">
+        <div class="su_line">
+          <p class="su_cell su_cells_12 su_align-center">Seed UI Developed by:</p>
+        </div>
+        <ul class="su_line su_align-center">
+          <li class="su_cell su_cells_2">
+            <img src="img/jake.png" alt="">
+            <p>Jake Tom</p>
+          </li>
+          <li class="su_cell su_cells_2">
+            <img src="img/gabriele.jpeg" alt="">
+            <p>Gabriele Romeo</p>
+          </li>
+          <li class="su_cell su_cells_2">
+            <img src="img/lena.jpeg" alt="">
+            <p>Lena Faure</p>
+          </li>
+          <li class="su_cell su_cells_2">
+            <img src="img/brian.jpeg" alt="">
+            <p>Brian Hernandez</p>
+          </li>
+          <li class="su_cell su_cells_2">
+            <img src="img/joseph.jpeg" alt="">
+            <p>Joseph Matembu</p>
+          </li>
+          <li class="su_cell su_cells_2">
+            <img src="img/vojislav.jpeg" alt="">
+            <p>Vojislav Grujic</p>
+          </li>
+        </ul>
+        </div>
       </footer>
 
-      <script type="text/javascript" src=""></script>
+      <script type="text/javascript" src="prod/main.js"></script>
     </body>
 </html>

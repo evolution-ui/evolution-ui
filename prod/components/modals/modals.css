@@ -1,0 +1,46 @@
+/* THE MODAL COMPONENT */
+.su_modal {
+  box-sizing: border-box;
+  position: fixed;
+  width: 80vw;
+  height: 80vh;
+  top: 10vw;
+  left: 10vw;
+  opacity: 0;
+  z-index: -1;
+  background-color: rgba(98, 168, 33, 0.9);
+  transition: all 0.2s ease-in-out 0s; }
+  .su_modal * {
+    box-sizing: border-box; }
+  .su_modal.su_modal-active {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 99999;
+    transition: all 0.2s ease-in-out 0s; }
+  .su_modal .su_modal-close {
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    font-size: 5em;
+    cursor: pointer;
+    color: #1b5709;
+    transition: all 0.2s ease-in-out 0s; }
+    .su_modal .su_modal-close:hover {
+      color: #113806; }
+  .su_modal .su_modal-content {
+    position: relative;
+    padding: 20px 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    height: 50vh;
+    min-height: 300px;
+    width: 80vw;
+    max-width: 800px;
+    background-color: #dadad0;
+    box-shadow: 0 3px 8px 1px rgba(17, 56, 6, 0.7); }
+
+/* END MODAL COMPONENT */
