@@ -42,6 +42,14 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+    copy: {
+      css: {
+        files: [{
+          src: 'dist/main.css',
+          dest: 'css/main.css'
+        }]
+      }
     }
   });
 
@@ -50,9 +58,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Register tasks
   grunt.registerTask('build', ['uglify', 'sass']); // 'grunt build' to run this
-  grunt.registerTask('default', ['concat', 'sass', 'watch']); // 'grunt' to run this
+  grunt.registerTask('default', ['concat', 'sass', 'copy', 'watch']); // 'grunt' to run this
 
 }

@@ -1,12 +1,12 @@
-//  VARIABLES
+/* EYELIDS COMPONENT */
 
 $highlight: white(0); // highlight color for the area that is being focused for reading
 // $background: su_color('secondary', 'base'); // color used to dim the rest of the page
-$background: black(0.8); // color used to dim the rest of the page
+$background: black(0.85); // color used to dim the rest of the page
 
 @mixin fixed-containers {
   position: fixed;
-  z-index: 1000;
+  z-index: 99999;
   width: 100%;
   content: '';
   display: block;
@@ -18,12 +18,18 @@ $background: black(0.8); // color used to dim the rest of the page
   @include fixed-containers;
 }
 
+// maybe it is better to animate position on initialization instead the dimensions
+
 .su_eyelids-top {
   top: 0;
+  // height: 0;
+  // transition: all 1s ease-in-out 0s;
   background-image: linear-gradient(to top, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
 }
 
 .su_eyelids-bottom {
   bottom: 0;
+  // top: 100vh;
+  // transition: all 1s ease-in-out 0s;
   background-image: linear-gradient(to bottom, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
 }
