@@ -14,9 +14,6 @@ body {
   /*margin: 0;*/
 }
 
-h2, footer {
-  color: #E7E7E7;
-}
 
 .su_list-item .active {
   border-right: 2px solid red;
