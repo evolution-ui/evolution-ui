@@ -51,7 +51,7 @@
       e.target.parentElement.classList.remove('su_modal-active');
     }
 
-  }
+  };
 
   modal.init();
 
