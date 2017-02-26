@@ -4,16 +4,11 @@
 
 header {
   background: #22262A;
-  width: 100%;
 }
 
 body {
   background: #30363B;
-  padding: 0;
-  margin: 0;
+  /*padding: 0;*/
+  /*margin: 0;*/
 }
 
-/*html {
-  padding: 0;
-  margin: 0;
-}*/
