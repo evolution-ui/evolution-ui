@@ -31,15 +31,14 @@
           margin: 40px 0;
         }
 
-        .su_cell {
-          background-color: initial;
-          border: initial;
-        }
       </style>
     </head>
     <body>
 
+
       <div class="g-container">
+
+        <h1>Typography</h1>
 
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
@@ -48,17 +47,36 @@
         <h5>Heading 5</h5>
         <h6>Heading 6</h6>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Reprehenderit iusto adipisci,
-          cupiditate animi, itaque qui aspernatur vel corrupti labore minima,
-          excepturi ab, fuga rem dolores. Ratione sunt autem iusto aliquid.
-        </p>
+
+        <div>
+          <p>
+          <em>Seed-ui</em> uses a <em>Responsive Typography</em> system for headings.
+          </p>
+        </div>
 
         <hr class="divisor">
 
         <div class="g-container">
           <h2>Progress Bars</h2>
+
+          <p>
+            Add the class <code class="su_code">.su_progress-bar</code> to implement a progress bar element.
+            Then, add the <code class="su_code">.su_bar</code> class to the child span element.  Examples:
+          </p>
+
+          <p>
+            To implement the progression add a value between 0% and 100% to the
+            <code class="su_code">width</code> property of a bar element.
+          </p>
+
+          <p>
+            Add one of the following classes to a <em>bar</em> to get some extra colors:
+            <ul>
+              <li>Add the class <code class="su_code">.su_bar--success</code> to get a light green bar</li>
+              <li>Add the class <code class="su_code">.su_bar--warn</code> to get a light pink bar</li>
+              <li>Add the class <code class="su_code">.su_bar--error</code> to get a dark pink bar</li>
+            </ul>
+          </p>
 
           <div class="su_progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
             <span class="su_bar su_bar--success" style="width: 10%"></span>
@@ -76,7 +94,9 @@
             <span class="su_bar" style="width: 100%"></span>
           </div>
 
-          <h4>Rounded</h4>
+          <p>
+            Add the class <code class="su_code">.su_progress-bar--rounded</code> to a progress-bar element to make its borders rounded.  Examples:
+          </p>
 
           <div class="su_progress-bar su_progress-bar--rounded" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
             <span class="su_bar su_bar--warn" style="width: 25%"></span>
@@ -88,17 +108,30 @@
 
           <h2>Infinite Loading</h2>
 
+          <p>
+            Add the class <code class="su_code">.su_progress-bar--indeterminate</code>
+            to a progress-bar element to make it an <em>indeterminated</em> progress bar.  Examples:
+          </p>
+
           <div class="su_progress-bar su_progress-bar--rounded su_progress-bar--indeterminate">
             <div class="su_bar"></div>
           </div>
 
           <h4>Backward</h4>
 
+          <p>
+            Add the class <code class="su_code">.su_bar--b</code> to the child span element of the progress-bar element to get a <em>backward</em> animation.
+          </p>
+
           <div class="su_progress-bar su_progress-bar--indeterminate">
             <div class="su_bar su_bar--b"></div>
           </div>
 
           <h4>Forward and Backward</h4>
+
+          <p>
+            Add the class <code class="su_code">.su_bar--fb</code> to the child span element of the progress-bar element to get a <em>forward and backward</em> animation.
+          </p>
 
           <div class="su_progress-bar su_progress-bar--indeterminate su_progress-bar--rounded">
             <div class="su_bar su_bar--warn su_bar--fb"></div>
@@ -111,6 +144,22 @@
         <div class="g-container">
           <h2>Forms</h2>
 
+          <p>
+            Add the class <code class="su_code">.su_form</code> to a form element.
+            Then add each input element inside a container field and give it the class <code class="su_code">.su_field</code>.
+          </p>
+          <p>
+           Add the class <code class="su_code">.su_field-label-up</code> to the
+           field to get the label up when the user click inside the input.
+          </p>
+          <p>
+            Add the class <code class="su_code">.su_input</code> to every input element.
+          </p>
+          <p>
+            Add the class <code class="su_code">.su_has-error</code> to the field and
+            add an element with class <code class="su_code">.su_error-message</code>
+            if you want to provide  an error message to the end-user.
+          </p>
 
           <form class="su_form"><!-- Start Form 1 -->
 
@@ -125,13 +174,13 @@
             </div>
             <div class="su_cell">
               <div class="su_field su_field-label-up">
-                <input class="su_input su_validate" id="surname" placeholder="" type="text" required>
+                <input class="su_input" id="surname" placeholder="" type="text" required>
                 <label for="surname">Surname</label>
               </div>
             </div>
             <div class="su_cell">
               <div class="su_field su_field-label-up su_has-error">
-                <input class="su_input su_validate" id="password" placeholder="" type="password" value="test12345678910" required>
+                <input class="su_input" id="password" placeholder="" type="password" value="test12345678910" required>
                 <label for="password">Password</label>
                 <div class="su_error-message">Wrong Password. Try Again</div>
               </div>
@@ -143,6 +192,21 @@
           <div class="su_line">
 
             <div class="su_cell">
+
+              <p>
+                Add the class <code class="su_code">.su_input-checkbox</code> to a <em>seed</em> checkbox element.
+              </p>
+
+              <p>
+                Add one of the following classes to a <em>checkbox</em> or <em>radio</em> to get some extra colors:
+                <ul>
+                  <li>Add the class <code class="su_code">.su_input-checkbox--red</code> to get a red checkbox</li>
+                  <li>Add the class <code class="su_code">.su_input-checkbox--green-dark</code> to get a dark green checkbox</li>
+                  <li>Add the class <code class="su_code">.su_input-checkbox--pink</code> to get a pink checkbox</li>
+                </ul>
+              </p>
+
+
               <div class="su_field g_column">
                 <input class="su_input-checkbox" id="checkbox-1" type="checkbox">
                 <label for="checkbox-1"><span>Check Box [default]</span></label>
@@ -161,6 +225,11 @@
           <div class="su_line">
 
             <div class="su_cell">
+
+              <p>
+                Add the class <code class="su_code">.su_input-checkbox--x</code> to a checkbox element.
+              </p>
+
               <div class="su_field g_column">
                 <input class="su_input-checkbox su_input-checkbox--x" id="checkbox-5" type="checkbox">
                 <label for="checkbox-5"><span>Check Box [default]</span></label>
@@ -180,6 +249,11 @@
           <div class="su_line">
 
             <div class="su_cell">
+
+              <p>
+                Add the class <code class="su_code">.su_input-radio</code> to a radio element.
+              </p>
+
               <div class="su_field g_column">
                 <input class="su_input-radio" id="radio-1" name="radio-1" type="radio">
                 <label for="radio-1"><span>Radio [default]</span></label>
@@ -198,6 +272,25 @@
           <div class="su_line">
 
             <div class="su_cell">
+
+              <p>
+                Add the class <code class="su_code">.su_input</code> to button
+                element or add the class both the classes
+                <code class="su_code">.su_input .su_input--button</code> to a
+                &lt;A&gt; or &lt;DIV&gt; element.<br />
+                Add the class <code class="su_code">.su_input--button--3D</code>
+                to get a 3D button.
+              </p>
+
+              <p>
+                Add one of the following classes to a <em>button</em> to get some extra colors:
+                <ul>
+                  <li>Add the class <code class="su_code">.su_input--button--dark-pink</code> to get a dark pink button</li>
+                  <li>Add the class <code class="su_code">.su_input--button--light-green</code> to get a light green button</li>
+                  <li>Add the class <code class="su_code">.su_input--button--green</code> to get a green button</li>
+                </ul>
+              </p>
+
               <div class="su_field">
                 <input class="su_input" type="button" value="Button">
                 <a class="su_input su_input--button">
@@ -226,13 +319,42 @@
 
           </form><!-- End Form 1 -->
 
+
+          <div class="su_line">
+            <div class="su_cell">
+              <h2>Forms Boxes</h2>
+            </div>
+          </div>
+
+          <div class="su_line">
+            <div class="su_cell">
+
+              <p>
+                Add the class <code class="su_code">.su_form-box</code> to a container and use the class
+                <code class="su_code">.su_form-box--border</code> if you want to give it a rounded border.
+              </p>
+              <p>
+                Add the class <code class="su_code">.su_field--border</code> to get a field with a rounded edge.
+              </p>
+              <p>
+                Add the class <code class="su_code">.su_field--border</code> to get a field with a rounded edge.
+              </p>
+              <p>
+                Add the class <code class="su_code">.su_input-icon</code> icons' containers and use the
+                <code class="su_code">.su_input-icon--up</code> to get the icon up to the input.
+              </p>
+
+            </div>
+          </div>
+
           <!-- Line 6 -->
           <div class="su_line">
 
             <div class="su_cell">
+
               <div class="su_form-box">
                 <form class="su_form">
-                <div class="su_form-box-header">
+                <div>
                   <h2 class="su_form-title">join us</h2>
                 </div>
                 <div class="su_form-box-body">
@@ -259,7 +381,7 @@
                     <div class="su_error-message">Wrong Password. Try Again</div>
                   </div>
                 </div>
-                <div class="su_form-box-footer">
+                <div>
                   <div class="su_field su_field--border">
                     <input class="su_input su_input--button--3D" type="submit" value="Sign Up">
                   </div>
@@ -271,9 +393,9 @@
 
             <div class="su_cell">
 
-              <div class="su_form-box su_form-box--border-pink">
+              <div class="su_form-box su_form-box--border">
                 <form class="su_form">
-                <div class="su_form-box-header">
+                <div>
                   <h2 class="su_form-title">join us</h2>
                 </div>
                 <div class="su_form-box-body">
@@ -300,7 +422,7 @@
                     <div class="su_error-message">Wrong Password. Try Again</div>
                   </div>
                 </div>
-                <div class="su_form-box-footer">
+                <div>
                   <div class="su_field su_field--border">
                     <input class="su_input su_input--full-width" type="submit" value="Sign Up">
                   </div>
@@ -315,7 +437,7 @@
 
               <div class="su_form-box su_form-box--type-2">
                 <form class="su_form">
-                <div class="su_form-box-header">
+                <div>
                   <h2 class="su_form-title">join us</h2>
                 </div>
                 <div class="su_form-box-body">
@@ -341,10 +463,10 @@
                       <span>Password</span>
                       <i class="material-icons">lock</i>
                     </div>
-                    <input class="su_input" id="password" placeholder="" type="password" value="test12345678910" required>
+                    <input class="su_input su_input--border-green" id="password" placeholder="" type="password" value="test12345678910" required>
                   </div>
                 </div>
-                <div class="su_form-box-footer">
+                <div>
                   <div class="su_field su_field--border">
                     <input class="su_input su_input--button--dark-pink su_input--full-width" type="submit" value="Sign Up">
                   </div>
