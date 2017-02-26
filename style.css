@@ -4,6 +4,8 @@
 
 header {
   background: #22262A;
+  /*padding: 1.5em;*/
+  color: #70869A;
 }
 
 body {
@@ -12,9 +14,17 @@ body {
   /*margin: 0;*/
 }
 
+h2, footer {
+  color: #E7E7E7;
+}
+
+.su_list-item {
+  color: #70869A;
+}
+
 footer img {
   max-width: 5em;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 footer li {
