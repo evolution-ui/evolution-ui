@@ -88,11 +88,15 @@
 
     init: function() {
       this.cacheDom();
-      this.addEvent(this.bodyElement, 'keydown', this.toggle.bind(this));
+      this.notify();
+      this.addEvent(this.bodyElement, 'keypress', this.toggle.bind(this));
+      this.addEvent(this.notification, 'mouseenter', this.notifyStop.bind(this));
+      this.addEvent(this.notification, 'click', this.notify.bind(this));
     },
 
     cacheDom: function() {
       this.bodyElement = document.querySelector('body');
+      this.notification = document.querySelector('.su_eyelids-notification');
       this.top = document.createElement('div');
       this.bottom = document.createElement('div');
       this.top.classList.add('su_eyelids-top');
@@ -100,11 +104,23 @@
     },
 
     addEvent: function(target, eventType, eventHandler) {
-      target.addEventListener(eventType, eventHandler);
+      if ( target ) {
+        target.addEventListener(eventType, eventHandler);
+      } else return;
     },
 
     removeEvent: function(target, eventType, eventHandler) {
-      target.removeEventListener(eventType, eventHandler);
+      if ( target ) {
+        target.removeEventListener(eventType, eventHandler);
+      } else return;
+    },
+
+    notify: function() {
+      this.notification && this.notification.classList.add('su_active');
+    },
+
+    notifyStop: function() {
+      this.notification && this.notification.classList.remove('su_active');
     },
 
     enable: function() {
@@ -139,7 +155,7 @@
       }
     }
 
-  }
+  };
 
   eyelids.init();
 
@@ -156,7 +172,61 @@
 })();
 
 (function() {
-	//logic
+
+  var modal = {
+
+    init: function() {
+      this.cacheDom();
+      this.addEvents();
+    },
+
+    cacheDom: function() {
+      this.modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+      this.simpleModal = document.querySelector('.su_modal-simple');
+      this.imageModal = document.querySelector('.su_modal-image');
+      this.videoModal = document.querySelector('.su_modal-video');
+      this.modalClose = document.querySelectorAll('.su_modal-close');
+    },
+
+    addEvents: function() {
+      var i, len = this.modalTriggers && this.modalTriggers.length;
+
+      for ( i = 0; i < len; i++ ) {
+        this.modalTriggers[i].addEventListener('click', this.showModal.bind(this));
+      }
+
+      len = this.modalClose.length;
+      for ( i = 0; i < len; i++ ) {
+        this.modalClose[i].addEventListener('click', this.hideModal.bind(this));
+      }
+
+    },
+
+    showModal: function(e) {
+      var modalType = e.target.dataset.modalTrigger,
+          simpleModal = (modalType === 'simple') && this.simpleModal,
+          imageModal = (modalType === 'image') && this.imageModal,
+          videoModal = (modalType === 'video') && this.videoModal,
+          modalContent = e.target.dataset.info,
+          modalContentContainer;
+
+      if ( simpleModal ) {
+        modalContentContainer = simpleModal.querySelector('.su_modal-content');
+        modalContentContainer.textContent = modalContent;
+        simpleModal.classList.add('su_modal-active');
+      }
+
+      // Code for other modal types will go here
+
+    },
+
+    hideModal: function(e) {
+      e.target.parentElement.classList.remove('su_modal-active');
+    }
+
+  };
+
+  modal.init();
 
 })();
 
@@ -201,7 +271,7 @@
       }
     }
 
-  }
+  };
 
   menuControl.init();
 
