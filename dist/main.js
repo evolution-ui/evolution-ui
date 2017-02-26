@@ -41,27 +41,30 @@
 
 (function() {
   var currentSlide = 0;
+  var carousel = document.querySelector('.su_carousel');
   var slides = document.querySelectorAll('.su_carousel-item');
 
-  function next() {
-    slides[currentSlide].classList.remove('su_carousel-visible');
-    currentSlide = (currentSlide+1) % slides.length;
-    slides[currentSlide].classList.add('su_carousel-visible');
+  if (carousel) {
+    function next() {
+      slides[currentSlide].classList.remove('su_carousel-visible');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('su_carousel-visible');
+    }
+
+    function previous() {
+      slides[currentSlide].classList.remove('su_carousel-visible');
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      slides[currentSlide].classList.add('su_carousel-visible');
+    }
+
+    document.querySelector('.su_carousel-next').addEventListener('click', function() {
+      next();
+    })
+
+    document.querySelector('.su_carousel-prev').addEventListener('click', function() {
+      previous();
+    })
   }
-
-  function previous() {
-    slides[currentSlide].classList.remove('su_carousel-visible');
-    currentSlide = (currentSlide-1 + slides.length) % slides.length;
-    slides[currentSlide].classList.add('su_carousel-visible');
-  }
-
-  document.querySelector('.su_carousel-next').addEventListener('click', function() {
-    next();
-  })
-
-  document.querySelector('.su_carousel-prev').addEventListener('click', function() {
-    previous();
-  })
 })();
 
 (function() {
@@ -175,7 +178,7 @@
     },
 
     addEvents: function(elements, event, eventHandler) {
-      var i, len = elements.length;
+      var i, len = elements && elements.length;
 
       for ( i = 0; i < len; i++ ) {
         elements[i].addEventListener(event, eventHandler);
@@ -188,7 +191,7 @@
     },
 
     highlightLink: function(e) {
-      var i, len = this.menuLinks.length;
+      var i, len = this.menuLinks && this.menuLinks.length;
       for ( i = 0; i < len; i++ ) {
         if ( e.target === this.menuLinks[i] ) {
           this.menuLinks[i].classList.add('su_link-active');
