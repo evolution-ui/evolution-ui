@@ -80,6 +80,8 @@ BUTTONS
 }
 
 .su_btn-to-top {
+  display: block;
+  z-index: 10000;
   position: fixed;
   bottom: 50px;
   right: 50px;

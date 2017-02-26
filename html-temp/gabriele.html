@@ -204,10 +204,21 @@
                   <span>Button 2</span>
                   <i class="material-icons">file_download</i>
                 </a>
-                <div class="su_input su_input--button">
+                <div class="su_input su_input--button su_input--button--dark-pink">
                   <span>Button 3</span>
+                  <i class="material-icons">settings</i>
+                </div>
+                <div class="su_input su_input--button su_input--button--light-green">
+                  <span>Button 4</span>
                   <i class="material-icons">send</i>
                 </div>
+                <div class="su_input su_input--button su_input--button--green">
+                  <span>Button 5</span>
+                </div>
+                <a class="su_input su_input--button su_input--button--3D">
+                  <span>3D Button</span>
+                  <i class="material-icons">file_download</i>
+                </a>
               </div>
             </div>
 
@@ -250,7 +261,7 @@
                 </div>
                 <div class="su_form-box-footer">
                   <div class="su_field su_field--border">
-                    <input class="su_input " type="submit" value="Sign Up">
+                    <input class="su_input su_input--button--3D" type="submit" value="Sign Up">
                   </div>
                 </div>
                 </form>
@@ -291,7 +302,7 @@
                 </div>
                 <div class="su_form-box-footer">
                   <div class="su_field su_field--border">
-                    <input class="su_input " type="submit" value="Sign Up">
+                    <input class="su_input su_input--full-width" type="submit" value="Sign Up">
                   </div>
                 </div>
                 </form>
@@ -310,30 +321,32 @@
                 <div class="su_form-box-body">
                   <!-- username -->
                   <div class="su_field su_field--border">
-                    <span class="su_input-icon">
+                    <span class="su_input-icon su_input-icon--up">
+                      Username
                       <i class="material-icons">person</i>
                     </span>
-                    <input class="su_input" id="name" placeholder="Username" type="text" required>
+                    <input class="su_input" id="name" placeholder="" type="text" required>
                   </div>
                   <!-- email -->
                   <div class="su_field su_field--border">
-                    <span class="su_input-icon">
+                    <span class="su_input-icon su_input-icon--up">
+                      Email
                       <i class="material-icons">email</i>
                     </span>
-                    <input class="su_input" id="email" placeholder="Email" type="email" required>
+                    <input class="su_input" id="email" placeholder="" type="email" required>
                   </div>
                   <!-- password -->
-                  <div class="su_field su_field--border su_has-error">
-                    <span class="su_input-icon">
+                  <div class="su_field su_field--border">
+                    <div class="su_input-icon su_input-icon--up">
+                      <span>Password</span>
                       <i class="material-icons">lock</i>
-                    </span>
-                    <input class="su_input" id="password" placeholder="Password" type="password" value="test12345678910" required>
-                    <div class="su_error-message">Wrong Password. Try Again</div>
+                    </div>
+                    <input class="su_input" id="password" placeholder="" type="password" value="test12345678910" required>
                   </div>
                 </div>
                 <div class="su_form-box-footer">
                   <div class="su_field su_field--border">
-                    <input class="su_input " type="submit" value="Sign Up">
+                    <input class="su_input su_input--button--dark-pink su_input--full-width" type="submit" value="Sign Up">
                   </div>
                 </div>
                 </form>
