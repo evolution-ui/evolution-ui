@@ -48,3 +48,7 @@ footer img {
 footer li {
   list-style-type: none;
 }
+
+ul {
+    padding-left: 0px;
+}
