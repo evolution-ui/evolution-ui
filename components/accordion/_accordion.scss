@@ -26,18 +26,20 @@
   padding: 15px;
   margin-bottom: 5px;
   // margin-top: 2.5px;
-  transition: background-color .5s;
+  transition: background-color .5s, color .5s;
 }
 
 .su_bellow input:focus + label,
 .su_bellow label:hover {
   background-color: su_color('primary', 'light');
+  color: su_color('accent', 'dark');
   // letter-spacing: 1px;
 }
 
 .su_bellow-content {
   max-height: 0;
   overflow: hidden;
+  overflow-y: scroll;
   transition: all .5s;
 }
 
@@ -48,4 +50,7 @@
 
 .su_bellow input:checked ~ .su_bellow-content {
   max-height: 12.5rem;
+  @media screen and (max-width: 550px) {
+
+  }
 }

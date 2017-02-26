@@ -9,15 +9,18 @@
   }
 }
 
+$su_field--border-radius: 3px;
+
+$su_input--height: 3rem;
+$su_input--button-width: 200px;
 
 /// Form BOX
 
 .su_form-box {
-  padding: 40px;
+  padding: 20px;
 
   @include m('type-2') {
-    background-color: su-color('accent', 'dark');
-    color: white();
+
   }
 
   @include m('border-pink') {
@@ -38,6 +41,10 @@
     text-transform: capitalize;
 
   }
+
+  .su_form-box-body {
+    margin-bottom: 5rem;
+  }
 }
 
 
@@ -56,22 +63,101 @@
 
       & .su_input {
         border: 1px solid su_color('accent', 'light')!important;
-        border-radius: 3px;
+        border-radius: $su_field--border-radius;
+      }
+
+      & .su_input-icon {
+        border-top-left-radius: $su_field--border-radius;
+        border-bottom-left-radius: $su_field--border-radius;
       }
 
     }
 
-    .su_input {
-      width: 100%;
-    }
-
     input[type='email'],
     input[type='text'],
-    input[type='password'] {
-      height: 3rem;
+    input[type='password'],
+    input[type='submit'],
+    input[type='button'] {
+      height: $su_input--height;
       border: 0;
       border-bottom: 1px solid rgba(0,0,0,.2);
     }
+  }
+
+  .su_input {
+    width: 100%;
+
+      &[type='submit'],
+      &[type='button'],
+      &--button {
+        width: $su_input--button-width;
+        border: 1px solid su_color('accent', 'light')!important;
+        background-color: white();
+
+        &:hover {
+          color: white();
+          background-color: su_color('accent', 'light');
+        }
+      }
+
+      // .su_input--button
+      @include m('button') {
+        position: relative;
+        display: flex;
+        height: $su_input--height;
+        margin: 10px 0;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+
+          & span {
+            padding: 0 5px;
+          }
+
+          // .su_input--button--green
+          @include m('green') {
+            background-color: su-color('primary')!important;
+
+            &:hover {
+              background-color: su-color('primary', 'dark')!important;
+            };
+          }
+
+          // .su_input--button--green
+          @include m('light-green') {
+            background-color: su-color('primary', 'light')!important;
+
+            &:hover {
+              background-color: su-color('primary')!important;
+            };
+          }
+
+          // .su_input--button--dark-pink
+          @include m('dark-pink') {
+            background-color: su-color('accent', 'dark')!important;
+            color: white();
+
+            &:hover {
+              background-color: su-color('accent', 'light')!important;
+            };
+          }
+
+          // .su_input--button--3D
+          @include m('3D') {
+            box-shadow: 0 3px 0 0 rgba(0,0,0,.23);
+
+              &:active {
+                top: 3px;
+                box-shadow: none;
+              }
+          }
+      }
+
+      // .su_input--full-width
+      @include m('full-width') {
+        width: 100%!important;
+      }
   }
 
   .su_has-error,
@@ -140,7 +226,7 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
-    padding: 0 1rem 0 2rem;
+    padding: 1.5rem 1rem 0 2rem;
 
       &:before {
         content: "";
@@ -185,14 +271,35 @@
     position: absolute;
     display: flex;
     height: 100%;
-    padding: 0 9px;
+    padding: 10px;
     align-items: center;
+
 
     & + input[type="email"],
     & + input[type="text"],
     & + input[type="password"] {
       padding-left: 50px;
     }
+
+    & i {
+      order: -1;
+    }
+
+    @include m('up') {
+      position: initial;
+      padding: 10px 0;
+
+        & i {
+          padding-right: 10px;
+        }
+
+        & + input[type="email"],
+        & + input[type="text"],
+        & + input[type="password"] {
+          padding-left: 10px;
+        }
+    }
+
   }
 }
 
@@ -206,6 +313,7 @@
 @media screen and (min-width: 750px) {
   .su_form-box {
     width: 500px;
+    padding: 40px;
   }
 
 

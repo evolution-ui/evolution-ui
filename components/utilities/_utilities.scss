@@ -40,6 +40,7 @@ $su_round-size: 500px;
 
 .su_round {
   border-radius: $su_round-size;
+  // border-radius: calc($element-height/2);
   padding: 15px 25px;
 }
 
@@ -214,8 +215,75 @@ $su_round-size: 500px;
   border-radius: $su_border-radius;
   // font-weight: 300;
   padding: 5px;
-
 }
+
+/* Spacer Classes */
+
+/* Top Spacer Classes */
+
+.su_space-top--small {
+  margin-top: 20px;
+}
+
+.su_space-top--medium {
+  margin-top: 50px;
+}
+
+.su_space-top--large {
+  margin-top: 100px;
+}
+
+/* Right Spacer Classes */
+
+.su_space-right--small {
+  margin-right: 20px;
+}
+
+.su_space-right--medium {
+  margin-right: 50px;
+}
+
+.su_space-right--large {
+  margin-right: 100px;
+}
+
+/* Bottom Spacer Classes */
+
+.su_space-bottom--small {
+  margin-bottom: 20px;
+}
+
+.su_space-bottom--medium {
+  margin-bottom: 50px;
+}
+
+.su_space-bottom--large {
+  margin-bottom: 100px;
+}
+
+/* Left Spacer Classes */
+
+.su_space-left--small {
+  margin-left: 20px;
+}
+
+.su_space-left--medium {
+  margin-left: 50px;
+}
+
+.su_space-left--large {
+  margin-left: 100px;
+}
+
+/* Center Content Class */
+
+.su_center-content {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 /* Styles for brian.html Presentation */
 
 .brian-div {
@@ -225,7 +293,11 @@ $su_round-size: 500px;
 
 .brian-div:hover,
 .brian-div:focus {
+}
 
+.brian-div2 {
+  max-width: 12rem;
+  padding: 10px;
 }
 
 .brian-span {
