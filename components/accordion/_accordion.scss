@@ -1,0 +1,51 @@
+//------------------------------------------------------------------------------
+//                       Accordion Component
+//------------------------------------------------------------------------------
+
+.su_accordion {
+  margin: 0 auto;
+  max-width: 40rem;
+  width: 100%;
+}
+
+.su_bellow {
+  position: relative;
+  width: 100%;
+}
+
+.su_bellow input {
+  position: absolute;
+  z-index: -50;
+  top: 4px;
+  right: 9px;
+}
+
+.su_bellow label {
+  display: block;
+  background-color: su_color('primary', 'base');
+  padding: 15px;
+  margin-bottom: 5px;
+  // margin-top: 2.5px;
+  transition: background-color .5s;
+}
+
+.su_bellow input:focus + label,
+.su_bellow label:hover {
+  background-color: su_color('primary', 'light');
+  // letter-spacing: 1px;
+}
+
+.su_bellow-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all .5s;
+}
+
+.su_bellow-content p {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.su_bellow input:checked ~ .su_bellow-content {
+  max-height: 12.5rem;
+}
