@@ -19,6 +19,7 @@
   opacity: 0;
   z-index: 1;
   transition: opacity 0.5s;
+  overflow: hidden;
 }
 
 .su_carousel-item:nth-child(even) {
