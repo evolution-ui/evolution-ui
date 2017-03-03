@@ -1,0 +1,58 @@
+//------------------------------------------------------------------------------
+//                       ScrollSpy Component
+//------------------------------------------------------------------------------
+
+.su_scrollspy-nav {
+  // border: 1px solid black;
+  /*display: inline-block;*/
+  // max-width: 60%;
+  padding-left: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin-bottom: 0;
+  // box-sizing: border-box;
+  background: su_color('primary', 'base');
+  border: 1px solid su_color('primary', 'base');
+  border-bottom: 0;
+}
+
+.su_scrollspy-nav li {
+  display: inline-block;
+}
+.su_scrollspy-nav li a,
+.su_scrollspy-nav li a:visited {
+  color: black(1);
+}
+
+.su_scrollspy-nav li a {
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  transition: background .5s, color .5s;
+}
+
+.su_scrollspy-nav li a:hover,
+.su_scrollspy-nav li a:focus {
+  background: su_color('primary', 'light');
+}
+.su_scrollspy-nav li:first-child a,
+.su_scrollspy-nav li:first-child a {
+  border-top-left-radius: 4px;
+}
+
+.su_scrollspy-nav .activeTab {
+  background: su_color('primary', 'light');
+}
+
+.su_scrollspy-container {
+  /*background-color: tomato;*/
+  // max-width: 60%;
+  max-height: 20em;
+  overflow: scroll;
+  padding: 15px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius:4px;
+  // box-sizing: border-box;
+  box-shadow: 0px 3px 3px 0px #c4c4b3;
+  border: 1px solid su_color('primary', 'base');
+}
