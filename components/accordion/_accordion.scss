@@ -32,7 +32,7 @@
 .su_bellow input:focus + label,
 .su_bellow label:hover {
   background-color: su_color('primary', 'light');
-  color: su_color('accent', 'dark');
+  // color: su_color('accent', 'dark');
   // letter-spacing: 1px;
 }
 

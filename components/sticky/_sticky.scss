@@ -1,0 +1,26 @@
+//------------------------------------------------------------------------------
+//                       Sticky Component
+//------------------------------------------------------------------------------
+
+
+.su_stick {
+  padding: 15px;
+  box-shadow: 0px 3px 3px 0px #c4c4b3;
+  // position: relative;
+}
+
+.su_stuck {
+  position: fixed;
+  // color: su_color('accent', 'base');
+  z-indez: 9999;
+}
+
+.su_stick-end {
+
+}
+
+.brian_su_stick_presentation {
+  display: inline-block;
+  max-width: 300px;
+  padding: 15px;
+}

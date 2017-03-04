@@ -34,11 +34,13 @@
 .su_scrollspy-nav li a:hover,
 .su_scrollspy-nav li a:focus {
   background: su_color('primary', 'light');
+  color: cu_color('background', 'dark');
 }
-.su_scrollspy-nav li:first-child a,
-.su_scrollspy-nav li:first-child a {
-  border-top-left-radius: 4px;
-}
+
+// .su_scrollspy-nav li:first-child a,
+// .su_scrollspy-nav li:first-child a {
+//   border-top-left-radius: 4px;
+// }
 
 .su_scrollspy-nav .activeTab {
   background: su_color('primary', 'light');
