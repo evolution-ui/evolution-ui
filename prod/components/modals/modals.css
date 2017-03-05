@@ -1,4 +1,5 @@
 /* THE MODAL COMPONENT */
+/* this component has a CSS dependency on 'video_embed' component */
 .su_modal {
   box-sizing: border-box;
   position: fixed;
@@ -36,11 +37,17 @@
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
-    height: 50vh;
-    min-height: 300px;
     width: 80vw;
     max-width: 800px;
     background-color: #dadad0;
     box-shadow: 0 3px 8px 1px rgba(17, 56, 6, 0.7); }
+    .su_modal .su_modal-content img {
+      width: 100%; }
+    .su_modal .su_modal-content iframe {
+      width: 100%; }
+
+[data-modal-type] {
+  cursor: pointer;
+  display: block; }
 
 /* END MODAL COMPONENT */
