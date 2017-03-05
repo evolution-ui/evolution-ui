@@ -12,30 +12,23 @@
 
 .su_tooltip-text {
   display: none;
-  // visibility: hidden;
-  // transition: visibility 1s;
 }
 
 .su_tooltip:hover,
 .su_tooltip:focus {
   z-index: 51;
-  // display: block;
 }
 
 .su_tooltip:hover .su_tooltip-text,
 .su_tooltip:focus .su_tooltip-text {
   display: block;
-  // visibility: visible;
   position: absolute;
   width: 10rem;
   padding: 8px;
   background-color: su_color('primary', 'base');
   color: white(1);
-  // border: #ff0000;
-  // border-radius: 4px;
   font-size: 12px;
   top: calc(100% + 8px);
-  // left: calc(-50% + 8px);
 }
 
 .su_tooltip-text::before {
@@ -44,10 +37,8 @@
   display: block;
   position: absolute;
   bottom: 100%;
-  // left: calc(50% - 8px);
   content: '';
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-
   border-bottom: 8px solid su_color('primary', 'base');
 }

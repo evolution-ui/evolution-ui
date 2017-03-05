@@ -1,18 +1,17 @@
-// (function() {
-//   var activeBellow;
+/* Accordion Component */
 
-//   document.querySelector('.su_bellow').addEventListener('click', function(event) {
-//     console.log(event.target);
-//     console.log(event.target.tagName + ' is checked? ' + event.target.checked);
-//     if (event.target.tagName === "INPUT" && event.target.classname === 'su_active-bellow') {
-//       event.target.checked = false;
-//       event.target.classList.remove('su_active-bellow');
-//       console.log('class was found');
-//     } else if (event.target.tagName === "INPUT" && event.target.classname !== 'su_active-bellow') {
-//       event.target.classname = 'su_active-bellow';
-//       event.target.checked = true;
-//       console.log('class wasn\'t found.');
-//     }
-//   });
+(function() {
+  var bellows = document.querySelector('.su_accordion');
 
-// })();
+  bellows.addEventListener('click', function(event) {
+    if (event.target.tagName === "INPUT") {
+      if (!(event.target.className === "su_active-bellow-flag")) {
+        event.target.classList.add("su_active-bellow-flag");
+      } else if (event.target.className === "su_active-bellow-flag") {
+        event.target.checked = false;
+        event.target.classList.remove("su_active-bellow-flag");
+        event.target.blur();
+      }
+    }
+  });
+})();
