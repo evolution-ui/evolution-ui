@@ -1,3 +1,5 @@
+/* Accordion Component */
+
 (function() {
   var bellows = document.querySelector('.su_accordion');
 

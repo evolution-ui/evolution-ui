@@ -1,4 +1,4 @@
-/** ScrollSpy **/
+/* ScrollSpy Component */
 
 (function() {
   var heading1 = document.getElementById('heading1');

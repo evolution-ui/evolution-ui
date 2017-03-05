@@ -1,4 +1,4 @@
-/** Sticky Component **/
+/* Sticky Component */
 
 (function() {
   var stickyElement = document.querySelector('.su_stick');
