@@ -1,4 +1,5 @@
 /** ScrollSpy **/
+
 (function() {
   var heading1 = document.getElementById('heading1');
   var heading2 = document.getElementById('heading2');
