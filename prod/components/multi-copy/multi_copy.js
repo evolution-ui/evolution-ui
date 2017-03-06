@@ -14,4 +14,4 @@
       document.execCommand('copy');
     }
   });
-})()
+})();
