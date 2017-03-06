@@ -37,7 +37,9 @@
       .su_pagination ul li a {
         display: block;
         width: 100%;
-        height: 100%; }
+        height: 100%;
+        position: relative;
+        z-index: 100; }
   .su_pagination ul li:first-child,
   .su_pagination ul li:last-child {
     color: #25760c;

@@ -1,3 +1,5 @@
+/* PAGINATION COMPONENT */
+
 (function() {
   var paginationBlocks = document.querySelectorAll('.su_pagination'),
       i, len = paginationBlocks && paginationBlocks.length,
@@ -26,3 +28,5 @@
   }
 
 })();
+
+/* END PAGINATION COMPONENT */

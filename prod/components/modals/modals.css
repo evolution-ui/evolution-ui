@@ -1,5 +1,25 @@
 /* THE MODAL COMPONENT */
 /* this component has a CSS dependency on 'video_embed' component */
+
+/* VIDEO_EMBED COMPONENT CSS */
+.su_video_container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid grey; }
+
+.su_video_container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px; }
+/* END VIDEO_EMBED COMPONENT CSS */
+
 .su_modal {
   box-sizing: border-box;
   position: fixed;
@@ -47,7 +67,6 @@
       width: 100%; }
 
 [data-modal-type] {
-  cursor: pointer;
-  display: block; }
+  cursor: pointer; }
 
 /* END MODAL COMPONENT */

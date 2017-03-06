@@ -1,3 +1,4 @@
+/* DOT NAVIGATION COMPONENT */
 (function() {
 
   var dotNav = {
@@ -80,3 +81,4 @@
   dotNav.init();
 
 })();
+/* END DOT NAVIGATION COMPONENT */
