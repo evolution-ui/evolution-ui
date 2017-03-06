@@ -121,6 +121,11 @@
   .su_card-footer {
     border-top: 1px solid su_color('background');
     padding-top: 1.25rem;
+
+    .su_icon {
+      color: su_color('accent');
+      margin-right: 0.625rem;
+    }
   }
 
   p {
