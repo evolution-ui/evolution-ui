@@ -1,7 +1,8 @@
+/* ACCORDION COMPONENT */
 (function() {
   var bellows = document.querySelector('.su_accordion');
 
-  bellows.addEventListener('click', function(event) {
+  bellows && bellows.addEventListener('click', function(event) {
     if (event.target.tagName === "INPUT") {
       if (!(event.target.className === "su_active-bellow-flag")) {
         event.target.classList.add("su_active-bellow-flag");
@@ -13,6 +14,7 @@
     }
   });
 })();
+/* END ACCORDION COMPONENT */
 
 (function() {
 
@@ -540,7 +542,7 @@
   var tab5 = document.getElementById('tab5');
   var scrollSpyDiv = document.querySelector('.su_scrollspy-container');
 
-  scrollSpyDiv.addEventListener('scroll', function() {
+  scrollSpyDiv && scrollSpyDiv.addEventListener('scroll', function() {
     var currentActiveTab = document.querySelector('.activeTab');
 
     if (Math.abs(heading1.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
@@ -589,31 +591,33 @@
 
 (function() {
   var stickyElement = document.querySelector('.su_stick');
-  var stickyElementLeftPosition = elementAbsolutePosition(stickyElement).docLeftDistance;
-  var stickyElementTopPosition = elementAbsolutePosition(stickyElement).docTopDistance;
+  var stickyElementLeftPosition = stickyElement && elementAbsolutePosition(stickyElement).docLeftDistance;
+  var stickyElementTopPosition = stickyElement && elementAbsolutePosition(stickyElement).docTopDistance;
   var stickyElementEnd = document.querySelector('.su_stick-end');
-  var stickyElementEndTopPosition = elementAbsolutePosition(stickyElementEnd).docTopDistance;
+  var stickyElementEndTopPosition = stickyElement && elementAbsolutePosition(stickyElementEnd).docTopDistance;
   var stuckFlag = false;
 
-  window.onscroll = function(e) {
-    var elementRelativePosition = stickyElement.getBoundingClientRect();
-    if ((window.pageYOffset || document.documentElement.scrollTop) + 8 >= stickyElementTopPosition) {
-      stickyElement.classList.add("su_stuck");
-      stickyElement.classList.remove("su_right");
-      stickyElement.style.top = 0;
-      stickyElement.style.left = stickyElementLeftPosition + "px";
+  if ( stickyElement ) {
+    window.onscroll = function(e) {
+      var elementRelativePosition = stickyElement.getBoundingClientRect();
+      if ((window.pageYOffset || document.documentElement.scrollTop) + 8 >= stickyElementTopPosition) {
+        stickyElement.classList.add("su_stuck");
+        stickyElement.classList.remove("su_right");
+        stickyElement.style.top = 0;
+        stickyElement.style.left = stickyElementLeftPosition + "px";
 
-    } else if ((window.pageYOffset || document.documentElement.scrollTop) < stickyElementTopPosition){
-      stickyElement.classList.remove('su_stuck');
-      stickyElement.classList.add("su_right");
-      stuckFlag = false;
-    }
-    if ((window.pageYOffset || document.documentElement.scrollTop) >= stickyElementEndTopPosition - elementRelativePosition.height) {
-      stickyElement.classList.remove('su_stuck');
-      stickyElement.classList.add("su_right");
-      stuckFlag = false;
-    }
-  };
+      } else if ((window.pageYOffset || document.documentElement.scrollTop) < stickyElementTopPosition){
+        stickyElement.classList.remove('su_stuck');
+        stickyElement.classList.add("su_right");
+        stuckFlag = false;
+      }
+      if ((window.pageYOffset || document.documentElement.scrollTop) >= stickyElementEndTopPosition - elementRelativePosition.height) {
+        stickyElement.classList.remove('su_stuck');
+        stickyElement.classList.add("su_right");
+        stuckFlag = false;
+      }
+    };
+  }
 
   function elementAbsolutePosition(element) {
     var elementBoundingBox = element.getBoundingClientRect();
