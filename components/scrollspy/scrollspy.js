@@ -13,7 +13,7 @@
   var tab5 = document.getElementById('tab5');
   var scrollSpyDiv = document.querySelector('.su_scrollspy-container');
 
-  scrollSpyDiv.addEventListener('scroll', function() {
+  scrollSpyDiv && scrollSpyDiv.addEventListener('scroll', function() {
     var currentActiveTab = document.querySelector('.activeTab');
 
     if (Math.abs(heading1.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
