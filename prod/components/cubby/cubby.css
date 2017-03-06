@@ -1,0 +1,30 @@
+.su_table tbody td.su_cubby {
+  padding: 0px;
+  background: #f0f0ed; }
+
+.su_cubby {
+  position: relative; }
+
+.su_cubby .su_door {
+  position: absolute;
+  padding: 15px;
+  transform: perspective(500px) rotateX(0deg);
+  transform-origin: bottom;
+  background: #f162b0;
+  backface-visibility: hidden;
+  transition: transform .5s;
+  z-index: 5; }
+
+.su_cubby .su_inside {
+  position: absolute;
+  background: yellow;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  z-index: -5; }
+
+.su_cubby:hover .su_door,
+.su_cubby:focus .su_door {
+  transform: perspective(500px) rotateX(-180deg);
+  transform-origin: bottom;
+  visibility: hidden; }

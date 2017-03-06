@@ -40,7 +40,6 @@ $su_round-size: 500px;
 
 .su_round {
   border-radius: $su_round-size;
-  // border-radius: calc($element-height/2);
   padding: 15px 25px;
 }
 
@@ -189,7 +188,6 @@ $su_round-size: 500px;
 .su_align-justify {
   text-align: justify-all;
   text-align-last: justify;
-  // text-justify: inter-word;
 }
 
 /* Text Transform Classes */
@@ -211,9 +209,7 @@ $su_round-size: 500px;
 .su_code {
   background-color: su_color('secondary', 'dark');
   color: su_color('background', 'light');
-  // border: 1px solid su_color('accent', 'light');
   border-radius: $su_border-radius;
-  // font-weight: 300;
   padding: 5px;
 }
 
@@ -288,7 +284,6 @@ $su_round-size: 500px;
 
 .brian-div {
   padding: 10px;
-  margin: 3px;
 }
 
 .brian-div:hover,

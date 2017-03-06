@@ -1,12 +1,20 @@
 <h2>A simple modal</h2>
 
-<p>See the modal one: <span class="material-icons" data-modal-trigger="simple" data-info="Nothing to see here, please move along!">search</span></p>
+<p>See the modal one: <span data-modal-type="simple" data-modal-title="Nothing to see here, please move along!" data-modal-media="This is the simple modal that present some text content to the user. This content comes from the 'data-modal-media' attribute set on the element that triggers the modal.">Read some info</span></p>
 
-<p>See the modal two: <span class="material-icons" data-modal-trigger="simple" data-info="Sorry, the search is temporary disabled.">search</span></p>
+<h2>A modal with the image</h2>
 
-<p>See the modal three: <span class="material-icons" data-modal-trigger="simple" data-info="No can do now, come back later, dude!">search</span></p>
+<p>See the modal two: <img src="http://www.fusionmagazine.org/wp-content/uploads/2015/10/clouds_elias.jpeg" data-modal-type="image" data-modal-title="A beautiful image of clouds" data-modal-media="https://static.pexels.com/photos/29859/pexels-photo-29859.jpg">search</img></p>
 
-<div class="su_modal su_modal-simple" data-modal-type="simple">
+<h2>A modal with the video</h2>
+
+<p>See the modal three: <span data-modal-type="video" data-modal-title="Relax, C'est La Vie!" data-modal-media="https://www.youtube.com/embed/2SCmchJTPPo">A video modal</span></p>
+
+
+<div class="su_modal">
   <span class="su_modal-close material-icons">close</span>
-  <div class="su_modal-content su_align-center"></div>
+  <div class="su_modal-content su_align-center">
+    <h4 class="su_modal-title"></h4>
+    <div class="su_modal-media"></div>
+  </div>
 </div>

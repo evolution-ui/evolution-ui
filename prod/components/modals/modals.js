@@ -8,50 +8,72 @@
     },
 
     cacheDom: function() {
-      this.modalTriggers = document.querySelectorAll('[data-modal-trigger]');
-      this.simpleModal = document.querySelector('.su_modal-simple');
-      this.imageModal = document.querySelector('.su_modal-image');
-      this.videoModal = document.querySelector('.su_modal-video');
-      this.modalClose = document.querySelectorAll('.su_modal-close');
+      this.modalTypes = document.querySelectorAll('[data-modal-type]');
+      this.modal = document.querySelector('.su_modal');
+      this.modalClose = document.querySelector('.su_modal-close');
     },
 
     addEvents: function() {
-      var i, len = this.modalTriggers && this.modalTriggers.length;
+      var i, len = this.modalTypes && this.modalTypes.length;
 
       for ( i = 0; i < len; i++ ) {
-        this.modalTriggers[i].addEventListener('click', this.showModal.bind(this));
+        this.modalTypes[i].addEventListener('click', this.showModal.bind(this));
       }
 
-      len = this.modalClose.length;
-      for ( i = 0; i < len; i++ ) {
-        this.modalClose[i].addEventListener('click', this.hideModal.bind(this));
-      }
+      this.modalClose.addEventListener('click', this.hideModal.bind(this));
 
     },
 
     showModal: function(e) {
-      var modalType = e.target.dataset.modalTrigger,
-          simpleModal = (modalType === 'simple') && this.simpleModal,
-          imageModal = (modalType === 'image') && this.imageModal,
-          videoModal = (modalType === 'video') && this.videoModal,
-          modalContent = e.target.dataset.info,
+      var modal = this.modal,
+          modalType = e.target.dataset.modalType,
+          modalTextContent = e.target.dataset.modalTitle,
+          modalMediaContent = e.target.dataset.modalMedia,
           modalContentContainer;
 
-      if ( simpleModal ) {
-        modalContentContainer = simpleModal.querySelector('.su_modal-content');
-        modalContentContainer.textContent = modalContent;
-        simpleModal.classList.add('su_modal-active');
+      if ( modal ) {
+        modalMediaContentContainer = modal.querySelector('.su_modal-media');
+        modalMediaContentContainer.innerHTML = '';
+        modalMediaContentContainer.appendChild(this.addMedia[modalType](modalMediaContent, e));
+        modalTextContentContainer = modal.querySelector('.su_modal-title');
+        modalTextContentContainer.textContent = modalTextContent;
+        modal.classList.add('su_modal-active');
       }
 
-      // Code for other modal types will go here
+    },
 
+    addMedia: {
+      simple: function(content, e) {
+        console.log(content);
+        var element = document.createElement('p');
+        element.innerHTML = content || 'No content provided!';
+        return element;
+      },
+      image: function(content, e) {
+        var element = document.createElement('img'),
+        // if the image url is explicitly provided through 'data-modal-media' attribute, use that url
+        // else use the 'src' attribute from the 'img' tag, and if that somehow does not exist, use placeholder image
+            url = content || e.target.getAttribute('src') || '../img/no_image.png';
+        element.setAttribute('src', url);
+        return element;
+      },
+      video: function(content, e) {
+        var element = document.createElement('div'),
+            iframe = document.createElement('iframe'),
+            url = content || 'https://www.youtube.com/embed/Sw5TfUi5rtQ'; // read url from 'data-modal-media' attribute, or fall back to this video
+        iframe.setAttribute('src', url);
+        iframe.setAttribute('frameborder', 0);
+        element.classList.add('su_video_container');
+        element.appendChild(iframe);
+        return element;
+      }
     },
 
     hideModal: function(e) {
       e.target.parentElement.classList.remove('su_modal-active');
     }
 
-  }
+  };
 
   modal.init();
 
