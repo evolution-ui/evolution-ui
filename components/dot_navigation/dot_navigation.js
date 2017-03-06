@@ -40,7 +40,14 @@
         target.parentElement.appendChild(mask);
       }
 
-      mask.style.left = target.tagName.toLowerCase() === 'li' && target.offsetLeft + 'px';
+      if ( target.tagName.toLowerCase() === 'li' ) {
+        mask.classList.add('moving');
+        clearTimeout(stopMove);
+        var stopMove = setTimeout(function() {
+          mask.classList.remove('moving');
+        }, 300);
+        mask.style.left = target.offsetLeft + 'px';
+      }
 
     },
 
