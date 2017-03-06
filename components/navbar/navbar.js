@@ -1,6 +1,6 @@
-(function() {
-
 /* NAVIGATION COMPONENT */
+
+(function() {
 
   var menuControl = {
 
@@ -44,3 +44,5 @@
   menuControl.init();
 
 })();
+
+/* END NAVIGATION COMPONENT */
