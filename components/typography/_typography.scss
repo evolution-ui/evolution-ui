@@ -97,6 +97,10 @@ $su_tp_base-base-scale: map-get($scales, 'major-third');
 
 }
 
+/******************************************************************************
+                                  Typography
+******************************************************************************/
+
 html {
   font-family: 'Roboto', sans-serif;
   font-size: $su_tp_base-font-size;
