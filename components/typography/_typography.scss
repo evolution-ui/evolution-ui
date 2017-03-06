@@ -1,40 +1,118 @@
+//------------------------------------------------------------------------------
+//                       Typography SYSTEM
+//------------------------------------------------------------------------------
 
-$su_typography_font-size: 16px;
-$su_typography_font-weight: 300;
+$scales: (
+  minor-second:     1.067,
+  major-second:     1.125,
+  minor-third:      1.200,
+  major-third:      1.250,
+  perfect-fourth:   1.333,
+  augmented-fourth: 1.414,
+  perfect-fift:     1.5,
+  golden-ratio:     1.618
+);
+/// List of extra small headings
+$su_tp_small-sizes: small, x-small;
 
-$su_typography_line-height: 1.375rem;
+$su_tp_base-font-size:   16px;
+$su_tp_base-font-weight: 300;
+$su_tp_base-line-height: 1.5rem;
+
+$su_tp_base-base-scale: map-get($scales, 'major-third');
+
+///
+/// Generate the vertical rhythm
+///
+/// @param {Value} $font-size - A valid font size
+/// @param {Value} $line-height [$su_tp_base-line-height] - A value height
+/// @return {value}
+///
+@function vrhythm( $font-size, $line-height: $su_tp_base-line-height ){
+  @return ceil( $font-size / $line-height ) * ( $line-height / $font-size )
+}
+
+///
+/// Calculate the power of
+///
+/// @param {Value} $base - A base
+/// @param {Value} $exp  - An exponent
+/// @return {value}
+///
+@function pow( $base, $exp ) {
+  $result: 1;
+
+  @if ( $exp > 0 ) {
+    @for $i from 1 through $exp {
+      $result: $result * $base;
+    }
+  }
+
+  @return $result;
+}
+
+///
+/// Calculate the power of
+///
+/// @param {Value} $size - A font size
+/// @return {value} A size in REM
+///
+@function calculateRem( $size ) {
+  $result: $size / $su_tp_base-font-size;
+  @return #{$result}rem;
+}
+
+
+///
+/// Generate headings (h1 - h6) and extra small headings along with reusable
+/// classes .su_h1 - .su_h6
+///
+/// @param {Number} $levels - The number of headings
+/// @param {Boolean} $smallest [true] - By default generates extra extra small
+///                                     headings which maintains the same scale
+///
+/// @require $su_tp_small-sizes
+///
+@mixin headings( $levels, $smallest: true ){
+
+  @for $i from 1 through $levels {
+    $font-size: pow($su_tp_base-base-scale, $levels - $i);
+      h#{$i}, .su_h#{$i} {
+        font-size: #{$font-size}rem;
+        line-height: vrhythm($font-size);
+    }
+  }
+
+  @if ( $smallest == true ) {
+    @for $i from 1 through length($su_tp_small-sizes)  {
+      $item: nth($su_tp_small-sizes, $i);
+      $font-size: pow($su_tp_base-base-scale, $i);
+
+      .su_#{$item} {
+        font-size: calculateRem($su_tp_base-font-size / $font-size);
+        line-height: vrhythm($font-size);
+      }
+    }
+  }
+
+}
 
 html {
-  font-size: $su_typography_font-size;
-  line-height: $su_typography_line-height;
+  font-family: 'Roboto', sans-serif;
+  font-size: $su_tp_base-font-size;
+  line-height: $su_tp_base-line-height;
 }
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, figure,
+blockquote, details, fieldset,
+pre, table, hr {
+  margin: 0 0 1.5rem 0;
+}
+
+@include headings(6);
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 2rem;
-  font-weight: $su_typography_font-weight;
-}
-h1 { font-size: 2rem; line-height: 1.25; }
-h2 { font-size: 1.625rem; line-height: 1.153;}
-h3 { font-size: 1.375rem; line-height: 1.13; }
-h4 { font-size: 1.125rem; line-height: 1.125;}
-h5 { font-size: 1rem; line-height: 1;}
-h6 { font-size: .9rem; line-height: .9;}
-
-/* Larger than phablet */
-@media (min-width: 750px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
-  h4 { font-size: 1.125rem; }
-  h5 { font-size: 1rem; }
-  h6 { font-size: 0.875rem; }
-}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {
-  h1 { font-size: 3rem; }
-  h2 { font-size: 2.25rem; }
-  h3 { font-size: 1.75rem; }
+  font-weight: 300;
 }
 
