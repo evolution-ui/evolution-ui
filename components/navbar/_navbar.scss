@@ -523,10 +523,10 @@ body {
 
     .su_navigation-container {
       background-color: su_color('background', 'base');
-      color: su_color('accent', 'light', 'heavy');
+      color: su_color('accent');
       &.su_is-open {
         background-color: su_color('background', 'base');
-        color: su_color('accent', 'light', 'heavy');
+        color: su_color('accent');
       }
 
       .su_search {
@@ -536,36 +536,36 @@ body {
         }
 
         .su_search-label {
-          color: su_color('accent', 'light', 'heavy');
+          color: su_color('accent', 'dark', 'heavy');
         }
 
         input:focus {
-          color: su_color('accent', 'light');
+          color: su_color('accent', 'dark');
         }
 
         .su_submit-search:hover {
-          color: su_color('accent', 'light');
+          color: su_color('accent', 'dark');
         }
 
       }
 
       .su_logo {
-        color: su_color('accent', 'light');
+        color: su_color('accent', 'dark');
       }
 
     }
 
     a.su_link-active,
     a:hover {
-      background-color: su_color('accent', 'light', 0.15);
-      color: su_color('accent', 'light');
+      background-color: su_color('accent', 'dark', 0.05);
+      color: su_color('accent', 'dark');
     }
 
     .su_menu-main {
 
       a.su_link-active {
-        border-top: 3px solid su_color('accent', 'light');
-        border-bottom: 3px solid su_color('accent', 'light');
+        border-top: 3px solid su_color('accent', 'dark');
+        border-bottom: 3px solid su_color('accent', 'dark');
       }
 
     }
@@ -573,7 +573,7 @@ body {
     .su_menu-toggle {
       color: white(1);
       &:hover {
-        color: su_color('accent', 'light');
+        color: su_color('accent', 'dark');
       }
 
     }
@@ -582,13 +582,13 @@ body {
 
       &.su_navigation-top {
         .su_link-active.su_link-active {
-          border-bottom: 3px solid su_color('accent', 'light');
+          border-bottom: 3px solid su_color('accent', 'dark');
         }
       }
 
       &.su_navigation-bottom {
         .su_link-active.su_link-active {
-          border-top: 3px solid su_color('accent', 'light');
+          border-top: 3px solid su_color('accent', 'dark');
         }
       }
 
