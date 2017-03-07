@@ -1,0 +1,43 @@
+.su_stat {
+  border: 1px solid su_color('background');
+  border-radius: 4px;
+  box-shadow: 0 5px 5px 0 su_color('background');
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  overflow: auto;
+
+  .su_stats,
+  .su_stat-icon {
+    display: inline-block;
+    float: left;
+  }
+
+  .su_stats {
+    width: 60%;
+  }
+
+  .su_stat-figure,
+  .su_stat-label {
+    display: block;
+  }
+
+  .su_stat-icon {
+    width: 40%;
+
+    > i {
+      font-size: 400%;
+    }
+  }
+
+  .su_stat-figure {
+    font-size: 3em;
+    line-height: 1.2;
+  }
+
+  @media screen and (max-width: 500px) {
+    .su_stats,
+    .su_stat-icon {
+      width: 100%;
+    }
+  }
+}
