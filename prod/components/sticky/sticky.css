@@ -1,3 +1,4 @@
+/** STICKY COMPONENT **/
 .su_stick {
   padding: 15px;
   box-shadow: 0px 3px 3px 0px #c4c4b3; }
@@ -10,3 +11,5 @@
   display: block;
   max-width: 300px;
   padding: 15px; }
+
+/** END STICKY COMPONENT **/

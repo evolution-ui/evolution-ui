@@ -1,3 +1,4 @@
+/** CUBBY COMPONENT **/
 .su_table tbody td.su_cubby {
   padding: 0px;
   background: #f0f0ed; }
@@ -28,3 +29,5 @@
   transform: perspective(500px) rotateX(-180deg);
   transform-origin: bottom;
   visibility: hidden; }
+
+/** END CUBBY COMPONENT **/

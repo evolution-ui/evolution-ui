@@ -1,13 +1,13 @@
 //------------------------------------------------------------------------------
 //                       Utilities Component
 //------------------------------------------------------------------------------
-
-/* Variables */
+/** UTILITIES COMPONENT **/
+/* UTILITIES COMPONENT - Variables */
 
 $su_border-radius: 4px;
 $su_round-size: 500px;
 
-/* Float Classes */
+/* UTILITIES COMPONENT - Float Classes */
 
 .su_right {
   float: right;
@@ -23,27 +23,27 @@ $su_round-size: 500px;
   clear: both;
 }
 
-/* Full Width Class */
+/* UTILITIES COMPONENT - Full Width Class */
 
 .su_full-width {
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Radius Class */
+/* UTILITIES COMPONENT - Radius Class */
 
 .su_radius {
   border-radius: $su_border-radius;
 }
 
-/* Round Class */
+/* UTILITIES COMPONENT - Round Class */
 
 .su_round {
   border-radius: $su_round-size;
   padding: 15px 25px;
 }
 
-/* Base Background Color Classes */
+/* UTILITIES COMPONENT - Base Background Color Classes */
 
 .su_primary-bg {
   background-color: su_color('primary', 'base');
@@ -61,7 +61,7 @@ $su_round-size: 500px;
   background-color: su_color('background', 'base');
 }
 
-/* Light Background Color Classes */
+/* UTILITIES COMPONENT - Light Background Color Classes */
 
 .su_primary-bg-light {
   background-color: su_color('primary', 'light');
@@ -79,7 +79,7 @@ $su_round-size: 500px;
   background-color: su_color('background', 'light');
 }
 
-/* Dark Background Color Classes */
+/* UTILITIES COMPONENT - Dark Background Color Classes */
 
 .su_primary-bg-dark {
   background-color: su_color('primary', 'dark');
@@ -97,7 +97,7 @@ $su_round-size: 500px;
   background-color: su_color('background', 'dark');
 }
 
-/* Base Text Color Classes */
+/* UTILITIES COMPONENT - Base Text Color Classes */
 
 .su_primary {
   color: su_color('primary', 'base');
@@ -115,7 +115,7 @@ $su_round-size: 500px;
   color: su_color('background', 'base');
 }
 
-/* Light Text Color Classes */
+/* UTILITIES COMPONENT - Light Text Color Classes */
 
 .su_primary-light {
   color: su_color('primary', 'light');
@@ -133,7 +133,7 @@ $su_round-size: 500px;
   color: su_color('background', 'light');
 }
 
-/* Dark Text Color Classes */
+/* UTILITIES COMPONENT - Dark Text Color Classes */
 
 .su_primary-dark {
   color: su_color('primary', 'dark');
@@ -151,7 +151,7 @@ $su_round-size: 500px;
   color: su_color('background', 'dark');
 }
 
-/* Visibility & Hidden Class */
+/* UTILITIES COMPONENT - Visibility & Hidden Class */
 
 .su_hide {
   display: none;
@@ -161,7 +161,7 @@ $su_round-size: 500px;
   visibility: hidden;
 }
 
-/* Screen Reader Only Content */
+/* UTILITIES COMPONENT - Screen Reader Only Content */
 
 .su_sr-only {
   clip: rect(1px, 1px, 1px, 1px);
@@ -171,7 +171,7 @@ $su_round-size: 500px;
   position: absolute;
 }
 
-/* Text Alignment Classes */
+/* UTILITIES COMPONENT - Text Alignment Classes */
 
 .su_align-left {
   text-align: left;
@@ -190,7 +190,7 @@ $su_round-size: 500px;
   text-align-last: justify;
 }
 
-/* Text Transform Classes */
+/* UTILITIES COMPONENT - Text Transform Classes */
 
 .su_lowercase {
   text-transform: lowercase;
@@ -204,7 +204,7 @@ $su_round-size: 500px;
   text-transform: capitalize;
 }
 
-/* Code Class */
+/* UTILITIES COMPONENT - Code Class */
 
 .su_code {
   background-color: su_color('secondary', 'dark');
@@ -213,9 +213,9 @@ $su_round-size: 500px;
   padding: 5px;
 }
 
-/* Spacer Classes */
+/* UTILITIES COMPONENT - Spacer Classes */
 
-/* Top Spacer Classes */
+/* UTILITIES COMPONENT - Top Spacer Classes */
 
 .su_space-top--small {
   margin-top: 20px;
@@ -229,7 +229,7 @@ $su_round-size: 500px;
   margin-top: 100px;
 }
 
-/* Right Spacer Classes */
+/* UTILITIES COMPONENT - Right Spacer Classes */
 
 .su_space-right--small {
   margin-right: 20px;
@@ -243,7 +243,7 @@ $su_round-size: 500px;
   margin-right: 100px;
 }
 
-/* Bottom Spacer Classes */
+/* UTILITIES COMPONENT - Bottom Spacer Classes */
 
 .su_space-bottom--small {
   margin-bottom: 20px;
@@ -257,7 +257,7 @@ $su_round-size: 500px;
   margin-bottom: 100px;
 }
 
-/* Left Spacer Classes */
+/* UTILITIES COMPONENT - Left Spacer Classes */
 
 .su_space-left--small {
   margin-left: 20px;
@@ -271,7 +271,7 @@ $su_round-size: 500px;
   margin-left: 100px;
 }
 
-/* Center Content Class */
+/* UTILITIES COMPONENT - Center Content Class */
 
 .su_center-content {
   display: block;
@@ -280,7 +280,7 @@ $su_round-size: 500px;
 }
 
 
-/* Styles for brian.html Presentation */
+/* UTILITIES COMPONENT - Styles for brian.html Presentation */
 
 .brian-div {
   padding: 10px;
@@ -298,3 +298,4 @@ $su_round-size: 500px;
 .brian-span {
   padding: 5px;
 }
+/** END UTILITIES COMPONENT **/

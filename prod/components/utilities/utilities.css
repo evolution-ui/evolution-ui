@@ -1,5 +1,6 @@
-/* Variables */
-/* Float Classes */
+/** UTILITIES COMPONENT **/
+/* UTILITIES COMPONENT - Variables */
+/* UTILITIES COMPONENT - Float Classes */
 .su_right {
   float: right; }
 
@@ -11,21 +12,21 @@
   display: table;
   clear: both; }
 
-/* Full Width Class */
+/* UTILITIES COMPONENT - Full Width Class */
 .su_full-width {
   width: 100%;
   box-sizing: border-box; }
 
-/* Radius Class */
+/* UTILITIES COMPONENT - Radius Class */
 .su_radius {
   border-radius: 4px; }
 
-/* Round Class */
+/* UTILITIES COMPONENT - Round Class */
 .su_round {
   border-radius: 500px;
   padding: 15px 25px; }
 
-/* Base Background Color Classes */
+/* UTILITIES COMPONENT - Base Background Color Classes */
 .su_primary-bg {
   background-color: #72c024; }
 
@@ -41,7 +42,7 @@
 .su_background-bg {
   background-color: #dadad0; }
 
-/* Light Background Color Classes */
+/* UTILITIES COMPONENT - Light Background Color Classes */
 .su_primary-bg-light {
   background-color: #ade576; }
 
@@ -57,7 +58,7 @@
 .su_background-bg-light {
   background-color: #f0f0ed; }
 
-/* Dark Background Color Classes */
+/* UTILITIES COMPONENT - Dark Background Color Classes */
 .su_primary-bg-dark {
   background-color: #59951c; }
 
@@ -73,7 +74,7 @@
 .su_background-bg-dark {
   background-color: #c4c4b3; }
 
-/* Base Text Color Classes */
+/* UTILITIES COMPONENT - Base Text Color Classes */
 .su_primary {
   color: #72c024; }
 
@@ -89,7 +90,7 @@
 .su_background {
   color: #dadad0; }
 
-/* Light Text Color Classes */
+/* UTILITIES COMPONENT - Light Text Color Classes */
 .su_primary-light {
   color: #ade576; }
 
@@ -105,7 +106,7 @@
 .su_background-light {
   color: #f0f0ed; }
 
-/* Dark Text Color Classes */
+/* UTILITIES COMPONENT - Dark Text Color Classes */
 .su_primary-dark {
   color: #59951c; }
 
@@ -121,14 +122,14 @@
 .su_background-dark {
   color: #c4c4b3; }
 
-/* Visibility & Hidden Class */
+/* UTILITIES COMPONENT - Visibility & Hidden Class */
 .su_hide {
   display: none; }
 
 .su_invisible {
   visibility: hidden; }
 
-/* Screen Reader Only Content */
+/* UTILITIES COMPONENT - Screen Reader Only Content */
 .su_sr-only {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
@@ -136,7 +137,7 @@
   overflow: hidden;
   position: absolute; }
 
-/* Text Alignment Classes */
+/* UTILITIES COMPONENT - Text Alignment Classes */
 .su_align-left {
   text-align: left; }
 
@@ -150,7 +151,7 @@
   text-align: justify-all;
   text-align-last: justify; }
 
-/* Text Transform Classes */
+/* UTILITIES COMPONENT - Text Transform Classes */
 .su_lowercase {
   text-transform: lowercase; }
 
@@ -160,15 +161,15 @@
 .su_capitalize {
   text-transform: capitalize; }
 
-/* Code Class */
+/* UTILITIES COMPONENT - Code Class */
 .su_code {
   background-color: #113806;
   color: #f0f0ed;
   border-radius: 4px;
   padding: 5px; }
 
-/* Spacer Classes */
-/* Top Spacer Classes */
+/* UTILITIES COMPONENT - Spacer Classes */
+/* UTILITIES COMPONENT - Top Spacer Classes */
 .su_space-top--small {
   margin-top: 20px; }
 
@@ -178,7 +179,7 @@
 .su_space-top--large {
   margin-top: 100px; }
 
-/* Right Spacer Classes */
+/* UTILITIES COMPONENT - Right Spacer Classes */
 .su_space-right--small {
   margin-right: 20px; }
 
@@ -188,7 +189,7 @@
 .su_space-right--large {
   margin-right: 100px; }
 
-/* Bottom Spacer Classes */
+/* UTILITIES COMPONENT - Bottom Spacer Classes */
 .su_space-bottom--small {
   margin-bottom: 20px; }
 
@@ -198,7 +199,7 @@
 .su_space-bottom--large {
   margin-bottom: 100px; }
 
-/* Left Spacer Classes */
+/* UTILITIES COMPONENT - Left Spacer Classes */
 .su_space-left--small {
   margin-left: 20px; }
 
@@ -208,13 +209,13 @@
 .su_space-left--large {
   margin-left: 100px; }
 
-/* Center Content Class */
+/* UTILITIES COMPONENT - Center Content Class */
 .su_center-content {
   display: block;
   margin-left: auto;
   margin-right: auto; }
 
-/* Styles for brian.html Presentation */
+/* UTILITIES COMPONENT - Styles for brian.html Presentation */
 .brian-div {
   padding: 10px; }
 
@@ -224,3 +225,5 @@
 
 .brian-span {
   padding: 5px; }
+
+/** END UTILITIES COMPONENT **/
