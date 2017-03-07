@@ -2,6 +2,7 @@
 
 body {
   overflow-x: hidden;
+  position: relative;
 }
 
 .su_navigation {
@@ -128,6 +129,21 @@ body {
 .su_navigation-fixed {
   position: fixed;
   z-index: 5000;
+
+/* chrome on mobile needs this */
+  width: 100vw;
+
+  li a, {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .su_icon-close,
+  .su_submit-search,
+  .su_search-field {
+    padding-right: 10px;
+  }
+/* end of chrome fixes */
 
   &.su_navigation-top {
     top: 0;
