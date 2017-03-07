@@ -16,6 +16,9 @@
     addEvents: function() {
       var i, len = this.modalTypes && this.modalTypes.length;
 
+      // if there are no modals on the page, do not add listeners
+      if ( !len ) return;
+
       for ( i = 0; i < len; i++ ) {
         this.modalTypes[i].addEventListener('click', this.showModal.bind(this));
       }
