@@ -1,9 +1,9 @@
-.su_dropdown * {
-  box-sizing: border-box;
-}
-
 .su_dropdown {
   display: inline-block;
+
+  * {
+    box-sizing: border-box;
+  }
 
   .su_dropdown-toggle,
   .su_dropdown-menu {
@@ -35,9 +35,10 @@
     &:focus {
 
       ~ .su_dropdown-menu {
-        overflow: auto;
+        //overflow: auto;
         opacity: 1;
         pointer-events: auto;
+        z-index: 1;
 
         .su_dropdown-item {
           padding: 0.625rem 1.25rem;
@@ -65,6 +66,7 @@
       color: invert(su_color('background', 'light'));
       display: block;
       padding: 0;
+      text-align: left;
       text-decoration: none;
       transition: padding .5s, background-color .3s;
 
@@ -78,6 +80,78 @@
 
       &:hover {
         background-color: su_color('background', 'base');
+      }
+    }
+  }
+
+  &.su_dropdown-cascade {
+    position: relative;
+
+    .su_dropdown-menu {
+      height: 0;
+      opacity: 1;
+      width: 100%;
+      z-index: -1;
+
+      .su_dropdown-item {
+        background-color: transparent;
+        border-bottom: 1px solid su_color('background');
+        border-radius: 0 0 4px 4px;
+        color: invert(su_color('background', 'light'));
+        display: block;
+        font-size: 0;
+        opacity: 1;
+        padding: 0.625rem 1.25rem;
+        text-decoration: none;
+        transform: translateY(-57px);
+        transition: font-size .2s, min-width .5s, transform 1s, z-index 1s;
+
+        
+        &:first-child {
+          margin-top: 0.3125rem;
+          transform: translateY(-54px);
+          transition: transform .4s;
+        }
+
+        &:nth-child(2) {
+          transform: translateY(-94px);
+          transition: transform .6s;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-134px);
+          transition: transform .8s;
+        }
+
+        &:nth-child(4) {
+          box-shadow: 0 1px 4px 0 su_color('background');
+          transform: translateY(-174px);
+          transition: transform 1s;
+        }
+      }
+    }
+
+    .su_dropdown-toggle:focus ~ .su_dropdown-menu,
+    .su_dropdown-toggle:active ~ .su_dropdown-menu {
+      pointer-events: auto;
+      z-index: 1;
+
+      a {
+        background-color: su_color('background', 'light');
+        border: none;
+        border-radius: 0;
+        font-size: inherit;
+        min-width: 120%;
+        transform: unset;
+        
+        &:hover {
+          background-color: su_color('background', 'base');
+        }
+
+        &:nth-child(4) {
+          box-shadow: 0 4px 2px 0 su_color('background');
+        }
+
       }
     }
   }
