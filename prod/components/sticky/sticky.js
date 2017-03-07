@@ -1,5 +1,4 @@
-/** Sticky Component **/
-
+/** STICKY COMPONENT **/
 (function() {
   var stickyElement = document.querySelector('.su_stick');
   var stickyElementLeftPosition = stickyElement && elementAbsolutePosition(stickyElement).docLeftDistance;
@@ -8,28 +7,23 @@
   var stickyElementEndTopPosition = stickyElement && elementAbsolutePosition(stickyElementEnd).docTopDistance;
   var stuckFlag = false;
 
-  if ( stickyElement ) {
+  if (stickyElement && stickyElementEnd) {
     window.onscroll = function(e) {
       var elementRelativePosition = stickyElement.getBoundingClientRect();
-      if ((window.pageYOffset || document.documentElement.scrollTop) + 8 >= stickyElementTopPosition) {
-        stickyElement.classList.add("su_stuck");
-        stickyElement.classList.remove("su_right");
+      if ((window.pageYOffset || document.documentElement.scrollTop) >= stickyElementTopPosition) {
+        stickyElement.style.position = "fixed";
         stickyElement.style.top = 0;
         stickyElement.style.left = stickyElementLeftPosition + "px";
-
-      } else if ((window.pageYOffset || document.documentElement.scrollTop) < stickyElementTopPosition){
-        stickyElement.classList.remove('su_stuck');
-        stickyElement.classList.add("su_right");
-        stuckFlag = false;
+      } else if ((window.pageYOffset || document.documentElement.scrollTop) < stickyElementTopPosition) {
+        stickyElement.style.position = "initial";
       }
       if ((window.pageYOffset || document.documentElement.scrollTop) >= stickyElementEndTopPosition - elementRelativePosition.height) {
-        stickyElement.classList.remove('su_stuck');
-        stickyElement.classList.add("su_right");
-        stuckFlag = false;
+        stickyElement.style.position = "absolute";
+        stickyElement.style.top = elementAbsolutePosition(stickyElementEnd).docTopDistance - elementRelativePosition.height + "px";
+        stickyElement.style.left = elementAbsolutePosition(stickyElement).docLeftDistance + "px";
       }
     };
   }
-
   function elementAbsolutePosition(element) {
     var elementBoundingBox = element.getBoundingClientRect();
     var scrolledLeftPosition = window.pageXOffset || document.documentElement.scrollLeft;
@@ -41,3 +35,4 @@
     };
   }
 })();
+/** END STICKY COMPONENT **/
