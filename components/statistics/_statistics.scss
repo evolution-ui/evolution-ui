@@ -1,7 +1,7 @@
 .su_stat {
   border: 1px solid su_color('background');
   border-radius: 4px;
-  box-shadow: 0 5px 5px 0 su_color('background');
+  box-shadow: 0 3px 10px 0 su_color('background');
   padding: 1.25rem 1.5rem;
   text-align: center;
   overflow: auto;
@@ -32,6 +32,28 @@
   .su_stat-figure {
     font-size: 3em;
     line-height: 1.2;
+  }
+
+  .su_progress-bar {
+    height: 16px;
+    margin: 0;
+    margin-top: 100px;
+    width: 100%;
+
+    .su_bar {
+      left: 0;
+    }
+  }
+
+  &.su_primary-bg,
+  &.su_accent-bg,
+  &.su_secondary-bg {
+    .su_progress-bar .su_bar.su_bar--success {
+      height: 14px;
+      border-top: 1px solid su_color('background', 'light');
+      border-bottom: 1px solid su_color('background', 'light');
+      border-left: 1px solid su_color('background', 'light');
+    }
   }
 
   @media screen and (max-width: 500px) {
