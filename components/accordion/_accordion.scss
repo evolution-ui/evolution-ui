@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //                       Accordion Component
 //------------------------------------------------------------------------------
-
+/** ACCORDION COMPONENT **/
 .su_accordion {
   margin: 0 auto;
   max-width: 40rem;
@@ -48,3 +48,4 @@
 .su_bellow input:checked ~ .su_bellow-content {
   max-height: 12.5rem;
 }
+/** END ACCORDION COMPONENT **/

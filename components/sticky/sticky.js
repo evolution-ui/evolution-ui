@@ -1,5 +1,4 @@
-/** Sticky Component **/
-
+/** STICKY COMPONENT **/
 (function() {
   var stickyElement = document.querySelector('.su_stick');
   var stickyElementLeftPosition = stickyElement && elementAbsolutePosition(stickyElement).docLeftDistance;
@@ -8,7 +7,7 @@
   var stickyElementEndTopPosition = stickyElement && elementAbsolutePosition(stickyElementEnd).docTopDistance;
   var stuckFlag = false;
 
-  if ( stickyElement ) {
+  if (stickyElement && stickyElementEnd) {
     window.onscroll = function(e) {
       var elementRelativePosition = stickyElement.getBoundingClientRect();
       if ((window.pageYOffset || document.documentElement.scrollTop) + 8 >= stickyElementTopPosition) {
@@ -41,3 +40,4 @@
     };
   }
 })();
+/** END STICKY COMPONENT **/

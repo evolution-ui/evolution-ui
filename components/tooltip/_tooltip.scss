@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //                       Tooltip Component
 //------------------------------------------------------------------------------
-
+/** TOOLTIP COMPONENT **/
 .su_tooltip {
   position: relative;
   display: inline-block;
@@ -42,3 +42,4 @@
   border-right: 8px solid transparent;
   border-bottom: 8px solid su_color('primary', 'base');
 }
+/** END TOOLTIP COMPONENT **/
