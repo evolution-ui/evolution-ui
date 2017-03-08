@@ -1,6 +1,8 @@
 /* THE MODAL COMPONENT */
 
-/* this component has a CSS dependency on 'video_embed' component */
+// dependencies:
+// currently not needed, but if used separately, this dependency must be added
+// @import '../video_embed/video_embed';
 
 .su_modal {
   box-sizing: border-box;
