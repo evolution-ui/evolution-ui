@@ -8,6 +8,7 @@
     },
 
     cacheDom: function() {
+      this.body = document.querySelector('body');
       this.modalTypes = document.querySelectorAll('[data-modal-type]');
       this.modal = document.querySelector('.su_modal');
       this.modalClose = document.querySelector('.su_modal-close');
@@ -41,6 +42,7 @@
         modalTextContentContainer = modal.querySelector('.su_modal-title');
         modalTextContentContainer.textContent = modalTextContent;
         modal.classList.add('su_modal-active');
+        this.body.style.overflow = 'hidden'; // prevent scrolling of the page in the background
       }
 
     },
@@ -74,6 +76,7 @@
 
     hideModal: function(e) {
       e.target.parentElement.classList.remove('su_modal-active');
+      this.body.style.overflow = 'auto'; // enable scrolling of the page after the modal is closed
     }
 
   };
