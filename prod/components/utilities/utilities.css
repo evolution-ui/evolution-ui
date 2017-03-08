@@ -12,6 +12,11 @@
   display: table;
   clear: both; }
 
+.su_clearfix::after {
+  display: block;
+  content: '';
+  clear: both; }
+
 /* UTILITIES COMPONENT - Full Width Class */
 .su_full-width {
   width: 100%;
