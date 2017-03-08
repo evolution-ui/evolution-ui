@@ -1,11 +1,13 @@
-.su_card * {
-  box-sizing: border-box; }
-
+/*****************
+ Cards
+******************/
 .su_card {
   background-color: #f0f0ed;
   border-radius: 4px;
   box-shadow: 0px 3px 3px 0px #c4c4b3;
   padding: 1.5rem; }
+  .su_card * {
+    box-sizing: border-box; }
   .su_card.su_color-primary {
     background-color: #72c024;
     color: #f0f0ed; }
@@ -16,7 +18,7 @@
     margin-bottom: 0.875rem; }
   .su_card .su_card-image {
     margin-bottom: 1.25rem; }
-    .su_card .su_card-image > img:not(.su_img-profile) {
+    .su_card .su_card-image > img {
       width: 100%;
       border-radius: 4px 4px 0 0; }
     .su_card .su_card-image .su_img-profile {
@@ -34,15 +36,41 @@
   .su_card.su_card-product .su_card-body {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem; }
-  .su_card.su_card-product .su_card-footer {
-    border-top: 1px solid #dadad0;
-    padding-top: 1.25rem; }
   .su_card.su_card-product .su_product-price {
     font-size: 1.5em; }
   .su_card.su_card-product .su_product-share {
     cursor: pointer;
     color: #da137f; }
+  .su_card.su_card-profile .su_card-image {
+    position: relative;
+    margin-bottom: 30%; }
+  .su_card.su_card-profile .su_card-profile-image {
+    border: 5px solid #f0f0ed;
+    border-radius: 50%;
+    bottom: -25%;
+    height: auto;
+    max-width: 40%;
+    position: absolute;
+    left: 30%; }
+  .su_card.su_card-horizontal {
+    display: flex; }
+    .su_card.su_card-horizontal .su_card-image {
+      padding: 0.625rem 0.625rem 0 0; }
+      .su_card.su_card-horizontal .su_card-image > img {
+        border-radius: 4px; }
+    .su_card.su_card-horizontal .su_card-body {
+      padding: 0.625rem 0 0 0.625rem; }
   .su_card .su_card-body {
     margin-bottom: 1.5rem; }
+  .su_card .su_card-footer {
+    border-top: 1px solid #dadad0;
+    padding-top: 1.25rem; }
+    .su_card .su_card-footer .su_icon {
+      color: #da137f;
+      margin-right: 0.625rem; }
   .su_card p {
     font-weight: 300; }
+  @media screen and (max-width: 499px) {
+    .su_card.su_card-horizontal {
+      flex-wrap: wrap;
+      flex-direction: column; } }

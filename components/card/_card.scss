@@ -1,12 +1,16 @@
-.su_card * {
-  box-sizing: border-box;
-}
+/*****************
+ Cards
+******************/
 
 .su_card {
   background-color: su_color('background', 'light');
   border-radius: 4px;
   box-shadow: 0px 3px 3px 0px su_color('background', 'dark');
   padding: 1.5rem;
+
+  * {
+    box-sizing: border-box;
+  }
 
   &.su_color-primary {
     background-color: su_color();
