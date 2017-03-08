@@ -6,7 +6,7 @@
 
 body {
   position: relative;
-  padding: 1px;
+  padding-bottom: 1px;
 }
 
 .su_content-wrapper::after {
@@ -52,6 +52,7 @@ body.su_offcanvas-navigation-active {
     border-radius: 0;
   }
   ~ .su_content-wrapper {
+    padding-bottom: 1px;
     position: relative;
     transition: all 0.5s ease-in-out 0s;
   }
