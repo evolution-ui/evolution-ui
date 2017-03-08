@@ -4,19 +4,9 @@
 // currently not needed, but if used separately, this dependency must be added
 // @import '../side_navbar/side_navbar';
 
-@mixin clearfix {
-  &::after {
-    display: block;
-    content: '';
-    clear: both;
-  }
-}
-
 body {
   position: relative;
   padding: 1px;
-  perspective: 700px;
-  transform-style: preserve-3d;
 }
 
 .su_content-wrapper::after {
@@ -47,7 +37,6 @@ body.su_offcanvas-navigation-active {
 .su_offcanvas-navigation-slide-over,
 .su_offcanvas-navigation-reveal,
 .su_offcanvas-navigation-swing {
-  @include clearfix;
   display: inline-block;
   position: fixed;
   top: 0;

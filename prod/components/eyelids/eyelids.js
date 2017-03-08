@@ -10,7 +10,7 @@
     init: function() {
       this.cacheDom();
       this.notify();
-      this.addEvent(this.bodyElement, 'keypress', this.toggle.bind(this));
+      this.addEvent(this.bodyElement, 'keydown', this.toggle.bind(this));
       this.addEvent(this.notification, 'mouseenter', this.notifyStop.bind(this));
       this.addEvent(this.notification, 'click', this.notify.bind(this));
     },
