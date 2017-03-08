@@ -38,6 +38,9 @@
             <a href="#component-navigation" class="su_uppercase su_list-item">Navigation</a>
             <a href="#component-eyelids" class="su_uppercase su_list-item">Eyelids</a>
             <a href="#component-modal" class="su_uppercase su_list-item">Modal</a>
+            <a href="#component-dot-navigation" class="su_uppercase su_list-item">Dot Navigation</a>
+            <a href="#component-off-canvas-navigation" class="su_uppercase su_list-item">Off Canvas Navigation</a>
+            <a href="#component-side-navbar" class="su_uppercase su_list-item">Side Navbar</a>
             <a href="#component-typography" class="su_uppercase su_list-item">Typography</a>
             <a href="#component-progress-bars" class="su_uppercase su_list-item">Progress Bars</a>
             <a href="#component-infinite-loading" class="su_uppercase su_list-item">Infinite loading</a>
@@ -535,13 +538,20 @@
 
           <h2 id="component-eyelids" class="su_space-top--medium">Eyelids</h2>
 
-          <p>Eyelids is an innovative web component that can be useful to the people who read a lot on the computer screen. It helps you focus on the text or other content in cases of pages with a long chunks of text, or even to help cover up the distracting parts of the complex web page. To use it, just hit <code class="su_code">Shift + S</code> on the keyboard. The eyelids will close down vertically on your mouse position and will follow its movement allowing you a clean horizontal area for better focus on the content. To dismiss it, just hit <code class="su_code">Shift + S</code> again.</p>
+          <p>Eyelids is an innovative web component that can be useful to the people who read a lot on the computer screen. It helps you focus on the text or other content in cases of pages with a long chunks of text, or even to help cover up the distracting parts of the complex web page. To use it, just hit <code class="su_code">Shift + S</code> on the keyboard. The eyelids will close down vertically on your mouse position and will follow its movement allowing you a clean horizontal area for better focus on the content. To dismiss it, just hit <code class="su_code">Shift + S</code> again or <code class="su_code">Esc</code> key. Optionally, you can add the eyelids notifier on the page with the following code:</p>
+
+          <pre class="su_code"><code>&lt;div class="su_eyelids-notification"&gt;
+  &lt;p&gt;Use "Eyelids" on this page:&lt;/p&gt;
+  &lt;code class="su_code">Shift + S&lt;/code&gt;
+&lt;/div&gt;</code></pre>
 
           <hr class="su_space-top--medium">
 
           <h2 id="component-navigation" class="su_space-top--medium">Navigation Bar</h2>
 
           <h3>Basic Navigation Bar</h3>
+
+          <p>The basic navigation bar with the logo placeholder, and a search bar. This navigation bar is fully responsive, and on mobile screen sizes it collapses into a menu icon.</p>
 
           <p>Code applied:</p>
 
@@ -576,7 +586,10 @@
 
           <h3 class="su_space-top--medium">Fixed Top Navigation Bar</h3>
 
-          <p>Code applied:</p>
+          <p>With some additional classes, the basic navigation bar can be fixed. Class <code class="su_code">.su_navigation-fixed</code> will fix the menu, and classes <code class="su_code">.su_navigation-top</code> and <code class="su_code">.su_navigation-bottom</code> will place the menu at the top or bottom of the page respectively.</p>
+          <p>Besides positioning, these menus can have two additional themes, light and dark. To change a theme we can add the following classes: <code class="su_code">.su_nav-theme-light</code> and <code class="su_code">.su_nav-theme-dark</code></p>
+
+          <p>Code example. Click on the code example to see the page with the fixed menu top.</p>
 
           <a href="prod/navbar_examples/fixed-top.html" target="_blank">
             <pre class="su_code su_align-center"><code>&lt;div class="su_navigation su_navigation-fixed su_navigation-top"&gt;</code></pre>
@@ -584,7 +597,7 @@
 
           <h3 class="su_space-top--medium">Fixed Bottom Navigation Bar</h3>
 
-          <p>Code applied:</p>
+          <p>Code example. Click on the code example to see the page with the fixed menu bottom.</p>
 
           <a href="prod/navbar_examples/fixed-bottom.html" target="_blank">
             <pre class="su_code su_align-center"><code>&lt;div class="su_navigation su_navigation-fixed su_navigation-bottom"&gt;</code></pre>
@@ -592,31 +605,49 @@
 
           <hr class="su_space-top--medium">
 
-          <h2 id="component-modal" class="su_space-top--medium">A simple modal</h2>
+          <h2 id="component-modal" class="su_space-top--medium">Modals</h2>
 
-          <p>This simple modal component provides clean and quick way to display simple textual information to the user.</p>
-          <p>To display the information in a modal, a toggle element is needed with the following "data" attributes set:</p>
+          <p>There are three modal types, simple, image and video modal.</p>
+          <p>Simple modal component provides clean and quick way to display simple textual information to the user. Modals with image and video provide additional media content besides the textual info.</p>
 
-          <ul>
-            <li>
-              <code class="su_code">data-modal-trigger="simple"</code>
-            </li>
-            <li class="su_space-top--small">
-              <code class="su_code">data-info="This is a short information that is being presented to the user in a simple modal."</code>
-            </li>
-          </ul>
+          <p>On the page you need only one modal container. The code structure for the modal container is simple:</p>
 
-          <p>Click the buttons bellow to see different notifications.</p>
+          <pre class="su_code"><code>&lt;div class="su_modal"&gt;
+  &lt;span class="su_modal-close material-icons"&gt;close&lt;/span&gt;
+  &lt;div class="su_modal-content su_align-center"&gt;
+    &lt;h4 class="su_modal-title">&lt;/h4&gt;
+    &lt;div class="su_modal-media">&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 
-          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="Nothing to see here, please move along!">Modal 1</button>
+          <p>To display the information in a modal, a toggle element is needed with the <code class="su_code">data-modal-trigger</code> attribute set. This attribute can have the following values: "simple" - for presenting a simple textual information, "image" - for displaying an image and "video" - for displaying a video content (YouTube video embed supported only).</p>
 
-          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="Sorry, the search is temporary disabled.">Modal 2</button>
+          <p>Modal trigger element can be any element with appropriate "data" attributes:</p>
 
-          <button class="su_btn su_btn-secondary" type="button" data-modal-trigger="simple" data-info="No can do now, come back later, dude!">Modal 3</button>
+          <p>A simple modal:</p>
 
-          <div class="su_modal su_modal-simple" data-modal-type="simple">
+          <pre class="su_code"><code>&lt;span data-modal-type="simple" data-modal-title="Nothing to see here, please move along!" data-modal-media="This is the simple modal that present some text content to the user. This content comes from the 'data-modal-media' attribute set on the element that triggers the modal."&gt;Click to learn more&lt;/span&gt;</code></pre>
+
+          <p>The <code class="su_code">data-modal-title</code> attribute holds the title to be displayed on the modal, while the <code class="su_code">data-modal-media</code> holds the media that is to be displayed in the modal. In the case of the simple modal, that is plain text.</p>
+
+          <p>In the case of the image and video modal, the <code class="su_code">data-modal-media</code> attribute should provide the link to the media resource. In addition, if the image is used as the trigger for the image modal, and the link is not provided through <code class="su_code">data-modal-media</code> attribute, then the modal will display the image from the modal trigger, by using its <code class="su_code">src</code> attribute.</p>
+
+          <p>Click the buttons and the image bellow to see different modal types in action.</p>
+
+          <div>
+            <img data-modal-type="image" data-modal-title="Image of the clouds" data-modal-media="http://www.fusionmagazine.org/wp-content/uploads/2015/10/clouds_elias.jpeg" width="30%" src="https://static.pexels.com/photos/29859/pexels-photo-29859.jpg" title="Image Modal" alt="Photo of clouds">
+          </div>
+
+          <button class="su_btn su_btn-primary" type="button" data-modal-type="simple" data-modal-title="A Simple Modal" data-modal-media="Nothing to see here, please move along!">Simple Modal</button>
+
+          <button class="su_btn su_btn-primary" data-modal-type="video" data-modal-title="Relax, C'est La Vie!" data-modal-media="https://www.youtube.com/embed/2SCmchJTPPo">Video Modal</button>
+
+          <div class="su_modal">
             <span class="su_modal-close material-icons">close</span>
-            <div class="su_modal-content su_align-center"></div>
+            <div class="su_modal-content su_align-center">
+              <h4 class="su_modal-title"></h4>
+              <div class="su_modal-media"></div>
+            </div>
           </div>
 
           <hr class="su_space-top--medium">

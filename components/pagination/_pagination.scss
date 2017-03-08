@@ -1,13 +1,4 @@
 /* PAGINATION COMPONENT */
-@mixin clearfix {
-
-  &::after {
-    display: block;
-    content: '';
-    clear: both;
-  }
-
-}
 
 @mixin element_style {
   float: left;
@@ -40,7 +31,6 @@
 
 
 .su_pagination {
-  @include clearfix;
 
   display: inline-block;
   margin: 10px auto;
@@ -81,7 +71,6 @@
   }
 
   ul {
-    @include clearfix;
     padding: 0;
     margin: 0;
     float: left;

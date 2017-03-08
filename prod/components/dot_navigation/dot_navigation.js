@@ -1,4 +1,3 @@
-/* DOT NAVIGATION COMPONENT */
 (function() {
 
   var dotNav = {
@@ -22,9 +21,9 @@
             current && current.classList.remove('su_dot-current');
             e.target.classList.add('su_dot-current');
           }
-          if ( this.classList.contains('su_dot-navigation-move') ) {
+          if ( this.classList.contains('su_dot-navigation-jiggle') ) {
             dotNav.moveDot(e.target);
-          } else if ( this.classList.contains('su_dot-navigation-line') ) {
+          } else if ( this.classList.contains('su_dot-navigation-zap') ) {
             dotNav.drawLine(e.target);
           }
         });
@@ -81,4 +80,3 @@
   dotNav.init();
 
 })();
-/* END DOT NAVIGATION COMPONENT */

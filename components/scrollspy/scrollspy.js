@@ -1,5 +1,4 @@
-/** ScrollSpy **/
-
+/** SCROLLSPY COMPONENT **/
 (function() {
   var heading1 = document.getElementById('heading1');
   var heading2 = document.getElementById('heading2');
@@ -14,41 +13,42 @@
   var scrollSpyDiv = document.querySelector('.su_scrollspy-container');
 
   scrollSpyDiv && scrollSpyDiv.addEventListener('scroll', function() {
-    var currentActiveTab = document.querySelector('.activeTab');
+      var currentActiveTab = document.querySelector('.su_scrollspy-active');
 
-    if (Math.abs(heading1.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
-      if (currentActiveTab !== null) {
-        currentActiveTab.classList.remove('activeTab');
+      if (Math.abs(heading1.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
+        if (currentActiveTab !== null) {
+          currentActiveTab.classList.remove('su_scrollspy-active');
+        }
+        tab1.classList.add('su_scrollspy-active');
       }
-      tab1.classList.add('activeTab');
-    }
 
-    if (Math.abs(heading2.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
-      if (currentActiveTab !== null) {
-        currentActiveTab.classList.remove('activeTab');
+      if (Math.abs(heading2.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
+        if (currentActiveTab !== null) {
+          currentActiveTab.classList.remove('su_scrollspy-active');
+        }
+        tab2.classList.add('su_scrollspy-active');
       }
-      tab2.classList.add('activeTab');
-    }
 
-    if (Math.abs(heading3.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
-      if (currentActiveTab !== null) {
-        currentActiveTab.classList.remove('activeTab');
+      if (Math.abs(heading3.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
+        if (currentActiveTab !== null) {
+          currentActiveTab.classList.remove('su_scrollspy-active');
+        }
+        tab3.classList.add('su_scrollspy-active');
       }
-      tab3.classList.add('activeTab');
-    }
 
-    if (Math.abs(heading4.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
-      if (currentActiveTab !== null) {
-        currentActiveTab.classList.remove('activeTab');
+      if (Math.abs(heading4.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
+        if (currentActiveTab !== null) {
+          currentActiveTab.classList.remove('su_scrollspy-active');
+        }
+        tab4.classList.add('su_scrollspy-active');
       }
-      tab4.classList.add('activeTab');
-    }
 
-    if (Math.abs(heading5.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
-      if (currentActiveTab !== null) {
-        currentActiveTab.classList.remove('activeTab');
+      if (Math.abs(heading5.getBoundingClientRect().top - tab1.getBoundingClientRect().bottom) <= 7) {
+        if (currentActiveTab !== null) {
+          currentActiveTab.classList.remove('su_scrollspy-active');
+        }
+        tab5.classList.add('su_scrollspy-active');
       }
-      tab5.classList.add('activeTab');
-    }
-  });
+    });
 })();
+/** END SCROLLSPY COMPONENT **/

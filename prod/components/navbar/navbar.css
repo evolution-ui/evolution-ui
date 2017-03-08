@@ -1,11 +1,15 @@
 /* NAVIGATION COMPONENT */
 body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  position: relative; }
 
 .su_navigation {
   width: 100%;
   height: 50px;
-  left: 0; }
+  left: 0;
+  display: block;
+  margin: 0;
+  padding: 0; }
   .su_navigation ul {
     list-style: none;
     margin: 0;
@@ -75,7 +79,17 @@ body {
 
 .su_navigation-fixed {
   position: fixed;
-  z-index: 5000; }
+  z-index: 5000;
+  /* chrome on mobile needs this */
+  width: 100vw;
+  /* end of chrome fixes */ }
+  .su_navigation-fixed li a {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .su_navigation-fixed .su_icon-close,
+  .su_navigation-fixed .su_submit-search,
+  .su_navigation-fixed .su_search-field {
+    padding-right: 10px; }
   .su_navigation-fixed.su_navigation-top {
     top: 0; }
     .su_navigation-fixed.su_navigation-top + * {
@@ -277,35 +291,35 @@ body {
     background-color: #dadad0; }
     .su_navigation.su_nav-theme-light .su_navigation-container {
       background-color: #dadad0;
-      color: rgba(241, 98, 176, 0.4); }
+      color: #da137f; }
       .su_navigation.su_nav-theme-light .su_navigation-container.su_is-open {
         background-color: #dadad0;
-        color: rgba(241, 98, 176, 0.4); }
+        color: #da137f; }
       .su_navigation.su_nav-theme-light .su_navigation-container .su_search:hover {
         background-color: #c4c4b3; }
       .su_navigation.su_nav-theme-light .su_navigation-container .su_search .su_search-label {
-        color: rgba(241, 98, 176, 0.4); }
+        color: rgba(156, 14, 91, 0.4); }
       .su_navigation.su_nav-theme-light .su_navigation-container .su_search input:focus {
-        color: #f162b0; }
+        color: #9c0e5b; }
       .su_navigation.su_nav-theme-light .su_navigation-container .su_search .su_submit-search:hover {
-        color: #f162b0; }
+        color: #9c0e5b; }
       .su_navigation.su_nav-theme-light .su_navigation-container .su_logo {
-        color: #f162b0; }
+        color: #9c0e5b; }
     .su_navigation.su_nav-theme-light a.su_link-active,
     .su_navigation.su_nav-theme-light a:hover {
-      background-color: rgba(241, 98, 176, 0.15);
-      color: #f162b0; }
+      background-color: rgba(156, 14, 91, 0.05);
+      color: #9c0e5b; }
     .su_navigation.su_nav-theme-light .su_menu-main a.su_link-active {
-      border-top: 3px solid #f162b0;
-      border-bottom: 3px solid #f162b0; }
+      border-top: 3px solid #9c0e5b;
+      border-bottom: 3px solid #9c0e5b; }
     .su_navigation.su_nav-theme-light .su_menu-toggle {
       color: white; }
       .su_navigation.su_nav-theme-light .su_menu-toggle:hover {
-        color: #f162b0; }
+        color: #9c0e5b; }
     .su_navigation.su_nav-theme-light.su_navigation-fixed.su_navigation-top .su_link-active.su_link-active {
-      border-bottom: 3px solid #f162b0; }
+      border-bottom: 3px solid #9c0e5b; }
     .su_navigation.su_nav-theme-light.su_navigation-fixed.su_navigation-bottom .su_link-active.su_link-active {
-      border-top: 3px solid #f162b0; }
+      border-top: 3px solid #9c0e5b; }
 
 /* End color themes */
 /* END NAVIGATION COMPONENT */

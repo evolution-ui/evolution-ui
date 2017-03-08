@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //                       Tooltip Component
 //------------------------------------------------------------------------------
-
+/** TOOLTIP COMPONENT **/
 .su_tooltip {
   position: relative;
   display: inline-block;
@@ -31,6 +31,11 @@
   top: calc(100% + 8px);
 }
 
+// .su_tooltip:hover .su_tooltip-text .su_tooltip-top,
+// .su_tooltip:focus .su_tooltip-text .su_tooltip-top{
+  // top: -50px;
+// }
+
 .su_tooltip-text::before {
   width: 0;
   height: 0;
@@ -42,3 +47,4 @@
   border-right: 8px solid transparent;
   border-bottom: 8px solid su_color('primary', 'base');
 }
+/** END TOOLTIP COMPONENT **/
