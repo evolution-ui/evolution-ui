@@ -30,14 +30,14 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['components/*/*.scss'],
-        tasks: ['sass'],
+        tasks: ['sass', 'copy'],
         options: {
           livereload: true
         }
       },
       js: {
         files: ['components/*/*.js'],
-        tasks: ['concat'],
+        tasks: ['concat', 'copy'],
         options: {
           livereload: true
         }
@@ -47,7 +47,13 @@ module.exports = function(grunt) {
       css: {
         files: [{
           src: 'dist/main.css',
-          dest: 'css/main.css'
+          dest: 'prod/main.css'
+        }]
+      },
+      js: {
+        files: [{
+          src: 'dist/main.js',
+          dest: 'prod/main.js',
         }]
       }
     }

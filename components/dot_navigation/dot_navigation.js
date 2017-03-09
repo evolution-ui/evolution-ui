@@ -42,8 +42,8 @@
 
       if ( target.tagName.toLowerCase() === 'li' ) {
         mask.classList.add('moving');
-        clearTimeout(stopMove);
-        var stopMove = setTimeout(function() {
+        window.clearTimeout(stopMove);
+        var stopMove = window.setTimeout(function() {
           mask.classList.remove('moving');
         }, 300);
         mask.style.left = target.offsetLeft + 'px';
