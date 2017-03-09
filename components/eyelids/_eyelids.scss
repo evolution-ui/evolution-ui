@@ -1,7 +1,7 @@
 /* EYELIDS COMPONENT */
 
 $highlight: white(0); // highlight color for the area that is being focused for reading
-$background: black(0.85); // color used to dim the rest of the page
+$background: black(1); // color used to dim the rest of the page
 
 @mixin fixed-containers {
   position: fixed;
@@ -9,7 +9,7 @@ $background: black(0.85); // color used to dim the rest of the page
   width: 100%;
   content: '';
   display: block;
-  opacity: 0.85;
+  opacity: 0.98;
 }
 
 .su_eyelids-notification {
@@ -76,4 +76,16 @@ $background: black(0.85); // color used to dim the rest of the page
   // top: 100vh;
   // transition: all 1s ease-in-out 0s;
   background-image: linear-gradient(to bottom, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
+}
+
+.su_eyelids-helper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: white(0.8);
+  z-index: 9999;
+  pointer-events: none;
+  ul {
+    list-style: disc;
+  }
 }
