@@ -1,7 +1,7 @@
 (function() {
   var clipboard = document.createElement('textarea');
   clipboard.id = 'clipboard';
-  clipboard.style.position = 'absolute';
+  clipboard.style.position = 'fixed';
   clipboard.style.top = '0px';
   clipboard.style.left = '9999px';
 

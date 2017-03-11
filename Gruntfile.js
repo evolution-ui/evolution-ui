@@ -5,17 +5,17 @@ module.exports = function(grunt) {
     concat: {
       js: {
         src: ['components/*/*.js'],
-        dest: 'dist/main.js'
+        dest: 'prod/main.js'
       }
     },
     sass: {
-      dist: {
+      compile: {
         options: {
           update: true
         },
         files: [{
           src: 'components/main.scss',
-          dest: 'dist/main.css'
+          dest: 'prod/main.css'
         }]
       }
     },
@@ -23,40 +23,40 @@ module.exports = function(grunt) {
       build: {
         files: [{
           src: ['components/*/*.js'],
-          dest: 'dist/main.min.js'
+          dest: 'prod/main.min.js'
         }]
       }
     },
     watch: {
       css: {
         files: ['components/*/*.scss'],
-        tasks: ['sass', 'copy'],
+        tasks: ['sass'],
         options: {
           livereload: true
         }
       },
       js: {
         files: ['components/*/*.js'],
-        tasks: ['concat', 'copy'],
+        tasks: ['concat'],
         options: {
           livereload: true
         }
       }
-    },
-    copy: {
-      css: {
-        files: [{
-          src: 'dist/main.css',
-          dest: 'prod/main.css'
-        }]
-      },
-      js: {
-        files: [{
-          src: 'dist/main.js',
-          dest: 'prod/main.js',
-        }]
-      }
-    }
+    }//, // copy task is not needed anymore, at least for css and js
+    // copy: {
+    //   css: {
+    //     files: [{
+    //       src: 'dist/main.css',
+    //       dest: 'prod/main.css'
+    //     }]
+    //   },
+    //   js: {
+    //     files: [{
+    //       src: 'dist/main.js',
+    //       dest: 'prod/main.js',
+    //     }]
+    //   }
+    // }
   });
 
   // Load plugins
@@ -68,6 +68,6 @@ module.exports = function(grunt) {
 
   // Register tasks
   grunt.registerTask('build', ['uglify', 'sass']); // 'grunt build' to run this
-  grunt.registerTask('default', ['concat', 'sass', 'copy', 'watch']); // 'grunt' to run this
+  grunt.registerTask('default', ['concat', 'sass', 'watch']); // 'grunt' to run this
 
 }

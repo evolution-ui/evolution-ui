@@ -1,0 +1,84 @@
+.su_audio-player {
+  background-color: su_color('background', 'light');
+  border-radius: 4px;
+  box-shadow: 0 3px 5px 0 su_color('background');
+  min-width: 300px;
+  padding: 0.625rem 1rem;
+
+  &.su_primary-bg,
+  &.su_accent-bg {
+    color: su_color('background', 'light');
+  }
+
+  audio { 
+    width: 0;
+    height: 0;
+  }
+
+  button { 
+    border: none;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .su_controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .su_track-volume { 
+    text-align: center;
+    
+    input[type="range"] {
+      display: none;
+    }
+
+    .su_icon {
+
+      i {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .su_track {
+    display: flex;
+    flex-basis: 70%;
+    align-items: center;
+
+    progress { 
+      flex-basis: 80%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: none;
+    }
+
+    button {
+      flex-basis: 20%;
+      vertical-align: bottom;
+
+      i {
+        vertical-align: middle;
+        line-height: 27px;
+      }
+    }
+  }
+
+  progress::-webkit-progress-bar,
+  progress::-moz-progress-bar,
+  progress::progress-bar {
+    background-color: su_color('background', 'light');
+    border-radius: 4px;
+  }
+  progress::-webkit-progress-value {
+    background-color: su_color('background');
+  }
+  progress::-moz-progress-bar {
+    background-color: su_color('background');
+  }
+}
