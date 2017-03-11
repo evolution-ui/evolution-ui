@@ -15,9 +15,10 @@
 
   for ( i = 0; i < len; i++ ) {
     paginationItems = paginationBlocks[i].querySelectorAll('li');
-    size = paginationItems && paginationItems.length;
+    if ( !paginationItems ) return;
+    size = paginationItems.length;
     for ( j = 0; j < size; j++ ) {
-      if ( paginationItems && paginationItems[j].classList.contains('su_current-page') ) {
+      if ( paginationItems[j].classList.contains('su_current-page') ) {
         if ( j === 1 ) {
           applyDisabledStyles(paginationItems[j - 1]);
         } else if ( j === size - 2 ) {

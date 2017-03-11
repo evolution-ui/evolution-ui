@@ -13,7 +13,7 @@
     },
 
     getPlayer: function () {
-      return document.querySelector(this.player); 
+      return document.querySelector(this.player);
     },
 
     getAudioTrack: function () {
@@ -63,7 +63,7 @@
       secs = (secs >= 10) ? secs : '0' + secs;
       mins = (mins >= 10) ? mins : '0' + mins;
       trackTime.textContent = mins + ':' + secs ;
-        
+
     },
 
     finishPlay: function () {
@@ -74,7 +74,7 @@
 
       track.currentTime = 0;
       this.changeIcon(playButtonIcon, suAudio.playerIcons.play);
-    
+
     },
 
     isMute: function () {
@@ -90,12 +90,12 @@
 
         this.getAudioTrack().volume = 1;
         this.changeIcon(muteButtonIcon, this.playerIcons.volumeOn);
-      
+
       } else {
 
         this.getAudioTrack().volume = 0;
         this.changeIcon(muteButtonIcon, this.playerIcons.volumeOff);
-        
+
       }
 
     }
@@ -115,7 +115,7 @@
 	audioTrack.addEventListener('playing', suAudio.isPlaying.bind(suAudio), false);
 	audioTrack.addEventListener('timeupdate', suAudio.updateTrack.bind(suAudio), false);
 	audioTrack.addEventListener('ended', suAudio.finishPlay.bind(suAudio), false);
-	
+
   var audioPlayer2 = document.getElementById('audioplayer2'),
       audioPlayer3 = document.getElementById('audioplayer3');
 
