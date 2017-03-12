@@ -1,5 +1,4 @@
 (function() {
-
 	'use strict';
 
   var suAudio = {
@@ -34,7 +33,7 @@
       if (track && playButtonIcon) {
 
         if (track.paused) {
-          
+
           this.changeIcon(playButtonIcon, this.playerIcons.pause);
           track.play();
 

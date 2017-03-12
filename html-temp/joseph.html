@@ -9,7 +9,6 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="../css/main.css"> -->
         <link rel="stylesheet" href="../prod/main.css">
     </head>
     <body style="padding: 80px">
@@ -700,7 +699,7 @@
                 <div class="su_controls">
                   <div class="su_track">
                     <button type="button" class="su_icon"><i class="material-icons">play_arrow</i></button>
-                    <progress min="0" max="100" value="0" id="playhead"></progress>
+                    <input type="range" min="0" max="100" value="0" class="su_playhead" id="playhead">
                   </div>
                   <span class="su_track-time">00:00</span>
                   <div class="su_track-volume">
@@ -721,7 +720,7 @@
                 <div class="su_controls">
                   <div id="playback" class="su_track">
                     <button type="button" class="su_icon"><i class="material-icons">play_arrow</i></button>
-                    <progress min="0" max="100" value="0" id="playhead"></progress>
+                    <input type="range" min="0" max="100" value="0" class="su_playhead">
                   </div>
                   <span class="su_track-time">00:00</span>
                   <div class="su_track-volume">
@@ -742,7 +741,7 @@
                 <div class="su_controls">
                   <div id="playback" class="su_track">
                     <button type="button" class="su_icon"><i class="material-icons">play_arrow</i></button>
-                    <progress min="0" max="100" value="0" id="playhead"></progress>
+                    <input type="range" min="0" max="100" value="0" class="su_playhead">
                   </div>
                   <span class="su_track-time">00:00</span>
                   <div class="su_track-volume">
@@ -758,7 +757,6 @@
           </div>
         </article>
       </section>
-      <!-- <script src="../components/audio/audio.js"></script> -->
       <script src="../prod/main.js"></script>
     </body>
 </html>
