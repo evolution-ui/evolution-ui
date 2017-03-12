@@ -24,6 +24,74 @@
     }
   }
 
+  input[type="range"] {
+    background-color: transparent;
+    -webkit-appearance: none;
+    width: 100%;
+    
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-color: su_color('background', 'light');
+      border: 1px solid su_color('background', 'dark');
+      border-radius: 0.5625rem;
+      height: 1.125rem;
+      margin-top: -0.425rem;
+      width: 1.125rem;
+    }
+
+    &::-moz-range-thumb {
+      background-color: su_color('background', 'light');
+      border: 1px solid su_color('background', 'dark');
+      border-radius: 0.5625rem;
+      height: 1.125rem;
+      width: 1.125rem;
+    }
+    
+    &::-ms-thumb {
+      background-color: su_color('background', 'light');
+      border: 1px solid su_color('background', 'dark');
+      border-radius: 0.5625rem;
+      height: 1.125rem;
+      width: 1.125rem;
+    }
+
+    &::-ms-track {
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    &::-webkit-slider-runnable-track {
+      background-color: su_color('background', 'dark');
+      border-radius: 2.5px;
+      cursor: pointer;
+      height: 0.3125rem;
+      width: 100%;
+    }
+
+    &::-moz-range-track {
+      background-color: su_color('background', 'dark');
+      border-radius: 2.5px;
+      cursor: pointer;
+      height: 0.3125rem;
+      width: 100%;
+    }
+
+    &::-ms-track {
+      background-color: su_color('background', 'dark');
+      border-radius: 2.5px;
+      cursor: pointer;
+      height: 0.3125rem;
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
   .su_controls {
     display: flex;
     align-items: center;
@@ -50,16 +118,12 @@
     flex-basis: 70%;
     align-items: center;
 
-    progress { 
-      flex-basis: 80%;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      border: none;
+    input[type="range"] { 
+      flex-basis: 85%;
     }
 
     button {
-      flex-basis: 20%;
+      flex-basis: 15%;
       vertical-align: bottom;
 
       i {
@@ -67,18 +131,5 @@
         line-height: 27px;
       }
     }
-  }
-
-  progress::-webkit-progress-bar,
-  progress::-moz-progress-bar,
-  progress::progress-bar {
-    background-color: su_color('background', 'light');
-    border-radius: 4px;
-  }
-  progress::-webkit-progress-value {
-    background-color: su_color('background');
-  }
-  progress::-moz-progress-bar {
-    background-color: su_color('background');
   }
 }
