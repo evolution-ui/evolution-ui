@@ -134,6 +134,22 @@
 .su_invisible {
   visibility: hidden; }
 
+@media screen and (max-width: 767px) {
+  .su_show-medium--up {
+    display: none; } }
+
+@media screen and (max-width: 991px) {
+  .su_show-large--up {
+    display: none; } }
+
+@media screen and (min-width: 768px) {
+  .su_hide-medium--up {
+    display: none; } }
+
+@media screen and (min-width: 992px) {
+  .su_hide-large--up {
+    display: none; } }
+
 /* UTILITIES COMPONENT - Screen Reader Only Content */
 .su_sr-only {
   clip: rect(1px, 1px, 1px, 1px);
@@ -171,7 +187,7 @@
   background-color: #113806;
   color: #f0f0ed;
   border-radius: 4px;
-  padding: 5px; }
+  padding: 2px 5px; }
 
 /* UTILITIES COMPONENT - Spacer Classes */
 /* UTILITIES COMPONENT - Top Spacer Classes */
@@ -220,15 +236,48 @@
   margin-left: auto;
   margin-right: auto; }
 
-/* UTILITIES COMPONENT - Styles for brian.html Presentation */
-.brian-div {
+/* UTILITIES COMPONENT - Styles for Presentation */
+.brian_su_utilities-div {
+  padding: 20px 30px;
+  box-shadow: 0px 3px 3px 0px #c4c4b3; }
+
+.brian_su_utilities-div i {
+  vertical-align: middle;
+  margin-right: 10px; }
+
+.brian_su_utilities-fullwidth {
+  width: 80%;
+  box-shadow: 0px 3px 3px 0px #c4c4b3;
   padding: 10px; }
+
+.brian_su_utilities-fullwidth-inner {
+  padding: 10px; }
+
+.brian_su_utilities-visibility-span {
+  padding: 5px;
+  background: #f162b0;
+  transition: background .3s; }
+
+.brian_su_utilities-radius-span {
+  padding: 5px;
+  background: #f162b0;
+  transition: background .3s; }
+
+.brian_su_utilities-visibility-span:hover,
+.brian_su_utilities-visibility-span:focus {
+  background: #da137f; }
+
+.brian_su_utilities-radius-span:hover,
+.brian_su_utilities-radius-span:focus {
+  background: #da137f; }
+
+.brian_su_visibility-table {
+  background: #ade576;
+  padding: 5px;
+  border-radius: 4px; }
 
 .brian-div2 {
   max-width: 12rem;
   padding: 10px; }
-
-.brian-span {
-  padding: 5px; }
 
 /** END UTILITIES COMPONENT **/

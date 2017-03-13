@@ -18,24 +18,24 @@
             <h2 id="component-utilities">Utilities Component</h2>
             <h3>Float Classes</h3>
             <p>Add the class <code class="su_code">.su_left</code> or <code class="su_code">.su_right</code> to float an element left or right respectively.  Then, add the <code class="su_code">.su_clear</code> class to clear floated elements.  Examples:</p>
-            <div class="su_right su_primary-bg su_radius brian-div"><i class="material-icons">settings</i>Div 1 Floated Right</div>
-            <div class="su_space-bottom--small su_left su_foreground-bg su_radius brian-div"><i class="material-icons">menu</i>Div 2 Floated Left</div>
-            <div class="su_clear su_background-bg su_radius brian-div"><i class="material-icons">face</i>Cleared Div</div>
+            <div class="su_right su_primary-bg su_radius brian_su_utilities-div"><i class="material-icons">settings</i>Div 1 Floated Right</div>
+            <div class="su_space-bottom--small su_left su_foreground-bg su_radius brian_su_utilities-div"><i class="material-icons">menu</i>Div 2 Floated Left</div>
+            <div class="su_clear su_background-bg su_radius brian_su_utilities-div"><i class="material-icons">face</i>Cleared Div</div>
 
             <h3 class="su_space-top--medium">Full Width Class</h3>
-            <p>The full width classes expand the element they are applied to to the full width of it's parent element using the <code class="su_code">.su_full-width</code> class.  Example:</p>
-            <div class="su_foreground-bg su_radius brian-div">
-              A container parent element.
-              <div class="su_primary-bg-light su_full-width brian-div"> Full Width Content.</div>
-              Some more content.
+            <p>The full width class expands the element it is applied to to the full width of it's parent element using the <code class="su_code">.su_full-width</code> class.  Example:</p>
+            <div class="su_foreground-bg su_radius brian_su_utilities-fullwidth su_center-content">
+              This is the container parent element that has a width of 80% declared on it with <code class="su_code">10px</code> of padding.
+              <div class="su_primary-bg-light su_full-width brian_su_utilities-fullwidth-inner"> Full Width Content.</div>
+              And some more filler content here.
             </div>
 
             <h3 class="su_space-top--medium">Radius &amp; Round Classes</h3>
-            <p>Add the class <code class="su_code">.su_radius</code> to apply the default radius size on elements.  Add the class <code class="su_code">.su_round</code> class to create a pill or capsule rounding effect on elements.  The class <code class="su_code">.su_round</code> can be applied to different types of elements.  Examples:</p>
-            <p>This paragraph highlights the radius effect on the phrase <span class="su_radius su_accent-bg-light brian-span su_background-light">"Seed UI"</span> when applied to the <code class="su_code">span</code> tag that surrounds it.</p>
-            <p>And the rounding effect applied to a Seed UI button and a div:</p>
+            <p>Add the class <code class="su_code">.su_radius</code> to apply the default radius size on elements.  Add the <code class="su_code">.su_round</code> class to create a pill or capsule rounding effect on elements.  The class <code class="su_code">.su_round</code> can be applied to different types of elements.  Examples:</p>
+            <p>This paragraph highlights the radius effect on the phrase <span class="su_radius su_accent-bg-light brian_su_utilities-radius-span su_background-light">"Seed UI"</span> when applied to the <code class="su_code">span</code> tag that surrounds it.</p>
+            <p>And the rounding effect applied to a Seed UI button and a normal div:</p>
             <button type="button" class="su_btn su_btn-primary su_round">Button With Round Class Applied</button>
-            <div class="su_round su_background-bg su_space-top--small">Div With Round Class Applied</div>
+            <div class="su_round su_background-bg su_space-top--small brian_su_utilities-div">Div With Round Class Applied</div>
 
             <h3 class="su_space-top--medium">Color Classes</h3>
             <p>Seed UI comes with a number of built in colors that can be customized to your website's style guide.  You can change the background color of elements or the text color by applying their associated classes.  Examples:</p>
@@ -118,31 +118,89 @@
 
             <h3 class="su_space-top--medium">Visibility &amp; Hidden Classes</h3>
             <p>Add the class <code class="su_code">.su_hide</code> to an element to remove it from the page view.  The number 4 <code class="su_code">span</code> element in the following list is hidden:</p>
-            <span class="su_accent-bg-light brian-span su_radius">1</span>
-            <span class="su_accent-bg-light brian-span su_radius">2</span>
-            <span class="su_accent-bg-light brian-span su_radius">3</span>
-            <span class="su_accent-bg-light brian-span su_radius su_hide">4</span>
-            <span class="su_accent-bg-light brian-span su_radius">5</span>
-            <span class="su_accent-bg-light brian-span su_radius">6</span>
+            <div class="su_line su_gutters su_align-center">
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">1</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">2</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">3</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius su_hide">4</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">5</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">6</span>
+            </div>
             <p>Add the class <code class="su_code">.su_invisible</code> to make the visibility of an element hidden but still retain its space in the DOM.  The number 4 <code class="su_code">span</code> element in the following list is invisible:</p>
-            <span class="su_accent-bg-light brian-span su_radius">1</span>
-            <span class="su_accent-bg-light brian-span su_radius">2</span>
-            <span class="su_accent-bg-light brian-span su_radius">3</span>
-            <span class="su_accent-bg-light brian-span su_radius su_invisible">4</span>
-            <span class="su_accent-bg-light brian-span su_radius">5</span>
-            <span class="su_accent-bg-light brian-span su_radius">6</span>
+            <div class="su_line su_gutters su_align-center">
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">1</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">2</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">3</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius su_invisible">4</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">5</span>
+              <span class="su_cell su_cells_2 brian_su_utilities-visibility-span su_radius">6</span>
+            </div>
+            <p>The following classes will show and hide different elements depending on the viewport's size:</p>
+            <table class="su_table su_table-bordered su_align-center">
+              <thead>
+                <tr>
+                  <th>Classes</th>
+                  <th>Small Devices</th>
+                  <th>Medium Devices</th>
+                  <th>Large Devices</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="su_code">.su_show-medium--up</code></td>
+                  <td>Hidden <div class="su_show-medium--up brian_su_visibility-table">Example Content Here</div></td>
+                  <td>Shown <div class="su_show-medium--up brian_su_visibility-table">Example Content Here</div></td>
+                  <td>Shown <div class="su_show-medium--up brian_su_visibility-table">Example Content Here</div></td>
+                </tr>
+                <tr>
+                  <td><code class="su_code">.su_show-large--up</code></td>
+                  <td>Hidden <div class="su_show-large--up brian_su_visibility-table">Example Content Here</div></td>
+                  <td>Hidden <div class="su_show-large--up brian_su_visibility-table">Example Content Here</div></td>
+                  <td>Shown <div class="su_show-large--up brian_su_visibility-table">Example Content Here</div></td>
+                </tr>
+                <tr>
+                  <td><code class="su_code">.su_hide-medium--up</code></td>
+                  <td>Shown <div class="su_hide-medium--up brian_su_visibility-table">Example Content Here</div></td>
+                  <td>Hidden <div class="su_hide-medium--up brian_su_visibility-table">Example Content Here</div></td>
+                  <td>Hidden <div class="su_hide-medium--up brian_su_visibility-table">Example Content Here</div></td>
+                </tr>
+                <tr>
+                  <td><code class="su_code">.su_hide-large--up</code></td>
+                  <td>Shown <div class="su_hide-large--up brian_su_visibility-table">Example Content Here</div></td>
+                  <td>Shown <div class="su_hide-large--up brian_su_visibility-table">Example Content Here</div></td>
+                  <td>Hidden <div class="su_hide-large--up brian_su_visibility-table">Example Content Here</div></td>
+                </tr>
+
+              </tbody>
+            </table>
 
             <h3 class="su_space-top--medium">Screen Reader Only Class</h3>
-            <p>The next paragraph is only accessible to screen readers since it has the <code class="su_code">.su_sr-only</code> class applied to it.</p>
+            <p>The next paragraph is only accessible to screen readers since it has the <code class="su_code">.su_sr-only</code> class applied to it.  It can be found by searching for &quot;brown fox&quot; in the <code class="su_code">html</code> source of this document.</p>
             <p class="su_sr-only">The quick brown fox jumped over the lazy dog.</p>
 
             <h3 class="su_space-top--medium">Text Alignment Classes</h3>
             <p>Use the following classes to change the text alignment on elements.</p>
             <div class="su_line su_gutters">
-              <div class="su_cell su_cells_3 su_background-bg brian-div su_radius"><code class="su_code">.su_align-left</code> for left alignment.<i class="material-icons su_right su_accent">format_align_left</i><p class="su_align-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dicta, nulla saepe temporibus molestias in iure, voluptatum earum! Recusandae corrupti repellendus, dolore non, ipsam omnis dolores voluptates consequatur eum modi.</p></div>
-              <div class="su_cell su_cells_3 su_background-bg brian-div su_radius"><code class="su_code">.su_align-center</code class="su_code"> for center alignment.<i class="material-icons su_right su_accent">format_align_center</i><p class="su_align-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea deserunt voluptatibus totam, reprehenderit sequi maiores aut aspernatur debitis unde nulla aliquid ex nam eos esse, architecto mollitia ducimus voluptatem!</p></div>
-              <div class="su_cell su_cells_3 su_background-bg brian-div su_radius"><code class="su_code">.su_align-right</code> for right alignment.<i class="material-icons su_right su_accent">format_align_right</i><p class="su_align-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam quidem consequuntur earum quisquam dolorem numquam, assumenda, unde eveniet atque molestiae iusto eligendi asperiores quibusdam enim error provident, impedit amet! Excepturi.</p></div>
-              <div class="su_cell su_cells_3 su_background-bg brian-div su_radius"><code class="su_code">.su_align-justify</code> for justified alignment.<i class="material-icons su_right su_accent">format_align_justify</i><p class="su_align-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum modi commodi, eos officia, explicabo minus tempore rerum esse reprehenderit voluptas eius id, praesentium velit facilis laborum provident numquam et dignissimos.</p></div>
+              <div class="su_cell su_cells_3 su_background-bg brian-div su_radius">
+                <code class="su_code">.su_align-left</code>
+                <p class="su_align-center"><i class="material-icons su_accent">format_align_left</i></p>
+                <p class="su_align-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dicta, nulla saepe temporibus molestias in iure, voluptatum earum! Recusandae corrupti repellendus, dolore non, ipsam omnis dolores voluptates consequatur eum modi.</p>
+              </div>
+              <div class="su_cell su_cells_3 su_background-bg brian-div su_radius">
+                <code class="su_code">.su_align-center</code class="su_code">
+                <p class="su_align-center"><i class="material-icons su_accent">format_align_center</i></p>
+                <p class="su_align-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea deserunt voluptatibus totam, reprehenderit sequi maiores aut aspernatur debitis unde nulla aliquid ex nam eos esse, architecto mollitia ducimus voluptatem!</p>
+              </div>
+              <div class="su_cell su_cells_3 su_background-bg brian-div su_radius">
+                <code class="su_code">.su_align-right</code>
+                <p class="su_align-center"><i class="material-icons su_accent">format_align_right</i></p>
+                <p class="su_align-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam quidem consequuntur earum quisquam dolorem numquam, assumenda, unde eveniet atque molestiae iusto eligendi asperiores quibusdam enim error provident, impedit amet! Excepturi.</p>
+              </div>
+              <div class="su_cell su_cells_3 su_background-bg brian-div su_radius">
+                <code class="su_code">.su_align-justify</code>
+                <p class="su_align-center"><i class="material-icons su_accent">format_align_justify</i></p>
+                <p class="su_align-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum modi commodi, eos officia, explicabo minus tempore rerum esse reprehenderit voluptas eius id, praesentium velit facilis laborum provident numquam et dignissimos.</p>
+              </div>
             </div>
 
             <h3 class="su_space-top--medium">Text Transform Classes</h3>
@@ -151,7 +209,7 @@
             <p class="su_capitalize">Use the <code class="su_code">.su_capitalize</code> class to transform text of an element to use uppercase letters for the beginning of each word.</p>
 
             <h3 class="su_space-top--medium">Code Class</h3>
-            <p>Add the class <code class="su_code">.su_code</code> to give some default styling to displayed computer code.  Examples:</p>
+            <p>Add the class <code class="su_code">.su_code</code> to give some default styling to displayed computer code.  Example:</p>
 <pre class="su_code">
     <code>&lt;!DOCTYPE html&gt;
     &lt;html lang="en"&gt;
@@ -184,7 +242,7 @@
             <p>The class <code class="su_code">.su_space-left--large</code> applies a <code class="su_code">margin-left: 100px</code> to an element.</p>
 
             <h3 class="su_space-top--medium">Center Content Class</h3>
-            <p>Add the <code class="su_code">.su_center-content</code> class to an elementfor an easy way to add auto margins for centering content blocks.  Example:</p>
+            <p>Add the <code class="su_code">.su_center-content</code> class to an element for an easy way to add auto margins for centering content blocks.  Example:</p>
             <div class="su_center-content brian-div2 su_primary-bg-dark su_radius">This div box is centered on this page since it has the <code class="su_code">.su_center-content</code> class applied to it.</div>
 
             <hr class="su_space-top--medium">
@@ -192,9 +250,9 @@
             <h2 id="component-sticky" class="su_space-top--medium">Sticky Component</h2>
             <div class="su_left su_background-bg su_radius brian_su_stick_presentation">
               <p class="su_clear">This is a normal <code class="su_code">div</code>.  To the right shows an example of a div made sticky with the <code class="su_code">su_stick</code> class.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus nulla et ut voluptatum reiciendis deleniti harum rem sapiente nesciunt aliquam non odit explicabo quas voluptatem consequatur necessitatibus, veritatis exercitationem perferendis.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae explicabo natus voluptates, doloribus nulla distinctio illo totam ratione provident esse, voluptas accusantium odit atque aut in deserunt numquam optio. Magni?</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae explicabo natus voluptates, doloribus nulla distinctio illo totam ratione provident esse, voluptas accusantium odit atque aut in deserunt numquam optio. Magni?</p>
+              <p class="su_background-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus nulla et ut voluptatum reiciendis deleniti harum rem sapiente nesciunt aliquam non odit explicabo quas voluptatem consequatur necessitatibus, veritatis exercitationem perferendis.</p>
+              <p class="su_background-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae explicabo natus voluptates, doloribus nulla distinctio illo totam ratione provident esse, voluptas accusantium odit atque aut in deserunt numquam optio. Magni?</p>
+              <p class="su_background-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae explicabo natus voluptates, doloribus nulla distinctio illo totam ratione provident esse, voluptas accusantium odit atque aut in deserunt numquam optio. Magni?</p>
               <p>The <code class="su_code">su_sticky</code> element is released when it reaches another element with the class <code class="su_code">su_stick-end</code>; which is applied to the Tooltip heading just below.</p>
             </div>
             <div class="su_stick su_right su_accent-bg-light su_radius">
@@ -204,9 +262,8 @@
             <hr class="su_clear su_space-top--medium">
 
             <h2 id="component-tooltip" class="su_space-top--medium su_clear su_stick-end">Tooltip Component</h2>
-            <p class="su_contains_tooltip">The tooltip component allows you to add useful pieces of information <span class="su_tooltip">hidden<span class="su_tooltip-text su_radius">Like this!</span></span> from normal view so users can choose to hover over them or not to find out more.
-            <p>Lorem ipsum dolor molestias nihil fugiat, voluptates, perferendis distinctio repellendus repudiandae.<span class="su_tooltip">natus (tooltip top)<span class="su_tooltip-text su_tooltip-top su_radius">natus - born, arisen</span></span> <span title="Auto Tooltip">accusamus</span> nihil maxime, consequuntur pariatur mollitia nobis atque consectetur sunt vitae fuga, esse est? Cupiditate voluptas autem laboriosam.</p>
-            <p class="su_contains_tooltip">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non alias recusandae natus accusamus nihil maxime, consequuntur <span class="su_tooltip">pariatur (tooltip left)<span class="su_tooltip-text su_radius">pariatur - to bear</span></span> mollitia nobis atque consectetur sunt vitae fuga, esse est? <span class="su_tooltip">Cupiditate (tooltip right)<span class="su_tooltip-text su_radius">Cupiditate - enthusiasm, eagerness, passion</span></span> voluptas autem laboriosam.</p>
+            <p>The tooltip component allows you to add useful pieces of information <span class="su_tooltip">hidden<span class="su_tooltip-text su_radius">Like this!</span></span> from normal view so users can choose to hover over them or not to find out more.  Simply add the <code class="su_code">.su_tooltip-text</code> class to a <code class="su_code">span</code> element that has is wrapping the text you want to be in the tooltip.  Then, wrap all that in a <code class="su_code">span</code> element with the text you want the tool tip applied to.
+            <p>The tooltip defaults to appear at the bottom of its attached word.  However, by adding the class <code class="su_code">.su_tool-top</code> you can can make the tooltip <span class="su_tooltip">appear<span class="su_tooltip-text su_tool-top  su_radius">I'm on top now!</span></span> above the word.<span title="Auto Tooltip">accusamus</span> nihil maxime, consequuntur pariatur mollitia nobis atque consectetur sunt vitae fuga, esse est? Cupiditate voluptas autem laboriosam.</p>
 
             <hr class="su_space-top--medium">
 
@@ -281,7 +338,7 @@
             <hr class="su_space-top--medium">
 
             <h2 id="component-cubby" class="su_space-top--medium">Cubby Component (Table with Drawers - Experimental Innovative UI) </h2>
-            <p>The idea for this innovative UI component is to have more data revealed on <code class="su_code">hover</code> or <code class="su_code">focus</code> in a particular cell to conserve the amount of sceen space the table covers.</p>
+            <p>The idea for this innovative UI component is to have more data revealed on <code class="su_code">hover</code> or <code class="su_code">focus</code> in a particular cell to conserve the amount of sceen space the table uses.</p>
             <table class="su_table su_table-bordered">
               <thead>
                 <tr>
@@ -322,10 +379,10 @@
             <hr class="su_space-top--medium">
 
       </div>
-      <!-- <script type="text/javascript" src="../components/accordion/accordion.js"></script> -->
-      <!-- <script type="text/javascript" src="../components/scrollspy/scrollspy.js"></script> -->
-      <!-- <script type="text/javascript" src="../components/sticky/sticky.js"></script> -->
-      <script type="text/javascript" src="../prod/main.js"></script>
+      <script type="text/javascript" src="../components/accordion/accordion.js"></script>
+      <script type="text/javascript" src="../components/scrollspy/scrollspy.js"></script>
+      <script type="text/javascript" src="../components/sticky/sticky.js"></script>
+      <!-- <script type="text/javascript" src="../prod/main.js"></script> -->
 
     </body>
 </html>
