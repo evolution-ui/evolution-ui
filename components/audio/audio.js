@@ -150,8 +150,8 @@
     var audioPlayer2 = document.getElementById('audioplayer2'),
         audioPlayer3 = document.getElementById('audioplayer3');
 
-    audioPlayer2 && audioPlayer2.querySelector('audio').removeAttribute('controls');
-    audioPlayer3 && audioPlayer3.querySelector('audio').removeAttribute('controls');  
+    audioPlayer2.querySelector('audio').removeAttribute('controls');
+    audioPlayer3.querySelector('audio').removeAttribute('controls');  
   }
   
 
