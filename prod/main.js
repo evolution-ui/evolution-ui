@@ -39,6 +39,7 @@
 })();
 
 (function() {
+
 	'use strict';
 
   var suAudio = {
@@ -53,7 +54,7 @@
     },
 
     getPlayer: function () {
-      return document.querySelector(this.player); 
+      return document.querySelector(this.player);
     },
 
     getAudioTrack: function () {
@@ -68,75 +69,100 @@
 
       var track = this.getAudioTrack(),
           playButtonIcon = this.getPlayer()
-                           .querySelector(this.playback + ' button i');
+                               .querySelector(this.playback + ' button i');
+      
+      if (track && playButtonIcon) {
 
-      if (track.paused) {
+        if (track.paused) {
+          
+          this.changeIcon(playButtonIcon, this.playerIcons.pause);
+          track.play();
 
-        this.changeIcon(playButtonIcon, this.playerIcons.pause);
-        track.play();
+        } else {
 
-      } else {
+          this.changeIcon(playButtonIcon, this.playerIcons.play);
+          track.pause();
 
-        this.changeIcon(playButtonIcon, this.playerIcons.play);
-        track.pause();
+        }
 
       }
+        
     },
 
     isPlaying: function() {
       var trackProgress = this.getPlayer()
-                         .querySelector(this.playback + ' progress'),
+                         .querySelector(this.playback + ' input[type="range"]'),
           track = this.getAudioTrack();
 
-      trackProgress.max = track.duration;
+      if (track && trackProgress) {
+        trackProgress.max = track.duration;
+      }
+      
     },
 
     updateTrack: function () {
+      
       var player = this.getPlayer(),
-          trackProgress = player.querySelector(this.playback + ' progress'),
+          trackProgress = player.querySelector(this.playback + ' input[type="range"]'),
           track = this.getAudioTrack(),
           trackTime = player.querySelector('.su_track-time'),
           secs = parseInt(track.currentTime % 60),
           mins = parseInt((track.currentTime / 60) % 60);
 
-      trackProgress.value = track.currentTime;
-      secs = (secs >= 10) ? secs : '0' + secs;
-      mins = (mins >= 10) ? mins : '0' + mins;
-      trackTime.textContent = mins + ':' + secs ;
+      if (player && trackProgress && track && trackTime) {
         
+        trackProgress.value = track.currentTime;
+        secs = (secs >= 10) ? secs : '0' + secs;
+        mins = (mins >= 10) ? mins : '0' + mins;
+        trackTime.textContent = mins + ':' + secs; 
+      
+      }
+
+    },
+
+    seekTrack: function() {
+      var trackProgress = this.getPlayer().querySelector(this.playback + ' input[type="range"]'),
+          track = this.getAudioTrack();
+
+      if (track && trackProgress) {
+        track.currentTime = trackProgress.value;
+      }
     },
 
     finishPlay: function () {
 
       var track = this.getAudioTrack(),
           playButtonIcon = this.getPlayer()
-                           .querySelector(this.playback + ' button i');
+                               .querySelector(this.playback + ' button i');
 
-      track.currentTime = 0;
-      this.changeIcon(playButtonIcon, suAudio.playerIcons.play);
-    
+      if (track && playButtonIcon) {
+        track.currentTime = 0;
+        this.changeIcon(playButtonIcon, suAudio.playerIcons.play);
+      }
+
     },
 
     isMute: function () {
-      return this.getAudioTrack().volume === 0;
+      return this.getAudioTrack() && this.getAudioTrack().volume === 0;
     },
 
     mute: function () {
 
       var muteButtonIcon = this.getPlayer()
                                .querySelector('.su_track-volume button i');
+      if (muteButtonIcon) {
+        if (this.isMute()) {
 
-      if (this.isMute()) {
+          this.getAudioTrack().volume = 1;
+          this.changeIcon(muteButtonIcon, this.playerIcons.volumeOn);
 
-        this.getAudioTrack().volume = 1;
-        this.changeIcon(muteButtonIcon, this.playerIcons.volumeOn);
-      
-      } else {
+        } else {
 
-        this.getAudioTrack().volume = 0;
-        this.changeIcon(muteButtonIcon, this.playerIcons.volumeOff);
-        
-      }
+          this.getAudioTrack().volume = 0;
+          this.changeIcon(muteButtonIcon, this.playerIcons.volumeOff);
+
+        }
+      } 
 
     }
 
@@ -144,23 +170,26 @@
 
 	var audioPlayer = suAudio.getPlayer(),
 	    audioTrack = audioPlayer.querySelector(suAudio.track),
+      trackProgress = audioPlayer.querySelector(suAudio.playback + ' input[type="range"]'),
 	    playButton = audioPlayer.querySelector(suAudio.playback + ' button'),
 	    muteButton = audioPlayer.querySelector('.su_track-volume button');
 
   // Remove any default controls in favor of our own.
-	audioTrack.removeAttribute('controls');
+	audioTrack && audioTrack.removeAttribute('controls');
 	// Add event listeners to make the player work
-  playButton.addEventListener('click', suAudio.play.bind(suAudio), false);
-	muteButton.addEventListener('click', suAudio.mute.bind(suAudio), false);
-	audioTrack.addEventListener('playing', suAudio.isPlaying.bind(suAudio), false);
-	audioTrack.addEventListener('timeupdate', suAudio.updateTrack.bind(suAudio), false);
-	audioTrack.addEventListener('ended', suAudio.finishPlay.bind(suAudio), false);
-	
+  playButton && playButton.addEventListener('click', suAudio.play.bind(suAudio), false);
+	muteButton && muteButton.addEventListener('click', suAudio.mute.bind(suAudio), false);
+	audioTrack && audioTrack.addEventListener('playing', suAudio.isPlaying.bind(suAudio), false);
+	audioTrack && audioTrack.addEventListener('timeupdate', suAudio.updateTrack.bind(suAudio), false);
+	audioTrack && audioTrack.addEventListener('ended', suAudio.finishPlay.bind(suAudio), false);
+  trackProgress && trackProgress.addEventListener('change', suAudio.seekTrack.bind(suAudio), false);
+
+  // Only for demo. Remove on your live site.
   var audioPlayer2 = document.getElementById('audioplayer2'),
       audioPlayer3 = document.getElementById('audioplayer3');
 
-  audioPlayer2.querySelector('audio').removeAttribute('controls');
-  audioPlayer3.querySelector('audio').removeAttribute('controls');
+  audioPlayer2 && audioPlayer2.querySelector('audio').removeAttribute('controls');
+  audioPlayer3 && audioPlayer3.querySelector('audio').removeAttribute('controls');
 
 }());
 
@@ -837,9 +866,10 @@
 
   for ( i = 0; i < len; i++ ) {
     paginationItems = paginationBlocks[i].querySelectorAll('li');
-    size = paginationItems && paginationItems.length;
+    if ( !paginationItems ) return;
+    size = paginationItems.length;
     for ( j = 0; j < size; j++ ) {
-      if ( paginationItems && paginationItems[j].classList.contains('su_current-page') ) {
+      if ( paginationItems[j].classList.contains('su_current-page') ) {
         if ( j === 1 ) {
           applyDisabledStyles(paginationItems[j - 1]);
         } else if ( j === size - 2 ) {

@@ -33,6 +33,6 @@
     * `grunt` - this concatenates `js` files, compiles `sass` files, and watches for changes in those files
     * `grunt build` - build for production, uglifies JS, and compiles sass
 
-5. The `main.js`, `main.min.js` and `main.css` are located in the `dist` directory on the root of the repository. **Make sure you link to those files in your HTML file**
+5. The `main.js`, `main.min.js` and `main.css` are located in the `prod` directory on the root of the repository. **Make sure you link to those files in your HTML file**
 
 6. You can stop grunt task by pressing `Ctrl + C` in the command line

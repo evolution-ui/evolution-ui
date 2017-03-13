@@ -6,6 +6,7 @@
 
 $su_border-radius: 4px;
 $su_round-size: 500px;
+$su_boxshadow: 0px 3px 3px 0px #c4c4b3;
 
 /* UTILITIES COMPONENT - Float Classes */
 
@@ -167,6 +168,43 @@ $su_round-size: 500px;
   visibility: hidden;
 }
 
+
+// @media screen and (max-width: 767px) and (min-width: 992px) {
+//   .su_show-medium--only {
+//       display: none;
+//   }
+// }
+
+// .su_hide-medium--only {
+//   @media screen and (min-width: 768px) and (max-width: 992px) {
+//     display: none;
+//   }
+// }
+
+.su_show-medium--up {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.su_show-large--up {
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
+}
+
+.su_hide-medium--up {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.su_hide-large--up {
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
+}
+
 /* UTILITIES COMPONENT - Screen Reader Only Content */
 
 .su_sr-only {
@@ -216,7 +254,7 @@ $su_round-size: 500px;
   background-color: su_color('secondary', 'dark');
   color: su_color('background', 'light');
   border-radius: $su_border-radius;
-  padding: 5px;
+  padding: 2px 5px;
 }
 
 /* UTILITIES COMPONENT - Spacer Classes */
@@ -286,22 +324,58 @@ $su_round-size: 500px;
 }
 
 
-/* UTILITIES COMPONENT - Styles for brian.html Presentation */
+/* UTILITIES COMPONENT - Styles for Presentation */
 
-.brian-div {
+.brian_su_utilities-div {
+  padding: 20px 30px;
+  box-shadow: $su_boxshadow;
+}
+
+.brian_su_utilities-div i {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.brian_su_utilities-fullwidth {
+  width: 80%;
+  box-shadow: $su_boxshadow;
   padding: 10px;
 }
 
-.brian-div:hover,
-.brian-div:focus {
+.brian_su_utilities-fullwidth-inner {
+  padding: 10px;
+}
+
+.brian_su_utilities-visibility-span {
+  padding: 5px;
+  background: su_color('accent', 'light');
+  transition: background .3s;
+}
+
+.brian_su_utilities-radius-span {
+  padding: 5px;
+  background: su_color('accent', 'light');
+  transition: background .3s;
+}
+
+.brian_su_utilities-visibility-span:hover,
+.brian_su_utilities-visibility-span:focus {
+  background: su_color('accent', 'base');
+}
+
+.brian_su_utilities-radius-span:hover,
+.brian_su_utilities-radius-span:focus {
+  background: su_color('accent', 'base');
+}
+
+.brian_su_visibility-table {
+  background: su_color('primary', 'light');
+  padding: 5px;
+  border-radius: $su_border-radius;
 }
 
 .brian-div2 {
   max-width: 12rem;
   padding: 10px;
-}
-
-.brian-span {
-  padding: 5px;
 }
 /** END UTILITIES COMPONENT **/
