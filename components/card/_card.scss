@@ -115,6 +115,11 @@
       padding: 0.625rem 0 0 0.625rem;
     }
 
+    .su_card-image,
+    .su_card-body {
+      margin-bottom: 0;
+    }
+
   }
 
 
@@ -141,6 +146,11 @@
     &.su_card-horizontal {
       flex-wrap: wrap;
       flex-direction: column;
+      padding: 0;
+
+      .su_card-image {
+        padding: 0;
+      }
     }
   }
 
