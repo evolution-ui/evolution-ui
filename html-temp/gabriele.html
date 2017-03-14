@@ -488,260 +488,339 @@
 
       </div>
 
-      <!-- Init Crumble -->
-      <div class="su_crumble">
-        <ul class="su_crumble__list">
-          <li class="su_crumble__item">
-            <div class="su_crumble__date" data-day="mon">01</div>
-            <span class="su_crumble__span">
-              <i class="su_crumble__icon--expand material-icons">expand_more</i>
-              Monday
-            </span>
-            <div class="su_crumble_inner">
-              <div class="su_crumble_inner__header">
-                <h5 class="su_creamble__title">Event Details</h5>
-                <i class="su_crumble__icon--close material-icons">close</i>
-              </div>
-              <div class="su_crumble_inner__body">
-                <ul class="su_crumble__list su_crumble__list--icons">
-                  <li>
-                    <a href="#" title="dashboard">
-                      <i class="su_crumble__icon material-icons">dashboard</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="credit_card">
-                      <i class="su_crumble__icon material-icons">credit_card</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="date_range">
-                      <i class="su_crumble__icon material-icons">date_range</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="explore">
-                      <i class="su_crumble__icon material-icons">explore</i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li class="su_crumble__item">
-            <div class="su_crumble__date" data-day="tue">02</div>
-            <span class="su_crumble__span">
-              <i class="su_crumble__icon--expand material-icons">expand_more</i>
-              Tuesday
-            </span>
-            <div class="su_crumble_inner">
-              <div class="su_crumble_inner__header">
-                <h5 class="su_creamble__title">Event Details</h5>
-                <i class="su_crumble__icon--close material-icons">close</i>
-              </div>
-              <div class="su_crumble_inner__body">
-                <ul class="su_crumble__list su_crumble__list--icons">
-                  <li>
-                    <a href="#" title="dashboard">
-                      <i class="su_crumble__icon material-icons">dashboard</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="credit_card">
-                      <i class="su_crumble__icon material-icons">credit_card</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="date_range">
-                      <i class="su_crumble__icon material-icons">date_range</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="explore">
-                      <i class="su_crumble__icon material-icons">explore</i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="su_crumble_inner__description">
-              Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
-              </div>
-            </div>
-          </li>
-          <li class="su_crumble__item">
-            <div class="su_crumble__date" data-day="wed">03</div>
-            <span class="su_crumble__span">
-              <i class="su_crumble__icon--expand material-icons">expand_more</i>
-              Wednesday
-            </span>
-            <div class="su_crumble_inner">
-              <div class="su_crumble_inner__header">
-                <h5 class="su_creamble__title">Event Details</h5>
-                <i class="su_crumble__icon--close material-icons">close</i>
-              </div>
-              <div class="su_crumble_inner__body">
-                <ul class="su_crumble__list su_crumble__list--icons">
-                  <li>
-                    <a href="#" title="dashboard">
-                      <i class="su_crumble__icon material-icons">dashboard</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="credit_card">
-                      <i class="su_crumble__icon material-icons">credit_card</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="date_range">
-                      <i class="su_crumble__icon material-icons">date_range</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="explore">
-                      <i class="su_crumble__icon material-icons">explore</i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-        </ul>
+    <div class="su_line">
+      <div class="su_cell">
+        <!-- Init Crumble -->
+        <h2 id="component-crumble" class="su_space-top--medium">Crumble Component (Fold and Unfold effect - Experimental Innovative UI) </h2>
+        <p>
+        The idea for this innovative UI component is to have more data shown
+        when the user click on a particular event. As in the following example,
+        it could be used for calendar events.
+        The element contains a <em>header</em> and a <em>body</em> which can be
+        used for icons and details.
+        </p>
+        <pre class="su_background-bg-light su_foreground">
+          &lt;div class="su_crumble"&gt;
+            &lt;ul class="su_crumble__list"&gt;
+              &lt;li class="su_crumble__item"&gt;
+                &lt;div class="su_crumble__date" data-day="mon"&gt;01&lt;/div&gt;
+                &lt;span class="su_crumble__span"&gt;
+                  &lt;i class="su_crumble__icon--expand material-icons"&gt;expand_more&lt;/i&gt;
+                  Monday
+                &lt;/span&gt;
+                &lt;div class="su_crumble_inner"&gt;
+                  &lt;div class="su_crumble_inner__header"&gt;
+                    &lt;h5 class="su_creamble__title"&gt;Event Details&lt;/h5&gt;
+                    &lt;i class="su_crumble__icon--close material-icons"&gt;close&lt;/i&gt;
+                  &lt;/div&gt;
+                  &lt;div class="su_crumble_inner__body"&gt;
+                    &lt;ul class="su_crumble__list su_crumble__list--icons"&gt;
+                      &lt;li&gt;
+                        &lt;a href="#" title="dashboard"&gt;
+                          &lt;i class="su_crumble__icon material-icons"&gt;dashboard&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href="#" title="credit_card"&gt;
+                          &lt;i class="su_crumble__icon material-icons"&gt;credit_card&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href="#" title="date_range"&gt;
+                          &lt;i class="su_crumble__icon material-icons"&gt;date_range&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href="#" title="explore"&gt;
+                          &lt;i class="su_crumble__icon material-icons"&gt;explore&lt;/i&gt;
+                        &lt;/a&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;/div&gt;
+        </pre>
       </div>
-
-
-      <div class="su_crumble su_crumble--full-width">
-        <ul class="su_crumble__list">
-          <li class="su_crumble__item">
-            <div class="su_crumble__date" data-day="mon">01</div>
-            <span class="su_crumble__span">
-              <i class="su_crumble__icon--expand material-icons">expand_more</i>
-              Monday
-            </span>
-            <div class="su_crumble_inner">
-              <div class="su_crumble_inner__header">
-                <h5 class="su_creamble__title">Event Details</h5>
-                <i class="su_crumble__icon--close material-icons">close</i>
-              </div>
-              <div class="su_crumble_inner__body">
-                <ul class="su_crumble__list su_crumble__list--icons">
-                  <li>
-                    <a href="#" title="dashboard">
-                      <i class="su_crumble__icon material-icons">dashboard</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="credit_card">
-                      <i class="su_crumble__icon material-icons">credit_card</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="date_range">
-                      <i class="su_crumble__icon material-icons">date_range</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="explore">
-                      <i class="su_crumble__icon material-icons">explore</i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li class="su_crumble__item">
-            <div class="su_crumble__date" data-day="tue">02</div>
-            <span class="su_crumble__span">
-              <i class="su_crumble__icon--expand material-icons">expand_more</i>
-              Tuesday
-            </span>
-            <div class="su_crumble_inner">
-              <div class="su_crumble_inner__header">
-                <h5 class="su_creamble__title">Event Details</h5>
-                <i class="su_crumble__icon--close material-icons">close</i>
-              </div>
-              <div class="su_crumble_inner__body">
-                <ul class="su_crumble__list su_crumble__list--icons">
-                  <li>
-                    <a href="#" title="dashboard">
-                      <i class="su_crumble__icon material-icons">dashboard</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="credit_card">
-                      <i class="su_crumble__icon material-icons">credit_card</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="date_range">
-                      <i class="su_crumble__icon material-icons">date_range</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="explore">
-                      <i class="su_crumble__icon material-icons">explore</i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="su_crumble_inner__description">
-              Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
-              </div>
-            </div>
-          </li>
-          <li class="su_crumble__item">
-            <div class="su_crumble__date" data-day="wed">03</div>
-            <span class="su_crumble__span">
-              <i class="su_crumble__icon--expand material-icons">expand_more</i>
-              Wednesday
-            </span>
-            <div class="su_crumble_inner">
-              <div class="su_crumble_inner__header">
-                <h5 class="su_creamble__title">Event Details</h5>
-                <i class="su_crumble__icon--close material-icons">close</i>
-              </div>
-              <div class="su_crumble_inner__body">
-                <ul class="su_crumble__list su_crumble__list--icons">
-                  <li>
-                    <a href="#" title="dashboard">
-                      <i class="su_crumble__icon material-icons">dashboard</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="credit_card">
-                      <i class="su_crumble__icon material-icons">credit_card</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="date_range">
-                      <i class="su_crumble__icon material-icons">date_range</i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="explore">
-                      <i class="su_crumble__icon material-icons">explore</i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-    <!-- Wave effects -->
-    <form class="su_form">
-    <div class="su_input su_input--button su_input--button--3D su_wave">
-      Button Wave Effect
-      </div>
-    </form>
-
-    <div class="su_btn su_btn-primary su_wave" style="max-width: 300px">
-      Button Wave Effect 2
     </div>
 
+    <div class="su_line">
+      <div class="su_cell">
+        <div class="su_crumble">
+          <ul class="su_crumble__list">
+            <li class="su_crumble__item">
+              <div class="su_crumble__date" data-day="mon">01</div>
+              <span class="su_crumble__span">
+                <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                Monday
+              </span>
+              <div class="su_crumble_inner">
+                <div class="su_crumble_inner__header">
+                  <h5 class="su_creamble__title">Event Details</h5>
+                  <i class="su_crumble__icon--close material-icons">close</i>
+                </div>
+                <div class="su_crumble_inner__body">
+                  <ul class="su_crumble__list su_crumble__list--icons">
+                    <li>
+                      <a href="#" title="dashboard">
+                        <i class="su_crumble__icon material-icons">dashboard</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="credit_card">
+                        <i class="su_crumble__icon material-icons">credit_card</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="date_range">
+                        <i class="su_crumble__icon material-icons">date_range</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="explore">
+                        <i class="su_crumble__icon material-icons">explore</i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="su_crumble__item">
+              <div class="su_crumble__date" data-day="tue">02</div>
+              <span class="su_crumble__span">
+                <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                Tuesday
+              </span>
+              <div class="su_crumble_inner">
+                <div class="su_crumble_inner__header">
+                  <h5 class="su_creamble__title">Event Details</h5>
+                  <i class="su_crumble__icon--close material-icons">close</i>
+                </div>
+                <div class="su_crumble_inner__body">
+                  <ul class="su_crumble__list su_crumble__list--icons">
+                    <li>
+                      <a href="#" title="dashboard">
+                        <i class="su_crumble__icon material-icons">dashboard</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="credit_card">
+                        <i class="su_crumble__icon material-icons">credit_card</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="date_range">
+                        <i class="su_crumble__icon material-icons">date_range</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="explore">
+                        <i class="su_crumble__icon material-icons">explore</i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="su_crumble_inner__description">
+                Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+                </div>
+              </div>
+            </li>
+            <li class="su_crumble__item">
+              <div class="su_crumble__date" data-day="wed">03</div>
+              <span class="su_crumble__span">
+                <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                Wednesday
+              </span>
+              <div class="su_crumble_inner">
+                <div class="su_crumble_inner__header">
+                  <h5 class="su_creamble__title">Event Details</h5>
+                  <i class="su_crumble__icon--close material-icons">close</i>
+                </div>
+                <div class="su_crumble_inner__body">
+                  <ul class="su_crumble__list su_crumble__list--icons">
+                    <li>
+                      <a href="#" title="dashboard">
+                        <i class="su_crumble__icon material-icons">dashboard</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="credit_card">
+                        <i class="su_crumble__icon material-icons">credit_card</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="date_range">
+                        <i class="su_crumble__icon material-icons">date_range</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="explore">
+                        <i class="su_crumble__icon material-icons">explore</i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="su_line">
+      <div class="su_cell">
+        <p>
+          Add the class <code class="su_code">.su_crumble--full-width</code>
+          to make to unfold the details at full width.
+        </p>
+      </div>
+    </div>
+
+    <div class="su_line">
+      <div class="su_cell">
+        <div class="su_crumble su_crumble--full-width">
+          <ul class="su_crumble__list">
+            <li class="su_crumble__item">
+              <div class="su_crumble__date" data-day="mon">01</div>
+              <span class="su_crumble__span">
+                <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                Monday
+              </span>
+              <div class="su_crumble_inner">
+                <div class="su_crumble_inner__header">
+                  <h5 class="su_creamble__title">Event Details</h5>
+                  <i class="su_crumble__icon--close material-icons">close</i>
+                </div>
+                <div class="su_crumble_inner__body">
+                  <ul class="su_crumble__list su_crumble__list--icons">
+                    <li>
+                      <a href="#" title="dashboard">
+                        <i class="su_crumble__icon material-icons">dashboard</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="credit_card">
+                        <i class="su_crumble__icon material-icons">credit_card</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="date_range">
+                        <i class="su_crumble__icon material-icons">date_range</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="explore">
+                        <i class="su_crumble__icon material-icons">explore</i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="su_crumble__item">
+              <div class="su_crumble__date" data-day="tue">02</div>
+              <span class="su_crumble__span">
+                <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                Tuesday
+              </span>
+              <div class="su_crumble_inner">
+                <div class="su_crumble_inner__header">
+                  <h5 class="su_creamble__title">Event Details</h5>
+                  <i class="su_crumble__icon--close material-icons">close</i>
+                </div>
+                <div class="su_crumble_inner__body">
+                  <ul class="su_crumble__list su_crumble__list--icons">
+                    <li>
+                      <a href="#" title="dashboard">
+                        <i class="su_crumble__icon material-icons">dashboard</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="credit_card">
+                        <i class="su_crumble__icon material-icons">credit_card</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="date_range">
+                        <i class="su_crumble__icon material-icons">date_range</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="explore">
+                        <i class="su_crumble__icon material-icons">explore</i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="su_crumble_inner__description">
+                Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+                </div>
+              </div>
+            </li>
+            <li class="su_crumble__item">
+              <div class="su_crumble__date" data-day="wed">03</div>
+              <span class="su_crumble__span">
+                <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                Wednesday
+              </span>
+              <div class="su_crumble_inner">
+                <div class="su_crumble_inner__header">
+                  <h5 class="su_creamble__title">Event Details</h5>
+                  <i class="su_crumble__icon--close material-icons">close</i>
+                </div>
+                <div class="su_crumble_inner__body">
+                  <ul class="su_crumble__list su_crumble__list--icons">
+                    <li>
+                      <a href="#" title="dashboard">
+                        <i class="su_crumble__icon material-icons">dashboard</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="credit_card">
+                        <i class="su_crumble__icon material-icons">credit_card</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="date_range">
+                        <i class="su_crumble__icon material-icons">date_range</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" title="explore">
+                        <i class="su_crumble__icon material-icons">explore</i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Wave effects -->
+    <div class="su_line">
+      <div class="su_cell">
+        <h2 id="waveEffect" class="su_space-top--medium">Wave Effect</h2>
+        <p>
+          Add the class <code class="su_code">.su_wave</code> to an element to activate the wave effect on it.
+          For example
+        </p>
+        <form class="su_form">
+        <div class="su_input su_input--button su_input--button--3D su_wave">
+          Button Wave Effect
+          </div>
+        </form>
+        <p class="su_space-top--medium"></p>
+        <div class="su_btn su_btn-primary su_wave" style="max-width: 300px">
+          Button Wave Effect 2
+        </div>
+      </div>
+    </div>
     <!-- Animations -->
 
-    <h2>CSS Animations</h2>
+    <h2 id="CSSAnimations" class="su_space-top--medium">CSS Animations</h2>
 
     <div class="su_line">
       <table id="su_anim" class="su_table su_table-bordered su_align-center">
