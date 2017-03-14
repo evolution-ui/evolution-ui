@@ -9,9 +9,8 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="../css/main.css"> -->
-        <link rel="stylesheet" href="../prod/main.css">
-
+        <!-- <link rel="stylesheet" href="../dist/main.css"> -->
+        <link rel="stylesheet" href="../css/main.css">
       <style>
         .g-container {
           padding: 10px;
@@ -490,6 +489,126 @@
       </div>
 
       <!-- Init Crumble -->
+      <div class="su_crumble">
+        <ul class="su_crumble__list">
+          <li class="su_crumble__item">
+            <div class="su_crumble__date" data-day="mon">01</div>
+            <span class="su_crumble__span">
+              <i class="su_crumble__icon--expand material-icons">expand_more</i>
+              Monday
+            </span>
+            <div class="su_crumble_inner">
+              <div class="su_crumble_inner__header">
+                <h5 class="su_creamble__title">Event Details</h5>
+                <i class="su_crumble__icon--close material-icons">close</i>
+              </div>
+              <div class="su_crumble_inner__body">
+                <ul class="su_crumble__list su_crumble__list--icons">
+                  <li>
+                    <a href="#" title="dashboard">
+                      <i class="su_crumble__icon material-icons">dashboard</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="credit_card">
+                      <i class="su_crumble__icon material-icons">credit_card</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="date_range">
+                      <i class="su_crumble__icon material-icons">date_range</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="explore">
+                      <i class="su_crumble__icon material-icons">explore</i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="su_crumble__item">
+            <div class="su_crumble__date" data-day="tue">02</div>
+            <span class="su_crumble__span">
+              <i class="su_crumble__icon--expand material-icons">expand_more</i>
+              Tuesday
+            </span>
+            <div class="su_crumble_inner">
+              <div class="su_crumble_inner__header">
+                <h5 class="su_creamble__title">Event Details</h5>
+                <i class="su_crumble__icon--close material-icons">close</i>
+              </div>
+              <div class="su_crumble_inner__body">
+                <ul class="su_crumble__list su_crumble__list--icons">
+                  <li>
+                    <a href="#" title="dashboard">
+                      <i class="su_crumble__icon material-icons">dashboard</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="credit_card">
+                      <i class="su_crumble__icon material-icons">credit_card</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="date_range">
+                      <i class="su_crumble__icon material-icons">date_range</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="explore">
+                      <i class="su_crumble__icon material-icons">explore</i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="su_crumble_inner__description">
+              Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+              </div>
+            </div>
+          </li>
+          <li class="su_crumble__item">
+            <div class="su_crumble__date" data-day="wed">03</div>
+            <span class="su_crumble__span">
+              <i class="su_crumble__icon--expand material-icons">expand_more</i>
+              Wednesday
+            </span>
+            <div class="su_crumble_inner">
+              <div class="su_crumble_inner__header">
+                <h5 class="su_creamble__title">Event Details</h5>
+                <i class="su_crumble__icon--close material-icons">close</i>
+              </div>
+              <div class="su_crumble_inner__body">
+                <ul class="su_crumble__list su_crumble__list--icons">
+                  <li>
+                    <a href="#" title="dashboard">
+                      <i class="su_crumble__icon material-icons">dashboard</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="credit_card">
+                      <i class="su_crumble__icon material-icons">credit_card</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="date_range">
+                      <i class="su_crumble__icon material-icons">date_range</i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="explore">
+                      <i class="su_crumble__icon material-icons">explore</i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
       <div class="su_crumble su_crumble--full-width">
         <ul class="su_crumble__list">
           <li class="su_crumble__item">
@@ -616,13 +735,216 @@
       </div>
     </form>
 
-    <div class="su_btn su_btn-primary su_wave">
+    <div class="su_btn su_btn-primary su_wave" style="max-width: 300px">
       Button Wave Effect 2
     </div>
 
+    <!-- Animations -->
 
-    <!-- <script src="../components/crumble/crumble.js"></script>
-    <script src="../components/wavw/wave.js"></script> -->
+    <h2>CSS Animations</h2>
+
+    <div class="su_line">
+      <table id="su_anim" class="su_table su_table-bordered su_align-center">
+        <thead>
+          <tr>
+            <th class="su_align-center">Preview Effect</th>
+            <th></th>
+            <th class="su_align-center">Classes</th>
+            <th class="su_align-center">Default duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="su_primary-bg-light" colspan="4"><h3>Fade In</h3></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--fadeIn</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--fadeInLeft</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--fadeInRight</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--fadeInDown</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td class="su_primary-bg-light" colspan="4"><h3>Fade Out</h3></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--fadeOut</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--fadeOutLeft</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--fadeOutRight</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--fadeOutDown</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td class="su_primary-bg-light" colspan="4"><h3>Zoom</h3></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--zoomIn</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--zoomOut</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td class="su_primary-bg-light" colspan="4"><h3>Rotate</h3></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--rotateIn</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--rotateInCC</code></td>
+            <td>
+              <code class="su_foreground-bg-light">animation-duration: 1s</code>
+              <p>rotate it in the counter-clockwise direction</p>
+            </td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--rotateOut</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--rotateOutCC</code></td>
+            <td>
+              <code class="su_foreground-bg-light">animation-duration: 1s</code>
+              <p>rotate it in the counter-clockwise direction</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="su_primary-bg-light" colspan="4"><h3>Others</h3></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--flash</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--pulse</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--shake</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+            <td><img src="../img/component_assets/flowers.png" alt="Animation Test"></td>
+            <td><code class="su_code">.su_anim--shakeUpDown</code></td>
+            <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+          </tr>
+          <tr>
+            <td class="su_primary-bg-light" colspan="4">
+              <p><h3 class="su_secondary-dark">Important Note</h3></p>
+              <p>
+                All the attributes of the CSS animations can be manipulated through
+                a <code class="su_code">data-[CSS animation property]</code> attribute which
+                can be added directly into the HTML element. The system will add
+                for you the prefix of the CSS property automatically (if any).
+              </p>
+              <p class="su_align-left">For Example:</p>
+              <p class="su_align-left">
+                <code class="su_foreground-bg-light">
+                  &lt;button class="su_anim--fadeIn" data-animation-duration="5s"&gt;Test&lt;/button&gt;
+                </code>
+              </p>
+              <p class="su_align-left">
+                <code class="su_foreground-bg-light">
+                  &lt;button class="su_anim--fadeIn" data-animation-duration="2s" data-animation-timing-function="ease-out"&gt;Test&lt;/button&gt;
+                </code>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+        (function() {
+          var animT = document.querySelector('#su_anim');
+
+          var pfx = ['webkit', 'moz', 'MS', 'o', ''];
+
+          var $prefixedOn = function ( target, type, callback, useCapture ) {
+
+            for ( var p = 0, length = pfx.length; p < length; p++ ) {
+              if ( !pfx[p] ) {
+                type = type.toLowerCase();
+              }
+              target.addEventListener( pfx[p]+type, callback, !!useCapture );
+            }
+          };
+
+          animT.addEventListener( 'click', function( event ) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            var target = event.target.parentElement.nextElementSibling.firstElementChild;
+            var anim = event.target.parentElement.nextElementSibling.nextElementSibling.textContent;
+
+            target.classList.toggle(anim.replace('.', ''));
+
+            $prefixedOn(target, 'animationend', function() {
+              window.setTimeout(function() {
+                target.removeAttribute('class');
+              }, 2000);
+            });
+          });
+
+        })();
+    </script>
+    <script src="../components/crumble/crumble.js"></script>
+    <script src="../components/wave/wave.js"></script>
+    <script src="../components/animations/animations.js"></script>
     <script src="../prod/main.js"></script>
 
     </body>
