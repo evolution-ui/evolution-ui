@@ -9,8 +9,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="../dist/main.css"> -->
-        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../prod/main.css">
       <style>
         .g-container {
           padding: 10px;
@@ -46,12 +45,23 @@
         <h4>Heading 4</h4>
         <h5>Heading 5</h5>
         <h6>Heading 6</h6>
+        <p class="su_small">su_small</p>
+        <p class="su_x-small">su_x-small</p>
 
-
-        <div>
-          <p>
-          <em>Seed-ui</em> uses a <em>Responsive Typography</em> system for headings.
-          </p>
+        <div class="su_line">
+          <div class="su_cell">
+            <p>
+              <em>Seed-ui</em> provides reusable classes to the font size declarations in the type scale and expands the scale with two smaller sizes.
+            </p>
+            <p>
+              Use the classes from <code class="su_code">.su_h1</code> to <code class="su_code">.su_h6</code>
+              to give to an element the same scale of the intended heading.
+            </p>
+            <p>
+              Use the classes <code class="su_code">.su_small</code> and <code class="su_code">.su_x-small</code>
+              to give to an element a smaller scale.
+            </p>
+          </div>
         </div>
 
         <hr class="divisor">
@@ -503,10 +513,10 @@
           &lt;div class="su_crumble"&gt;
             &lt;ul class="su_crumble__list"&gt;
               &lt;li class="su_crumble__item"&gt;
-                &lt;div class="su_crumble__date" data-day="mon"&gt;01&lt;/div&gt;
+                &lt;div class="su_crumble__date" data-day="tue"&gt;02&lt;/div&gt;
                 &lt;span class="su_crumble__span"&gt;
                   &lt;i class="su_crumble__icon--expand material-icons"&gt;expand_more&lt;/i&gt;
-                  Monday
+                  Tuesday
                 &lt;/span&gt;
                 &lt;div class="su_crumble_inner"&gt;
                   &lt;div class="su_crumble_inner__header"&gt;
@@ -536,6 +546,9 @@
                         &lt;/a&gt;
                       &lt;/li&gt;
                     &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class="su_crumble_inner__description"&gt;
+                  Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
                   &lt;/div&gt;
                 &lt;/div&gt;
               &lt;/li&gt;
@@ -987,7 +1000,9 @@
         </tbody>
       </table>
     </div>
+
     <script>
+        // Utility function for the CSS ANIMATIONS
         (function() {
           var animT = document.querySelector('#su_anim');
 
@@ -1025,9 +1040,11 @@
 
         })();
     </script>
+    <!--
     <script src="../components/crumble/crumble.js"></script>
     <script src="../components/wave/wave.js"></script>
     <script src="../components/animations/animations.js"></script>
+    -->
     <script src="../prod/main.js"></script>
 
     </body>
