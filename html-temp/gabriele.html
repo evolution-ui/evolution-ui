@@ -928,6 +928,10 @@
             event.stopPropagation();
             event.preventDefault();
 
+            if ( event.target.nodeName !== 'BUTTON' ) {
+              return;
+            }
+
             var target = event.target.parentElement.nextElementSibling.firstElementChild;
             var anim = event.target.parentElement.nextElementSibling.nextElementSibling.textContent;
 
