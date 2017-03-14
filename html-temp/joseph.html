@@ -18,17 +18,19 @@
 
         <article style="margin-bottom: 70px">
           <h3>Default Dropdown</h3>
-          <div class="su_dropdown">
-            <button class="su_dropdown-toggle">
-              Take Action
-              <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="su_dropdown-menu">
-              <a href="#" class="su_dropdown-item">Action</a>
-              <a href="#" class="su_dropdown-item">Another action</a>
-              <a href="#" class="su_dropdown-item">An another action</a>
-              <a href="#" class="su_dropdown-item">An even longer action</a>
-              <a href="#" class="su_dropdown-item">Last action</a>
+          <div class="su_code-example">
+            <div class="su_dropdown">
+              <button class="su_dropdown-toggle">
+                Take Action
+                <i class="material-icons">arrow_drop_down</i>
+              </button>
+              <div class="su_dropdown-menu">
+                <a href="#" class="su_dropdown-item">Action</a>
+                <a href="#" class="su_dropdown-item">Another action</a>
+                <a href="#" class="su_dropdown-item">An another action</a>
+                <a href="#" class="su_dropdown-item">An even longer action</a>
+                <a href="#" class="su_dropdown-item">Last action</a>
+              </div>
             </div>
           </div>
         </article>
@@ -36,17 +38,19 @@
         <article style="margin-bottom: 70px">
           <h3>Rounded Dropdown</h3>
           <p>Add the class <code>.su_dropdown-toggle-rounded</code> to create a rounded dropdown like the one below.</p>
-          <div class="su_dropdown">
-            <button class="su_dropdown-toggle su_dropdown-toggle-rounded">
-              Take Action
-              <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="su_dropdown-menu">
-              <a href="#" class="su_dropdown-item">Action</a>
-              <a href="#" class="su_dropdown-item">Another action</a>
-              <a href="#" class="su_dropdown-item">An another action</a>
-              <a href="#" class="su_dropdown-item">An even longer action</a>
-              <a href="#" class="su_dropdown-item">Last action</a>
+          <div class="su_code-example">
+            <div class="su_dropdown">
+              <button class="su_dropdown-toggle su_dropdown-toggle-rounded">
+                Take Action
+                <i class="material-icons">arrow_drop_down</i>
+              </button>
+              <div class="su_dropdown-menu">
+                <a href="#" class="su_dropdown-item">Action</a>
+                <a href="#" class="su_dropdown-item">Another action</a>
+                <a href="#" class="su_dropdown-item">An another action</a>
+                <a href="#" class="su_dropdown-item">An even longer action</a>
+                <a href="#" class="su_dropdown-item">Last action</a>
+              </div>
             </div>
           </div>
         </article>
@@ -54,18 +58,20 @@
         <article style="margin-bottom: 70px">
           <h3>Dropdown with icons</h3>
           <p>Simply add icons of your choice to the button and dropdown menu items.</p>
-          <div class="su_dropdown">
-            <button class="su_dropdown-toggle">
-              <i class="material-icons">star_border</i>
-              Take Action
-              <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="su_dropdown-menu">
-              <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Action</a>
-              <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Another action</a>
-              <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> An another action</a>
-              <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> An even longer action</a>
-              <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Last action</a>
+          <div class="su_code-example">
+            <div class="su_dropdown">
+              <button class="su_dropdown-toggle">
+                <i class="material-icons">star_border</i>
+                Take Action
+                <i class="material-icons">arrow_drop_down</i>
+              </button>
+              <div class="su_dropdown-menu">
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Action</a>
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Another action</a>
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> An another action</a>
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> An even longer action</a>
+                <a href="#" class="su_dropdown-item"><i class="material-icons">star_border</i> Last action</a>
+              </div>
             </div>
           </div>
         </article>
@@ -116,7 +122,22 @@
               <ol class="su_list-numbered">
                 <li>Item 1</li>
                 <li>Item 2</li>
-                <li>Item 3</li>
+                <li>
+                  Item 3
+                  <ol class="su_list-numbered">
+                    <li>
+                      Item
+                      <ol class="su_list-numbered">
+                        <li>List item</li>
+                        <li>List item</li>
+                        <li>List item</li>
+                      </ol>
+                    </li>
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                  </ol>
+                </li>
                 <li>Item 4</li>
                 <li>Item 5</li>
               </ol>
@@ -128,40 +149,25 @@
             <article>
               <h3>Ordered List 1 - Alphapets</h3>
               <p><code>su_list-numbered--lowercase</code> can be used to change the numbering to lowercase alphapeticals. Add background color classes to change background of list numbers. </p>
-              <ol class="su_list-numbered su_primary-bg su_list-numbered--lowercase">
+              <ol class="su_list-alpha su_primary-bg">
                 <li>Item 1</li>
                 <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
-                <li>Item 5</li>
-              </ol>
-            </article>
-          </div>
-        </div>
-        <div class="su_line">
-          <div class="su_cell su_cells_6">
-            <article>
-              <h3>Ordered List 2 - Rounded</h3>
-              <p>Add the <code>su_list-item--rounded</code> to the <code>ol</code> element.</p>
-              <ol class="su_list-numbered su_list-item--rounded">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
-                <li>Item 5</li>
-              </ol>
-            </article>
-          </div>
-        </div>
-        <div class="su_line">
-          <div class="su_cell su_cells_6">
-            <article>
-              <h3>Ordered List 2 - Alphabets</h3>
-              <p>Oh yes! You can have rounded item in lowercase alphapetics with a different background color too. See classes above.</p>
-              <ol class="su_list-numbered su_primary-bg su_list-item--rounded su_list-numbered--lowercase">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+                <li>
+                  Item 3
+                  <ol class="su_list-alpha">
+                    <li>
+                      Item
+                      <ol class="su_list-alpha">
+                        <li>List item</li>
+                        <li>List item</li>
+                        <li>List item</li>
+                      </ol>
+                    </li>
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                  </ol>
+                </li>
                 <li>Item 4</li>
                 <li>Item 5</li>
               </ol>
@@ -235,13 +241,16 @@
         <article style="margin-bottom: 70px">
           <h3>List Group with Icons</h3>
           <p>Simply add icons of your choice to list items.</p>
-          <ul class="su_list">
-            <li class="su_list-item"><i class="material-icons">face</i> Item 1</li>
-            <li class="su_list-item"><i class="material-icons">star_border</i> Item 2</li>
-            <li class="su_list-item"><i class="material-icons">face</i> Item 3</li>
-            <li class="su_list-item"><i class="material-icons">star_border</i> Item 4</li>
-            <li class="su_list-item"><i class="material-icons">face</i> Item 5</li>
-          </ul>
+          <div class="su_code-example">
+            <ul class="su_list">
+              <li class="su_list-item"><i class="material-icons">face</i> Item 1</li>
+              <li class="su_list-item"><i class="material-icons">star_border</i> Item 2</li>
+              <li class="su_list-item"><i class="material-icons">face</i> Item 3</li>
+              <li class="su_list-item"><i class="material-icons">star_border</i> Item 4</li>
+              <li class="su_list-item"><i class="material-icons">face</i> Item 5</li>
+            </ul>
+          </div>
+          <p class="su_space-top--medium">See code example</p>
         </article>
         <article style="margin-bottom: 70px">
           <h3>List Group with Labels</h3>
