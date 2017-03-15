@@ -89,13 +89,24 @@
 
 /* Vertical tabs*/
 
-.su_tabs_vertical{
-  display: flex;
+.su_tabs_vertical p {
+  padding: 10px;
+}
+
+.su_tabs_vertical img {
+  border-radius: 4px;
+}
+
+.su_tabs_vertical .su_line{
+  align-items: center;
 }
 
 .su_tabs-vertical-titles {
   padding: 0;
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .su_tabs-vertical-titles li{
@@ -106,13 +117,22 @@
   text-align: center;
   background: #dadad0;
   padding: 1em 3em;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
 }
 .su_tabs-vertical-titles li.current{
-  font-weight:bolder;
+  background: #fff;
+  border-radius: 0px;
+  box-shadow: inset 10px 0 #72c024;
+  border-top: 1px solid #c4c4b3;
+  border-bottom: 1px solid #c4c4b3;
 }
+
 .su_tabs-vertical-contents {
-  background:#F2F2F2;
-  padding:5px;
+  padding: 10px;
+  border: 1px solid #c4c4b3;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .su_tabs-vertical-contents li {
@@ -122,6 +142,14 @@
 .su_tabs-vertical-contents li:first-child{
   display:block; /* first one content displayed by default */
 }
+
+@media screen and (min-width: 961px) {
+  .su_tabs_vertical{
+    display: flex;
+  }
+
+}
+
 
 /* End vertical tabs */
 /*
