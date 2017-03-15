@@ -58,9 +58,12 @@
     }
   }
 
-  suSift.pickBasket().addEventListener('click', function (e) {
-    suSift.siftItem();
-  });
+  if (suSift.pickBasket()) {
+    suSift.pickBasket().addEventListener('click', function (e) {
+      suSift.siftItem();
+    });
+  }
+  
 
   
 }());
