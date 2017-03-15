@@ -60,6 +60,9 @@
         border-radius: 4px; }
     .su_card.su_card-horizontal .su_card-body {
       padding: 0.625rem 0 0 0.625rem; }
+    .su_card.su_card-horizontal .su_card-image,
+    .su_card.su_card-horizontal .su_card-body {
+      margin-bottom: 0; }
   .su_card .su_card-body {
     margin-bottom: 1.5rem; }
   .su_card .su_card-footer {
@@ -73,4 +76,7 @@
   @media screen and (max-width: 499px) {
     .su_card.su_card-horizontal {
       flex-wrap: wrap;
-      flex-direction: column; } }
+      flex-direction: column;
+      padding: 0; }
+      .su_card.su_card-horizontal .su_card-image {
+        padding: 0; } }
