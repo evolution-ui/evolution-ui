@@ -13,8 +13,6 @@
 
 
   for (var i = codeElement.length - 1; i >= 0; i--) {
-    
-    console.log(codeElement[i]);
 
     var code,
         codeContainer = document.createElement('div'),

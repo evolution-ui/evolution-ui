@@ -1,6 +1,5 @@
 .su_code-container {
-	background-color: su_color('background', 'dark');
-	height: 0;
+	margin-top: 60px;
+	max-height: 400px;
 	overflow: auto;
-	transition: height .3s;
 }
