@@ -673,6 +673,38 @@
 })();
 
 (function() {
+
+  var triggerPreview = document.querySelectorAll(".su_full_screen_preview"); //grab triggers of preview
+  console.log(triggerPreview);
+
+  if (triggerPreview.length > 0) {
+
+    for(i=0; i < triggerPreview.length; i++) {
+
+      (function(i) {
+          triggerPreview[i].addEventListener('mouseover', function(){
+            var triggerId = this.getAttribute("id"); // grab the id of hovered element
+            var triggerOverlay = document.querySelector('.' + triggerId);
+
+            triggerOverlay.style.width = "100%";
+          });
+
+          triggerPreview[i].addEventListener('mouseout', function(){
+            var triggerId = this.getAttribute("id"); // grab the id of hovered element
+            var triggerOverlay = document.querySelector('.' + triggerId);
+
+            triggerOverlay.style.width = "0";
+          });
+      }(i));
+
+
+    }
+
+  }
+
+})();
+
+(function() {
 	//logic
 
 })();
@@ -794,6 +826,11 @@
       notification(e.clientX, e.clientY);
     }
   });
+})();
+
+(function() {
+  
+
 })();
 
 /* NAVIGATION COMPONENT */
@@ -1040,26 +1077,27 @@
 
 (function() {
 
-  var tabs = document.querySelectorAll(".tabs-titles li"); //grab tabs
+  var tabs = document.querySelectorAll(".su_tabs-vertical-titles li"); //grab tabs
   var tabsArray = [].slice.call(tabs);
-  var contents = document.querySelectorAll('.tabs-contents li'); //grab contents
+  var contents = document.querySelectorAll('.su_tabs-vertical-contents li'); //grab contents
 
-  console.log(tabs);
+  if (tabs.length > 0 ) {
 
-  for(i=0; i <= tabs.length; i++) {
-    tabs[i].addEventListener('click', function(callback){
-      console.dir(tabsArray.indexOf(this));
+    for(i=0; i < tabs.length; i++) {
 
-      for (content in contents) {
-        contents[content].style.display = "none";
-      }
+        tabs[i].addEventListener('click', function(){
 
-      this.parentElement.querySelector(".current").className = ""; // Remove class current from other tabs
-      this.className += "current"; // Add class current to this tab
+          for (j=0; j < contents.length; j++) {
+            // Hide all content from tabs
+            contents[j].style.display = "none";
+          }
 
-      contents[tabsArray.indexOf(this)].style.display = "block"; //show tab content that matches tab title index
+          this.parentElement.querySelector(".current").className = ""; // Remove class current from other tabs
+          this.className = "current"; // Add class current to this tab
 
-    });
+          contents[tabsArray.indexOf(this)].style.display = "block"; //show tab content that matches tab title index
+      });
+    }
   }
 
 })();
