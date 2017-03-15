@@ -5,8 +5,8 @@
   20% {
     transform: rotateX(0deg) skew(0) translate(18px, -40px);
   }
-  70% {
-    opacity: 0.3;
+  90% {
+    opacity: 0.4;
   }
   100% {
     transform: rotateX(0deg) skew(0deg) translate(18px, -100px);
@@ -122,7 +122,7 @@
             transform: rotateX(85deg) skew(-12deg) translate(20px, 26px);
             z-index: 100;
           }
-        }
+        } 
 
         &:nth-child(n+7) {
           transform: rotateX(85deg) skew(-12deg) translate(110px, 470px);

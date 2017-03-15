@@ -2458,6 +2458,72 @@
         </section>
         <section>
           <hr class="su_space-top--medium">
+          <h2>Lists</h2>
+
+          <div class="su_line">
+            <div class="su_cell su_cells_6">
+              <article>
+                <h3>Ordered List 1</h3>
+                <p>Use <code>su_list-numbered</code> on the <code>ol</code> element.</p>
+                <div class="su_code-example">
+                  <ol class="su_list-numbered">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>
+                      Item 3
+                      <ol class="su_list-numbered">
+                        <li>
+                          Item
+                          <ol class="su_list-numbered">
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                          </ol>
+                        </li>
+                        <li>Item</li>
+                        <li>Item</li>
+                        <li>Item</li>
+                      </ol>
+                    </li>
+                    <li>Item 4</li>
+                    <li>Item 5</li>
+                  </ol>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="su_line">
+            <div class="su_cell su_cells_6">
+              <article>
+                <h3>Ordered List 1 - Alphapets</h3>
+                <p><code>su_list-numbered--lowercase</code> can be used to change the numbering to lowercase alphapeticals. Add background color classes to change background of list numbers. </p>
+                <div class="su_code-example">
+                  <ol class="su_list-alpha su_primary-bg">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>
+                      Item 3
+                      <ol class="su_list-alpha">
+                        <li>
+                          Item
+                          <ol class="su_list-alpha">
+                            <li>List item</li>
+                            <li>List item</li>
+                            <li>List item</li>
+                          </ol>
+                        </li>
+                        <li>Item</li>
+                        <li>Item</li>
+                        <li>Item</li>
+                      </ol>
+                    </li>
+                    <li>Item 4</li>
+                    <li>Item 5</li>
+                  </ol>
+                </div>
+              </article>
+            </div>
+          </div>
 
           <h2 id="component-lists" class="su_space-top--medium">List Groups</h2>
 
@@ -2589,13 +2655,13 @@
             <h3>Basic Card</h3>
             <p>Use any of the color classes to change the background of the cards.</p>
             <div class="su_line">
-              <div class="su_cell su_cells_4 ">
+              <div class="su_cell su_cells_6 ">
                 <div class="su_card su_color-primary">
                   <p class="su_card-title">Card Title</p>
                   <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
                 </div>
               </div>
-              <div class="su_cell su_cells_4 ">
+              <div class="su_cell su_cells_6 ">
                 <div class="su_card su_color-info">
                   <p class="su_card-title">Card Title</p>
                   <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
@@ -2607,28 +2673,30 @@
           <article class="su_space-top--medium">
             <h3>Card with action button</h3>
             <p>These cards use buttons from the seed-ui framework but you can replace them with your own buttons or icons.</p>
-            <div class="su_line">
-              <div class="su_cell su_cells_6 ">
-                <div class="su_card">
-                  <div class="su_card-body">
-                    <p class="su_card-title">Card Title</p>
-                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
-                  </div>
-                  <div class="su_card-footer">
-                    <button type="button" class="su_btn su_btn-warning">Cancel</button>
-                    <button type="button" class="su_btn su_btn-secondary">Continue</button>
+            <div class="su_code-example">
+              <div class="su_line">
+                <div class="su_cell su_cells_6 ">
+                  <div class="su_card">
+                    <div class="su_card-body">
+                      <p class="su_card-title">Card Title</p>
+                      <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                    </div>
+                    <div class="su_card-footer">
+                      <button type="button" class="su_btn su_btn-warning">Cancel</button>
+                      <button type="button" class="su_btn su_btn-secondary">Continue</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="su_cell su_cells_6 ">
-                <div class="su_card">
-                  <div class="su_card-body">
-                    <p class="su_card-title">Card Title</p>
-                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
-                  </div>
-                  <div class="su_card-footer">
-                    <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
-                    <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+                <div class="su_cell su_cells_6 ">
+                  <div class="su_card">
+                    <div class="su_card-body">
+                      <p class="su_card-title">Card Title</p>
+                      <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                    </div>
+                    <div class="su_card-footer">
+                      <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
+                      <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2640,19 +2708,21 @@
 
             <p>Card 1</p>
             <p>Wrap the image within a div or span with a class of <code>.su_card-image</code>.</p>
-            <div class="su_line">
-              <div class="su_cell su_cells_6 ">
-                <div class="su_card">
-                  <div class="su_card-image">
-                    <img src="components/card/images/1.jpg">
-                  </div>
-                  <div class="su_card-body">
-                    <p class="su_card-title">Card Title</p>
-                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
-                  </div>
-                  <div class="su_card-footer">
-                    <button type="button" class="su_btn su_btn-warning">Cancel</button>
-                    <button type="button" class="su_btn su_btn-secondary">Continue</button>
+            <div class="su_code-example">
+              <div class="su_line">
+                <div class="su_cell su_cells_6 ">
+                  <div class="su_card">
+                    <div class="su_card-image">
+                      <img src="components/card/images/1.jpg">
+                    </div>
+                    <div class="su_card-body">
+                      <p class="su_card-title">Card Title</p>
+                      <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                    </div>
+                    <div class="su_card-footer">
+                      <button type="button" class="su_btn su_btn-warning">Cancel</button>
+                      <button type="button" class="su_btn su_btn-secondary">Continue</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2660,19 +2730,21 @@
 
             <p class="su_space-top--medium">Card 2</p>
             <p>Add <code>.su_img-fill</code> to the wrapping element (<code>.su_card</code>).</p>
-            <div class="su_line">
-              <div class="su_cell su_cells_6 ">
-                <div class="su_card su_img-fill">
-                  <div class="su_card-image">
-                    <img src="components/card/images/1.jpg">
-                  </div>
-                  <p class="su_card-title">Card Title</p>
-                  <div class="su_card-body">
-                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
-                  </div>
-                  <div class="su_card-footer">
-                    <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
-                    <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+            <div class="su_code-example">
+              <div class="su_line">
+                <div class="su_cell su_cells_6 ">
+                  <div class="su_card su_img-fill">
+                    <div class="su_card-image">
+                      <img src="components/card/images/1.jpg">
+                    </div>
+                    <p class="su_card-title">Card Title</p>
+                    <div class="su_card-body">
+                      <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                    </div>
+                    <div class="su_card-footer">
+                      <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
+                      <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2680,19 +2752,21 @@
 
             <p class="su_space-top--medium">Card 3</p>
             <p>Use <code>.su_img-overlap</code> together with the <code>.su_card</code> class.</p>
-            <div class="su_line">
-              <div class="su_cell su_cells_6 ">
-                <div class="su_card su_img-overlap">
-                  <div class="su_card-image">
-                    <img src="components/card/images/1.jpg">
-                  </div>
-                  <div class="su_card-body">
-                    <p class="su_card-title">Card Title</p>
-                    <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
-                  </div>
-                  <div class="su_card-footer">
-                    <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
-                    <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+            <div class="su_code-example">
+              <div class="su_line">
+                <div class="su_cell su_cells_6 ">
+                  <div class="su_card su_img-overlap">
+                    <div class="su_card-image">
+                      <img src="components/card/images/1.jpg">
+                    </div>
+                    <div class="su_card-body">
+                      <p class="su_card-title">Card Title</p>
+                      <p>Replenish, earth tree replenish give, he air days you, after i first them dry Seed. Created own every one lights.</p>
+                    </div>
+                    <div class="su_card-footer">
+                      <button type="button" class="su_btn su_btn-warning"><i class="material-icons left">autorenew</i>Reload</button>
+                      <button type="button" class="su_btn su_btn-secondary"><i class="material-icons left">done</i>Keep This</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3003,6 +3077,68 @@
                     Your browser does not support the audio element.
                   </audio>
                 </figure>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <hr class="su_space-top--medium">
+
+        <section class="su_space-top--medium">
+          <h3>Sift</h3>
+          <article>
+            <p class="su_animate--sift">A component to sift through items more visually. Can be used as as a gallery too. Click on the basket on the left to sift through items.</p>
+            <div class="su_line">
+              <div class="su_cell su_cells_12">
+                <h4>Basic Sift</h4>
+                <div class="su_code-example">
+                  <div class="su_sift-container">
+                    <ul class="su_sift-items su_basket--pick">
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                      <li>
+                        <p>Some content</p>
+                      </li>
+                    </ul>
+                    <div class="su_sift-display"></div>
+                    <ul class="su_sift-items su_basket--drop">
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
