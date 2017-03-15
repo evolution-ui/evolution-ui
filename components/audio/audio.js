@@ -128,27 +128,31 @@
 
   };
 
-	var audioPlayer = suAudio.getPlayer(),
-	    audioTrack = audioPlayer.querySelector(suAudio.track),
-      trackProgress = audioPlayer.querySelector(suAudio.playback + ' input[type="range"]'),
-	    playButton = audioPlayer.querySelector(suAudio.playback + ' button'),
-	    muteButton = audioPlayer.querySelector('.su_track-volume button');
+	var audioPlayer = suAudio.getPlayer();
 
-  // Remove any default controls in favor of our own.
-	audioTrack && audioTrack.removeAttribute('controls');
-	// Add event listeners to make the player work
-  playButton && playButton.addEventListener('click', suAudio.play.bind(suAudio), false);
-	muteButton && muteButton.addEventListener('click', suAudio.mute.bind(suAudio), false);
-	audioTrack && audioTrack.addEventListener('playing', suAudio.isPlaying.bind(suAudio), false);
-	audioTrack && audioTrack.addEventListener('timeupdate', suAudio.updateTrack.bind(suAudio), false);
-	audioTrack && audioTrack.addEventListener('ended', suAudio.finishPlay.bind(suAudio), false);
-  trackProgress && trackProgress.addEventListener('change', suAudio.seekTrack.bind(suAudio), false);
+  if (audioPlayer) {
 
-  // Only for demo. Remove on your live site.
-  var audioPlayer2 = document.getElementById('audioplayer2'),
-      audioPlayer3 = document.getElementById('audioplayer3');
+    var audioTrack = audioPlayer.querySelector(suAudio.track),
+        trackProgress = audioPlayer.querySelector(suAudio.playback + ' input[type="range"]'),
+        playButton = audioPlayer.querySelector(suAudio.playback + ' button'),
+        muteButton = audioPlayer.querySelector('.su_track-volume button');
+    // Remove any default controls in favor of our own.
+    audioTrack.removeAttribute('controls');
+    // Add event listeners to make the player work
+    playButton.addEventListener('click', suAudio.play.bind(suAudio), false);
+    muteButton.addEventListener('click', suAudio.mute.bind(suAudio), false);
+    audioTrack.addEventListener('playing', suAudio.isPlaying.bind(suAudio), false);
+    audioTrack.addEventListener('timeupdate', suAudio.updateTrack.bind(suAudio), false);
+    audioTrack.addEventListener('ended', suAudio.finishPlay.bind(suAudio), false);
+    trackProgress.addEventListener('change', suAudio.seekTrack.bind(suAudio), false);
 
-  audioPlayer2 && audioPlayer2.querySelector('audio').removeAttribute('controls');
-  audioPlayer3 && audioPlayer3.querySelector('audio').removeAttribute('controls');
+    // Only for demo. Remove on your live site.
+    var audioPlayer2 = document.getElementById('audioplayer2'),
+        audioPlayer3 = document.getElementById('audioplayer3');
+
+    audioPlayer2.querySelector('audio').removeAttribute('controls');
+    audioPlayer3.querySelector('audio').removeAttribute('controls');  
+  }
+  
 
 }());
