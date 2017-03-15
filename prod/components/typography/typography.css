@@ -36,6 +36,14 @@ h6, .su_h6 {
   font-size: 1rem;
   line-height: 1.5; }
 
+.su_large {
+  font-size: 3.8147rem;
+  line-height: 1.17965; }
+
+.su_x-large {
+  font-size: 4.76837rem;
+  line-height: 1.25829; }
+
 .su_small {
   font-size: 0.8rem;
   line-height: 1.2; }
