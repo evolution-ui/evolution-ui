@@ -11,8 +11,6 @@
 
 .su_tabs_horizontal label {
   display: block;
-  float: left;
-  width: 20%;
   color: #757575;
   cursor: pointer;
   text-decoration: none;
@@ -146,6 +144,11 @@
 @media screen and (min-width: 961px) {
   .su_tabs_vertical{
     display: flex;
+  }
+
+  .su_tabs_horizontal label {
+    float: left;
+    width: 20%;
   }
 
 }
