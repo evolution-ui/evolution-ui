@@ -34,7 +34,9 @@
             <a href="#component-accordion" class="su_uppercase su_list-item">Accordion</a>
             <a href="#component-scrollspy" class="su_uppercase su_list-item">ScrollSpy</a>
             <a href="#component-cubby" class="su_uppercase su_list-item">Cubby</a>
+            <a href="#component-crumble" class="su_uppercase su_list-item">Crumble</a>
             <a href="#component-buttons" class="su_uppercase su_list-item">Buttons</a>
+            <a href="#component-waveEffect" class="su_uppercase su_list-item">Wave Effect</a>
             <a href="#component-alerts" class="su_uppercase su_list-item">Alerts</a>
             <a href="#component-tables" class="su_uppercase su_list-item">Tables</a>
             <a href="#component-carousel" class="su_uppercase su_list-item">Carousel</a>
@@ -51,6 +53,7 @@
             <a href="#component-progress-bars" class="su_uppercase su_list-item">Progress Bars</a>
             <a href="#component-infinite-loading" class="su_uppercase su_list-item">Infinite loading</a>
             <a href="#component-forms" class="su_uppercase su_list-item">Forms</a>
+            <a href="#component-CSS-animations" class="su_uppercase su_list-item">CSS Animations</a>
             <a href="#component-dropdowns" class="su_uppercase su_list-item">Dropdowns</a>
             <a href="#component-lists" class="su_uppercase su_list-item">Lists</a>
             <a href="#component-cards" class="su_uppercase su_list-item">Cards</a>
@@ -74,7 +77,7 @@
           <p>The full width class expands the element it is applied to to the full width of it's parent element using the <code class="su_code">.su_full-width</code> class.  Example:</p>
           <div class="su_foreground-bg su_radius brian_su_utilities-fullwidth su_center-content">
             This is the container parent element that has a width of 80% declared on it with <code class="su_code">10px</code> of padding.
-            <div class="su_primary-bg-light su_full-width brian_su_utilities-fullwidth-inner"> Full Width Content.</div>
+            <span class="su_primary-bg-light su_full-width brian_su_utilities-fullwidth-inner">This is a <code class="su_code">span</code> tag made into a full width piece of content.</span>
             And some more filler content here.
           </div>
 
@@ -426,6 +429,325 @@
 
           <hr class="su_space-top--medium">
 
+          <!-- Init Crumble -->
+          <div class="su_line">
+            <div class="su_cell">
+              <h2 id="component-crumble" class="su_space-top--medium">Crumble Component (Fold and Unfold effect - Experimental Innovative UI) </h2>
+              <p>
+              The idea for this innovative UI component is to have more data shown
+              when the user click on a particular event. As in the following example,
+              it could be used for calendar events.
+              The element contains a <em>header</em> and a <em>body</em> which can be
+              used for icons and details.
+              </p>
+              <pre class="su_background-bg-light su_foreground">
+                &lt;div class="su_crumble"&gt;
+                  &lt;ul class="su_crumble__list"&gt;
+                    &lt;li class="su_crumble__item"&gt;
+                      &lt;div class="su_crumble__date" data-day="tue"&gt;02&lt;/div&gt;
+                      &lt;span class="su_crumble__span"&gt;
+                        &lt;i class="su_crumble__icon--expand material-icons"&gt;expand_more&lt;/i&gt;
+                        Tuesday
+                      &lt;/span&gt;
+                      &lt;div class="su_crumble_inner"&gt;
+                        &lt;div class="su_crumble_inner__header"&gt;
+                          &lt;h5 class="su_creamble__title"&gt;Event Details&lt;/h5&gt;
+                          &lt;i class="su_crumble__icon--close material-icons"&gt;close&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div class="su_crumble_inner__body"&gt;
+                          &lt;ul class="su_crumble__list su_crumble__list--icons"&gt;
+                            &lt;li&gt;
+                              &lt;a href="#" title="dashboard"&gt;
+                                &lt;i class="su_crumble__icon material-icons"&gt;dashboard&lt;/i&gt;
+                              &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href="#" title="credit_card"&gt;
+                                &lt;i class="su_crumble__icon material-icons"&gt;credit_card&lt;/i&gt;
+                              &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href="#" title="date_range"&gt;
+                                &lt;i class="su_crumble__icon material-icons"&gt;date_range&lt;/i&gt;
+                              &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href="#" title="explore"&gt;
+                                &lt;i class="su_crumble__icon material-icons"&gt;explore&lt;/i&gt;
+                              &lt;/a&gt;
+                            &lt;/li&gt;
+                          &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div class="su_crumble_inner__description"&gt;
+                        Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;/div&gt;
+              </pre>
+            </div>
+          </div>
+
+          <div class="su_line">
+            <div class="su_cell">
+              <div class="su_crumble">
+                <ul class="su_crumble__list">
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="mon">01</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Monday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="tue">02</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Tuesday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="su_crumble_inner__description">
+                      Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+                      </div>
+                    </div>
+                  </li>
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="wed">03</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Wednesday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="su_line">
+            <div class="su_cell">
+              <p>
+                Add the class <code class="su_code">.su_crumble--full-width</code>
+                to make to unfold the details at full width.
+              </p>
+            </div>
+          </div>
+
+          <div class="su_line">
+            <div class="su_cell">
+              <div class="su_crumble su_crumble--full-width">
+                <ul class="su_crumble__list">
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="mon">01</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Monday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="tue">02</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Tuesday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="su_crumble_inner__description">
+                      Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+                      </div>
+                    </div>
+                  </li>
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="wed">03</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Wednesday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- end of crumble -->
+
+          <hr class="su_space-top--medium">
+
           <h2 id="top-of-page" class="su_space-top--medium">Buttons</h2>
           <h3 id="component-buttons">Semantic buttons</h3>
           <button type="button" class="su_btn su_btn-primary">Primary</button>
@@ -501,6 +823,29 @@
               <span class="su_switch-square-switch"></span>
             </label>
           </div>
+
+          <hr class="su_space-top--medium">
+
+          <!-- Wave effects -->
+          <div class="su_line">
+            <div class="su_cell">
+              <h2 id="component-waveEffect" class="su_space-top--medium">Wave Effect</h2>
+              <p>
+                Add the class <code class="su_code">.su_wave</code> to an element to activate the wave effect on it.
+                For example
+              </p>
+              <form class="su_form">
+              <div class="su_input su_input--button su_input--button--3D su_wave">
+                Button Wave Effect
+                </div>
+              </form>
+              <p class="su_space-top--medium"></p>
+              <div class="su_btn su_btn-primary su_wave" style="max-width: 300px">
+                Button Wave Effect 2
+              </div>
+            </div>
+          </div>
+          <!-- end Wave effects -->
 
           <hr class="su_space-top--medium">
 
@@ -1297,17 +1642,37 @@
 
           <h2 id="component-typography" class="su_space-top--medium">Typography</h2>
 
+          <p class="su_x-large">su_x-large</p>
+          <p class="su_large">su_large</p>
           <h1>Heading 1</h1>
           <h2>Heading 2</h2>
           <h3>Heading 3</h3>
           <h4>Heading 4</h4>
           <h5>Heading 5</h5>
           <h6>Heading 6</h6>
+          <p class="su_small">su_small</p>
+          <p class="su_x-small">su_x-small</p>
 
-          <div>
-            <p>
-              <em>Seed-ui</em> uses a <em>Responsive Typography</em> system for headings.
-            </p>
+          <div class="su_line">
+            <div class="su_cell">
+              <p>
+                <em>Seed-UI</em> provides reusable classes to the font size
+                declarations which are related to its type scale and expands
+                it with two bigger and smaller sizes.
+              </p>
+              <p>
+                Use the classes from <code class="su_code">.su_h1</code> to <code class="su_code">.su_h6</code>
+                to give to an element the same scale of the intended heading.
+              </p>
+              <p>
+                Use the classes <code class="su_code">.su_large</code> and <code class="su_code">.su_x-large</code>
+                to give to an element a bigger font within the scale.
+              </p>
+              <p>
+                Use the classes <code class="su_code">.su_small</code> and <code class="su_code">.su_x-small</code>
+                to give to an element a smaller font within the scale.
+              </p>
+            </div>
           </div>
 
           <hr class="su_space-top--medium">
@@ -1750,6 +2115,178 @@
           </div>
 
         <section>
+
+          <hr class="su_space-top--medium">
+
+          <!-- Animations -->
+          <div class="su_line">
+            <div class="su_cell">
+              <h2 id="component-CSS-animations" class="su_space-top--medium">CSS Animations</h2>
+              <table id="su_anim" class="su_table su_table-bordered su_align-center">
+                <thead>
+                  <tr>
+                    <th class="su_align-center">Preview Effect</th>
+                    <th></th>
+                    <th class="su_align-center">Classes</th>
+                    <th class="su_align-center">Default duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Fade In</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeIn</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeInLeft</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeInRight</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeInDown</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Fade Out</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeOut</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeOutLeft</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeOutRight</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeOutDown</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Zoom</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--zoomIn</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--zoomOut</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Rotate</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--rotateIn</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--rotateInCC</code></td>
+                    <td>
+                      <code class="su_foreground-bg-light">animation-duration: 1s</code>
+                      <p>rotate it in the counter-clockwise direction</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--rotateOut</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--rotateOutCC</code></td>
+                    <td>
+                      <code class="su_foreground-bg-light">animation-duration: 1s</code>
+                      <p>rotate it in the counter-clockwise direction</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Others</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--flash</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--pulse</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--shake</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--shakeUpDown</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4">
+                      <p><h3 class="su_secondary-dark">Important Note</h3></p>
+                      <p>
+                        All the attributes of the CSS animations can be manipulated through
+                        a <code class="su_code">data-[CSS animation property]</code> attribute which
+                        can be added directly into the HTML element. The system will add
+                        for you the prefix of the CSS property automatically (if any).
+                      </p>
+                      <p class="su_align-left">For Example:</p>
+                      <p class="su_align-left">
+                        <code class="su_foreground-bg-light">
+                          &lt;button class="su_anim--fadeIn" data-animation-duration="5s"&gt;Test&lt;/button&gt;
+                        </code>
+                      </p>
+                      <p class="su_align-left">
+                        <code class="su_foreground-bg-light">
+                          &lt;button class="su_anim--fadeIn" data-animation-duration="2s" data-animation-timing-function="ease-out"&gt;Test&lt;/button&gt;
+                        </code>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div><!-- end CSS Animations -->
 
           <hr class="su_space-top--medium">
 
@@ -2561,5 +3098,44 @@
       </footer>
 
       <script type="text/javascript" src="prod/main.js"></script>
+      <script>
+          // Utility function for the CSS ANIMATIONS
+          (function() {
+            var animT = document.querySelector('#su_anim');
+
+            var pfx = ['webkit', 'moz', 'MS', 'o', ''];
+
+            var $prefixedOn = function ( target, type, callback, useCapture ) {
+
+              for ( var p = 0, length = pfx.length; p < length; p++ ) {
+                if ( !pfx[p] ) {
+                  type = type.toLowerCase();
+                }
+                target.addEventListener( pfx[p]+type, callback, !!useCapture );
+              }
+            };
+
+            animT.addEventListener( 'click', function( event ) {
+              event.stopPropagation();
+              event.preventDefault();
+
+              if ( event.target.nodeName !== 'BUTTON' ) {
+                return;
+              }
+
+              var target = event.target.parentElement.nextElementSibling.firstElementChild;
+              var anim = event.target.parentElement.nextElementSibling.nextElementSibling.textContent;
+
+              target.classList.toggle(anim.replace('.', ''));
+
+              $prefixedOn(target, 'animationend', function() {
+                window.setTimeout(function() {
+                  target.removeAttribute('class');
+                }, 2000);
+              });
+            });
+
+          })();
+      </script>
     </body>
 </html>
