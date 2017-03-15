@@ -25,23 +25,23 @@
 
       event.stopPropagation();
 
-      var target = event.target;
+      var crumble = event.target;
 
-      if ( hasClass(target,'su_crumble__icon--expand') ) {
+      if ( hasClass(crumble,'su_crumble__icon--expand') ) {
 
-        target = target.parentElement.parentElement;
+        crumble = crumble.parentElement.parentElement;
 
-        $('.su_crumble__span' , target).classList.toggle('su_crumble__span--isActive');
-        $('.su_crumble_inner' , target).classList.toggle('su_crumble_inner--isActive');
+        $('.su_crumble__span' , crumble).classList.toggle('su_crumble__span--isActive');
+        $('.su_crumble_inner' , crumble).classList.toggle('su_crumble_inner--isActive');
 
-        $('.su_crumble_inner__header', target).classList.toggle('js_crumble_rotate_initial');
-        $('.su_crumble_inner__body', target).classList.toggle('js_crumble_rotate_initial');
+        $('.su_crumble_inner__header', crumble).classList.toggle('js_crumble_rotate_initial');
+        $('.su_crumble_inner__body', crumble).classList.toggle('js_crumble_rotate_initial');
 
-      } else if ( hasClass(target, 'su_crumble__icon--close') ) {
-        target.parentElement.classList.remove('js_crumble_rotate_initial');
-        target.parentElement.nextElementSibling.classList.remove('js_crumble_rotate_initial');
-        target.parentElement.parentElement.classList.remove('su_crumble_inner--isActive');
-        target.parentElement.parentElement.previousElementSibling.classList.remove('su_crumble__span--isActive');
+      } else if ( hasClass(crumble, 'su_crumble__icon--close') ) {
+        crumble.parentElement.classList.remove('js_crumble_rotate_initial');
+        crumble.parentElement.nextElementSibling.classList.remove('js_crumble_rotate_initial');
+        crumble.parentElement.parentElement.classList.remove('su_crumble_inner--isActive');
+        crumble.parentElement.parentElement.previousElementSibling.classList.remove('su_crumble__span--isActive');
       }
     });
   };

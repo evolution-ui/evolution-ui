@@ -20,6 +20,7 @@
 /* UTILITIES COMPONENT - Full Width Class */
 .su_full-width {
   width: 100%;
+  display: block;
   box-sizing: border-box; }
 
 /* UTILITIES COMPONENT - Radius Class */

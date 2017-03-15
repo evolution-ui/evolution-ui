@@ -34,7 +34,9 @@
             <a href="#component-accordion" class="su_uppercase su_list-item">Accordion</a>
             <a href="#component-scrollspy" class="su_uppercase su_list-item">ScrollSpy</a>
             <a href="#component-cubby" class="su_uppercase su_list-item">Cubby</a>
+            <a href="#component-crumble" class="su_uppercase su_list-item">Crumble</a>
             <a href="#component-buttons" class="su_uppercase su_list-item">Buttons</a>
+            <a href="#component-waveEffect" class="su_uppercase su_list-item">Wave Effect</a>
             <a href="#component-alerts" class="su_uppercase su_list-item">Alerts</a>
             <a href="#component-tables" class="su_uppercase su_list-item">Tables</a>
             <a href="#component-carousel" class="su_uppercase su_list-item">Carousel</a>
@@ -51,6 +53,7 @@
             <a href="#component-progress-bars" class="su_uppercase su_list-item">Progress Bars</a>
             <a href="#component-infinite-loading" class="su_uppercase su_list-item">Infinite loading</a>
             <a href="#component-forms" class="su_uppercase su_list-item">Forms</a>
+            <a href="#component-CSS-animations" class="su_uppercase su_list-item">CSS Animations</a>
             <a href="#component-dropdowns" class="su_uppercase su_list-item">Dropdowns</a>
             <a href="#component-lists" class="su_uppercase su_list-item">Lists</a>
             <a href="#component-cards" class="su_uppercase su_list-item">Cards</a>
@@ -59,6 +62,8 @@
             <a href="#component-grid" class="su_uppercase su_list-item">Grid</a>
             <a href="#component-tabs" class="su_uppercase su_list-item">Tabs</a>
             <a href="#component-video-embed" class="su_uppercase su_list-item">Video Embed</a>
+            <a href="#component-nag" class="su_uppercase su_list-item">Nag</a>
+            <a href="#component-full-screen-view" class="su_uppercase su_list-item">Full Screen View</a>
           </nav>
         </div>
         <div class="su_cell su_cells_9 su_demo_hackhaton">
@@ -74,7 +79,7 @@
           <p>The full width class expands the element it is applied to to the full width of it's parent element using the <code class="su_code">.su_full-width</code> class.  Example:</p>
           <div class="su_foreground-bg su_radius brian_su_utilities-fullwidth su_center-content">
             This is the container parent element that has a width of 80% declared on it with <code class="su_code">10px</code> of padding.
-            <div class="su_primary-bg-light su_full-width brian_su_utilities-fullwidth-inner"> Full Width Content.</div>
+            <span class="su_primary-bg-light su_full-width brian_su_utilities-fullwidth-inner">This is a <code class="su_code">span</code> tag made into a full width piece of content.</span>
             And some more filler content here.
           </div>
 
@@ -259,15 +264,15 @@
           <h3 class="su_space-top--medium">Code Class</h3>
           <p>Add the class <code class="su_code">.su_code</code> to give some default styling to displayed computer code.  Example:</p>
 <pre class="su_code">
-  <code>&lt;!DOCTYPE html&gt;
-  &lt;html lang="en"&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-  &lt;/body&gt;
-  &lt;/html&gt;</code>
+    <code>&lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;title&gt;Document&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</code>
 </pre>
 
           <h3 class="su_space-top--medium">Spacer Classes</h3>
@@ -351,6 +356,39 @@
               </div>
             </div>
           </div>
+          <h4 class="su_space-top--medium">Markup</h4>
+<pre class="su_code">
+    <code>&lt;div class=&quot;su_accordion&quot;&gt;
+      &lt;div class=&quot;su_bellow&quot;&gt;
+        &lt;input id=&quot;bellow1&quot; type=&quot;radio&quot; name=&quot;bellows&quot;&gt;
+        &lt;label for=&quot;bellow1&quot; class=&quot;su_radius&quot;&gt;Bellow One&lt;/label&gt;
+        &lt;div class=&quot;su_bellow-content su_background-bg&quot;&gt;
+          CONTENT HERE
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;su_bellow&quot;&gt;
+        &lt;input id=&quot;bellow2&quot; type=&quot;radio&quot; name=&quot;bellows&quot;&gt;
+        &lt;label for=&quot;bellow2&quot; class=&quot;su_radius&quot;&gt;Bellow Two&lt;/label&gt;
+        &lt;div class=&quot;su_bellow-content su_background-bg&quot;&gt;
+          CONTENT HERE
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;su_bellow&quot;&gt;
+        &lt;input id=&quot;bellow3&quot; type=&quot;radio&quot; name=&quot;bellows&quot;&gt;
+        &lt;label for=&quot;bellow3&quot; class=&quot;su_radius&quot;&gt;Bellow Three&lt;/label&gt;
+        &lt;div class=&quot;su_bellow-content&quot;&gt;
+          CONTENT HERE
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;su_bellow&quot;&gt;
+        &lt;input id=&quot;bellow4&quot; type=&quot;radio&quot; name=&quot;bellows&quot;&gt;
+        &lt;label for=&quot;bellow4&quot; class=&quot;su_radius&quot;&gt;Bellow Four&lt;/label&gt;
+        &lt;div class=&quot;su_bellow-content&quot;&gt;
+          CONTENT HERE
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;</code>
+</pre>
 
           <hr class="su_space-top--medium">
 
@@ -360,34 +398,69 @@
             <li><a href="#heading1" id="tab1">Tab 1</a></li><li><a href="#heading2" id="tab2" class="">Tab 2</a></li><li><a href="#heading3" id="tab3">Tab 3</a></li><li><a href="#heading4" id="tab4" class="">Tab 4</a></li><li><a href="#heading5" id="tab5" class="">Tab 5</a></li>
           </ul>
           <div class="su_scrollspy-container">
-            <h3 id="heading1" class="su_accent-light">Tab 1</h3>
+            <h3 id="heading1" class="su_accent-light">Heading 1</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis animi sapiente rerum expedita vero quasi eius, possimus pariatur quia? Nihil tempore doloribus reprehenderit fugiat, labore expedita optio veniam illo aut!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem asperiores iure ab in illum ipsa rerum labore, eum corrupti, quos optio! Magni rerum reiciendis atque maxime, doloribus consequuntur enim!</p>
 
-            <h3 id="heading2" class="su_accent-light">Tab 2</h3>
+            <h3 id="heading2" class="su_accent-light">Heading 2</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis animi sapiente rerum expedita vero quasi eius, possimus pariatur quia? Nihil tempore doloribus reprehenderit fugiat, labore expedita optio veniam illo aut!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem asperiores iure ab in illum ipsa rerum labore, eum corrupti, quos optio! Magni rerum reiciendis atque maxime, doloribus consequuntur enim!</p>
 
-            <h3 id="heading3" class="su_accent-light">Tab 3</h3>
+            <h3 id="heading3" class="su_accent-light">Heading 3</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis animi sapiente rerum expedita vero quasi eius, possimus pariatur quia? Nihil tempore doloribus reprehenderit fugiat, labore expedita optio veniam illo aut!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem asperiores iure ab in illum ipsa rerum labore, eum corrupti, quos optio! Magni rerum reiciendis atque maxime, doloribus consequuntur enim!</p>
 
-            <h3 id="heading4" class="su_accent-light">Tab 4</h3>
+            <h3 id="heading4" class="su_accent-light">Heading 4</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis animi sapiente rerum expedita vero quasi eius, possimus pariatur quia? Nihil tempore doloribus reprehenderit fugiat, labore expedita optio veniam illo aut!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem asperiores iure ab in illum ipsa rerum labore, eum corrupti, quos optio! Magni rerum reiciendis atque maxime, doloribus consequuntur enim!</p>
-            <h3 id="heading5" class="su_accent-light">Tab 5</h3>
+            <h3 id="heading5" class="su_accent-light">Heading 5</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem asperiores iure ab in illum ipsa rerum labore, eum corrupti, quos optio! Magni rerum reiciendis atque maxime, doloribus consequuntur enim!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, quisquam laborum quae facilis autem deserunt beatae debitis fugiat excepturi culpa quo at magnam, dolor veritatis atque eos, maxime reiciendis rem!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem asperiores iure ab in illum ipsa rerum labore, eum corrupti, quos optio! Magni rerum reiciendis atque maxime, doloribus consequuntur enim!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem asperiores iure ab in illum ipsa rerum labore, eum corrupti, quos optio! Magni rerum reiciendis atque maxime, doloribus consequuntur enim!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem asperiores iure ab in illum ipsa rerum labore, eum corrupti, quos optio! Magni rerum reiciendis atque maxime, doloribus consequuntur enim!</p>
           </div>
+          <h4 class="su_space-top--medium">Markup</h4>
+<pre class="su_code">
+    <code>&lt;ul class=&quot;su_scrollspy-nav&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#heading1&quot; id=&quot;tab1&quot;&gt;Tab 1&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#heading2&quot; id=&quot;tab2&quot; class=&quot;&quot;&gt;Tab 2&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#heading3&quot; id=&quot;tab3&quot;&gt;Tab 3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#heading4&quot; id=&quot;tab4&quot; class=&quot;&quot;&gt;Tab 4&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#heading5&quot; id=&quot;tab5&quot; class=&quot;&quot;&gt;Tab 5&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;su_scrollspy-container&quot;&gt;
+      &lt;h3 id=&quot;heading1&quot; class=&quot;su_accent-light&quot;&gt;Heading 1&lt;/h3&gt;
+      &lt;p&gt;CONTENT HERE&lt;/p&gt;
+
+      &lt;h3 id=&quot;heading2&quot; class=&quot;su_accent-light&quot;&gt;Heading 2&lt;/h3&gt;
+      &lt;p&gt;CONTENT HERE&lt;/p&gt;
+
+      &lt;h3 id=&quot;heading3&quot; class=&quot;su_accent-light&quot;&gt;Heading 3&lt;/h3&gt;
+      &lt;p&gt;CONTENT HERE&lt;/p&gt;
+
+      &lt;h3 id=&quot;heading4&quot; class=&quot;su_accent-light&quot;&gt;Heading 4&lt;/h3&gt;
+      &lt;p&gt;CONTENT HERE&lt;/p&gt;
+
+      &lt;h3 id=&quot;heading5&quot; class=&quot;su_accent-light&quot;&gt;Heading 5&lt;/h3&gt;
+      &lt;p&gt;CONTENT HERE&lt;/p&gt;
+    &lt;/div&gt;</code>
+</pre>
 
           <hr class="su_space-top--medium">
 
           <h2 id="component-cubby" class="su_space-top--medium">Cubby Component (Table with Drawers - Experimental Innovative UI) </h2>
           <p>The idea for this innovative UI component is to have more data revealed on <code class="su_code">hover</code> or <code class="su_code">focus</code> in a particular cell to conserve the amount of sceen space the table uses.</p>
-          <table class="su_table su_table-bordered">
+          <table class="su_table su_table-bordered su_space-bottom--large">
             <thead>
               <tr>
                 <th>Column 1</th>
@@ -423,6 +496,364 @@
               </td>
             </tr>
           </table>
+          <h4 class="">Markup</h4>
+<pre class="su_code">
+    <code>&lt;table class=&quot;su_table su_table-bordered&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Column 1&lt;/th&gt;
+          &lt;th&gt;Column 2&lt;/th&gt;
+          &lt;th&gt;Column 3&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;su_cubby&quot;&gt;
+          &lt;div class=&quot;su_door&quot;&gt;
+            Door 1
+          &lt;/div&gt;
+          &lt;div class=&quot;su_inside&quot;&gt;
+            More Info 1
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;su_cubby&quot;&gt;
+          &lt;div class=&quot;su_door&quot;&gt;
+            Door 2
+          &lt;/div&gt;
+          &lt;div class=&quot;su_inside&quot;&gt;
+            More Info 2
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;su_cubby&quot;&gt;
+          &lt;div class=&quot;su_door&quot;&gt;
+            Door 3
+          &lt;/div&gt;
+          &lt;div class=&quot;su_inside&quot;&gt;
+            More Info 3
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;</code>
+</pre>
+
+          <hr class="su_space-top--medium">
+
+          <!-- Init Crumble -->
+          <div class="su_line">
+            <div class="su_cell">
+              <h2 id="component-crumble" class="su_space-top--medium">Crumble Component (Fold and Unfold effect - Experimental Innovative UI) </h2>
+              <p>
+              The idea for this innovative UI component is to have more data shown
+              when the user click on a particular event. As in the following example,
+              it could be used for calendar events.
+              The element contains a <em>header</em> and a <em>body</em> which can be
+              used for icons and details.
+              </p>
+              <pre class="su_background-bg-light su_foreground">
+                &lt;div class="su_crumble"&gt;
+                  &lt;ul class="su_crumble__list"&gt;
+                    &lt;li class="su_crumble__item"&gt;
+                      &lt;div class="su_crumble__date" data-day="tue"&gt;02&lt;/div&gt;
+                      &lt;span class="su_crumble__span"&gt;
+                        &lt;i class="su_crumble__icon--expand material-icons"&gt;expand_more&lt;/i&gt;
+                        Tuesday
+                      &lt;/span&gt;
+                      &lt;div class="su_crumble_inner"&gt;
+                        &lt;div class="su_crumble_inner__header"&gt;
+                          &lt;h5 class="su_creamble__title"&gt;Event Details&lt;/h5&gt;
+                          &lt;i class="su_crumble__icon--close material-icons"&gt;close&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div class="su_crumble_inner__body"&gt;
+                          &lt;ul class="su_crumble__list su_crumble__list--icons"&gt;
+                            &lt;li&gt;
+                              &lt;a href="#" title="dashboard"&gt;
+                                &lt;i class="su_crumble__icon material-icons"&gt;dashboard&lt;/i&gt;
+                              &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href="#" title="credit_card"&gt;
+                                &lt;i class="su_crumble__icon material-icons"&gt;credit_card&lt;/i&gt;
+                              &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href="#" title="date_range"&gt;
+                                &lt;i class="su_crumble__icon material-icons"&gt;date_range&lt;/i&gt;
+                              &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;a href="#" title="explore"&gt;
+                                &lt;i class="su_crumble__icon material-icons"&gt;explore&lt;/i&gt;
+                              &lt;/a&gt;
+                            &lt;/li&gt;
+                          &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div class="su_crumble_inner__description"&gt;
+                        Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;/div&gt;
+              </pre>
+            </div>
+          </div>
+
+          <div class="su_line">
+            <div class="su_cell">
+              <div class="su_crumble">
+                <ul class="su_crumble__list">
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="mon">01</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Monday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="tue">02</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Tuesday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="su_crumble_inner__description">
+                      Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+                      </div>
+                    </div>
+                  </li>
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="wed">03</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Wednesday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="su_line">
+            <div class="su_cell">
+              <p>
+                Add the class <code class="su_code">.su_crumble--full-width</code>
+                to make to unfold the details at full width.
+              </p>
+            </div>
+          </div>
+
+          <div class="su_line">
+            <div class="su_cell">
+              <div class="su_crumble su_crumble--full-width">
+                <ul class="su_crumble__list">
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="mon">01</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Monday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="tue">02</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Tuesday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="su_crumble_inner__description">
+                      Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
+                      </div>
+                    </div>
+                  </li>
+                  <li class="su_crumble__item">
+                    <div class="su_crumble__date" data-day="wed">03</div>
+                    <span class="su_crumble__span">
+                      <i class="su_crumble__icon--expand material-icons">expand_more</i>
+                      Wednesday
+                    </span>
+                    <div class="su_crumble_inner">
+                      <div class="su_crumble_inner__header">
+                        <h5 class="su_creamble__title">Event Details</h5>
+                        <i class="su_crumble__icon--close material-icons">close</i>
+                      </div>
+                      <div class="su_crumble_inner__body">
+                        <ul class="su_crumble__list su_crumble__list--icons">
+                          <li>
+                            <a href="#" title="dashboard">
+                              <i class="su_crumble__icon material-icons">dashboard</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="credit_card">
+                              <i class="su_crumble__icon material-icons">credit_card</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="date_range">
+                              <i class="su_crumble__icon material-icons">date_range</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" title="explore">
+                              <i class="su_crumble__icon material-icons">explore</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- end of crumble -->
 
           <hr class="su_space-top--medium">
 
@@ -501,6 +932,29 @@
               <span class="su_switch-square-switch"></span>
             </label>
           </div>
+
+          <hr class="su_space-top--medium">
+
+          <!-- Wave effects -->
+          <div class="su_line">
+            <div class="su_cell">
+              <h2 id="component-waveEffect" class="su_space-top--medium">Wave Effect</h2>
+              <p>
+                Add the class <code class="su_code">.su_wave</code> to an element to activate the wave effect on it.
+                For example
+              </p>
+              <form class="su_form">
+              <div class="su_input su_input--button su_input--button--3D su_wave">
+                Button Wave Effect
+                </div>
+              </form>
+              <p class="su_space-top--medium"></p>
+              <div class="su_btn su_btn-primary su_wave" style="max-width: 300px">
+                Button Wave Effect 2
+              </div>
+            </div>
+          </div>
+          <!-- end Wave effects -->
 
           <hr class="su_space-top--medium">
 
@@ -1297,17 +1751,37 @@
 
           <h2 id="component-typography" class="su_space-top--medium">Typography</h2>
 
+          <p class="su_x-large">su_x-large</p>
+          <p class="su_large">su_large</p>
           <h1>Heading 1</h1>
           <h2>Heading 2</h2>
           <h3>Heading 3</h3>
           <h4>Heading 4</h4>
           <h5>Heading 5</h5>
           <h6>Heading 6</h6>
+          <p class="su_small">su_small</p>
+          <p class="su_x-small">su_x-small</p>
 
-          <div>
-            <p>
-              <em>Seed-ui</em> uses a <em>Responsive Typography</em> system for headings.
-            </p>
+          <div class="su_line">
+            <div class="su_cell">
+              <p>
+                <em>Seed-UI</em> provides reusable classes to the font size
+                declarations which are related to its type scale and expands
+                it with two bigger and smaller sizes.
+              </p>
+              <p>
+                Use the classes from <code class="su_code">.su_h1</code> to <code class="su_code">.su_h6</code>
+                to give to an element the same scale of the intended heading.
+              </p>
+              <p>
+                Use the classes <code class="su_code">.su_large</code> and <code class="su_code">.su_x-large</code>
+                to give to an element a bigger font within the scale.
+              </p>
+              <p>
+                Use the classes <code class="su_code">.su_small</code> and <code class="su_code">.su_x-small</code>
+                to give to an element a smaller font within the scale.
+              </p>
+            </div>
           </div>
 
           <hr class="su_space-top--medium">
@@ -1750,6 +2224,178 @@
           </div>
 
         <section>
+
+          <hr class="su_space-top--medium">
+
+          <!-- Animations -->
+          <div class="su_line">
+            <div class="su_cell">
+              <h2 id="component-CSS-animations" class="su_space-top--medium">CSS Animations</h2>
+              <table id="su_anim" class="su_table su_table-bordered su_align-center">
+                <thead>
+                  <tr>
+                    <th class="su_align-center">Preview Effect</th>
+                    <th></th>
+                    <th class="su_align-center">Classes</th>
+                    <th class="su_align-center">Default duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Fade In</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeIn</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeInLeft</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeInRight</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeInDown</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Fade Out</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeOut</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeOutLeft</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeOutRight</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--fadeOutDown</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Zoom</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--zoomIn</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--zoomOut</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Rotate</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--rotateIn</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--rotateInCC</code></td>
+                    <td>
+                      <code class="su_foreground-bg-light">animation-duration: 1s</code>
+                      <p>rotate it in the counter-clockwise direction</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--rotateOut</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--rotateOutCC</code></td>
+                    <td>
+                      <code class="su_foreground-bg-light">animation-duration: 1s</code>
+                      <p>rotate it in the counter-clockwise direction</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4"><h3>Others</h3></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="5s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--flash</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" data-animation-duration="2s" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--pulse</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--shake</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td><button type="button" class="su_btn su_btn-primary su_round">Click to Preview</button></td>
+                    <td><img src="img/component_assets/flowers.png" alt="Animation Test"></td>
+                    <td><code class="su_code">.su_anim--shakeUpDown</code></td>
+                    <td><code class="su_foreground-bg-light">animation-duration: 1s</code></td>
+                  </tr>
+                  <tr>
+                    <td class="su_primary-bg-light" colspan="4">
+                      <p><h3 class="su_secondary-dark">Important Note</h3></p>
+                      <p>
+                        All the attributes of the CSS animations can be manipulated through
+                        a <code class="su_code">data-[CSS animation property]</code> attribute which
+                        can be added directly into the HTML element. The system will add
+                        for you the prefix of the CSS property automatically (if any).
+                      </p>
+                      <p class="su_align-left">For Example:</p>
+                      <p class="su_align-left">
+                        <code class="su_foreground-bg-light">
+                          &lt;button class="su_anim--fadeIn" data-animation-duration="5s"&gt;Test&lt;/button&gt;
+                        </code>
+                      </p>
+                      <p class="su_align-left">
+                        <code class="su_foreground-bg-light">
+                          &lt;button class="su_anim--fadeIn" data-animation-duration="2s" data-animation-timing-function="ease-out"&gt;Test&lt;/button&gt;
+                        </code>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div><!-- end CSS Animations -->
 
           <hr class="su_space-top--medium">
 
@@ -2369,7 +3015,7 @@
           <h4>Hover on links to have a preview of the page it leads to</h4>
           <h4>Simply add your url and the web page will appear in a scrollable media box: you can take a sneak peek at the page before clicking the link</h4>
           <p>
-            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a <span class="su_preview"><a href="#" class="su_preview-link su_accent"><strong>paradisematic country</strong></a> <span class="su_preview-page"><iframe src="https://blog.bovacademy.com/" frameBorder="0"></iframe></span></span>, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of <span class="su_preview"><a href="#" class="su_preview-link su_accent"><strong>Alphabet Village</strong></a> <span class="su_preview-page"><iframe src="https://www.vice.com/fr" frameBorder="0"></iframe></span> </span> and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then.
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a <span class="su_preview"><a href="https://blog.bovacademy.com/" class="su_preview-link su_accent" target="_blank"><strong>paradisematic country</strong></a> <span class="su_preview-page"><iframe src="https://blog.bovacademy.com/" frameBorder="0"></iframe></span></span>, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of <span class="su_preview"><a href="https://www.vice.com/fr" class="su_preview-link su_accent" target="_blank"><strong>Alphabet Village</strong></a> <span class="su_preview-page"><iframe src="https://www.vice.com/fr" frameBorder="0"></iframe></span> </span> and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then.
           </p>
 
           <hr class="su_space-top--medium">
@@ -2430,40 +3076,44 @@
 
           <h2 id="component-tabs" class="su_space-top--medium">Tabs</h2>
 
-          <div class="su_tabs">
-            <input id="su_tab_1" type="radio" name="tabs" checked>
-            <label for="su_tab_1"><i class="fa fa-code"></i><span>Code</span></label>
+          <h3>Classic Tabs</h3>
 
-            <input id="su_tab_2" type="radio" name="tabs">
-            <label for="su_tab_2"><i class="fa fa-pencil-square-o"></i><span>Image</span></label>
+          <div class="su_tabs su_tabs_horizontal">
+            <input id="su_tab_horizontal_1" type="radio" name="tabs_horizontal" checked>
+            <label for="su_tab_horizontal_1"><i class="fa fa-code"></i><span>Code</span></label>
 
-            <input id="su_tab_3" type="radio" name="tabs">
-            <label for="su_tab_3"><i class="fa fa-bar-chart-o"></i><span>Text</span></label>
+            <input id="su_tab_horizontal_2" type="radio" name="tabs_horizontal">
+            <label for="su_tab_horizontal_2"><i class="fa fa-pencil-square-o"></i><span>Image</span></label>
 
-            <input id="su_tab_4" type="radio" name="tabs">
-            <label for="su_tab_4"><i class="fa fa-folder-open-o"></i><span>Map</span></label>
+            <input id="su_tab_horizontal_3" type="radio" name="tabs_horizontal">
+            <label for="su_tab_horizontal_3"><i class="fa fa-bar-chart-o"></i><span>Text</span></label>
 
-            <input id="su_tab_5" type="radio" name="tabs">
-            <label for="su_tab_5"><i class="fa fa-envelope-o"></i><span>Contact</span></label>
+            <input id="su_tab_horizontal_4" type="radio" name="tabs_horizontal">
+            <label for="su_tab_horizontal_4"><i class="fa fa-folder-open-o"></i><span>Map</span></label>
 
-            <section id="su_content_1" >
+            <input id="su_tab_horizontal_5" type="radio" name="tabs_horizontal">
+            <label for="su_tab_horizontal_5"><i class="fa fa-envelope-o"></i><span>Contact</span></label>
+
+            <section id="su_content_horizontal_1" >
               <div class="su_tab-content">
                 <div class="su_line">
                   <div class="su_cells su_cells_8 ">
                     <img class="su_full-width" src="https://static.pexels.com/photos/102896/pexels-photo-102896.jpeg">
                   </div>
                   <div class="su_cells su_cells_4">
-                    <h3 class="su_align-center su_space-top--medium">Some Text</h3>
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
                     <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
                   </div>
                 </div>
               </div>
             </section>
-            <section id="su_content_2">
+            <section id="su_content_horizontal_2">
               <div class="su_tab-content">
                 <div class="su_line">
                   <div class="su_cells su_cells_4">
-                    <h3 class="su_align-center su_space-top--medium">Some Text</h3>
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
                     <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
                   </div>
                   <div class="su_cells su_cells_8">
@@ -2472,25 +3122,27 @@
                 </div>
               </div>
             </section>
-            <section id="su_content_3">
+            <section id="su_content_horizontal_3">
               <div class="su_tab-content">
                 <div class="su_line">
                   <div class="su_cells su_cells_8">
                     <img class="su_full-width" src="https://images.pexels.com/photos/7591/garden-flower-green-room-7591.jpg?w=940&h=650&auto=compress&cs=tinysrgb">
                   </div>
                   <div class="su_cells su_cells_4">
-                    <h3 class="su_align-center su_space-top--medium">Some Text</h3>
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
                     <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
                   </div>
 
                 </div>
               </div>
             </section>
-            <section id="su_content_4">
+            <section id="su_content_horizontal_4">
               <div class="su_tab-content">
                 <div class="su_line">
                   <div class="su_cells su_cells_4">
-                    <h3 class="su_align-center su_space-top--medium">Some Text</h3>
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
                     <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
                   </div>
                   <div class="su_cells su_cells_8">
@@ -2499,11 +3151,12 @@
                 </div>
               </div>
             </section>
-            <section id="su_content_5">
+            <section id="su_content_horizontal_5">
               <div class="su_tab-content">
                 <div class="su_line">
                   <div class="su_cells su_cells_4">
-                    <h3 class="su_align-center su_space-top--medium">Some Text</h3>
+                    <div class="su_space-top--medium"></div>
+                    <h3 class="su_align-center">Some Text</h3>
                     <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
                   </div>
                   <div class="su_cells su_cells_8">
@@ -2515,12 +3168,131 @@
 
           </div>
 
+          <div class="su_space-top--small"></div>
+
+          <h3>Vertical Tabs</h3>
+
+          <div class="su_tabs su_tabs_vertical">
+            <ul class="su_tabs-vertical-titles">
+              <li class="current">
+                Code
+              </li>
+              <li>
+                Image
+              </li>
+              <li>
+                Text
+              </li>
+              <li>
+                Map
+              </li>
+              <li>
+                Contact
+              </li>
+            </ul>
+            <ul class="su_tabs-vertical-contents">
+              <li>
+                <div class="su_line">
+                  <div class="su_cells su_cells_8 ">
+                    <img class="su_full-width" src="https://static.pexels.com/photos/102896/pexels-photo-102896.jpeg">
+                  </div>
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--small"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="su_line">
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--small"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+                  <div class="su_cells su_cells_8">
+                    <img class="su_full-width" src="https://images.pexels.com/photos/190339/pexels-photo-190339.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="su_line">
+                  <div class="su_cells su_cells_8">
+                    <img class="su_full-width" src="https://images.pexels.com/photos/7591/garden-flower-green-room-7591.jpg?w=940&h=650&auto=compress&cs=tinysrgb">
+                  </div>
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--small"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+
+                </div>
+              </li>
+              <li>
+                <div class="su_line">
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--small"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+                  <div class="su_cells su_cells_8">
+                    <img class="su_full-width" src="https://images.pexels.com/photos/59044/pexels-photo-59044.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="su_line">
+                  <div class="su_cells su_cells_4">
+                    <div class="su_space-top--small"></div>
+                    <h3 class="su_align-center">Some Text</h3>
+                    <p>Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem.</p>
+                  </div>
+                  <div class="su_cells su_cells_8">
+                    <img class="su_full-width" src="https://images.pexels.com/photos/99548/water-lilies-bud-pond-green-99548.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
           <hr class="su_space-top--medium">
 
           <h2 id="component-video-embed" class="su_space-top--medium">Responsive Video Embed</h2>
           <div class="su_video_container">
             <iframe src="https://www.youtube.com/embed/KK-kuKF8n9A?showinfo=0&controls=0" frameborder="0" width="560" height="315"></iframe>
           </div>
+
+          <hr class="su_space-top--medium">
+
+          <h2 id="component-nag" class="su_space-top--medium">Nag</h2>
+
+          <div class="su_nag">
+            <span>Don't Forget to Subscribe to Our Newsletter</span>
+          </div>
+
+          <hr class="su_space-top--medium">
+
+          <h2 id="component-full-screen-view" class="su_space-top--medium">Full-Screen View</h2>
+
+          <div class="su_full_screen-overlay su_full_screen_1 su_accent-bg">
+            <div class="su_overlay_content">
+              <h3>Hello there</h3>
+              <img src="http://www.snut.fr/wp-content/uploads/2015/07/image-de-la-nature-5.jpg">
+            </div>
+          </div>
+
+          <div class="su_full_screen-overlay su_full_screen_2 su_foreground-bg-light">
+            <div class="su_overlay_content">
+              <h3>Hello again</h3>
+              <img src="http://www.wonderslist.com/wp-content/uploads/2015/03/Nong-Nooch-Tropical-Botanical-Garden.jpg">
+            </div>
+          </div>
+
+          <p>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a <span class="su_full_screen_preview su_accent" id="su_full_screen_1"><strong>FULL SCREEN PREVIEW</strong></span>, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of <span class="su_full_screen_preview su_accent" id="su_full_screen_2"><strong>FULL SCREEN PREVIEW</strong></span> and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then.
+          </p>
+
 
         </div>
 
@@ -2561,5 +3333,44 @@
       </footer>
 
       <script type="text/javascript" src="prod/main.js"></script>
+      <script>
+          // Utility function for the CSS ANIMATIONS
+          (function() {
+            var animT = document.querySelector('#su_anim');
+
+            var pfx = ['webkit', 'moz', 'MS', 'o', ''];
+
+            var $prefixedOn = function ( target, type, callback, useCapture ) {
+
+              for ( var p = 0, length = pfx.length; p < length; p++ ) {
+                if ( !pfx[p] ) {
+                  type = type.toLowerCase();
+                }
+                target.addEventListener( pfx[p]+type, callback, !!useCapture );
+              }
+            };
+
+            animT.addEventListener( 'click', function( event ) {
+              event.stopPropagation();
+              event.preventDefault();
+
+              if ( event.target.nodeName !== 'BUTTON' ) {
+                return;
+              }
+
+              var target = event.target.parentElement.nextElementSibling.firstElementChild;
+              var anim = event.target.parentElement.nextElementSibling.nextElementSibling.textContent;
+
+              target.classList.toggle(anim.replace('.', ''));
+
+              $prefixedOn(target, 'animationend', function() {
+                window.setTimeout(function() {
+                  target.removeAttribute('class');
+                }, 2000);
+              });
+            });
+
+          })();
+      </script>
     </body>
 </html>
