@@ -365,6 +365,41 @@
 
 })();
 
+(function () {
+
+  'use strict';
+
+  var codeElement = document.querySelectorAll('.su_code-example'),
+      codeElementParent = codeElement.parentElement,
+      stringsToReplace = {
+        '<': '&lt;',
+        '\">': '&quot;&gt;',
+        '=\"': '=&quot;',
+        '>': '&gt;'
+      };
+
+
+  for (var i = codeElement.length - 1; i >= 0; i--) {
+
+    var code,
+        codeContainer = document.createElement('div'),
+        preCodeElement = document.createElement('pre');
+
+    codeContainer.setAttribute('class', 'su_code-container');
+    preCodeElement.setAttribute('class', 'su_code');
+
+    code = codeElement[i].innerHTML.replace(/<|\">|=\"|>/gi, function(match) {
+      return stringsToReplace[match];
+    });
+
+    preCodeElement.innerHTML = code;
+    codeContainer.appendChild(preCodeElement);
+
+    codeElement[i].parentElement.appendChild(codeContainer);
+
+  }
+
+}());
 ;(function() {
 
   function $(selector, parent) {
@@ -1031,6 +1066,75 @@
 })();
 /** END SCROLLSPY COMPONENT **/
 
+(function () {
+
+  'use strict';
+
+  var suSift = {
+    
+    pick: '.su_basket--pick',
+    drop: '.su_basket--drop',
+    
+    pickBasket: function () {
+      
+      var basket = document.querySelector(this.pick);
+
+      if ( basket ) {
+        return basket;
+      }
+
+    },
+
+    dropBasket: function () {
+      
+      var basket = document.querySelector(this.drop);
+
+      if ( basket ) {
+        return basket;
+      }
+
+    },
+
+    pickItem: function () {
+      if ( this.pickBasket() ) {
+        return this.pickBasket().firstElementChild; //removeChild(this.pickBasket().firstElementChild());
+      }
+    },
+
+    removeItem: function () {
+      if ( this.pickBasket() ) {
+        this.pickBasket()
+            .removeChild(this.pickItem());
+      }
+    },
+
+    siftItem: function () {
+
+      var item = this.pickItem(),
+          siftDrop = this.dropBasket.bind(this);
+          
+      if (item) {
+        
+        item.classList.add('su_animate--siftOut')
+        setTimeout(function () {
+          item.classList.remove('su_animate--siftOut');
+          item.classList.add('su_animate--siftIn');
+          siftDrop().appendChild(item);
+          //siftDrop().lastElementChild.classList.add('su_animate--sift');
+        }, 1000);  
+      }
+    }
+  }
+
+  if (suSift.pickBasket()) {
+    suSift.pickBasket().addEventListener('click', function (e) {
+      suSift.siftItem();
+    });
+  }
+  
+
+  
+}());
 (function() {
 	//logic
 
