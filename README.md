@@ -1,6 +1,6 @@
 # seed-ui
 
-#[Live Site](https://codephobe.github.io/seed-ui/)
+# [Live Site](https://codephobe.github.io/seed-ui/)
 
 - Each component gets its own sub-folder in the `components` folder.
 - Add the scss partials of the components to the file named after you in the `partials` folder.
