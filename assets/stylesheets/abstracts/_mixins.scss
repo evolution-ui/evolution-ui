@@ -1,5 +1,10 @@
+/// Usage examples
+/// http://www.sassmeister.com/gist/dc32d63765332e1817ad577c14b28ef5
+///
+
 /// Generate a namespaced class
 ///
+/// @author Gabriele Romeo
 ///
 /// @access public
 ///
@@ -38,6 +43,8 @@
 
 ///
 /// Generate a BLOCK
+///
+/// @author Gabriele Romeo
 ///
 /// @access public
 ///
@@ -86,6 +93,8 @@
 
 /// Generate an Element
 ///
+/// @author Gabriele Romeo
+///
 /// @access public
 ///
 /// @param {String} $elementName - The element's name
@@ -121,6 +130,8 @@
 }
 
 /// Generate an Element
+///
+/// @author Gabriele Romeo
 ///
 /// @access public
 ///
@@ -178,6 +189,8 @@
 ///
 /// Generate an Element with the BEMIT methodology
 ///
+/// @author Gabriele Romeo
+///
 /// @access public
 ///
 /// @param {String} $componentName - The name of the component
@@ -227,6 +240,7 @@
 
 /// Generate a BEMIT Component
 ///
+/// @author Gabriele Romeo
 ///
 /// @access public
 ///
@@ -267,6 +281,7 @@
 
 /// Generate a BEMIT Object
 ///
+/// @author Gabriele Romeo
 ///
 /// @access public
 ///
@@ -301,6 +316,8 @@
 }
 
 /// Generate a BEMIT Utility class
+///
+/// @author Gabriele Romeo
 ///
 /// @access public
 ///
