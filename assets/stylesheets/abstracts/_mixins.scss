@@ -9,8 +9,8 @@
 /// @access public
 ///
 /// @param {String} $class - A class name
-/// @param {String} $prefix [$framework-prefix] - An optional prefix
-/// @require $framework-prefix
+/// @param {String} $prefix [$framework-name] - An optional prefix
+/// @require $framework-name
 ///
 /// @example scss - Usage
 ///
@@ -25,14 +25,14 @@
 ///     color: red;
 ///  }
 ///
-@mixin namespaced( $class, $prefix: $framework-prefix ) {
+@mixin namespaced( $class, $prefix: $framework-name ) {
   .#{$prefix}_#{$class} {
     @content;
   }
 }
 
 /// @alias namespaced
-@mixin nm( $class, $prefix: $framework-prefix ) {
+@mixin nm( $class, $prefix: $framework-name ) {
   @include namespaced( $class, $prefix ) {
     @content;
   }
@@ -49,7 +49,7 @@
 /// @access public
 ///
 /// @param {String} $blockName - The name of the block
-/// @param {String} $prefix [$framework-prefix] - An optional prefix
+/// @param {String} $prefix [$framework-name] - An optional prefix
 /// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
 ///                                          the namespace's name
 /// @require The namespaced @mixin
