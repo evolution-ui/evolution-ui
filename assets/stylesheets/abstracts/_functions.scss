@@ -1,3 +1,21 @@
+
+// -----------------------------------------------------------------------------
+//                           GENERIC HELPERS
+// -----------------------------------------------------------------------------
+
+///
+/// Generate a number without the unit
+///
+/// @param {Number} $number - A value like 1px, 2rem, etc.
+/// @return {Number}
+///
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+
+
 // -----------------------------------------------------------------------------
 //                            COLORS HELPERS
 // -----------------------------------------------------------------------------
@@ -58,4 +76,25 @@
 
 @function white($opacity: 1){
   @return rgba(255, 255, 255, $opacity);
+}
+
+// -----------------------------------------------------------------------------
+//                            FONT HELPERS
+// -----------------------------------------------------------------------------
+
+///
+/// Convert a unit from pixels to rems
+///
+/// @param {Value} $size - A value in pixels
+/// @param {Value} $base-f-size - A base value in pixels
+///                               (by default is equal to System base font size)
+///                               refer to the $framework-base-font-size variable
+/// @require strip-units
+///
+
+@function rem($size, $base-f-size: $framework-base-font-size) {
+  $newSize: strip-units($size);
+  $base: strip-units($base-f-size);
+  $remSize: if($newSize == 0, 0, $newSize / $base);
+ @return $remSize;
 }
