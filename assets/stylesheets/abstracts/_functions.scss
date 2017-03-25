@@ -101,6 +101,7 @@
 ///                               refer to the $framework-base-font-size variable
 /// @require strip-units
 ///
+/// @return {Number} without a Unit
 
 @function rem($size, $base-f-size: $framework-base-font-size) {
   $newSize: strip-units($size);
