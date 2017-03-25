@@ -5,9 +5,17 @@
 $framework-name: 'evo' !default;
 $no-prefix: false;
 
+// -----------------------------------------------------------------------------
+//                               FONTS
+// -----------------------------------------------------------------------------
+
+$framework-base-font-size:    16px;
+$framework-line-height-ratio: 1.5;
+$framework-line-height-base:  1rem * $framework-line-height-ratio;
+
 
 // -----------------------------------------------------------------------------
-//                                COLORS PALETTE
+//                               COLORS PALETTE
 // -----------------------------------------------------------------------------
 
 $framework-colors: (
