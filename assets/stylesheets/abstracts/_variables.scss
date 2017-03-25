@@ -9,10 +9,11 @@ $no-prefix: false;
 //                               FONTS
 // -----------------------------------------------------------------------------
 
+$framework-font-family: 'Roboto', sans-serif;
 $framework-base-font-size:    16px;
 $framework-line-height-ratio: 1.5;
 $framework-line-height-base:  1rem * $framework-line-height-ratio;
-
+$framework-font-weight: 300;
 
 // -----------------------------------------------------------------------------
 //                               COLORS PALETTE
