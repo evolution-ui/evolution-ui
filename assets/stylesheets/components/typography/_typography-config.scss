@@ -1,0 +1,21 @@
+//------------------------------------------------------------------------------
+//                       Typography SYSTEM config
+//------------------------------------------------------------------------------
+
+$typography-scales: (
+  minor-second:     1.067,
+  major-second:     1.125,
+  minor-third:      1.200,
+  major-third:      1.250,
+  perfect-fourth:   1.333,
+  augmented-fourth: 1.414,
+  perfect-fift:     1.5,
+  golden-ratio:     1.618
+);
+
+/// List of extra headings
+$typography-scales-bigger:  large, x-large;
+$typography-scales-smaller: small, x-small;
+
+/// Set as base the 'major-third' scale
+$typography-base-scale: map-get($typography-scales, 'major-third');
