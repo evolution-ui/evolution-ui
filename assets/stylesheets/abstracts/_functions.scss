@@ -109,3 +109,27 @@
   $remSize: if($newSize == 0, 0, $newSize / $base);
  @return $remSize;
 }
+
+// -----------------------------------------------------------------------------
+//                            MATH HELPERS
+// -----------------------------------------------------------------------------
+
+///
+/// Calculate the power of
+///
+/// @param {Value} $base - A base
+/// @param {Value} $exp  - An exponent
+/// @return {value}
+///
+
+@function pow( $base, $exp ) {
+  $result: 1;
+
+  @if ( $exp > 0 ) {
+    @for $i from 1 through $exp {
+      $result: $result * $base;
+    }
+  }
+
+  @return $result;
+}
