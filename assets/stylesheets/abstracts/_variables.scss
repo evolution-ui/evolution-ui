@@ -4,3 +4,64 @@
 
 $framework-name: 'evo' !default;
 $no-prefix: false;
+
+
+// -----------------------------------------------------------------------------
+//                                COLORS PALETTE
+// -----------------------------------------------------------------------------
+
+$framework-colors: (
+  'primary': (
+    'base': #56C5DE,
+    'light': tint(#56C5DE, 15%),
+    'dark': shade(#56C5DE, 15%),
+    'darken': shade(#56C5DE, 25%)
+  ),
+  'primary2': (
+    'base': #6C8CD7,
+    'light': tint(#6C8CD7, 15%),
+    'dark': shade(#6C8CD7, 15%),
+    'darken': shade(#6C8CD7, 25%)
+  ),
+  'accent': (
+    'base': #A06EBD,
+    'light': tint(#A06EBD, 15%),
+    'dark': shade(#A06EBD, 15%),
+    'darken': shade(#A06EBD, 25%)
+  ),
+  'accent2': (
+    'base': #E57B7B,
+    'light': tint(#E57B7B, 15%),
+    'dark': shade(#E57B7B, 15%),
+    'darken': shade(#E57B7B, 25%)
+  ),
+  'accent3': (
+    'base': #E189B9,
+    'light': tint(#E189B9, 15%),
+    'dark': shade(#E189B9, 15%),
+    'darken': shade(#E189B9, 25%)
+  ),
+  'accent4': (
+    'base': #80D26B,
+    'light': tint(#80D26B, 20%),
+    'dark': shade(#80D26B, 15%),
+    'darken': shade(#80D26B, 25%)
+  ),
+  'secondary': (
+    'base': #768BA1,
+    'light': tint(#768BA1, 15%),
+    'dark': shade(#768BA1, 15%),
+    'darken': shade(#768BA1, 25%)
+  ),
+  'background': (
+    'base': #1E2226,
+    'light': tint(#1E2226, 15%),
+    'dark': shade(#1E2226, 15%)
+  )
+);
+
+$framework-colors-opacity: (
+  'super-light': 0.9,
+  'light': 0.8,
+  'heavy': 0.4
+);
