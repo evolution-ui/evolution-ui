@@ -99,14 +99,17 @@
 /// @param {Value} $base-f-size - A base value in pixels
 ///                               (by default is equal to System base font size)
 ///                               refer to the $framework-base-font-size variable
+/// @param {Boolean} $unitless [true] - If true it returns a value without the rem unit
+///
 /// @require strip-units
 ///
-/// @return {Number} without a Unit
+/// @return {Number}
 
-@function rem($size, $base-f-size: $framework-base-font-size) {
+@function rem( $size, $base-f-size: $framework-base-font-size, $unitless: true ) {
   $newSize: strip-units($size);
   $base: strip-units($base-f-size);
   $remSize: if($newSize == 0, 0, $newSize / $base);
+  $remSize: if($unitless == true, $remSize, $remSize + 0rem);
  @return $remSize;
 }
 
