@@ -14,6 +14,16 @@
   @return $number / ($number * 0 + 1);
 }
 
+///
+/// Generate a string
+///
+/// @param {Value} $value - A value
+/// @return {String}
+///
+
+@function to-string($value) {
+  @return inspect($value);
+}
 
 
 // -----------------------------------------------------------------------------
