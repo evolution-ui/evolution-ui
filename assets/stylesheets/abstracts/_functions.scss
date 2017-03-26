@@ -30,6 +30,25 @@
 //                            COLORS HELPERS
 // -----------------------------------------------------------------------------
 
+
+/// Slightly lighten a color (Add percentage of white to a color)
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color (Add percentage of black to a color)
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
 ///
 /// Get the hexadecimal color value (and its variations) from the su_ colors palette.
 ///
@@ -60,9 +79,9 @@
   $alpha: if(type-of($opacity) == 'number', $opacity, map-get($framework-colors-opacity, $opacity));
 
   // Set the alpha of the color
-  // @if $alpha {
-  //   $color: rgba($color, $alpha);
-  // }
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
 
   @return $color;
 }
@@ -79,7 +98,7 @@
 
 ///
 /// Generate a white color with opacity
-///
+/// @access public
 /// @param {Number} $opacity [1] - A value between 0 and 1
 /// @return {Color}
 ///
