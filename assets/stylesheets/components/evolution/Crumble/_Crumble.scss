@@ -16,7 +16,7 @@
   // Modifiers
   @include m('full-width') {
     // Item element
-    @include e('item') {
+    & .#{$framework-name}_c-crumble__item {
       display: block;
     }
   }
