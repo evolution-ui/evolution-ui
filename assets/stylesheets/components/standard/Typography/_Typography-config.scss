@@ -19,3 +19,6 @@ $typography-scales-smaller: small, x-small;
 
 /// Set as base the 'major-third' scale
 $typography-base-scale: map-get($typography-scales, 'major-third');
+
+/// Set base font-weight (Added by Vojislav, sass wouldn't compile without this value)
+$framework-font-weight-base: 400;

@@ -60,9 +60,9 @@
   $alpha: if(type-of($opacity) == 'number', $opacity, map-get($framework-colors-opacity, $opacity));
 
   // Set the alpha of the color
-  @if $alpha {
-    $color: rgba($color, $alpha);
-  }
+  // @if $alpha {
+  //   $color: rgba($color, $alpha);
+  // }
 
   @return $color;
 }

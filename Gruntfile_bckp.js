@@ -4,8 +4,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     concat: {
       js: {
-        src: ['assets/scripts/*/*.js'],
-        dest: 'production/main.js'
+        src: ['components/*/*.js'],
+        dest: 'prod/main.js'
       }
     },
     sass: {
@@ -14,39 +14,49 @@ module.exports = function(grunt) {
           update: true
         },
         files: [{
-          src: 'assets/stylesheets/main.scss',
-          dest: 'production/main.css'
+          src: 'components/main.scss',
+          dest: 'prod/main.css'
         }]
       }
     },
     uglify: {
       build: {
         files: [{
-          src: ['assets/scripts/*/*.js'],
-          dest: 'production/main.min.js'
+          src: ['components/*/*.js'],
+          dest: 'prod/main.min.js'
         }]
       }
     },
     watch: {
       css: {
-        files: [
-          'assets/stylesheets/*/*.scss',
-          'assets/stylesheets/*/*/*.scss',
-          'assets/stylesheets/*/*/*/*.scss'
-        ],
+        files: ['components/*/*.scss'],
         tasks: ['sass'],
         options: {
           livereload: true
         }
       },
       js: {
-        files: ['assets/scripts/*/*.js'],
+        files: ['components/*/*.js'],
         tasks: ['concat'],
         options: {
           livereload: true
         }
       }
-    }
+    }//, // copy task is not needed anymore, at least for css and js
+    // copy: {
+    //   css: {
+    //     files: [{
+    //       src: 'dist/main.css',
+    //       dest: 'prod/main.css'
+    //     }]
+    //   },
+    //   js: {
+    //     files: [{
+    //       src: 'dist/main.js',
+    //       dest: 'prod/main.js',
+    //     }]
+    //   }
+    // }
   });
 
   // Load plugins

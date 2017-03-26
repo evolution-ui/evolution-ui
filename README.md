@@ -1,26 +1,46 @@
-# seed-ui
+# [Evolution UI](https://BovAcademy-opensource.github.io/evolution-ui/)
 
-# [Live Site](https://BovAcademy-opensource.github.io/seed-ui/)
+## Development guidelines
 
-- Each component gets its own sub-folder in the `components` folder.
-- Add the scss partials of the components to the file named after you in the `partials` folder.
-- Refer to `_jake.scss` for an example.
-- Run `sass --watch components:css` to automatically compile scss.
-- Use your named html file in the `html-temp` folder to write up your components.
-- If you need fonts, Google Material icons have been added to each html file. (https://material.io/icons/ for usage instructions)
-- All classes to be prefixed with `su_`
+* All development is performed under the `assets` directory.
 
-# Installing Grunt tasks
+* Only `index.html` and `style.css` in the root directory are allowed to be edited, though those files might be moved to a `presentation` directory later on.
+
+* Components are divided into two groups 'evolution' and 'standard'. I changed 'innovative' to 'evolution' because it sounds better to me, and it's more obvious that those are Evolution UI specific components, using the term 'innovative' publicly does not sound good to me. But, this is open for discussion.
+
+* Inside `assets` directory are the following directories:
+    * **html** - for the html files that you will use to develop the component, these files will have the minimum required html code to enable component functionality. In the root of this directory is a `TEMPLATE.html` file which is used as the starting point for creating html file for the component. Copy that file into `evolution` or `standard` directory depending on the type of component, rename it, and edit it. This html file links to Google Material icons, and to Roboto font family.
+    * **images** - add any images you use in your components here, follow the directory structure to save the images into the correct subdirectory. Create a directory named after your component for all images that component uses.
+    * **scripts** - here you are adding javascript for your files. Again, place the file in the correct subdirectory for the component type.
+    * **stylesheets** - this directory follows 7-1 sass structure, maybe Gabriele can better explain how to use this directory structure. I will explain only `components` directory now. Components are placed under proper type, `evolution` or `standard`, and each component is in its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate. The file `_import-components.scss` is gathering all of the main sass files from all of the components. The `main.scss` file at the root of the `stylesheets` directory is collecting all of the scss files from subdirectories and this is the file that is compiled into `main.css` and saved into `production` root directory.
+
+* Directories `html-temp`, `img` and `prod` in the root directory will be removed! Don't use them.
+
+* Directory `production` contains the `main.css` and `main.js` files. When I find a way how to compile components separately, it will contain the directories for every component. Those should be the directories that the user can just download to use a single component. But that might be left for after the release. This directory won't be tracked by git, you will generate its content by running Grunt tasks. To enable live site preview on `gh-pages` site, the `.gitignore` file on the `gh-pages` branch will be altered not to ignore this directory.
+
+* File `.editorconfig` enforces some coding styles. You must install a plugin for your editor that can use this file.
+
+* File `Gruntfile_bckp.js` will be removed.
+
+* All class names to be prefixed with `evo_` prefix.
+
+* Use [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow)
+
+## Installing Grunt tasks
 
 1. First check if you system has node.js installed. In the command line type:
 
-    `node -v` // v7.6.0
+    ```bash
+    node -v // v7.6.0
+    ```
 
     if you have it, then check if you have `npm` (node package manager) installed:
 
-    `npm -v` // 4.3.0
+    ```bash
+    npm -v // 4.3.0
+    ```
 
-    * if you don't have those installed, follow [these instructions](https://docs.npmjs.com/getting-started/installing-node) to install node.js and `npm`
+    If you don't have those installed, follow [these instructions](https://docs.npmjs.com/getting-started/installing-node) to install node.js and `npm`.
 
 2. Now, install `grunt-cli`:
 
@@ -35,6 +55,14 @@
     * `grunt` - this concatenates `js` files, compiles `sass` files, and watches for changes in those files
     * `grunt build` - build for production, uglifies JS, and compiles sass
 
-5. The `main.js`, `main.min.js` and `main.css` are located in the `prod` directory on the root of the repository. **Make sure you link to those files in your HTML file**
+5. The `main.js`, `main.min.js` and `main.css` are located in the `production` directory on the root of the repository. **Make sure you link to those files in your HTML file**
 
 6. You can stop grunt task by pressing `Ctrl + C` in the command line
+
+## Important stuff
+
+* Always use `production/main.css` and `production/main.js` files, as it is shown in the `TEMPLATE.html` file. Using those files at all times during development guaranties that you know if your component is playing nicely with other components.
+
+* Use Grunt task manager for compiling `production/main.css` and `production/main.js` files. Details are in the previous section.
+
+* To check if you JavaScript code won't break other components you can do the following test: remove or comment out all of the html in the `body` of your component html file, open the file in the browser and open the browser console. Check for errors in the console. If there are no errors, then your component most likely won't make problems with other components. You may have to reload the page after you open the browser console.
