@@ -1,0 +1,19 @@
+//------------------------------------------------------------------------------
+//                       Crumble config
+//------------------------------------------------------------------------------
+
+%pointer {
+  cursor: pointer;
+}
+
+%unfold-transition {
+  transition: transform .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+
+$crumble-font-weight: 300;
+
+$crumble-span-min-height: 50px;
+$crumble-header-height: 60px;
+$crumble-body-height: 60px;
+
