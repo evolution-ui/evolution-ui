@@ -224,16 +224,23 @@
 ///  }
 ///
 @mixin bit( $componentName, $BEMIT-namespace, $is-namespaced ) {
-  $componentName: '#{$BEMIT-namespace}-#{$componentName}';
+  $className: '#{$BEMIT-namespace}-#{$componentName}';
   @if ($is-namespaced == true) {
-    @include namespaced($componentName) {
+    @include namespaced($className) {
       @content;
     }
   } @else {
-    // Do not use the namespace
-    .#{$componentName} {
-      @content;
-    }
+    @if ($BEMIT-namespace == 's') {
+      // Status class without the namespace
+      &.#{$componentName} {
+        @content;
+      }
+      } @else {
+        // Do not use the namespace
+        .#{$className} {
+          @content;
+        }
+      }
   }
 }
 
@@ -347,6 +354,46 @@
 ///
 @mixin h( $helperName, $is-namespaced: true ) {
   @include bit($helperName, 'h', $is-namespaced) {
+    @content;
+  }
+}
+
+/// Generate a BEMIT Status class
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String}  $StatusName - The Status's name
+/// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
+///                                          the namespace's name
+///
+/// @example scss - Usage
+///
+///  @include c('myComponent') {
+///     @include s('is-active') {
+///       clip: rect(10px, 10px, 10px, 10px);
+///     }
+///   }
+///
+///  @include c('myComponent', false) {
+///     @include s('is-active') {
+///       clip: rect(10px, 10px, 10px, 10px);
+///     }
+///   }
+///
+/// @example css - CSS output
+///
+///  .namespace_c-myComponent .namespace_s-is-active {
+///    clip: rect(10px, 10px, 10px, 10px);
+///  }
+///
+///  .namespace_c-myComponent.is-active {
+///    clip: rect(10px, 10px, 10px, 10px);
+///  }
+///
+@mixin s( $statusName, $is-namespaced: false ) {
+  @include bit($statusName, 's', $is-namespaced) {
     @content;
   }
 }
