@@ -23,7 +23,23 @@
 
       * The `layout` folder contains everything that takes part in laying out the site (header, grid, footer, aside, etc.).
 
-      * As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate. The file `_import-components.scss` is gathering all of the main sass files from all of the components. The `main.scss` file at the root of the `stylesheets` directory is collecting all of the scss files from subdirectories and this is the file that is compiled into `main.css` and saved into `production` root directory.
+      * As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate. 
+
+        **IMPORTANT NOTE:** Config variables must be always prefixed by the component's name. If your component is called for example `Ruler`, a well config file could be:
+
+        ```scss
+
+        //----------------------------------------------------------------
+        //                       RULER config
+        //----------------------------------------------------------------
+
+        $ruler_width: 200px;
+        $ruler_font-size: 200px;
+
+
+        ```
+
+        The file `_import-components.scss` is gathering all of the main sass files from all of the components. The `main.scss` file at the root of the `stylesheets` directory is collecting all of the scss files from subdirectories and this is the file that is compiled into `main.css` and saved into `production` root directory.
 
         Each component is imported through the `_import-components.scss` file.
 
@@ -92,7 +108,7 @@
 
 We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow). The typical workflow will be the following:
 
-  - Fork the [original repository](https://github.com/BovAcademy-opensource/evolution-ui)
+- Fork the [original repository](https://github.com/BovAcademy-opensource/evolution-ui)
   - Add the original repository as a remote: `git remote add evolution https://github.com/BovAcademy-opensource/evolution-ui.git`
   - Checkout the `development` branch: `git checkout development`
   - From there, create a new feature branch with the name of your component (`git checkout -b my-new-component`) and start developing your component
