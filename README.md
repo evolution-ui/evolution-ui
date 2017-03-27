@@ -27,17 +27,18 @@
 
         **IMPORTANT NOTE:** Config variables must be always prefixed by the actual component's name. If your component is called for example `Ruler`, a well structured config file could be:
 
+        ​
+
         ```scss
-
         //----------------------------------------------------------------
-        //                       RULER config
+        //                       RULER Component config
         //----------------------------------------------------------------
 
-        $ruler_width: 200px;
-        $ruler_font-size: 200px;
-
-
+        $c-ruler_width: 200px;
+        $c-ruler_font-size: 200px;
         ```
+
+        ​
 
         The file `_import-components.scss` is gathering all of the main sass files from all of the components. The `main.scss` file at the root of the `stylesheets` directory is collecting all of the scss files from subdirectories and this is the file that is compiled into `main.css` and saved into `production` root directory.
 
