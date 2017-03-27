@@ -1,8 +1,5 @@
 node_modules
 .sass-cache
-prod/main.min.js
-prod/main.css
-prod/main.css.map
 production
 *.iml
 .idea/
