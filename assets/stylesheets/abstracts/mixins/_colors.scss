@@ -5,6 +5,10 @@
 /// Generate helper classes for each color and variants within the
 /// $framework-colors map
 ///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $CSSproperty ['color'] - The CSS property you want to set
 ///
@@ -67,6 +71,10 @@
 ///
 /// Generate helper classes for the base colors and their variants contained
 ///  within the provided map
+///
+/// @author Gabriele Romeo
+///
+/// @access public
 ///
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $colorMap   - A map containing base colors and their variants
@@ -149,6 +157,10 @@
 /// within the provided map. By default, the helper's name is 'bck' and the
 /// CSS property used is 'background-color'
 ///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $colorMap   - An optional map containing base colors
 ///                               and their variants. If Null it generates all
@@ -201,6 +213,10 @@
 /// Generate helper classes for the base colors and their variants contained
 /// within the provided map. By default, the helper's name is 'txt' and the
 /// CSS property used is 'color'
+///
+/// @author Gabriele Romeo
+///
+/// @access public
 ///
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $colorMap   - An optional map containing base colors
