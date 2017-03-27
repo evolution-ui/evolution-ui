@@ -13,7 +13,7 @@ Please check on the [site project](http://editorconfig.org/#download) how to con
 Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-ui/.editorconfig) file contained in the root of the framework repository
 
     root = true
-    
+
     [*]
     indent_style = space
     end_of_line = lf
@@ -207,14 +207,14 @@ BEMit improves the semantic meaning through the use of *namespaces*. More about 
 
 The following table shows common elements and their meanings
 
-| TYPE             | PREFIX      | MIXIN name used in evolution | EXAMPLES                  |
-| ---------------- | ----------- | ---------------------------- | ------------------------- |
-| Component        | `c-`        | `c`                          | `c-card` `c-checklist`    |
-| Layout module    | `l-`        | `l`                          | `l-grid` `l-container`    |
-| Helper           | `h-`        | `c`                          | `h-show` `h-hide`         |
-| Object           | `o-`        | `o`                          | `o-media`                 |
-| States           | `is-``has-` | `s`                          | `is-visible` `has-loaded` |
-| JavaScript hooks | `js-`       |                              | `js-tab-switcher`         |
+| TYPE             | PREFIX       | MIXIN name used in evolution | EXAMPLES                  |
+| ---------------- | ------------ | ---------------------------- | ------------------------- |
+| Component        | `c-`         | `c`                          | `c-card` `c-checklist`    |
+| Layout module    | `l-`         | `l`                          | `l-grid` `l-container`    |
+| Helper           | `h-`         | `c`                          | `h-show` `h-hide`         |
+| Object           | `o-`         | `o`                          | `o-media`                 |
+| States           | `is-` `has-` | `s`                          | `is-visible` `has-loaded` |
+| JavaScript hooks | `js-`        |                              | `js-tab-switcher`         |
 
 ### Namespaces
 
@@ -266,15 +266,15 @@ Others:
 
 ###### ✖️ NOT worthwhile
 
-- `js-trigger``
+- `js-trigger`
 - `js-close-button`
 
 ###### ✔️ worthwhile
 
-- `js-innovative-menu-trigger`
-- `js-innovative-menu-target`
-- `js-innovative-menu-list`
-- `js-innovative-menu-close-button`
+- `js-evolution-menu-trigger`
+- `js-evolution-menu-target`
+- `js-evolution-menu-list`
+- `js-evolution-menu-close-button`
 
 ### State Hooks
 
