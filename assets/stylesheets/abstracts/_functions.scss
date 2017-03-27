@@ -27,6 +27,56 @@
 
 
 // -----------------------------------------------------------------------------
+//                       CSS Selector HELPERS
+// -----------------------------------------------------------------------------
+
+
+///
+///  Reference the parent element
+///  Add the parent-selector character '&'' if the caller @include directive
+///  is currently located inside an actual class
+///
+/// @access public
+/// @param {String} $selector - A desired selector
+/// @return {String}
+///
+///
+/// @example scss - Usage
+///
+///  $base-selector: getSelector('.mySelector');
+///  #{ $base-selector } {}
+///
+/// @example css - CSS output
+///
+///  .mySelector {}
+///
+///
+/// @example scss - Usage
+///
+///  .parentClass {
+///     $base-selector: getSelector('.mySelector');
+///
+///     #{ $base-selector } {
+///       color: white;
+///     }
+///
+/// @example css - CSS output
+///
+///  .parentClass.mySelector {
+///     color: white;
+///  }
+
+@function referenceParent($selector) {
+  // When we are not at the @root level, prepend the parent class character '&'
+  @if ( & != null ) {
+   @return '&#{$selector}';
+  } @else {
+    @return '#{$selector}';
+  }
+}
+
+
+// -----------------------------------------------------------------------------
 //                            COLORS HELPERS
 // -----------------------------------------------------------------------------
 
