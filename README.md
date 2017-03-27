@@ -66,3 +66,14 @@
 * Use Grunt task manager for compiling `production/main.css` and `production/main.js` files. Details are in the previous section.
 
 * To check if you JavaScript code won't break other components you can do the following test: remove or comment out all of the html in the `body` of your component html file, open the file in the browser and open the browser console. Check for errors in the console. If there are no errors, then your component most likely won't make problems with other components. You may have to reload the page after you open the browser console.
+
+## How to Contribute?
+
+We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow). The typical workflow will be the following:
+
+  - Fork the [original repository](https://github.com/BovAcademy-opensource/evolution-ui)
+  - Add the original repository as a remote: `git remote add evolution https://github.com/BovAcademy-opensource/evolution-ui.git`
+  - Checkout the `development` branch: `git checkout development`
+  - From there, create a new feature branch with the name of your component (`git checkout -b my-new-component`) and start developing your component
+  - Remember to rebase often to stay updated and minimize conflicts: `git rebase evolution development`
+  - When your component is ready, open a Pull Request to the `development` branch of the original repository. Your Pull Request will be reviewed as soon as possible
