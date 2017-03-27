@@ -6,13 +6,34 @@
 
 * Only `index.html` and `style.css` in the root directory are allowed to be edited, though those files might be moved to a `presentation` directory later on.
 
-* Components are divided into two groups 'evolution' and 'standard'. I changed 'innovative' to 'evolution' because it sounds better to me, and it's more obvious that those are Evolution UI specific components, using the term 'innovative' publicly does not sound good to me. But, this is open for discussion.
+* Components are divided into two groups `evolution` and `standard`. I changed 'innovative' to 'evolution' because it sounds better to me, and it's more obvious that those are Evolution UI specific components, using the term 'innovative' publicly does not sound good to me. But, this is open for discussion.
 
-* Inside `assets` directory are the following directories:
+* Inside the `assets` directory are the following directories:
     * **html** - for the html files that you will use to develop the component, these files will have the minimum required html code to enable component functionality. In the root of this directory is a `TEMPLATE.html` file which is used as the starting point for creating html file for the component. Copy that file into `evolution` or `standard` directory depending on the type of component, rename it, and edit it. This html file links to Google Material icons, and to Roboto font family.
+
     * **images** - add any images you use in your components here, follow the directory structure to save the images into the correct subdirectory. Create a directory named after your component for all images that component uses.
+
     * **scripts** - here you are adding javascript for your files. Again, place the file in the correct subdirectory for the component type.
-    * **stylesheets** - this directory follows 7-1 sass structure, maybe Gabriele can better explain how to use this directory structure. I will explain only `components` directory now. Components are placed under proper type, `evolution` or `standard`, and each component is in its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate. The file `_import-components.scss` is gathering all of the main sass files from all of the components. The `main.scss` file at the root of the `stylesheets` directory is collecting all of the scss files from subdirectories and this is the file that is compiled into `main.css` and saved into `production` root directory.
+
+    * **stylesheets** - this directory follows a customized version of the  [7-1 sass structure](https://sass-guidelin.es/#architecture). 
+
+      * The `abstracts` folder holds all Sass tools and helpers used across the project (*mixins*, *functions*, **application-wide (a.k.a globals)** *variables*, and *placeholders*). In particular, *mixin* are placed into the `mixins` sub-folder and imported through the `_import-mixins.scss` file.
+
+      * The `base` folder holds the boilerplate code for the project (reset, typography, etc.). 
+
+      * The `layout` folder contains everything that takes part in laying out the site (header, grid, footer, aside, etc.).
+
+      * As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate. The file `_import-components.scss` is gathering all of the main sass files from all of the components. The `main.scss` file at the root of the `stylesheets` directory is collecting all of the scss files from subdirectories and this is the file that is compiled into `main.css` and saved into `production` root directory.
+
+        Each component is imported through the `_import-components.scss` file.
+
+      * The `pages` folder contains page-specific styles. it could be the right place for placing specific styles for the home page for example.
+
+      * The `themes` folder contains different themes for the application.
+
+      * The `vendor`folder contains all the CSS files from external libraries and frameworks – for example: Reset, Normalize, etc.
+
+    * **sassdoc** - This directory contains all the SASS documentation for mixins, functions, and more. For using it as a reference, just open up your favorite browser and set as URL the path to that directory. No command is needed, no need to compile, nothing of nothing. If you want to generate an update version of the *sassDoc*, open your terminal/shell, go to the `assets` folder and digit: `sassdoc stylesheets/`. This will generate all the necessary things for you.
 
 * Directories `html-temp`, `img` and `prod` in the root directory will be removed! Don't use them.
 
