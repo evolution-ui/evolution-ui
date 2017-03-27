@@ -1,6 +1,7 @@
 
+///
 /// Usage example http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8
-
+///
 /// Generate helper classes for each color and variants within the
 /// $framework-colors map
 ///
@@ -63,6 +64,7 @@
   }
 }
 
+///
 /// Generate helper classes for the base colors and their variants contained
 ///  within the provided map
 ///
@@ -142,6 +144,7 @@
   }
 }
 
+///
 /// Generate helper classes for the base colors and their variants contained
 /// within the provided map. By default, the helper's name is 'bck' and the
 /// CSS property used is 'background-color'
@@ -194,6 +197,7 @@
   }
 }
 
+///
 /// Generate helper classes for the base colors and their variants contained
 /// within the provided map. By default, the helper's name is 'txt' and the
 /// CSS property used is 'color'
