@@ -39,7 +39,7 @@
 
   @for $i from 1 through $levels {
     $font-size: pow($typography-base-scale, $levels - $i);
-      h#{$i}, .#{$framework-name}__tp--h#{$i} {
+      h#{$i}, .#{$framework-name}_typo_h#{$i} {
         font-size: #{$font-size}rem;
         line-height: vrhythm($font-size);
     }
@@ -52,7 +52,7 @@
       $item: nth($scale-bigger-sizes, $i);
       $font-size: pow($typography-base-scale, 5 + $i);
 
-      .#{$framework-name}__tp--#{$item} {
+      .#{$framework-name}_typo--#{$item} {
         font-size: rem($framework-base-font-size * $font-size) + 0rem;
         line-height: vrhythm($font-size);
       }
@@ -63,7 +63,7 @@
       $item: nth($scale-smaller-sizes, $i);
       $font-size: pow($typography-base-scale, $i);
 
-      .#{$framework-name}__tp--#{$item} {
+      .#{$framework-name}_typo--#{$item} {
         font-size: rem($framework-base-font-size / $font-size) + 0rem;
         line-height: vrhythm($font-size);
       }
@@ -94,5 +94,58 @@ pre, table, hr {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: $framework-font-weight-base;
+}
+
+@include h('txt--bold') {
+  font-weight: 700;
+}
+
+@include h('txt--italic') {
+  font-style: italic;
+}
+
+@include h('txt--caps') {
+  text-transform: uppercase;
+  letter-spacing: .3em;
+}
+
+@include h('txt--left') {
+  text-align: left;
+}
+
+@include h('txt--right') {
+  text-align: right;
+}
+
+@include h('txt--center') {
+  text-align: center;
+}
+
+@include h('txt--capitalize') {
+  text-transform: capitalize;
+}
+
+@include h('txt--uppercase') {
+  text-transform: uppercase;
+}
+
+@include h('txt--lowercase') {
+  text-transform: lowercase;
+}
+
+@include h('txt--underline') {
+  text-decoration: underline;
+}
+
+@include h('txt--line-through') {
+  text-decoration: line-through;
+}
+
+@include h('txt--no-decoration') {
+  text-decoration: none;
+}
+
+@include h('txt--nowrap') {
+  white-space: nowrap;
 }
 
