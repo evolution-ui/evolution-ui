@@ -26,6 +26,10 @@
 ///     color: red;
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin namespaced( $class, $prefix: $framework-name ) {
   .#{$prefix}_#{$class} {
     @content;
@@ -80,6 +84,10 @@
 ///    height: 200px;
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin b( $blockName, $is-namespaced: true ) {
   @if $is-namespaced == true {
     @include namespaced($blockName) {
@@ -125,6 +133,10 @@
 ///      color: blue;
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin e( $elementName ) {
   &__#{$elementName} {
     @content;
@@ -178,6 +190,10 @@
 ///      color: yello;
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin m( $modifierName ) {
   &--#{$modifierName} {
     @content;
@@ -227,6 +243,10 @@
 ///    height: 200px;
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin bit( $componentName, $BEMIT-namespace, $is-namespaced ) {
   $className: '#{$BEMIT-namespace}-#{$componentName}';
   @if ($is-namespaced == true) {
@@ -284,6 +304,10 @@
 ///    height: 200px;
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin c( $componentName, $is-namespaced: true ) {
   @include bit($componentName, 'c', $is-namespaced) {
     @content;
@@ -321,6 +345,10 @@
 ///    font-size: 10;
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin o( $objectName, $is-namespaced: true ) {
   @include bit($objectName, 'o', $is-namespaced) {
     @content;
@@ -359,6 +387,10 @@
 ///    clip: rect(10px, 10px, 10px, 10px);
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin h( $helperName, $is-namespaced: true ) {
   @include bit($helperName, 'h', $is-namespaced) {
     @content;
@@ -400,6 +432,10 @@
 ///    clip: rect(10px, 10px, 10px, 10px);
 ///  }
 ///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
 @mixin s( $statusName, $is-namespaced: false ) {
   @include bit($statusName, 's', $is-namespaced) {
     @content;
