@@ -12,7 +12,7 @@ This guidelines are in part based on the code guide you can find at this URL:  h
        * [Media queries](#media-queries)
        * [Single declarations](#single-declarations)
        * [Shorthand notation](#shorthand-notation)
-   * [BEM: BLock, Element, MOdifier](#bem-block-element-modifier)
+   * [BEM: BLock, Element, Modifier](#bem-block-element-modifier)
        * [Namespaces](#namespaces)
        * [JS hooks](#js-hooks)
        * [State Hooks](#state-hooks)
@@ -47,11 +47,11 @@ Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-
     charset = utf-8
     trim_trailing_whitespace = true
     insert_final_newline = true
-    
+
     # Use 2 spaces for indentation in HTML, JavaScript, SCSS, CSS
     [*.{html,js,scss, css}]
     indent_size = 2
-    
+
     [*.js]
     indent_brace_style = 1TBS
     continuation_indent_size = 2
@@ -61,9 +61,9 @@ Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-
     spaces_around_operators = true
     spaces_in_brackets = false
     quote_type = single
-    
+
     # Use 4 spaces for indentation in Markdown files
-    
+
     [*.md]
     indent_size = 4
 
@@ -144,25 +144,25 @@ for example:
   position: relative;
   top: 0;
   left: 0;
-  
+
   /* Box-model */
   display: block;
   min-height: 0;
   height: 0;
   padding-left: 10px;
   padding-right: 10px;
-  
+
   /* Typography */
   font-size: 2rem;
   color: #ababab;
-  
-  /* Visual Aspect */  
+
+  /* Visual Aspect */
   background-color: rgb(0,0,0);
   border-width: 1px;
   border-color: #000;
   border-style: groove;
   perspective: 40px;
-  
+
   /* Misc */
   transition: min-height 1s cubic-bezier(0,1.02,0,1);
   cursor: initial;
@@ -191,7 +191,7 @@ When a rule set requires *only one declaration*, remove line breaks for readabil
   /* positioning */
   position: relative;
   top: 0;
-  left: 0;  
+  left: 0;
   /* Box-model */
   display: block;
   min-height: 0;
@@ -224,9 +224,9 @@ When a rule set requires *only one declaration*, remove line breaks for readabil
 
 
 
-## BEM: BLock, Element, MOdifier
+## BEM: BLock, Element, Modifier
 
-BEM and its variation BEMit are two methodologies that give us the capacity to improve maintainability as well as readability of our code. 
+BEM and its variation BEMit are two methodologies that give us the capacity to improve maintainability as well as readability of our code.
 
 To get more confidence with them, take a look at the [getbem](http://getbem.com/) website.
 
@@ -238,7 +238,7 @@ The following table shows common elements and their meanings
 | ---------------- | ------------ | ---------------------------- | ------------------------- |
 | Component        | `c-`         | `c`                          | `c-card` `c-checklist`    |
 | Layout module    | `l-`         | `l`                          | `l-grid` `l-container`    |
-| Helper           | `h-`         | `c`                          | `h-show` `h-hide`         |
+| Helper           | `h-`         | `h`                          | `h-show` `h-hide`         |
 | Object           | `o-`         | `o`                          | `o-media`                 |
 | States           | `is-` `has-` | `s`                          | `is-visible` `has-loaded` |
 | JavaScript hooks | `js-`        |                              | `js-tab-switcher`         |
@@ -342,8 +342,8 @@ The previous example becomes:
 <div class="evo_c-searchBox">
 
   <!-- the searchBox component contains an input element -->
-  <!-- 
-	  the input element comes with two modifiers - big and red 
+  <!--
+	  the input element comes with two modifiers - big and red
   -->
   <input class="evo_c-searchBox__input evo_c-searchBox__input--big" type="text">
   <input class="evo_c-searchBox__input evo_c-searchBox__input--red" type="text">
@@ -482,11 +482,11 @@ Where:
 
 - The `abstracts` folder holds all Sass tools and helpers used across the project (*mixins*, *functions*, **application-wide (a.k.a globals)** *variables*, and *placeholders*). In particular, *mixin* are placed into the `mixins` sub-folder and imported through the `_import-mixins.scss` file.
 
-- The `base` folder holds the boilerplate code for the project (reset, typography, etc.). 
+- The `base` folder holds the boilerplate code for the project (reset, typography, etc.).
 
 - The `layout` folder contains everything that takes part in laying out the site (header, grid, footer, aside, etc.).
 
-- As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate. 
+- As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate.
 
   **IMPORTANT NOTE:** Config variables must be always prefixed by the actual component's name. If your component is called for example `Ruler`, a well structured config file could be:
 

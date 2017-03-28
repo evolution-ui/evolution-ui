@@ -6,7 +6,7 @@
 
 * Only `index.html` and `style.css` in the root directory are allowed to be edited, though those files might be moved to a `presentation` directory later on.
 
-* Components are divided into two groups `evolution` and `standard`. I changed 'innovative' to 'evolution' because it sounds better to me, and it's more obvious that those are Evolution UI specific components, using the term 'innovative' publicly does not sound good to me. But, this is open for discussion.
+* Components are divided into two groups `evolution` and `standard`.
 
 * Inside the `assets` directory are the following directories:
     * **html** - for the html files that you will use to develop the component, these files will have the minimum required html code to enable component functionality. In the root of this directory is a `TEMPLATE.html` file which is used as the starting point for creating html file for the component. Copy that file into `evolution` or `standard` directory depending on the type of component, rename it, and edit it. This html file links to Google Material icons, and to Roboto font family.
@@ -15,15 +15,15 @@
 
     * **scripts** - here you are adding javascript for your files. Again, place the file in the correct subdirectory for the component type.
 
-    * **stylesheets** - this directory follows a customized version of the  [7-1 sass structure](https://sass-guidelin.es/#architecture). 
+    * **stylesheets** - this directory follows a customized version of the  [7-1 sass structure](https://sass-guidelin.es/#architecture).
 
       * The `abstracts` folder holds all Sass tools and helpers used across the project (*mixins*, *functions*, **application-wide (a.k.a globals)** *variables*, and *placeholders*). In particular, *mixin* are placed into the `mixins` sub-folder and imported through the `_import-mixins.scss` file.
 
-      * The `base` folder holds the boilerplate code for the project (reset, typography, etc.). 
+      * The `base` folder holds the boilerplate code for the project (reset, typography, etc.).
 
       * The `layout` folder contains everything that takes part in laying out the site (header, grid, footer, aside, etc.).
 
-      * As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate. 
+      * As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Eyelids component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate.
 
         **IMPORTANT NOTE:** Config variables in your configuration file must be always prefixed by the [ BEMit namespace + the component's name ]. If your component is called for example `Ruler`, a well structured config file could be:
 
@@ -52,13 +52,11 @@
 
     * **sassdoc** - This directory contains all the SASS documentation for mixins, functions, and more. For using it as a reference, just open up your favorite browser and set as URL the path to that directory. No command is needed, no need to compile, nothing of nothing. If you want to generate an update version of the *sassDoc*, open your terminal/shell, go to the `assets` folder and digit: `sassdoc stylesheets/`. This will generate all the necessary things for you.
 
-* Directories `html-temp`, `img` and `prod` in the root directory will be removed! Don't use them.
+* The `legacy` directory in the root directory will be removed! Don't use it or it's content.
 
 * Directory `production` contains the `main.css` and `main.js` files. When I find a way how to compile components separately, it will contain the directories for every component. Those should be the directories that the user can just download to use a single component. But that might be left for after the release. This directory won't be tracked by git, you will generate its content by running Grunt tasks. To enable live site preview on `gh-pages` site, the `.gitignore` file on the `gh-pages` branch will be altered not to ignore this directory.
 
 * File `.editorconfig` enforces some coding styles. You must install a plugin for your editor that can use this file.
-
-* File `Gruntfile_bckp.js` will be removed.
 
 * All class names to be prefixed with `evo_` prefix.
 
