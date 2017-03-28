@@ -13,6 +13,7 @@
 ///
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $CSSproperty ['color'] - The CSS property you want to set
+/// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
 ///
 /// @require $framework-colors
 ///
@@ -45,13 +46,13 @@
 ///
 
 
-@mixin colorHelpers( $helperName, $CSSproperty: 'color' ) {
+@mixin colorHelpers($type, $CSSproperty: 'color', $is-descendant: false) {
 
-  @each $color-key, $color-variants in $framework-colors {
+  @each $color-key, $color-variants in $colors {
 
     $base-color-value: map-get($color-variants, 'base');
 
-    $base-selector: addParentSelector('.h-#{$helperName}__#{$color-key}');
+    $base-selector: addParentSelector('.h-#{$type}__#{$color-key}', $is-descendant);
 
     #{$base-selector} {
       #{$CSSproperty}: $base-color-value;
@@ -60,7 +61,8 @@
     @each $color-variant, $color-variant-value in $color-variants {
       @if $color-variant != 'base' {
 
-        $variant-selector: addParentSelector('.h-#{$helperName}__#{$color-key}--#{$color-variant}');
+        $tmp-selector: '.h-#{$type}__#{$color-key}--#{$color-variant}';
+        $variant-selector: addParentSelector($tmp-selector, $is-descendant);
 
         #{$variant-selector} {
           #{$CSSproperty}: $color-variant-value;
@@ -84,6 +86,7 @@
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $colorMap   - A map containing base colors and their variants
 /// @param {String} $CSSproperty ['color'] - The CSS property you want to set
+/// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
 ///
 /// @require $framework-colors
 ///
@@ -133,27 +136,26 @@
 ///    background-color: #######
 ///  }
 
-@mixin colorHelper( $helperName, $colorMap, $CSSproperty: 'color' ) {
+@mixin colorHelper($type, $colorMap, $CSSproperty: 'color', $is-descendant: false) {
 
   @each $color-key, $color-variants in $colorMap {
 
-    @if map-has-key($framework-colors, $color-key) {
-      $base-color-variants: map-get($framework-colors, $color-key);
+    @if map-has-key($colors, $color-key) {
+      $base-color-variants: map-get($colors, $color-key);
 
       // Generate each variant (if valid)
       @each $variant in $color-variants {
         @if map-has-key($base-color-variants, $variant) {
 
-          $selector: addParentSelector('.h-#{$helperName}__#{$color-key}--#{$variant}');
+          $tmp-selector: '.h-#{$type}__#{$color-key}--#{$variant}';
+          $selector: addParentSelector($tmp-selector, $is-descendant);
 
           #{$selector} {
             #{$CSSproperty}: map-get($base-color-variants, $variant);
           }
         }
       }
-
     }
-
   }
 }
 
@@ -173,7 +175,7 @@
 /// @param {String} $colorMap   - An optional map containing base colors
 ///                               and their variants. If Null it generates all
 ///                               colors and variants contained inside $framework-colors
-/// @param {String} $CSSproperty ['color'] - The CSS property you want to set
+/// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
 ///
 ///
 /// @example scss - Usage
@@ -209,11 +211,11 @@
 ///
 
 
-@mixin backgroundVariants( $colorMap: null ) {
+@mixin backgroundVariants($colorMap: null, $is-descendant: false) {
   @if ( $colorMap == null ) {
-    @include colorHelpers('bck', $CSSproperty: 'background-color');
+    @include colorHelpers('bck', $CSSproperty: 'background-color', $is-descendant: $is-descendant);
   } @else {
-      @include colorHelper('bck', $colorMap, $CSSproperty: 'background-color');
+      @include colorHelper('bck', $colorMap, $CSSproperty: 'background-color', $is-descendant: $is-descendant);
   }
 }
 
@@ -233,7 +235,7 @@
 /// @param {String} $colorMap   - An optional map containing base colors
 ///                               and their variants. If Null it generates all
 ///                               colors and variants contained inside $framework-colors
-/// @param {String} $CSSproperty ['background-color'] - The CSS property you want to set
+/// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
 ///
 ///
 /// @example scss - Usage
@@ -268,10 +270,10 @@
 ///  }
 ///
 
-@mixin textVariants( $colorMap: null ) {
+@mixin textVariants($colorMap: null, $is-descendant: false) {
   @if ( $colorMap == null ) {
-    @include colorHelpers('txt');
+    @include colorHelpers('txt', $is-descendant: $is-descendant);
   } @else {
-      @include colorHelper('txt', $colorMap);
+      @include colorHelper('txt', $colorMap, $is-descendant: $is-descendant);
   }
 }
