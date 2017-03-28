@@ -25,7 +25,7 @@
 
       * As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate. 
 
-        **IMPORTANT NOTE:** Config variables must be always prefixed by the actual component's name. If your component is called for example `Ruler`, a well structured config file could be:
+        **IMPORTANT NOTE:** Config variables in your configuration file must be always prefixed by the [ BEMit namespace + the component's name ]. If your component is called for example `Ruler`, a well structured config file could be:
 
         ​
 
@@ -38,7 +38,7 @@
         $c-ruler_font-size: 200px;
         ```
 
-        ​
+        More info about BEMit namespaces can be found into our [code style guide]([CODE_styleguide.md).
 
         The file `_import-components.scss` is gathering all of the main sass files from all of the components. The `main.scss` file at the root of the `stylesheets` directory is collecting all of the scss files from subdirectories and this is the file that is compiled into `main.css` and saved into `production` root directory.
 
