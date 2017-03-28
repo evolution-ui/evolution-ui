@@ -10,8 +10,9 @@
   @include vertical-rhythm(1rem);
   font-weight: $c-crumble-font-weight;
 
-  // Modifiers
+  // Full width Event Details
   @include m('full-width') {
+
     // Item element
     & .#{$framework-name}_c-crumble__item {
       display: block;
