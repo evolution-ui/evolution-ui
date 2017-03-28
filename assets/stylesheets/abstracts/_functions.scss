@@ -32,9 +32,9 @@
 
 
 ///
-///  Reference the parent element
-///  Add the parent-selector character '&'' if the caller @include directive
-///  is currently located inside an actual class
+/// Reference a parent element
+/// Add the parent-selector character '&' if the caller @include directive
+/// is located within a css class
 ///
 /// @access public
 /// @param {String} $selector - A desired selector
@@ -43,7 +43,7 @@
 ///
 /// @example scss - Usage
 ///
-///  $base-selector: getSelector('.mySelector');
+///  $base-selector: addParentSelector('.mySelector');
 ///  #{ $base-selector } {}
 ///
 /// @example css - CSS output
@@ -54,7 +54,7 @@
 /// @example scss - Usage
 ///
 ///  .parentClass {
-///     $base-selector: getSelector('.mySelector');
+///     $base-selector: addParentSelector('.mySelector');
 ///
 ///     #{ $base-selector } {
 ///       color: white;
@@ -66,13 +66,15 @@
 ///     color: white;
 ///  }
 
-@function referenceParent($selector) {
-  // When we are not at the @root level, prepend the parent class character '&'
+@function addParentSelector($selector) {
+
+  // When we are not on the first level prepend the parent
   @if ( & != null ) {
    @return '&#{$selector}';
   } @else {
     @return '#{$selector}';
   }
+
 }
 
 
@@ -114,15 +116,15 @@
 ///
 /// @example - get-color function - opacity's name are specified in the $framework-colors-opacity variable
 ///   get-color('accent')
-///   // The BASE variant of the hexadecimal color for the 'accent' color
+///   // Returns the hex color of the BASE variant of the 'accent' color
 ///   get-color('accent', 'light')
-///   // The LIGHT variant of the hexadecimal color for the 'accent' color
+///   // Returns the hex color of the LIGHT variant of the hexadecimal color of the 'accent' color
 ///   get-color('accent4', 'dark', .5)
-///   // The DARK variant of the hexadecimal color for the 'accent4' color with an opacity of .5
+///   // Returns the hex color of the DARK variant of the 'accent4' color with an opacity of .5
 ///   get-color('primary', $opacity:.8)
-///   // The BASE variant of the hexadecimal color for the 'primary' color with an opacity of .8
+///   // Returns the hex color of the BASE variant of the 'primary' color with an opacity of .8
 ///   get-color('secondary', $opacity:'heavy')
-///   // The BASE variant of the hexadecimal color for the 'secondary' color with an opacity of .4
+///   // Returns the hex color of the BASE variant of the 'secondary' color with an opacity of .4
 ///
 
 @function get-color( $type: 'primary', $variant: 'base', $opacity: 1 ) {

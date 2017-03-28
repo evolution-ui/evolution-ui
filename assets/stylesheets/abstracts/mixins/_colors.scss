@@ -49,7 +49,7 @@
 
     $base-color-value: map-get($color-variants, 'base');
 
-    $base-selector: referenceParent('.h-#{$helperName}__#{$color-key}');
+    $base-selector: addParentSelector('.h-#{$helperName}__#{$color-key}');
 
     #{$base-selector} {
       #{$CSSproperty}: $base-color-value;
@@ -58,7 +58,7 @@
     @each $color-variant, $color-variant-value in $color-variants {
       @if $color-variant != 'base' {
 
-        $variant-selector: referenceParent('.h-#{$helperName}__#{$color-key}--#{$color-variant}');
+        $variant-selector: addParentSelector('.h-#{$helperName}__#{$color-key}--#{$color-variant}');
 
         #{$variant-selector} {
           #{$CSSproperty}: $color-variant-value;
@@ -139,7 +139,7 @@
       @each $variant in $color-variants {
         @if map-has-key($base-color-variants, $variant) {
 
-          $selector: referenceParent('.h-#{$helperName}__#{$color-key}--#{$variant}');
+          $selector: addParentSelector('.h-#{$helperName}__#{$color-key}--#{$variant}');
 
           #{$selector} {
             #{$CSSproperty}: map-get($base-color-variants, $variant);
