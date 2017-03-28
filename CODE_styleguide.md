@@ -1,8 +1,28 @@
 This guidelines are in part based on the code guide you can find at this URL:  http://codeguide.co/
 
+#### Table of contents
+
+* [Editor preferences](#editor-preferences)
+   * [HTML Code guide](#html-code-guide)
+       * [HTML Syntax](#html-syntax)
+       * [Attribute order](#attribute-order)
+       * [HTML tabindex Attribute](#htmltabindexattribute)
+   * [CSS Code Guide](#css-code-guide)
+       * [Declaration order](#declaration-order)
+       * [Media queries](#media-queries)
+       * [Single declarations](#single-declarations)
+       * [Shorthand notation](#shorthand-notation)
+   * [BEM: BLock, Element, MOdifier](#bem-block-element-modifier)
+       * [Namespaces](#namespaces)
+       * [JS hooks](#js-hooks)
+       * [State Hooks](#state-hooks)
+       * [BEM and BEMit in the evolution framework](#bem-and-bemit-in-the-evolution-framework)
+         * [Usage examples and SASS documentation](#usage-examples-and-sass-documentation)
+   * [IMPORTANT NOTES](#important-notes)
+      * [Sass structure](#sass-structure)
+   * [Javascript guideline](#javascript-guideline)
 
 
-[TOC]
 
 
 
