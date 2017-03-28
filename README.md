@@ -50,7 +50,7 @@
 
       * The `vendor`folder contains all the CSS files from external libraries and frameworks – for example: Reset, Normalize, etc.
 
-    * **sassdoc** - This directory contains all the SASS documentation for mixins, functions, and more. For using it as a reference, just open up your favorite browser and set as URL the path to that directory. No command is needed, no need to compile, nothing of nothing. If you want to generate an update version of the *sassDoc*, open your terminal/shell, go to the `assets` folder and digit: `sassdoc stylesheets/`. This will generate all the necessary things for you.
+    * **sassdoc** - This directory contains all the SASS documentation for mixins, functions, and more. For using it as a reference, just open up your favorite browser and set as URL the path to that directory. No command is needed, no need to compile, nothing of nothing. If you are a command line fan you can also run `npm run sassdoc` to achieve the same result. If you want to generate an update version of the *sassDoc*, open your terminal/shell, go to the `assets` folder and digit: `sassdoc stylesheets/`. This will generate all the necessary things for you.
 
 * The `legacy` directory in the root directory will be removed! Don't use it or it's content.
 
@@ -93,6 +93,7 @@
     * `npm deploy`: deploy to GitHub pages and bump `package.json` version with a patch
     * `npm deploy:minor`: deploy to GitHub pages and bump `package.json` version with a minor version
     * `npm deploy:major`: deploy to GitHub pages and bump `package.json` version with a major version
+    * `npm sassdoc`: see the sass documentation
 
 6. You can stop gulp task by pressing `Ctrl + C` in the command line
 
@@ -115,11 +116,7 @@
   offCanvasNavigation();
   ```
 
-* Always use `production/main.css` and `production/main.js` files, as it is shown in the `TEMPLATE.html` file. Using those files at all times during development guaranties that you know if your component is playing nicely with other components.
-
-* Use Grunt task manager for compiling `production/main.css` and `production/main.js` files. Details are in the previous section.
-
-* To check if you JavaScript code won't break other components you can do the following test: remove or comment out all of the html in the `body` of your component html file, open the file in the browser and open the browser console. Check for errors in the console. If there are no errors, then your component most likely won't make problems with other components. You may have to reload the page after you open the browser console.
+* CSS and JavaScript are already added to `index.html`, just take care of importing the needed files to the respective sass and/or js tree.
 
 ## How to Contribute?
 
