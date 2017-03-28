@@ -38,7 +38,7 @@
         $c-ruler_font-size: 200px;
         ```
 
-        More info about BEMit namespaces can be found into our [code style guide]([CODE_styleguide.md).
+        More info about BEMit namespaces can be found into our [code style guide](CODE_styleguide.md).
 
         The file `_import-components.scss` is gathering all of the main sass files from all of the components. The `main.scss` file at the root of the `stylesheets` directory is collecting all of the scss files from subdirectories and this is the file that is compiled into `main.css` and saved into `production` root directory.
 
