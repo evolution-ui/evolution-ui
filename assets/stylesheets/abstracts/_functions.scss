@@ -82,7 +82,7 @@
 //                            COLORS HELPERS
 // -----------------------------------------------------------------------------
 
-
+///
 /// Slightly lighten a color (Add percentage of white to a color)
 /// @access public
 /// @param {Color} $color - color to tint
@@ -92,6 +92,7 @@
   @return mix(white, $color, $percentage);
 }
 
+///
 /// Slightly darken a color (Add percentage of black to a color)
 /// @access public
 /// @param {Color} $color - color to shade
