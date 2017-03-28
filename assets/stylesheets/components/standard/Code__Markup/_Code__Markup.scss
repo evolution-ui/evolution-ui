@@ -1,0 +1,82 @@
+/******************************************************************************
+                              Code-Markup Component
+******************************************************************************/
+@import 'Code__Markup-config';
+
+@include c('markup') {
+  // position: relative;
+
+  @include e('tabs') {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  @include e('item') {
+    flex: 1 0 auto;
+    z-index: 5;
+
+    padding: $markup-tab-padding;
+    margin-right: $markup-tab-margin-right;
+
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    text-align: center;
+    text-transform: uppercase;
+
+    border: 1px solid #000;
+    // border-bottom: none;
+    border-top-left-radius: $markup-border-radius;
+    border-top-right-radius: $markup-border-radius;
+    background-color: grey;
+
+    transition: background .3s ease;
+
+    &:hover,
+    &:focus {
+      background: red;
+      cursor: pointer;
+    }
+  }
+
+  @include e('container') {
+    position: relative;
+    top: -1px;
+
+    width: 100%;
+    min-height: 0em;
+
+    border: 1px solid #000;
+    border-bottom: none;
+    background-color: grey;
+
+    transition: min-height .3s ease;
+    overflow: hidden;
+
+    @include s('is-expanded') {
+      padding: $markup-container-padding;
+
+      border-bottom: initial;
+
+      min-height: 10em;
+    }
+
+  }
+
+  @include e('content') {
+    position: absolute;
+
+    opacity: 0;
+
+
+    @include s('is-active') {
+      opacity: 1;
+    }
+  }
+}
