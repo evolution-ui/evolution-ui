@@ -37,14 +37,18 @@
 /// is located within a css class
 ///
 /// @access public
-/// @param {String} $selector - A desired selector
+/// @param {String}  $selector - A desired selector
+/// @param {Boolean} $is-descendant [false] - If TRUE, sets the selector as descendant of the parent class
+///
+/// @link http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8 - Usage Examples
+///
 /// @return {String}
 ///
 ///
 /// @example scss - Usage
 ///
 ///  $base-selector: addParentSelector('.mySelector');
-///  #{ $base-selector } {}
+///  #{$base-selector} {}
 ///
 /// @example css - CSS output
 ///
@@ -56,7 +60,7 @@
 ///  .parentClass {
 ///     $base-selector: addParentSelector('.mySelector');
 ///
-///     #{ $base-selector } {
+///     #{$base-selector} {
 ///       color: white;
 ///     }
 ///
@@ -65,16 +69,34 @@
 ///  .parentClass.mySelector {
 ///     color: white;
 ///  }
+///
+/// @example scss - Usage
+///
+///  .parentClass {
+///     $base-selector: addParentSelector('.mySelector', $is-descendant: true);
+///
+///     #{$base-selector} {
+///       color: white;
+///     }
+///
+/// @example css - CSS output
+///
+///  .parentClass .mySelector {
+///     color: white;
+///  }
+///
 
-@function addParentSelector($selector) {
+@function addParentSelector($selector, $is-descendant: false) {
 
-  // When we are not on the first level prepend the parent
-  @if ( & != null ) {
-   @return '&#{$selector}';
-  } @else {
+  // When we are not in the first level use the parent class
+  // and the strict mode variable has been set to true
+  $prepend: if($is-strict == true, '&', '& ');
+
+  @if (& != null) {
+   @return '#{$prepend}#{$selector}';
+  }@else {
     @return '#{$selector}';
   }
-
 }
 
 
