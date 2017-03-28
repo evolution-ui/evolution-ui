@@ -54,8 +54,6 @@
 
 * The `legacy` directory in the root directory will be removed! Don't use it or it's content.
 
-* Directory `production` contains the `main.css` and `main.js` files. When I find a way how to compile components separately, it will contain the directories for every component. Those should be the directories that the user can just download to use a single component. But that might be left for after the release. This directory won't be tracked by git, you will generate its content by running Grunt tasks. To enable live site preview on `gh-pages` site, the `.gitignore` file on the `gh-pages` branch will be altered not to ignore this directory.
-
 * File `.editorconfig` enforces some coding styles. You must install a plugin for your editor that can use this file.
 
 * All class names to be prefixed with `evo_` prefix.
@@ -90,10 +88,10 @@
 
     * `npm start`: run the development environment with automatic reload on file change. Hot Module Repacement still not implemented
     * `npm run production`: production build with file hashes for a better cache management
-    * `npm deploy`: deploy to GitHub pages and bump `package.json` version with a patch
-    * `npm deploy:minor`: deploy to GitHub pages and bump `package.json` version with a minor version
-    * `npm deploy:major`: deploy to GitHub pages and bump `package.json` version with a major version
-    * `npm sassdoc`: see the sass documentation
+    * `npm run deploy`: deploy to GitHub pages and bump `package.json` version with a patch
+    * `npm run deploy:minor`: deploy to GitHub pages and bump `package.json` version with a minor version
+    * `npm run deploy:major`: deploy to GitHub pages and bump `package.json` version with a major version
+    * `npm run sassdoc`: see the sass documentation
 
 6. You can stop gulp task by pressing `Ctrl + C` in the command line
 
