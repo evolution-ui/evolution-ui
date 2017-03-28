@@ -4,14 +4,11 @@
 
 @import 'Crumble-config';
 
-%rotate-to-initial {
-  transform: rotateX(0)!important;
-}
 
 
 @include c( 'crumble' ) {
   @include vertical-rhythm(1rem);
-  font-weight: $crumble-font-weight;
+  font-weight: $c-crumble-font-weight;
 
   // Modifiers
   @include m('full-width') {
@@ -71,7 +68,7 @@
     align-items: center;
     color: white();
     padding-left: 100px;
-    min-height: $crumble-span-min-height;
+    min-height: $c-crumble-span-min-height;
 
     @include s('is-active') {
       min-height: 0;
@@ -83,7 +80,7 @@
 
   // ICON element
   @include e('icon') {
-    @extend %pointer;
+    @extend %c-crumble-pointer;
     position: relative;
     bottom: 10px;
     padding: 10px;
@@ -97,7 +94,7 @@
 
       // crumble__icon--close
       @include m('close') {
-        @extend %pointer;
+        @extend %c-crumble-pointer;
         position: absolute;
         right: 5px;
         top: 5px;
@@ -112,7 +109,7 @@
 
       // crumble__icon--expand
       @include m('expand') {
-        @extend %pointer;
+        @extend %c-crumble-pointer;
         padding: 10px;
         margin: 0 10px;
         background-color: white(.05);
@@ -131,7 +128,7 @@
 
     // Status
     @include s('is-open') {
-      min-height: $crumble-header-height + $crumble-body-height;
+      min-height: $c-crumble-header-height + $c-crumble-body-height;
       height: auto;
       width: 100%;
       overflow: initial;
@@ -146,13 +143,13 @@
 
     // event__header
     @include e('header') {
-      @extend %unfold-transition;
+      @extend %c-crumble-unfold-transition;
 
       position: relative;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      height: $crumble-header-height;
+      height: $c-crumble-header-height;
       text-align: center;
       background-color: get-color('background', 'light');
       transform: rotateX(-10deg);
@@ -160,14 +157,14 @@
       transform-style: preserve-3d;
 
       @include s('is-rotate-to-initial') {
-        @extend %rotate-to-initial;
+        @extend %c-crumble-rotate-to-initial;
       }
     }
 
     // event__body
     @include e('body') {
-      @extend %unfold-transition;
-      height: $crumble-body-height;
+      @extend %c-crumble-unfold-transition;
+      height: $c-crumble-body-height;
       background-color: #6f6f6f;
       text-align: center;
       transform: rotateX(10deg);
@@ -176,7 +173,7 @@
       overflow: visible;
 
       @include s('is-rotate-to-initial') {
-        @extend %rotate-to-initial;
+        @extend %c-crumble-rotate-to-initial;
       }
     }
 

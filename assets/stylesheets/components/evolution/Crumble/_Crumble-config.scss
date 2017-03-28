@@ -2,18 +2,23 @@
 //                       Crumble config
 //------------------------------------------------------------------------------
 
-%pointer {
-  cursor: pointer;
-}
 
-%unfold-transition {
+%c-crumble-unfold-transition {
   transition: transform .7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
+%c-crumble-pointer {
+  cursor: pointer;
+}
 
-$crumble-font-weight: 300;
+%c-crumble-rotate-to-initial {
+  transform: rotateX(0)!important;
+}
 
-$crumble-span-min-height: 50px;
-$crumble-header-height: 60px;
-$crumble-body-height: 60px;
+
+$c-crumble-font-weight: 300;
+
+$c-crumble-span-min-height: 50px;
+$c-crumble-header-height: 60px;
+$c-crumble-body-height: 60px;
 
