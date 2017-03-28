@@ -1,0 +1,23 @@
+/******************************************************************************
+                              Forms component
+******************************************************************************/
+
+
+@import 'Forms-config';
+
+
+@include c( 'form' ) {
+
+  // Provide a brackground color for each color' s variant
+  @include backgroundVariants($is-descendant: true);
+
+  & * { box-sizing: border-box; }
+  & *:focus { outline: 0; }
+
+  // Header element
+  @include e( 'header' ) {
+
+
+
+  }
+}
