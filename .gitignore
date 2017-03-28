@@ -5,3 +5,4 @@ production
 .idea/
 public
 dist
+.publish
