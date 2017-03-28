@@ -2,43 +2,84 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
+///
+/// Represent the framework's name and represent the prefix of each component
+/// @access private
+/// @type String
 $framework-name: 'evo' !default;
+
+///
+/// Helper variable that can be used within the provided naming mixins
+/// @access private
+/// @type Boolean
 $no-prefix: false;
 
 // -----------------------------------------------------------------------------
 //                               FONTS
 // -----------------------------------------------------------------------------
 
+///
+/// Represent the base font-family used by the Evolution framework
+/// @access private
+/// @type String
 $framework-font-family: 'Roboto', sans-serif;
+
+///
+/// Represent the base font size used by the Evolution framework
+/// @access private
+/// @type Number
 $framework-base-font-size:    16px;
+
+///
+/// Represent the line-height ratio used by the Evolution framework
+/// @access private
+/// @type Number
 $framework-line-height-ratio: 1.5;
+
+///
+/// Represent the base line-height used by the Evolution framework
+/// @access private
+/// @type Number
 $framework-line-height-base:  1rem * $framework-line-height-ratio;
-$framework-font-weight: 300;
+
+///
+/// Represent the base font-weight used by the Evolution framework
+/// @access private
+/// @type Number
+$framework-font-weight: 400;
 
 // -----------------------------------------------------------------------------
 //                               COLORS PALETTE
 // -----------------------------------------------------------------------------
 
 
-
+///
 /// Slightly lighten a color (Add percentage of white to a color)
 /// @access public
 /// @param {Color} $color - color to tint
 /// @param {Number} $percentage - percentage of `$color` in returned color
 /// @return {Color}
+
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
 }
 
+///
 /// Slightly darken a color (Add percentage of black to a color)
 /// @access public
 /// @param {Color} $color - color to shade
 /// @param {Number} $percentage - percentage of `$color` in returned color
 /// @return {Color}
+
 @function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
 }
 
+///
+/// Represent the base colors palette used by the Evolution framework
+/// It is the main map used by the get-color function
+/// @access private
+/// @type MAP
 $framework-colors: (
   'primary': (
     'base': #56C5DE,
@@ -89,6 +130,10 @@ $framework-colors: (
   )
 );
 
+///
+/// Helper that can be used within the get-color function
+/// @access private
+/// @type MAP
 $framework-colors-opacity: (
   'super-light': 0.9,
   'light': 0.8,
