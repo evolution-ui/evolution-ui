@@ -2,7 +2,13 @@ This guidelines are in part based on the code guide you can find at this URL:  h
 
 
 
+[TOC]
+
+
+
 ### Editor preferences
+
+
 
 EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs
 
@@ -12,8 +18,9 @@ Please check on the [site project](http://editorconfig.org/#download) how to con
 
 Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-ui/.editorconfig) file contained in the root of the framework repository
 
-    root = true
 
+    root = true
+    
     [*]
     indent_style = space
     end_of_line = lf
@@ -264,6 +271,8 @@ Others:
 
 ### JS hooks
 
+As a rule of thumb, combining the visual aspect (CSS) and the behavior (JS) onto the same class in your HTML is not wise. This is because doing so you run the risk of breaking your application since  you can’t have (or remove) one without (removing) the other. It is smarter, cleaner, and more maintainable to bind your JS onto specific classes like in the following examples:
+
 ###### ✖️ NOT worthwhile
 
 - `js-trigger`
@@ -280,9 +289,9 @@ Others:
 
 Certain styles are *state* based, for example
 
-- a link may be in an active state;
-- a button may be clicked
-- a drop down menu may be in a visible state
+- A link may be in an active state;
+- A button may be clicked
+- A drop down menu may be in a visible state
 
 
 
@@ -360,6 +369,19 @@ When you need to create a classe for a component without the use of a provided m
 
 
 
+Config variables in your configuration file must be always prefixed by the [ BEMit namespace + the component's name ]. If your component is called for example `Ruler`, a well structured config file could be:
+
+```
+//----------------------------------------------------------------
+//                       RULER Component config
+//----------------------------------------------------------------
+
+$c-ruler_width: 200px;
+$c-ruler_font-size: 200px;
+```
+
+
+
 ## Sass structure
 
 For structuring SASS files we've adopted a customized version of the [7-1 pattern](https://sass-guidelin.es/#architecture)
@@ -390,19 +412,16 @@ stylesheets/
 |      |- accordion     # Accordion's assets
 |      |    | -  _accordion-config.scss
 |      |    | -  _accordion.scss
-|      |    | -  _accordion.js
 |      |    | -  ...
 |      |
 |      |- animations     # Animations' assets
 |      |    | -  _animations-config.scss
 |      |    | -  _animations.scss
-|      |    | -  animations.js
 |      |    | -  ...
 |      |
 |      |- audio         # Audio's assets
 |      |    | -  _audio-config.scss
 |      |    | -  _audio.scss
-|      |    | -  audio.js
 |      |    | -  ...
 |      |
 |      | ... etc
@@ -472,4 +491,11 @@ Where:
 - The `themes` folder contains different themes for the application.
 
 - The `vendor`folder contains all the CSS files from external libraries and frameworks – for example: Reset, Normalize, etc.
+
+
+
+
+# Javascript guideline
+
+For Javascript, we adhere almost totally to the rules proposed by the [Modern Developer's guideline](https://github.com/GabrieleRomeo/Modern-Developer-JavaScript-Style-Guide) with the exception of *allowing spaces in brackets*.
 
