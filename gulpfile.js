@@ -57,6 +57,12 @@ gulp.task('html', function () {
     .pipe(gulp.dest(outputPath))
 })
 
+gulp.task('html-temp', function () {
+  return gulp.src('./assets/html/**/*.html')
+    .pipe(plugins.if(!development, plugins.htmlmin({collapseWhitespace: true})))
+    .pipe(gulp.dest(outputPath + '/temp'))
+})
+
 gulp.task('audio', function () {
   return gulp.src('./assets/audio/**/*')
     .pipe(gulp.dest(outputPath + '/audio'))
@@ -86,11 +92,11 @@ gulp.task('clean', function () {
 // })
 
 function devInit (cb) {
-  plugins.sequence('clean', ['images', 'audio', 'scripts'], ['html', 'styles'], cb)
+  plugins.sequence('clean', ['images', 'audio', 'scripts'], ['html', 'html-temp', 'styles'], cb)
 }
 
 function buildInit (cb) {
-  plugins.sequence('clean', 'eslint', ['images', 'audio', 'scripts'], ['html', 'styles'], cb)
+  plugins.sequence('clean', 'eslint', ['images', 'audio', 'scripts'], ['html', 'html-temp', 'styles'], cb)
 }
 
 gulp.task('dev-init', devInit)
@@ -100,6 +106,7 @@ gulp.task('build-init', buildInit)
 function devel () {
 
   gulp.watch('index.html', ['html'])
+  gulp.watch('./assets/html/**/*.html', ['html-temp'])
   gulp.watch('./assets/stylesheets/**/*.scss', ['styles'])
   gulp.watch('./assets/scripts/**/*.js', ['scripts'])
   gulp.watch('./assets/images/**/*', ['images'])
@@ -135,6 +142,13 @@ gulp.task('rev-replace', ['rev'], function () {
 gulp.task('build', ['rev-replace'], function () {
   bs({
     server: 'dist',
+    // browser: 'google-chrome-stable'
+  })
+})
+
+gulp.task('sassdoc', function () {
+  bs({
+    server: 'assets/sassdoc',
     // browser: 'google-chrome-stable'
   })
 })

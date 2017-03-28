@@ -8,7 +8,8 @@
     "production": "gulp build --env=prod",
     "deploy": "gulp deploy --env=prod",
     "deploy:minor": "gulp deploy --env=prod --bump=minor",
-    "deploy:major": "gulp deploy --env=prod --bump=major"
+    "deploy:major": "gulp deploy --env=prod --bump=major",
+    "sassdoc": "gulp sassdoc"
   },
   "repository": {
     "type": "git",
