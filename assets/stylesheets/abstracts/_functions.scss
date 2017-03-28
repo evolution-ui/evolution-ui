@@ -112,6 +112,18 @@
 /// @require $framework-colors-opacity
 /// @return {HEX Value}
 ///
+/// @example - get-color function - opacity's name are specified in the $framework-colors-opacity variable
+///   get-color('accent')
+///   // The BASE variant of the hexadecimal color for the 'accent' color
+///   get-color('accent', 'light')
+///   // The LIGHT variant of the hexadecimal color for the 'accent' color
+///   get-color('accent4', 'dark', .5)
+///   // The DARK variant of the hexadecimal color for the 'accent4' color with an opacity of .5
+///   get-color('primary', $opacity:.8)
+///   // The BASE variant of the hexadecimal color for the 'primary' color with an opacity of .8
+///   get-color('secondary', $opacity:'heavy')
+///   // The BASE variant of the hexadecimal color for the 'secondary' color with an opacity of .4
+///
 
 @function get-color( $type: 'primary', $variant: 'base', $opacity: 1 ) {
 
