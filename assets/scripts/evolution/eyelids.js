@@ -1,4 +1,4 @@
-(function() {
+export default function() {
 
 /* EYELIDS COMPONENT */
 
@@ -152,4 +152,4 @@
 
   eyelids.init();
 
-})();
+}

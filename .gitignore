@@ -3,3 +3,5 @@ node_modules
 production
 *.iml
 .idea/
+public
+dist

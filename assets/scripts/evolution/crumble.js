@@ -1,4 +1,4 @@
-;(function() {
+export default function() {
 
   Array.prototype.where = function ( inclusionTest ) {
     var results = [];
@@ -72,4 +72,4 @@
       new CrumbleList(element);
   });
 
-})();
+}

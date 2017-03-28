@@ -12,10 +12,17 @@
 @import 'layout/import-layout';
 
 // Components
-@import 'components/import-components';
+//@import 'components/import-components';
+
+// Legacy Components
+@import '../../legacy/components/main';
+
 
 // Page-specific styles
 @import 'pages/import-pages';
+
+//import General styles
+@import "style";
 
 // @import 'themes/..';
 

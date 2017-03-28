@@ -1,4 +1,4 @@
-(function() {
+export default function() {
 
 /* DOT NAVIGATION COMPONENT */
 
@@ -81,5 +81,5 @@
 
   dotNav.init();
 
-})();
+}
 

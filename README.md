@@ -62,7 +62,7 @@
 
 * Use [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow)
 
-## Installing Grunt tasks
+## Installing Gulp tasks
 
 1. First check if you system has node.js installed. In the command line type:
 
@@ -78,9 +78,9 @@
 
     If you don't have those installed, follow [these instructions](https://docs.npmjs.com/getting-started/installing-node) to install node.js and `npm`.
 
-2. Now, install `grunt-cli`:
+2. Now, install `gulp-cli`:
 
-    `npm install -g grunt-cli` // '-g' means install it globally on your system
+    `npm install -g gulp-cli` // '-g' means install it globally on your system
 
 3. Now, it is time to install all needed packages. `cd` into your repository directory and run this command:
 
@@ -88,14 +88,32 @@
 
 4. After that use the following commands:
 
-    * `grunt` - this concatenates `js` files, compiles `sass` files, and watches for changes in those files
-    * `grunt build` - build for production, uglifies JS, and compiles sass
+    * `npm start`: run the development environment with automatic reload on file change. Hot Module Repacement still not implemented
+    * `npm run production`: production build with file hashes for a better cache management
+    * `npm deploy`: deploy to GitHub pages and bump `package.json` version with a patch
+    * `npm deploy:minor`: deploy to GitHub pages and bump `package.json` version with a minor version
+    * `npm deploy:major`: deploy to GitHub pages and bump `package.json` version with a major version
 
-5. The `main.js`, `main.min.js` and `main.css` are located in the `production` directory on the root of the repository. **Make sure you link to those files in your HTML file**
-
-6. You can stop grunt task by pressing `Ctrl + C` in the command line
+6. You can stop gulp task by pressing `Ctrl + C` in the command line
 
 ## Important stuff
+
+* ES6 modules: IIFE are not needed anymore. Export a function instead and import it in `app.js`:
+
+  ```js
+  export default function() {
+  
+  /* OFF CANVAS NAVIGATION COMPONENT  */
+  /* ...  */
+  
+  }
+  ```
+
+  ```js
+  import offCanvasNavigation from './standard/off_canvas_navigation'
+  
+  offCanvasNavigation();
+  ```
 
 * Always use `production/main.css` and `production/main.js` files, as it is shown in the `TEMPLATE.html` file. Using those files at all times during development guaranties that you know if your component is playing nicely with other components.
 

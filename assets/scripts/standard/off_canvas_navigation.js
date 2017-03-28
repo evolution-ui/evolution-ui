@@ -1,4 +1,4 @@
-(function() {
+export default function() {
 
 /* OFF CANVAS NAVIGATION COMPONENT  */
 
@@ -49,4 +49,4 @@
 
   offCanvasNav.init();
 
-})();
+}
