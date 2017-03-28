@@ -90,7 +90,7 @@
 
   // When we are not in the first level use the parent class
   // and the strict mode variable has been set to true
-  $prepend: if($is-strict == true, '&', '& ');
+  $prepend: if($is-descendant == true, '& ', '&');
 
   @if (& != null) {
    @return '#{$prepend}#{$selector}';

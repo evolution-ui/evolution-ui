@@ -48,7 +48,7 @@
 
 @mixin colorHelpers($type, $CSSproperty: 'color', $is-descendant: false) {
 
-  @each $color-key, $color-variants in $colors {
+  @each $color-key, $color-variants in $framework-colors {
 
     $base-color-value: map-get($color-variants, 'base');
 
@@ -165,8 +165,8 @@
 
   @each $color-key, $color-variants in $colorMap {
 
-    @if map-has-key($colors, $color-key) {
-      $base-color-variants: map-get($colors, $color-key);
+    @if map-has-key($framework-colors, $color-key) {
+      $base-color-variants: map-get($framework-colors, $color-key);
 
       // Generate each variant (if valid)
       @each $variant in $color-variants {
