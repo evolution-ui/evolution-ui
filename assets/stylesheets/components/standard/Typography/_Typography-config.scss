@@ -2,6 +2,13 @@
 //                       Typography SYSTEM config
 //------------------------------------------------------------------------------
 
+
+///
+/// Font scale for headings and extra headings
+///
+/// @access private
+/// @type MAP
+
 $typography-scales: (
   minor-second:     1.067,
   major-second:     1.125,
@@ -13,12 +20,25 @@ $typography-scales: (
   golden-ratio:     1.618
 );
 
+///
 /// List of extra headings
+///
+/// Represent extra headings
+/// @access private
+/// @type LIST
 $typography-scales-bigger:  large, x-large;
+
+///
+/// List of extra headings
+///
+/// Represent extra headings
+/// @access private
+/// @type LIST
 $typography-scales-smaller: small, x-small;
 
-/// Set as base the 'major-third' scale
+///
+/// Set the 'major-third' scale for headings
+///
+/// @access private
+/// @type String
 $typography-base-scale: map-get($typography-scales, 'major-third');
-
-/// Set base font-weight (Added by Vojislav, sass wouldn't compile without this value)
-$framework-font-weight-base: 400;
