@@ -113,5 +113,5 @@ We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparin
   - Add the original repository as a remote: `git remote add evolution https://github.com/BovAcademy-opensource/evolution-ui.git`
   - Checkout the `development` branch: `git checkout development`
   - From there, create a new feature branch with the name of your component (`git checkout -b my-new-component`) and start developing your component
-  - Remember to rebase often to stay updated and minimize conflicts: `git rebase evolution development`
+  - Remember to rebase often to stay updated and minimize conflicts: `git pull --rebase evolution development`
   - When your component is ready, open a Pull Request to the `development` branch of the original repository. Your Pull Request will be reviewed as soon as possible
