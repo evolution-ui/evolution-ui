@@ -114,6 +114,31 @@
 ///    color: #######
 ///  }
 ///
+///
+/// @example scss - Usage
+///
+///  $component-txt-variants: (
+///    'accent3': ('base', 'light', 'darken')
+///  );
+///
+///  .namespace_myClass {
+///     @include colorHelper('txt', $component-txt-variants, $is-descendant: true);
+///   }
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass .h-txt__accent3 {
+///    color: #######
+///  }
+///
+///  .namespace_myClass .h-txt__accent3--light {
+///    color: #######
+///  }
+///
+///  .namespace_myClass .h-txt__accent3--darken {
+///    color: #######
+///  }
+///
 ///  $component-bck-variants: (
 ///    'accent3': ('base', 'light', 'darken')
 ///  );
@@ -209,7 +234,38 @@
 ///    background-color: #######
 ///  }
 ///
-
+///
+/// @example scss - Usage
+///
+///  $component-bck-variants: (
+///    'accent3': ('base', 'light', 'darken')
+///  );
+///
+///  .myComponent {
+///    @include backgroundVariants($component-bck-variants, $is-descendant: true);
+///    width: 500px;
+///    margin: 10px;
+///  }
+///
+/// @example css - CSS output
+///
+///  .myComponent {
+///    width: 500px;
+///    margin: 10px;
+///  }
+///
+///  .myComponent .h-bck__accent3 {
+///    background-color: #######
+///  }
+///
+///  .myComponent .h-bck__accent3--light {
+///    background-color: #######
+///  }
+///
+///  .myComponent .h-bck__accent3--darken {
+///    background-color: #######
+///  }
+///
 
 @mixin backgroundVariants($colorMap: null, $is-descendant: false) {
   @if ( $colorMap == null ) {
