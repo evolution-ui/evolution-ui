@@ -20,7 +20,7 @@ Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-
 
 
     root = true
-    
+
     [*]
     indent_style = space
     end_of_line = lf
@@ -231,6 +231,8 @@ A namespace could be use for:
 - Settings
 - Mixins
 - Functions
+
+More info on how to use namespaces and their intrinsic meanings can be found [here](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/)
 
 Examples:
 
