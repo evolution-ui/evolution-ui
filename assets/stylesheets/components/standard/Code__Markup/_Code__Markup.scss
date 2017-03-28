@@ -43,6 +43,10 @@
       background: red;
       cursor: pointer;
     }
+
+    @include s('is-active') {
+      background-color: #000;
+    }
   }
 
   @include e('container') {
@@ -56,7 +60,7 @@
     border-bottom: none;
     background-color: grey;
 
-    transition: min-height .3s ease;
+    transition: min-height .3s ease, padding .3s ease;
     overflow: hidden;
 
     @include s('is-expanded') {
@@ -71,9 +75,9 @@
 
   @include e('content') {
     position: absolute;
-
     opacity: 0;
 
+    transition: opacity .3s ease;
 
     @include s('is-active') {
       opacity: 1;
