@@ -33,7 +33,7 @@ export default function() {
     closeMenu: function(e) {
       if ( !e.target.classList.contains('evo_menu-triggers') ) {
         this.body.classList.remove('evo_offcanvas-menu-active');
-        for ( menuEffect in this.navMenu ) {
+        for ( var menuEffect in this.navMenu ) {
           this.navMenu[menuEffect].removeAttribute('data-menu-effect');
         }
       }

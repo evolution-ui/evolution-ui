@@ -14,7 +14,7 @@ export default function() {
     modifier: 'ctrlKey',
     helpItems: [
       'Hold "Shift" and scroll mouse to resize the highlight area.',
-      'Don\'t take crap from anyone!'
+      'Toggle Eyelids with "Ctrl + 1"'
     ],
 
     init: function() {
@@ -28,14 +28,14 @@ export default function() {
 
     cacheDom: function() {
       this.bodyElement = document.querySelector('body');
-      this.notification = document.querySelector('.evo_eyelids-notification');
+      this.notification = document.querySelector('.evo_c-eyelids-notification');
       this.shortcut = this.notification && this.notification.querySelector('code');
       this.top = document.createElement('div');
       this.bottom = document.createElement('div');
       this.helper = document.createElement('div');
-      this.helper.classList.add('evo_eyelids-helper');
-      this.top.classList.add('evo_eyelids-top');
-      this.bottom.classList.add('evo_eyelids-bottom');
+      this.helper.classList.add('evo_c-eyelids-helper');
+      this.top.classList.add('evo_c-eyelids--top');
+      this.bottom.classList.add('evo_c-eyelids--bottom');
     },
 
     addEvent: function(target, eventType, eventHandler) {
@@ -57,15 +57,16 @@ export default function() {
     },
 
     notify: function() {
-      var notification = this.notification;
+      var notification = this.notification,
+          removeClass;
       if ( notification ) {
-        if ( notification.classList.contains('evo_active') ) {
-          notification.classList.remove('evo_active');
+        if ( notification.classList.contains('is-active') ) {
+          notification.classList.remove('is-active');
           window.clearTimeout(removeClass);
         } else {
-          notification.classList.add('evo_active');
+          notification.classList.add('is-active');
           removeClass = window.setTimeout(function() {
-            notification.classList.remove('evo_active');
+            notification.classList.remove('is-active');
             window.clearTimeout(removeClass);
           }, 5000);
         }
@@ -75,8 +76,8 @@ export default function() {
     enable: function() {
       this.bodyElement.appendChild(this.top);
       this.bodyElement.appendChild(this.bottom);
-      // this.top.style.height = 'calc(50vh - ' + this.width / 2 + 'px)';
-      // this.bottom.style.top = 'calc(50vh + ' + this.width / 2 + 'px)';
+      this.top.style.height = 'calc(50vh - ' + this.width / 2 + 'px)';
+      this.bottom.style.top = 'calc(50vh + ' + this.width / 2 + 'px)';
       this.enabled = true;
       this.addHelper();
     },

@@ -2,37 +2,38 @@
 
 @import 'Eyelids-config';
 
-@mixin fixed-containers {
+@include c('eyelids-notification') {
+  /* Positioning */
   position: fixed;
-  z-index: 9999;
-  width: 100%;
-  content: '';
-  display: block;
-  opacity: 0.98;
-}
-
-.evo_eyelids-notification {
-  box-sizing: border-box;
-  position: fixed;
-  z-index: 999999;
-  width: 280px;
-  transform: translate3d(100%, 0, 0);
   right: 10px;
+  z-index: 999999;
+  transform: translate3d(100%, 0, 0);
+
+  /* Box Model */
+  box-sizing: border-box;
+  width: 280px;
   padding: 10px 20px;
-  border-radius: 30px;
-  background-color: get_color('accent4', 'base', 1);
+
+  /* Typography */
   text-align: center;
   text-transform: uppercase;
+
+  /* Visual Aspect */
+  border-radius: 30px;
+  background-color: get_color('accent4', 'base', 1);
+  box-shadow: 2px 2px 5px 1px black(.3);
+
+  /* Animations */
+  transition: all .3s ease-in-out 0s;
+  @include s('is-active', $is-namespaced: false) {
+    animation: notify 5s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s forwards;
+  }
+
+  /* Misc */
   cursor: pointer;
-  box-shadow: 2px 2px 5px 1px black(0.3);
-  transition: all 0.3s ease-in-out 0s;
 
   p {
     margin-top: 0;
-  }
-
-  &.evo_active {
-    animation: notify 5s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s forwards;
   }
 
 }
@@ -57,37 +58,55 @@
 
 }
 
-.evo_eyelids-top,
-.evo_eyelids-bottom {
-  @include fixed-containers;
-}
-
 // maybe it is better to animate position on initialization instead the dimensions
 
-.evo_eyelids-top {
-  top: 0;
-  // height: 0;
-  // transition: all 1s ease-in-out 0s;
-  background-image: linear-gradient(to top, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
+@include c('eyelids') {
+  @include m('top') {
+    @extend %c-fixed-containers;
+
+    /* Positioning */
+    top: 0;
+
+    /* Box Model */
+    height: 0;
+
+    /* Visual Aspect */
+    background-image: linear-gradient(to top, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
+  }
 }
 
-.evo_eyelids-bottom {
-  bottom: 0;
-  // top: 100vh;
-  // transition: all 1s ease-in-out 0s;
-  background-image: linear-gradient(to bottom, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
+@include c('eyelids') {
+  @include m('bottom') {
+    @extend %c-fixed-containers;
+
+    /* Positioning */
+    bottom: 0;
+
+    /* Box Model */
+    top: 100vh;
+
+    /* Visual Aspect */
+    background-image: linear-gradient(to bottom, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
+  }
 }
 
-.evo_eyelids-helper {
+@include c('eyelids-helper') {
+  /* Positioning */
   position: fixed;
   top: 20px;
   right: 20px;
-  color: white(0.8);
   z-index: 9999;
-  pointer-events: none;
+
+  /* Typography */
+  color: white(.8);
+
+  /* Visual Aspect */
   ul {
     list-style: disc;
   }
+
+  /* Misc */
+  pointer-events: none;
 }
 
 /* END EYELIDS */
