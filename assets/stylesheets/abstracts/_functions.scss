@@ -120,7 +120,7 @@
 ///
 /// @example scss - Usage
 ///
-///   Remember of adding the component's name into its config file.
+///   Remember to add the component's name into your config file.
 ///
 ///   For example:
 ///
@@ -140,7 +140,7 @@
 ///      }
 ///    }
 ///
-///   In the previus snippet of code, within the "icon" element we try to reference
+///   In the previous snippet of code, within the "icon" element we try to reference
 ///   the 'input' element which is "external" to the sass include.
 ///   Instead of hardcoded the sibling selector by hand, you can use
 ///   the getBEMReference function
