@@ -20,62 +20,134 @@
       </ul>
       <div class="evo_c-markup__container">
         <div class="evo_c-markup__content">
-          <p>The Quick Brown Fox</p>
           <pre>
-            <code>
-              HTML CODE HERE
-            </code>
-          </pre>
-        </div>
-        <div class="evo_c-markup__content">
-          <p>Jumped Over The</p>
-          <pre>
-            <code>
-              CSS CODE HERE
-            </code>
-          </pre>
-        </div>
-        <div class="evo_c-markup__content">
-          <p>Lazy Dog Fast</p>
-          <pre>
-            <code>
-              JAVASCRIPT CODE HERE
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
+            <code class="language-html">
+&lt;div class=&quot;evo_c-markup&quot;&gt;
+      &lt;ul class=&quot;evo_c-markup__tabs js-c-markup-toggle&quot;&gt;
+        &lt;li class=&quot;evo_c-markup__item&quot;&gt;html&lt;/li&gt;
+        &lt;li class=&quot;evo_c-markup__item&quot;&gt;css&lt;/li&gt;
+        &lt;li class=&quot;evo_c-markup__item&quot;&gt;js&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;div class=&quot;evo_c-markup__container&quot;&gt;
+        &lt;div class=&quot;evo_c-markup__content&quot;&gt;
+          &lt;pre&gt;
+            &lt;code class=&quot;language-markup&quot;&gt;
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore reprehenderit error alias dolores perspiciatis, quas doloremque doloribus quisquam. Vel tempore, dolorum mollitia. Perferendis commodi aperiam praesentium distinctio deserunt, cupiditate expedita!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nam velit mollitia est rem pariatur facilis, odio commodi facere soluta nesciunt nulla, eveniet quidem sunt voluptates autem cumque molestiae quisquam.</p>
-    <div class="evo_c-markup">
-      <ul class="evo_c-markup__tabs js-c-markup-toggle">
-        <li class="evo_c-markup__item">html</li>
-        <li class="evo_c-markup__item">css</li>
-        <li class="evo_c-markup__item">js</li>
-      </ul>
-      <div class="evo_c-markup__container">
-        <div class="evo_c-markup__content">
-          <p>The Quick Brown Fox</p>
-          <pre>
-            <code>
-              Some More HTML Here
+            &lt;/code&gt;
+          &lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;evo_c-markup__content&quot;&gt;
+          &lt;pre&gt;
+            &lt;code class=&quot;language-css&quot;&gt;
+
+            &lt;/code&gt;
+          &lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;evo_c-markup__content&quot;&gt;
+          &lt;pre&gt;
+            &lt;code class=&quot;language-javascript&quot;&gt;
+
+            &lt;/code&gt;
+          &lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
             </code>
           </pre>
         </div>
         <div class="evo_c-markup__content">
-          <p>Jumped Over The</p>
           <pre>
-            <code>
-              Some More CSS Here
+            <code class="language-css">
+.evo_c-markup__tabs {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding-left: 0;
+  margin-bottom: 0; }
+.evo_c-markup__item {
+  flex: 1 0 auto;
+  z-index: 5;
+  padding: 5px 10px;
+  margin-right: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background .3s ease; }
+  .evo_c-markup__item:last-child {
+    margin-right: 0; }
+  .evo_c-markup__item:hover, .evo_c-markup__item:focus {
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer; }
+  .evo_c-markup__item.is-active {
+    background-color: white;
+    border-top: 3px solid #56c5de;
+    border-bottom: 0; }
+.evo_c-markup__container {
+  position: relative;
+  top: -1px;
+  width: 100%;
+  min-height: 0em;
+  border: 1px solid #000;
+  border-bottom: none;
+  transition: min-height .3s ease, padding .3s ease;
+  overflow: hidden; }
+  .evo_c-markup__container.is-expanded {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    min-height: 15em;
+    overflow-y: scroll; }
+.evo_c-markup__content {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .3s ease; }
+  .evo_c-markup__content.is-active {
+    opacity: 1; }
             </code>
           </pre>
         </div>
         <div class="evo_c-markup__content">
-          <p>Lazy Dog Fast</p>
           <pre>
-            <code>
-              Some More JavaScript Here
+            <code class="language-javascript">
+(function() {
+  var markupTabs = document.getElementsByClassName('js-c-markup-toggle');
+
+  if (markupTabs) {
+    for (var i = 0; i &lt; markupTabs.length; i++) {
+      markupTabs[i].addEventListener('click', function(event) {
+        var clickedTabClassList = event.target.classList;
+        var markupContainerClassList = this.parentNode.children[1].classList;
+        var markupContentDivs = this.parentNode.children[1].children;
+
+        if (clickedTabClassList.contains(&quot;is-active&quot;)) {
+          clickedTabClassList.remove(&quot;is-active&quot;);
+          markupContainerClassList.remove(&quot;is-expanded&quot;);
+        } else {
+          for (var i = 0; i &lt; this.children.length; i++) {
+            if (this.children[i].classList.contains(&quot;is-active&quot;)) {
+              this.children[i].classList.remove(&quot;is-active&quot;);
+            }
+          }
+          clickedTabClassList.add(&quot;is-active&quot;);
+          markupContainerClassList.add(&quot;is-expanded&quot;);
+          for (var i = 0; i &lt; markupContentDivs.length; i++) {
+            if (markupContentDivs[i].classList.contains(&quot;is-active&quot;)) {
+              markupContentDivs[i].classList.remove(&quot;is-active&quot;);
+            }
+            if (this.children[i].classList.contains(&quot;is-active&quot;)) {
+              markupContentDivs[i].classList.add(&quot;is-active&quot;);
+            }
+          }
+        }
+      }, false);
+    }
+  }
+})();
             </code>
           </pre>
         </div>
