@@ -1,0 +1,225 @@
+
+///
+/// Generate padding
+///
+/// @param {Number} $value - The value of the margin
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include padding(10px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    padding-top: 10px;
+///    padding-right: 10px;
+///    padding-bottom: 10px;
+///    padding-left: 10px;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/594560e3b78ab828cd07bcb17c794ff7 - Usage Examples
+///
+
+@mixin padding($value) {
+  padding-top: $value;
+  padding-right: $value;
+  padding-bottom: $value;
+  padding-left: $value;
+}
+
+///
+/// Generate opposite paddings
+///
+/// @param {Number} $top-bottom - The value of the TOP and BOTTOM paddings
+/// @param {Number} $left-right - The value of the LEFT and RIGHT paddings
+///
+/// Generate padding
+///
+/// @param {Number} $value - The value of the margin
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include padding-tb-lr(15px, 10px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    padding-top: 15px;
+///    padding-right: 10px;
+///    padding-bottom: 15px;
+///    padding-left: 10px;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/594560e3b78ab828cd07bcb17c794ff7 - Usage Examples
+///
+
+@mixin padding-tb-lr($top-bottom, $left-right) {
+  padding-top: $top-bottom;
+  padding-right: $left-right;
+  padding-bottom: $top-bottom;
+  padding-left: $left-right;
+}
+
+
+///
+/// Generate margin
+///
+/// @param {Number} $value - The value of the margin
+///
+/// Generate padding
+///
+/// @param {Number} $value - The value of the margin
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include margin(10px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    margin-top: 10px;
+///    margin-right: 10px;
+///    margin-bottom: 10px;
+///    margin-left: 10px;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/594560e3b78ab828cd07bcb17c794ff7 - Usage Examples
+///
+
+@mixin margin($value) {
+  margin-top: $value;
+  margin-right: $value;
+  margin-bottom: $value;
+  margin-left: $value;
+}
+
+
+///
+/// Generate opposite margins
+///
+/// @param {Number} $top-bottom - The value of the TOP and BOTTOM margins
+/// @param {Number} $left-right - The value of the LEFT and RIGHT margins
+///
+/// Generate padding
+///
+/// @param {Number} $value - The value of the margin
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include margin-tb-lr(15px, 10px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    margin-top: 15px;
+///    margin-right: 10px;
+///    margin-bottom: 15px;
+///    margin-left: 10px;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/594560e3b78ab828cd07bcb17c794ff7 - Usage Examples
+///
+
+@mixin margin-tb-lr($top-bottom, $left-right) {
+  margin-top: $top-bottom;
+  margin-right: $left-right;
+  margin-bottom: $top-bottom;
+  margin-left: $left-right;
+}
+
+
+///
+/// Set both the left and right margin to auto
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include margin-auto();
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    margin-left:auto;
+///    margin-right:auto;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/594560e3b78ab828cd07bcb17c794ff7 - Usage Examples
+///
+
+@mixin margin-auto() {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+///
+/// Center a box to the center of its parent HTML element
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include center-box-model();
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    margin-top: 0;
+///    margin-bottom: 0;
+///    margin-left:auto;
+///    margin-right:auto;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/594560e3b78ab828cd07bcb17c794ff7 - Usage Examples
+///
+
+@mixin center-box-model() {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left:auto;
+  margin-right:auto;
+}
