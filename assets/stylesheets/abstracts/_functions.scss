@@ -100,6 +100,102 @@
 }
 
 
+///
+/// Return a reference to a BEM item
+///
+/// Use this function if you need to get a reference to an "external" element or
+/// modifier within your current component.
+///
+///
+/// @access public
+/// @param {String}  $block-name - The block's name
+/// @param {String}  $element-name [null] - If not null, adds the element's name
+/// @param {String}  $modifier-name [null] - If not null, adds the modifier's name
+/// @param {Boolean} $is-namespaced [true] - If TRUE, prepend the framework's prefix
+///
+/// @link http://www.sassmeister.com/gist/e480588a9e0c5eb3a3ae07e1546d2317 - Usage Examples
+///
+/// @return {String}
+///
+///
+/// @example scss - Usage
+///
+///   Remember of adding the component's name into its config file.
+///
+///   For example:
+///
+///   // Component config
+///   $c-component-name: 'form';
+///
+///
+///    // Component file
+///
+///    // Icon element
+///    @include e( 'icon' ) {
+///
+///      position: absolute;
+///
+///      & + .evo_c-form__input {
+///        padding-left: 40px;
+///      }
+///    }
+///
+///   In the previus snippet of code, within the "icon" element we try to reference
+///   the 'input' element which is "external" to the sass include.
+///   Instead of hardcoded the sibling selector by hand, you can use
+///   the getBEMReference function
+///
+///    // Icon element
+///    @include e( 'icon' ) {
+///     $reference-selector: getBEMReference($c-component-name, 'input');
+///
+///      position: absolute;
+///
+///      & + .{#$reference-selector} {
+///        padding-left: 40px;
+///      }
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .evo_c-form__icon + .evo_c-form__input { padding-left: 40px;  }
+///
+///
+/// @example scss - Usage
+///
+///  .parentClass {
+///     $dummy-modifier: getBEMReference($c-component-name, 'dummy', 'red');
+///
+///     & .#{$dummy-modifier} { }
+///       color: red;
+///     }
+///
+/// @example css - CSS output
+///
+///  .parentClass .framework-prefix_c-componentName__dummy--red {
+///     color: red;
+///  }
+///
+
+@function getBEMReference($block-name,
+                          $element-name: null,
+                          $modifier-name: null,
+                          $is-namespaced: true ) {
+
+  $f-namespace:   if($is-namespaced == true, '#{$framework-name}_', '');
+  $block-name:    'c-#{$block-name}';
+  $element-name:  if($element-name == null, '', '__#{$element-name}');
+  $modifier-name: if($modifier-name == null, '', '--#{$modifier-name}');
+
+  @if ($element-name == '') and ($modifier-name != '') {
+    @error 'A modifier needs a parent element';
+  }
+
+ @return #{$f-namespace}#{$block-name}#{$element-name}#{$modifier-name};
+}
+
+
 // -----------------------------------------------------------------------------
 //                            COLORS HELPERS
 // -----------------------------------------------------------------------------
