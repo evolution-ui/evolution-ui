@@ -7,6 +7,15 @@
 
 
 
+@include l( 'grid' ) {
+
+  @include e( 'item' ) {
+    padding: 20px;
+  }
+
+}
+
+
 @include c( 'form' ) {
 
   // Provide a brackground's variation for each color in the Evolution Palette
@@ -45,8 +54,6 @@
   @include e( 'input' ) {
     height: $c-form-input-height;
 
-    padding-left: 40px;
-
     border: 0;
     border-bottom: 1px solid rgba(0,0,0,.2);
 
@@ -54,6 +61,19 @@
     @include m( 'textual' ) {
 
     }
+  }
+
+  // Icon element
+  @include e( 'icon' ) {
+
+    $c-form__input: getBEMReference($c-form-component-name, input);
+    position: absolute;
+    padding: 10px;
+
+    & + .#{$c-form__input} {
+      padding-left: 40px;
+    }
+
   }
 
 }
