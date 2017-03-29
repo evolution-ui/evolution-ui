@@ -101,16 +101,16 @@
 
   ```js
   export default function() {
-  
+
   /* OFF CANVAS NAVIGATION COMPONENT  */
   /* ...  */
-  
+
   }
   ```
 
   ```js
   import offCanvasNavigation from './standard/off_canvas_navigation'
-  
+
   offCanvasNavigation();
   ```
 
@@ -126,6 +126,44 @@ We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparin
   - From there, create a new feature branch with the name of your component (`git checkout -b my-new-component`) and start developing your component
   - Remember to rebase often to stay updated and minimize conflicts: `git pull --rebase evolution development`
   - When your component is ready, open a Pull Request to the `development` branch of the original repository. Your Pull Request will be reviewed as soon as possible
+
+## Showing Code For Added Components
+
+Add the following code snippet to the end of your component to showcase the HTML, CSS and JavaScript of your component.  However, some special characters may need to be escaped when marked up in HTML.  You can use [http://www.freeformatter.com/html-escape.html](http://www.freeformatter.com/html-escape.html) to automatically escape those special character so the code shows up properly in HTML.   Just paste your code in the proper HTML, CSS and JavaScript areas.
+
+```html
+    <div class="evo_c-markup">
+      <ul class="evo_c-markup__tabs js-c-markup-toggle">
+        <li class="evo_c-markup__item">html</li>
+        <li class="evo_c-markup__item">css</li>
+        <li class="evo_c-markup__item">js</li>
+      </ul>
+      <div class="evo_c-markup__container">
+        <div class="evo_c-markup__content">
+          <pre>
+            <code class="language-html">
+              HTML CODE HERE
+            </code>
+          </pre>
+        </div>
+        <div class="evo_c-markup__content">
+          <pre>
+            <code class="language-css">
+              CSS CODE HERE
+            </code>
+          </pre>
+        </div>
+        <div class="evo_c-markup__content">
+          <pre>
+            <code class="language-javascript">
+              JAVASCRIPT CODE HERE
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+```
+
 
 ## License
 Code released under the [MIT License](http://opensource.org/licenses/MIT)
