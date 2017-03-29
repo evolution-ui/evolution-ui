@@ -126,3 +126,6 @@ We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparin
   - From there, create a new feature branch with the name of your component (`git checkout -b my-new-component`) and start developing your component
   - Remember to rebase often to stay updated and minimize conflicts: `git pull --rebase evolution development`
   - When your component is ready, open a Pull Request to the `development` branch of the original repository. Your Pull Request will be reviewed as soon as possible
+
+## License
+Code released under the [MIT License](http://opensource.org/licenses/MIT)
