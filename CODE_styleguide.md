@@ -40,18 +40,18 @@ Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-
 
 
     root = true
-
+    
     [*]
     indent_style = space
     end_of_line = lf
     charset = utf-8
     trim_trailing_whitespace = true
     insert_final_newline = true
-
+    
     # Use 2 spaces for indentation in HTML, JavaScript, SCSS, CSS
     [*.{html,js,scss, css}]
     indent_size = 2
-
+    
     [*.js]
     indent_brace_style = 1TBS
     continuation_indent_size = 2
@@ -61,12 +61,11 @@ Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-
     spaces_around_operators = true
     spaces_in_brackets = false
     quote_type = single
-
+    
     # Use 4 spaces for indentation in Markdown files
-
+    
     [*.md]
     indent_size = 4
-
 
 
 As a rule of thumb, we follow the following basic rule:
@@ -357,9 +356,9 @@ The previous example becomes:
 
 To get more confidence with the current mixins provided by our framework, take a look at these [usage example](http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf) and have a look at our sassDoc documentation. To do that, just open up your favourite browser and navigate to the `assets/sassdoc/` folder contained within the `development`branch
 
-# IMPORTANT NOTES
+## IMPORTANT STUFF
 
-Each component in our framework must be prefixed with the framework name.
+Each component in our framework must be prefixed by the framework name.
 
 Look at the following example:
 
@@ -515,9 +514,4 @@ Where:
 - The `vendor`folder contains all the CSS files from external libraries and frameworks – for example: Reset, Normalize, etc.
 
 
-
-
-# Javascript guideline
-
-For Javascript, we adhere almost totally to the rules proposed by the [Modern Developer's guideline](https://github.com/GabrieleRomeo/Modern-Developer-JavaScript-Style-Guide) with the exception of *allowing spaces in brackets*.
 
