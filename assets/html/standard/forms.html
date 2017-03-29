@@ -13,55 +13,62 @@
   </head>
   <body>
 
-    <div class="evo_c-form">
 
-      <form>
+  <ul class="l-grid">
 
-        <div class="evo_c-form__header">
-          <h2 class="evo_h-txt--caps">join us</h2>
-        </div>
+    <li class="l-grid__item">
 
-        <!-- FORM BODY -->
-        <div class="evo_c-form__body">
+      <div class="evo_c-form">
 
-          <!-- username -->
-          <div class="su_field">
-            <span class="su_input-icon">
-              <i class="material-icons">person</i>
-            </span>
-            <input class="su_input" id="name" placeholder="Username" type="text" required>
+        <form>
+
+          <div class="evo_c-form__header">
+            <h2 class="evo_h-txt--caps">join us</h2>
           </div>
 
-          <!-- email -->
-          <div class="su_field">
-            <span class="su_input-icon">
-              <i class="material-icons">email</i>
-            </span>
-            <input class="su_input" id="email" placeholder="Email" type="email" required>
+          <!-- FORM BODY -->
+          <div class="evo_c-form__body">
+
+            <!-- username -->
+            <div class="evo_c-form__field">
+              <span class="evo_c-form__icon">
+                <i class="material-icons">person</i>
+              </span>
+              <input class="evo_c-form__input h-full-width" id="name" placeholder="Username" type="text" required>
+            </div>
+
+            <!-- email -->
+            <div class="evo_c-form__field">
+              <span class="evo_c-form__icon">
+                <i class="material-icons">email</i>
+              </span>
+              <input class="evo_c-form__input h-full-width" id="email" placeholder="Email" type="email" required>
+            </div>
+
+            <!-- password -->
+            <div class="evo_c-form__field">
+              <span class="evo_c-form__icon">
+                <i class="material-icons">lock</i>
+              </span>
+              <input class="evo_c-form__input h-full-width" id="password" placeholder="Password" type="password" value="" required>
+              <div class="su_error-message">Wrong Password. Try Again</div>
+            </div>
           </div>
 
-          <!-- password -->
-          <div class="su_field">
-            <span class="su_input-icon">
-              <i class="material-icons">lock</i>
-            </span>
-            <input class="su_input" id="password" placeholder="Password" type="password" value="" required>
-            <div class="su_error-message">Wrong Password. Try Again</div>
+          <!-- FORM FOOTER -->
+          <div class="evo_c-form__footer">
+            <div class="evo_c-form__field evo_c-form__field--border">
+              <input class="su_input su_input--button--3D" type="submit" value="Sign Up">
+            </div>
           </div>
-        </div>
 
-        <!-- FORM FOOTER -->
-        <div class="evo_c-form__footer">
-          <div class="su_field su_field--border">
-            <input class="su_input su_input--button--3D" type="submit" value="Sign Up">
-          </div>
-        </div>
+        </form>
 
-      </form>
+      </div><!-- end su_form-box -->
 
-    </div><!-- end su_form-box -->
+    </li>
 
-
+  </ul>
 
 
     <script type="text/javascript" src="../../../production/main.js"></script>

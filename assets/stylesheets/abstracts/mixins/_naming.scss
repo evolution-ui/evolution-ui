@@ -398,6 +398,78 @@
 }
 
 ///
+/// Generate a BEMIT Layout Module
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String}  $StatusName - The Layout's name
+/// @param {Boolean} $is-namespaced [false] - Prefix the class's name with
+///                                          the namespace's name
+///
+/// @example scss - Usage
+///
+///
+///    Some components require a parent wrapper (or container) that dictates the layout
+///    of the children. A practicle example of a layout module in action:
+///
+///    <ul class="l-grid">
+///      <li class="l-grid__item">
+///        <div class="evo_c-box">
+///            <div class="evo_c-box__header">
+///                […]
+///            </div>
+///            <div class="evo_c-box__body">
+///                […]
+///            </div>
+///        </div>
+///      </li>
+///      <li class="l-grid__item">
+///        <div class="evo_c-box">
+///            <div class="evo_c-box__header">
+///                […]
+///            </div>
+///            <div class="evo_c-box__body">
+///                […]
+///            </div>
+///        </div>
+///      </li>
+///    </ul>
+///
+///
+///    @include l('grid') {
+///      margin: 10px;
+///      font-size: 1.3em;
+///
+///      // Element inside the layout module
+///      @include e('item') {
+///        padding: 10px;
+///      }
+///    }
+///
+/// @example css - CSS output
+///
+///  .l-grid {
+///   margin: 10px;
+///   font-size: 1.3em;
+///   }
+///   .l-grid__item {
+///     padding: 10px;
+///   }
+///
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin l( $layoutName, $is-namespaced: false ) {
+  @include bit($layoutName, 'l', $is-namespaced) {
+    @content;
+  }
+}
+
+///
 /// Generate a BEMIT Status class
 ///
 /// @author Gabriele Romeo
