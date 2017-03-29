@@ -5,11 +5,14 @@ export default function() {
   var eyelids = {
 
     width: 180,
+    upperHeight: '',
+    lowerTop: '',
     step: 10,
     limitUp: 400,
     limitDown: 50,
     enabled: false,
     helperCreated: false,
+    transitionActive: true,
     key: '1',
     modifier: 'ctrlKey',
     helpItems: [
@@ -74,39 +77,75 @@ export default function() {
     },
 
     enable: function() {
-      this.bodyElement.appendChild(this.top);
-      this.bodyElement.appendChild(this.bottom);
-      this.top.style.height = 'calc(50vh - ' + this.width / 2 + 'px)';
-      this.bottom.style.top = 'calc(50vh + ' + this.width / 2 + 'px)';
-      this.enabled = true;
-      this.addHelper();
+      var _self = this;
+      _self.bodyElement.appendChild(_self.top);
+      _self.bodyElement.appendChild(_self.bottom);
+      if ( !this.transitionActive ) {
+        this.top.style.transition = 'all .2s ease-in-out 0s';
+        this.bottom.style.transition = 'all .2s ease-in-out 0s';
+        this.transitionActive = true;
+        this.upperHeight = '0';
+        this.lowerTop = '100vh';
+        this.top.style.height = this.upperHeight;
+        this.bottom.style.top = this.lowerTop;
+      }
+      var wait = window.setTimeout(function(){
+        _self.upperHeight = 'calc(50vh - ' + _self.width / 2 + 'px)';
+        _self.lowerTop = 'calc(50vh + ' + _self.width / 2 + 'px)';
+        _self.top.style.height = _self.upperHeight;
+        _self.bottom.style.top = _self.lowerTop;
+        _self.enabled = true;
+        _self.addHelper();
+        window.clearTimeout(wait);
+      }, 50);
     },
 
     disable: function() {
-      this.top = this.bodyElement.removeChild(this.top);
-      this.bottom = this.bodyElement.removeChild(this.bottom);
-      this.enabled = false;
-      this.removeHelper();
+      var _self = this;
+      if ( !this.transitionActive ) {
+        this.top.style.transition = 'all .2s ease-in-out 0s';
+        this.bottom.style.transition = 'all .2s ease-in-out 0s';
+        this.transitionActive = true;
+        this.upperHeight = '0';
+        this.lowerTop = '100vh';
+      }
+      this.top.style.height = this.upperHeight;
+      this.bottom.style.top = this.lowerTop;
+      var wait = window.setTimeout(function(){
+        _self.top = _self.bodyElement.removeChild(_self.top);
+        _self.bottom = _self.bodyElement.removeChild(_self.bottom);
+        _self.enabled = false;
+        _self.removeHelper();
+      }, 250);
     },
 
     follow: function(e) {
-      this.top.style.height = (e.clientY - this.width / 2) + 'px';
-      this.bottom.style.top = (e.clientY + this.width / 2) + 'px';
+      // console.log('Follow started!');
+      if ( this.transitionActive ) {
+        this.top.style.transition = 'none';
+        this.bottom.style.transition = 'none';
+        this.transitionActive = false;
+      }
+      this.upperHeight = (e.clientY - this.width / 2) + 'px';
+      this.lowerTop = (e.clientY + this.width / 2) + 'px';
+      this.top.style.height = this.upperHeight;
+      this.bottom.style.top = this.lowerTop;
     },
 
     toggle: function(e) {
-      var key = e.key.toLowerCase();
+      var key = e.key.toLowerCase(),
+          followReference = this.follow.bind(this);
 
       // console.log(e.key);
 
       if ( this.enabled && (key === this.key && e[this.modifier] || key === 'escape') ) {
         e.preventDefault();
         this.disable();
-        this.removeEvent(document, 'mousemove', this.follow.bind(this));
+        this.removeEvent(document, 'mousemove', followReference);
       } else if ( key === this.key && e[this.modifier] ) {
         e.preventDefault();
         this.enable();
-        this.addEvent(document, 'mousemove', this.follow.bind(this));
+        this.addEvent(document, 'mousemove', followReference);
       }
     },
 
