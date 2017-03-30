@@ -176,15 +176,15 @@ Let's imagine that we want to build a new component called `super-easy`.
 
 
 
-The first step for contributing with a new component is to clone the Evolution UI framework on your machine.
+The first step for contributing with a new component is to fork the Evolution UI framework.
 
-To do this, go to the official repository which can be found at [https://github.com/BovAcademy-opensource/evolution-ui](https://github.com/BovAcademy-opensource/evolution-ui) and clone it:
+To do this, go to the [official repository](https://github.com/BovAcademy-opensource/evolution-ui) and fork it. Then add the original repository as a remote: 
 
 ```shell
-~ $ git clone https://github.com/BovAcademy-opensource/evolution-ui.git
+~ $ git remote add evolution https://github.com/BovAcademy-opensource/evolution-ui.git
 ```
 
-Then, clone the  `development` upstream branch, by checking out onto it:
+Then, checkout the `development` branch:
 
 ```shell
 ~ $ git checkout development
@@ -199,8 +199,6 @@ Following that rule, we create a separate branch and instead of basing it on `ma
 ```
 
 Please, note the use of the `c-` prefix before the actual component's name. 
-
-
 
 **Remember to rebase often to stay updated and minimize conflicts**:
 
