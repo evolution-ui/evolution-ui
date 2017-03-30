@@ -381,7 +381,7 @@ Import stylesheets:
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
 
-<!-- import main.css ->
+<!-- import main.css -->
 <link href="../../styles/main.css" rel="stylesheet">
 ```
 
