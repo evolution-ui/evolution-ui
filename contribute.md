@@ -239,9 +239,9 @@ evolution-ui/
           |      |      | - eyelids.js
           |      |
           |      |- standard/
-          |      |      |
-          |      |      | - animations.js
-          |      |      | - audio.js
+          |             |
+          |             | - animations.js
+          |             | - audio.js
           |
           |
           | - stylesheets/
