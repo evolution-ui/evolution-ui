@@ -14,7 +14,7 @@
          * [Understanding the framework structure](#understanding-the-framework-structure)
             * [ES6 Module](#es6-module)
          * [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
-         * [Import Stylesheets and app.js](#Import-Stylesheets-and-app.js)
+         * [Import Stylesheets and app.js](#import-stylesheets-and-app.js)
          * [Sassdoc](#sassdoc)
          * [Let's code with SASS](#lets-code-with-sass)
          * [Pushing the resulting component on the repository](#pushing-the-resulting-component-on-the-repository)
