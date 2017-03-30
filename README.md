@@ -166,4 +166,4 @@ Add the following code snippet to the end of your component to showcase the HTML
 
 
 ## License
-Code released under the [MIT License](http://opensource.org/licenses/MIT)
+Code released under the [MIT License](license.md)
