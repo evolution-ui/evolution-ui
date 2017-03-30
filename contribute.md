@@ -14,6 +14,7 @@
          * [Understanding the framework structure](#understanding-the-framework-structure)
             * [ES6 Module](#es6-module)
          * [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
+         * [Import Stylesheets and app.js](#Import-Stylesheets-and-app.js)
          * [Sassdoc](#sassdoc)
          * [Let's code with SASS](#lets-code-with-sass)
          * [Pushing the resulting component on the repository](#pushing-the-resulting-component-on-the-repository)
@@ -173,6 +174,8 @@ Let's imagine that we want to build a new component called `super-easy`.
 
 #### Setting up a working environment
 
+
+
 The first step for contributing with a new component is to clone the Evolution UI framework on your machine.
 
 To do this, go to the official repository which can be found at [https://github.com/BovAcademy-opensource/evolution-ui](https://github.com/BovAcademy-opensource/evolution-ui) and clone it:
@@ -196,6 +199,16 @@ Following that rule, we create a separate branch and instead of basing it on `ma
 ```
 
 Please, note the use of the `c-` prefix before the actual component's name. 
+
+
+
+**Remember to rebase often to stay updated and minimize conflicts**:
+
+```shell
+~ $ git pull --rebase evolution development
+```
+
+
 
 Now we are ready to work at our component by staging and committing our changes on the new dedicated branch.
 
@@ -287,7 +300,7 @@ For example, the Eyelids component is an **evolution** component and it's main f
   -  `evolution-ui/assets/scripts/evolution/eyelids.js`
 - SASS path:
   -   `evolution-ui/assets/stylesheets/evolution/_eyelids.scss`
-  -  `evolution-ui/assets/stylesheets/evolution/_eyelids-config.scss`
+  -   `evolution-ui/assets/stylesheets/evolution/_eyelids-config.scss`
 
 Looking at the SASS dir, we can see that the Eyelids component has two main files: `_Eyelids.scss` and a configuration file called `_Eyelids-config.scss`. You can import configuration files into the main file to keep the configuration separate.
 
@@ -359,6 +372,29 @@ In this case, a good way to satisfy the newly request could be to define a helpe
 
 
 
+#### Import Stylesheets and app.js
+
+In your `component-name.html` file (which will be located at `evolution-ui/assets/html/[evolution|standard]/component-name.html`), you need to import all the necessary assets.
+
+Import stylesheets:
+
+```html
+<!-- Import Material Icons and Roboto Fonts -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+
+<!-- import main.css ->
+<link href="../../styles/main.css" rel="stylesheet">
+```
+
+Then, at the end of your html file, import the app.js file:
+
+```html
+<script type="text/javascript" src="../../scripts/app.js"></script>
+```
+
+
+
 Okay, we are ready for SASS but before coding, let's take a look at predefined mixins and functions provided by the framework.
 
 #### Sassdoc
@@ -401,11 +437,41 @@ evolution-ui/
           |         |         | -  _super-easy.scss
 ```
 
+At this point, we need to import the new component into the SASS system (if it's not already present). To do this, we need to open the `_import-components.scss` file, and based on the component's type, we add a specific entry at the end of of the list  [`evolution` or `standard` ].
+
+``` scss
+// Path: evolution-ui/assets/stylesheets/components
+//
+// -----------------------------------------------------------------------------
+//                                  COMPONENTS FOLDER
+// -----------------------------------------------------------------------------
+//
+//  It contains all kind of specific modules
+//
+
+//
+// List of EVOLUTION components
+//
+// [...]
+//
+// Append your component here if it's type is 'evolution'
+@import 'evolution/component-name/component-name';
+
+//
+// List of STANDARD components
+//
+// [...]
+//
+// Append your component here if it's type is 'standard'
+@import 'standard/component-name/component-name';
+```
 
 
-Then we take care of the configurations:
+
+Then, we are ready to take care of the component's configurations:
 
 ```scss
+// Since our component is of type 'evolution', its folder is
 // Path: evolution-ui/assets/stylesheets/evolution/_super-easy-config.scss
 
 //----------------------------------------------------------------
