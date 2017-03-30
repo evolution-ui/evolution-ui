@@ -458,64 +458,64 @@ Let's move on the main SCSS file:
   font-size: $c-super-easy-font-size;
   background-color: $c-super-easy-background-color;
   
-  	// This define a helper class
-  	// It will be rendered to .h-txt
-  	@include h( 'txt' ) {
-      
-          // This represents a modifier in the BEM terminology
-          // It will be rendered to .h-txt--uppercase
-          @include m( 'uppercase' ) {
-            text-transform: uppercase;        
-          }
-          // I may define some other modifiers (if needed)
-          // It will be rendered to .h-txt--capitalize
-          @include m( 'capitalize' ) {
-            text-transform: capitalize;        
-          }
-        }
-  
+    // This define a helper class
+    // It will be rendered to .h-txt
+    @include h( 'txt' ) {
+
+      // This represents a modifier in the BEM terminology
+      // It will be rendered to .h-txt--uppercase
+      @include m( 'uppercase' ) {
+        text-transform: uppercase;        
+      }
+      // I may define some other modifiers (if needed)
+      // It will be rendered to .h-txt--capitalize
+      @include m( 'capitalize' ) {
+        text-transform: capitalize;        
+      }
+    }
+
     // This will be rendered to .evo_c-super-easy__header
     // The 'header' element
-  	@include e( 'header' ) {
-            height: $c-super-easy-header-height;
-  	}
-  
-  	// This will be rendered to .evo_c-super-easy__body
+    @include e( 'header' ) {
+      height: $c-super-easy-header-height;
+    }
+
+    // This will be rendered to .evo_c-super-easy__body
     // The 'header' element
-  	@include e( 'body' ) {
-            height: $c-super-easy-body-height;
-  	}
-  
-  	// This will be rendered to .evo_c-super-easy__footer
+    @include e( 'body' ) {
+      height: $c-super-easy-body-height;
+    }
+
+    // This will be rendered to .evo_c-super-easy__footer
     // The 'footer' element
-  	@include e( 'footer' ) {
-            height: $c-super-easy-footer-height;
-  	}
-  
-  	// This will be rendered to .evo_c-super-easy__title
-    // The 'title' element
-  	@include e( 'title' ) {
-            color: get-color('accent', $opacity: .6);
-  	}
-  
-  	// This will be rendered to .evo_c-super-easy__paragraph
+    @include e( 'footer' ) {
+      height: $c-super-easy-footer-height;
+    }
+
+    // This will be rendered to .evo_c-super-easy__title
+        // The 'title' element
+    @include e( 'title' ) {
+      color: get-color('accent', $opacity: .6);
+    }
+
+    // This will be rendered to .evo_c-super-easy__paragraph
     // The 'paragraph' element
-  	@include e( 'paragraph' ) {
-            font-size: 1.1rem;
-  	}
- 
+    @include e( 'paragraph' ) {
+      font-size: 1.1rem;
+    }
+
     // This will be rendered to .evo_c-super-easy__button
-        // The 'button' element
-  	@include e( 'button' ) {
-            border: 2px solid $c-super-easy-button-border-color;
-  	}
-  
-  	// This will be rendered to .evo_c-super-easy__copy
-        // The 'copy' element
-        @include e( 'copy' ) {
-          font-family: $c-super-easy-copy-font-family;
-          font-size: .8rem;
-  	}
+    // The 'button' element
+    @include e( 'button' ) {
+      border: 2px solid $c-super-easy-button-border-color;
+    }
+
+    // This will be rendered to .evo_c-super-easy__copy
+    // The 'copy' element
+    @include e( 'copy' ) {
+      font-family: $c-super-easy-copy-font-family;
+      font-size: .8rem;
+    }
 }
 ```
 
