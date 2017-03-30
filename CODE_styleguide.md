@@ -7,20 +7,33 @@ This guidelines are in part based on the code guide you can find at this URL:  h
        * [HTML Syntax](#html-syntax)
        * [Attribute order](#attribute-order)
        * [HTML tabindex Attribute](#htmltabindexattribute)
+
    * [CSS Code Guide](#css-code-guide)
        * [Declaration order](#declaration-order)
        * [Media queries](#media-queries)
        * [Single declarations](#single-declarations)
        * [Shorthand notation](#shorthand-notation)
+
    * [BEM: BLock, Element, Modifier](#bem-block-element-modifier)
        * [Namespaces](#namespaces)
        * [JS hooks](#js-hooks)
        * [State Hooks](#state-hooks)
        * [BEM and BEMit in the evolution framework](#bem-and-bemit-in-the-evolution-framework)
          * [Usage examples and SASS documentation](#usage-examples-and-sass-documentation)
-   * [IMPORTANT NOTES](#important-notes)
-      * [Sass structure](#sass-structure)
-   * [Javascript guideline](#javascript-guideline)
+
+   * [IMPORTANT STUFF](#important-stuff)
+
+   * [Sass structure](#sass-structure)
+
+   * [Javascript Style Guide](#Javascript-Style-Guide)
+
+      ​
+
+      ​
+
+      ​
+
+      ​
 
 
 
@@ -358,50 +371,9 @@ To get more confidence with the current mixins provided by our framework, take a
 
 ## IMPORTANT STUFF
 
-Each component in our framework must be prefixed by the framework name.
+If you want to contribute, take a look at how to do it in the right way, please.
 
-Look at the following example:
-
-The `.evo_c-grid__col` selector contains the `evo` prefix but it's hardcoded and this is a bad way to do that.
-
-```scss
-@include c('gridrow', false){
-  @include e('gutters'){
-    margin: -1em 0 1em -1em;
-    > .evo_c-grid__col {
-      padding: 1em 0 0 1em;;
-    }
-  }
-}
-```
-
-When you need to create a classe for a component without the use of a provided mixin, remember to prefix it with the `$framework-name` variable like in the following snippet of code:
-
-```scss
-@include c('gridrow', false){
-  @include e('gutters'){
-    margin: -1em 0 1em -1em;
-    > .#{$framework-name}_c-grid__col {
-      padding: 1em 0 0 1em;;
-    }
-  }
-}
-```
-
-
-
-Config variables in your configuration file must be always prefixed by the [ BEMit namespace + the component's name ]. If your component is called for example `Ruler`, a well structured config file could be:
-
-```
-//----------------------------------------------------------------
-//                       RULER Component config
-//----------------------------------------------------------------
-
-$c-ruler_width: 200px;
-$c-ruler_font-size: 200px;
-```
-
-
+[How to contribute](contribute.md)
 
 ## Sass structure
 
@@ -515,3 +487,7 @@ Where:
 
 
 
+
+## Javascript Style Guide
+
+We use the BOV Academy [Javascript Style Guide](https://github.com/BovAcademy-opensource/Bov-Academy-JavaScript-Style-Guide)
