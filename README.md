@@ -127,9 +127,9 @@ We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparin
   - Remember to rebase often to stay updated and minimize conflicts: `git pull --rebase evolution development`
   - When your component is ready, open a Pull Request to the `development` branch of the original repository. Your Pull Request will be reviewed as soon as possible
 
-## Showing Code For Added Components
+## Displaying Your Code For Added Components
 
-Add the following code snippet to the end of your component to showcase the HTML, CSS and JavaScript of your component.  However, some special characters may need to be escaped when marked up in HTML.  You can use [http://www.freeformatter.com/html-escape.html](http://www.freeformatter.com/html-escape.html) to automatically escape those special character so the code shows up properly in HTML.   Just paste your code in the proper HTML, CSS and JavaScript areas.
+Add the following code snippet to the end of your component to showcase the HTML, CSS and JavaScript of your component.  Keep in mind, some special characters may need to be escaped when marked up in HTML.  You can use [http://www.freeformatter.com/html-escape.html](http://www.freeformatter.com/html-escape.html) to automatically escape those special character so the code shows up properly in HTML.   Just paste your code in the proper HTML, CSS and JavaScript CODE HERE areas below.
 
 ```html
     <div class="evo_c-markup">
@@ -142,21 +142,21 @@ Add the following code snippet to the end of your component to showcase the HTML
         <div class="evo_c-markup__content">
           <pre>
             <code class="language-html">
-              HTML CODE HERE
+              <-- HTML CODE HERE -->
             </code>
           </pre>
         </div>
         <div class="evo_c-markup__content">
           <pre>
             <code class="language-css">
-              CSS CODE HERE
+              <-- CSS CODE HERE -->
             </code>
           </pre>
         </div>
         <div class="evo_c-markup__content">
           <pre>
             <code class="language-javascript">
-              JAVASCRIPT CODE HERE
+              <-- JAVASCRIPT CODE HERE -->
             </code>
           </pre>
         </div>

@@ -1,5 +1,5 @@
-/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript */
 export default function() {
+  /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript */
   var _self = (typeof window !== 'undefined')
   	? window   // if in browser
   	: (
