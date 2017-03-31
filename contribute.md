@@ -306,31 +306,73 @@ Each SASS component is imported through the `_import-components.scss` file.
 
 ##### ES6 Module
 
-Evolution UI makes use of ES6 modules to handle components' dependencies.
+Evolution UI makes use of ES6 modules to handle components' dependencies. Our goal is to build a dependency tree from our root file (`app.js`).
 
-Within your `component-name.js` file make use of the ES6's `export` directive to export it globally.
+- The most simple case is having a single default export. Within your `component-name.js` file make use of the ES6's `export default` directive to export it globally. Then, you can import and execute your component's script through the `app.js` file. **You can only have one default export per file**:
 
-```javascript
-export default function() {
+  ```javascript
+  
+  //--------component-name.js--------
+  export default function() {
+  
+  /* The Javascript content for your component   */
+  
+    /* [ ... ] */
+  
+  }
+  
+  //--------app.js--------
+  
+  // The component-name is the name of your script without the extension
+  import c-component-name from './[standard|evolution]/component-name'
+  
+  // execute it
+  c-component-name();
+  ```
+  
+- You can have several named exports and import them individually or as a whole:
 
-/* The Javascript content for your component   */
+  ```javascript
+  
+  //--------utils.js--------
+  export function add() {...}
+  export const substract = function() {...}
+  
+  //--------app.js-------- individual import --------
+  import {add, substract} from './utils'
+  
+  // execute it
+  add();
+  substract();
 
-  /* [ ... ] */
+  //--------app.js-------- import as a whole --------
+  import * as utils from './utils'
+  
+  // execute it
+  utils.add();
+  utils.substract();
+  ```
 
-}
-```
+- Finally, you can have both named and default exports:
 
-Then, you can import and execute your component's script through the `app.js` file:
+  ```javascript
+  
+  //--------utils.js--------
+  export function add() {...}
+  export const substract = function() {...}
+  
+  export default function () {...}
+  
+  //--------app.js--------
+  import defaultFunction, {add, substract} from './utils'
+  
+  // execute it
+  add();
+  substract();
 
-```javascript
-// The component-name is the name of your script without the extension
-import c-component-name from './[standard|evolution]/component-name'
-
-// execute it
-c-component-name();
-```
-
-
+  defaultFunction();
+  ```
+You can find all you need to know on ES6 modules [here](http://2ality.com/2014/09/es6-modules-final.html).
 
 #### Setting up the HTML markup and SASS
 
