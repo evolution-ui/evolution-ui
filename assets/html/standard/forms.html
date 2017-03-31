@@ -32,10 +32,11 @@
             <!-- username -->
             <div class="evo_c-form__field">
               <i class="evo_c-form__icon material-icons">person</i>
-              <input class="evo_c-form__input h-full-width"
+              <input class="evo_c-form__input"
                      id="name"
                      placeholder="name"
                      type="text" required>
+              <span class="h-field-status"></span>
             </div>
 
             <!-- email -->
@@ -43,7 +44,11 @@
               <span class="evo_c-form__icon">
                 <i class="evo_c-form__icon material-icons">email</i>
               </span>
-              <input class="evo_c-form__input h-full-width" id="email" placeholder="Email" type="email" required>
+              <input class="evo_c-form__input"
+                     id="email"
+                     placeholder="Email"
+                     type="email" required>
+              <span class="h-field-status"></span>
             </div>
 
             <!-- password -->
@@ -51,16 +56,20 @@
               <span class="evo_c-form__icon">
                 <i class="evo_c-form__icon material-icons">lock</i>
               </span>
-              <input class="evo_c-form__input h-full-width" id="password" placeholder="Password" type="password" value="" required>
-              <div class="su_error-message">Wrong Password. Try Again</div>
+              <input class="evo_c-form__input"
+                     id="password"
+                     placeholder="Password"
+                     type="password"
+                     value="" required>
+              <span class="h-field-status"></span>
             </div>
           </div>
 
           <!-- FORM FOOTER -->
           <div class="evo_c-form__footer">
-            <div class="evo_c-form__field evo_c-form__field--border">
-              <input class="su_input su_input--button--3D" type="submit" value="Sign Up">
-            </div>
+            <input class="evo_c-form__input--button"
+                   type="submit"
+                   value="Sign Up">
           </div>
 
         </form>

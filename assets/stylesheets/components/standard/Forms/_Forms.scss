@@ -16,7 +16,7 @@
 }
 
 
-@include c( 'form' ) {
+@include c( $c-form-component-name ) {
 
   // Provide a brackground's variation for each color in the Evolution Palette
   @include backgroundVariants($is-descendant: true);
@@ -53,13 +53,28 @@
     flex-wrap: wrap;
     align-items: center;
 
+
+    @include h( 'field-status', $is-namespaced: false ) {
+      &:after {
+        content: '';
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        display: block;
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+      }
+    }
+
   }
 
-  // Input element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              INPUT ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   @include e( 'input' ) {
 
-    //@include vertical-rhythm( 1rem, $top-rows: 1);
-
+    display: inline-block;
     height: $c-form-input-height;
 
     font-size: inherit;
@@ -71,13 +86,37 @@
     border: 0;
     border-bottom: 1px solid rgba(0,0,0,.2);
 
-    // Textual inputs include: text, password, etc.
-    @include m( 'textual' ) {
 
+    &:required:valid + .h-field-status:after {
+      background-color: green;
+    }
+
+    &:required:invalid + .h-field-status:after {
+      background-color: red !important;
+    }
+
+    //--------------------------------------------------------------------------
+    //                              BUTTON
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    @include m( 'button' ) {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 400px;
+      border: 1px solid get-color('accent', 'light');
+      background-color: white();
+      transition: all .2s linear;
+
+      &:hover {
+        color: white();
+        background-color: get-color('accent', 'light');
+      }
     }
   }
 
-  // Icon element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              ICON ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   @include e( 'icon' ) {
 
     $c-form__input: getBEMReference($c-form-component-name, input);
