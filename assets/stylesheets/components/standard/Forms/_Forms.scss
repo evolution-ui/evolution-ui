@@ -21,6 +21,8 @@
   // Provide a brackground's variation for each color in the Evolution Palette
   @include backgroundVariants($is-descendant: true);
 
+  padding: $c-form-padding-default;
+
   @include h( 'full-width', $no-prefix ) {
     width: 100%;
   }
@@ -44,15 +46,27 @@
   // Field element
   @include e( 'field' ) {
 
-    @include vertical-rhythm( 30px, $top-rows: 1, $use-height: true );
+    @include vertical-rhythm( 1rem, $top-rows: 1);
 
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
   }
 
   // Input element
   @include e( 'input' ) {
+
+    //@include vertical-rhythm( 1rem, $top-rows: 1);
+
     height: $c-form-input-height;
+
+    font-size: inherit;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 90%;
 
     border: 0;
     border-bottom: 1px solid rgba(0,0,0,.2);
@@ -67,11 +81,10 @@
   @include e( 'icon' ) {
 
     $c-form__input: getBEMReference($c-form-component-name, input);
-    position: absolute;
-    padding: 10px;
+
 
     & + .#{$c-form__input} {
-      padding-left: 40px;
+      padding-left: 10px;
     }
 
   }
