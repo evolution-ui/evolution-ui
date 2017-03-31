@@ -1,8 +1,9 @@
-(function() {
+export default function() {
   var markupTabs = document.getElementsByClassName('js-c-markup-toggle');
 
   if (markupTabs) {
     for (var i = 0; i < markupTabs.length; i++) {
+      //FIXME: Should be a better way than adding a listener to each element??
       markupTabs[i].addEventListener('click', function(event) {
         var clickedTabClassList = event.target.classList;
         var markupContainerClassList = this.parentNode.children[1].classList;
@@ -31,4 +32,4 @@
       }, false);
     }
   }
-})();
+}
