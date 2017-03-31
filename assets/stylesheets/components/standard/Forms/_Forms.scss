@@ -1,0 +1,79 @@
+/******************************************************************************
+                              Forms component
+******************************************************************************/
+
+
+@import 'Forms-config';
+
+
+
+@include l( 'grid' ) {
+
+  @include e( 'item' ) {
+    padding: 20px;
+  }
+
+}
+
+
+@include c( 'form' ) {
+
+  // Provide a brackground's variation for each color in the Evolution Palette
+  @include backgroundVariants($is-descendant: true);
+
+  @include h( 'full-width', $no-prefix ) {
+    width: 100%;
+  }
+
+  @include h( 'border-style--dotted', $no-prefix ) {
+    border-style: dotted;
+  }
+
+  @include h( 'border-style--dashed', $no-prefix ) {
+    border-style: dashed;
+  }
+
+  & * { box-sizing: border-box; }
+  & *:focus { outline: 0; }
+
+  // Header element
+  @include e( 'header' ) {
+
+  }
+
+  // Field element
+  @include e( 'field' ) {
+
+    @include vertical-rhythm( 30px, $top-rows: 1, $use-height: true );
+
+    position: relative;
+
+  }
+
+  // Input element
+  @include e( 'input' ) {
+    height: $c-form-input-height;
+
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+
+    // Textual inputs include: text, password, etc.
+    @include m( 'textual' ) {
+
+    }
+  }
+
+  // Icon element
+  @include e( 'icon' ) {
+
+    $c-form__input: getBEMReference($c-form-component-name, input);
+    position: absolute;
+    padding: 10px;
+
+    & + .#{$c-form__input} {
+      padding-left: 40px;
+    }
+
+  }
+
+}

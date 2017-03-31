@@ -1,0 +1,188 @@
+/******************************************************************************
+                              Crumble component
+******************************************************************************/
+
+@import 'Crumble-config';
+
+
+
+@include c( 'crumble' ) {
+  @include vertical-rhythm(1rem);
+  font-weight: $c-crumble-font-weight;
+
+  // Full width Event Details
+  @include m('full-width') {
+
+    // Item element
+    & .#{$framework-name}_c-crumble__item {
+      display: block;
+    }
+  }
+
+  // List element
+  @include e( 'list' ) {
+    padding: 0;
+    list-style-type: none;
+
+    @include m('actions') {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  // Item element
+  @include e('item') {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: get-color('primary', 'dark');
+    border: 1px solid rgb(206, 206, 206);
+
+      &:hover {
+        background-color: get-color('primary', $opacity: .9);
+      }
+  }
+
+  // Tag element
+  @include e('tag') {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    display: flex;
+    height: 100%;
+    width: 60px;
+    background-color: rgb(196, 196, 179);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+      &:after {
+        content: attr(data-tag);
+        text-transform: uppercase;
+        font-size: .8em;
+      };
+  }
+
+  // SPAN element
+  @include e('span') {
+    display: flex;
+    align-items: center;
+    color: white();
+    padding-left: 100px;
+    min-height: $c-crumble-span-min-height;
+
+    @include s('is-active') {
+      min-height: 0;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+  }
+
+  // ICON element
+  @include e('icon') {
+    @extend %c-crumble-pointer;
+    position: relative;
+    bottom: 10px;
+    padding: 10px;
+    color: white(0.69);
+    background-color: get-color('secondary', 'light');
+
+      &:hover {
+        background-color: get-color('secondary');
+        color: white(1);
+      }
+
+      // crumble__icon--close
+      @include m('close') {
+        @extend %c-crumble-pointer;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        color: white(.6);
+        transition: transform .7s cubic-bezier(0.39, 0.58, 0.57, 1);
+
+          &:hover {
+            color: white();
+            transform: rotate(360deg);
+          }
+      }
+
+      // crumble__icon--expand
+      @include m('expand') {
+        @extend %c-crumble-pointer;
+        padding: 10px;
+        margin: 0 10px;
+        background-color: white(.05);
+      }
+  }
+
+  // The inner Event component
+  @include c('event') {
+    min-height: 0;
+    height: 0;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    transition: min-height 1s cubic-bezier(0, 1.02, 0, 1);
+    perspective: 40px;
+    cursor: initial;
+
+    // Status
+    @include s('is-open') {
+      min-height: $c-crumble-header-height + $c-crumble-body-height;
+      height: auto;
+      width: 100%;
+      overflow: initial;
+    }
+
+    // event__title
+    @include e('title') {
+      color: white();
+      text-transform: uppercase;
+      letter-spacing: .3rem;
+    }
+
+    // event__header
+    @include e('header') {
+      @extend %c-crumble-unfold-transition;
+
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: $c-crumble-header-height;
+      text-align: center;
+      background-color: get-color('background', 'light');
+      transform: rotateX(-10deg);
+      transform-origin: 50% 0;
+      transform-style: preserve-3d;
+
+      @include s('is-rotate-to-initial') {
+        @extend %c-crumble-rotate-to-initial;
+      }
+    }
+
+    // event__body
+    @include e('body') {
+      @extend %c-crumble-unfold-transition;
+      height: $c-crumble-body-height;
+      background-color: #6f6f6f;
+      text-align: center;
+      transform: rotateX(10deg);
+      transform-origin: 50% 100%;
+      transform-style: preserve-3d;
+      overflow: visible;
+
+      @include s('is-rotate-to-initial') {
+        @extend %c-crumble-rotate-to-initial;
+      }
+    }
+
+    // .event____description
+    @include e('description') {
+      padding: 5px;
+      color: white(.8);
+    }
+  }
+
+}

@@ -1,0 +1,110 @@
+/* EYELIDS COMPONENT */
+
+@import 'Eyelids-config';
+
+@include c('eyelids-notification') {
+  /* Positioning */
+  position: fixed;
+  right: 10px;
+  z-index: 999999;
+  transform: translate3d(100%, 0, 0);
+
+  /* Box Model */
+  box-sizing: border-box;
+  width: 280px;
+  padding: 10px 20px;
+
+  /* Typography */
+  text-align: center;
+  text-transform: uppercase;
+
+  /* Visual Aspect */
+  border-radius: 30px;
+  background-color: get_color('accent4', 'base', 1);
+  box-shadow: 2px 2px 5px 1px black(.3);
+
+  /* Animations */
+  transition: all .3s ease-in-out 0s;
+  @include s('is-active', $is-namespaced: false) {
+    animation: notify 5s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s forwards;
+  }
+
+  /* Misc */
+  cursor: pointer;
+
+  p {
+    margin-top: 0;
+  }
+
+}
+
+@keyframes notify {
+
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  5% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  95% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+
+}
+
+// maybe it is better to animate position on initialization instead the dimensions
+
+@include c('eyelids') {
+  @include m('top') {
+    @extend %c-fixed-containers;
+
+    /* Positioning */
+    top: 0;
+
+    /* Box Model */
+    height: 0;
+
+    /* Visual Aspect */
+    background-image: linear-gradient(to top, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
+  }
+}
+
+@include c('eyelids') {
+  @include m('bottom') {
+    @extend %c-fixed-containers;
+
+    /* Positioning */
+    bottom: 0;
+    top: 100vh;
+
+    /* Visual Aspect */
+    background-image: linear-gradient(to bottom, $highlight 0%, lighten($background, 10%) 10%, $background 60%);
+  }
+}
+
+@include c('eyelids-helper') {
+  /* Positioning */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  /* Typography */
+  color: white(.8);
+
+  /* Visual Aspect */
+  ul {
+    list-style: disc;
+  }
+
+  /* Misc */
+  pointer-events: none;
+}
+
+/* END EYELIDS */
