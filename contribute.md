@@ -13,6 +13,7 @@
   * [Build a component for Evolution UI](#build-a-component-for-evolution-ui)
     * [Setting up a working environment](#setting-up-a-working-environment)
     * [Understanding the framework's structure](#understanding-the-frameworks-structure)
+    * [Run your component into the browser](#run-your-component-into-the-browser)
       * [ES6 Module](#es6-module)
     * [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
     * [Import Stylesheets and app.js](#import-stylesheets-and-appjs)
@@ -302,7 +303,7 @@ evolution-ui/
 For example, the Eyelids component is an **evolution** component and it's main files are: 
 
 - HTML:
-  -  `evolution-ui/assets/html/evolution/eyelids.html`
+  -  `evolution-ui/assets/html/evolution/eyelids.html` - (known as *preview file*)
 - Javascript path:
   -  `evolution-ui/assets/scripts/evolution/eyelids.js`
 - SASS path:
@@ -312,6 +313,18 @@ For example, the Eyelids component is an **evolution** component and it's main f
 Looking at the SASS dir, we can see that the Eyelids component has two main files: `_Eyelids.scss` and a configuration file called `_Eyelids-config.scss`. You can import configuration files into the main file to keep the configuration separate.
 
 Each SASS component is imported through the `_import-components.scss` file.
+
+#### Run your component into the browser
+
+Evolution UI makes use of Gulp for tasks execution.
+
+To get more information on that, please read the **Installing Gulp tasks** in the [README.md](https://github.com/BovAcademy-opensource/evolution-ui/tree/development) file.
+
+After you started the development environment with the command `npm start`, your default browser will show up and the *preview file* will be visible at the following URL:
+
+`http://localhost:3000/temp/[evolution|standard]/component-name.html`
+
+
 
 ##### ES6 Module
 
@@ -419,6 +432,8 @@ In this case, a good way to satisfy the newly request could be to define a helpe
  </div>
 ```
 
+
+**IMPORTANT Note:** Don't forget to add your markup into your preview file. To this end, read the **Displaying The Code For Components You Contribute** section at the end of the [README.md](https://github.com/BovAcademy-opensource/evolution-ui/tree/development)
 
 
 #### Import Stylesheets and app.js
@@ -818,9 +833,13 @@ README [here](https://github.com/BovAcademy-opensource/evolution-ui/blob/develop
 
 * The `.css` , `.css.map` and others output files must not be tracked.
 
+* After you started the development environment with the command `npm start`, your default browser will show up and your component will be visible at the following URL: `http://localhost:3000/temp/[evolution|standard]/component-name.html`
+
 * ES6: You can only have one default export per file.
 
 * Evolution UI makes use of `autoprefixer`, so **you don't need to add vendor prefixes** to your CSS rules. 
+
+* Don't forget to add your markup into your preview file. To this end, read the **Displaying The Code For Components You Contribute** section at the end of the [README.md](https://github.com/BovAcademy-opensource/evolution-ui/tree/development)
 
 * The target branch for each pull request is the `development` branch.
 
