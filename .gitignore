@@ -6,3 +6,5 @@ production
 public
 dist
 .publish
+*.map
+*.css
