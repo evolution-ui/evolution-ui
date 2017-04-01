@@ -30,19 +30,19 @@
 /// @param {Number} $levels - The number of headings
 /// @param {Boolean} $extraHeading - If true it generates extra headings
 ///
-/// @require $typography-base-scale
+/// @require $_typography-base-scale
 /// @require $g-framework-base-font-size
-/// @require $typography-scales-smaller
-/// @require $typography-scales-bigger
+/// @require $_typography-scales-smaller
+/// @require $_typography-scales-bigger
 ///
 
 @mixin generateHeadings( $levels, $extraHeading: true ){
 
-  $scale-smaller-sizes: $typography-scales-smaller;
-  $scale-bigger-sizes: $typography-scales-bigger;
+  $scale-smaller-sizes: $_typography-scales-smaller;
+  $scale-bigger-sizes: $_typography-scales-bigger;
 
   @for $i from 1 through $levels {
-    $font-size: pow($typography-base-scale, $levels - $i);
+    $font-size: pow($_typography-base-scale, $levels - $i);
       h#{$i}, .#{$g-framework-name}_typo_h#{$i} {
         font-size: #{$font-size}rem;
         line-height: vrhythm($font-size);
@@ -54,7 +54,7 @@
     // BIGGER SIZES classes
     @for $i from 1 through length($scale-bigger-sizes)  {
       $item: nth($scale-bigger-sizes, $i);
-      $font-size: pow($typography-base-scale, 5 + $i);
+      $font-size: pow($_typography-base-scale, 5 + $i);
 
       .#{$g-framework-name}_typo--#{$item} {
         font-size: rem($g-framework-base-font-size * $font-size) + 0rem;
@@ -65,7 +65,7 @@
     // SMALLER SIZES classes
     @for $i from 1 through length($scale-smaller-sizes)  {
       $item: nth($scale-smaller-sizes, $i);
-      $font-size: pow($typography-base-scale, $i);
+      $font-size: pow($_typography-base-scale, $i);
 
       .#{$g-framework-name}_typo--#{$item} {
         font-size: rem($g-framework-base-font-size / $font-size) + 0rem;

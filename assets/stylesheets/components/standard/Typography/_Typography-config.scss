@@ -9,7 +9,7 @@
 /// @access private
 /// @type MAP
 
-$typography-scales: (
+$_typography-scales: (
   minor-second:     1.067,
   major-second:     1.125,
   minor-third:      1.200,
@@ -26,7 +26,7 @@ $typography-scales: (
 /// Represent extra headings
 /// @access private
 /// @type LIST
-$typography-scales-bigger:  large, x-large;
+$_typography-scales-bigger:  large, x-large;
 
 ///
 /// List of extra headings
@@ -34,11 +34,11 @@ $typography-scales-bigger:  large, x-large;
 /// Represent extra headings
 /// @access private
 /// @type LIST
-$typography-scales-smaller: small, x-small;
+$_typography-scales-smaller: small, x-small;
 
 ///
 /// Set the 'major-third' scale for headings
 ///
 /// @access private
 /// @type String
-$typography-base-scale: map-get($typography-scales, 'major-third');
+$_typography-base-scale: map-get($_typography-scales, 'major-third');
