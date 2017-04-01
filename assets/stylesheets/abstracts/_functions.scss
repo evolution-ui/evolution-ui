@@ -183,7 +183,7 @@
                           $modifier-name: null,
                           $is-namespaced: true ) {
 
-  $f-namespace:   if($is-namespaced == true, '#{$framework-name}_', '');
+  $f-namespace:   if($is-namespaced == true, '#{$g-framework-name}_', '');
   $block-name:    'c-#{$block-name}';
   $element-name:  if($element-name == null, '', '__#{$element-name}');
   $modifier-name: if($modifier-name == null, '', '--#{$modifier-name}');

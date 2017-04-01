@@ -3,6 +3,21 @@
 //------------------------------------------------------------------------------
 
 
+
+$c-crumble-name: 'crumble';
+
+$c-crumble-font-weight: 300;
+
+$c-crumble-span-min-height: 50px;
+$c-crumble-header-height: 60px;
+$c-crumble-body-height: 60px;
+
+
+//------------------------------------------------------------------------------
+//                          Crumble Placeholders
+//------------------------------------------------------------------------------
+
+
 %c-crumble-unfold-transition {
   transition: transform .7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -14,11 +29,3 @@
 %c-crumble-rotate-to-initial {
   transform: rotateX(0)!important;
 }
-
-
-$c-crumble-font-weight: 300;
-
-$c-crumble-span-min-height: 50px;
-$c-crumble-header-height: 60px;
-$c-crumble-body-height: 60px;
-

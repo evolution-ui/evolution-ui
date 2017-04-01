@@ -43,7 +43,7 @@
 
   @for $i from 1 through $levels {
     $font-size: pow($typography-base-scale, $levels - $i);
-      h#{$i}, .#{$framework-name}_typo_h#{$i} {
+      h#{$i}, .#{$g-framework-name}_typo_h#{$i} {
         font-size: #{$font-size}rem;
         line-height: vrhythm($font-size);
     }
@@ -56,7 +56,7 @@
       $item: nth($scale-bigger-sizes, $i);
       $font-size: pow($typography-base-scale, 5 + $i);
 
-      .#{$framework-name}_typo--#{$item} {
+      .#{$g-framework-name}_typo--#{$item} {
         font-size: rem($framework-base-font-size * $font-size) + 0rem;
         line-height: vrhythm($font-size);
       }
@@ -67,7 +67,7 @@
       $item: nth($scale-smaller-sizes, $i);
       $font-size: pow($typography-base-scale, $i);
 
-      .#{$framework-name}_typo--#{$item} {
+      .#{$g-framework-name}_typo--#{$item} {
         font-size: rem($framework-base-font-size / $font-size) + 0rem;
         line-height: vrhythm($font-size);
       }

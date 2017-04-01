@@ -6,15 +6,17 @@
 
 
 
-@include c( 'crumble' ) {
+@include c( $c-crumble-name ) {
   @include vertical-rhythm(1rem);
   font-weight: $c-crumble-font-weight;
 
   // Full width Event Details
   @include m('full-width') {
 
+    $reference-crumble-item: getBEMReference($c-crumble-name, 'item');
+
     // Item element
-    & .#{$framework-name}_c-crumble__item {
+    & .#{$reference-crumble-item} {
       display: block;
     }
   }

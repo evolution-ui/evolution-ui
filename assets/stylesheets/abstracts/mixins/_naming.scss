@@ -10,8 +10,8 @@
 /// @access public
 ///
 /// @param {String} $class - A class name
-/// @param {String} $prefix [$framework-name] - An optional prefix
-/// @require $framework-name
+/// @param {String} $prefix [$g-framework-name] - An optional prefix
+/// @require $g-framework-name
 ///
 /// @example scss - Usage
 ///
@@ -30,14 +30,14 @@
 /// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
 ///
 
-@mixin namespaced( $class, $prefix: $framework-name ) {
+@mixin namespaced( $class, $prefix: $g-framework-name ) {
   .#{$prefix}_#{$class} {
     @content;
   }
 }
 
 /// @alias namespaced
-@mixin nm( $class, $prefix: $framework-name ) {
+@mixin nm( $class, $prefix: $g-framework-name ) {
   @include namespaced( $class, $prefix ) {
     @content;
   }
