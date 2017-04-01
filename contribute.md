@@ -2,23 +2,28 @@
 
 
 
-* [Naming Conventions](#naming-conventions)
+* [Evolution UI - How to contribute](#evolution-ui---how-to-contribute)
+  * [Naming Conventions](#naming-conventions)
+    * [Namespace](#namespace)
+  * [JS hooks](#js-hooks)
+      * [✖ - NOT worthwhile](#️-not-worthwhile)
+      * [✔ - worthwhile](#️-worthwhile)
+  * [State Hooks](#state-hooks)
+  * [Configuration](#configuration)
+  * [Build a component for Evolution UI](#build-a-component-for-evolution-ui)
+    * [Setting up a working environment](#setting-up-a-working-environment)
+    * [Understanding the framework's structure](#understanding-the-frameworks-structure)
+      * [ES6 Module](#es6-module)
+    * [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
+    * [Import Stylesheets and app.js](#import-stylesheets-and-appjs)
+    * [Sassdoc](#sassdoc)
+    * [Let's code with SASS](#lets-code-with-sass)
+      * [Make use of comments for improve readability](#make-use-of-comments-for-improve-readability)
+      * [How to reference the correct CSS selector](#how-to-reference-the-correct-css-selector)
+    * [How to push your component on the repository](#how-to-push-your-component-on-the-repository)
+  * [Additional information](#additional-information)
+    * [Quick recap](#quick-recap)
 
-     [Namespace](#namespace)
-
-     * [JS hooks](#js-hooks)
-     * [State Hooks](#state-hooks)
-     * [Configuration](#configuration)
-     * [Build a component for Evolution UI](#build-a-component-for-evolution-ui)
-         * [Setting up a working environment](#setting-up-a-working-environment)
-         * [Understanding the framework structure](#understanding-the-framework-structure)
-            * [ES6 Module](#es6-module)
-         * [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
-         * [Import Stylesheets and app.js](#import-stylesheets-and-app.js)
-         * [Sassdoc](#sassdoc)
-         * [Let's code with SASS](#lets-code-with-sass)
-         * [Pushing the resulting component on the repository](#pushing-the-resulting-component-on-the-repository)
-     * [Additional information](#Additional-information)
 
 
 
@@ -208,9 +213,13 @@ Please, note the use of the `c-` prefix before the actual component's name.
 
 
 
-Now we are ready to work at our component by staging and committing our changes on the new dedicated branch.
+Now we are ready to work at our component by staging and committing the changes on the new dedicated branch.
 
-#### Understanding the framework structure
+**NOTE**: The `.css` and `.css.map` and output files have to be tracked.
+
+
+
+#### Understanding the framework's structure
 
 In Evolution UI we tried to define an easy and well-separate structure. To this end, each component is placed in a separate subfolder.
 
@@ -311,43 +320,43 @@ Evolution UI makes use of ES6 modules to handle components' dependencies. Our go
 - The most simple case is having a single default export. Within your `component-name.js` file make use of the ES6's `export default` directive to export it globally. Then, you can import and execute your component's script through the `app.js` file. **You can only have one default export per file**:
 
   ```javascript
-  
+
   //--------component-name.js--------
   export default function() {
-  
+
   /* The Javascript content for your component   */
-  
+
     /* [ ... ] */
-  
+
   }
-  
+
   //--------app.js--------
-  
+
   // The component-name is the name of your script without the extension
   import c-component-name from './[standard|evolution]/component-name'
-  
+
   // execute it
   c-component-name();
   ```
-  
+
 - You can have several named exports and import them individually or as a whole:
 
   ```javascript
-  
+
   //--------utils.js--------
   export function add() {...}
   export const substract = function() {...}
-  
+
   //--------app.js-------- individual import --------
   import {add, substract} from './utils'
-  
+
   // execute it
   add();
   substract();
 
   //--------app.js-------- import as a whole --------
   import * as utils from './utils'
-  
+
   // execute it
   utils.add();
   utils.substract();
@@ -356,23 +365,23 @@ Evolution UI makes use of ES6 modules to handle components' dependencies. Our go
 - Finally, you can have both named and default exports:
 
   ```javascript
-  
+
   //--------utils.js--------
   export function add() {...}
   export const substract = function() {...}
-  
+
   export default function () {...}
-  
+
   //--------app.js--------
   import defaultFunction, {add, substract} from './utils'
-  
+
   // execute it
   add();
   substract();
 
   defaultFunction();
   ```
-You can find all you need to know on ES6 modules [here](http://2ality.com/2014/09/es6-modules-final.html).
+  You can find all you need to know on ES6 modules [here](http://2ality.com/2014/09/es6-modules-final.html).
 
 #### Setting up the HTML markup and SASS
 
@@ -627,6 +636,68 @@ Let's move on the main SCSS file:
 
 
 
+##### Make use of comments for improve readability
+
+To make your `.scss` maintainable and well structured, you can exploit *single line comments* to add meanings and improve readability. In SASS, *single line comments* start with `//` and are removed by the  `.scss` pre-processor, so they won't appear in your .css file.
+
+Let's see at an example:
+
+```scss
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             HEADER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'header' ) {
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             BODY ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'body' ) {
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             FOOTER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'footer' ) {
+
+  }
+```
+
+And you could use a slightly different version of comment for modifiers, too:
+
+```scss
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             HEADER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'header' ) {
+	
+    width: 80%;
+    height: 200px;
+    
+    
+    //--------------------------------------------------------------------------
+    //                         LOW -- HEADER MODIFIER
+    //--------------------------------------------------------------------------
+    
+    @include m ( 'low') {
+      height: 100px;
+    }
+    
+  }
+```
+
+Now, at a glance, you should be able to find your items in an easy way.
+
+
+
+##### How to reference the correct CSS selector
+
 Some times we need to reference siblings element through the predefined CSS selector.
 
 For example, what if we want to add some CSS properties to buttons element only if they are adjacent siblings of paragraphs element?
@@ -705,11 +776,11 @@ So, let's change it:
   // [...]
 ```
 
-Now, if the component's name will change, our component will work without any problem.
+Now, if the component's name will change, our component won't be broken.
 
+**IMPORTANT NOTE**: You don't need to add vendor prefixes to your css rules since Evolution UI makes use of `autoprefixer`.
 
-
-#### Pushing the resulting component on the repository
+#### How to push your component on the repository
 
 As a rule of thumb, each component must be reviewed before getting into the framework.
 
@@ -719,7 +790,17 @@ When you are ready to push your work on the repository, just do it on the remote
 ~ $ git push origin c-super-easy
 ```
 
-At this point, you're ready for open a new [pull request](https://help.github.com/articles/creating-a-pull-request/) and your component is ready for a review by the Evolution UI core team.
+At this point, you're ready for open a new [pull request](https://help.github.com/articles/creating-a-pull-request/) 
+
+-----------------------------------------------------------------
+
+​                  **Note**:  The target branch of your pull-request is the `development` branch. 
+
+----------------------------------------------
+
+
+
+Your component is now ready for a review by the Evolution UI core team.
 
 
 
@@ -730,4 +811,18 @@ Code style guide [here](https://github.com/BovAcademy-opensource/evolution-ui/bl
 README [here](https://github.com/BovAcademy-opensource/evolution-ui/blob/development/README.md)
 
 
+
+#### Quick recap
+
+* Each complex *part* in the Evolution UI framework must be represented as a **component**. 
+
+* The `.css` and `.css.map` and output files have to be tracked with git.
+
+* ES6: You can only have one default export per file.
+
+* Evolution UI makes use of `autoprefixer`, so **you don't need to add vendor prefixes** to your CSS rules. 
+
+* The target branch for each pull request is the `development` branch.
+
+  ​
 
