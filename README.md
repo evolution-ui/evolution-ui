@@ -142,21 +142,21 @@ Add the following code snippet to the end of your component to showcase the HTML
         <div class="evo_c-markup__content">
           <pre>
             <code class="language-html">
-              <-- HTML CODE HERE -->
+              <!-- HTML CODE HERE -->
             </code>
           </pre>
         </div>
         <div class="evo_c-markup__content">
           <pre>
             <code class="language-css">
-              <-- CSS CODE HERE -->
+              <!-- CSS CODE HERE -->
             </code>
           </pre>
         </div>
         <div class="evo_c-markup__content">
           <pre>
             <code class="language-javascript">
-              <-- JAVASCRIPT CODE HERE -->
+              <!-- JAVASCRIPT CODE HERE -->
             </code>
           </pre>
         </div>
