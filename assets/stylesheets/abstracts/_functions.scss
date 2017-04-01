@@ -234,16 +234,23 @@
 /// @return {HEX Value}
 ///
 /// @example - get-color function - opacity's name are specified in the $g-framework-colors-opacity variable
+///
 ///   get-color('accent')
-///   // Returns the hex color of the BASE variant of the 'accent' color
+///     // Returns the hex color of the BASE variant of the 'accent' color
+///
 ///   get-color('accent', 'light')
-///   // Returns the hex color of the LIGHT variant of the hexadecimal color of the 'accent' color
+///     // Returns the hex color of the LIGHT variant of the hexadecimal color of the 'accent' color
+///
 ///   get-color('accent4', 'dark', .5)
-///   // Returns the hex color of the DARK variant of the 'accent4' color with an opacity of .5
+///     // Returns the hex color of the DARK variant of the 'accent4' color with an opacity of .5
+///
 ///   get-color('primary', $opacity:.8)
-///   // Returns the hex color of the BASE variant of the 'primary' color with an opacity of .8
+///     // Returns the hex color of the BASE variant of the 'primary' color with an opacity of .8
+///
 ///   get-color('secondary', $opacity:'heavy')
-///   // Returns the hex color of the BASE variant of the 'secondary' color with an opacity of .4
+///     // Returns the hex color of the BASE variant of the 'secondary' color with an opacity of .4
+///
+/// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
 ///
 
 @function get-color( $type: 'primary', $variant: 'base', $opacity: 1 ) {
