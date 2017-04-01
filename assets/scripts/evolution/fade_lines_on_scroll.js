@@ -1,10 +1,21 @@
 export default function() {
 
   /*FADE LINES ON SCROLL COMPONENT*/
-  var fadedTextBlock = document.querySelectorAll(
-    '.js-evolution-fade-lines-target');
+  var fadedTextBlock = document.querySelectorAll('.js-c-fade-lines-target');
+  for (var i = 0; i < fadedTextBlock.length; i++) {
+    console.log(this);
+    var wrappedWordsInSpanTags = fadedTextBlock[i].innerHTML.replace(/(\S+\s*)/g, "<span>$1</span>");
+    fadedTextBlock[i].innerHTML = wrappedWordsInSpanTags;
+    // console.log(fadedTextBlock[i].innerText.replace(/(\S+\s*)/g, "<span>$1</span>"));
+  }
 
-  console.log(fadedTextBlock);
+  // for (var j = 0; fadedTextBlock.length; i++) {
+    // fadedTextBlock[j].addEventListener('scroll', function(event) {
+      // console.log('Ok, This is scrolling');
+    // });
+  // }
+
+
 
 
   /*CODE REFERENCE*/
