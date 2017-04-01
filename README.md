@@ -127,9 +127,9 @@ We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparin
   - Remember to rebase often to stay updated and minimize conflicts: `git pull --rebase evolution development`
   - When your component is ready, open a Pull Request to the `development` branch of the original repository. Your Pull Request will be reviewed as soon as possible
 
-## Displaying Your Code For Added Components
+## Displaying The Code For Components You Contribute
 
-Add the following code snippet to the end of your component to showcase the HTML, CSS and JavaScript of your component.  Keep in mind, some special characters may need to be escaped when marked up in HTML.  You can use [http://www.freeformatter.com/html-escape.html](http://www.freeformatter.com/html-escape.html) to automatically escape those special character so the code shows up properly in HTML.   Just paste your code in the proper HTML, CSS and JavaScript CODE HERE areas below.
+Add the following code snippet to the end of your component to showcase the HTML, CSS and JavaScript of your component.  Keep in mind, some special characters may need to be escaped when marked up in HTML.  You can use [http://www.freeformatter.com/html-escape.html](http://www.freeformatter.com/html-escape.html) to automatically escape those special characters so the code shows up properly in HTML.   Just paste your code in the proper HTML, CSS and JavaScript CODE HERE areas below.
 
 ```html
     <div class="evo_c-markup">
