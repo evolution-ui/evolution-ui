@@ -35,23 +35,52 @@
     border-style: dashed;
   }
 
+  @include h( '3D', $no-prefix ) {
+    box-shadow: 0 3px 0 0 rgba(0,0,0,.23);
+
+    &:active {
+      top: 3px;
+      box-shadow: none;
+    }
+  }
+
   & * { box-sizing: border-box; }
   & *:focus { outline: 0; }
 
-  // Header element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             HEADER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   @include e( 'header' ) {
 
   }
 
-  // Field element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             BODY ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'body' ) {
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             FOOTER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'footer' ) {
+    @extend %c-form-flex-align-center;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             FIELD ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   @include e( 'field' ) {
 
-    @include vertical-rhythm( 1rem, $top-rows: 1);
+    @extend %c-form-vertical-rythm-1;
+    @extend %c-form-flex-align-center;
 
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
 
 
     @include h( 'field-status', $is-namespaced: false ) {
@@ -61,8 +90,8 @@
         right: 5px;
         top: 5px;
         display: block;
-        height: 5px;
-        width: 5px;
+        height: $c-form-input-status-size;
+        width: $c-form-input-status-size;
         border-radius: 50%;
       }
     }
@@ -72,10 +101,13 @@
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //                              INPUT ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   @include e( 'input' ) {
 
     display: inline-block;
     height: $c-form-input-height;
+
+    padding: $c-form-input-padding-default;
 
     font-size: inherit;
 
@@ -97,19 +129,26 @@
 
     //--------------------------------------------------------------------------
     //                              BUTTON
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //--------------------------------------------------------------------------
 
     @include m( 'button' ) {
+
+      @extend %c-form-vertical-rythm-1;
+      @include margin-auto();
+
       width: 90%;
-      margin: 0 auto;
       max-width: 400px;
-      border: 1px solid get-color('accent', 'light');
+      padding: $c-form-input-padding-default;
       background-color: white();
+      border: 1px solid get-color('primary2', 'light');
+      border-radius: $c-form-input--button-border-radius;
+      cursor: pointer;
+
       transition: all .2s linear;
 
       &:hover {
         color: white();
-        background-color: get-color('accent', 'light');
+        background-color: get-color('primary2', 'light');
       }
     }
   }
