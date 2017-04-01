@@ -215,7 +215,7 @@ Please, note the use of the `c-` prefix before the actual component's name.
 
 Now we are ready to work at our component by staging and committing the changes on the new dedicated branch.
 
-**NOTE**: The `.css` and `.css.map` and output files have to be tracked.
+**NOTE**: The `.css` , `.css.map` and others output files must not be tracked.
 
 
 
@@ -816,7 +816,7 @@ README [here](https://github.com/BovAcademy-opensource/evolution-ui/blob/develop
 
 * Each complex *part* in the Evolution UI framework must be represented as a **component**. 
 
-* The `.css` and `.css.map` and output files have to be tracked with git.
+* The `.css` , `.css.map` and others output files must not be tracked.
 
 * ES6: You can only have one default export per file.
 
