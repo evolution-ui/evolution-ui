@@ -39,23 +39,24 @@
     }
 
     @include s('is-active') {
-      background-color: white(1);
       border-top: 3px solid get-color('primary', 'base');
       border-bottom: 0;
+      background-color: $markup-active-tab-and-container-bg-color;
     }
   }
 
   @include e('container') {
     position: relative;
     top: -1px;
-    width: 100%;
+    // width: 100%;
     min-height: 0em;
     border: 1px solid #000;
     border-bottom: none;
+    background-color: $markup-active-tab-and-container-bg-color;
     transition: min-height .3s ease, padding .3s ease;
     overflow: hidden;
     @include s('is-expanded') {
-      padding: $markup-container-padding;
+      // padding: $markup-container-padding;
       border-bottom: 1px solid #000;;
       min-height: 15em;
       overflow-y: scroll;
@@ -64,6 +65,7 @@
 
   @include e('content') {
     position: absolute;
+    width: 100%;
     opacity: 0;
     transition: opacity .3s ease;
     @include s('is-active') {
