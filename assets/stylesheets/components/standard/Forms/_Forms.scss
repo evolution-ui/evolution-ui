@@ -23,19 +23,19 @@
 
   padding: $c-form-padding-default;
 
-  @include h( 'full-width', $no-prefix ) {
+  @include h( 'full-width', $g-no-prefix ) {
     width: 100%;
   }
 
-  @include h( 'border-style--dotted', $no-prefix ) {
+  @include h( 'border-style--dotted', $g-no-prefix ) {
     border-style: dotted;
   }
 
-  @include h( 'border-style--dashed', $no-prefix ) {
+  @include h( 'border-style--dashed', $g-no-prefix ) {
     border-style: dashed;
   }
 
-  @include h( '3D', $no-prefix ) {
+  @include h( '3D', $g-no-prefix ) {
     box-shadow: 0 3px 0 0 rgba(0,0,0,.23);
 
     &:active {

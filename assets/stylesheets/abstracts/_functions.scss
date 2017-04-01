@@ -224,16 +224,16 @@
 /// Get the hexadecimal color value (and its variations) from the su_ colors palette.
 ///
 /// @param {String} $type    ['primary'] - A valid color type. (primary, secondary,
-///                                        etc., see the variable $framework-colors)
+///                                        etc., see the variable $g-framework-colors)
 /// @param {String} $variant ['base']    - A variant of the color type
 /// @param {Number} $opacity [1]         - A number between 0 and 1 or a value
-///                                        specified within the $framework-colors-opacity map
+///                                        specified within the $g-framework-colors-opacity map
 ///
-/// @require $framework-colors
-/// @require $framework-colors-opacity
+/// @require $g-framework-colors
+/// @require $g-framework-colors-opacity
 /// @return {HEX Value}
 ///
-/// @example - get-color function - opacity's name are specified in the $framework-colors-opacity variable
+/// @example - get-color function - opacity's name are specified in the $g-framework-colors-opacity variable
 ///   get-color('accent')
 ///   // Returns the hex color of the BASE variant of the 'accent' color
 ///   get-color('accent', 'light')
@@ -251,7 +251,7 @@
   $color: null;
 
   // Get the color spectrum
-  $color-spectrum: map-get($framework-colors, $type);
+  $color-spectrum: map-get($g-framework-colors, $type);
 
   // Get the color variant
   @if $color-spectrum {
@@ -259,7 +259,7 @@
   }
 
   // Get the alpha setting
-  $alpha: if(type-of($opacity) == 'number', $opacity, map-get($framework-colors-opacity, $opacity));
+  $alpha: if(type-of($opacity) == 'number', $opacity, map-get($g-framework-colors-opacity, $opacity));
 
   // Set the alpha of the color
   @if $alpha {
@@ -300,14 +300,14 @@
 /// @param {Value} $size - A value in pixels
 /// @param {Value} $base-f-size - A base value in pixels
 ///                               (by default is equal to System base font size)
-///                               refer to the $framework-base-font-size variable
+///                               refer to the $g-framework-base-font-size variable
 /// @param {Boolean} $unitless [true] - If true it returns a value without the rem unit
 ///
 /// @require strip-units
 ///
 /// @return {Number}
 
-@function rem( $size, $base-f-size: $framework-base-font-size, $unitless: true ) {
+@function rem( $size, $base-f-size: $g-framework-base-font-size, $unitless: true ) {
   $newSize: strip-units($size);
   $base: strip-units($base-f-size);
   $remSize: if($newSize == 0, 0, $newSize / $base);

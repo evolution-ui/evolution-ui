@@ -75,7 +75,7 @@
   $font-size: if($unit == 'rem', $font-size, rem($font-size) + 0rem);
   $border: if($unit == 'rem', $border, rem($border) + 0rem);
 
-  $multiplier: ceil($font-size / $framework-line-height-base);
+  $multiplier: ceil($font-size / $g-framework-line-height-base);
 
   // if so use height property for height, otherwise use line-height property
 
@@ -86,18 +86,18 @@
   // use height property for height
 
   @if $use-height {
-    $leftover:      $framework-line-height-base * $multiplier - $font-size;
+    $leftover:      $g-framework-line-height-base * $multiplier - $font-size;
     height:         $font-size;
-    margin-top:     $framework-line-height-base * $top-rows + $leftover / 2;
-    margin-bottom:  $framework-line-height-base * $bottom-rows + $leftover / 2;
+    margin-top:     $g-framework-line-height-base * $top-rows + $leftover / 2;
+    margin-bottom:  $g-framework-line-height-base * $bottom-rows + $leftover / 2;
   }
   @else {
     // otherwise use line-height property
     // line-height property is applied to non-replaced inline elements
     // like spans, paragraphs, etc.
     font-size:      $font-size;
-    line-height:    $framework-line-height-base * $multiplier;
-    margin-top:     $framework-line-height-base * $top-rows;
-    margin-bottom:  $framework-line-height-base * $bottom-rows - $border;
+    line-height:    $g-framework-line-height-base * $multiplier;
+    margin-top:     $g-framework-line-height-base * $top-rows;
+    margin-bottom:  $g-framework-line-height-base * $bottom-rows - $border;
   }
 }

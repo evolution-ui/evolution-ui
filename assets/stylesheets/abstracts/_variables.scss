@@ -12,7 +12,7 @@ $g-framework-name: 'evo' !default;
 /// Helper variable that can be used within the provided naming mixins
 /// @access private
 /// @type Boolean
-$no-prefix: false;
+$g-no-prefix: false;
 
 // -----------------------------------------------------------------------------
 //                               FONTS
@@ -22,31 +22,31 @@ $no-prefix: false;
 /// Represent the base font-family used by the Evolution framework
 /// @access private
 /// @type String
-$framework-font-family: 'Roboto', sans-serif;
+$g-framework-font-family: 'Roboto', sans-serif;
 
 ///
 /// Represent the base font size used by the Evolution framework
 /// @access private
 /// @type Number
-$framework-base-font-size:    16px;
+$g-framework-base-font-size:    16px;
 
 ///
 /// Represent the line-height ratio used by the Evolution framework
 /// @access private
 /// @type Number
-$framework-line-height-ratio: 1.5;
+$g-framework-line-height-ratio: 1.5;
 
 ///
 /// Represent the base line-height used by the Evolution framework
 /// @access private
 /// @type Number
-$framework-line-height-base:  1rem * $framework-line-height-ratio;
+$g-framework-line-height-base:  1rem * $g-framework-line-height-ratio;
 
 ///
 /// Represent the base font-weight used by the Evolution framework
 /// @access private
 /// @type Number
-$framework-font-weight: 400;
+$g-framework-font-weight: 400;
 
 // -----------------------------------------------------------------------------
 //                               COLORS PALETTE
@@ -83,7 +83,7 @@ $framework-font-weight: 400;
 ///
 /// @access private
 /// @type MAP
-$framework-colors: (
+$g-framework-colors: (
   'primary': (
     'base': #56C5DE,
     'light': tint(#56C5DE, 15%),
@@ -137,7 +137,7 @@ $framework-colors: (
 /// Helper that can be used within the get-color function
 /// @access private
 /// @type MAP
-$framework-colors-opacity: (
+$g-framework-colors-opacity: (
   'super-light': 0.9,
   'light': 0.8,
   'heavy': 0.4

@@ -8,15 +8,15 @@
 /// Generate the vertical rhythm
 ///
 /// @param {Value} $font-size - A valid font size
-/// @param {Value} $line-height [$framework-line-height-base] - A value height
+/// @param {Value} $line-height [$g-framework-line-height-base] - A value height
 ///
-/// @require $framework-line-height-base
+/// @require $g-framework-line-height-base
 ///
 /// @return {value}
 ///
 ///
 
-@function vrhythm( $font-size, $line-height: $framework-line-height-base ){
+@function vrhythm( $font-size, $line-height: $g-framework-line-height-base ){
   @return ceil( $font-size / $line-height ) * ( $line-height / $font-size )
 }
 
@@ -31,7 +31,7 @@
 /// @param {Boolean} $extraHeading - If true it generates extra headings
 ///
 /// @require $typography-base-scale
-/// @require $framework-base-font-size
+/// @require $g-framework-base-font-size
 /// @require $typography-scales-smaller
 /// @require $typography-scales-bigger
 ///
@@ -57,7 +57,7 @@
       $font-size: pow($typography-base-scale, 5 + $i);
 
       .#{$g-framework-name}_typo--#{$item} {
-        font-size: rem($framework-base-font-size * $font-size) + 0rem;
+        font-size: rem($g-framework-base-font-size * $font-size) + 0rem;
         line-height: vrhythm($font-size);
       }
     }
@@ -68,7 +68,7 @@
       $font-size: pow($typography-base-scale, $i);
 
       .#{$g-framework-name}_typo--#{$item} {
-        font-size: rem($framework-base-font-size / $font-size) + 0rem;
+        font-size: rem($g-framework-base-font-size / $font-size) + 0rem;
         line-height: vrhythm($font-size);
       }
     }
@@ -83,21 +83,21 @@
 
 html {
   font-family: 'Roboto', sans-serif;
-  font-size: $framework-base-font-size;
-  line-height: $framework-line-height-base;
+  font-size: $g-framework-base-font-size;
+  line-height: $g-framework-line-height-base;
 }
 
 h1, h2, h3, h4, h5, h6,
 p, ul, ol, dl, figure,
 blockquote, details, fieldset,
 pre, table, hr {
-  margin: 0 0 $framework-line-height-base 0;
+  margin: 0 0 $g-framework-line-height-base 0;
 }
 
 @include generateHeadings(6);
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $framework-font-weight;
+  font-weight: $g-framework-font-weight;
 }
 
 @include h('txt--bold') {
