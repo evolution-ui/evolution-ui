@@ -12,19 +12,36 @@ $c-form-padding-large: 30px;
 $c-form-padding-huge:  40px;
 
 
+
+
+//------------------------------------------------
+//              Forms input
+//------------------------------------------------
+
 $c-form-input-height: 38px;
 $c-form-input-padding-default: 10px;
 
-$c-form-input-status-size: 6px; // Height and Width
-
-
 $c-form-input--button-border-radius: 4px;
+$c-form-input--button-border-radius: 4px;
+
+
+//------------------------------------------------
+//              Forms field-status
+//------------------------------------------------
+
+$c-form-field-status-font-size: 1rem;
+$c-form-field-status-width: 21%;
+$c-form-field-status-max-width: 200px;
+$c-form-field-status-padding-left: 10px;
 
 
 //------------------------------------------------------------------------------
 //                          Forms Placeholders
 //------------------------------------------------------------------------------
 
+%c-form-absolute {
+  position: absolute;
+}
 
 %c-form-h-full-width {
   width: 100%;

@@ -68,6 +68,7 @@
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include e( 'footer' ) {
+    @include vertical-rhythm(100px, $top-rows: 2, $use-height: true);
     @extend %c-form-flex-align-center;
   }
 
@@ -83,16 +84,38 @@
     position: relative;
 
 
+    //--------------------------------------------------------------------------
+    //                      HELPER - field-status
+    //--------------------------------------------------------------------------
+
     @include h( 'field-status', $is-namespaced: false ) {
+
+      position: relative;
+      width: $c-form-field-status-width;
+      max-width: $c-form-field-status-max-width;
+      padding-left: $c-form-field-status-padding-left;
+
+      font-size: $c-form-field-status-font-size;
+
+
+      &:before {
+        content: '';
+        padding-right: $c-form-field-status-padding-left;
+      }
+
       &:after {
+        display: none;
         content: '';
         position: absolute;
-        right: 5px;
-        top: 5px;
-        display: block;
-        height: $c-form-input-status-size;
-        width: $c-form-input-status-size;
-        border-radius: 50%;
+        left: 30px;
+        color: inherit;
+      }
+
+
+      // Show message only when there is enough space
+
+      @media screen and (min-width: 768px) {
+        &:after { display: inline-block; }
       }
     }
 
@@ -117,14 +140,33 @@
 
     border: 0;
     border-bottom: 1px solid rgba(0,0,0,.2);
+    transition: border-bottom .3s,border-color .3s,border-width .3s,border .3s ease-in-out;
 
 
-    &:required:valid + .h-field-status:after {
-      background-color: green;
+    &:valid + .h-field-status:before {
+      content: '\2713'!important;
+      color: get-color('accent4', 'dark');
     }
 
-    &:required:invalid + .h-field-status:after {
-      background-color: red !important;
+    &:valid + .h-field-status:after {
+      content: '';
+    }
+
+    &:invalid + .h-field-status {
+      color: red;
+    }
+
+    &:invalid + .h-field-status:after {
+      //content: attr(data-error);
+    }
+
+    &:invalid + .h-field-status:before {
+      content: '\2715';
+      color: inherit;
+    }
+
+    &:required + .h-field-status:before {
+      content: '\002A';
     }
 
     //--------------------------------------------------------------------------
@@ -154,15 +196,32 @@
   }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              LABEL ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'label' ) {
+
+    @extend %c-form-absolute;
+
+    left: 30px;
+
+    transition: transform .4s cubic-bezier(.25,.8,.25,1);
+
+    @include h( 'label--active', $g-no-prefix ) {
+      transform: translate3d(0, -25px, 0) scale(.8);
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //                              ICON ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   @include e( 'icon' ) {
 
     $c-form__input: getBEMReference($c-form-component-name, input);
 
-
     & + .#{$c-form__input} {
-      padding-left: 10px;
+      margin-left: 10px;
     }
 
   }
