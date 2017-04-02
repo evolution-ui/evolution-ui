@@ -8,8 +8,8 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-# Use 2 spaces for indentation in HTML, JavaScript SCSS
-[*.{html,js,scss}]
+# Use 2 spaces for indentation in HTML, JavaScript, SCSS, CSS
+[*.{html,js,scss, css}]
 indent_size = 2
 
 [*.js]

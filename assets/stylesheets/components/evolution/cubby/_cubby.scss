@@ -1,0 +1,48 @@
+/******************************************************************************
+                        Cubby component
+******************************************************************************/
+@import 'cubby-config.scss';
+
+.su_table tbody td.su_cubby {
+  padding: 0px;
+  background: su_color('background', 'light');
+}
+
+.evo_c-cubby {
+  position: relative;
+  perspective: 500px;
+}
+
+.evo_c-cubby .su_door {
+  position: absolute;
+  line-height: 3em;
+  padding: 5px 0;
+  background: get-color('primary', 'light');
+  text-align: center;
+  width: 100%;
+  transition: all .3s ease;
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  // backface-visibility: hidden;
+}
+
+.evo_c-cubby .su_inside {
+  line-height: 3em;
+  padding: 5px 0;
+  background: get-color('secondary', 'dark');
+  text-align: center;
+  color: white(1);
+  width: 100%;
+  position: absolute;
+  z-index: -5;
+}
+
+.evo_c-cubby:hover .su_door,
+.evo_c-cubby:focus .su_door{
+  transform: rotateX(-90deg);
+}
+
+.evo_c-cubby:hover .su_inside,
+.evo_c-cubby:focus .su_inside {
+}
+/** END CUBBY COMPONENT **/
