@@ -1,0 +1,164 @@
+// Import component's settings
+@import 'flip-accordion-config';
+
+
+//------------------------------------- 
+//  Base Code 
+//-------------------------------------
+
+.evo_c-flip-accordion {
+    perspective: 1000px;
+    margin: 30px 20px 200px 50px;
+}
+
+
+input[name="flip-accordion-ctrl"] {
+    display: none;
+}
+
+
+.evo_c-flip-accordion__panel {
+    position: relative;
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 30px;
+    margin: 70px;
+    transition: transform 2s cubic-bezier(.2,.26,.66,.84);
+
+     & span {
+    position: absolute; 
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-size: cover;
+    transition: transform 2s cubic-bezier(.2,.26,.66,.84);
+}
+
+}
+
+.evo_c-flip-accordion__front {
+    width: 550px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    color: #333;
+    background-color: get-color('secondary', 'base');
+
+    &:hover {
+    background-color: get-color('primary', 'base');
+    }
+
+
+}
+
+.evo_c-flip-accordion__bottom {
+    transform: rotateX(-100deg);
+    width: 550px;
+    height: 350px;
+    display: block;
+}
+
+#flip-accordion-img1 {
+    background-image: $c-image1;
+    
+}
+
+#flip-accordion-img2 {
+    background-image: $c-image2;
+
+}
+
+#flip-accordion-img3 {
+    background-image: $c-image3;
+
+}
+
+#flip-accordion-img4 {
+    background-image: $c-image4;
+
+}
+
+
+#ctrl1:checked ~ #flip-accordion-panel1 .evo_c-flip-accordion__front, #ctrl2:checked ~ #flip-accordion-panel2 .evo_c-flip-accordion__front, #ctrl3:checked ~ #flip-accordion-panel3 .evo_c-flip-accordion__front {
+    transform: rotateX(100deg);
+}
+
+#ctrl4:checked ~ #flip-accordion-panel4 .evo_c-flip-accordion__front {
+    transform: rotateX(110deg);
+}
+
+#ctrl1:checked ~ #flip-accordion-panel1 .evo_c-flip-accordion__bottom, #ctrl2:checked ~ #flip-accordion-panel2 .evo_c-flip-accordion__bottom, #ctrl3:checked ~ #flip-accordion-panel3 .evo_c-flip-accordion__bottom, #ctrl4:checked ~ #flip-accordion-panel4 .evo_c-flip-accordion__bottom {
+    transform: translateY(-7px);
+
+}
+
+//------------------------------------- 
+// Panel 1 Transform 
+//------------------------------------- 
+
+#ctrl1:checked ~ #flip-accordion-panel2 {
+    transform: translateY(244px);
+}
+
+#ctrl1:checked ~ #flip-accordion-panel3 {
+    transform: translateY(185px);
+}
+
+#ctrl1:checked ~ #flip-accordion-panel4 {
+    transform: translateY(126px);
+}
+
+//------------------------------------- 
+// Panel 2 Transform
+//------------------------------------- 
+
+#ctrl2:checked ~ #flip-accordion-panel2 {
+    transform: translateY(-52px);
+}
+
+
+#ctrl2:checked ~ #flip-accordion-panel3 {
+    transform: translateY(193px);
+}
+
+#ctrl2:checked ~ #flip-accordion-panel4 {
+    transform: translateY(134px);
+
+}
+
+//-------------------------------------  
+// Panel 3 Transform
+//------------------------------------- 
+
+#ctrl3:checked ~ #flip-accordion-panel2 {
+    transform: translateY(-59px);
+}
+
+#ctrl3:checked ~ #flip-accordion-panel3 {
+    transform: translateY(-110px);
+}
+
+#ctrl3:checked ~ #flip-accordion-panel4 {
+    transform: translateY(134px);
+}
+
+
+//-------------------------------------  
+// Panel 4 Transform 
+//------------------------------------- 
+
+#ctrl4:checked ~ #flip-accordion-panel2 {
+    transform: translateY(-59px);
+
+}
+
+#ctrl4:checked ~ #flip-accordion-panel3 {
+    transform: translateY(-118px);
+
+}
+
+
+#ctrl4:checked ~ #flip-accordion-panel4 {
+    transform: translateY(-170px);
+
+}
