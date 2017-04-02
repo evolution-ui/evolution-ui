@@ -1,10 +1,11 @@
-import offCanvasNavigation from './standard/off_canvas_navigation'
-import crumble from './evolution/crumble'
-import dotNavigation from './evolution/dot_navigation'
-import eyelids from './evolution/eyelids'
-import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
-import cssAnimations from './standard/css_animations'
-import codeMarkup from './standard/code_markup'
+import offCanvasNavigation from './standard/off_canvas_navigation';
+import crumble from './evolution/crumble';
+import dotNavigation from './evolution/dot_navigation';
+import eyelids from './evolution/eyelids';
+import fadeLinesOnScroll from './evolution/fade_lines_on_scroll';
+import cssAnimations from './standard/css_animations';
+import codeMarkup from './standard/code_markup';
+import readabilityPanel from './evolution/readability_improvement_panel';
 
 offCanvasNavigation();
 crumble();
@@ -13,3 +14,4 @@ eyelids();
 fadeLinesOnScroll();
 cssAnimations();
 codeMarkup();
+readabilityPanel();
