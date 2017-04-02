@@ -1,6 +1,46 @@
 # [Evolution UI](https://BovAcademy-opensource.github.io/evolution-ui/)
 
-## Development guidelines
+## Installation
+
+1. First check if you system has node.js installed. In the command line type:
+
+    ```bash
+    node -v // v7.6.0
+    ```
+
+    if you have it, then check if you have `npm` (node package manager) installed:
+
+    ```bash
+    npm -v // 4.3.0
+    ```
+
+    If you don't have those installed, follow [these instructions](https://docs.npmjs.com/getting-started/installing-node) to install node.js and `npm`.
+
+2. Now, install `gulp-cli`:
+
+    `npm install -g gulp-cli` // '-g' means install it globally on your system
+
+3. Now, it is time to install all needed packages. `cd` into your repository directory and run this command:
+
+    `npm install`
+
+4. Now, it is time to install all needed Ruby gems for the showcase website. `cd` into the `/docs` directory and run this command:
+
+    `bundle install`
+
+4. After that, you can use the following commands from the root directory:
+
+    * `npm start`: run the development environment with automatic reload on file change. Hot Module Repacement still not implemented
+    * `npm run start-docs`: build and serve the showcase website documentation
+    * `npm run production`: production build with file hashes for a better cache management
+    * `npm run deploy`: deploy to GitHub pages and bump `package.json` version with a patch
+    * `npm run deploy:minor`: deploy to GitHub pages and bump `package.json` version with a minor version
+    * `npm run deploy:major`: deploy to GitHub pages and bump `package.json` version with a major version
+    * `npm run sassdoc`: see the sass documentation
+
+6. You can stop gulp task by pressing `Ctrl + C` in the command line
+
+## Build a component
 
 * All development is performed under the `assets` directory.
 
@@ -60,42 +100,7 @@
 
 * Use [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow)
 
-## Installing Gulp tasks
-
-1. First check if you system has node.js installed. In the command line type:
-
-    ```bash
-    node -v // v7.6.0
-    ```
-
-    if you have it, then check if you have `npm` (node package manager) installed:
-
-    ```bash
-    npm -v // 4.3.0
-    ```
-
-    If you don't have those installed, follow [these instructions](https://docs.npmjs.com/getting-started/installing-node) to install node.js and `npm`.
-
-2. Now, install `gulp-cli`:
-
-    `npm install -g gulp-cli` // '-g' means install it globally on your system
-
-3. Now, it is time to install all needed packages. `cd` into your repository directory and run this command:
-
-    `npm install`
-
-4. After that use the following commands:
-
-    * `npm start`: run the development environment with automatic reload on file change. Hot Module Repacement still not implemented
-    * `npm run production`: production build with file hashes for a better cache management
-    * `npm run deploy`: deploy to GitHub pages and bump `package.json` version with a patch
-    * `npm run deploy:minor`: deploy to GitHub pages and bump `package.json` version with a minor version
-    * `npm run deploy:major`: deploy to GitHub pages and bump `package.json` version with a major version
-    * `npm run sassdoc`: see the sass documentation
-
-6. You can stop gulp task by pressing `Ctrl + C` in the command line
-
-## Important stuff
+### Important stuff
 
 * ES6 modules: IIFE are not needed anymore. Export a function instead and import it in `app.js`:
 
@@ -116,6 +121,51 @@
 
 * CSS and JavaScript are already added to `index.html`, just take care of importing the needed files to the respective sass and/or js tree.
 
+## Add a component to the showcase website
+
+The showcase website is where we display component demos and markup to the public. It is built using [Jekyll](https://jekyllrb.com), a powerful and simple static site generation tool written in [Ruby](https://www.ruby-lang.org/en/).
+
+The code for the showcase website is located in the [`/docs`](./docs/) directory in this repository. Once you’ve finished building your component above, you should add an HTML example for each variant of your component to the showcase website.
+
+To begin working on the website, you need to copy the compiled CSS/JS file from the framework into the `/docs` directory and start a Jekyll server that watches for changes in template files.
+
+You can do this by running the following command from the root directory:
+
+```bash
+npm run start-docs
+```
+
+All component variant examples are located in the `/docs/_components/` directory in this repository.
+
+Here is an example of what a component template file should look like:
+
+```html
+---
+title: "Burst"
+description: |
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, accusamus, minima. Sit, iure ipsum dolor, debitis aliquam facilis iste excepturi ullam doloribus odio suscipit necessitatibus aut, in dolores quas similique.</p>
+type: dot navigation
+order: 1
+---
+
+<nav class="evo_dot-navigation evo_dot-navigation-burst">
+  <ul>
+    <li class="evo_dot-current"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</nav>
+```
+
+The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used to describe the component and make sure it appears in the right place on the page.
+
+- `title`: the name of the component **variant** (for example, if your component was a button, you might have "Default", "Hover State", and "Pill-Shaped" variants.)
+- `description`: a short description of the variant. Try to keep it less than a few paragraphs. You can use basic HTML here.
+- `type`: the name of the component. This should be the same value for each variant of the component, so that they are all grouped in the right section on the webpage.
+- `order`: use this to control the order in which each variant appears in a component’s section on the webpage.
+
 ## How to Contribute?
 
 We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow). The typical workflow will be the following:
@@ -126,43 +176,6 @@ We are using [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparin
   - From there, create a new feature branch with the name of your component (`git checkout -b my-new-component`) and start developing your component
   - Remember to rebase often to stay updated and minimize conflicts: `git pull --rebase evolution development`
   - When your component is ready, open a Pull Request to the `development` branch of the original repository. Your Pull Request will be reviewed as soon as possible
-
-## Displaying The Code For Components You Contribute
-
-Add the following code snippet to the end of your component to showcase the HTML, CSS and JavaScript of your component.  Keep in mind, some special characters may need to be escaped when marked up in HTML.  You can use [http://www.freeformatter.com/html-escape.html](http://www.freeformatter.com/html-escape.html) to automatically escape those special characters so the code shows up properly in HTML.   Just paste your code in the proper HTML, CSS and JavaScript CODE HERE areas below.
-
-```html
-    <div class="evo_c-markup">
-      <ul class="evo_c-markup__tabs js-c-markup-toggle">
-        <li class="evo_c-markup__item">html</li>
-        <li class="evo_c-markup__item">css</li>
-        <li class="evo_c-markup__item">js</li>
-      </ul>
-      <div class="evo_c-markup__container">
-        <div class="evo_c-markup__content">
-          <pre>
-            <code class="language-html">
-              <-- HTML CODE HERE -->
-            </code>
-          </pre>
-        </div>
-        <div class="evo_c-markup__content">
-          <pre>
-            <code class="language-css">
-              <-- CSS CODE HERE -->
-            </code>
-          </pre>
-        </div>
-        <div class="evo_c-markup__content">
-          <pre>
-            <code class="language-javascript">
-              <-- JAVASCRIPT CODE HERE -->
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
-```
 
 
 ## License
