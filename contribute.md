@@ -509,6 +509,7 @@ Then, at the end of your html file, import the app.js file:
 <script type="text/javascript" src="../../scripts/app.js"></script>
 ```
 
+**Tip**: In Evolution UI there is boilerplate file (called `TEMPLATE.html`) which contains all the necessary imports for your components. Use it for speeding up your work.
 
 
 Okay, we are ready for SASS but before coding, let's take a look at predefined mixins and functions provided by the framework.
@@ -528,6 +529,25 @@ This will open up your predefined browser and show you the Evolution UI document
 #### Let's code with SASS
 
 Having defined the HTML markup, let's see how to implement each class using the provided tools.
+
+---------------------------
+
+In Evolution UI, there are a list of mixins and functions which can speed up your workflow.
+
+Take a look at the following usage examples:
+
+* [BEM & BEMit naming conventions through mixins](http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf)
+
+* [Eyelids - refactoring example](http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e)
+
+* [Background & Text color variants](http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8)
+
+* [Evolution UI - color palette](http://www.sassmeister.com/gist/d384a2c6746a3c4045b49512e6795aa6)
+
+For a complete list of these utilities, take a look at the internal sassdoc. Type in your shell the command: `npm run sassdoc` 
+
+---------------------------
+
 
 The intended files for SASS must be placed inside the `stylesheets` dir:
 
@@ -877,7 +897,9 @@ Code style guide [here](https://github.com/BovAcademy-opensource/evolution-ui/bl
 
 README [here](https://github.com/BovAcademy-opensource/evolution-ui/blob/development/README.md)
 
+Evolution UI color palette [here](http://codepen.io/DrLeleMeo/full/oZdMQa/)
 
+Evolution UI color palette through the [get-color](http://www.sassmeister.com/gist/d384a2c6746a3c4045b49512e6795aa6) function
 
 #### Quick recap
 
