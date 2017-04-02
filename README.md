@@ -140,25 +140,19 @@ Add the following code snippet to the end of your component to showcase the HTML
       </ul>
       <div class="evo_c-markup__container">
         <div class="evo_c-markup__content">
-          <pre>
-            <code class="language-html">
-              <!-- HTML CODE HERE -->
-            </code>
-          </pre>
+          <pre><code class="evo_h-language-html">
+            <!-- HTML CODE HERE -->
+          </code></pre>
         </div>
         <div class="evo_c-markup__content">
-          <pre>
-            <code class="language-css">
-              <!-- CSS CODE HERE -->
-            </code>
-          </pre>
+          <pre><code class="evo_h-language-css">
+            <!-- CSS CODE HERE -->
+          </code></pre>
         </div>
         <div class="evo_c-markup__content">
-          <pre>
-            <code class="language-javascript">
-              <!-- JAVASCRIPT CODE HERE -->
-            </code>
-          </pre>
+          <pre><code class="evo_h-language-javascript">
+            <!-- JAVASCRIPT CODE HERE -->
+          </code></pre>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 /******************************************************************************
                               Code-Markup Component
 ******************************************************************************/
-@import 'prism';
+// @import 'prism';
 @import 'code_markup-config';
 
 @include c('markup') {
@@ -48,17 +48,16 @@
   @include e('container') {
     position: relative;
     top: -1px;
-    // width: 100%;
-    min-height: 0em;
+    min-height: 0;
     border: 1px solid #000;
     border-bottom: none;
     background-color: $markup-active-tab-and-container-bg-color;
     transition: min-height .3s ease, padding .3s ease;
     overflow: hidden;
     @include s('is-expanded') {
-      // padding: $markup-container-padding;
       border-bottom: 1px solid #000;;
-      min-height: 15em;
+      min-height: 70vh;
+      overflow-x: scroll;
       overflow-y: scroll;
     }
   }

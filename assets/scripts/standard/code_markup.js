@@ -19,13 +19,14 @@ export default function() {
             }
           }
           clickedTabClassList.add("is-active");
+          this.parentNode.children[1].scrollTop = 0;
           markupContainerClassList.add("is-expanded");
-          for (var i = 0; i < markupContentDivs.length; i++) {
-            if (markupContentDivs[i].classList.contains("is-active")) {
-              markupContentDivs[i].classList.remove("is-active");
+          for (var j = 0; j < markupContentDivs.length; j++) {
+            if (markupContentDivs[j].classList.contains("is-active")) {
+              markupContentDivs[j].classList.remove("is-active");
             }
-            if (this.children[i].classList.contains("is-active")) {
-              markupContentDivs[i].classList.add("is-active");
+            if (this.children[j].classList.contains("is-active")) {
+              markupContentDivs[j].classList.add("is-active");
             }
           }
         }
