@@ -1,11 +1,11 @@
 export default function() {
 
   /*FADE LINES ON SCROLL COMPONENT*/
-  var fadedTextBlock = document.querySelector('.js-c-fade-lines-target');
+  // var fadedTextBlock = document.querySelector('.js-c-fade-lines-target');
   // console.log(fadedTextBlock.innerHTML.split(wordMatch).length);
-  for (var i = 0; i < fadedTextBlock.length; i++) {
-    var wordMatch = /(\S+\s*)/g;
-    console.log(fadedTextBlock[i].innerHTML.split(wordMatch).length);
+  // for (var i = 0; i < fadedTextBlock.length; i++) {
+    // var wordMatch = /(\S+\s*)/g;
+    // console.log(fadedTextBlock[i].innerHTML.split(wordMatch).length);
     //FIXME: This component is not yet ready, in the middle of trying to make
     // it work
 
@@ -19,7 +19,7 @@ export default function() {
 
     // for (var j = 0; j < )
     // console.log(fadedTextBlock[i].innerText.replace(/(\S+\s*)/g, "<span>$1</span>"));
-  }
+  // }
 
   // for (var j = 0; fadedTextBlock.length; i++) {
     // fadedTextBlock[j].addEventListener('scroll', function(event) {
