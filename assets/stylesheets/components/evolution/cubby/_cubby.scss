@@ -3,46 +3,39 @@
 ******************************************************************************/
 @import 'cubby-config.scss';
 
-.su_table tbody td.su_cubby {
-  padding: 0px;
-  background: su_color('background', 'light');
-}
-
-.evo_c-cubby {
+@include c('cubby') {
+  $door-selector: getBEMReference($c-cubby-name, 'door');
   position: relative;
   perspective: 500px;
-}
 
-.evo_c-cubby .su_door {
-  position: absolute;
-  line-height: 3em;
-  padding: 5px 0;
-  background: get-color('primary', 'light');
-  text-align: center;
-  width: 100%;
-  transition: all .3s ease;
-  transform-style: preserve-3d;
-  transform-origin: bottom;
-  // backface-visibility: hidden;
-}
+  @include e('door') {
+    position: absolute;
+    padding: 5px 0;
+    background: get-color('primary', 'light');
+    width: 100%;
+    text-align: center;
+    line-height: 3em;
+    transform-style: preserve-3d;
+    transform-origin: bottom;
+    transition: all .3s ease;
+  }
 
-.evo_c-cubby .su_inside {
-  line-height: 3em;
-  padding: 5px 0;
-  background: get-color('secondary', 'dark');
-  text-align: center;
-  color: white(1);
-  width: 100%;
-  position: absolute;
-  z-index: -5;
-}
+  @include e('inside') {
+    position: absolute;
+    z-index: -5;
+    padding: 5px 0;
+    background: get-color('secondary', 'dark');
+    width: 100%;
+    color: white(1);
+    text-align: center;
+    line-height: 3em;
+  }
 
-.evo_c-cubby:hover .su_door,
-.evo_c-cubby:focus .su_door{
-  transform: rotateX(-90deg);
-}
-
-.evo_c-cubby:hover .su_inside,
-.evo_c-cubby:focus .su_inside {
+  &:hover,
+  &:focus {
+    & .#{$door-selector} {
+      transform: rotateX(-90deg);
+    }
+  }
 }
 /** END CUBBY COMPONENT **/
