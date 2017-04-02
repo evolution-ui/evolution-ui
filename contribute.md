@@ -15,6 +15,7 @@
     * [Understanding the framework's structure](#understanding-the-frameworks-structure)
     * [Run your component into the browser](#run-your-component-into-the-browser)
       * [ES6 Module](#es6-module)
+      * [Writing safe JavaScript code](#writing-safe-javascript-code)
     * [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
     * [Import Stylesheets and app.js](#import-stylesheets-and-appjs)
     * [Sassdoc](#sassdoc)
@@ -32,7 +33,7 @@
 
 We want to ensure that each class and setting adhere to our conventions and are meaningfully named without worry about the length of them.
 
-Each complex *part* in the Evolution UI framework must be represented as a **component**. 
+Each complex *part* in the Evolution UI framework must be represented as a **component**.
 
 We follow these simple rules:
 
@@ -44,7 +45,7 @@ We follow these simple rules:
 
 #### Namespace
 
-A namespace represents a way for giving a *semantic meaning* to ordinary classes. 
+A namespace represents a way for giving a *semantic meaning* to ordinary classes.
 
  A namespace could be used for:
 
@@ -53,7 +54,7 @@ A namespace represents a way for giving a *semantic meaning* to ordinary classes
 - Mixins
 - Functions
 
-In *Evolution UI*, namespaces are all prefixed with a letter followed by a hyphen. 
+In *Evolution UI*, namespaces are all prefixed with a letter followed by a hyphen.
 
 The following table shows common elements and their meanings
 
@@ -72,31 +73,31 @@ Examples of common namespaces are:
 
   *Examples:*
 
-  - `.evo_l-grid` // With the prefix
-  - `.l-grid`        // Without the prefix
-  - `$l-grid-gutter`
+  - `.evo_l-grid` // class with the prefix
+  - `.l-grid`        // class without the prefix
+  - `$l-grid-gutter` // scss variable
 
 - `c-`: **Components**
 
-  - `.evo_c-card`
-  - `$c-card-height`
+  - `.evo_c-card` // class with the prefix
+  - `$c-card-height` // scss variable
 
 
 - `h-`: **Helpers**
 
   *Examples:*
 
-  - `.h-text--bold`
-  - `.evo_h-text—bold`
-  - `$h-text-bold-weight`
+  - `.h-text--bold` // class without the prefix
+  - `.evo_h-text—bold` // class with the prefix
+  - `$h-text-bold-weight` // scss variable
 
 - `t-`: [Themes](http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/#theme-namespaces-t-)
 
   *Examples:*
 
-  - `.evo_t-default`
-  - `.t-default`
-  - `$t-default-color`
+  - `.evo_t-default` // class with the prefix
+  - `.t-default` // class without the prefix
+  - `$t-default-color` // scss variable
 
 Others:
 
@@ -166,7 +167,7 @@ $c-super-easy-font-size: 200px;
 
 ```
 
-The component's name is not mandatory but it is **highly recommended** since that it could come to the rescue with references later on.
+The component's name is not mandatory but it is **highly recommended** since it could come to the rescue with references later on.
 
 
 
@@ -184,7 +185,7 @@ Let's imagine that we want to build a new component called `super-easy`.
 
 The first step for contributing with a new component is to fork the Evolution UI framework.
 
-To do this, go to the [official repository](https://github.com/BovAcademy-opensource/evolution-ui) and fork it. Then add the original repository as a remote: 
+To do this, go to the [official repository](https://github.com/BovAcademy-opensource/evolution-ui) and fork it. Then add the original repository as a remote:
 
 ```shell
 ~ $ git remote add evolution https://github.com/BovAcademy-opensource/evolution-ui.git
@@ -193,7 +194,7 @@ To do this, go to the [official repository](https://github.com/BovAcademy-openso
 Then, checkout the `development` branch:
 
 ```shell
-~ $ git checkout development
+~ [master]$ git checkout development
 ```
 
 As explained in the [README.md](https://github.com/BovAcademy-opensource/evolution-ui/tree/development) file, we use [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow) as official workflow. **Each new component** must be developed on a new, isolated, branch. In Gitflow this particular branch is commonly known as *feature branch*.
@@ -201,15 +202,15 @@ As explained in the [README.md](https://github.com/BovAcademy-opensource/evoluti
 Following that rule, we create a separate branch and instead of basing it on `master`, we base it [on `development`](https://www.atlassian.com/git/tutorials/using-branches/git-checkout):
 
 ```shell
-~ $ git checkout -b c-super-easy development
+~ [development]$ git checkout -b c-super-easy development
 ```
 
-Please, note the use of the `c-` prefix before the actual component's name. 
+Please, note the use of the `c-` prefix before the actual component's name.
 
 **Remember to rebase often to stay updated and minimize conflicts**:
 
 ```shell
-~ $ git pull --rebase evolution development
+~ [c-super-easy]$ git pull --rebase evolution development
 ```
 
 
@@ -224,7 +225,7 @@ Now we are ready to work at our component by staging and committing the changes 
 
 In Evolution UI we tried to define an easy and well-separate structure. To this end, each component is placed in a separate subfolder.
 
-The main path for components is `evolution-ui/assets/` 
+The main path for components is `evolution-ui/assets/`
 
 Components are distributed into two main categories , `evolution` or `standard`, and based on its type, each one has its own directory:
 
@@ -233,7 +234,7 @@ Components are distributed into two main categories , `evolution` or `standard`,
 * Javascript path:
   *  `evolution-ui/assets/scripts/[evolution|standard]/component-name.js`
 * SASS path:
-  *   `evolution-ui/assets/stylesheets/[evolution|standard]/_component-name.scss`
+  *   `evolution-ui/assets/stylesheets/[evolution|standard]/component_name/_component-name.scss`
 
 
 
@@ -300,15 +301,15 @@ evolution-ui/
 
 
 
-For example, the Eyelids component is an **evolution** component and it's main files are: 
+For example, the Eyelids component is an **evolution** component and it's main files are:
 
 - HTML:
   -  `evolution-ui/assets/html/evolution/eyelids.html` - (known as *preview file*)
 - Javascript path:
   -  `evolution-ui/assets/scripts/evolution/eyelids.js`
 - SASS path:
-  -   `evolution-ui/assets/stylesheets/evolution/_eyelids.scss`
-  -   `evolution-ui/assets/stylesheets/evolution/_eyelids-config.scss`
+  -   `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids.scss`
+  -   `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids-config.scss`
 
 Looking at the SASS dir, we can see that the Eyelids component has two main files: `_Eyelids.scss` and a configuration file called `_Eyelids-config.scss`. You can import configuration files into the main file to keep the configuration separate.
 
@@ -395,6 +396,57 @@ Evolution UI makes use of ES6 modules to handle components' dependencies. Our go
   defaultFunction();
   ```
   You can find all you need to know on ES6 modules [here](http://2ality.com/2014/09/es6-modules-final.html).
+
+##### Writing safe JavaScript code
+
+By writing safe JavaScript code we mean writing the code that won't break other components in the framework.
+
+**How is it possible to break other component's code if the code of each component is in it's own module?**
+
+It is possible because if one module throws an unhandled error, then program execution stops and all of the JavaScript code coming after the component that threw the error will not work. Here is one example. Let's have this JavaScript code:
+
+```javascript
+var listItems = document.querySelectorAll('.my-list-item'),
+    i, len = listItems.length;
+
+for ( i = 0; i < len; i++ ) {
+    // our list items could represent the accordion sections for example, and by clicking them we expand the section
+    listItems[i].addEventListener('click', expandItem);
+}
+```
+
+If there are list items on the page with the class `.my-list-item`, then this code will work without problem. But what happens when there are no elements on the page with the class `.my-list-item`, and why would that be the case? Remember, this is the UI framework and it has a lot of UI components and the users in most cases won't be using all of the components, so the elements with the class `.my-list-item` might not be included on the page. The main JavaScript file, `app.js`, holds the code for all of the components from the framework, and most of the time users will use that file instead of picking the individual components JavaScript files.
+
+So, if there are no elements with the class `.my-list-item`, in our example, the second line might throw an error like this: `Cannot read property 'length' of undefined`. This happens because the variable `listItems` is not defined since there are no elements with class `.my-list-item` found on the page, therefore we can't do `listItems.length` on an 'undefined' value. And especially we cannot assign event listeners to undefined variables.
+
+That means that all components must have a safeguard mechanisms in case that the DOM elements they need to work with are not present in the DOM (i.e. on the page).
+
+**How to prevent this error from stopping the execution of other JS code?**
+
+Easy, wherever we are doing some actions on the elements from the DOM, we should first check if those elements exist. So, here is how the previous example could be made safer:
+
+```javascript
+var listItems = document.querySelectorAll('.my-list-item'),
+    i,
+    len = listItems && listItems.length || 0;
+// if the 'listItems' is defined, then we will read 'listItems.length' and assign it
+// to the 'len' variable, else we assign the zero value to 'len'
+
+// if the len is zero, this loop won't run at all, so no event listener assignment will be attempted
+for ( i = 0; i < len; i++ ) {
+    listItems[i].addEventListener('click', expandItem);
+}
+```
+
+**So, how to catch all of those possibilities, what if my JS file is Jumbo sized?**
+
+The most effective way that I can think of is to remove all html from the `<body>` of the html page while keeping the scripts linked to the html file. Then open the html file and open the console to see if there are any errors reported. Those errors might not have to do anything with the issue I am describing, but if the issue is present, then those errors will be displayed, and you can go to your code and add the checks that will skip the code blocks for cases where there is no html to work on.
+
+**INTERESTING OBSERVATION**
+
+This errors were plaguing our framework just a week before I wrote this instructions. While I was writing this instructions, I checked the error example code I have provided, and there were no errors reported. Also, other code was checked where the safeguards were removed, and the browsers did not throw any errors. So, either there was an update in how the browsers handle those errors, or I need to take a couple of days off. :D
+
+In any case, please do check your scripts with the empty html files just to be sure. If there are no errors, then you're probably all set to safely include your component into the framework.
 
 #### Setting up the HTML markup and SASS
 
@@ -536,7 +588,7 @@ Then, we are ready to take care of the component's configurations:
 
 ```scss
 // Since our component is of type 'evolution', its folder is
-// Path: evolution-ui/assets/stylesheets/evolution/_super-easy-config.scss
+// Path: evolution-ui/assets/stylesheets/evolution/super-easy/_super-easy-config.scss
 
 //----------------------------------------------------------------
 //                 Super-Easy Component config file
@@ -572,7 +624,7 @@ As you can imagine, Evolution UI has a defined color palette which can be found 
 Let's move on the main SCSS file:
 
 ```scss
-// Path: evolution-ui/assets/stylesheets/evolution/_super-easy.scss
+// Path: evolution-ui/assets/stylesheets/evolution/super-easy/_super-easy.scss
 
 //----------------------------------------------------------------
 //                 Super-Easy file
@@ -583,11 +635,11 @@ Let's move on the main SCSS file:
 
 // This will be rendered to ./evo_c-super-easy
 @include c( 'super-easy' ) {
-  
+
   width: $c-super-easy-width;
   font-size: $c-super-easy-font-size;
   background-color: $c-super-easy-background-color;
-  
+
     // This define a helper class
     // It will be rendered to .h-txt
     @include h( 'txt' ) {
@@ -595,12 +647,12 @@ Let's move on the main SCSS file:
       // This represents a modifier in the BEM terminology
       // It will be rendered to .h-txt--uppercase
       @include m( 'uppercase' ) {
-        text-transform: uppercase;        
+        text-transform: uppercase;
       }
       // I may define some other modifiers (if needed)
       // It will be rendered to .h-txt--capitalize
       @include m( 'capitalize' ) {
-        text-transform: capitalize;        
+        text-transform: capitalize;
       }
     }
 
@@ -691,19 +743,19 @@ And you could use a slightly different version of comment for modifiers, too:
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include e( 'header' ) {
-	
+
     width: 80%;
     height: 200px;
-    
-    
+
+
     //--------------------------------------------------------------------------
     //                         LOW -- HEADER MODIFIER
     //--------------------------------------------------------------------------
-    
+
     @include m ( 'low') {
       height: 100px;
     }
-    
+
   }
 ```
 
@@ -725,7 +777,7 @@ With our previous code, make a reference is not easy unless you hard-coded the s
 
 @include e( 'paragraph' ) {
   font-size: 1.1rem;
-  
+
   & + .evo_c-super-easy__button {
      padding-left: 40px;
   }
@@ -742,11 +794,11 @@ Here is where the `getBEMselector` comes to the rescue. Instead of writing an ha
 // The 'paragraph' element
 
 @include e( 'paragraph' ) {
-  
+
   $reference-selector: getBEMReference($c-super-easy-name, 'button');
-  
+
   font-size: 1.1rem;
-  
+
   & + .#{$reference-selector} {
      padding-left: 40px;
   }
@@ -769,7 +821,7 @@ So there's that, but then there's one small, but very important, detail. If the 
 
 // This will be rendered to ./evo_c-super-easy
 @include c( 'super-easy' ) {
-  
+
   // [...]
 ```
 
@@ -787,7 +839,7 @@ So, let's change it:
 
 // This will be rendered to ./evo_c-super-easy
 @include c( $c-super-easy-name ) {
-  
+
   // [...]
 ```
 
@@ -805,11 +857,11 @@ When you are ready to push your work on the repository, just do it on the remote
 ~ $ git push origin c-super-easy
 ```
 
-At this point, you're ready for open a new [pull request](https://help.github.com/articles/creating-a-pull-request/) 
+At this point, you're ready for open a new [pull request](https://help.github.com/articles/creating-a-pull-request/)
 
 -----------------------------------------------------------------
 
-​                  **Note**:  The target branch of your pull-request is the `development` branch. 
+​                  **Note**:  The target branch of your pull-request is the `development` branch.
 
 ----------------------------------------------
 
@@ -829,7 +881,7 @@ README [here](https://github.com/BovAcademy-opensource/evolution-ui/blob/develop
 
 #### Quick recap
 
-* Each complex *part* in the Evolution UI framework must be represented as a **component**. 
+* Each complex *part* in the Evolution UI framework must be represented as a **component**.
 
 * The `.css` , `.css.map` and others output files must not be tracked.
 
@@ -837,7 +889,7 @@ README [here](https://github.com/BovAcademy-opensource/evolution-ui/blob/develop
 
 * ES6: You can only have one default export per file.
 
-* Evolution UI makes use of `autoprefixer`, so **you don't need to add vendor prefixes** to your CSS rules. 
+* Evolution UI makes use of `autoprefixer`, so **you don't need to add vendor prefixes** to your CSS rules.
 
 * Don't forget to add your markup into your preview file. To this end, read the **Displaying The Code For Components You Contribute** section at the end of the [README.md](https://github.com/BovAcademy-opensource/evolution-ui/tree/development)
 
