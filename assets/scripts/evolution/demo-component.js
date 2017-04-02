@@ -80,9 +80,6 @@ export default function(){
     }
   }
 
-
-
-
   function showHelp(){
     let block = this;
     let message = block.querySelector('.c-demo-help__content');
