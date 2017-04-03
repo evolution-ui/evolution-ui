@@ -114,6 +114,7 @@ function devel () {
 
   bs({
     server: 'public',
+    open: false,
     // browser: 'google-chrome-stable'
   })
 
@@ -142,6 +143,7 @@ gulp.task('rev-replace', ['rev'], function () {
 gulp.task('build', ['rev-replace'], function () {
   bs({
     server: 'dist',
+    open: false,
     // browser: 'google-chrome-stable'
   })
 })
