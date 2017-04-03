@@ -2,7 +2,7 @@
 
 ## Installation
 
-1. First check if you system has node.js installed. In the command line type:
+1. First check if your system has node.js installed. In the command line type:
 
     ```bash
     node -v // v7.6.0
@@ -18,15 +18,24 @@
 
 2. Now, install `gulp-cli`:
 
-    `npm install -g gulp-cli` // '-g' means install it globally on your system
+    ```bash
+    npm install -g gulp-cli` // '-g' means install it globally on your system
+    ```
 
 3. Now, it is time to install all needed packages. `cd` into your repository directory and run this command:
 
-    `npm install`
+    ```bash
+    npm install
+    ```
 
 4. Now, it is time to install all needed Ruby gems for the showcase website. `cd` into the `/docs` directory and run this command:
 
-    `bundle install`
+    ```bash
+    gem install bundler
+    bundle install
+    ```
+
+    **NOTE:** You only need to run `gem bundler install` if you don’t already have [Bundler](http://bundler.io/) installed on your machine. Also, please read the [Requirements section of the showcase website README.md file](./docs/README.md) to make sure you have all the required software installed.
 
 4. After that, you can use the following commands from the root directory:
 
