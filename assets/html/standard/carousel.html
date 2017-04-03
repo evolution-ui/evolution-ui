@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>carousel components</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+    <link href="../../styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ================= Carousel Section ===================== -->
+  <!-- start template -->
+  <section class="website-components__component" id="carousel">
+    <h3>Carousel</h3>
+    <p>Carousels can be used with either a fade transition or a slide transition. They can contain bullet navigation, arrow navigation, thumbnail navigation. Arrow navigation can be combined with both bullet and thumbnails</p>
+
+        <!-- component examples here -->
+        <h4>Carousel component with fade transitions</h4>
+        <div class="evo_c-carousel__wrapper">
+          <div class="evo_c-carousel evo_c-carousel--fader-type" data-bullet-nav>
+            <!-- bullet navigation -->
+            <ol class="evo_c-carousel__bullet-nav">
+              <li class="evo_c-carousel__bullet-nav-item evo_c-carousel__bullet-nav-item--is-active" data-slide-index="0"></li>
+              <li class="evo_c-carousel__bullet-nav-item" data-slide-index="1"></li>
+              <li class="evo_c-carousel__bullet-nav-item" data-slide-index="2"></li>
+            </ol>
+            <!-- carousel slide container -->
+            <div class="evo_c-carousel__slides-container">
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide evo_c-carousel__slide--is-selected">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1067" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1051" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1041" alt="">
+              </div>
+              <!-- carousel arrow navigation -->
+              <a href="" class="evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--left" data-slide-nav="prev">
+                <i class="material-icons evo_c-carousel__arrow-nav-icon">navigate_before</i>
+              </a>
+              <a href="" class="evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--right" data-slide-nav="next">
+                <i class="material-icons evo_c-carousel__arrow-nav-icon">navigate_next</i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end carousel with fade transitions -->
+
+    <!-- code well markup -->
+    <div class="evo_c-markup">
+      <ul class="evo_c-markup__tabs js-c-markup-toggle">
+        <li class="evo_c-markup__item">html</li>
+        <li class="evo_c-markup__item">css</li>
+        <li class="evo_c-markup__item">js</li>
+      </ul>
+      <div class="evo_c-markup__container">
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-html">
+            <!-- HTML CODE HERE -->
+  &lt;div class=&quot;evo_c-carousel__wrapper&quot;&gt;
+    &lt;div class=&quot;evo_c-carousel evo_c-carousel--fader-type&quot; data-bullet-nav&gt;
+      &lt;!-- bullet navigation --&gt;
+      &lt;ol class=&quot;evo_c-carousel__bullet-nav&quot;&gt;
+        &lt;li class=&quot;evo_c-carousel__bullet-nav-item evo_c-carousel__bullet-nav-item--is-active&quot; data-slide-index=&quot;0&quot;&gt;&lt;/li&gt;
+        &lt;li class=&quot;evo_c-carousel__bullet-nav-item&quot; data-slide-index=&quot;1&quot;&gt;&lt;/li&gt;
+        &lt;li class=&quot;evo_c-carousel__bullet-nav-item&quot; data-slide-index=&quot;2&quot;&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;!-- carousel slide container --&gt;
+      &lt;div class=&quot;evo_c-carousel__slides-container&quot;&gt;
+        &lt;!-- carousel slide --&gt;
+        &lt;div class=&quot;evo_c-carousel__slide evo_c-carousel__slide--is-selected&quot;&gt;
+          &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1067&quot; alt=&quot;&quot;&gt;
+        &lt;/div&gt;
+        &lt;!-- carousel slide --&gt;
+        &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+          &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1051&quot; alt=&quot;&quot;&gt;
+        &lt;/div&gt;
+        &lt;!-- carousel slide --&gt;
+        &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+          &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1041&quot; alt=&quot;&quot;&gt;
+        &lt;/div&gt;
+        &lt;!-- carousel arrow navigation --&gt;
+        &lt;a href=&quot;&quot; class=&quot;evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--left&quot; data-slide-nav=&quot;prev&quot;&gt;
+          &lt;i class=&quot;material-icons evo_c-carousel__arrow-nav-icon&quot;&gt;navigate_before&lt;/i&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;&quot; class=&quot;evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--right&quot; data-slide-nav=&quot;next&quot;&gt;
+          &lt;i class=&quot;material-icons evo_c-carousel__arrow-nav-icon&quot;&gt;navigate_next&lt;/i&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+          </code></pre>
+        </div>
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-css">
+            <!-- CSS CODE HERE -->
+/* ====================================================
+  carousel component styles
+  =====================================================*/
+.evo_c-carousel__wrapper {
+  max-width: 800px;
+}
+
+.evo_c-carousel {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.evo_c-carousel__bullet-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  bottom: 4%;
+  z-index: 50;
+  width: 100%;
+  &amp;-item {
+    // bullet nav li
+    display: inline;
+    margin: 0 0.5em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: white(1);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &amp;:hover {
+      opacity: 0.8;
+    }
+    &amp;--is-active {
+      // bullet nav li active class
+      opacity: 1;
+      &amp;:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.evo_c-carousel__slides-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evo_c-carousel__image {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.evo_c-carousel__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @at-root .evo_c-carousel--slider-type &amp; {
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+    z-index: -10;
+  }
+  @at-root .evo_c-carousel--fader-type &amp; {
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+  @at-root .evo_c-carousel--fader-type &amp;--is-selected {
+    // carousel slide selected
+    position: static;
+    z-index: 10;
+    opacity: 1;
+  }
+  @at-root .evo_c-carousel--slider-type &amp;--is-selected {
+    // carousel slide selected
+    position: static;
+    z-index: 10;
+    opacity: 1;
+    transform: translateY(0);
+    &amp;.slide--slide-next {
+      animation: evo_c-carousel--slideFromRight 1s ease;
+      -webkit-animation: evo_c-carousel--slideFromRight 1s ease;
+    }
+    &amp;.slide--slide-prev {
+      animation: evo_c-carousel--slideFromLeft 1s ease;
+      -webkit-animation: evo_c-carousel--slideFromLeft 1s ease;
+    }
+  }
+  &amp;.slide--slide-out-left {
+    animation: evo_c-carousel--slideToLeft 1s ease;
+    -webkit-animation: evo_c-carousel--slideToLeft 1s ease;
+  }
+  &amp;.slide--slide-out-right {
+    animation: evo_c-carousel--slideToRight 1s ease;
+    -webkit-animation: evo_c-carousel--slideToRight 1s ease;
+  }
+}
+
+.evo_c-carousel__slide--multi-image-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // border: solid 1px red;
+}
+
+.evo_c-carousel__slide--multi-image-container__image-wrapper {}
+
+.evo_c-carousel__arrow-nav {
+  position: absolute;
+  z-index: 10;
+  color: white(1);
+  text-decoration: none;
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  padding: 0;
+  transition: all 0.25s ease;
+  &amp;:hover {
+    opacity: 1;
+  }
+  &amp;--right {
+    // right arrow nav
+    right: 0;
+  }
+  &amp;--left {
+    left: 0;
+  }
+  &amp;-icon {
+    font-size: 3em;
+  }
+}
+
+.evo_c-carousel__thumb-nav {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  width: 100%;
+  padding: 0;
+  margin-top: 0.75em;
+}
+
+.evo_c-carousel__thumb-nav-item {
+  padding: 0 0.5em;
+  cursor: pointer;
+  transition: transform 0.35s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &amp;:hover {
+    transform: translateY(-10%);
+  }
+  &amp;--is-active {
+    transform: translateY(-10%);
+  }
+}
+
+.evo_c-carousel__thumb-image {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes evo_c-carousel--slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideFromRight {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes evo_c-carousel--slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideFromLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes evo_c-carousel--slideToLeft {
+  0% {
+    transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+  }
+  100% {
+    z-index: -10;
+    transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideToLeft {
+  0% {
+    -webkit-transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+  }
+  100% {
+    z-index: -10;
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes evo_c-carousel--slideToRight {
+  0% {
+    transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+    opacity: 1
+  }
+  100% {
+    z-index: -10;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideToRight {
+  0% {
+    -webkit-transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+    opacity: 1
+  }
+  100% {
+    z-index: -10;
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-javascript">
+            <!-- JAVASCRIPT CODE HERE -->
+            export default function() {
+
+  /*=== STANDARD CAROUSEL COMPONENT ===*/
+
+  var carousels = document.querySelectorAll('.evo_c-carousel');
+  var numOfCarousels = carousels.length;
+  var i;
+
+  // add event listeners to carousels
+  for (i = 0; i &lt; numOfCarousels; i++) {
+    carousels[i].addEventListener('click', _navAction(i));
+  }
+
+  function _navAction(i) {
+    return function(e) {
+      e.preventDefault();
+      // the current carousel
+      var activeCarousel = carousels[i];
+      // check to see if is a slider type
+      var isSlider = activeCarousel.classList.contains('evo_c-carousel--slider-type');
+      // set boolean based off of data-thumbnail-nav attr
+      var isThumbNav = activeCarousel.dataset.thumbnailNav !== undefined ? true : false;
+      // set boolean based off of data-bullet-nav attribute
+      var isBulletNav = activeCarousel.dataset.bulletNav !== undefined ? true : false;
+      // array of slides in current carousel
+      var slideArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__slide'));
+      // length of slide array
+      var slideArrayLength = slideArray.length;
+      // index number of the currently displayed slide
+      var currentSlide = slideArray.indexOf(activeCarousel.querySelector('.evo_c-carousel__slide--is-selected'));
+      // array of bullet nav list items
+      var bulletNavArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__bullet-nav-item'));
+      // array of thumbnail nav items
+      var thumbNavArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__thumb-nav-item'));
+      // target element of click event
+      var target = e.target;
+
+      if (target.nodeName === 'I') {
+        // set target to parent of icon element when prev/next nav clicked
+        target = target.parentNode;
+      }
+
+      if (target.classList.contains('evo_c-carousel__thumb-image')) {
+        // set target to parent node of thumbnail image when thumbnail is clicked
+        target = target.parentNode;
+      }
+
+      // if bullet nav is clicked
+      if (target.dataset.slideIndex !== undefined) {
+        // get the slide index from the data-slide-index attribute
+        var targetedSlide = +(target.dataset.slideIndex);
+        // remove selected class from all slides
+        slideArray.forEach(function(slide) {
+          if (slide.classList.contains('evo_c-carousel__slide--is-selected')) {
+            slide.classList.remove('evo_c-carousel__slide--is-selected');
+          }
+          if (isSlider) {
+            // reset slide class name
+            slide.className = 'evo_c-carousel__slide';
+          }
+        });
+        if (isBulletNav) {
+          // remove active class from all bullet nav items
+          bulletNavArray.forEach(function(bullet) {
+            bullet.classList.remove('evo_c-carousel__bullet-nav-item--is-active');
+          });
+          // add active class to correct bullet nav item
+          bulletNavArray[targetedSlide].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+        }
+        if (isThumbNav) {
+          // remove active class from all bullet nav items
+          thumbNavArray.forEach(function(thumb) {
+            thumb.classList.remove('evo_c-carousel__thumb-nav-item--is-active');
+          });
+          // add active class to correct bullet nav item
+          thumbNavArray[targetedSlide].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+        }
+        // add selected class to selected slide
+        slideArray[targetedSlide].classList.add('evo_c-carousel__slide--is-selected');
+        if (isSlider) {
+          if (targetedSlide &gt; currentSlide || currentSlide === slideArray.length - 1) {
+            slideArray[targetedSlide].classList.add('slide--slide-next');
+            slideArray[currentSlide].classList.add('slide--slide-out-left');
+            slideArray[currentSlide].classList.remove('slide--slide-out-*');
+          } else if (targetedSlide &lt; currentSlide) {
+            slideArray[targetedSlide].classList.add('slide--slide-prev');
+            slideArray[currentSlide].classList.add('slide--slide-out-right');
+            slideArray[currentSlide].classList.remove('slide--slide-out-*');
+          }
+        }
+
+        // if arrow nav is clicked
+      } else if (target.dataset.slideNav !== undefined) {
+
+        // get the navigation direction from data-slide-nav attribute
+        var navDirection = target.dataset.slideNav;
+        // set the next slide index
+        var nextIndex = (currentSlide &lt; slideArrayLength - 1) ? currentSlide + 1 : 0;
+        // set the previous slide index
+        var prevIndex = (currentSlide &gt; 0) ? currentSlide - 1 : slideArrayLength - 1;
+        // remove selected class from all slides
+        slideArray.forEach(function(slide) {
+          slide.classList.remove('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            // reset slide class name
+            slide.className = 'evo_c-carousel__slide';
+          }
+        });
+        if (isBulletNav) {
+          // remove active class from all bullet nav items
+          bulletNavArray.forEach(function(bullet) {
+            bullet.classList.remove('evo_c-carousel__bullet-nav-item--is-active');
+          });
+        }
+        if (isThumbNav) {
+          // remove active class from all bullet nav items
+          thumbNavArray.forEach(function(thumb) {
+            thumb.classList.remove('evo_c-carousel__thumb-nav-item--is-active');
+          });
+        }
+
+        // add selected class to slide and active class to bullet nav depending on navDirection
+        if (navDirection === 'next') {
+          slideArray[nextIndex].classList.add('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            slideArray[nextIndex].classList.add('slide--slide-next');
+            slideArray[currentSlide].classList.add('slide--slide-out-left');
+          }
+          if (isBulletNav) {
+            bulletNavArray[nextIndex].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+          }
+          if (isThumbNav) {
+            thumbNavArray[nextIndex].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+          }
+        } else {
+          slideArray[prevIndex].classList.add('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            slideArray[prevIndex].classList.add('slide--slide-prev');
+            slideArray[currentSlide].classList.add('slide--slide-out-right');
+          }
+          if (isBulletNav) {
+            bulletNavArray[prevIndex].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+          }
+          if (isThumbNav) {
+            thumbNavArray[prevIndex].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+          }
+        }
+      }
+
+    };
+  }
+}
+
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    <!-- end codewell markup -->
+
+    <!-- ============================================ -->
+
+
+        <!-- carousel with multi image slides and slider transition -->
+        <h4>Carousel component with sliding transitions and multi image slides</h4>
+        <div class="evo_c-carousel__wrapper">
+          <div class="evo_c-carousel evo_c-carousel--slider-type" data-bullet-nav>
+            <!-- bullet navigation -->
+            <ol class="evo_c-carousel__bullet-nav">
+              <li class="evo_c-carousel__bullet-nav-item evo_c-carousel__bullet-nav-item--is-active" data-slide-index="0"></li>
+              <li class="evo_c-carousel__bullet-nav-item" data-slide-index="1"></li>
+              <li class="evo_c-carousel__bullet-nav-item" data-slide-index="2"></li>
+              <li class="evo_c-carousel__bullet-nav-item" data-slide-index="3"></li>
+            </ol>
+            <!-- carousel slide container -->
+            <div class="evo_c-carousel__slides-container">
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide evo_c-carousel__slide--is-selected">
+                <div class="evo_c-carousel__slide--multi-image-container">
+                  <div class="evo_c-carousel__slide--multi-image-container__image-wrapper"><img class="evo_c-carousel__image" src="https://unsplash.it/300/450?image=1016" alt=""></div>
+                  <div class="evo_c-carousel__slide--multi-image-container__image-wrapper"><img class="evo_c-carousel__image" src="https://unsplash.it/300/450?image=1011" alt=""></div>
+                  <div class="evo_c-carousel__slide--multi-image-container__image-wrapper"><img class="evo_c-carousel__image" src="https://unsplash.it/300/450?image=1005" alt=""></div>
+                </div>
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1041" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1037" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <div class="evo_c-carousel__slide--multi-image-container">
+                  <div class="evo_c-carousel__slide--multi-image-container__image-wrapper"><img class="evo_c-carousel__image" src="https://unsplash.it/300/450?image=985" alt=""></div>
+                  <div class="evo_c-carousel__slide--multi-image-container__image-wrapper"><img class="evo_c-carousel__image" src="https://unsplash.it/300/450?image=984" alt=""></div>
+                  <div class="evo_c-carousel__slide--multi-image-container__image-wrapper"><img class="evo_c-carousel__image" src="https://unsplash.it/300/450?image=973" alt="">
+                  </div>
+                </div>
+              </div>
+              <!-- carousel arrow navigation -->
+              <a href="" class="evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--left" data-slide-nav="prev">
+                <i class="material-icons evo_c-carousel__arrow-nav-icon">navigate_before</i>
+              </a>
+              <a href="" class="evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--right" data-slide-nav="next">
+                <i class="material-icons evo_c-carousel__arrow-nav-icon">navigate_next</i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end carousel with multi image slides -->
+
+    <!-- code well markup -->
+    <div class="evo_c-markup">
+      <ul class="evo_c-markup__tabs js-c-markup-toggle">
+        <li class="evo_c-markup__item">html</li>
+        <li class="evo_c-markup__item">css</li>
+        <li class="evo_c-markup__item">js</li>
+      </ul>
+      <div class="evo_c-markup__container">
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-html">
+            <!-- HTML CODE HERE -->
+    &lt;div class=&quot;evo_c-carousel__wrapper&quot;&gt;
+      &lt;div class=&quot;evo_c-carousel evo_c-carousel--slider-type&quot; data-bullet-nav&gt;
+        &lt;!-- bullet navigation --&gt;
+        &lt;ol class=&quot;evo_c-carousel__bullet-nav&quot;&gt;
+          &lt;li class=&quot;evo_c-carousel__bullet-nav-item evo_c-carousel__bullet-nav-item--is-active&quot; data-slide-index=&quot;0&quot;&gt;&lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__bullet-nav-item&quot; data-slide-index=&quot;1&quot;&gt;&lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__bullet-nav-item&quot; data-slide-index=&quot;2&quot;&gt;&lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__bullet-nav-item&quot; data-slide-index=&quot;3&quot;&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;!-- carousel slide container --&gt;
+        &lt;div class=&quot;evo_c-carousel__slides-container&quot;&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide evo_c-carousel__slide--is-selected&quot;&gt;
+            &lt;div class=&quot;evo_c-carousel__slide--multi-image-container&quot;&gt;
+              &lt;div class=&quot;evo_c-carousel__slide--multi-image-container__image-wrapper&quot;&gt;&lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/300/450?image=1016&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+              &lt;div class=&quot;evo_c-carousel__slide--multi-image-container__image-wrapper&quot;&gt;&lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/300/450?image=1011&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+              &lt;div class=&quot;evo_c-carousel__slide--multi-image-container__image-wrapper&quot;&gt;&lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/300/450?image=1005&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1041&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1037&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;div class=&quot;evo_c-carousel__slide--multi-image-container&quot;&gt;
+              &lt;div class=&quot;evo_c-carousel__slide--multi-image-container__image-wrapper&quot;&gt;&lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/300/450?image=985&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+              &lt;div class=&quot;evo_c-carousel__slide--multi-image-container__image-wrapper&quot;&gt;&lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/300/450?image=984&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+              &lt;div class=&quot;evo_c-carousel__slide--multi-image-container__image-wrapper&quot;&gt;&lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/300/450?image=973&quot; alt=&quot;&quot;&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel arrow navigation --&gt;
+          &lt;a href=&quot;&quot; class=&quot;evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--left&quot; data-slide-nav=&quot;prev&quot;&gt;
+            &lt;i class=&quot;material-icons evo_c-carousel__arrow-nav-icon&quot;&gt;navigate_before&lt;/i&gt;
+          &lt;/a&gt;
+          &lt;a href=&quot;&quot; class=&quot;evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--right&quot; data-slide-nav=&quot;next&quot;&gt;
+            &lt;i class=&quot;material-icons evo_c-carousel__arrow-nav-icon&quot;&gt;navigate_next&lt;/i&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+          </code></pre>
+        </div>
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-css">
+            <!-- CSS CODE HERE -->
+/* ====================================================
+  carousel component styles
+  =====================================================*/
+.evo_c-carousel__wrapper {
+  max-width: 800px;
+}
+
+.evo_c-carousel {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.evo_c-carousel__bullet-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  bottom: 4%;
+  z-index: 50;
+  width: 100%;
+  &amp;-item {
+    // bullet nav li
+    display: inline;
+    margin: 0 0.5em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: white(1);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &amp;:hover {
+      opacity: 0.8;
+    }
+    &amp;--is-active {
+      // bullet nav li active class
+      opacity: 1;
+      &amp;:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.evo_c-carousel__slides-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evo_c-carousel__image {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.evo_c-carousel__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @at-root .evo_c-carousel--slider-type &amp; {
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+    z-index: -10;
+  }
+  @at-root .evo_c-carousel--fader-type &amp; {
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+  @at-root .evo_c-carousel--fader-type &amp;--is-selected {
+    // carousel slide selected
+    position: static;
+    z-index: 10;
+    opacity: 1;
+  }
+  @at-root .evo_c-carousel--slider-type &amp;--is-selected {
+    // carousel slide selected
+    position: static;
+    z-index: 10;
+    opacity: 1;
+    transform: translateY(0);
+    &amp;.slide--slide-next {
+      animation: evo_c-carousel--slideFromRight 1s ease;
+      -webkit-animation: evo_c-carousel--slideFromRight 1s ease;
+    }
+    &amp;.slide--slide-prev {
+      animation: evo_c-carousel--slideFromLeft 1s ease;
+      -webkit-animation: evo_c-carousel--slideFromLeft 1s ease;
+    }
+  }
+  &amp;.slide--slide-out-left {
+    animation: evo_c-carousel--slideToLeft 1s ease;
+    -webkit-animation: evo_c-carousel--slideToLeft 1s ease;
+  }
+  &amp;.slide--slide-out-right {
+    animation: evo_c-carousel--slideToRight 1s ease;
+    -webkit-animation: evo_c-carousel--slideToRight 1s ease;
+  }
+}
+
+.evo_c-carousel__slide--multi-image-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // border: solid 1px red;
+}
+
+.evo_c-carousel__slide--multi-image-container__image-wrapper {}
+
+.evo_c-carousel__arrow-nav {
+  position: absolute;
+  z-index: 10;
+  color: white(1);
+  text-decoration: none;
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  padding: 0;
+  transition: all 0.25s ease;
+  &amp;:hover {
+    opacity: 1;
+  }
+  &amp;--right {
+    // right arrow nav
+    right: 0;
+  }
+  &amp;--left {
+    left: 0;
+  }
+  &amp;-icon {
+    font-size: 3em;
+  }
+}
+
+.evo_c-carousel__thumb-nav {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  width: 100%;
+  padding: 0;
+  margin-top: 0.75em;
+}
+
+.evo_c-carousel__thumb-nav-item {
+  padding: 0 0.5em;
+  cursor: pointer;
+  transition: transform 0.35s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &amp;:hover {
+    transform: translateY(-10%);
+  }
+  &amp;--is-active {
+    transform: translateY(-10%);
+  }
+}
+
+.evo_c-carousel__thumb-image {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes evo_c-carousel--slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideFromRight {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes evo_c-carousel--slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideFromLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes evo_c-carousel--slideToLeft {
+  0% {
+    transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+  }
+  100% {
+    z-index: -10;
+    transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideToLeft {
+  0% {
+    -webkit-transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+  }
+  100% {
+    z-index: -10;
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes evo_c-carousel--slideToRight {
+  0% {
+    transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+    opacity: 1
+  }
+  100% {
+    z-index: -10;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideToRight {
+  0% {
+    -webkit-transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+    opacity: 1
+  }
+  100% {
+    z-index: -10;
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-javascript">
+            <!-- JAVASCRIPT CODE HERE -->
+            export default function() {
+
+  /*=== STANDARD CAROUSEL COMPONENT ===*/
+
+  var carousels = document.querySelectorAll('.evo_c-carousel');
+  var numOfCarousels = carousels.length;
+  var i;
+
+  // add event listeners to carousels
+  for (i = 0; i &lt; numOfCarousels; i++) {
+    carousels[i].addEventListener('click', _navAction(i));
+  }
+
+  function _navAction(i) {
+    return function(e) {
+      e.preventDefault();
+      // the current carousel
+      var activeCarousel = carousels[i];
+      // check to see if is a slider type
+      var isSlider = activeCarousel.classList.contains('evo_c-carousel--slider-type');
+      // set boolean based off of data-thumbnail-nav attr
+      var isThumbNav = activeCarousel.dataset.thumbnailNav !== undefined ? true : false;
+      // set boolean based off of data-bullet-nav attribute
+      var isBulletNav = activeCarousel.dataset.bulletNav !== undefined ? true : false;
+      // array of slides in current carousel
+      var slideArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__slide'));
+      // length of slide array
+      var slideArrayLength = slideArray.length;
+      // index number of the currently displayed slide
+      var currentSlide = slideArray.indexOf(activeCarousel.querySelector('.evo_c-carousel__slide--is-selected'));
+      // array of bullet nav list items
+      var bulletNavArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__bullet-nav-item'));
+      // array of thumbnail nav items
+      var thumbNavArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__thumb-nav-item'));
+      // target element of click event
+      var target = e.target;
+
+      if (target.nodeName === 'I') {
+        // set target to parent of icon element when prev/next nav clicked
+        target = target.parentNode;
+      }
+
+      if (target.classList.contains('evo_c-carousel__thumb-image')) {
+        // set target to parent node of thumbnail image when thumbnail is clicked
+        target = target.parentNode;
+      }
+
+      // if bullet nav is clicked
+      if (target.dataset.slideIndex !== undefined) {
+        // get the slide index from the data-slide-index attribute
+        var targetedSlide = +(target.dataset.slideIndex);
+        // remove selected class from all slides
+        slideArray.forEach(function(slide) {
+          if (slide.classList.contains('evo_c-carousel__slide--is-selected')) {
+            slide.classList.remove('evo_c-carousel__slide--is-selected');
+          }
+          if (isSlider) {
+            // reset slide class name
+            slide.className = 'evo_c-carousel__slide';
+          }
+        });
+        if (isBulletNav) {
+          // remove active class from all bullet nav items
+          bulletNavArray.forEach(function(bullet) {
+            bullet.classList.remove('evo_c-carousel__bullet-nav-item--is-active');
+          });
+          // add active class to correct bullet nav item
+          bulletNavArray[targetedSlide].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+        }
+        if (isThumbNav) {
+          // remove active class from all bullet nav items
+          thumbNavArray.forEach(function(thumb) {
+            thumb.classList.remove('evo_c-carousel__thumb-nav-item--is-active');
+          });
+          // add active class to correct bullet nav item
+          thumbNavArray[targetedSlide].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+        }
+        // add selected class to selected slide
+        slideArray[targetedSlide].classList.add('evo_c-carousel__slide--is-selected');
+        if (isSlider) {
+          if (targetedSlide &gt; currentSlide || currentSlide === slideArray.length - 1) {
+            slideArray[targetedSlide].classList.add('slide--slide-next');
+            slideArray[currentSlide].classList.add('slide--slide-out-left');
+            slideArray[currentSlide].classList.remove('slide--slide-out-*');
+          } else if (targetedSlide &lt; currentSlide) {
+            slideArray[targetedSlide].classList.add('slide--slide-prev');
+            slideArray[currentSlide].classList.add('slide--slide-out-right');
+            slideArray[currentSlide].classList.remove('slide--slide-out-*');
+          }
+        }
+
+        // if arrow nav is clicked
+      } else if (target.dataset.slideNav !== undefined) {
+
+        // get the navigation direction from data-slide-nav attribute
+        var navDirection = target.dataset.slideNav;
+        // set the next slide index
+        var nextIndex = (currentSlide &lt; slideArrayLength - 1) ? currentSlide + 1 : 0;
+        // set the previous slide index
+        var prevIndex = (currentSlide &gt; 0) ? currentSlide - 1 : slideArrayLength - 1;
+        // remove selected class from all slides
+        slideArray.forEach(function(slide) {
+          slide.classList.remove('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            // reset slide class name
+            slide.className = 'evo_c-carousel__slide';
+          }
+        });
+        if (isBulletNav) {
+          // remove active class from all bullet nav items
+          bulletNavArray.forEach(function(bullet) {
+            bullet.classList.remove('evo_c-carousel__bullet-nav-item--is-active');
+          });
+        }
+        if (isThumbNav) {
+          // remove active class from all bullet nav items
+          thumbNavArray.forEach(function(thumb) {
+            thumb.classList.remove('evo_c-carousel__thumb-nav-item--is-active');
+          });
+        }
+
+        // add selected class to slide and active class to bullet nav depending on navDirection
+        if (navDirection === 'next') {
+          slideArray[nextIndex].classList.add('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            slideArray[nextIndex].classList.add('slide--slide-next');
+            slideArray[currentSlide].classList.add('slide--slide-out-left');
+          }
+          if (isBulletNav) {
+            bulletNavArray[nextIndex].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+          }
+          if (isThumbNav) {
+            thumbNavArray[nextIndex].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+          }
+        } else {
+          slideArray[prevIndex].classList.add('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            slideArray[prevIndex].classList.add('slide--slide-prev');
+            slideArray[currentSlide].classList.add('slide--slide-out-right');
+          }
+          if (isBulletNav) {
+            bulletNavArray[prevIndex].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+          }
+          if (isThumbNav) {
+            thumbNavArray[prevIndex].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+          }
+        }
+      }
+
+    };
+  }
+}
+
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    <!-- end codewell markup -->
+
+    <!-- ========================================================= -->
+
+        <!-- carousel with thumbnail navigation -->
+        <h4>Carousel component with thumbnail navigation</h4>
+        <div class="evo_c-carousel__wrapper">
+          <div class="evo_c-carousel evo_c-carousel--slider-type" data-thumbnail-nav>
+          <!-- carousel slide container -->
+            <div class="evo_c-carousel__slides-container">
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide evo_c-carousel__slide--is-selected">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1037" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1041" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1051" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1039" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=984" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=985" alt="">
+              </div>
+              <!-- carousel slide -->
+              <div class="evo_c-carousel__slide">
+                <img class="evo_c-carousel__image" src="https://unsplash.it/800/400?image=1005" alt="">
+              </div>
+              <!-- carousel arrow navigation -->
+              <a href="" class="evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--left" data-slide-nav="prev">
+                <i class="material-icons evo_c-carousel__arrow-nav-icon">navigate_before</i>
+              </a>
+              <a href="" class="evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--right" data-slide-nav="next">
+                <i class="material-icons evo_c-carousel__arrow-nav-icon">navigate_next</i>
+              </a>
+            </div>
+            <!-- thumb navigation -->
+            <ol class="evo_c-carousel__thumb-nav">
+              <li class="evo_c-carousel__thumb-nav-item evo_c-carousel__thumb-nav-item--is-active" data-slide-index="0">
+                <img class="evo_c-carousel__thumb-image" src="https://unsplash.it/65/65?image=1037" alt="">
+              </li>
+              <li class="evo_c-carousel__thumb-nav-item" data-slide-index="1">
+                <img class="evo_c-carousel__thumb-image" src="https://unsplash.it/65/65?image=1041" alt="">
+              </li>
+              <li class="evo_c-carousel__thumb-nav-item" data-slide-index="2">
+                <img class="evo_c-carousel__thumb-image" src="https://unsplash.it/65/65?image=1051" alt="">
+              </li>
+              <li class="evo_c-carousel__thumb-nav-item" data-slide-index="3">
+                <img class="evo_c-carousel__thumb-image" src="https://unsplash.it/65/65?image=1039" alt="">
+              </li>
+              <li class="evo_c-carousel__thumb-nav-item" data-slide-index="4">
+                <img class="evo_c-carousel__thumb-image" src="https://unsplash.it/65/65?image=984" alt="">
+              </li>
+              <li class="evo_c-carousel__thumb-nav-item" data-slide-index="5">
+                <img class="evo_c-carousel__thumb-image" src="https://unsplash.it/65/65?image=985" alt="">
+              </li>
+              <li class="evo_c-carousel__thumb-nav-item" data-slide-index="6">
+                <img class="evo_c-carousel__thumb-image" src="https://unsplash.it/65/65?image=1005" alt="">
+              </li>
+            </ol>
+          </div>
+        </div>
+
+    <!-- code well markup -->
+    <div class="evo_c-markup">
+      <ul class="evo_c-markup__tabs js-c-markup-toggle">
+        <li class="evo_c-markup__item">html</li>
+        <li class="evo_c-markup__item">css</li>
+        <li class="evo_c-markup__item">js</li>
+      </ul>
+      <div class="evo_c-markup__container">
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-html">
+            <!-- HTML CODE HERE -->
+    &lt;div class=&quot;evo_c-carousel__wrapper&quot;&gt;
+      &lt;div class=&quot;evo_c-carousel evo_c-carousel--slider-type&quot; data-thumbnail-nav&gt;
+      &lt;!-- carousel slide container --&gt;
+        &lt;div class=&quot;evo_c-carousel__slides-container&quot;&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide evo_c-carousel__slide--is-selected&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1037&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1041&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1051&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1039&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=984&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=985&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel slide --&gt;
+          &lt;div class=&quot;evo_c-carousel__slide&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__image&quot; src=&quot;https://unsplash.it/800/400?image=1005&quot; alt=&quot;&quot;&gt;
+          &lt;/div&gt;
+          &lt;!-- carousel arrow navigation --&gt;
+          &lt;a href=&quot;&quot; class=&quot;evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--left&quot; data-slide-nav=&quot;prev&quot;&gt;
+            &lt;i class=&quot;material-icons evo_c-carousel__arrow-nav-icon&quot;&gt;navigate_before&lt;/i&gt;
+          &lt;/a&gt;
+          &lt;a href=&quot;&quot; class=&quot;evo_c-carousel__arrow-nav evo_c-carousel__arrow-nav--right&quot; data-slide-nav=&quot;next&quot;&gt;
+            &lt;i class=&quot;material-icons evo_c-carousel__arrow-nav-icon&quot;&gt;navigate_next&lt;/i&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;!-- thumb navigation --&gt;
+        &lt;ol class=&quot;evo_c-carousel__thumb-nav&quot;&gt;
+          &lt;li class=&quot;evo_c-carousel__thumb-nav-item evo_c-carousel__thumb-nav-item--is-active&quot; data-slide-index=&quot;0&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__thumb-image&quot; src=&quot;https://unsplash.it/65/65?image=1037&quot; alt=&quot;&quot;&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__thumb-nav-item&quot; data-slide-index=&quot;1&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__thumb-image&quot; src=&quot;https://unsplash.it/65/65?image=1041&quot; alt=&quot;&quot;&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__thumb-nav-item&quot; data-slide-index=&quot;2&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__thumb-image&quot; src=&quot;https://unsplash.it/65/65?image=1051&quot; alt=&quot;&quot;&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__thumb-nav-item&quot; data-slide-index=&quot;3&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__thumb-image&quot; src=&quot;https://unsplash.it/65/65?image=1039&quot; alt=&quot;&quot;&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__thumb-nav-item&quot; data-slide-index=&quot;4&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__thumb-image&quot; src=&quot;https://unsplash.it/65/65?image=984&quot; alt=&quot;&quot;&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__thumb-nav-item&quot; data-slide-index=&quot;5&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__thumb-image&quot; src=&quot;https://unsplash.it/65/65?image=985&quot; alt=&quot;&quot;&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;evo_c-carousel__thumb-nav-item&quot; data-slide-index=&quot;6&quot;&gt;
+            &lt;img class=&quot;evo_c-carousel__thumb-image&quot; src=&quot;https://unsplash.it/65/65?image=1005&quot; alt=&quot;&quot;&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+          </code></pre>
+        </div>
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-css">
+            <!-- CSS CODE HERE -->
+/* ====================================================
+  carousel component styles
+  =====================================================*/
+.evo_c-carousel__wrapper {
+  max-width: 800px;
+}
+
+.evo_c-carousel {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.evo_c-carousel__bullet-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  bottom: 4%;
+  z-index: 50;
+  width: 100%;
+  &amp;-item {
+    // bullet nav li
+    display: inline;
+    margin: 0 0.5em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: white(1);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &amp;:hover {
+      opacity: 0.8;
+    }
+    &amp;--is-active {
+      // bullet nav li active class
+      opacity: 1;
+      &amp;:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.evo_c-carousel__slides-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evo_c-carousel__image {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.evo_c-carousel__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @at-root .evo_c-carousel--slider-type &amp; {
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+    z-index: -10;
+  }
+  @at-root .evo_c-carousel--fader-type &amp; {
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+  @at-root .evo_c-carousel--fader-type &amp;--is-selected {
+    // carousel slide selected
+    position: static;
+    z-index: 10;
+    opacity: 1;
+  }
+  @at-root .evo_c-carousel--slider-type &amp;--is-selected {
+    // carousel slide selected
+    position: static;
+    z-index: 10;
+    opacity: 1;
+    transform: translateY(0);
+    &amp;.slide--slide-next {
+      animation: evo_c-carousel--slideFromRight 1s ease;
+      -webkit-animation: evo_c-carousel--slideFromRight 1s ease;
+    }
+    &amp;.slide--slide-prev {
+      animation: evo_c-carousel--slideFromLeft 1s ease;
+      -webkit-animation: evo_c-carousel--slideFromLeft 1s ease;
+    }
+  }
+  &amp;.slide--slide-out-left {
+    animation: evo_c-carousel--slideToLeft 1s ease;
+    -webkit-animation: evo_c-carousel--slideToLeft 1s ease;
+  }
+  &amp;.slide--slide-out-right {
+    animation: evo_c-carousel--slideToRight 1s ease;
+    -webkit-animation: evo_c-carousel--slideToRight 1s ease;
+  }
+}
+
+.evo_c-carousel__slide--multi-image-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // border: solid 1px red;
+}
+
+.evo_c-carousel__slide--multi-image-container__image-wrapper {}
+
+.evo_c-carousel__arrow-nav {
+  position: absolute;
+  z-index: 10;
+  color: white(1);
+  text-decoration: none;
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  padding: 0;
+  transition: all 0.25s ease;
+  &amp;:hover {
+    opacity: 1;
+  }
+  &amp;--right {
+    // right arrow nav
+    right: 0;
+  }
+  &amp;--left {
+    left: 0;
+  }
+  &amp;-icon {
+    font-size: 3em;
+  }
+}
+
+.evo_c-carousel__thumb-nav {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  width: 100%;
+  padding: 0;
+  margin-top: 0.75em;
+}
+
+.evo_c-carousel__thumb-nav-item {
+  padding: 0 0.5em;
+  cursor: pointer;
+  transition: transform 0.35s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &amp;:hover {
+    transform: translateY(-10%);
+  }
+  &amp;--is-active {
+    transform: translateY(-10%);
+  }
+}
+
+.evo_c-carousel__thumb-image {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes evo_c-carousel--slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideFromRight {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes evo_c-carousel--slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideFromLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes evo_c-carousel--slideToLeft {
+  0% {
+    transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+  }
+  100% {
+    z-index: -10;
+    transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideToLeft {
+  0% {
+    -webkit-transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+  }
+  100% {
+    z-index: -10;
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes evo_c-carousel--slideToRight {
+  0% {
+    transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+    opacity: 1
+  }
+  100% {
+    z-index: -10;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes evo_c-carousel--slideToRight {
+  0% {
+    -webkit-transform: translateX(0);
+    z-index: 5;
+  }
+  99% {
+    z-index: 5;
+    opacity: 1
+  }
+  100% {
+    z-index: -10;
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+}
+
+          </code></pre>
+        </div>
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-javascript">
+            <!-- JAVASCRIPT CODE HERE -->
+            export default function() {
+
+  /*=== STANDARD CAROUSEL COMPONENT ===*/
+
+  var carousels = document.querySelectorAll('.evo_c-carousel');
+  var numOfCarousels = carousels.length;
+  var i;
+
+  // add event listeners to carousels
+  for (i = 0; i &lt; numOfCarousels; i++) {
+    carousels[i].addEventListener('click', _navAction(i));
+  }
+
+  function _navAction(i) {
+    return function(e) {
+      e.preventDefault();
+      // the current carousel
+      var activeCarousel = carousels[i];
+      // check to see if is a slider type
+      var isSlider = activeCarousel.classList.contains('evo_c-carousel--slider-type');
+      // set boolean based off of data-thumbnail-nav attr
+      var isThumbNav = activeCarousel.dataset.thumbnailNav !== undefined ? true : false;
+      // set boolean based off of data-bullet-nav attribute
+      var isBulletNav = activeCarousel.dataset.bulletNav !== undefined ? true : false;
+      // array of slides in current carousel
+      var slideArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__slide'));
+      // length of slide array
+      var slideArrayLength = slideArray.length;
+      // index number of the currently displayed slide
+      var currentSlide = slideArray.indexOf(activeCarousel.querySelector('.evo_c-carousel__slide--is-selected'));
+      // array of bullet nav list items
+      var bulletNavArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__bullet-nav-item'));
+      // array of thumbnail nav items
+      var thumbNavArray = Array.prototype.slice.call(activeCarousel.querySelectorAll('.evo_c-carousel__thumb-nav-item'));
+      // target element of click event
+      var target = e.target;
+
+      if (target.nodeName === 'I') {
+        // set target to parent of icon element when prev/next nav clicked
+        target = target.parentNode;
+      }
+
+      if (target.classList.contains('evo_c-carousel__thumb-image')) {
+        // set target to parent node of thumbnail image when thumbnail is clicked
+        target = target.parentNode;
+      }
+
+      // if bullet nav is clicked
+      if (target.dataset.slideIndex !== undefined) {
+        // get the slide index from the data-slide-index attribute
+        var targetedSlide = +(target.dataset.slideIndex);
+        // remove selected class from all slides
+        slideArray.forEach(function(slide) {
+          if (slide.classList.contains('evo_c-carousel__slide--is-selected')) {
+            slide.classList.remove('evo_c-carousel__slide--is-selected');
+          }
+          if (isSlider) {
+            // reset slide class name
+            slide.className = 'evo_c-carousel__slide';
+          }
+        });
+        if (isBulletNav) {
+          // remove active class from all bullet nav items
+          bulletNavArray.forEach(function(bullet) {
+            bullet.classList.remove('evo_c-carousel__bullet-nav-item--is-active');
+          });
+          // add active class to correct bullet nav item
+          bulletNavArray[targetedSlide].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+        }
+        if (isThumbNav) {
+          // remove active class from all bullet nav items
+          thumbNavArray.forEach(function(thumb) {
+            thumb.classList.remove('evo_c-carousel__thumb-nav-item--is-active');
+          });
+          // add active class to correct bullet nav item
+          thumbNavArray[targetedSlide].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+        }
+        // add selected class to selected slide
+        slideArray[targetedSlide].classList.add('evo_c-carousel__slide--is-selected');
+        if (isSlider) {
+          if (targetedSlide &gt; currentSlide || currentSlide === slideArray.length - 1) {
+            slideArray[targetedSlide].classList.add('slide--slide-next');
+            slideArray[currentSlide].classList.add('slide--slide-out-left');
+            slideArray[currentSlide].classList.remove('slide--slide-out-*');
+          } else if (targetedSlide &lt; currentSlide) {
+            slideArray[targetedSlide].classList.add('slide--slide-prev');
+            slideArray[currentSlide].classList.add('slide--slide-out-right');
+            slideArray[currentSlide].classList.remove('slide--slide-out-*');
+          }
+        }
+
+        // if arrow nav is clicked
+      } else if (target.dataset.slideNav !== undefined) {
+
+        // get the navigation direction from data-slide-nav attribute
+        var navDirection = target.dataset.slideNav;
+        // set the next slide index
+        var nextIndex = (currentSlide &lt; slideArrayLength - 1) ? currentSlide + 1 : 0;
+        // set the previous slide index
+        var prevIndex = (currentSlide &gt; 0) ? currentSlide - 1 : slideArrayLength - 1;
+        // remove selected class from all slides
+        slideArray.forEach(function(slide) {
+          slide.classList.remove('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            // reset slide class name
+            slide.className = 'evo_c-carousel__slide';
+          }
+        });
+        if (isBulletNav) {
+          // remove active class from all bullet nav items
+          bulletNavArray.forEach(function(bullet) {
+            bullet.classList.remove('evo_c-carousel__bullet-nav-item--is-active');
+          });
+        }
+        if (isThumbNav) {
+          // remove active class from all bullet nav items
+          thumbNavArray.forEach(function(thumb) {
+            thumb.classList.remove('evo_c-carousel__thumb-nav-item--is-active');
+          });
+        }
+
+        // add selected class to slide and active class to bullet nav depending on navDirection
+        if (navDirection === 'next') {
+          slideArray[nextIndex].classList.add('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            slideArray[nextIndex].classList.add('slide--slide-next');
+            slideArray[currentSlide].classList.add('slide--slide-out-left');
+          }
+          if (isBulletNav) {
+            bulletNavArray[nextIndex].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+          }
+          if (isThumbNav) {
+            thumbNavArray[nextIndex].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+          }
+        } else {
+          slideArray[prevIndex].classList.add('evo_c-carousel__slide--is-selected');
+          if (isSlider) {
+            slideArray[prevIndex].classList.add('slide--slide-prev');
+            slideArray[currentSlide].classList.add('slide--slide-out-right');
+          }
+          if (isBulletNav) {
+            bulletNavArray[prevIndex].classList.add('evo_c-carousel__bullet-nav-item--is-active');
+          }
+          if (isThumbNav) {
+            thumbNavArray[prevIndex].classList.add('evo_c-carousel__thumb-nav-item--is-active');
+          }
+        }
+      }
+
+    };
+  }
+}
+
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    <!-- end codewell markup -->
+  </section>
+
+<script type="text/javascript" src="../../scripts/app.js"></script>
+</body>
+
+</html>
