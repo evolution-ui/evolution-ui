@@ -1,0 +1,139 @@
+/******************************************************************************
+                            Accordion Component
+******************************************************************************/
+
+// @include c('accordion') {
+//   margin: 0 auto;
+//   max-width: 40rem;
+//   width: 100%;
+
+//   @include e('bellow') {
+//     position: relative;
+//     width: 100%;
+
+//     &:hover,
+//     &:focus {
+//       background-color: get-color('primary', 'light');
+//     }
+//   }
+
+//   @include e('content') {
+//     max-height: 0;
+//     overflow: hidden;
+//     overflow-y: scroll;
+//     transition: all .5s;
+//   }
+// }
+
+/*** NEW ACCORDION VERSION ***/
+
+@include c('accordion') {
+
+  margin: 0 auto;
+  padding-left: 0;
+  max-width: 40rem;
+  width: 100%;
+  list-style: none;
+
+  @include e('bellow') {
+    // position: relative;
+    // width: 100%;
+    margin-bottom: .5em;
+
+    &:hover,
+    &:focus {
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include e('title') {
+    width: 100%;
+    padding: .9375em;
+
+    display: block;
+    // padding: 1em;
+    background-color: get-color('primary', 'base');
+
+    text-decoration: none;
+    &:link,
+    &:visited,
+    &:active {
+      color: initial;
+    }
+
+    &:hover {
+      background-color: get-color('primary', 'dark');
+    }
+
+    transition: background .3s ease, color .3s ease;
+
+    @include s('is-active') {
+      background-color: get-color('primary', 'dark');
+    }
+  }
+
+  @include e('content') {
+    max-height: 0;
+    // overflow: hidden;
+    overflow: scroll;
+    transition: all .5s ease;
+
+    @include s('is-expanded') {
+      max-height: 60vh;
+    }
+  }
+
+
+
+}
+
+
+.su_accordion {
+  // margin: 0 auto;
+  // max-width: 40rem;
+  // width: 100%;
+}
+
+.su_bellow {
+  // position: relative;
+  // width: 100%;
+}
+
+.su_bellow input {
+  position: absolute;
+  z-index: -50;
+  top: 4px;
+  right: 9px;
+}
+
+.su_bellow label {
+  display: block;
+  background-color: get-color('primary', 'base');
+  padding: 15px;
+  margin-bottom: 5px;
+  transition: background .5s, color .5s;
+}
+
+.su_bellow input:focus + label,
+.su_bellow label:hover {
+  background-color: get-color('primary', 'light');
+}
+
+.su_bellow-content {
+  // max-height: 0;
+  // overflow: hidden;
+  // overflow-y: scroll;
+  // transition: all .5s;
+}
+
+.su_bellow-content p {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.su_bellow input:checked ~ .su_bellow-content {
+  max-height: 12.5rem;
+}
+/** END ACCORDION COMPONENT **/
