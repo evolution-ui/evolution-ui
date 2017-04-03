@@ -9,7 +9,11 @@ import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
 import eyelids from './evolution/eyelids'
 import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
+<<<<<<< HEAD
 import demoComponent from './evolution/demo-component'
+=======
+import readabilityPanel from './evolution/readability_improvement_panel';
+>>>>>>> nunez
 
 
 /************************************************************************
@@ -24,7 +28,11 @@ import codeMarkup from './standard/code_markup'
 import stdForms from './standard/forms'
 
 
-
+/************************************************************************
+ *
+ *                      COMPONENT INITIALIZATION
+ *
+ ***********************************************************************/
 
 
 offCanvasNavigation();
@@ -36,3 +44,4 @@ cssAnimations();
 codeMarkup();
 stdForms();
 demoComponent();
+readabilityPanel();

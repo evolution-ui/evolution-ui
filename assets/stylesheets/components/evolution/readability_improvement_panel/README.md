@@ -1,0 +1,1 @@
+To use place the HTML, CSS, and JS into their respective places and the panel will position itself to the upper right of the screen.
