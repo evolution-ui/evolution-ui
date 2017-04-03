@@ -36,6 +36,11 @@ export default function() {
       this.content.style.webkitTransform = "translateY(-" + this.messageHeight + "px)";
     }
   };
-  herald.init();
+
+  var listItems = document.querySelectorAll('.evo_c-herald__content');
+
+  if (listItems.length > 0) {
+    herald.init();
+  }
 
 }

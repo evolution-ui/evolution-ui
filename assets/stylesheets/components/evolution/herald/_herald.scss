@@ -1,7 +1,11 @@
 @import 'herald-config';
 
-* {
-  box-sizing: border-box;
+.evo_c-herald-wrapper {
+  font-size: 1.3em;
+  line-height: 2em;
+  & * {
+   box-sizing: border-box;
+  }
 }
 
 .evo_c-herald {
@@ -25,7 +29,7 @@
   }
   &__ribbon {
     border-color: get-color($type: 'primary', $variant: 'base', $opacity: 1) get-color($type: 'primary', $variant: 'base', $opacity: 1) transparent get-color($type: 'primary', $variant: 'base', $opacity: 1);
-    border-width: 0 1em .5em 1em;
+    border-width: 0 1.05em .5em 1.1em;
     border-style: solid;
     height: 14em;
     position: absolute;
@@ -39,7 +43,7 @@
     }
   }
   &__img {
-    background: url("../../../../images/component_assets/bovacad.png");
+    background: url("../../../../images/component_assets/herald-demo-img.png");
     height: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -60,6 +64,9 @@
     & a {
       color: get-color($type: 'primary', $variant: 'base', $opacity: 1);
       padding: 0;
+    }
+    & p {
+      margin-top: 1em;
     }
   }
   &__trigger {
@@ -88,8 +95,8 @@
 }
 
 // -------------------------------------------------------------------------------------------------------------------
-// Requires accessible animation to prevent the content from showing on load before the script is finished loading,
-// should a user have JS enabled.
+// If a user has JS enabled, this animation prevents the content from showing on load before the script is finished loading
+// Component is accessible without JS; content shows on load.
 // -------------------------------------------------------------------------------------------------------------------
 
 .evo_c-herald.no-js {
@@ -108,7 +115,6 @@
 // -------------------------------------------------------------------------------------------------------------------
 // Jing's chip styling
 // -------------------------------------------------------------------------------------------------------------------
-
 
 %c-chip {
   outline: none;
@@ -148,6 +154,16 @@
   }
 }
 
+.c-chip--outlined {
+  @extend %c-chip;
+  border: 2px solid get-color($type: 'secondary', $variant: 'light', $opacity: 1);
+}
+
+// -------------------------------------------------------------------------------------------------------------------
+// Herald keyframes
+// -------------------------------------------------------------------------------------------------------------------
+
+
 @keyframes accessible {
   0% {
     height: 0;
@@ -172,6 +188,11 @@
     opacity: 0;
   }
 }
+
+// -------------------------------------------------------------------------------------------------------------------
+// Herald media queries
+// -------------------------------------------------------------------------------------------------------------------
+
 
 @media (max-width: 464px) {
   .evo_c-herald {
