@@ -125,11 +125,9 @@ export default function() {
       highlightNode.style = 'background-color: ' + highlightColor;
     }
 
-    // if (selection.anchorNode) {
     if (selectedRange) {
 
       // get the range of selected text and surround it with the hightlighting span
-      // selectedText = selection.getRangeAt(0);
 
       if (selectedRange.startContainer === selectedRange.endContainer && selectedRange.startOffset !== selectedRange.endOffset) {
 
@@ -145,7 +143,6 @@ export default function() {
 
         // create close icon
         closeIcon = document.createElement('i');
-        // closeIcon.className = 'fa fa-times evo_c-bookmarklet__close-icon';
         closeIcon.className = 'material-icons evo_c-bookmarklet__close-icon';
         closeIcon.innerHTML = 'close';
 

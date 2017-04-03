@@ -4,44 +4,748 @@
 <head>
   <meta charset="UTF-8">
   <title>Bookmarklet component</title>
-
   <!-- Import Material Icons and Roboto Fonts -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
-
-<!-- import main.css -->
-<link href="../../styles/main.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+  <!-- import main.css -->
+  <link href="../../styles/main.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- ====================== -->
-  <!-- start template -->
   <section data-limit-bookmarklet>
     <h3>Bookmarklet</h3>
     <h4>Using Bookmarklet</h4>
-    <p>To use bookmarklet, highlight some text. If the text is able to be bookmarked a small dialogue will pop up, giving you the option to bookmark or not. Users can also use the keyboard shortcut <code class="language-markup">Shift+Control+M+L</code>.  Currently you can only bookmark text that is inside of a single HTML tag.  In other words you may not select text that belongs to two different paragraphs or splits any other node like a span or header.  The component will warn you if you split nodes or try and activate the bookmark without selecting any text.</p>
-    <p>Once a bookmark has been created it will show up in the small widget on the right-hand side of the screen.  Each bookmark can be clicked on to quickly navigate the page to that place in the text.  In addition there is a convenient "Google this bookmark" button for each list item which will initiate a Google search with the query pre-filled by the bookmark text. You may clear individual bookmarks by clicking on the close icon, or clear all current bookmarks by clicking the "Clear all" button at the bottom of the bookmark list.</p>
-    <h4>Including Bookmarklet</h4>
-    <p>To include Bookmarklet on a page simply add the markup contained in the codewell below somewhere in the body tag of your page and include <code class="language-markup">bookmarklet.js</code> before the closing body tag. If you don't like the default yellow, a custom highlight color can be specified by adding a valid color name or hex color value to the <code class="language-markup">data-highlight-color</code> attribute. For example: <code class="language-markup">&lt;div class=&quot;evo_c-bookmarklet&quot; data-highlight-color=&quot;#ff00ff&quot;&gt;</code></p>
-
-        <!-- bookmarklet list here -->
-        <div class="evo_c-bookmarklet" data-highlight-color="">
-          <i class="material-icons evo_c-bookmarklet__teaser">bookmark</i>
-          <h1>Bookmarks</h1>
-          <ol class="evo_c-bookmaklet__bookmark-list">
-          </ol>
-          <a class="evo_c-btn evo_c-btn--secondary evo_c-bookmarklet__clear-all">clear all</a>
-        </div>
-        <!-- button pop-up -->
-        <div class="evo_c-bookmarklet__pop-up">
-          <p>Bookmark this selection?</p>
-          <span class="evo_c-bookmarklet__pop-up-button--yes"><i class="material-icons">done</i> Yes!</span>
-          <span class="evo_c-bookmarklet__pop-up-button--no"><i class="material-icons">close</i> No.</span>
-          <span class="evo_c-bookmarklet__pop-up-pip"></span>
-        </div>
-
+    <p>To use bookmarklet, highlight some text (this section is the demo!). If the text is able to be bookmarked a small dialogue will pop up, giving you the option to bookmark or not. Users can also use the keyboard shortcut <code>Shift+Control+L+M</code>. Currently you can only bookmark text that is inside of a single HTML tag. In other words you may not select text that belongs to two different paragraphs or splits any other node like a span or header. The component will warn you if you split nodes or try and activate the bookmark without selecting any text.</p>
+    <p>Once a bookmark has been created it will show up in the small widget on the right-hand side of the screen. Each bookmark can be clicked on to quickly navigate the page to that place in the text. In addition there is a convenient "Google this bookmark" button for each list item which will initiate a Google search with the query pre-filled by the bookmark text. You may clear individual bookmarks by clicking on the close icon, or clear all current bookmarks by clicking the "Clear all" button at the bottom of the bookmark list.</p>
+    <!-- bookmarklet list here -->
+    <div class="evo_c-bookmarklet" data-highlight-color="">
+      <i class="material-icons evo_c-bookmarklet__teaser">bookmark</i>
+      <h1>Bookmarks</h1>
+      <ol class="evo_c-bookmaklet__bookmark-list">
+      </ol>
+      <a class="evo_c-btn evo_c-btn--secondary evo_c-bookmarklet__clear-all">clear all</a>
+    </div>
+    <!-- button pop-up -->
+    <div class="evo_c-bookmarklet__pop-up">
+      <p>Bookmark this selection?</p>
+      <span class="evo_c-bookmarklet__pop-up-button--yes"><i class="material-icons">done</i> Yes!</span>
+      <span class="evo_c-bookmarklet__pop-up-button--no"><i class="material-icons">close</i> No.</span>
+      <span class="evo_c-bookmarklet__pop-up-pip"></span>
+    </div>
   </section>
-  <!-- end template -->
+  <!-- markup -->
+  <div class="evo_c-markup">
+    <ul class="evo_c-markup__tabs js-c-markup-toggle">
+      <li class="evo_c-markup__item">html</li>
+      <li class="evo_c-markup__item">css</li>
+      <li class="evo_c-markup__item">js</li>
+    </ul>
+    <div class="evo_c-markup__container">
+      <div class="evo_c-markup__content">
+        <pre><code class="evo_h-language-html">
+            <!-- HTML CODE HERE -->
+&lt;div class=&quot;evo_c-bookmarklet&quot; data-highlight-color=&quot;&quot;&gt;
+  &lt;i class=&quot;material-icons evo_c-bookmarklet__teaser&quot;&gt;bookmark&lt;/i&gt;
+  &lt;h1&gt;Bookmarks&lt;/h1&gt;
+  &lt;ol class=&quot;evo_c-bookmaklet__bookmark-list&quot;&gt;
+  &lt;/ol&gt;
+  &lt;a class=&quot;evo_c-btn evo_c-btn--secondary evo_c-bookmarklet__clear-all&quot;&gt;clear all&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;evo_c-bookmarklet__pop-up&quot;&gt;
+  &lt;p&gt;Bookmark this selection?&lt;/p&gt;
+  &lt;span class=&quot;evo_c-bookmarklet__pop-up-button--yes&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;done&lt;/i&gt; Yes!&lt;/span&gt;
+  &lt;span class=&quot;evo_c-bookmarklet__pop-up-button--no&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;close&lt;/i&gt; No.&lt;/span&gt;
+  &lt;span class=&quot;evo_c-bookmarklet__pop-up-pip&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+          </code></pre>
+      </div>
+      <div class="evo_c-markup__content">
+        <pre><code class="evo_h-language-css">
+            <!-- CSS CODE HERE -->
+/******************************************************************************
+                        Bookmarklet component
+******************************************************************************/
+
+$close-icon-hover-color: get-color('accent2');
+$bookmarklet-warning-color: get-color('accent2');
+$bookmarklet-caution-color: #f7ca18;
+$bookmarklet-success-color: get-color('accent4');
+.evo_c-bookmarklet {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.75em 1em;
+  background-color: white(1);
+  color: get-color('background');
+  border: solid 1px get-color('background');
+  border-radius: 0 0 0 0.2em;
+  position: fixed;
+  z-index: 1000;
+  top: 10em;
+  right: 0;
+  width: 20em;
+  transition: all 0.75s ease;
+  transform: translateX(calc(100% + 3.3em));
+  &amp; h1 {
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
+    &amp; i {
+      margin-right: 0.25em;
+    }
+  }
+  &amp;--is-visible {
+    transform: translateX(calc(87% + 2.6em));
+    &amp;:hover {
+      transform: translateX(5%);
+    }
+    @media screen and (max-width: 24em) {
+      width: 75%;
+      padding-right: 7%;
+    }
+  }
+  &amp; .evo_c-bookmarklet__clear-all {
+    margin: 0;
+    width: 94.5%;
+    text-align: center;
+    border-color: get-color('background');
+    transition: all 0.25s ease;
+    &amp;:hover {
+      background-color: $close-icon-hover-color;
+      border: solid 1px $close-icon-hover-color;
+      color: white(0.9);
+      cursor: pointer;
+    }
+    @media screen and (max-width: 24em) {
+      width: 100%;
+    }
+  }
+}
+
+.evo_c-bookmarklet__teaser {
+  background-color: white(1);
+  padding: 0.61em;
+  position: absolute;
+  top: -1px;
+  left: -2.23em;
+  border-top: solid 1px get-color('background');
+  border-left: solid 1px get-color('background');
+  border-bottom: solid 1px get-color('background');
+  border-radius: 0.2em 0 0 0.2em;
+  color: get-color('primary');
+}
+
+.evo_c-bookmarklet__highlight-text {
+  background-color: yellow; //default
+}
+
+.evo_c-bookmaklet__bookmark-list {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+  width: 94.5%;
+  @media screen and (max-width: 24em) {
+    width: 100%;
+  }
+}
+
+.evo_c-bookmarklet__bookmark-list-item {
+  padding: 0.5em 0.75em 0.5em 1em;
+  margin-bottom: 0.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: solid 1px get-color('background');
+  background-color: white(1);
+  position: relative;
+  border-radius: 0.2em;
+  // width: 17em;
+  &amp; a:first-of-type {
+    padding: 0;
+    color: get-color('primary');
+    flex: 1 1 100%;
+    transition: all 0.2s ease;
+    &amp;:hover {
+      color: get-color('primary', 'dark');
+    }
+  }
+}
+
+.evo_c-bookmarklet__close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.1em 0.2em 0 0;
+  color: black(0.25);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  font-size: 16px;
+  &amp;:hover {
+    color: $close-icon-hover-color;
+  }
+}
+
+.evo_c-btn {
+  background: transparent;
+  border: 0.1em;
+  border-radius: 0.2em;
+  border-style: solid;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  line-height: 2.4em;
+  margin: 0 0.5em;
+  padding: 0.1em 1.2em;
+  position: relative;
+}
+
+.evo_c-bookmarklet__google-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px white(1);
+  color: black(0.25);
+  border-radius: 0.2em;
+  padding: 0.4em 0;
+  margin: 1em 0 0.3em 34%;
+  font-size: 0.75em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  &amp;:hover {
+    color: black(0.35);
+    border: solid 1px black(0.35);
+  }
+  &amp; i {
+    margin-left: 0.5em;
+    margin-top: 0.1em;
+    font-size: 1em;
+    text-decoration: none;
+  }
+}
+
+.evo_c-bookmarklet--remove {
+  animation: evo_c-bookmarklet--fade-out 0.5s cubic-bezier(0.54, -0.21, 0.37, 0.92);
+}
+
+.evo_c-bookmarklet__alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1.5em 1em 0.5em 1em;
+  border-radius: 0.2em;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  z-index: 50;
+  text-align: center;
+  cursor: pointer;
+  transform: translate(-50%, 0);
+  animation: evo_c-bookmarklet__alert--pop-in 0.35s forwards ease-in-out;
+  color: white(1);
+  &amp;--warning {
+    @extend .evo_c-bookmarklet__alert;
+    background-color: $bookmarklet-warning-color;
+    &amp; i {
+      color: lighten($bookmarklet-warning-color, 15);
+      width: 100%;
+      font-size: 4em;
+    }
+  }
+  &amp;--caution {
+    @extend .evo_c-bookmarklet__alert;
+    background-color: $bookmarklet-caution-color;
+    &amp; i {
+      color: darken($bookmarklet-caution-color, 15);
+      width: 100%;
+      font-size: 4em;
+    }
+  }
+  &amp;--is-dismissed {
+    animation: evo_c-bookmarklet__alert--pop-out 0.35s forwards cubic-bezier(0.7, -0.43, 0.34, 0.76);
+  }
+  &amp; p {
+    margin-top: 0.5em;
+    font-size: 1.1em;
+    width: 100%;
+  }
+}
+
+.evo_c-bookmarklet__alert-background {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  animation: evo_c-bookmarket--fade-in-bg 0.35s forwards ease;
+  &amp;--caution {
+    @extend .evo_c-bookmarklet__alert-background;
+    background-color: black(0.75);
+  }
+  &amp;--warning {
+    @extend .evo_c-bookmarklet__alert-background;
+    background-color: black(0.75);
+  }
+  &amp;--is-dismissed {
+    animation: evo_c-bookmarket--fade-out-bg 0.2s forwards ease;
+  }
+}
+
+.evo_c-bookmarklet__pop-up {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+  background-color: white(1);
+  border: solid 1px get-color('background');
+  border-radius: 0.2em;
+  text-align: center;
+  padding: 1em 0.5em;
+  width: 13em;
+  font-size: 0.9em;
+  position: fixed;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  &amp;--is-visible {
+    pointer-events: auto;
+    opacity: 1;
+  }
+  &amp; p {
+    flex: 1 1 100%;
+    margin: 0 0 0.5em 0;
+  }
+  &amp;-button--yes {
+    flex: 1 1 30%;
+    color: $bookmarklet-success-color;
+    cursor: pointer;
+    border: solid 1px $bookmarklet-success-color;
+    margin-right: 0.25em;
+    border-radius: 0.2em;
+    padding: 0.2em;
+    background-color: white(1);
+    transition: all 0.25s ease;
+    &amp; i {
+      font-size: 1.5em;
+      transform: translateY(25%);
+    }
+    &amp;:hover {
+      background-color: lighten($bookmarklet-success-color, 31);
+    }
+  }
+  &amp;-button--no {
+    flex: 1 1 30%;
+    color: $bookmarklet-warning-color;
+    cursor: pointer;
+    border: solid 1px $bookmarklet-warning-color;
+    margin-left: 0.25em;
+    border-radius: 0.2em;
+    padding: 0.2em;
+    background-color: white(1);
+    transition: all 0.25s ease;
+    &amp; i {
+      font-size: 1.5em;
+      transform: translateY(25%);
+    }
+    &amp;:hover {
+      background-color: lighten($bookmarklet-warning-color, 28);
+    }
+  }
+}
+
+.evo_c-bookmarklet__pop-up-pip {
+  width: 0.7em;
+  height: 0.7em;
+  background-color: white(1);
+  transform: rotate(45deg);
+  position: absolute;
+  top: calc(-0.35em - 1px);
+  border-left: solid 1px get-color('background');
+  border-top: solid 1px get-color('background');
+}
+
+@keyframes evo_c-bookmarklet--fade-out {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes evo_c-bookmarklet__alert--pop-in {
+  0% {
+    top: 28%;
+    opacity: 0;
+  }
+  100% {
+    top: 25%;
+    opacity: 1;
+  }
+}
+
+@keyframes evo_c-bookmarklet__alert--pop-out {
+  0% {
+    top: 25%;
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    top: 5%;
+    opacity: 0;
+  }
+}
+
+@keyframes evo_c-bookmarket--fade-in-bg {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes evo_c-bookmarket--fade-out-bg {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+          </code></pre>
+      </div>
+      <div class="evo_c-markup__content">
+        <pre><code class="evo_h-language-javascript">
+            <!-- JAVASCRIPT CODE HERE -->
+//-------bookmarklet.js-----------//
+export default function() {
+
+  var bookmarkListComponent = document.querySelector('.evo_c-bookmarklet');
+  var bookmarkList = bookmarkListComponent.querySelector('.evo_c-bookmaklet__bookmark-list');
+  var highlightColor = bookmarkListComponent.dataset.highlightColor;
+  var clearAllBtn = bookmarkListComponent.querySelector('.evo_c-bookmarklet__clear-all');
+  var selectionPopUp = document.querySelector('.evo_c-bookmarklet__pop-up');
+  var selectionPopUpPip = selectionPopUp.querySelector('.evo_c-bookmarklet__pop-up-pip');
+  var popUpYesBtn = selectionPopUp.querySelector('.evo_c-bookmarklet__pop-up-button--yes');
+  var popUpNoBtn = selectionPopUp.querySelector('.evo_c-bookmarklet__pop-up-button--no');
+  var limitBookmarklet = document.querySelector('[data-limit-bookmarklet]');
+  var keysPressed = [];
+  var bookmarkId = 0;
+  var alertActive = false;
+
+  window.addEventListener('keydown', _keysDown, false);
+  window.addEventListener('keyup', _keysUp, false);
+
+  if (limitBookmarklet !== null) {
+    limitBookmarklet.addEventListener('mouseup', _checkForSelection, false);
+  } else {
+    document.addEventListener('mouseup', _checkForSelection, false);
+  }
+
+  function _keysDown(e) {
+    keysPressed[e.keyCode] = true;
+    // keyboard shortcut Shift(16) + Control(17) + L(76) + M(77)
+    if (keysPressed[16] &amp;&amp; keysPressed[17] &amp;&amp; keysPressed[76] &amp;&amp; keysPressed[77]) {
+      var selectedRange;
+      var rangeContainer;
+
+      selectedRange = window.getSelection().getRangeAt(0);
+      rangeContainer = selectedRange.startContainer;
+      // check for bookmarklet limiter attribute
+      if (limitBookmarklet !== null) {
+        // if selected range is a decendant of the limited element
+        if (limitBookmarklet.contains(rangeContainer)) {
+          _bookmarkSelection(selectedRange);
+        }
+      } else if (limitBookmarklet === null) {
+        _bookmarkSelection(selectedRange);
+      }
+    }
+  }
+
+  function _keysUp(e) {
+    keysPressed[e.keyCode] = false;
+  }
+
+  function _checkForSelection(e) {
+    if (e.target !== popUpYesBtn) {
+      var selection = window.getSelection();
+      var selectedRange = selection.getRangeAt(0);
+
+      if (selectedRange.startOffset !== selectedRange.endOffset &amp;&amp; selectedRange.startContainer === selectedRange.endContainer) {
+        _setPopUp(selectedRange);
+      }
+    }
+
+  }
+
+  function _setPopUp(selectedRange) {
+    if (selectedRange.startOffset !== selectedRange.endOffset) {
+      selectionPopUpPip.style.left = &quot;&quot;;
+      selectionPopUpPip.style.right = &quot;&quot;;
+      selectionPopUp.style.left = &quot;&quot;;
+      selectionPopUp.style.right = &quot;&quot;;
+
+      var range = selectedRange;
+      var rangeDims = range.getClientRects();
+      var pageWidth = window.innerWidth;
+      var popUpTop = rangeDims[0].top + rangeDims[0].height + 10;
+      var popUpLeft = rangeDims[0].left;
+      var popUpRight = rangeDims[0].width;
+      var pipPosition = rangeDims[0].width / 3.25;
+      selectionPopUp.style.top = popUpTop + 'px';
+
+      if (pageWidth - 200 &lt; popUpLeft) {
+        selectionPopUp.style.right = popUpRight + 'px';
+        selectionPopUpPip.style.left = 35 + '%';
+      } else {
+        selectionPopUp.style.left = popUpLeft + 'px';
+        selectionPopUpPip.style.left = pipPosition &lt; 169 ? pipPosition + 'px' : 50 + '%';
+      }
+
+      selectionPopUp.classList.add('evo_c-bookmarklet__pop-up--is-visible');
+
+      popUpYesBtn.addEventListener('mousedown', _pressedYes(range), false);
+      popUpNoBtn.addEventListener('click', function() {
+        selectionPopUp.classList.remove('evo_c-bookmarklet__pop-up--is-visible');
+        range.collapse();
+      }, false);
+    }
+  }
+
+  function _pressedYes(range) {
+    return function(e) {
+      selectionPopUp.classList.remove('evo_c-bookmarklet__pop-up--is-visible');
+      _bookmarkSelection(range, true);
+    };
+  }
+
+  function _bookmarkSelection(selectedRange, fromButton) {
+
+    var calledFromButton = fromButton || false;
+    var alertNode;
+    var selectionString;
+    var highlightNode;
+    var highlightNodeQueryString;
+    var bookmarkAnchorLink;
+    var listNode;
+    var closeIcon;
+    var googleSearchBtn;
+    var alertBackground;
+
+    alertNode = bookmarkListComponent.parentNode;
+
+    // create span node for text hightlighting
+    highlightNode = document.createElement('span');
+    highlightNode.className = 'evo_c-bookmarklet__highlight-text';
+
+    // sets text highlight color if specified in data-highlight-color attribute - defaults to yellow;
+    if (highlightColor) {
+      highlightNode.style = 'background-color: ' + highlightColor;
+    }
+
+    if (selectedRange) {
+
+      // get the range of selected text and surround it with the hightlighting span
+
+      if (selectedRange.startContainer === selectedRange.endContainer &amp;&amp; selectedRange.startOffset !== selectedRange.endOffset) {
+
+        // surround selected text with hightlighting span
+        selectedRange.surroundContents(highlightNode);
+
+        // add unique id to highlighted span
+        highlightNode.setAttribute('id', 'bookmarklet_' + bookmarkId);
+
+        // create li node for widget ol
+        listNode = document.createElement('li');
+        listNode.className = 'evo_c-bookmarklet__bookmark-list-item';
+
+        // create close icon
+        closeIcon = document.createElement('i');
+        closeIcon.className = 'material-icons evo_c-bookmarklet__close-icon';
+        closeIcon.innerHTML = 'close';
+
+        highlightNodeQueryString = encodeURIComponent(highlightNode.innerHTML);
+        highlightNodeQueryString = highlightNodeQueryString.replace(/%20/g, '+');
+
+        // create google search button
+        googleSearchBtn = document.createElement('a');
+        googleSearchBtn.classList.add('evo_c-bookmarklet__google-button');
+        googleSearchBtn.setAttribute('target', '_blank');
+        googleSearchBtn.setAttribute('href', 'http://www.google.com/search?q=' + highlightNodeQueryString);
+        googleSearchBtn.innerHTML = 'Google this bookmark &lt;i class=&quot;material-icons&quot;&gt;open_in_new&lt;/i&gt;';
+
+        // create anchor tag for widget li
+        bookmarkAnchorLink = document.createElement('a');
+
+        // set anchor link to bookmarklet ID
+        bookmarkAnchorLink.setAttribute('href', '#' + 'bookmarklet_' + bookmarkId);
+
+        // copy over the highlighted text
+        bookmarkAnchorLink.innerHTML = highlightNode.innerHTML;
+
+        // append anchor element and text to widget li
+        listNode.appendChild(bookmarkAnchorLink);
+
+        // append close icon to listNode
+        listNode.appendChild(closeIcon);
+
+        // append google search link
+        listNode.appendChild(googleSearchBtn);
+
+        // append li to widget ol
+        bookmarkList.appendChild(listNode);
+
+        // increment bookmarkId var
+        bookmarkId += 1;
+
+        // show the bookmarklet component
+        bookmarkListComponent.classList.add('evo_c-bookmarklet--is-visible');
+
+        if (!calledFromButton) {
+          selectionPopUp.classList.remove('evo_c-bookmarklet__pop-up--is-visible');
+        }
+
+        selectedRange.collapse();
+
+      } else {
+        if (!calledFromButton &amp;&amp; selectedRange.startContainer !== selectedRange.endContainer &amp;&amp; !alertActive) {
+
+          alertActive = true;
+          // create background div and add class
+          alertBackground = document.createElement('div');
+          alertBackground.classList.add('evo_c-bookmarklet__alert-background--warning');
+          // create warning div and add class
+          var warning = document.createElement('div');
+          warning.classList.add('evo_c-bookmarklet__alert--warning');
+          // add in html and message
+          warning.innerHTML = '&lt;i class=&quot;material-icons&quot;&gt;warning&lt;/i&gt;&lt;p&gt;&lt;strong&gt;D\'oh!&lt;/strong&gt; Your selection can\'t be a bookmarked.&lt;/p&gt;&lt;p&gt;&lt;small&gt;&lt;em&gt;(Keep your selection within a single HTML tag)&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;' + '&lt;span class=&quot;c-alert__close-alert&quot;&gt;' + '&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;' + '&lt;/span&gt;';
+          // add event listener for dismissing of alert
+          alertNode.addEventListener('click', _dismissAlert(warning, alertBackground), false);
+          // append alert div and background to document
+          alertNode.appendChild(warning);
+          alertNode.appendChild(alertBackground);
+        }
+        if (!calledFromButton &amp;&amp; selectedRange.startOffset === selectedRange.endOffset &amp;&amp; !alertActive) {
+
+          alertActive = true;
+          // create background div and add class
+          alertBackground = document.createElement('div');
+          alertBackground.classList.add('evo_c-bookmarklet__alert-background--caution');
+          // create alert div and add class
+          var caution = document.createElement('div');
+          caution.classList.add('evo_c-bookmarklet__alert--caution');
+          // add in html and message
+          caution.innerHTML = '&lt;i class=&quot;material-icons&quot;&gt;sentiment_dissatisfied&lt;/i&gt;&lt;p&gt;&lt;strong&gt;Oops!&lt;/strong&gt; You didn\'t select anything to bookmark. Nothing to see here...&lt;/p&gt;' + '&lt;span class=&quot;c-alert__close-alert&quot;&gt;' + '&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;' + '&lt;/span&gt;';
+          // add event listener for dismissing of alert
+          alertNode.addEventListener('click', _dismissAlert(caution, alertBackground), false);
+          // append alert div and background to document
+          alertNode.appendChild(caution);
+          alertNode.appendChild(alertBackground);
+
+        }
+      }
+
+    }
+
+    // create remove list item listeners
+    _buildClearBookmarkListItemListeners();
+
+  } // end of _bookmarkSelection
+
+  function _buildClearBookmarkListItemListeners() {
+    var closeIcons = document.querySelectorAll('.evo_c-bookmarklet__close-icon');
+    var numOfListItems = closeIcons.length;
+    var i;
+
+    // add event listeners to close icons
+    for (i = 0; i &lt; numOfListItems; i++) {
+      closeIcons[i].addEventListener('click', _removeListItem);
+    }
+
+    // add event listener to clear all button
+    clearAllBtn.addEventListener('click', _clearAllBookmarks);
+
+  } // end of _buildClearBookmarkListItemListeners
+
+  function _removeListItem(e) {
+
+    e.preventDefault();
+
+    var listItem = e.target;
+
+    _clearListItemAndNormalizeNode(listItem);
+
+  } // end of _removeListItem function
+
+  function _clearListItemAndNormalizeNode(listItem) {
+
+    var listItemId = listItem.previousSibling.getAttribute('href').slice(1);
+    var bookmarkedSpan = document.getElementById(listItemId);
+    var spanContent = document.createTextNode(bookmarkedSpan.innerHTML);
+    var spanParent = bookmarkedSpan.parentNode;
+
+    // spanParent.removeAttribute('data-bookmark');
+    spanParent.replaceChild(spanContent, bookmarkedSpan);
+    spanParent.normalize();
+
+    // closing animation on list item
+    listItem.parentNode.classList.add('evo_c-bookmarklet--remove');
+
+    // after animation runs remove alert from DOM
+    listItem.parentNode.addEventListener('animationend', function() {
+
+      listItem.parentNode.remove();
+      bookmarkList.normalize();
+
+      // hide bookmark list if no list items are present
+      if (bookmarkList.children.length === 0) {
+        bookmarkListComponent.classList.remove('evo_c-bookmarklet--is-visible');
+      }
+
+    });
+  } // end of _clearListItemAndNormalizeNode
+
+  function _clearAllBookmarks() {
+    var closeIcons = Array.prototype.slice.call(document.querySelectorAll('.evo_c-bookmarklet__close-icon'));
+
+    closeIcons.forEach(function(listItem) {
+      _clearListItemAndNormalizeNode(listItem);
+    });
+  } // end of _clearAllBookmarks
+
+  function _dismissAlert(alertMessageNode, bg) {
+    return function(e) {
+      alertMessageNode.classList.add('evo_c-bookmarklet__alert--is-dismissed');
+      bg.classList.add('evo_c-bookmarklet__alert-background--is-dismissed');
+
+      alertActive = false;
+
+      alertMessageNode.addEventListener('animationend', function() {
+        alertMessageNode.remove();
+        bg.remove();
+      });
+    };
+  }
+
+}
+
+
+          </code></pre>
+      </div>
+    </div>
+  </div>
   <script type="text/javascript" src="../../scripts/app.js"></script>
 </body>
 
