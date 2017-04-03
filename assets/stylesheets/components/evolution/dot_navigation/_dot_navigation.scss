@@ -107,7 +107,7 @@
       #evo_dot-line {
         position: absolute;
         top: 8px;
-        bottom: 14px;
+        bottom: 12px;
         right: calc(100% - 27px);
         background-color: get_color('primary', 'base', 0.7);
         transition: right 0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s, left 0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0.2s;
