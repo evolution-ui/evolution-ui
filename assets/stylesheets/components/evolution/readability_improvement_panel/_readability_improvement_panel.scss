@@ -28,6 +28,9 @@
   border: none;
 }
 
+.evo_c-readabilityElement * {
+    box-sizing: border-box;
+}
 
 .evo_c-readabilityElement:hover + .evo_c-readabilityElement__toolTip {
   display: block;
