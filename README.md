@@ -79,7 +79,8 @@ Thanks for your help!
 - Vojislav Grujić ([@Gruximillian][maintainer-gruximillian])
 - Brian Hernandez ([@brianhernandez][maintainer-brianhernandez])
 - Léna Faure ([@lenafaure][maintainer-lenafaure])
-- Carlos Coves ([@codephobe][maintainer-codephobe])
+- Carlos Coves ([@escorponox][maintainer-escorponox])
+- Jake Tom ([@codephobe][maintainer-codephobe])
 - Chris Bracco ([@cbracco][maintainer-cbracco])
 
 ## License
@@ -95,6 +96,7 @@ This project is released under the [MIT License][license].
 [liquid]: http://liquidmarkup.org
 [maintainer-brianhernandez]: https://github.com/brianhernandez
 [maintainer-cbracco]: https://github.com/cbracco
+[maintainer-escorponox]: https://github.com/escorponox
 [maintainer-codephobe]: https://github.com/codephobe
 [maintainer-gabrieleromeo]: https://github.com/GabrieleRomeo
 [maintainer-gruximillian]: https://github.com/Gruximillian
