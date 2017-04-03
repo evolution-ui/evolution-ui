@@ -1,0 +1,239 @@
+
+/********************************/
+/**** TEXT2SPEECH SETUP********/
+/*******************************/
+
+/* Base Setup*/
+
+::selection {
+	background : #ade576;
+	color : #ffffff;
+}
+
+span.evo_c-text2speech {
+	border : 2px solid #93ddf5;
+	border-radius : 5px;
+	margin : 5px;
+	padding : 3px;
+}
+
+.text-2speech-toggle:checked + .close.icon {
+	background : #ade576;
+	color : #ffffff;
+	height : 21px;
+	left : -19px;
+	margin : 0 auto;
+	padding : 1px 1px 0 1px;
+	position : absolute;
+	top : 0;
+	transition : all 1s;
+	width : 21px;
+	z-index : 11;
+}
+
+.text-2speech-toggle:checked + .close.icon:before {
+	background-color : currentColor;
+	border : none;
+	content : '';
+	height : 2px;
+	position : absolute;
+	top : 10px;
+	-webkit-transform : rotate(-45deg);
+	        transform : rotate(-45deg);
+	width : 22px;
+}
+
+.text-2speech-toggle:checked + .close.icon:after {
+	background-color : currentColor;
+	border : none;
+	content : '';
+	height : 2px;
+	left : 1px;
+	position : absolute;
+	top : 10px;
+	-webkit-transform : rotate(45deg);
+	        transform : rotate(45deg);
+	width : 21px;
+}
+
+.text-2speech-toggle + .close.icon {
+    background: #ade576;
+    height: 21px;
+    left: -19px;
+    margin: 0 auto;
+    padding: 1px 1px 0 1px;
+    position: absolute;
+    top: 0;
+    transition: all 1s;
+    width: 21px;
+    z-index: 12;
+}
+
+.text-2speech-toggle + .close.icon:before,
+.text-2speech-toggle + .close.icon:after {
+	border-bottom : solid 9px transparent;
+	border-right : solid 10px #ffffff;
+	border-top : solid 10px transparent;
+	content : '';
+	display : block;
+	height : -17px;
+	position : absolute;
+	width : 0;
+}
+
+.text-2speech-toggle + .close.icon:after {
+	left : 10px;
+}
+
+.text-2speech-toggle {
+	height : 20px;
+	/*left : -21px;*/
+	opacity : 0;
+	position : absolute;
+	width : 20px;
+}
+
+.evo_c-text2speech__lbl {
+	height : 21px;
+	left : -23px;
+	opacity : 20;
+	position : absolute;
+	top : 0;
+	width : 21px;
+	z-index : 13;
+}
+
+/* Controller form Setup */
+
+.evo_c-text2speech__controller {
+	background: #ffffff;
+    border: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    display: block;
+    height: 30rem;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    right: -377px;
+    top: 35%;
+    transform: translateX(-5.4rem);
+    transition: all 2s ease;
+    width: 300px;
+    z-index: 10;
+}
+
+
+.evo_c-text2speech__controller-container {
+	height : 100%;
+	position : relative;
+}
+
+.text-2speech-toggle + .evo_c-text2speech__controller-container {
+	transform : translateX(-11rem);
+}
+
+.text-2speech-toggle:checked + .evo_c-text2speech__controller-container {
+	transform : translateX(-23.6rem);
+}
+
+
+.evo_c-text2speech__controller-container > h3 {
+/* background: #6c8cd7; */
+    background: #ade576;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    color: #ffffff;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 100;
+    height: 11rem;
+    letter-spacing: 6px;
+    line-height: 4rem;
+    padding: 2px;
+    text-align: center;
+    text-shadow: 0 3px 4px rgba(130, 130, 130, 0.68);
+    text-transform: uppercase;
+    top: 4rem;
+}
+
+input.evo_c-text2speech__inp_statusRead::-webkit-input-placeholder,
+input.evo_c-text2speech__inp_statusRead {
+ background: #67c2d4;
+    border: 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    color: #ffffff;
+    cursor: default;
+    display: block;
+    font-family: 'Roboto';
+    margin: 0 auto;
+    padding: 6px 10px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    top: -7rem;
+    transition: all 500ms;
+    white-space: nowrap;
+}
+
+input.evo_c-text2speech__inp_statusRead::-webkit-input-placeholder {
+	border : none;
+	border-radius : none;
+	box-shadow : none;
+}
+
+.evo_c-text2speech__inp_statusRead + p {
+	color : rgb(135, 135, 135);
+	font-size : 1.4rem;
+}
+
+.read_flex-button {
+	 border: none;
+    box-shadow: 0 7px 28px rgba(0, 0, 0, 0.25), 0 4px 10px rgba(0, 0, 0, 0.22);
+    color: #ffffff;
+    display: inline-block;
+    float: left;
+    height: 5rem;
+    outline: none;
+    position: relative;
+    text-transform: uppercase;
+    top: -3.5rem;
+    transition: all 1s;
+    width: 50%;
+}
+
+.read_flex-button:hover {
+	box-shadow : 0 16px 28px rgba(0,0,0,.25), 0 12px 10px rgba(0,0,0,.22);
+}
+
+.read_flex-button:focus {
+	box-shadow : 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+	transform : scale(.9);
+}
+
+
+// BUTTON AND DESCRIPTON
+
+.evo_c-text2speech__btn_startRead {
+	background : #72c024;
+}
+
+.evo_c-text2speech__btn_stopRead {
+	background : #da137f;
+}
+
+.evo_c-text2speech__main-content {
+  position: absolute;
+    bottom: 0;
+}
+
+.evo_c-text2speech__read-instr + ul {
+	font-size : 11px;
+}
+
+.evo_c-text2speech__read-instr + ul li {
+	list-style-type : circle !important;
+}
+
+.evo_c-text2speech__material-icons {
+	color : #67c2d4;
+  margin-top: 0.5rem;
+}
