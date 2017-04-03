@@ -31,6 +31,9 @@
 
   padding: $c-form-padding-tiny;
 
+  font-family: $g-framework-font-family;
+  font-size: $g-framework-base-font-size;
+
 
   @media screen and (min-width: $c-form-media-desktop) {
     width: 75%;
@@ -58,6 +61,7 @@
   @include h( 'border-style--dashed', $g-no-prefix ) {
     border-style: dashed;
   }
+
 
   @include h( '3D', $g-no-prefix ) {
     box-shadow: 0 3px 0 0 rgba(0,0,0,.23);
@@ -131,6 +135,14 @@
   @include e( 'footer' ) {
     @include vertical-rhythm(80px, $top-rows: 0, $use-height: true);
     @extend %c-form-flex-align-center;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              TITLE ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'title' ) {
+    text-transform: capitalize;
   }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
