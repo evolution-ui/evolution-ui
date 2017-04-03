@@ -1,49 +1,34 @@
 export default function() {
-    /* ACCORDION COMPONENT */
-    // var bellows = document.querySelector('.su_accordion');
+  var allBellows = document.getElementsByClassName('js-c-accordion-target');
 
-    // bellows && bellows.addEventListener('click', function(event) {
-    //   if (event.target.tagName === "INPUT") {
-    //     if (!(event.target.className === "su_active-bellow-flag")) {
-    //       event.target.classList.add("su_active-bellow-flag");
-    //     } else if (event.target.className === "su_active-bellow-flag") {
-    //       event.target.checked = false;
-    //       event.target.classList.remove("su_active-bellow-flag");
-    //       event.target.blur();
-    //     }
-    //   }
-    // });
-  /* END ACCORDION COMPONENT */
-  /*** NEW ACCORDION VERSION ***/
+  if (allBellows) {
+    for (var i = 0; i < allBellows.length; i++) {
+      allBellows[i].addEventListener('click', function(event) {
+        var allCurrentBellowTitles = event.target.parentNode.parentNode.childNodes;
 
-    var allBellows = document.getElementsByClassName('js-c-accordion-target');
+        if (event.target.classList.contains('is-active')) {
+          event.target.classList.remove('is-active');
+          event.target.nextSibling.nextSibling.classList.remove('is-expanded');
+        } else {
+          removeActiveClasses(allCurrentBellowTitles, 'is-active');
+          event.target.classList.add('is-active');
+          removeActiveClasses(allCurrentBellowTitles, 'is-expanded');
+          event.target.nextSibling.nextSibling.classList.add('is-expanded');
+        }
 
-    console.log(allBellows);
-    console.log(allBellows.childNodes);
+        event.preventDefault();
+      });
 
-    if (allBellows) {
-      for (var i = 0; i < allBellows.length; i++) {
-
-        allBellows[i].addEventListener('click', function(event) {
-          var allCurrentBellowTitles = event.target.parentNode.children;
-          console.log(event.target.parentNode.parentNode.childNodes);
-          for (var j = 0; j < allCurrentBellowTitles.length; j++) {
-            if (allCurrentBellowTitles[i].classList.contains('is-active')) {
-              allCurrentBellowTitles[i].classList.remove('is-active');
+      function removeActiveClasses(nodeList, className) {
+        for (var k = 0; k < nodeList.length; k++) {
+          for (var l = 0; l < nodeList[k].childNodes.length; l++) {
+            if (nodeList[k].childNodes[l].classList &&
+                nodeList[k].childNodes[l].classList.contains(className)) {
+              nodeList[k].childNodes[l].classList.remove(className);
             }
           }
-          event.target.classList.add('is-active');
-
-          event.target.nextSibling.nextSibling.classList.add('is-expanded');
-          console.log();
-
-          // console.log(event.target.parentNode.childNodes[this]);
-          event.preventDefault();
-        });
+        }
       }
-
     }
-
-
-
+  }
 }
