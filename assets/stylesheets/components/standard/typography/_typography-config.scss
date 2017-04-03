@@ -42,3 +42,12 @@ $_typography-scales-smaller: small, x-small;
 /// @access private
 /// @type String
 $_typography-base-scale: map-get($_typography-scales, 'major-third');
+
+
+%c-typography-font-family {
+  font-family: 'Roboto', sans-serif;
+}
+
+%c-typography-margin-bottom {
+  margin-bottom: $g-framework-line-height-base;
+}
