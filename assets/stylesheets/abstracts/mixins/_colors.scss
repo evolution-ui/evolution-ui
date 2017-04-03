@@ -2,7 +2,7 @@
 
 ///
 /// Generate helper classes for each color and variants within the
-/// $framework-colors map
+/// $g-framework-colors map
 ///
 /// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
 /// @link http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8
@@ -15,7 +15,7 @@
 /// @param {String} $CSSproperty ['color'] - The CSS property you want to set
 /// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
 ///
-/// @require $framework-colors
+/// @require $g-framework-colors
 ///
 /// @example scss - Usage
 ///
@@ -48,7 +48,7 @@
 
 @mixin colorHelpers($type, $CSSproperty: 'color', $is-descendant: false) {
 
-  @each $color-key, $color-variants in $framework-colors {
+  @each $color-key, $color-variants in $g-framework-colors {
 
     $base-color-value: map-get($color-variants, 'base');
 
@@ -88,7 +88,7 @@
 /// @param {String} $CSSproperty ['color'] - The CSS property you want to set
 /// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
 ///
-/// @require $framework-colors
+/// @require $g-framework-colors
 ///
 /// @example scss - Usage
 ///
@@ -165,8 +165,8 @@
 
   @each $color-key, $color-variants in $colorMap {
 
-    @if map-has-key($framework-colors, $color-key) {
-      $base-color-variants: map-get($framework-colors, $color-key);
+    @if map-has-key($g-framework-colors, $color-key) {
+      $base-color-variants: map-get($g-framework-colors, $color-key);
 
       // Generate each variant (if valid)
       @each $variant in $color-variants {
@@ -199,7 +199,7 @@
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $colorMap   - An optional map containing base colors
 ///                               and their variants. If Null it generates all
-///                               colors and variants contained inside $framework-colors
+///                               colors and variants contained inside $g-framework-colors
 /// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
 ///
 ///
@@ -290,7 +290,7 @@
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $colorMap   - An optional map containing base colors
 ///                               and their variants. If Null it generates all
-///                               colors and variants contained inside $framework-colors
+///                               colors and variants contained inside $g-framework-colors
 /// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
 ///
 ///

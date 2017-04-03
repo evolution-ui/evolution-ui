@@ -1,0 +1,62 @@
+//------------------------------------------------------------------------------
+//                          Forms config
+//------------------------------------------------------------------------------
+
+
+$c-form-component-name: 'form';
+
+$c-form-padding-tiny:  5px;
+$c-form-padding-small: 10px;
+$c-form-padding-default: 20px;
+$c-form-padding-large: 30px;
+$c-form-padding-huge:  40px;
+
+
+
+
+//------------------------------------------------
+//              Forms input
+//------------------------------------------------
+
+$c-form-input-height: 38px;
+$c-form-input-padding-default: 10px;
+
+$c-form-input--button-border-radius: 4px;
+$c-form-input--button-border-radius: 4px;
+
+
+//------------------------------------------------
+//              Forms field-status
+//------------------------------------------------
+
+$c-form-field-status-font-size: 1rem;
+$c-form-field-status-width: 21%;
+$c-form-field-status-max-width: 200px;
+$c-form-field-status-padding-left: 10px;
+
+
+//------------------------------------------------------------------------------
+//                          Forms Placeholders
+//------------------------------------------------------------------------------
+
+%c-form-absolute {
+  position: absolute;
+}
+
+%c-form-h-full-width {
+  width: 100%;
+}
+
+%c-form-flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+%c-form-inputs-and-buttons {
+  @include vertical-rhythm(18px, $top-rows: 1);
+  padding: 10px;
+}
+
+%c-form-vertical-rythm-1 {
+  @include vertical-rhythm(18px, $top-rows: 1);
+}

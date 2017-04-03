@@ -53,18 +53,18 @@ Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-
 
 
     root = true
-    
+
     [*]
     indent_style = space
     end_of_line = lf
     charset = utf-8
     trim_trailing_whitespace = true
     insert_final_newline = true
-    
+
     # Use 2 spaces for indentation in HTML, JavaScript, SCSS, CSS
     [*.{html,js,scss, css}]
     indent_size = 2
-    
+
     [*.js]
     indent_brace_style = 1TBS
     continuation_indent_size = 2
@@ -74,9 +74,9 @@ Then use the [.editorconfig](https://github.com/BovAcademy-opensource/evolution-
     spaces_around_operators = true
     spaces_in_brackets = false
     quote_type = single
-    
+
     # Use 4 spaces for indentation in Markdown files
-    
+
     [*.md]
     indent_size = 4
 
@@ -272,28 +272,28 @@ Examples:
 
   *Examples:*
 
-  - `.l-grid`
-  - `$l-grid-gutter`
+  - `.l-grid` // class
+  - `$l-grid-gutter` // scss variable
 
 - `c-`: **Components**
 
-  - `.c-card`
-  - `$c-card-width`
+  - `.c-card` // class
+  - `$c-card-width` // scss variable
 
 
 - `h-`: **Helpers**
 
   *Examples:*
 
-  - `.h-text--bold`
-  - `$h-text-bold-weight`
+  - `.h-text--bold` // class
+  - `$h-text-bold-weight` // scss variable
 
 - `t-`: [Themes](http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/#theme-namespaces-t-)
 
   *Examples:*
 
-  - `.t-default`
-  - `$t-default-color`
+  - `.t-default` // class
+  - `$t-default-color` // scss variable
 
 Others:
 
@@ -349,7 +349,7 @@ Using the provided *mixins* you can create *namespaced* classes without the need
 
 The previous example becomes:
 
-```scss
+```html
 <!-- this is an evo component -->
 <div class="evo_c-searchBox">
 
@@ -457,7 +457,7 @@ Where:
 
 - The `layout` folder contains everything that takes part in laying out the site (header, grid, footer, aside, etc.).
 
-- As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Dot Navigation component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate.
+- As its name suggests, the `components`  folder contains all the components. Components are distributed into two main categories,  `evolution`  or  `standard`, and each one has its own directory. Inside the component directory are your main sass files. For example, the Eyelids component has these two files: main file `_Eyelids.scss` and configuration file `_Eyelids-config.scss`. You can import configuration file into the main file to keep the configuration separate.
 
   **IMPORTANT NOTE:** Config variables must be always prefixed by the actual component's name. If your component is called for example `Ruler`, a well structured config file could be:
 

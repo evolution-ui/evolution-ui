@@ -31,47 +31,120 @@
 
             <!-- username -->
             <div class="evo_c-form__field">
-              <span class="evo_c-form__icon">
-                <i class="material-icons">person</i>
-              </span>
-              <input class="evo_c-form__input h-full-width" id="name" placeholder="Username" type="text" required>
+              <i class="evo_c-form__icon material-icons">person</i>
+              <label class="evo_c-form__label">Name</label>
+              <input class="evo_c-form__input"
+                     id="name"
+                     type="text" required>
+              <span class="h-field-status"></span>
             </div>
 
             <!-- email -->
             <div class="evo_c-form__field">
               <span class="evo_c-form__icon">
-                <i class="material-icons">email</i>
+                <i class="evo_c-form__icon material-icons">email</i>
               </span>
-              <input class="evo_c-form__input h-full-width" id="email" placeholder="Email" type="email" required>
+              <label class="evo_c-form__label">Email</label>
+              <input class="evo_c-form__input"
+                     id="email"
+                     type="email" required>
+              <span class="h-field-status" data-error="Wrong email"></span>
             </div>
 
             <!-- password -->
             <div class="evo_c-form__field">
               <span class="evo_c-form__icon">
-                <i class="material-icons">lock</i>
+                <i class="evo_c-form__icon material-icons">lock</i>
               </span>
-              <input class="evo_c-form__input h-full-width" id="password" placeholder="Password" type="password" value="" required>
-              <div class="su_error-message">Wrong Password. Try Again</div>
+              <label class="evo_c-form__label">Password</label>
+              <input class="evo_c-form__input"
+                     id="password"
+                     type="password"
+                     value="" required>
+              <span class="h-field-status"></span>
+            </div>
+
+          </div>
+
+          <!-- FORM FOOTER -->
+          <div class="evo_c-form__footer">
+            <input class="evo_c-form__input--button"
+                   type="submit"
+                   value="Sign Up">
+          </div>
+
+        </form>
+
+      </div><!-- end evo_c-form -->
+
+    </li>
+
+    <li class="l-grid__item">
+
+      <div class="evo_c-form">
+
+        <form>
+
+          <div class="evo_c-form__header">
+            <h2 class="evo_h-txt--caps">join us</h2>
+          </div>
+
+          <!-- FORM BODY -->
+          <div class="evo_c-form__body">
+
+            <!-- username -->
+            <div class="evo_c-form__field">
+              <i class="evo_c-form__icon material-icons">person</i>
+              <input class="evo_c-form__input"
+                     id="name"
+                     placeholder="name"
+                     type="text" required>
+              <span class="h-field-status"></span>
+            </div>
+
+            <!-- email -->
+            <div class="evo_c-form__field">
+              <span class="evo_c-form__icon">
+                <i class="evo_c-form__icon material-icons">email</i>
+              </span>
+              <input class="evo_c-form__input"
+                     id="email"
+                     placeholder="Email"
+                     type="email" required>
+              <span class="h-field-status"></span>
+            </div>
+
+            <!-- password -->
+            <div class="evo_c-form__field">
+              <span class="evo_c-form__icon">
+                <i class="evo_c-form__icon material-icons">lock</i>
+              </span>
+              <input class="evo_c-form__input"
+                     id="password"
+                     placeholder="Password"
+                     type="password"
+                     value="" required>
+              <span class="h-field-status"></span>
             </div>
           </div>
 
           <!-- FORM FOOTER -->
           <div class="evo_c-form__footer">
-            <div class="evo_c-form__field evo_c-form__field--border">
-              <input class="su_input su_input--button--3D" type="submit" value="Sign Up">
-            </div>
+            <input class="evo_c-form__input--button"
+                   type="submit"
+                   value="Sign Up">
           </div>
 
         </form>
 
-      </div><!-- end su_form-box -->
+      </div><!-- end evo_c-form -->
 
     </li>
 
   </ul>
 
 
-    <script type="text/javascript" src="../../../production/main.js"></script>
+    <script type="text/javascript" src="../../scripts/app.js"></script>
 
 
   </body>

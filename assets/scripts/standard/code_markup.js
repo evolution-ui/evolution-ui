@@ -1,8 +1,9 @@
-(function() {
+export default function() {
   var markupTabs = document.getElementsByClassName('js-c-markup-toggle');
 
   if (markupTabs) {
     for (var i = 0; i < markupTabs.length; i++) {
+      //FIXME: Should be a better way than adding a listener to each element??
       markupTabs[i].addEventListener('click', function(event) {
         var clickedTabClassList = event.target.classList;
         var markupContainerClassList = this.parentNode.children[1].classList;
@@ -18,17 +19,18 @@
             }
           }
           clickedTabClassList.add("is-active");
+          this.parentNode.children[1].scrollTop = 0;
           markupContainerClassList.add("is-expanded");
-          for (var i = 0; i < markupContentDivs.length; i++) {
-            if (markupContentDivs[i].classList.contains("is-active")) {
-              markupContentDivs[i].classList.remove("is-active");
+          for (var j = 0; j < markupContentDivs.length; j++) {
+            if (markupContentDivs[j].classList.contains("is-active")) {
+              markupContentDivs[j].classList.remove("is-active");
             }
-            if (this.children[i].classList.contains("is-active")) {
-              markupContentDivs[i].classList.add("is-active");
+            if (this.children[j].classList.contains("is-active")) {
+              markupContentDivs[j].classList.add("is-active");
             }
           }
         }
       }, false);
     }
   }
-})();
+}

@@ -5,7 +5,8 @@ var gulp = require('gulp'),
   reload = bs.reload,
   del = require('del'),
   minimist = require('minimist'),
-  webpack = require('webpack')
+  webpack = require('webpack'),
+  shell = require('gulp-shell')
 
 var knownOptions = {
   string: ['env', 'bump'],
@@ -35,11 +36,12 @@ gulp.task('styles', function () {
     .pipe(plugins.if(!development, plugins.cssnano()))
     .pipe(plugins.if(development, plugins.sourcemaps.write()))
     .pipe(gulp.dest(outputPath + '/styles'))
+    .pipe(gulp.dest('docs/assets/evolution-ui/styles'))
     .pipe(plugins.notify({message: 'Styles task complete'}))
 })
 
 gulp.task('eslint', function () {
-  return gulp.src(['assets/scripts/**/*.js', '!node_modules/**'])
+  return gulp.src(['assets/scripts/evolution/**/*.js', '!node_modules/**'])
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
     .pipe(plugins.eslint.failAfterError())
@@ -49,6 +51,7 @@ gulp.task('scripts', function () {
   return gulp.src('assets/scripts/app.js')
     .pipe(plugins.webpack(require('./webpack.config.js')(options.env), webpack))
     .pipe(gulp.dest(outputPath + '/scripts'))
+    .pipe(gulp.dest('docs/assets/evolution-ui/scripts'))
 })
 
 gulp.task('html', function () {
@@ -79,8 +82,16 @@ gulp.task('images', function () {
 })
 
 gulp.task('clean', function () {
-  return del(['dist/', 'public/'])
+  return del(['dist/', 'public/', 'docs/assets/evolution-ui/'])
 })
+
+gulp.task('jekyll', shell.task([
+  'jekyll build --source=docs/ --destination=docs/_site --config=docs/_config.yml,docs/_config.prod.yml'
+]))
+
+gulp.task('jekyll-serve', shell.task([
+  'jekyll serve --source=docs/ --destination=docs/_site'
+]))
 
 // gulp.task('test', function () {
 //   return gulp.src('test/**/*.test.js')
@@ -99,9 +110,21 @@ function buildInit (cb) {
   plugins.sequence('clean', 'eslint', ['images', 'audio', 'scripts'], ['html', 'html-temp', 'styles'], cb)
 }
 
+function docsInit(cb) {
+  plugins.sequence('clean', 'styles', 'scripts', 'jekyll-serve', cb)
+}
+
+function docsBuild(cb) {
+  plugins.sequence('clean', 'styles', 'scripts', 'jekyll', cb)
+}
+
 gulp.task('dev-init', devInit)
 
 gulp.task('build-init', buildInit)
+
+gulp.task('start-docs', docsInit)
+
+gulp.task('build-docs', docsBuild)
 
 function devel () {
 
@@ -114,6 +137,7 @@ function devel () {
 
   bs({
     server: 'public',
+    open: false,
     // browser: 'google-chrome-stable'
   })
 
@@ -142,6 +166,7 @@ gulp.task('rev-replace', ['rev'], function () {
 gulp.task('build', ['rev-replace'], function () {
   bs({
     server: 'dist',
+    open: false,
     // browser: 'google-chrome-stable'
   })
 })
@@ -158,7 +183,12 @@ gulp.task('deploy', ['rev-replace'], function () {
     .pipe(plugins.bump({type: options.bump}))
     .pipe(gulp.dest('./'))
 
-  return gulp.src(['./dist/**/*', '!./dist/rev-manifest.json'])
+  // return gulp.src(['./dist/**/*', '!./dist/rev-manifest.json'])
+  //   .pipe(plugins.ghPages())
+})
+
+gulp.task('deploy-docs', ['build-docs'], function () {
+  return gulp.src('./docs/_site/**/*')
     .pipe(plugins.ghPages())
 })
 

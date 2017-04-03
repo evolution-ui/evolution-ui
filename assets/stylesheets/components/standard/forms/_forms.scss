@@ -1,0 +1,229 @@
+/******************************************************************************
+                              Forms component
+******************************************************************************/
+
+
+@import 'forms-config';
+
+
+
+@include l( 'grid' ) {
+
+  @include e( 'item' ) {
+    padding: 20px;
+  }
+
+}
+
+
+@include c( $c-form-component-name ) {
+
+  // Provide a brackground's variation for each color in the Evolution Palette
+  @include backgroundVariants($is-descendant: true);
+
+  padding: $c-form-padding-default;
+
+  @include h( 'full-width', $g-no-prefix ) {
+    width: 100%;
+  }
+
+  @include h( 'border-style--dotted', $g-no-prefix ) {
+    border-style: dotted;
+  }
+
+  @include h( 'border-style--dashed', $g-no-prefix ) {
+    border-style: dashed;
+  }
+
+  @include h( '3D', $g-no-prefix ) {
+    box-shadow: 0 3px 0 0 rgba(0,0,0,.23);
+
+    &:active {
+      top: 3px;
+      box-shadow: none;
+    }
+  }
+
+  & * { box-sizing: border-box; }
+  & *:focus { outline: 0; }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             HEADER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'header' ) {
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             BODY ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'body' ) {
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             FOOTER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'footer' ) {
+    @include vertical-rhythm(100px, $top-rows: 2, $use-height: true);
+    @extend %c-form-flex-align-center;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             FIELD ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'field' ) {
+
+    @extend %c-form-vertical-rythm-1;
+    @extend %c-form-flex-align-center;
+
+    position: relative;
+
+
+    //--------------------------------------------------------------------------
+    //                      HELPER - field-status
+    //--------------------------------------------------------------------------
+
+    @include h( 'field-status', $is-namespaced: false ) {
+
+      position: relative;
+      width: $c-form-field-status-width;
+      max-width: $c-form-field-status-max-width;
+      padding-left: $c-form-field-status-padding-left;
+
+      font-size: $c-form-field-status-font-size;
+
+
+      &:before {
+        content: '';
+        padding-right: $c-form-field-status-padding-left;
+      }
+
+      &:after {
+        display: none;
+        content: '';
+        position: absolute;
+        left: 30px;
+        color: inherit;
+      }
+
+
+      // Show message only when there is enough space
+
+      @media screen and (min-width: 768px) {
+        &:after { display: inline-block; }
+      }
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              INPUT ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'input' ) {
+
+    display: inline-block;
+    height: $c-form-input-height;
+
+    padding: $c-form-input-padding-default;
+
+    font-size: inherit;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 90%;
+
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    transition: border-bottom .3s,border-color .3s,border-width .3s,border .3s ease-in-out;
+
+
+    &:valid + .h-field-status:before {
+      content: '\2713'!important;
+      color: get-color('accent4', 'dark');
+    }
+
+    &:valid + .h-field-status:after {
+      content: '';
+    }
+
+    &:invalid + .h-field-status {
+      color: red;
+    }
+
+    &:invalid + .h-field-status:after {
+      //content: attr(data-error);
+    }
+
+    &:invalid + .h-field-status:before {
+      content: '\2715';
+      color: inherit;
+    }
+
+    &:required + .h-field-status:before {
+      content: '\002A';
+    }
+
+    //--------------------------------------------------------------------------
+    //                              BUTTON
+    //--------------------------------------------------------------------------
+
+    @include m( 'button' ) {
+
+      @extend %c-form-vertical-rythm-1;
+      @include margin-auto();
+
+      width: 90%;
+      max-width: 400px;
+      padding: $c-form-input-padding-default;
+      background-color: white();
+      border: 1px solid get-color('primary2', 'light');
+      border-radius: $c-form-input--button-border-radius;
+      cursor: pointer;
+
+      transition: all .2s linear;
+
+      &:hover {
+        color: white();
+        background-color: get-color('primary2', 'light');
+      }
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              LABEL ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'label' ) {
+
+    @extend %c-form-absolute;
+
+    left: 30px;
+
+    transition: transform .4s cubic-bezier(.25,.8,.25,1);
+
+    @include h( 'label--active', $g-no-prefix ) {
+      transform: translate3d(0, -25px, 0) scale(.8);
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              ICON ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  @include e( 'icon' ) {
+
+    $c-form__input: getBEMReference($c-form-component-name, input);
+
+    & + .#{$c-form__input} {
+      margin-left: 10px;
+    }
+
+  }
+
+}
