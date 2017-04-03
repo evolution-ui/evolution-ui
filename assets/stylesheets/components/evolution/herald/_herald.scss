@@ -1,5 +1,9 @@
 @import 'herald-config';
 
+* {
+  box-sizing: border-box;
+}
+
 .evo_c-herald {
     clear: left;
     display: inline-block;
@@ -98,6 +102,49 @@
   & > .evo_c-herald__ribbon {
     border-style: solid;
     transform: translateY(0);
+  }
+}
+
+// -------------------------------------------------------------------------------------------------------------------
+// Jing's chip styling
+// -------------------------------------------------------------------------------------------------------------------
+
+
+%c-chip {
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 1em;
+  font-size: 0.9em;
+  color: get-color($type: 'secondary', $variant: 'darken', $opacity: 1);
+}
+
+%c-chip__media {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 1em;
+  overflow: hidden;
+  margin: 0 0.5em 0 -1em;
+}
+
+.c-chip__media--o {
+  @extend %c-chip__media;
+  border: 2px solid get-color($type: 'primary', $variant: 'base', $opacity: 1);
+  color: get-color($type: 'primary', $variant: 'base', $opacity: 1);
+  margin-left: -1.1em;
+
+  > .c-chip__icon {
+    color: inherit;
   }
 }
 

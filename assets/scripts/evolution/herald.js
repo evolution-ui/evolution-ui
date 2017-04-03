@@ -1,4 +1,6 @@
-window.addEventListener("load", function () {
+//--------component-name.js--------
+export default function() {
+
   var herald = {
     init: function () {
       this.cacheDOM();
@@ -35,4 +37,5 @@ window.addEventListener("load", function () {
     }
   };
   herald.init();
-});
+
+}
