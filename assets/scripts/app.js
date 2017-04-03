@@ -23,6 +23,7 @@ import offCanvasNavigation from './standard/off_canvas_navigation'
 import cssAnimations from './standard/css_animations'
 import codeMarkup from './standard/code_markup'
 import stdForms from './standard/forms'
+import accordion from './standard/accordion'
 
 
 /************************************************************************
@@ -40,5 +41,6 @@ fadeLinesOnScroll();
 cssAnimations();
 codeMarkup();
 stdForms();
+accordion();
 demoComponent();
 readabilityPanel();
