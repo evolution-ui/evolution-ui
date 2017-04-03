@@ -1,0 +1,13 @@
+#
+# Footer Social Navigation
+#
+
+- title: 'Twitter'
+  url: 'https://twitter.com/bovacademy'
+  icon: 'twitter'
+- title: 'Instagram'
+  url: 'https://www.instagram.com/bovacademy/'
+  icon: 'instagram'
+- title: 'Bov Academy'
+  url: 'https://bovacademy.com/'
+  icon: 'book'
