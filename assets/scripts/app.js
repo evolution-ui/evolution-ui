@@ -9,7 +9,7 @@ import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
 import eyelids from './evolution/eyelids'
 import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
-
+import bookmarklet from './evolution/bookmarklet'
 
 /************************************************************************
  *
@@ -31,6 +31,7 @@ crumble();
 dotNavigation();
 eyelids();
 fadeLinesOnScroll();
+bookmarklet();
 cssAnimations();
 codeMarkup();
 stdForms();
