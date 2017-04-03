@@ -9,11 +9,8 @@ import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
 import eyelids from './evolution/eyelids'
 import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
-<<<<<<< HEAD
 import demoComponent from './evolution/demo-component'
-=======
 import readabilityPanel from './evolution/readability_improvement_panel';
->>>>>>> nunez
 
 
 /************************************************************************
