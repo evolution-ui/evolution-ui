@@ -72,6 +72,16 @@ Please follow our [detailed guidelines][contributions] if you would like to make
 
 Thanks for your help!
 
+## Core Maintainers
+
+Gabriele Romeo ([@GabrieleRomeo][maintainer-gabrieleromeo])
+Joseph Michael Matembu ([@jmatembu][maintainer-jmatembu])
+Vojislav Grujić ([@Gruximillian][maintainer-gruximillian])
+Brian Hernandez ([@brianhernandez][maintainer-brianhernandez])
+Léna Faure ([@lenafaure][maintainer-lenafaure])
+Carlos Coves ([@codephobe][maintainer-codephobe])
+Chris Bracco ([@cbracco][maintainer-cbracco])
+
 ## License
 This project is released under the [MIT License][license].
 
@@ -83,6 +93,13 @@ This project is released under the [MIT License][license].
 [jekyll-windows]: http://jekyllrb.com/docs/windows/#installation
 [license]: LICENSE.md
 [liquid]: http://liquidmarkup.org
+[maintainer-brianhernandez]: https://github.com/brianhernandez
+[maintainer-cbracco]: https://github.com/cbracco
+[maintainer-codephobe]: https://github.com/codephobe
+[maintainer-gabrieleromeo]: https://github.com/GabrieleRomeo
+[maintainer-gruximillian]: https://github.com/Gruximillian
+[maintainer-jmatembu]: https://github.com/jmatembu
+[maintainer-lenafaure]: https://github.com/lenafaure
 [node]: https://nodejs.org/en/
 [node-install]: https://docs.npmjs.com/getting-started/installing-node
 [npm]: https://www.npmjs.com
