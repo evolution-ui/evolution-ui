@@ -18,15 +18,15 @@ export default function() {
 
     var allBellows = document.getElementsByClassName('js-c-accordion-target');
 
-    console.log(allBellows);
-    console.log(allBellows.childNodes);
+    // console.log(allBellows);
+    // console.log(allBellows.childNodes);
 
     if (allBellows) {
       for (var i = 0; i < allBellows.length; i++) {
 
         allBellows[i].addEventListener('click', function(event) {
           var allCurrentBellowTitles = event.target.parentNode.children;
-          console.log(event.target.parentNode.parentNode.childNodes);
+          // console.log(event.target.parentNode.parentNode.childNodes);
           for (var j = 0; j < allCurrentBellowTitles.length; j++) {
             if (allCurrentBellowTitles[i].classList.contains('is-active')) {
               allCurrentBellowTitles[i].classList.remove('is-active');
@@ -35,7 +35,7 @@ export default function() {
           event.target.classList.add('is-active');
 
           event.target.nextSibling.nextSibling.classList.add('is-expanded');
-          console.log();
+          // console.log();
 
           // console.log(event.target.parentNode.childNodes[this]);
           event.preventDefault();
