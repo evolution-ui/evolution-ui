@@ -1,0 +1,330 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Vojislav Grujić">
+    <title>Evolution Dot Navigation</title>
+    <meta name="description" content="Test page for the Evolution Dot Navigation component">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+    <link href="../../styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <div style="width: 80%; max-width: 1000px; margin: 0 auto;">
+    <h2>Evolution UI Framework Component - Dot Navigation</h2>
+
+    <div>
+      <h3>Burst</h3>
+      <nav class="evo_dot-navigation evo_dot-navigation-burst">
+        <ul>
+          <li class="evo_dot-current"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div>
+      <h3>Scale</h3>
+      <nav class="evo_dot-navigation evo_dot-navigation-scale">
+        <ul>
+          <li class="evo_dot-current"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div>
+      <h3>Jiggle</h3>
+      <nav class="evo_dot-navigation evo_dot-navigation-jiggle">
+        <ul>
+          <li class="evo_dot-current"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div>
+      <h3>Zap</h3>
+      <nav class="evo_dot-navigation evo_dot-navigation-zap">
+        <ul>
+          <li class="evo_dot-current"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="evo_c-markup">
+    <ul class="evo_c-markup__tabs js-c-markup-toggle">
+      <li class="evo_c-markup__item">html</li>
+      <li class="evo_c-markup__item">css</li>
+      <li class="evo_c-markup__item">js</li>
+    </ul>
+    <div class="evo_c-markup__container">
+      <div class="evo_c-markup__content">
+        <pre>
+          <code class="language-html">
+  &lt;nav class=&quot;evo_dot-navigation evo_dot-navigation-burst&quot;&gt;
+    &lt;ul&gt;
+      &lt;li class=&quot;evo_dot-current&quot;&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;nav class=&quot;evo_dot-navigation evo_dot-navigation-scale&quot;&gt;
+    &lt;ul&gt;
+      &lt;li class=&quot;evo_dot-current&quot;&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;nav class=&quot;evo_dot-navigation evo_dot-navigation-jiggle&quot;&gt;
+    &lt;ul&gt;
+      &lt;li class=&quot;evo_dot-current&quot;&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;nav class=&quot;evo_dot-navigation evo_dot-navigation-zap&quot;&gt;
+    &lt;ul&gt;
+      &lt;li class=&quot;evo_dot-current&quot;&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+          </code>
+        </pre>
+      </div>
+      <div class="evo_c-markup__content">
+        <pre>
+          <code class="language-css">
+  /* DOT NAVIGATION COMPONENT */
+  .evo_dot-navigation {
+    display: inline-block;
+    margin: 30px 0;
+    box-sizing: border-box;
+  }
+  .evo_dot-navigation *,
+  .evo_dot-navigation *::before,
+  .evo_dot-navigation *::after {
+    box-sizing: border-box;
+  }
+  .evo_dot-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .evo_dot-navigation ul li {
+    display: inline-block;
+    margin: 0 15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out 0s;
+  }
+  .evo_dot-navigation.evo_dot-navigation-burst ul li {
+    border: 1px dotted #e57b7b;
+  }
+  .evo_dot-navigation.evo_dot-navigation-burst ul li:hover,
+  .evo_dot-navigation.evo_dot-navigation-burst ul li.evo_dot-current {
+    border: 5px solid #e57b7b;
+  }
+  .evo_dot-navigation.evo_dot-navigation-scale ul li {
+    background-color: rgba(160, 110, 189, 0.7);
+    border: 1px solid rgba(160, 110, 189, 0.7);
+  }
+  .evo_dot-navigation.evo_dot-navigation-scale ul li:hover,
+  .evo_dot-navigation.evo_dot-navigation-scale ul li.evo_dot-current {
+    transform: scale(1.2);
+    background-color: #a06ebd;
+    border: 1px solid #a06ebd;
+  }
+  .evo_dot-navigation.evo_dot-navigation-jiggle ul li {
+    background-color: #56c5de;
+  }
+  .evo_dot-navigation.evo_dot-navigation-jiggle ul li:hover,
+  .evo_dot-navigation.evo_dot-navigation-jiggle ul li.evo_dot-current {
+    background-color: #6c8cd7;
+  }
+  .evo_dot-navigation.evo_dot-navigation-jiggle ul #evo_dot-mask {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #6c8cd7;
+    transition: left 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  }
+  .evo_dot-navigation.evo_dot-navigation-jiggle ul #evo_dot-mask.moving {
+    animation: jiggle 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0s forwards;
+  }
+  @keyframes jiggle {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+      transform: translateY(-10px);
+    }
+    10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% {
+      transform: translateY(10px);
+    }
+  }
+  .evo_dot-navigation.evo_dot-navigation-zap ul #evo_dot-line {
+    position: absolute;
+    top: 8px;
+    bottom: 14px;
+    right: calc(100% - 27px);
+    background-color: rgba(86, 197, 222, 0.7);
+    transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1) 0s, left 0.4s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+  }
+  .evo_dot-navigation.evo_dot-navigation-zap ul #evo_dot-line.backwards {
+    transition: left 0.4s cubic-bezier(0.19, 1, 0.22, 1) 0s, right 0.4s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+  }
+  .evo_dot-navigation.evo_dot-navigation-zap ul li {
+    border: 2px solid #768ba1;
+    position: relative;
+  }
+  .evo_dot-navigation.evo_dot-navigation-zap ul li::after {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+  }
+  .evo_dot-navigation.evo_dot-navigation-zap ul li:hover::after {
+    background-color: #56c5de;
+  }
+  .evo_dot-navigation.evo_dot-navigation-zap ul li.evo_dot-current::after {
+    background-color: #56c5de;
+    transform: scale(5);
+  }
+  /* END DOT NAVIGATION */
+          </code>
+        </pre>
+      </div>
+      <div class="evo_c-markup__content">
+        <pre>
+          <code class="language-javascript">
+  /* DOT NAVIGATION COMPONENT */
+
+  var dotNav = {
+
+    init: function() {
+      this.cacheDom();
+      this.addEvents();
+    },
+
+    cacheDom: function() {
+      this.dotNavContainers = document.querySelectorAll('.evo_dot-navigation');
+    },
+
+    addEvents: function() {
+      var i, len = this.dotNavContainers && this.dotNavContainers.length;
+
+      for ( i = 0; i < len; i++ ) {
+        this.dotNavContainers[i].addEventListener('click', function(e) {
+          var current = this.querySelector('.evo_dot-current');
+          if ( e.target.tagName.toLowerCase() === 'li' && e.target !== current ) {
+            current && current.classList.remove('evo_dot-current');
+            e.target.classList.add('evo_dot-current');
+          }
+          if ( this.classList.contains('evo_dot-navigation-jiggle') ) {
+            dotNav.moveDot(e.target);
+          } else if ( this.classList.contains('evo_dot-navigation-zap') ) {
+            dotNav.drawLine(e.target);
+          }
+        });
+      }
+
+    },
+
+    moveDot: function(target) {
+      var mask = document.querySelector('#evo_dot-mask');
+
+      if ( !mask ) {
+        mask = document.createElement('span');
+        mask.id = 'evo_dot-mask';
+        target.parentElement.appendChild(mask);
+      }
+
+      if ( target.tagName.toLowerCase() === 'li' ) {
+        mask.classList.add('moving');
+        window.clearTimeout(stopMove);
+        var stopMove = window.setTimeout(function() {
+          mask.classList.remove('moving');
+        }, 300);
+        mask.style.left = target.offsetLeft + 'px';
+      }
+
+    },
+
+    drawLine: function(target) {
+      var line = document.querySelector('#evo_dot-line'),
+          left;
+
+      if ( !line ) {
+        line = document.createElement('span');
+        line.id = 'evo_dot-line';
+        line.style.left = '23px';
+        target.parentElement.appendChild(line);
+      }
+
+      if ( target.tagName.toLowerCase() === 'li' ) {
+        left = 1 * line.style.left.split('px')[0];
+        if ( left < target.offsetLeft ) {
+          line.classList.remove('backwards');
+        } else {
+          line.classList.add('backwards');
+        }
+        line.style.right = 'calc(100% - ' + (target.offsetLeft + 10) + 'px';
+        line.style.left = (target.offsetLeft + 10) + 'px';
+      }
+
+    }
+
+  }
+
+  dotNav.init();
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../../scripts/app.js"></script>
+  </body>
+</html>
