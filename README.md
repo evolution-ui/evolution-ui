@@ -74,13 +74,13 @@ Thanks for your help!
 
 ## Core Maintainers
 
-Gabriele Romeo ([@GabrieleRomeo][maintainer-gabrieleromeo])
-Joseph Michael Matembu ([@jmatembu][maintainer-jmatembu])
-Vojislav Grujić ([@Gruximillian][maintainer-gruximillian])
-Brian Hernandez ([@brianhernandez][maintainer-brianhernandez])
-Léna Faure ([@lenafaure][maintainer-lenafaure])
-Carlos Coves ([@codephobe][maintainer-codephobe])
-Chris Bracco ([@cbracco][maintainer-cbracco])
+- Gabriele Romeo ([@GabrieleRomeo][maintainer-gabrieleromeo])
+- Joseph Michael Matembu ([@jmatembu][maintainer-jmatembu])
+- Vojislav Grujić ([@Gruximillian][maintainer-gruximillian])
+- Brian Hernandez ([@brianhernandez][maintainer-brianhernandez])
+- Léna Faure ([@lenafaure][maintainer-lenafaure])
+- Carlos Coves ([@codephobe][maintainer-codephobe])
+- Chris Bracco ([@cbracco][maintainer-cbracco])
 
 ## License
 This project is released under the [MIT License][license].
