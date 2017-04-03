@@ -351,12 +351,11 @@
 
 /* END DOT NAVIGATION */
 /*styling for modal button popups*/
-* {
-  box-sizing: border-box;
-}
-
-.demo-wrapper {
+.evo_c-expand-and-fold-out-popup-demo-wrapper {
   margin-top: 350px;
+}
+.evo_c-expand-and-fold-out-popup-demo-wrapper * {
+  box-sizing: border-box;
 }
 
 .evo_c-expand-and-fold-out-popup {

@@ -2,12 +2,12 @@
 
 @import './Expand_And_Fold_Out_Popup-config';
 
-* {
-  box-sizing: border-box;
-}
 
-.demo-wrapper {
+.evo_c-expand-and-fold-out-popup-demo-wrapper {
   margin-top: 350px;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .evo_c-expand-and-fold-out-popup {
