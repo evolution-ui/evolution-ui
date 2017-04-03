@@ -1,0 +1,88 @@
+
+/* -------- tooltip scale from corner ----------*/
+
+.tt-scale {
+  position: relative;
+}
+
+.tt-scale .tt-scale__content {
+  color: #FFFFFF;
+  font-size: 1rem;
+  line-height: 2rem;
+  opacity: 0;
+  padding: 1rem;
+  position: absolute;
+  text-align: left;
+  visibility: hidden;
+}
+
+.tt-scale .tt-scale__vertical,
+.tt-scale .tt-scale__horizontal {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: 0;
+  background-color: #33b5e5;
+  z-index: 10;
+
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+
+  -webkit-transition: height 0.5s, width 0.5s;
+  -moz-transition: height 0.5s, width 0.5s;
+  -ms-transition: height 0.5s, width 0.5s;
+  -o-transition: height 0.5s, width 0.5s;
+  transition: height 0.5s, width 0.5s;
+
+}
+
+.tt-scale:hover .tt-scale__vertical {
+  opacity: 0.85;
+  width: 100%;
+  height: 20rem;
+}
+.tt-scale:hover .tt-scale__horizontal {
+  opacity: 0.85;
+  width: 25rem;
+  height: 6rem;
+
+}
+
+.tt-scale:hover .tt-scale__content {
+
+  opacity: 1;
+  visibility: visible;
+
+  -webkit-transition: opacity 0.5s 0.2s;
+  -moz-transition: opacity 0.5s 0.2s;
+  -ms-transition: opacity 0.5s 0.2s;
+  -o-transition: opacity 0.5s 0.2s;
+  transition: opacity 0.5s 0.2s;
+}
+
+.tt-scale:not(:hover) .tt-scale__content{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tt-scale:hover span:after {
+  content: none;
+}
+
+.tt-scale span:after{
+  border: 7px solid;
+  border-color:transparent #33b5e5 transparent transparent;
+  bottom: 0;
+  content: ' ';
+  height: 0;
+  left: -10px;
+  position: absolute;
+  right: auto;
+  top: auto;
+  width: 0;
+}
+
