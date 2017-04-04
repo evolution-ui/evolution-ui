@@ -49,7 +49,7 @@ export default function() {
     addTriggerHandler(modalTriggers[i]);
   }
 
-  for (i = 0; i < closeBtnsLen.length; i++) {
+  for (i = 0; i < closeBtnsLen; i++) {
     addCloseHandler(closeBtns[i]);
   }
 
