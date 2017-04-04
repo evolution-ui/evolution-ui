@@ -82,6 +82,7 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
     //--------------------------------------------------------------------------
 
     @include m( 'type3' ) {
+      @extend %c-progress-bars-hide-overflow-x;
       padding-top: 10px;
       padding-bottom: 10px;
       border: 1px solid black(.2);
@@ -97,10 +98,10 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
     //--------------------------------------------------------------------------
 
     @include m( 'type4' ) {
+      @extend %c-progress-bars-hide-overflow-x;
       padding-top: 10px;
       padding-bottom: 10px;
       border: 1px solid black(.2);
-      overflow-x: hidden;
 
       & .#{$bar-element} {
         left: -20px;
@@ -140,8 +141,14 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
         .#{$bar-element--pr} {
           right: 0;
           width: 200%;
-          animation: c-progress-bars-infinite--pr 5s infinite forwards linear;
-          -webkit-animation: c-progress-bars-infinite--pr 5s infinite forwards linear;
+          animation: c-progress-bars-infinite--pr 1.5s infinite forwards linear;
+          -webkit-animation: c-progress-bars-infinite--pr 1.5s infinite forwards linear;
+        }
+
+        @media screen and (min-width: 760px) {
+          .#{$bar-element--pr} {
+            animation-duration: 4.5s;
+          }
         }
 
 
