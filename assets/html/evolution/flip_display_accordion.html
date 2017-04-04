@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Jaymes Phimmachack">
+    <title>Flip Display Accordion</title>
+    <meta name="description" content="flip front panel and display accordion">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+    <link href="../../styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="evo_c-flip-acc">
+        <input id="ctrl1" name="flip-acc-ctrl" type="radio" checked>
+        <input id="ctrl2" name="flip-acc-ctrl" type="radio">
+        <input id="ctrl3" name="flip-acc-ctrl" type="radio">
+        <input id="ctrl4" name="flip-acc-ctrl" type="radio">
+        <div class="evo_c-flip-acc__panel" id="flip-acc-panel1">
+            <label for="ctrl1"><span class="evo_c-flip-acc__front">Image 1</span></label>
+            <span class="evo_c-flip-acc__bottom" id="img1"></span>
+        </div>
+        <div class="evo_c-flip-acc__panel" id="flip-acc-panel2">
+            <label for="ctrl2"><span class="evo_c-flip-acc__front">Image 2</span></label>
+            <span class="evo_c-flip-acc__bottom" id="img2"></span>
+        </div>
+        <div class="evo_c-flip-acc__panel" id="flip-acc-panel3">
+            <label for="ctrl3"><span class="evo_c-flip-acc__front">Image 3</span></label>
+            <span class="evo_c-flip-acc__bottom" id="img3"></span>
+        </div>
+        <div class="evo_c-flip-acc__panel" id="flip-acc-panel4">
+            <label for="ctrl4"><span class="evo_c-flip-acc__front">Image 4</span></label>
+            <span class="evo_c-flip-acc__bottom" id="img4"></span>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="../../scripts/app.js"></script>
+</body>
+
+</html>
