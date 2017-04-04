@@ -301,6 +301,12 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
           }
         }
 
+        @media screen and (min-width: 1200px) {
+          .#{$bar-element--pr} {
+            animation-duration: 6.5s;
+          }
+        }
+
 
     }
 
@@ -351,6 +357,13 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
       //--------------------------------------------------------------------------
       @include m( 'small' ) {
         height: $c-progress-bars-height-small!important;
+      }
+
+      //--------------------------------------------------------------------------
+      //                        Large - Bar
+      //--------------------------------------------------------------------------
+      @include m( 'large' ) {
+        height: $c-progress-bars-height-large!important;
       }
 
   }
