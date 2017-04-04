@@ -55,3 +55,8 @@ $c-progress-bars-percentage-margin-left: 50px;
   50% { left: 100%; }
   100% { left: -10% }
 }
+
+@keyframes c-progress-bars-infinite--pr {
+  0% { left: -100%; };
+  100% { left: 0; };
+}

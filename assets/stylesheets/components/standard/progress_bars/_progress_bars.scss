@@ -9,6 +9,7 @@
 $bar-element: getBEMReference($c-component-name, 'bar');
 $bar-element--b: getBEMReference($c-component-name, 'bar--b');
 $bar-element--fb: getBEMReference($c-component-name, 'bar--fb');
+$bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
 
 @include c($c-component-name) {
 
@@ -21,7 +22,6 @@ $bar-element--fb: getBEMReference($c-component-name, 'bar--fb');
   margin: 20px;
   text-align: center;
   background-color: tint(get-color('background'), 90);
-
 
 
     //--------------------------------------------------------------------------
@@ -46,6 +46,7 @@ $bar-element--fb: getBEMReference($c-component-name, 'bar--fb');
 
       @include m( 'center' ) {
         height: $c-progress-bars-height-middle;
+        padding: 0;
         color: white(.9);
         text-shadow: 0 1px 1px rgba(0,0,0,.5);
 
@@ -91,6 +92,23 @@ $bar-element--fb: getBEMReference($c-component-name, 'bar--fb');
       }
     }
 
+    //--------------------------------------------------------------------------
+    //                        Type4 - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include m( 'type4' ) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 1px solid rgb(0, 0, 0);
+      overflow-x: hidden;
+
+      & .#{$bar-element} {
+        height: 0!important;
+        border: $c-progress-bars-height dashed white(.9);
+        transform: skew(38deg);
+      }
+    }
+
 
     //--------------------------------------------------------------------------
     //                  Infinite Loading - Progress Bars
@@ -116,6 +134,15 @@ $bar-element--fb: getBEMReference($c-component-name, 'bar--fb');
           animation: c-progress-bars-infinite--fb 2.2s infinite forwards linear;
           -webkit-animation: c-progress-bars-infinite--fb 2.2s infinite forwards linear;
         }
+
+        .#{$bar-element--pr} {
+          right: 0;
+          width: 200%;
+          animation: c-progress-bars-infinite--pr 5s infinite forwards linear;
+          -webkit-animation: c-progress-bars-infinite--pr 5s infinite forwards linear;
+        }
+
+
     }
 
 
