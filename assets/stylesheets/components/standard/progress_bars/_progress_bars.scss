@@ -84,7 +84,7 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
     @include m( 'type3' ) {
       padding-top: 10px;
       padding-bottom: 10px;
-      border: 1px solid rgb(0, 0, 0);
+      border: 1px solid black(.2);
 
       & .#{$bar-element} {
         height: 0!important;
@@ -99,10 +99,12 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
     @include m( 'type4' ) {
       padding-top: 10px;
       padding-bottom: 10px;
-      border: 1px solid rgb(0, 0, 0);
+      border: 1px solid black(.2);
       overflow-x: hidden;
 
       & .#{$bar-element} {
+        left: -20px;
+        padding-left: 20px;
         height: 0!important;
         border: $c-progress-bars-height dashed white(.9);
         transform: skew(38deg);
