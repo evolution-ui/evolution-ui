@@ -5,6 +5,7 @@
 @include c('accordion') {
   // margin: 0 auto;
   padding-left: 0;
+  margin-left: 0;
   // max-width: 40rem;
   width: 100%;
   list-style: none;
@@ -23,11 +24,12 @@
     display: block;
     background-color: get-color('primary', 'base');
     text-decoration: none;
+    color: white(1);
 
     &:link,
     &:visited,
     &:active {
-      color: initial;
+      // color: initial;
     }
 
     &:hover {

@@ -11,6 +11,7 @@
     list-style: none;
     justify-content: space-between;
     padding-left: 0;
+    margin-left: 0;
     margin-bottom: 0;
   }
 
@@ -24,10 +25,10 @@
     }
     text-align: center;
     text-transform: uppercase;
-    border-top: 1px solid #000;
-    border-right: 1px solid #000;
-    border-left: 1px solid #000;
-    border-bottom: 1px solid #000;
+    border-top: 1px solid get-color('secondary', 'light');
+    border-right: 1px solid get-color('secondary', 'light');
+    border-left: 1px solid get-color('secondary', 'light');
+    border-bottom: 1px solid get-color('secondary', 'light');
     border-top-left-radius: $markup-border-radius;
     border-top-right-radius: $markup-border-radius;
     background-color: black(.2);
@@ -49,13 +50,13 @@
     position: relative;
     top: -1px;
     min-height: 0;
-    border: 1px solid #000;
+    border: 1px solid get-color('secondary', 'light');
     border-bottom: none;
     background-color: $markup-active-tab-and-container-bg-color;
     transition: min-height .3s ease, padding .3s ease;
     overflow: hidden;
     @include s('is-expanded') {
-      border-bottom: 1px solid #000;;
+      border-bottom: 1px solid get-color('secondary', 'light');
       min-height: 70vh;
       overflow-x: scroll;
       overflow-y: scroll;
