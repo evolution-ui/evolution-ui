@@ -2,9 +2,9 @@ export default function() {
 
   var modalTriggers = document.querySelectorAll('.js-modal-trigger');
   var modalTriggersArr = [].slice.call(modalTriggers);
-  var fullModalTrigger = document.querySelector('.js-modal-trigger--f');
+  var modalTriggersLen = modalTriggers && modalTriggers.length || 0;
   var closeBtns = document.querySelectorAll('.js-modal-close-btn');
-  var closeBtnsArr = [].slice.call(closeBtns);
+  var closeBtnsLen = closeBtns && closeBtns.length || 0;
   var overlay = document.querySelector('.js-modal-overlay');
   var activeModal;
   var transitionClass;
@@ -45,11 +45,11 @@ export default function() {
     });
   }
 
-  for (i = 0; i < modalTriggers.length; i++) {
+  for (i = 0; i < modalTriggersLen; i++) {
     addTriggerHandler(modalTriggers[i]);
   }
 
-  for (i = 0; i < closeBtns.length; i++) {
+  for (i = 0; i < closeBtnsLen.length; i++) {
     addCloseHandler(closeBtns[i]);
   }
 
