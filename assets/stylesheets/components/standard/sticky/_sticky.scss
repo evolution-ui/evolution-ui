@@ -14,7 +14,6 @@
   clear: both;
 
   @include e('end') {
-    background: red;
     clear: both;
   }
 }
