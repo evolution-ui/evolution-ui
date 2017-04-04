@@ -10,7 +10,7 @@ export default function(){
   }
 
   function clearPopup(e){
-    var popups = document.querySelectorAll('.evo_c-popover');
+    var popups = document.querySelectorAll('.evo_c-pop_over');
     var i      = 0,
         len    = popups && popups.length || 0;
     for(i; i < len; i++){

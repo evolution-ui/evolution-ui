@@ -1,6 +1,6 @@
 @import "pop_over-config";
 
-//evo_c-popover
+//evo_c-pop_over
 @include c($c-popover-name){
   position: absolute;
   width: $c-popover-width;
@@ -30,7 +30,7 @@
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 
     @include border-radius-top-lr(2px);
-    @include transition(max-height, 500ms, $easeOutExpo, 220ms);
+    transition: max-height 500ms $easeOutExpo 220ms;
 
     //evo_c-popover__content--invisible
     @include m('invisible'){
@@ -40,10 +40,6 @@
     //evo_c-popover__content--visible
     @include m('visible'){
       opacity: 1;
-      //@include transition-delay(350ms);
-      -webkit-transition-delay: 350ms;
-      -moz-transition-delay: 350ms;
-      -ms-transition-delay: 350ms;
       transition-delay: 350ms;
 
     }
@@ -54,13 +50,13 @@
       position: absolute;
       top: 5px;
       right: 5px;
-      background-image: url("../../../../../images/components/popover/images/ic_close.png");
+      background-image: url("../../../../images/components/pop_over/images/close.png");
       background-size: cover;
       cursor: pointer;
       opacity: 1;
       &:hover{
         opacity: 0.35;
-        @include transition(opacity, 0.15s, ease-out, 0s);
+        transition: opacity 0.15s ease-out 0s;
       }
     }
 
