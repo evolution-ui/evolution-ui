@@ -103,6 +103,7 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
       @extend %c-progress-bars-big;
 
       & .#{$bar-element} {
+        left: -#{$c-progress-bars-height * 2};
         height: 0!important;
         border: $c-progress-bars-height dashed white(.9);
       }
