@@ -41,6 +41,15 @@ $c-progress-bars-percentage-margin-left: 50px;
   overflow-x: hidden;
 }
 
+%c-progress-bars-border-light {
+  border: 1px solid black(.2);
+}
+
+%c-progress-bars-big {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 
 //------------------------------------------------------------------------------
 //                          Progress Bars Animations
