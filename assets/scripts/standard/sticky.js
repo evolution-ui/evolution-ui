@@ -1,14 +1,13 @@
-/** STICKY COMPONENT **/
-(function() {
-  var stickyElement = document.querySelector('.su_stick');
+export default function() {
+  /** STICKY COMPONENT **/
+  var stickyElement = document.querySelector('.evo_c-sticky');
   var stickyElementLeftPosition = stickyElement && elementAbsolutePosition(stickyElement).docLeftDistance;
   var stickyElementTopPosition = stickyElement && elementAbsolutePosition(stickyElement).docTopDistance;
-  var stickyElementEnd = document.querySelector('.su_stick-end');
+  var stickyElementEnd = document.querySelector('.evo_c-sticky__end');
   var stickyElementEndTopPosition = stickyElement && elementAbsolutePosition(stickyElementEnd).docTopDistance;
-  var stuckFlag = false;
 
   if (stickyElement && stickyElementEnd) {
-    window.onscroll = function(e) {
+    window.onscroll = function(event) {
       var elementRelativePosition = stickyElement.getBoundingClientRect();
       if ((window.pageYOffset || document.documentElement.scrollTop) >= stickyElementTopPosition) {
         stickyElement.style.position = "fixed";
@@ -19,11 +18,12 @@
       }
       if ((window.pageYOffset || document.documentElement.scrollTop) >= stickyElementEndTopPosition - elementRelativePosition.height) {
         stickyElement.style.position = "absolute";
-        stickyElement.style.top = elementAbsolutePosition(stickyElementEnd).docTopDistance - elementRelativePosition.height + "px";
+        stickyElement.style.top = elementAbsolutePosition(stickyElementEnd).docTopDistance + "px";
         stickyElement.style.left = elementAbsolutePosition(stickyElement).docLeftDistance + "px";
       }
     };
   }
+
   function elementAbsolutePosition(element) {
     var elementBoundingBox = element.getBoundingClientRect();
     var scrolledLeftPosition = window.pageXOffset || document.documentElement.scrollLeft;
@@ -31,8 +31,8 @@
     return  {
       docLeftDistance: elementBoundingBox.left + scrolledLeftPosition,
       docTopDistance: elementBoundingBox.top + scrolledTopPosition,
-      docBottomDistance: elementBoundingBox.top + scrolledTopPosition
+      docBottomDistance: elementBoundingBox.bottom + scrolledTopPosition
     };
   }
-})();
 /** END STICKY COMPONENT **/
+}
