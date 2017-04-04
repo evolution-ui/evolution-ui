@@ -57,5 +57,8 @@
     "imagemin-svgo": "^5.2.0",
     "minimist": "^1.2.0",
     "webpack": "^2.3.2"
+  },
+  "dependencies": {
+    "gulp-shell": "^0.6.3"
   }
 }

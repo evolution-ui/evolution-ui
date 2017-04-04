@@ -11,6 +11,7 @@ import eyelids from './evolution/eyelids';
 import fadeLinesOnScroll from './evolution/fade_lines_on_scroll';
 import bookmarklet from './evolution/bookmarklet';
 import demoComponent from './evolution/demo-component';
+import paragraphGallery from './evolution/paragraph-gallery';
 import readabilityPanel from './evolution/readability_improvement_panel';
 
 /************************************************************************
@@ -46,5 +47,6 @@ codeMarkup();
 stdForms();
 accordion();
 demoComponent();
+paragraphGallery();
 readabilityPanel();
 stdCarousel();
