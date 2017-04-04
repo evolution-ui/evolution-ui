@@ -19,7 +19,7 @@ export default function() {
       this.btnStartRead = document.querySelector('.evo_c-text2speech__btn_startRead');
       this.btnStopRead = document.querySelector('.evo_c-text2speech__btn_stopRead');
       this.inpStatusRead = document.querySelector('.evo_c-text2speech__inp_statusRead');
-      this.chbxReadController = document.querySelector('.text-2speech-toggle');
+      this.chbxReadController = document.querySelector('.evo_c-text2speech--toggle');
       this.ReadControllerContainer = document.querySelector('.evo_c-text2speech__controller');
     },
 
@@ -68,7 +68,7 @@ export default function() {
       // console.log(splitText);
 
       // start speech
-      if (key === 66 || e.target.getAttribute('class') === 'evo_c-text2speech__btn_startRead read_flex-button') { // shift + b  OR start button
+      if (key === 66 || e.target.getAttribute('class') === 'evo_c-text2speech__btn_startRead evo_c-text2speech--read-flex-button') { // shift + b  OR start button
         reading = true;
         this.styleSelection(reading); // set styles for status field
 
@@ -86,7 +86,7 @@ export default function() {
         // console.log(speechSynth.pending);
       }
 
-      if (key === 86 || e.target.getAttribute('class') === 'evo_c-text2speech__btn_stopRead read_flex-button') { // shift + v OR button stop
+      if (key === 86 || e.target.getAttribute('class') === 'evo_c-text2speech__btn_stopRead evo_c-text2speech--read-flex-button') { // shift + v OR button stop
         reading = false;
         this.styleSelection(reading);
         speechSynth.cancel();
