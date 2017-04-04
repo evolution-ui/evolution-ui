@@ -9,9 +9,9 @@ export default function() {
   if (stickyElement && stickyElementEnd) {
     window.onscroll = function(event) {
       var elementRelativePosition = stickyElement.getBoundingClientRect();
-      if ((window.pageYOffset || document.documentElement.scrollTop) >= stickyElementTopPosition) {
+      if ((window.pageYOffset || document.documentElement.scrollTop) >= stickyElementTopPosition - 16) {
         stickyElement.style.position = "fixed";
-        stickyElement.style.top = 0;
+        stickyElement.style.top = '16px';
         stickyElement.style.left = stickyElementLeftPosition + "px";
       } else if ((window.pageYOffset || document.documentElement.scrollTop) < stickyElementTopPosition) {
         stickyElement.style.position = "initial";
