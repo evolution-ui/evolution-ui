@@ -60,4 +60,4 @@ documentReady(
   herald,
   scrollManagement,
   ikonize
-)
+);
