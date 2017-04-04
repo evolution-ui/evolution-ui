@@ -26,6 +26,9 @@ export default function() {
   }
 
   function _keysDown(e) {
+
+    e.preventDefault();
+
     keysPressed[e.keyCode] = true;
     // keyboard shortcut Shift(16) + Control(17) + L(76) + M(77)
     if (keysPressed[16] && keysPressed[17] && keysPressed[76] && keysPressed[77]) {
