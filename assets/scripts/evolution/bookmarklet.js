@@ -2,6 +2,8 @@
 export default function() {
 
   var bookmarkListComponent = document.querySelector('.evo_c-bookmarklet');
+  // JS safegaurd
+  if (bookmarkListComponent === null) { return; }
   var bookmarkList = bookmarkListComponent.querySelector('.evo_c-bookmaklet__bookmark-list');
   var highlightColor = bookmarkListComponent.dataset.highlightColor;
   var clearAllBtn = bookmarkListComponent.querySelector('.evo_c-bookmarklet__clear-all');
@@ -114,7 +116,9 @@ export default function() {
     var googleSearchBtn;
     var alertBackground;
 
+
     alertNode = bookmarkListComponent.parentNode;
+
 
     // create span node for text hightlighting
     highlightNode = document.createElement('span');
