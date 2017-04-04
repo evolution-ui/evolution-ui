@@ -94,6 +94,10 @@
 @include generateHeadings(6);
 
 
+@include h('txt--font-family') {
+  @extend %c-typography-font-family;
+}
+
 @include h('txt--bold') {
   font-weight: 700;
 }
