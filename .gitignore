@@ -9,3 +9,6 @@ dist
 assets/**/*.map
 assets/**/*.css
 /.csscomb.json
+docs/assets/evolution-ui/scripts/app.js
+docs/assets/evolution-ui/styles/main.css
+
