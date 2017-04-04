@@ -1,0 +1,144 @@
+@import "pop_over-config";
+
+//evo_c-popover
+@include c($c-popover-name){
+  position: absolute;
+  width: $c-popover-width;
+
+  -webkit-transform: translateZ(0);
+  -webkit-transform: scale(0.94);
+  -moz-transform: scale(0.94);
+  -ms-transform: scale(0.94);
+  transform: scale(0.94);
+
+  @include transition(transform, 0.5s, ease-out, 0s );
+
+  //evo_c-popover__content
+  @include e('content'){
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    max-height: 0;
+    bottom: 100%;
+    color: #515151;
+    background-color: #EDECEA;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+    white-space: normal;
+    border-top: 6px solid #C0BFBD;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+
+    @include border-radius-top-lr(2px);
+    @include transition(max-height, 500ms, $easeOutExpo, 220ms);
+
+    //evo_c-popover__content--invisible
+    @include m('invisible'){
+      opacity: 0;
+      @include transition(opacity, 350ms, $easeOutExpo, 0ms);
+    }
+    //evo_c-popover__content--visible
+    @include m('visible'){
+      opacity: 1;
+      //@include transition-delay(350ms);
+      -webkit-transition-delay: 350ms;
+      -moz-transition-delay: 350ms;
+      -ms-transition-delay: 350ms;
+      transition-delay: 350ms;
+
+    }
+    //evo_c-popover__content--close
+    @include m('close'){
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-image: url("../../../../../images/components/popover/images/ic_close.png");
+      background-size: cover;
+      cursor: pointer;
+      opacity: 1;
+      &:hover{
+        opacity: 0.35;
+        @include transition(opacity, 0.15s, ease-out, 0s);
+      }
+    }
+
+    //h-popout
+    @include h('popout'){
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+    //h-hide
+    @include h('hide'){
+      position: absolute !important;
+      top: -9999px !important;
+      left: -9999px !important;
+    }
+    //h-max-height: 18rem;
+    @include h('animated-height'){
+      max-height: 18rem;
+    }
+    p {
+      margin: 12px;
+    }
+    >div{
+      font-size: 15px;
+      padding: 12px 0.75rem .75rem .75rem;
+    }
+  }
+  @include e('icon'){
+    width: 5px;
+    height: 5px;
+    background-color: #61AFDE;
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+  }
+
+  @include e('text'){
+    position: relative;
+    cursor: pointer;
+    color: #61AFDE;
+    font-weight: bold;
+  }
+
+  @include e('header'){
+    margin: 0;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  @include e('caption'){
+    background-color: #A4A3A2;
+    @include box-shadow();
+    color: white;
+    display: block;
+    height: 2.4rem;
+    left: 0;
+    line-height: 2.4rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 100;
+  }
+}
+.h-popout{
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.h-hide{
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+.h-animated-height{
+  max-height: 18rem;
+}
