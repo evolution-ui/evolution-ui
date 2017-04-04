@@ -27,7 +27,7 @@ $site-icon-xl-size: 48px;
 // SCROLLSPY
 
 body {
-  margin-top: 16px;
+  margin-top: ($site-spacing-unit / 1.5);
 }
 
 // SVG ICONS
@@ -276,13 +276,14 @@ $site-sidebar-link-hover-background-color: darken(map-get($site-colors, secondar
 $site-sidebar-link-hover-border-color: map-get($site-colors, secondary);
 $site-sidebar-toggle-padding: ($site-spacing-unit - ($site-spacing-unit / 6)) ($site-spacing-unit * 0.75);
 $site-sidebar-toggle-background-color: map-get($site-colors, secondary);
-$site-sidebar-toggle-box-shadow-color: fade-in(map-get($site-colors, grayscale-black), 0.2);
+$site-sidebar-toggle-box-shadow-color: fade-out(map-get($site-colors, grayscale-black), 0.5);
 $site-sidebar-toggle-hover-background-color: darken(map-get($site-colors, secondary), 5%);
 $site-sidebar-toggle-hover-transform: scale(1.1);
 $site-sidebar-toggle-icon-width: 28px;
 $site-sidebar-toggle-icon-height: 24px;
 $site-sidebar-toggle-line-height: 4px;
 $site-sidebar-toggle-line-background-color: map-get($site-colors, grayscale-white);
+$site-sidebar-toggle-zindex: 9999;
 $site-sidebar-nav-width: 320px;
 $site-sidebar-nav-background-color: map-get($site-colors, secondary);
 $site-sidebar-nav-zindex: 9999;
@@ -311,11 +312,12 @@ $site-sidebar-nav-zindex: 9999;
     position: fixed;
     bottom: $site-spacing-unit;
     right: $site-spacing-unit;
+    z-index: $site-sidebar-toggle-zindex;
     padding: $site-sidebar-toggle-padding;
     border: 0;
     border-radius: 50%;
     background-color: $site-sidebar-toggle-background-color;
-    box-shadow: 0 0 ($site-spacing-unit / 2) $site-sidebar-toggle-box-shadow-color;
+    box-shadow: 0 0 ($site-spacing-unit / 3) $site-sidebar-toggle-box-shadow-color;
     cursor: pointer;
     transition:
       transform $site-transition-timing-function,
@@ -419,6 +421,7 @@ $site-sidebar-nav-zindex: 9999;
       border-color $site-transition-timing-function;
 
     &,
+    &:hover,
     &:visited {
       color: $site-sidebar-text-color;
     }
