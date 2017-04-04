@@ -24,6 +24,12 @@ $site-icon-xl-size: 48px;
   font-size: $site-icon-xl-size;
 }
 
+// SCROLLSPY
+
+body {
+  margin-top: 16px;
+}
+
 // SVG ICONS
 .#{$site-prefix}-icon-svg {
   display: inline-block;
@@ -389,6 +395,12 @@ $site-sidebar-nav-zindex: 9999;
       transition: none;
       overflow: visible;
       background-color: transparent;
+
+      &.is-sticky {
+        padding-top: $site-icon-xl-size;
+        position: fixed;
+        top: 16px;
+      }
     }
   }
 

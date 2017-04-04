@@ -8,7 +8,7 @@ export default function () {
     readabilityToggleContainer = document.querySelector('.evo_c-readabilityPlaceholder');
 
   docElementBody.classList += " evo_c-readabilityDocument";
-  computedBody.style.height = "100%";
+  // computedBody.style.height = "100%";
 
   /*************
     Chrome, FF, and Safari each behave differently with invert(), so must set
