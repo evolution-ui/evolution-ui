@@ -1,0 +1,164 @@
+//------------------------------------------------------------------------------
+//                          Forms config
+//------------------------------------------------------------------------------
+
+
+$c-form-component-name: 'form';
+
+$c-form-padding-tiny:  5px;
+$c-form-padding-small: 10px;
+$c-form-padding-default: 20px;
+$c-form-padding-large: 30px;
+$c-form-padding-huge:  60px;
+
+
+//------------------------------------------------
+//              Media Queries
+//------------------------------------------------
+
+$c-form-media-tablet: 768px;
+$c-form-media-desktop: 1024px;
+$c-form-media-desktop-HD: 1200px;
+
+//------------------------------------------------
+//              Forms input
+//------------------------------------------------
+
+$c-form-input-height: 35px;
+$c-form-input-width: 100%;
+$c-form-input-padding-default: 10px;
+
+
+//------------------------------------------------
+//              Forms checkbox
+//------------------------------------------------
+
+$c-form-checkbox-size: 15px;
+$c-form-checkbox-x-size: 15px;
+$c-form-checkbox-border: 2px solid get-color('primary2', 'dark');
+$c-form-checkbox-x-border: 2px solid get-color('primary2', 'dark');
+$c-form-checkbox-border-right-color: get-color('primary2', 'light');
+$c-form-checkbox-border-bottom-color: get-color('primary2', 'light');
+
+
+//------------------------------------------------
+//              Forms radio
+//------------------------------------------------
+
+$c-form-radio-size: 15px;
+$c-form-radio-x-size: 25px;
+$c-form-radio-border: 2px solid get-color('primary2', 'dark');
+
+
+
+//------------------------------------------------
+//              Forms Button
+//------------------------------------------------
+
+$c-form-button-max-width: 300px;
+$c-form-button-border-radius: 4px;
+$c-form-button-border-radius: 4px;
+
+//------------------------------------------------
+//              focus-line ELEMENT
+//------------------------------------------------
+
+$c-form-focus-line-left: 34px;
+$c-form-focus-line-height: 2.5px;
+
+//------------------------------------------------
+//              Forms tooltip
+//------------------------------------------------
+
+$c-form-tooltip-width: 180px;
+$c-form-tooltip-left: -150px;
+$c-form-tooltip-arrow-size: 14px;
+
+
+
+//------------------------------------------------
+//              Forms field-status
+//------------------------------------------------
+
+$c-form-field-status-font-size: 1rem;
+$c-form-field-status-width: 21%;
+$c-form-field-status-max-width: 200px;
+$c-form-field-status-padding-left: 10px;
+
+
+//------------------------------------------------------------------------------
+//                          Forms Placeholders
+//------------------------------------------------------------------------------
+
+%c-form-absolute {
+  position: absolute;
+}
+
+%c-form-h-full-width {
+  width: 100%;
+}
+
+%c-form-flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+%c-form-input-width {
+  width: $c-form-input-width;
+}
+
+%c-form-focus-line-width {
+  width: calc(#{$c-form-input-width} - #{$c-form-focus-line-left});
+}
+
+
+%c-form-inputs-and-buttons {
+  @include vertical-rhythm(18px, $top-rows: 1);
+  padding: 10px;
+}
+
+%c-form-vertical-rythm-1 {
+  @include vertical-rhythm(18px, $top-rows: 1);
+}
+
+%c-form-label-and-validation-anim {
+  transform: translate3d(-2px, -#{$c-form-input-height}, 0) scale(.8);
+}
+
+%c-form-none {
+  display: none;
+}
+
+%c-form-checkbox {
+  @extend %c-form-flex-align-center;
+  position: relative;
+  padding-left: $c-form-checkbox-size + 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+%c-form-checkbox-before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  display:block;
+  transition: all .2s;
+}
+
+
+%c-form-radio-size {
+  height: $c-form-radio-size;
+  width: $c-form-radio-size;
+}
+
+%c-form-rounded {
+  border-radius:50%;
+}
+
+%c-form-pointer {
+  cursor: pointer;
+}

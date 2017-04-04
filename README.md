@@ -1,40 +1,114 @@
-# seed-ui
+# Evolution UI
 
-# [Live Site](https://BovAcademy-opensource.github.io/seed-ui/)
+> A collection of standard and innovative UI components made by [Bov Academy][bov-academy] students.
 
-- Each component gets its own sub-folder in the `components` folder.
-- Add the scss partials of the components to the file named after you in the `partials` folder.
-- Refer to `_jake.scss` for an example.
-- Run `sass --watch components:css` to automatically compile scss.
-- Use your named html file in the `html-temp` folder to write up your components.
-- If you need fonts, Google Material icons have been added to each html file. (https://material.io/icons/ for usage instructions)
-- All classes to be prefixed with `su_`
+[View Showcase Website][showcase-website]
 
-# Installing Grunt tasks
+## Requirements
 
-1. First check if you system has node.js installed. In the command line type:
+This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating systems. It requires the following software to be already installed on your system:
 
-    `node -v` // v7.6.0
+- [Ruby][ruby]
+- [RubyGems][rubygems]
+- [Bundler][rubybundler]
+- [Node.js][node]
+- [npm][npm]
 
-    if you have it, then check if you have `npm` (node package manager) installed:
+**Running Windows?** Jekyll (what we use to build our `/docs`) does not officially support the Windows operating system, but they do provide [special instructions][jekyll-windows] if you want to take a crack at it anyway.
 
-    `npm -v` // 4.3.0
+## Installation
 
-    * if you don't have those installed, follow [these instructions](https://docs.npmjs.com/getting-started/installing-node) to install node.js and `npm`
+1. First, make sure all of the software listed above is installed on your local machine. The latest stable versions should work fine.
 
-2. Now, install `grunt-cli`:
+    - [Install Ruby/RubyGems][ruby]
+    - [Install Ruby Bundler][rubybundler]
+    - [Install Node.js/npm][node-install]
 
-    `npm install -g grunt-cli` // '-g' means install it globally on your system
+2. Once you have Node.js/npm installed, use it to install `gulp-cli` globally:
 
-3. Now, it is time to install all needed packages. `cd` into your repository directory and run this command:
+    ```bash
+    npm install -g gulp-cli`
+    ```
 
-    `npm install`
+    The `-g` flag means it will be installed globally on your system, and can be used for any project.
 
-4. After that use the following commands:
+3. Clone this repository to your local machine, and install the required packages by running the following command(s):
 
-    * `grunt` - this concatenates `js` files, compiles `sass` files, and watches for changes in those files
-    * `grunt build` - build for production, uglifies JS, and compiles sass
+    ```bash
+    git clone git@github.com:BovAcademy-opensource/evolution-ui.git
+    cd /path/to/repository
+    npm install
+    ```
 
-5. The `main.js`, `main.min.js` and `main.css` are located in the `prod` directory on the root of the repository. **Make sure you link to those files in your HTML file**
+    This will install all the required software specific to the framework.
 
-6. You can stop grunt task by pressing `Ctrl + C` in the command line
+4. Use [Bundler][rubybundler] to install all required Ruby gems (the Ruby equivalent of “packages”) specific to the showcase website (located in the `/docs` directory) by running the following command(s):
+
+    ```bash
+    cd docs/
+    gem install bundler
+    bundle install
+    ```
+
+    **NOTE:** You only need to run `gem bundler install` if you didn’t already install [Bundler][rubybundler] on your machine in the previous steps.
+
+Voilà! You have successfully installed all the dependencies.
+
+## Usage
+
+After installing the required software specific to the framework and showcase website, you can begin using them. The following commands can now be run in the terminal from the root directory of the repository:
+
+- `npm start`: Builds the framework’s development environment, watches for file changes, and automatically reloads the browser window when files change.
+- `npm run start-docs`: Copies the framework’s compiled assets over to the showcase website, and serves the showcase website.
+- `npm run production`: Builds a “production-ready” version of the framework with minification and file hashes for a better cache management.
+- `npm run deploy-docs`: Deploys the showcase website to the `gh-pages` branch, which updates the live website.
+- `npm run sassdoc`: Builds and serves the Sass-specific documentation in your web browser.
+
+**ProTip:** You can stop a running task in the terminal by using the  `Ctrl` + `C` keyboard shortcut.
+
+## Contributing
+
+Please follow our [detailed guidelines][contributions] if you would like to make a contribution to this project.
+
+Thanks for your help!
+
+## Core Maintainers
+
+- Gabriele Romeo ([@GabrieleRomeo][maintainer-gabrieleromeo])
+- Joseph Michael Matembu ([@jmatembu][maintainer-jmatembu])
+- Vojislav Grujić ([@Gruximillian][maintainer-gruximillian])
+- Brian Hernandez ([@brianhernandez][maintainer-brianhernandez])
+- Léna Faure ([@lenafaure][maintainer-lenafaure])
+- Carlos Coves ([@escorponox][maintainer-escorponox])
+- Jake Tom ([@codephobe][maintainer-codephobe])
+- Chris Bracco ([@cbracco][maintainer-cbracco])
+
+## License
+This project is released under the [MIT License][license].
+
+[bov-academy]: https://bovacademy.com
+[contributions]: .github/CONTRIBUTING.md
+[gitflow]: https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow
+[github-pages]: https://pages.github.com/
+[jekyll]: https://jekyllrb.com
+[jekyll-windows]: http://jekyllrb.com/docs/windows/#installation
+[license]: LICENSE.md
+[liquid]: http://liquidmarkup.org
+[maintainer-brianhernandez]: https://github.com/brianhernandez
+[maintainer-cbracco]: https://github.com/cbracco
+[maintainer-escorponox]: https://github.com/escorponox
+[maintainer-codephobe]: https://github.com/codephobe
+[maintainer-gabrieleromeo]: https://github.com/GabrieleRomeo
+[maintainer-gruximillian]: https://github.com/Gruximillian
+[maintainer-jmatembu]: https://github.com/jmatembu
+[maintainer-lenafaure]: https://github.com/lenafaure
+[node]: https://nodejs.org/en/
+[node-install]: https://docs.npmjs.com/getting-started/installing-node
+[npm]: https://www.npmjs.com
+[pull-request]: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
+[repo]: https://github.com/BovAcademy-opensource/evolution-ui
+[ruby]: https://www.ruby-lang.org/en/
+[rubybundler]: http://bundler.io
+[rubygems]: https://rubygems.org
+[sass]: http://sass-lang.com
+[showcase-website]: https://BovAcademy-opensource.github.io/evolution-ui/
