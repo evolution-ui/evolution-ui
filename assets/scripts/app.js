@@ -12,6 +12,7 @@ import fadeLinesOnScroll from './evolution/fade_lines_on_scroll';
 // import bookmarklet from './evolution/bookmarklet';
 import demoComponent from './evolution/demo-component';
 import readabilityPanel from './evolution/readability_improvement_panel';
+import text2speech from './evolution/text2speech'
 import herald from './evolution/herald';
 
 /************************************************************************
@@ -48,5 +49,6 @@ stdForms();
 accordion();
 demoComponent();
 readabilityPanel();
+text2speech();
 stdCarousel();
 herald();
