@@ -41,7 +41,7 @@ gulp.task('styles', function () {
 })
 
 gulp.task('eslint', function () {
-  return gulp.src(['assets/scripts/evolution/**/*.js', '!node_modules/**'])
+  return gulp.src(['assets/scripts/**/*.js', '!node_modules/**'])
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
     .pipe(plugins.eslint.failAfterError())
@@ -62,6 +62,7 @@ gulp.task('html', function () {
 
 gulp.task('html-temp', function () {
   return gulp.src('./assets/html/**/*.html')
+    .pipe(plugins.changed(outputPath + '/temp'))
     .pipe(plugins.if(!development, plugins.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest(outputPath + '/temp'))
 })
@@ -92,15 +93,6 @@ gulp.task('jekyll', shell.task([
 gulp.task('jekyll-serve', shell.task([
   'jekyll serve --source=docs/ --destination=docs/_site'
 ]))
-
-// gulp.task('test', function () {
-//   return gulp.src('test/**/*.test.js')
-//     .pipe(plugins.tape({
-//         bail: true,
-//         reporter: tapdiff()
-//       })
-//     )
-// })
 
 function devInit (cb) {
   plugins.sequence('clean', ['images', 'audio', 'scripts'], ['html', 'html-temp', 'styles'], cb)
@@ -138,7 +130,6 @@ function devel () {
   bs({
     server: 'public',
     open: false,
-    // browser: 'google-chrome-stable'
   })
 
   gulp.watch(['public/**/*.html', 'public/styles/**/*.css', 'public/scripts/**/*.js', 'public/images/**/*'], reload)
@@ -167,14 +158,12 @@ gulp.task('build', ['rev-replace'], function () {
   bs({
     server: 'dist',
     open: false,
-    // browser: 'google-chrome-stable'
   })
 })
 
 gulp.task('sassdoc', function () {
   bs({
     server: 'assets/sassdoc',
-    // browser: 'google-chrome-stable'
   })
 })
 
