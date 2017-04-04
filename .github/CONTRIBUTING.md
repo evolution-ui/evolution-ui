@@ -1,33 +1,181 @@
-## Evolution UI - How to contribute
+# Contributing Guidelines
 
+- [Setting up the workflow](#setting-up-the-workflow)
+- [Building a component](#building-a-component)
+    - [Understanding the framework's structure](#understanding-the-frameworks-structure)
+    - [Naming Conventions](#naming-conventions)
+      - [Namespace](#namespace)
+    - [JS hooks](#js-hooks)
+        - [✖ - NOT worthwhile](#️-not-worthwhile)
+        - [✔ - worthwhile](#️-worthwhile)
+    - [State Hooks](#state-hooks)
+    - [Configuration](#configuration)
+    - [Run your component in the browser](#run-your-component-in-the-browser)
+        - [ES6 Module](#es6-module)
+        - [Writing safe JavaScript code](#writing-safe-javascript-code)
+    - [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
+    - [Import Stylesheets and app.js](#import-stylesheets-and-appjs)
+    - [Sassdoc](#sassdoc)
+    - [Let's code with SASS](#lets-code-with-sass)
+        - [Make use of comments for improve readability](#make-use-of-comments-for-improve-readability)
+        - [How to reference the correct CSS selector](#how-to-reference-the-correct-css-selector)
+    - [How to push your component on the repository](#how-to-push-your-component-on-the-repository)
+- [Add a component to the showcase website](#add-a-component-to-the-showcase-website)
+- [Additional resources](#additional-resources)
+- [Quick recap](#quick-recap)
 
+## Setting up the workflow
 
-* [Evolution UI - How to contribute](#evolution-ui---how-to-contribute)
-  * [Naming Conventions](#naming-conventions)
-    * [Namespace](#namespace)
-  * [JS hooks](#js-hooks)
-      * [✖ - NOT worthwhile](#️-not-worthwhile)
-      * [✔ - worthwhile](#️-worthwhile)
-  * [State Hooks](#state-hooks)
-  * [Configuration](#configuration)
-  * [Build a component for Evolution UI](#build-a-component-for-evolution-ui)
-    * [Setting up a working environment](#setting-up-a-working-environment)
-    * [Understanding the framework's structure](#understanding-the-frameworks-structure)
-    * [Run your component into the browser](#run-your-component-into-the-browser)
-      * [ES6 Module](#es6-module)
-      * [Writing safe JavaScript code](#writing-safe-javascript-code)
-    * [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
-    * [Import Stylesheets and app.js](#import-stylesheets-and-appjs)
-    * [Sassdoc](#sassdoc)
-    * [Let's code with SASS](#lets-code-with-sass)
-      * [Make use of comments for improve readability](#make-use-of-comments-for-improve-readability)
-      * [How to reference the correct CSS selector](#how-to-reference-the-correct-css-selector)
-    * [How to push your component on the repository](#how-to-push-your-component-on-the-repository)
-  * [Additional information](#additional-information)
-    * [Quick recap](#quick-recap)
+We use the [Gitflow Workflow][gitflow] for this project. If you would like to make a contribution the project, please first follow these steps to setup the proper workflow:
 
+1. Instead of cloning, first fork the [original repository][repo] and clone your fork to your local machine:
 
+    ```bash
+    git clone git@github.com:[YOUR-USERNAME]/evolution-ui.git
+    ```
 
+2. Add the [original repository][repo] as a remote so you can push to it later:
+
+    ```bash
+    git remote add upstream https://github.com/BovAcademy-opensource/evolution-ui.git
+    ```
+
+3. Checkout the `development` branch:
+
+    ```bash
+    git checkout development
+    ```
+
+    **IMPORTANT:** All work stems from the `development` branch. Never start new work directly from the `master` branch, or work directly on the `master` branch.
+
+4. From the `development` branch, create a new feature branch that describes your contribution in a few short words (e.g. `my-new-component`) and begin working:
+
+    ```bash
+    git checkout -b my-new-component
+    npm start
+    ```
+
+5. Remember to rebase often to stay updated and minimize conflicts:
+
+    ```bash
+    git pull --rebase upstream development
+    ```
+
+6. When your component is ready, [submit a Pull Request][pull-request] to the `development` branch of the original repository. Your work will be reviewed by one of the core maintainers, as soon as possible.
+
+## Building a component
+
+This tutorial will give you the fundamentals on how to build a new **evolution** component for Evolution UI.
+
+Let's imagine that we want to build a new component called `super-easy`.
+
+After setting up the workflow above, create a new branch for your new component from the `development` branch:
+
+```bash
+~ [development]$ git checkout -b c-super-easy development
+```
+
+Please, note the use of the `c-` prefix before the actual component's name.
+
+**Remember to rebase often to stay updated and minimize conflicts**:
+
+```shell
+~ [c-super-easy]$ git pull --rebase evolution development
+```
+
+Now we are ready to work at our component by staging and committing the changes on the new dedicated branch.
+
+**NOTE**: The `.css`, `.css.map` and other output files should not be tracked.
+
+### Understanding the framework’s structure
+
+In Evolution UI we tried to define an easy and well-separate structure. To this end, each component is placed in a separate subfolder.
+
+The main path for components is `evolution-ui/assets/`
+
+Components are distributed into two main categories , `evolution` or `standard`, and based on its type, each one has its own directory:
+
+* HTML path:
+  *  `evolution-ui/assets/html/[evolution|standard]/component-name.html`
+* Javascript path:
+  *  `evolution-ui/assets/scripts/[evolution|standard]/component-name.js`
+* SASS path:
+  *   `evolution-ui/assets/stylesheets/[evolution|standard]/component_name/_component-name.scss`
+
+```
+evolution-ui/
+    |
+    |- assets/
+          |
+          | - html
+          |     |
+          |     |- evolution/
+          |     |      |
+          |     |      | - eyelids.html
+          |     |
+          |     |- standard/
+          |            |
+          |            | - animations.html
+          |            | - audio.html
+          |
+          | - scripts
+          |      |
+          |      |- evolution/
+          |      |      |
+          |      |      | - eyelids.js
+          |      |
+          |      |- standard/
+          |             |
+          |             | - animations.js
+          |             | - audio.js
+          |
+          |
+          | - stylesheets/
+          |         |
+          |         |
+          |      components/
+          |         |
+          |         | - evolution/
+          |         |        |
+          |         |        |
+          |         |      Eyelids   # The Eyelids component
+          |         |         |
+          |         |         | -  _eyelids-config.scss
+          |         |         | -  _eyelids.scss
+          |         |
+          |         |
+          |         | - standard/
+          |         |      |
+          |         |      |
+          |         |      |-   animations  # The Animations component
+          |         |      |      | -  _animations-config.scss
+          |         |      |      | -  _animations.scss
+          |         |      |      | -  ...
+          |         |      |
+          |         |      |-   audio     # The Audio component
+          |         |      |      | -  _audio-config.scss
+          |         |      |      | -  _audio.scss
+          |         |      |      | -  ...
+          |         |
+          |         |
+          |         |- _import-components.scss
+          |
+          |- app.js
+```
+
+For example, the Eyelids component is an **evolution** component and it's main files are:
+
+- HTML:
+    - `evolution-ui/assets/html/evolution/eyelids.html` - (known as *preview file*)
+- JavaScript path:
+    - `evolution-ui/assets/scripts/evolution/eyelids.js`
+- SASS path:
+    - `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids.scss`
+    - `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids-config.scss`
+
+Looking at the SASS dir, we can see that the Eyelids component has two main files: `_Eyelids.scss` and a configuration file called `_Eyelids-config.scss`. You can import configuration files into the main file to keep the configuration separate.
+
+Each SASS component is imported through the `_import-components.scss` file.
 
 ### Naming Conventions
 
@@ -169,153 +317,7 @@ $c-super-easy-font-size: 200px;
 
 The component's name is not mandatory but it is **highly recommended** since it could come to the rescue with references later on.
 
-
-
-### Build a component for Evolution UI
-
-This tutorial will give you the fundamentals on how to build a new **evolution** component for Evolution UI.
-
-Let's imagine that we want to build a new component called `super-easy`.
-
-
-
-#### Setting up a working environment
-
-
-
-The first step for contributing with a new component is to fork the Evolution UI framework.
-
-To do this, go to the [official repository](https://github.com/BovAcademy-opensource/evolution-ui) and fork it. Then add the original repository as a remote:
-
-```shell
-~ $ git remote add evolution https://github.com/BovAcademy-opensource/evolution-ui.git
-```
-
-Then, checkout the `development` branch:
-
-```shell
-~ [master]$ git checkout development
-```
-
-As explained in the [README.md](https://github.com/BovAcademy-opensource/evolution-ui/tree/development) file, we use [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow) as official workflow. **Each new component** must be developed on a new, isolated, branch. In Gitflow this particular branch is commonly known as *feature branch*.
-
-Following that rule, we create a separate branch and instead of basing it on `master`, we base it [on `development`](https://www.atlassian.com/git/tutorials/using-branches/git-checkout):
-
-```shell
-~ [development]$ git checkout -b c-super-easy development
-```
-
-Please, note the use of the `c-` prefix before the actual component's name.
-
-**Remember to rebase often to stay updated and minimize conflicts**:
-
-```shell
-~ [c-super-easy]$ git pull --rebase evolution development
-```
-
-
-
-Now we are ready to work at our component by staging and committing the changes on the new dedicated branch.
-
-**NOTE**: The `.css` , `.css.map` and others output files must not be tracked.
-
-
-
-#### Understanding the framework's structure
-
-In Evolution UI we tried to define an easy and well-separate structure. To this end, each component is placed in a separate subfolder.
-
-The main path for components is `evolution-ui/assets/`
-
-Components are distributed into two main categories , `evolution` or `standard`, and based on its type, each one has its own directory:
-
-* HTML path:
-  *  `evolution-ui/assets/html/[evolution|standard]/component-name.html`
-* Javascript path:
-  *  `evolution-ui/assets/scripts/[evolution|standard]/component-name.js`
-* SASS path:
-  *   `evolution-ui/assets/stylesheets/[evolution|standard]/component_name/_component-name.scss`
-
-
-
-```
-evolution-ui/
-    |
-    |- assets/
-          |
-          | - html
-          |     |
-          |     |- evolution/
-          |     |      |
-          |     |      | - eyelids.html
-          |     |
-          |     |- standard/
-          |            |
-          |            | - animations.html
-          |            | - audio.html
-          |
-          | - scripts
-          |      |
-          |      |- evolution/
-          |      |      |
-          |      |      | - eyelids.js
-          |      |
-          |      |- standard/
-          |             |
-          |             | - animations.js
-          |             | - audio.js
-          |
-          |
-          | - stylesheets/
-          |         |
-          |         |
-          |      components/
-          |         |
-          |         | - evolution/
-          |         |        |
-          |         |        |
-          |         |      Eyelids   # The Eyelids component
-          |         |         |
-          |         |         | -  _eyelids-config.scss
-          |         |         | -  _eyelids.scss
-          |         |
-          |         |
-          |         | - standard/
-          |         |      |
-          |         |      |
-          |         |      |-   animations  # The Animations component
-          |         |      |      | -  _animations-config.scss
-          |         |      |      | -  _animations.scss
-          |         |      |      | -  ...
-          |         |      |
-          |         |      |-   audio     # The Audio component
-          |         |      |      | -  _audio-config.scss
-          |         |      |      | -  _audio.scss
-          |         |      |      | -  ...
-          |         |
-          |         |
-          |         |- _import-components.scss
-          |
-          |- app.js
-```
-
-
-
-For example, the Eyelids component is an **evolution** component and it's main files are:
-
-- HTML:
-  -  `evolution-ui/assets/html/evolution/eyelids.html` - (known as *preview file*)
-- Javascript path:
-  -  `evolution-ui/assets/scripts/evolution/eyelids.js`
-- SASS path:
-  -   `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids.scss`
-  -   `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids-config.scss`
-
-Looking at the SASS dir, we can see that the Eyelids component has two main files: `_Eyelids.scss` and a configuration file called `_Eyelids-config.scss`. You can import configuration files into the main file to keep the configuration separate.
-
-Each SASS component is imported through the `_import-components.scss` file.
-
-#### Run your component into the browser
+### Run your component in the browser
 
 Evolution UI makes use of Gulp for tasks execution.
 
@@ -325,9 +327,7 @@ After you started the development environment with the command `npm start`, your
 
 `http://localhost:3000/temp/[evolution|standard]/component-name.html`
 
-
-
-##### ES6 Module
+#### ES6 Module
 
 Evolution UI makes use of ES6 modules to handle components' dependencies. Our goal is to build a dependency tree from our root file (`app.js`).
 
@@ -397,7 +397,7 @@ Evolution UI makes use of ES6 modules to handle components' dependencies. Our go
   ```
   You can find all you need to know on ES6 modules [here](http://2ality.com/2014/09/es6-modules-final.html).
 
-##### Writing safe JavaScript code
+#### Writing safe JavaScript code
 
 By writing safe JavaScript code we mean writing the code that won't break other components in the framework.
 
@@ -448,7 +448,7 @@ This errors were plaguing our framework just a week before I wrote this instruct
 
 In any case, please do check your scripts with the empty html files just to be sure. If there are no errors, then you're probably all set to safely include your component into the framework.
 
-#### Setting up the HTML markup and SASS
+### Setting up the HTML markup and SASS
 
 As we stated at the beginning of this guide, we follow a BEM-like naming convention for our classes. So, let's see for example, how could we build an UI component which contains a *header*, a *body*, and a *footer*.
 
@@ -471,8 +471,6 @@ As we stated at the beginning of this guide, we follow a BEM-like naming convent
 </article>
 ```
 
-
-
 What if we want to provide a variation for the paragraph element which makes the text *uppercase* for example?
 
 In this case, a good way to satisfy the newly request could be to define a helper class. Helper classes should always have a *unique* responsibility.
@@ -484,11 +482,9 @@ In this case, a good way to satisfy the newly request could be to define a helpe
  </div>
 ```
 
-
 **IMPORTANT Note:** Don't forget to add your markup into your preview file. To this end, read the **Displaying The Code For Components You Contribute** section at the end of the [README.md](https://github.com/BovAcademy-opensource/evolution-ui/tree/development)
 
-
-#### Import Stylesheets and app.js
+### Import Stylesheets and app.js
 
 In your `component-name.html` file (which will be located at `evolution-ui/assets/html/[evolution|standard]/component-name.html`), you need to import all the necessary assets.
 
@@ -511,10 +507,9 @@ Then, at the end of your html file, import the app.js file:
 
 **Tip**: In Evolution UI there is boilerplate file (called `TEMPLATE.html`) which contains all the necessary imports for your components. Use it for speeding up your work.
 
-
 Okay, we are ready for SASS but before coding, let's take a look at predefined mixins and functions provided by the framework.
 
-#### Sassdoc
+### Sassdoc
 
 Evolution UI contains a list predefined *mixins* and *functions* which speed up your development process and give you the capability of being operative in a moment.
 
@@ -526,7 +521,7 @@ To see them, type in your favorite shell or command line the following command:
 
 This will open up your predefined browser and show you the Evolution UI documentation for Sass.
 
-#### Let's code with SASS
+### Let's code with SASS
 
 Having defined the HTML markup, let's see how to implement each class using the provided tools.
 
@@ -544,10 +539,9 @@ Take a look at the following usage examples:
 
 * [Evolution UI - color palette](http://www.sassmeister.com/gist/d384a2c6746a3c4045b49512e6795aa6)
 
-For a complete list of these utilities, take a look at the internal sassdoc. Type in your shell the command: `npm run sassdoc` 
+For a complete list of these utilities, take a look at the internal sassdoc. Type in your shell the command: `npm run sassdoc`
 
 ---------------------------
-
 
 The intended files for SASS must be placed inside the `stylesheets` dir:
 
@@ -602,8 +596,6 @@ At this point, we need to import the new component into the SASS system (if it's
 @import 'standard/component-name/component-name';
 ```
 
-
-
 Then, we are ready to take care of the component's configurations:
 
 ```scss
@@ -636,8 +628,6 @@ $c-super-easy-copy-font-family: "Times New Roman", Times, serif;
   cursor: pointer;
 }
 ```
-
-
 
 As you can imagine, Evolution UI has a defined color palette which can be found in the [SassDoc](#Sassdoc). Using the predefined `get-color` function, you can extract a desired color and its variants with ease. There exist also two mixins ( `backgroundVariants` and `textVariants` ) that can be used for generating color variations for backgrounds a texts (usage examples and more information in our [SassDoc](#Sassdoc)).
 
@@ -721,9 +711,7 @@ Let's move on the main SCSS file:
 }
 ```
 
-
-
-##### Make use of comments for improve readability
+#### Make use of comments for improve readability
 
 To make your `.scss` maintainable and well structured, you can exploit *single line comments* to add meanings and improve readability. In SASS, *single line comments* start with `//` and are removed by the  `.scss` pre-processor, so they won't appear in your .css file.
 
@@ -781,9 +769,7 @@ And you could use a slightly different version of comment for modifiers, too:
 
 Now, at a glance, you should be able to find your items in an easy way.
 
-
-
-##### How to reference the correct CSS selector
+#### How to reference the correct CSS selector
 
 Some times we need to reference siblings element through the predefined CSS selector.
 
@@ -867,7 +853,7 @@ Now, if the component's name will change, our component won't be broken.
 
 **IMPORTANT NOTE**: You don't need to add vendor prefixes to your css rules since Evolution UI makes use of `autoprefixer`.
 
-#### How to push your component on the repository
+### How to push your component on the repository
 
 As a rule of thumb, each component must be reviewed before getting into the framework.
 
@@ -885,37 +871,91 @@ At this point, you're ready for open a new [pull request](https://help.github.co
 
 ----------------------------------------------
 
-
-
 Your component is now ready for a review by the Evolution UI core team.
 
+## Add a component to the showcase website
 
+The showcase website is where we display component demos and markup to the public. It is built using [Jekyll](https://jekyllrb.com), a powerful and simple static site generation tool written in [Ruby](https://www.ruby-lang.org/en/).
 
-### Additional information
+The code for the showcase website is located in the `/docs` directory in this repository. Once you’ve finished building your component above, you should add an HTML example for each variant of your component to the showcase website.
 
-Code style guide [here](https://github.com/BovAcademy-opensource/evolution-ui/blob/development/CODE_styleguide.md)
+To begin working on the website, you need to copy the compiled CSS/JS file from the framework into the `/docs` directory and start a Jekyll server that watches for changes in template files.
 
-README [here](https://github.com/BovAcademy-opensource/evolution-ui/blob/development/README.md)
+You can do this by running the following command from the root directory:
 
-Evolution UI color palette [here](http://codepen.io/DrLeleMeo/full/oZdMQa/)
+```bash
+npm run start-docs
+```
 
-Evolution UI color palette through the [get-color](http://www.sassmeister.com/gist/d384a2c6746a3c4045b49512e6795aa6) function
+All component variant examples are located in the `/docs/_components/` directory in this repository.
 
-#### Quick recap
+Here is an example of what a component template file should look like:
 
-* Each complex *part* in the Evolution UI framework must be represented as a **component**.
+```html
+---
+title: "Burst"
+description: |
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, accusamus, minima. Sit, iure ipsum dolor, debitis aliquam facilis iste excepturi ullam doloribus odio suscipit necessitatibus aut, in dolores quas similique.</p>
+type: dot navigation
+order: 1
+---
 
-* The `.css` , `.css.map` and others output files must not be tracked.
+<nav class="evo_dot-navigation evo_dot-navigation-burst">
+  <ul>
+    <li class="evo_dot-current"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</nav>
+```
 
-* After you started the development environment with the command `npm start`, your default browser will show up and your component will be visible at the following URL: `http://localhost:3000/temp/[evolution|standard]/component-name.html`
+The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used to describe the component and make sure it appears in the right place on the page.
 
-* ES6: You can only have one default export per file.
+- `title`: the name of the component **variant** (for example, if your component was a button, you might have "Default", "Hover State", and "Pill-Shaped" variants.)
+- `description`: a short description of the variant. Try to keep it less than a few paragraphs. You can use basic HTML here.
+- `type`: the name of the component. This should be the same value for each variant of the component, so that they are all grouped in the right section on the webpage.
+- `order`: use this to control the order in which each variant appears in a component’s section on the webpage.
 
-* Evolution UI makes use of `autoprefixer`, so **you don't need to add vendor prefixes** to your CSS rules.
+## Additional resources
 
-* Don't forget to add your markup into your preview file. To this end, read the **Displaying The Code For Components You Contribute** section at the end of the [README.md](https://github.com/BovAcademy-opensource/evolution-ui/tree/development)
+- [Evolution UI README][readme]
+- [Showcase Website README][readme]
+- [Code styleguide][styleguide]
+- [Color palette][color-palette]
+- [Access color palette with the `get-color` Sass function][color-palette-get-color]
 
-* The target branch for each pull request is the `development` branch.
+## Quick recap
 
-  ​
+- Each complex *part* in the Evolution UI framework must be represented as a **component**.
+- The `.css` , `.css.map` and others output files must not be tracked.
+- After you started the development environment with the command `npm start`, your default browser will show up and your component will be visible at the following URL: `http://localhost:3000/temp/[evolution|standard]/component-name.html`
+- ES6: You can only have one default export per file.
+- Evolution UI makes use of `autoprefixer`, so **you don't need to add vendor prefixes** to your CSS rules.
+- Don't forget to add your component’s HTML markup to the showcase website.
+- The target branch for each pull request is the `development` branch.
 
+[bov-academy]: https://bovacademy.com
+[color-palette]: http://codepen.io/DrLeleMeo/full/oZdMQa/
+[color-palette-get-color]:http://www.sassmeister.com/gist/d384a2c6746a3c4045b49512e6795aa6
+[contributions]: .github/CONTRIBUTING.md
+[gitflow]: https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow
+[github-pages]: https://pages.github.com/
+[jekyll]: https://jekyllrb.com
+[jekyll-windows]: http://jekyllrb.com/docs/windows/#installation
+[license]: LICENSE.md
+[liquid]: http://liquidmarkup.org
+[node]: https://nodejs.org/en/
+[node-install]: https://docs.npmjs.com/getting-started/installing-node
+[npm]: https://www.npmjs.com
+[pull-request]: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
+[readme]: ../README.md
+[repo]: https://github.com/BovAcademy-opensource/evolution-ui
+[ruby]: https://www.ruby-lang.org/en/
+[rubybundler]: http://bundler.io
+[rubygems]: https://rubygems.org
+[sass]: http://sass-lang.com
+[showcase-readme]: ../docs/README.md
+[showcase-website]: https://BovAcademy-opensource.github.io/evolution-ui/
+[styleguide]: ../CODE_GUIDE.md

@@ -1,0 +1,57 @@
+/******************************************************************************
+                            Accordion Component
+******************************************************************************/
+
+@include c('accordion') {
+  // margin: 0 auto;
+  padding-left: 0;
+  // max-width: 40rem;
+  width: 100%;
+  list-style: none;
+
+  @include e('bellow') {
+    margin-bottom: .5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include e('title') {
+    width: 100%;
+    padding: .9375em;
+    display: block;
+    background-color: get-color('primary', 'base');
+    text-decoration: none;
+
+    &:link,
+    &:visited,
+    &:active {
+      color: initial;
+    }
+
+    &:hover {
+      background-color: get-color('primary', 'dark');
+    }
+
+    transition: background .3s ease, color .3s ease;
+
+    @include s('is-active') {
+      background-color: get-color('primary', 'dark');
+    }
+  }
+
+  @include e('content') {
+    max-height: 0;
+    padding-left: .625em;
+    padding-right: .625em;
+    background: lighten(get-color('secondary', 'light'), 25%);
+    overflow: scroll;
+    transition: all .5s ease;
+
+    @include s('is-expanded') {
+      max-height: 50vh;
+    }
+  }
+}
+/** END ACCORDION COMPONENT **/

@@ -20,10 +20,10 @@
 
       <div class="evo_c-form">
 
-        <form>
+        <form class="js-validation">
 
           <div class="evo_c-form__header">
-            <h2 class="evo_h-txt--caps">join us</h2>
+            <h2 class="evo_c-form__title h-txt__accent">join us</h2>
           </div>
 
           <!-- FORM BODY -->
@@ -36,101 +36,112 @@
               <input class="evo_c-form__input"
                      id="name"
                      type="text" required>
-              <span class="h-field-status"></span>
+              <div class="evo_c-form__focus-line"></div>
+
+              <div class="evo_c-form__tooltip">
+                <span class="evo_c-form__tooltip-text">This field cannot be empty</span>
+              </div>
             </div>
 
             <!-- email -->
             <div class="evo_c-form__field">
-              <span class="evo_c-form__icon">
-                <i class="evo_c-form__icon material-icons">email</i>
-              </span>
+              <i class="evo_c-form__icon material-icons">email</i>
               <label class="evo_c-form__label">Email</label>
               <input class="evo_c-form__input"
                      id="email"
                      type="email" required>
-              <span class="h-field-status" data-error="Wrong email"></span>
+              <div class="evo_c-form__focus-line"></div>
+
+              <div class="evo_c-form__tooltip">
+                <span class="evo_c-form__tooltip-text">Invalid email</span>
+              </div>
+
             </div>
 
             <!-- password -->
             <div class="evo_c-form__field">
-              <span class="evo_c-form__icon">
-                <i class="evo_c-form__icon material-icons">lock</i>
-              </span>
+
+              <i class="evo_c-form__icon material-icons">lock</i>
               <label class="evo_c-form__label">Password</label>
               <input class="evo_c-form__input"
                      id="password"
                      type="password"
+                     pattern=".{6,}"
                      value="" required>
-              <span class="h-field-status"></span>
+              <div class="evo_c-form__focus-line"></div>
+
+              <div class="evo_c-form__tooltip">
+                <span class="evo_c-form__tooltip-text">
+                  Password must contain 6 or more characters
+                </span>
+              </div>
+
+            </div>
+            <!-- select -->
+            <div class="evo_c-form__field">
+
+              <span class="evo_c-form__dropdown">
+                  <select class="evo_c-form__select">
+                      <option>January - 31 days</option>
+                      <option>February - 28 days (common year) - 29 days (leap years)</option>
+                      <option>March - 31 days</option>
+                      <option>April - 30 days</option>
+                      <option>May - 31 days</option>
+                      <option>June - 30 days</option>
+                      <option>July - 31 days</option>
+                      <option>August - 31 days</option>
+                      <option>September - 30 days</option>
+                      <option>October - 31 days</option>
+                      <option>November - 30 days</option>
+                      <option>December - 31 days</option>
+                  </select>
+              </span>
+
+            </div>
+
+            <!-- Radio Button -->
+            <div class="evo_c-form__field">
+
+              <fieldset class="evo_c-form__fieldset">
+
+
+                <input id="radio-1" name="radio-1" type="radio" checked>
+                <label class="evo_c-form__radio" for="radio-1">
+                  First Choice
+                </label>
+
+                <input id="radio-2" name="radio-1" type="radio">
+                <label class="evo_c-form__radio" for="radio-2">
+                  Second Choice
+                </label>
+
+                <input id="radio-3" name="radio-1" type="radio">
+                <label class="evo_c-form__radio" for="radio-3">
+                  Third Choice
+                </label>
+
+              </fieldset>
+
+            </div>
+
+            <div class="evo_c-form__field">
+
+              <fieldset class="evo_c-form__fieldset">
+
+                <input type="checkbox" id="checkbox-1">
+                <label class="evo_c-form__checkbox" for="checkbox-1">
+                  I agree with terms and conditions
+                </label>
+
+              </fieldset>
+
             </div>
 
           </div>
 
           <!-- FORM FOOTER -->
           <div class="evo_c-form__footer">
-            <input class="evo_c-form__input--button"
-                   type="submit"
-                   value="Sign Up">
-          </div>
-
-        </form>
-
-      </div><!-- end evo_c-form -->
-
-    </li>
-
-    <li class="l-grid__item">
-
-      <div class="evo_c-form">
-
-        <form>
-
-          <div class="evo_c-form__header">
-            <h2 class="evo_h-txt--caps">join us</h2>
-          </div>
-
-          <!-- FORM BODY -->
-          <div class="evo_c-form__body">
-
-            <!-- username -->
-            <div class="evo_c-form__field">
-              <i class="evo_c-form__icon material-icons">person</i>
-              <input class="evo_c-form__input"
-                     id="name"
-                     placeholder="name"
-                     type="text" required>
-              <span class="h-field-status"></span>
-            </div>
-
-            <!-- email -->
-            <div class="evo_c-form__field">
-              <span class="evo_c-form__icon">
-                <i class="evo_c-form__icon material-icons">email</i>
-              </span>
-              <input class="evo_c-form__input"
-                     id="email"
-                     placeholder="Email"
-                     type="email" required>
-              <span class="h-field-status"></span>
-            </div>
-
-            <!-- password -->
-            <div class="evo_c-form__field">
-              <span class="evo_c-form__icon">
-                <i class="evo_c-form__icon material-icons">lock</i>
-              </span>
-              <input class="evo_c-form__input"
-                     id="password"
-                     placeholder="Password"
-                     type="password"
-                     value="" required>
-              <span class="h-field-status"></span>
-            </div>
-          </div>
-
-          <!-- FORM FOOTER -->
-          <div class="evo_c-form__footer">
-            <input class="evo_c-form__input--button"
+            <input class="evo_c-form__button"
                    type="submit"
                    value="Sign Up">
           </div>

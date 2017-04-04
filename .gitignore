@@ -6,5 +6,8 @@ production
 public
 dist
 .publish
-*.map
-*.css
+assets/**/*.map
+assets/**/*.css
+docs/assets/evolution-ui/scripts/app.js
+docs/assets/evolution-ui/styles/main.css
+
