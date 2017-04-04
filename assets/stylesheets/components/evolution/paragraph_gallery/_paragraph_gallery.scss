@@ -2,7 +2,35 @@
                               Paragraph Gallery component
 ******************************************************************************/
 
-.paragraph-gallery{
+@include c('paragraph-gallery', true){
+  position: relative;
+  display:inline;
+  margin-left: 1em;
+
+  @include e('item'){
+    display: inline;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    margin-top: 3px;
+    overflow: hidden;
+    -webkit-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
+    -moz-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
+    -o-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
+    transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  @include e('image'){
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+}
+
+/*.paragraph-gallery{
   position: relative;
   display:inline;
   margin-left: 1em;
@@ -29,7 +57,7 @@
     bottom: 0px;
   }
 
-}
+}*/
 
 .gallery-item__wrapper{
   display: inline-block;
@@ -59,79 +87,15 @@
 }
 
 @media screen and (max-width: 500px){
-  .paragraph-gallery{
+  /*.paragraph-gallery{
+    display:block;
+    margin-left: 0;
+  }*/
+  @include c('paragraph-gallery', 'true'){
     display:block;
     margin-left: 0;
   }
 }
-/*.paragraph-gallery-post{
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
-p{
-  display: inline;
-}
 
-.paragraph-gallery{
-  position: relative;
-  display:inline;
-  margin-left: 1em;
-}
 
-.paragraph-gallery__item{
-  display: inline;
-  position: absolute;
-  width: 1em;
-  height: 1em;
-  margin-top: 3px;
-  overflow: hidden;
-  -webkit-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
-  -moz-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
-  -o-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
-  transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685); !* custom *!
-
-}
-
-.paragraph-gallery__item:hover {
-  cursor: pointer;
-}
-.gallery-item__wrapper {
-  display: inline-block;
-  position: relative;
-  margin-right: 15px;
-}
-
-.paragraph-gallery__image{
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-}
-
-.animate-up{
-  bottom: 0;
-  top: auto;
-  margin-bottom: -3px;
-}
-
-.animate-down{
-  top: -1em;
-  bottom: auto;
-}
-
-.animate-left{
-  right: -1em;
-
-}
-
-.animate-right{
-  left: 0;
-
-}
-
-@media screen and (max-width: 500px){
-  .paragraph-gallery{
-    display:block;
-    margin-left: 0;
-  }
-}*/

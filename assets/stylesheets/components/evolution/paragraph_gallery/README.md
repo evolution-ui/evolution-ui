@@ -4,15 +4,15 @@ The paragraph gallery component allows you to  add contextual images to the end 
 The images should relate to the paragraph topics for maximum impact. Paste the following code to the
 end of your paragraph to include a gallery:
 
-    <div class="paragraph-gallery">
+    <div class="evo_c-paragraph-gallery">
         <div class="gallery-item__wrapper">
-        <span class="paragraph-gallery__item ">
-          <img class="paragraph-gallery__image" src="https://placeimg.com/350/350/animals">
+        <span class="evo_c-paragraph-gallery__item">
+          <img class="evo_c-paragraph-gallery__image" src="https://placeimg.com/350/350/animals">
         </span>
         </div>
         <div class="gallery-item__wrapper">
-        <span class="paragraph-gallery__item">
-          <img class="paragraph-gallery__image" src="https://placeimg.com/350/350/arch">
+        <span class="evo_c-paragraph-gallery__item">
+          <img class="evo_c-paragraph-gallery__image" src="https://placeimg.com/350/350/arch">
         </span>
         </div>
     </div>

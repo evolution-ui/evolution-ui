@@ -1,14 +1,14 @@
 export default function(){
 
   function setupGalleries() {
-    let galleries = document.querySelectorAll('.paragraph-gallery');
+    let galleries = document.querySelectorAll('.evo_c-paragraph-gallery');
     let i, j;
     if(galleries.length > 0){
       for (i = 0; i < galleries.length; i++) {
-        let galleryItems = galleries[i].querySelectorAll('.paragraph-gallery__item');
+        let galleryItems = galleries[i].querySelectorAll('.evo_c-paragraph-gallery__item');
         for (j = 0; j < galleryItems.length; j++) {
           let galleryItem = galleryItems[j];
-          let galleryImage = galleryItem.querySelector('.paragraph-gallery__image');
+          let galleryImage = galleryItem.querySelector('.evo_c-paragraph-gallery__image');
 
           if(galleryItem.classList.contains('animate-down')){
             galleryItem.classList.remove('animate-down');
@@ -33,7 +33,7 @@ export default function(){
           let galleryImageHeight = galleryImageRect.height;
           let galleryImageTop = galleryImageRect.top;
           let galleryImageLeft = galleryImageRect.left;
-          console.log(galleryImageTop);
+
 
           if (galleryImageTop < 12) {
             galleryItems[j].classList.add('animate-down');
