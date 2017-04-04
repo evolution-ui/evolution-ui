@@ -1,0 +1,171 @@
+/******************************************************************************
+                              Progress Bars component
+******************************************************************************/
+
+
+@import 'progress_bars-config';
+
+
+$bar-element: getBEMReference($c-component-name, 'bar');
+$bar-element--b: getBEMReference($c-component-name, 'bar--b');
+$bar-element--fb: getBEMReference($c-component-name, 'bar--fb');
+
+@include c($c-component-name) {
+
+  // Provide brackground and text color variations
+  @include backgroundVariants();
+  @include textVariants();
+
+  position: relative;
+  height: $c-progress-bars-height;
+  margin: 20px;
+  text-align: center;
+  background-color: tint(get-color('background'), 90);
+
+
+
+    //--------------------------------------------------------------------------
+    //                      percentage - Progress Bars
+    //--------------------------------------------------------------------------
+
+    &.h-percentage {
+      margin-left: $c-progress-bars-percentage-margin-left;
+
+      &:after {
+        @extend %c-progress-bars-percentage-after;
+        left: -#{$c-progress-bars-percentage-margin-left - 10px};
+      }
+
+      @include m( 'right' ) {
+        margin-right: $c-progress-bars-percentage-margin-left;
+        &:after {
+          @extend %c-progress-bars-percentage-after;
+          right: -#{$c-progress-bars-percentage-margin-left - 10px};
+        }
+      }
+
+      @include m( 'center' ) {
+        height: $c-progress-bars-height-middle;
+        color: white(.9);
+        text-shadow: 0 1px 1px rgba(0,0,0,.5);
+
+        & .#{$bar-element} {
+          height: $c-progress-bars-height-middle;
+        }
+
+        &:after {
+          @extend %c-progress-bars-percentage-after;
+          @extend %c-progress-bars-absolute-center;
+        }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                        Rounded - Progress Bars
+    //--------------------------------------------------------------------------
+    @include m( 'rounded' ) {
+      border-radius: 10px;
+    }
+
+    //--------------------------------------------------------------------------
+    //                        Type2 - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include m( 'type2' ) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    //--------------------------------------------------------------------------
+    //                        Type3 - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include m( 'type3' ) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 1px solid rgb(0, 0, 0);
+
+      & .#{$bar-element} {
+        height: 0!important;
+        border: $c-progress-bars-height dashed white(.9);
+      }
+    }
+
+
+    //--------------------------------------------------------------------------
+    //                  Infinite Loading - Progress Bars
+    //--------------------------------------------------------------------------
+    @include m( 'infinite' ) {
+
+      overflow-x: hidden;
+
+        .#{$bar-element} {
+          left: -10%;
+          width: 10%;
+          animation: c-progress-bars-infinite 2.2s infinite forwards linear;
+          -webkit-animation: c-progress-bars-infinite 2.2s infinite forwards linear;
+        }
+
+        .#{$bar-element--b} {
+          left: 110%;
+          animation: c-progress-bars-infinite--b 2.2s infinite forwards linear;
+          -webkit-animation: c-progress-bars-infinite--b 2.2s infinite forwards linear;
+        }
+
+        .#{$bar-element--fb} {
+          animation: c-progress-bars-infinite--fb 2.2s infinite forwards linear;
+          -webkit-animation: c-progress-bars-infinite--fb 2.2s infinite forwards linear;
+        }
+    }
+
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                           BAR ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'bar' ) {
+
+    // Provide brackground color variations
+    @include backgroundVariants();
+
+    position: absolute;
+    height: inherit;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: get-color('primary');
+    border-radius: inherit;
+
+
+      //------------------------------------------------------------------------
+      //                        WARN - Bar
+      //------------------------------------------------------------------------
+      @include m( 'warn' ) {
+        background-color: rgb(253, 142, 47);
+      }
+
+      //------------------------------------------------------------------------
+      //                        ERR - Bar
+      //------------------------------------------------------------------------
+      @include m( 'err' ) {
+        background-color: rgb(244, 67, 54);
+      }
+
+      //------------------------------------------------------------------------
+      //                        SUCC - Bar
+      //------------------------------------------------------------------------
+      @include m( 'succ' ) {
+        background-color: rgb(128, 210, 107);
+      }
+
+      //--------------------------------------------------------------------------
+      //                        Small - Bar
+      //--------------------------------------------------------------------------
+      @include m( 'small' ) {
+        height: $c-progress-bars-height-small!important;
+      }
+
+  }
+}
