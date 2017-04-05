@@ -1,0 +1,11 @@
+#
+# CONFIGURATION
+#
+
+# ROUTES
+url: "https://bovacademy-opensource.github.io/evolution-ui"
+
+# PUBLISHING
+future: false
+show_drafts: false
+limit_posts: 0

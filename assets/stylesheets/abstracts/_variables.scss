@@ -1,0 +1,144 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+///
+/// Represent the framework's name and the prefix of each component
+/// @access private
+/// @type String
+$g-framework-name: 'evo' !default;
+
+///
+/// Helper variable that can be used within the provided naming mixins
+/// @access private
+/// @type Boolean
+$g-no-prefix: false;
+
+// -----------------------------------------------------------------------------
+//                               FONTS
+// -----------------------------------------------------------------------------
+
+///
+/// Represent the base font-family used by the Evolution framework
+/// @access private
+/// @type String
+$g-framework-font-family: 'Roboto', sans-serif;
+
+///
+/// Represent the base font size used by the Evolution framework
+/// @access private
+/// @type Number
+$g-framework-base-font-size:    16px;
+
+///
+/// Represent the line-height ratio used by the Evolution framework
+/// @access private
+/// @type Number
+$g-framework-line-height-ratio: 1.5;
+
+///
+/// Represent the base line-height used by the Evolution framework
+/// @access private
+/// @type Number
+$g-framework-line-height-base:  1rem * $g-framework-line-height-ratio;
+
+///
+/// Represent the base font-weight used by the Evolution framework
+/// @access private
+/// @type Number
+$g-framework-font-weight: 400;
+
+// -----------------------------------------------------------------------------
+//                               COLORS PALETTE
+// -----------------------------------------------------------------------------
+
+
+///
+/// Slightly lighten a color (Add percentage of white to a color)
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+///
+/// Slightly darken a color (Add percentage of black to a color)
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+///
+/// Represent the base colors palette used by the Evolution framework
+/// It is the main map used by the get-color function
+///
+/// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
+///
+/// @access private
+/// @type MAP
+$g-framework-colors: (
+  'primary': (
+    'base': #56C5DE,
+    'light': tint(#56C5DE, 15%),
+    'dark': shade(#56C5DE, 15%),
+    'darken': shade(#56C5DE, 25%)
+  ),
+  'primary2': (
+    'base': #6C8CD7,
+    'light': tint(#6C8CD7, 15%),
+    'dark': shade(#6C8CD7, 15%),
+    'darken': shade(#6C8CD7, 25%)
+  ),
+  'accent': (
+    'base': #A06EBD,
+    'light': tint(#A06EBD, 15%),
+    'dark': shade(#A06EBD, 15%),
+    'darken': shade(#A06EBD, 25%)
+  ),
+  'accent2': (
+    'base': #E57B7B,
+    'light': tint(#E57B7B, 15%),
+    'dark': shade(#E57B7B, 15%),
+    'darken': shade(#E57B7B, 25%)
+  ),
+  'accent3': (
+    'base': #E189B9,
+    'light': tint(#E189B9, 15%),
+    'dark': shade(#E189B9, 15%),
+    'darken': shade(#E189B9, 25%)
+  ),
+  'accent4': (
+    'base': #80D26B,
+    'light': tint(#80D26B, 20%),
+    'dark': shade(#80D26B, 15%),
+    'darken': shade(#80D26B, 25%)
+  ),
+  'secondary': (
+    'base': #768BA1,
+    'light': tint(#768BA1, 15%),
+    'dark': shade(#768BA1, 15%),
+    'darken': shade(#768BA1, 25%)
+  ),
+  'background': (
+    'base': #1E2226,
+    'light': tint(#1E2226, 15%),
+    'dark': shade(#1E2226, 15%)
+  )
+);
+
+///
+/// Helper that can be used within the get-color function
+/// @access private
+/// @type MAP
+$g-framework-colors-opacity: (
+  'super-light': 0.9,
+  'light': 0.8,
+  'heavy': 0.4
+);
