@@ -7,19 +7,11 @@ $c-nav-drop-carousel: 'nav-drop-carousel';
 
 // Components variables
 
-// adjust this value for how you want carousel to be displayed at smaller screens
-$c-nav-drop-carousel-width: 95%;
+$c-nav-drop-carousel-width: 200px;
 
 
-// change this value to adjust width of component
-$c-nav-drop-carousel-max-width: 960px;
-
-//  change this value to adjust the height of carousel 
 $c-nav-drop-carousel-height: 500px; 
 
 
-
-//  this does not need to be touched but if it does feel free to adjust  
-//  this value will change the ending drop position of circles
 $c-nav-drop-circles-height: $c-nav-drop-carousel-height  - 110;
 
