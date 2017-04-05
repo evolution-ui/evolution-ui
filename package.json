@@ -59,5 +59,8 @@
     "lodash.throttle": "^4.1.1",
     "minimist": "^1.2.0",
     "webpack": "^2.3.2"
+  },
+  "dependencies": {
+    "gulp-shell": "^0.6.3"
   }
 }
