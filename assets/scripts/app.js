@@ -6,11 +6,13 @@
 import documentReady from './site/document-ready'
 import scrollManagement from './site/scroll-management'
 
+
 /************************************************************************
  *
  *                      EVOLUTION COMPONENTS
  *
  ***********************************************************************/
+
 
 import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
@@ -21,12 +23,15 @@ import demoComponent from './evolution/demo-component'
 import readabilityPanel from './evolution/readability_improvement_panel'
 import herald from './evolution/herald'
 import paragraphGallery from './evolution/paragraph-gallery'
+import popover from './evolution/pop_over'
+
 
 /************************************************************************
  *
  *                      STANDARD COMPONENTS
  *
  ***********************************************************************/
+
 
 import accordion from './standard/accordion'
 import offCanvasNavigation from './standard/off_canvas_navigation'
@@ -36,11 +41,13 @@ import stdForms from './standard/forms'
 import stdCarousel from './standard/carousel'
 import sticky from './standard/sticky'
 
+
 /************************************************************************
  *
  *                      COMPONENT INITIALIZATION
  *
  ***********************************************************************/
+
 
 documentReady(
   offCanvasNavigation,
@@ -59,5 +66,7 @@ documentReady(
   sticky,
   herald,
   scrollManagement,
-  paragraphGallery
+  paragraphGallery,
+  popover
 )
+
