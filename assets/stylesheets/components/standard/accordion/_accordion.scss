@@ -5,6 +5,7 @@
 @include c('accordion') {
   // margin: 0 auto;
   padding-left: 0;
+  margin-left: 0;
   // max-width: 40rem;
   width: 100%;
   list-style: none;
@@ -23,11 +24,13 @@
     display: block;
     background-color: get-color('primary', 'base');
     text-decoration: none;
+    color: white(1);
 
     &:link,
     &:visited,
     &:active {
-      color: initial;
+      text-decoration: none;
+      color: white(1);
     }
 
     &:hover {
@@ -46,7 +49,7 @@
     padding-left: .625em;
     padding-right: .625em;
     background: lighten(get-color('secondary', 'light'), 25%);
-    overflow: scroll;
+    overflow-y: scroll;
     transition: all .5s ease;
 
     @include s('is-expanded') {

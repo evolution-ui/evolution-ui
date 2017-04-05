@@ -1,4 +1,5 @@
 node_modules
+npm-debug.log
 .sass-cache
 production
 *.iml
@@ -8,6 +9,7 @@ dist
 .publish
 assets/**/*.map
 assets/**/*.css
+!assets/sassdoc/assets/css/main.css
 docs/assets/evolution-ui/scripts/app.js
 docs/assets/evolution-ui/styles/main.css
 

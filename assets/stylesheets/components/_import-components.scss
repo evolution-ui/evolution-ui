@@ -13,7 +13,7 @@
 @import 'evolution/roll_menu/roll_menu';
 @import 'evolution/drop_dots/drop_dots';
 @import 'evolution/dot_navigation_effects/dot_navigation_effects';
-@import 'evolution/innovative_accordion/innovative_accordion';
+@import 'evolution/flip_display_accordion/flip_display_accordion';
 @import 'evolution/rainbow_form/rainbow_form';
 @import 'evolution/sneak_peek/sneak_peek';
 @import 'evolution/eyelids/eyelids';
@@ -56,13 +56,15 @@
 @import 'evolution/tooltip_scale_from_corner/tooltip_scale_from_corner';
 @import 'evolution/fold_out_tooltip/fold_out_tooltip';
 @import 'evolution/interactive_form/interactive_form';
+@import "evolution/tooltip_scale_from_corner/tooltip_scale_from_corner";
+@import 'evolution/paragraph_gallery/paragraph_gallery';
 
 
 @import 'standard/modals/modals';
 @import 'standard/color_palette_layout/color_palette_layout';
 @import 'standard/accordion/accordion';
 @import 'standard/sticky/sticky';
-// @import 'standard/code_markup/code_markup';
+@import 'standard/code_markup/code_markup';
 @import 'standard/utilities/utilities';
 @import 'standard/css_animations/css_animations';
 @import 'standard/scrollspy/scrollspy';
