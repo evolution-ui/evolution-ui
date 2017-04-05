@@ -20,6 +20,8 @@ import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
 import demoComponent from './evolution/demo-component'
 import readabilityPanel from './evolution/readability_improvement_panel'
 import herald from './evolution/herald'
+import naviator from './evolution/naviator'
+
 
 /************************************************************************
  *
@@ -51,6 +53,7 @@ documentReady(
   cssAnimations,
   codeMarkup,
   stdForms,
+  naviator,
   accordion,
   demoComponent,
   readabilityPanel,
