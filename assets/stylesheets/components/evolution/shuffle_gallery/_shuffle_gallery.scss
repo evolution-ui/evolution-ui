@@ -1,0 +1,173 @@
+//----------------------------------------------------------------
+//                    Shuffle Gallery Component Styles
+//----------------------------------------------------------------
+
+@import "Shuffle_Gallery-config";
+
+.evo_c-shuffle-gallery {
+	position: relative;
+	width: 100%;
+
+
+	&__body {
+		background: $c-shuffle-gallery-white;
+		color: $c-shuffle-gallery-primary-grey;
+		font-family: $c-shuffle-gallery-roboto;
+		font-size: $c-shuffle-gallery-font-size;
+		font-weight: $c-shuffle-gallery-font-weight-regular;
+		line-height: $c-shuffle-gallery-font-size * 1.5;
+		box-sizing: border-box;
+		overflow-x: hidden; 
+	}
+
+	// Gallery title
+	&__title {
+		color: $c-shuffle-gallery-black;
+		font-size: $c-shuffle-gallery-h2;
+		margin: 1rem;
+		font-weight: $c-shuffle-gallery-font-weight-medium;
+	}
+
+	// Gallery container
+	&__container {
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-direction: row;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+		-webkit-flex-flow: row wrap;
+		    -ms-flex-flow: row wrap;
+		        flex-flow: row wrap;
+		-webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		margin: 0 auto;
+		min-height: 500px;
+		padding: 1.5rem;
+		position: relative;
+		width: 80%;
+
+		@include c-shuffle-gallery-responsive(dxlarge, portrait){
+			width: 95%;
+		}
+
+		@include c-shuffle-gallery-responsive(dxlarge, landscape){
+			width: 95%;
+		}
+	}
+
+	// Gallery links
+	&__link {
+		color: darken($c-shuffle-gallery-primary-grey, 25%);
+		cursor: pointer;
+		display: inline-block;
+		font-size: $c-shuffle-gallery-font-size * 3.5;
+		font-weight: $c-shuffle-gallery-font-weight-medium;
+		margin-right: 1rem;
+		opacity: 1;
+		padding: 3rem 1.5rem;
+		position: relative;
+		z-index: 7;
+		@include c-shuffle-gallery-transition(all, 1s, ease-in-out);
+		@include c-shuffle-gallery-translate3d(0,0,0);
+
+		@include c-shuffle-gallery-responsive(dlarge, portrait){
+			font-size: $c-shuffle-gallery-font-size * 3;
+		}
+
+		@include c-shuffle-gallery-responsive(dlarge, landscape){
+			font-size: $c-shuffle-gallery-font-size * 3;
+		}
+
+		@include c-shuffle-gallery-responsive(dsmall, portrait){
+			font-size: $c-shuffle-gallery-font-size * 2.5;
+			padding: 2.5rem 1.5rem;
+		}
+
+		@include c-shuffle-gallery-responsive(dsmall, landscape){
+			font-size: $c-shuffle-gallery-font-size * 2.5;
+			padding: 2.5rem 1.5rem;
+		}
+
+		@include c-shuffle-gallery-responsive(tlarge, portrait){
+			font-size: $c-shuffle-gallery-font-size * 2.2;
+			padding: 2rem 1rem;
+		}
+
+		@include c-shuffle-gallery-responsive(tlarge, landscape){
+			font-size: $c-shuffle-gallery-font-size * 2.2;
+			padding: 2rem 1rem;
+		}
+
+		@include c-shuffle-gallery-responsive(tsmall, portrait){
+			font-size: $c-shuffle-gallery-font-size * 1.7;
+			padding: 1.1rem 0.8rem;
+		}
+
+		@include c-shuffle-gallery-responsive(tsmall, landscape){
+			font-size: $c-shuffle-gallery-font-size * 1.7;
+			padding: 1.1rem 0.8rem;
+		}
+
+		@include c-shuffle-gallery-responsive(mlarge, portrait){
+			font-size: $c-shuffle-gallery-font-size * 1.4;
+			padding: 0.9rem 0.8rem;
+		}
+
+		@include c-shuffle-gallery-responsive(mlarge, landscape){
+			font-size: $c-shuffle-gallery-font-size * 1.4;
+			padding: 0.9rem 0.8rem;
+		}
+
+		@include c-shuffle-gallery-responsive(msmall, portrait){
+			font-size: $c-shuffle-gallery-font-size * 1.3;
+		}
+	}
+	
+	// Gallery images
+	&__imgs {
+		height: auto;
+		left: 50%;
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		max-width: 750px;
+		z-index: 5;
+		@include c-shuffle-gallery-transition(opacity, 0.7s, ease-in);
+		@include c-shuffle-gallery-translate(-50%,-50%);
+
+		@include c-shuffle-gallery-responsive(dsmall, portrait){
+			width: 80%;
+		}
+
+		@include c-shuffle-gallery-responsive(dsmall, landscape){
+			width: 80%;
+		}
+	}
+}
+
+// Gallery helper class for light text
+.h-gallery-text--light {
+	color: lighten($c-shuffle-gallery-primary-grey, 10%);
+	font-weight: $c-shuffle-gallery-font-weight-light;
+}
+
+// General base styles
+input, select, textarea, button {
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+}
+
+input::-moz-focus-inner {   
+    border : 0px;
+} 
+
+input:focus {     
+    outline : none; 
+}

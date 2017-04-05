@@ -1,0 +1,102 @@
+//----------------------------------------------------------------
+//                    Shuffle Gallery Component config
+//----------------------------------------------------------------
+
+$c-shuffle-gallery-name: 'shuffle-gallery';
+
+//---------- Variables ----------//
+
+// Font size
+$c-shuffle-gallery-font-size: 1rem; // 16px
+
+// Headings size
+$c-shuffle-gallery-h2: $c-shuffle-gallery-font-size * 1.75; // 28px
+
+// Font Weight
+$c-shuffle-gallery-font-weight-light: 300;
+$c-shuffle-gallery-font-weight-regular: 400;
+$c-shuffle-gallery-font-weight-medium: 500;
+
+// Colors
+$c-shuffle-gallery-primary-grey: #768BA1;
+$c-shuffle-gallery-black: #000000;
+$c-shuffle-gallery-white: #ffffff;
+
+// Media queries
+$c-shuffle-gallery-mobile-small: 360px;
+$c-shuffle-gallery-mobile-large: 500px;
+$c-shuffle-gallery-tablet-small: 750px;
+$c-shuffle-gallery-tablet-medium: 800px;
+$c-shuffle-gallery-tablet-large: 1024px;
+$c-shuffle-gallery-desktop-small: 1280px;
+$c-shuffle-gallery-desktop-large: 1450px;
+$c-shuffle-gallery-desktop-xlarge: 1950px;
+
+// Font family
+$c-shuffle-gallery-roboto: 'Roboto', sans-serif !default;
+$c-shuffle-gallery-ubuntu-mono: 'Ubuntu Mono', monospace;
+
+
+//---------- Mixins ----------//
+
+// Mixin for transition
+@mixin c-shuffle-gallery-transition($property, $duration, $style, $delay: null) {
+  -webkit-transition: $property $duration $style $delay;
+  -moz-transition: $property $duration $style $delay;
+  -ms-transition: $property $duration $style $delay;
+  transition: $property $duration $style $delay;
+}
+
+// Mixin for transform
+@mixin c-shuffle-gallery-transform($transforms) {
+	-moz-transform: $transforms;
+	o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin c-shuffle-gallery-translate($x, $y) {
+   @include c-shuffle-gallery-transform(translate($x, $y));
+}
+
+@mixin c-shuffle-gallery-translate3d($x, $y, $z) {
+   @include c-shuffle-gallery-transform(translate3d($x, $y, $z));
+}
+
+// Mixin for media queries
+@mixin c-shuffle-gallery-responsive($width, $orientation){
+  @if $width == dxlarge {
+    @media screen and  (max-width: $c-shuffle-gallery-desktop-xlarge) and (orientation: $orientation) {
+      @content;
+    }
+  } @else if $width == dlarge {
+    @media screen and (max-width: $c-shuffle-gallery-desktop-large) and (orientation: $orientation) {
+      @content;
+    }
+  } @else if $width == dsmall {
+    @media screen and (max-width: $c-shuffle-gallery-desktop-small) and (orientation: $orientation) {
+      @content;
+    }
+  } @else if $width == tlarge {
+    @media screen and (max-width: $c-shuffle-gallery-tablet-large) and (orientation: $orientation) {
+      @content;
+    }
+  } @else if $width == tmed {
+    @media screen and (max-width: $c-shuffle-gallery-tablet-medium) and (orientation: $orientation) {
+      @content;
+    }
+  } @else if $width == tsmall {
+    @media screen and (max-width: $c-shuffle-gallery-tablet-small) and (orientation: $orientation) {
+      @content;
+    }
+  } @else if $width == mlarge {
+    @media screen and (max-width: $c-shuffle-gallery-mobile-large) and (orientation: $orientation) {
+      @content;
+    }
+  } @else if $width == msmall {
+    @media screen and (max-width: $c-shuffle-gallery-mobile-small) and (orientation: $orientation) {
+      @content;
+    }
+  }
+}
