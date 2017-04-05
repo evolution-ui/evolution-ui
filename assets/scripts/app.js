@@ -40,6 +40,7 @@ import cssAnimations from './standard/css_animations'
 import codeMarkup from './standard/code_markup'
 import stdForms from './standard/forms'
 import stdCarousel from './standard/carousel'
+import stdTabs from './standard/tabs'
 import sticky from './standard/sticky'
 import modals from './standard/modals'
 
@@ -76,4 +77,5 @@ documentReady(
   singleInputForm,
   layerAnimations,
   layerDragAndDrop,
+  stdTabs
 )
