@@ -8,7 +8,25 @@
 
 @include c($c-component-name) {
 
+  min-width: $c-tabs-navigation-min-width - ($c-tabs-navigation-margin-tiny * 2);
+  margin: $c-tabs-navigation-margin-tiny;
   font-family: $c-tabs-navigation-font-family;
+
+
+  @media screen and (min-width: $c-tabs-media-phablet) {
+    margin: $c-tabs-navigation-margin-small;
+  }
+
+  @media screen and (min-width: $c-tabs-media-tablet) {
+    margin: $c-tabs-navigation-margin-normal;
+  }
+
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  //                              Helpers
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //                       navigation ELEMENT
@@ -23,13 +41,15 @@
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include e('list') {
+    display: flex;
     padding: 0;
     margin: 0;
     list-style-type: none;
 
+      /*
       @media screen and (min-width: $c-tabs-media-tablet) {
         display: flex;
-      }
+      }*/
 
   }
 
@@ -38,7 +58,7 @@
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include e('item') {
-    padding: 14px 16px;
+    padding: $c-tabs-item-padding-top-bottom $c-tabs-item-padding-left-right;
 
     &:hover {
       background-color: $c-tabs-item-hover-background-color;
@@ -60,5 +80,6 @@
 
   @include e('tabcontent') {
     @extend %c-tabs-display-none;
+    padding: $c-tabs-tab-content-padding;
   }
 }

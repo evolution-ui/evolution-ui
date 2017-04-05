@@ -8,13 +8,25 @@ $c-component-name: 'tab';
 
 $c-tabs-navigation-font-family: $g-framework-font-family;
 
+//-------------------------------------------------
+//                Dimensions
+//-------------------------------------------------
+
+
+$c-tabs-navigation-min-width: 320px;
+
+$c-tabs-navigation-margin-tiny: 5px;
+$c-tabs-navigation-margin-small: 10px;
+$c-tabs-navigation-margin-normal: 20px;
+
 
 //------------------------------------------------
 //              Media Queries
 //------------------------------------------------
 
-$c-tabs-media-tablet: 768px;
-$c-tabs-media-desktop: 1024px;
+$c-tabs-media-phablet: 550px;
+$c-tabs-media-tablet: 750px;
+$c-tabs-media-desktop: 1000px;
 $c-tabs-media-desktop-HD: 1200px;
 
 
@@ -31,6 +43,8 @@ $c-tabs-navigation-background-color: get-color('primary');
 //------------------------------------------------------------------------------
 
 $c-tabs-item-hover-background-color: get-color('primary', 'light');
+$c-tabs-item-padding-top-bottom: 14px;
+$c-tabs-item-padding-left-right: 16px;
 
 
 //------------------------------------------------------------------------------
@@ -38,6 +52,14 @@ $c-tabs-item-hover-background-color: get-color('primary', 'light');
 //------------------------------------------------------------------------------
 
 $c-tabs-link-color: white();
+
+
+//------------------------------------------------------------------------------
+//                          Tab content
+//------------------------------------------------------------------------------
+
+$c-tabs-tab-content-padding: 20px;
+
 
 
 //------------------------------------------------------------------------------
