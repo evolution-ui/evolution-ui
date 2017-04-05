@@ -24,6 +24,7 @@ import readabilityPanel from './evolution/readability_improvement_panel'
 import herald from './evolution/herald'
 import paragraphGallery from './evolution/paragraph-gallery'
 import popover from './evolution/pop_over'
+import ikonize from './evolution/ikon'
 
 
 /************************************************************************
@@ -67,6 +68,6 @@ documentReady(
   herald,
   scrollManagement,
   paragraphGallery,
-  popover
+  popover,
+  ikonize
 )
-
