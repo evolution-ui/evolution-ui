@@ -1,0 +1,252 @@
+
+/********************************/
+/**** TEXT2SPEECH SETUP********/
+/*******************************/
+
+/* Base Setup*/
+
+// ::-moz-selection,
+::selection {
+  color: #fff;
+  background: #ade576;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #ade576;
+}
+
+[class*="text2speech"] {
+  font-family: 'Roboto';
+}
+
+span.evo_c-text2speech {
+  padding: 0 1rem;
+  border: 1px solid #93ddf5;
+  border-radius: 5px;
+}
+
+.evo_c-text2speech--toggle:checked + .close.icon {
+  position: absolute;
+  top: 0;
+  left: -19px;
+  z-index: 11;
+  width: 21px;
+  height: 21px;
+  padding: 1px 1px 0 1px;
+  margin: 0 auto;
+  color: #fff;
+  background: #ade576;
+  transition: all 1s;
+}
+
+.evo_c-text2speech--toggle:checked + .close.icon:before {
+  position: absolute;
+  top: 10px;
+  width: 22px;
+  height: 2px;
+  content: '';
+  background-color: currentColor;
+  border: none;
+  transform: rotate(-45deg);
+}
+
+.evo_c-text2speech--toggle:checked + .close.icon:after {
+  position: absolute;
+  top: 10px;
+  left: 1px;
+  width: 21px;
+  height: 2px;
+  content: '';
+  background-color: currentColor;
+  border: none;
+  transform: rotate(45deg);
+}
+
+.evo_c-text2speech--toggle + .close.icon {
+  position: absolute;
+  top: 0;
+  left: -19px;
+  z-index: 12;
+  width: 21px;
+  height: 21px;
+  padding: 1px 1px 0 1px;
+  margin: 0 auto;
+  background: #ade576;
+  transition: all 1s;
+}
+
+.evo_c-text2speech--toggle + .close.icon:before,
+.evo_c-text2speech--toggle + .close.icon:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: -17px;
+  content: '';
+  border-top: solid 10px transparent;
+  border-right: solid 10px #fff;
+  border-bottom: solid 9px transparent;
+}
+
+.evo_c-text2speech--toggle + .close.icon:after {
+  left: 10px;
+}
+
+.evo_c-text2speech--toggle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  /*left : -21px;*/
+  opacity: 0;
+}
+
+.evo_c-text2speech__lbl {
+  position: absolute;
+  top: 0;
+  left: -23px;
+  z-index: 13;
+  width: 21px;
+  height: 21px;
+  opacity: 20;
+}
+
+/* Controller form Setup */
+
+.evo_c-text2speech__controller {
+  position: fixed;
+  top: 25%;
+  right: -377px;
+  z-index: 10;
+  display: block;
+  width: 300px;
+  height: 30rem;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .23);
+  transition: all 2s ease;
+  transform: translateX(-5.4rem);
+}
+
+.evo_c-text2speech__controller-container {
+  position: relative;
+  height: 100%;
+}
+
+.evo_c-text2speech--toggle + .evo_c-text2speech__controller-container {
+  transform: translateX(-11rem);
+}
+
+.evo_c-text2speech--toggle:checked + .evo_c-text2speech__controller-container {
+  transform: translateX(-23.6rem);
+}
+
+.evo_c-text2speech__controller-container > h3 {
+  top: 4rem;
+  height: 11rem;
+  padding: 2px;
+  margin-top: 0;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 4rem;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 3px 4px rgba(130, 130, 130, .68);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  /* background: #6c8cd7; */
+  background: #ade576;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+}
+
+// .evo_c-text2speech__inp_statusRead::-webkit-input-placeholder,
+// .evo_c-text2speech__inp_statusRead::-moz-input-placeholder,
+// .evo_c-text2speech__inp_statusRead:-ms-input-placeholder,
+// .evo_c-text2speech__inp_statusRead:-moz-input-placeholder,
+.evo_c-text2speech__inp_statusRead {
+  position: relative;
+  top: -7rem;
+  display: block;
+  padding: 6px 10px;
+  margin: 0 auto;
+  font-family: 'Roboto';
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: default;
+  background: #67c2d4;
+  border: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+  transition: all 500ms;
+}
+
+.evo_c-text2speech__inp_statusRead:-webkit-input-placeholder,
+.evo_c-text2speech__inp_statusRead::-moz-input-placeholder,
+.evo_c-text2speech__inp_statusRead:-ms-input-placeholder,
+.evo_c-text2speech__inp_statusRead:-moz-input-placeholder {
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+}
+
+.evo_c-text2speech__inp_statusRead + p {
+  font-size: 1.4rem;
+  color: rgb(135, 135, 135);
+}
+
+.evo_c-text2speech--read-flex-button {
+  position: relative;
+  top: -3.5rem;
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 5rem;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  box-shadow: 0 7px 28px rgba(0, 0, 0, .25), 0 4px 10px rgba(0, 0, 0, .22);
+  transition: all 1s;
+}
+
+.evo_c-text2speech--read-flex-button:hover {
+  box-shadow: 0 16px 28px rgba(0,0,0,.25), 0 12px 10px rgba(0,0,0,.22);
+}
+
+.evo_c-text2speech--read-flex-button:focus {
+  box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+  transform: scale(.9);
+}
+
+// BUTTON AND DESCRIPTON
+
+.evo_c-text2speech__btn_startRead {
+  background: #72c024;
+}
+
+.evo_c-text2speech__btn_stopRead {
+  background: #da137f;
+}
+
+.evo_c-text2speech__main-content {
+  position: absolute;
+  bottom: 1rem;
+}
+
+.evo_c-text2speech__read-instr + ul {
+  font-size: 11px;
+}
+
+.evo_c-text2speech__read-instr + ul li {
+  line-height: 2rem;
+  list-style-type: circle !important;
+}
+
+.evo_c-text2speech__material-icons {
+  margin-top: .5rem;
+  font-family: 'Material Icons';
+  color: #67c2d4;
+}

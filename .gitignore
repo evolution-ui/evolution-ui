@@ -10,6 +10,7 @@ dist
 assets/**/*.map
 assets/**/*.css
 !assets/sassdoc/assets/css/main.css
+/.csscomb.json
 docs/assets/evolution-ui/scripts/app.js
 docs/assets/evolution-ui/styles/main.css
 
