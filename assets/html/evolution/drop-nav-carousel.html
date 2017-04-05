@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="oscar rodriguez">
+    <title>Drop Nav Carousel</title>
+    <meta name="description" content="page for the drop nav carousel">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+    <link href="../../styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+
+            <div class="evo_c-nav-drop-carousel">
+                <input type="radio" class="evo_c-nav-drop-carousel__radio" id="drop-1" name="drop-1"  />
+                <input type="radio" class="evo_c-nav-drop-carousel__radio" id="drop-2" name="drop-1"  />
+                <input type="radio" class="evo_c-nav-drop-carousel__radio" id="drop-3" name="drop-1"  />
+                <input type="radio" class="evo_c-nav-drop-carousel__radio" id="drop-4" name="drop-1"  />
+                <input type="radio" class="evo_c-nav-drop-carousel__radio" id="drop-5" name="drop-1" checked="checked" />
+                <!-- label_container -->
+                <div class="evo_c-nav-drop-carousel__label-wrap">
+                    <div class="evo_c-nav-drop-carousel__label-container">
+                        <label class="evo_c-nav-drop-carousel__drop-label" for="drop-1"></label>
+                    </div>
+                    <div class="evo_c-nav-drop-carousel__label-container">
+                        <label class="evo_c-nav-drop-carousel__drop-label" for="drop-2"></label>
+                    </div>
+                    <div class="evo_c-nav-drop-carousel__label-container">
+                        <label class="evo_c-nav-drop-carousel__drop-label" for="drop-3"></label>
+                    </div>
+                    <div class="evo_c-nav-drop-carousel__label-container">
+                        <label class="evo_c-nav-drop-carousel__drop-label" for="drop-4"></label>
+                    </div>
+                    <div class="evo_c-nav-drop-carousel__label-container">
+                        <label class="evo_c-nav-drop-carousel__drop-label" for="drop-5"></label>
+                    </div>
+                </div>
+                
+                <div class="evo_c-nav-drop-carousel__drop-content">
+                    
+                    <div class="evo_c-nav-drop-carousel__slide">
+                        <img src="images/boat.jpg" alt="boat" />
+                    </div>
+                    
+                    <div class="evo_c-nav-drop-carousel__slide">
+                        <img src="images/color-houses.jpg" alt="sky" />
+                    </div>
+                    
+                    <div class="evo_c-nav-drop-carousel__slide">
+                        <img src="images/other-world.jpg" alt="moutains" />
+                    </div>
+                    
+                    <div class="evo_c-nav-drop-carousel__slide">
+                        <img src="images/sand-castle.jpg" alt="castle" />
+                    </div>
+                    
+                    <div class="evo_c-nav-drop-carousel__slide">
+                        <img src="images/sun-set.jpg" alt="sun" />
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+    <div class="evo_c-markup">
+      <ul class="evo_c-markup__tabs js-c-markup-toggle">
+        <li class="evo_c-markup__item">html</li>
+        <li class="evo_c-markup__item">css</li>
+        <li class="evo_c-markup__item">js</li>
+      </ul>
+      <div class="evo_c-markup__container">
+        <div class="evo_c-markup__content">
+          <pre><code class="evo_h-language-html">
+            <!-- HTML CODE HERE -->
+                &lt;div class=&quot;carousel-drop  offset-by-one ten columns&quot;&gt;
+                &lt;input type=&quot;radio&quot; class=&quot;drop-radio&quot; id=&quot;drop-1&quot; name=&quot;drop-1&quot;  /&gt;
+                &lt;input type=&quot;radio&quot; class=&quot;drop-radio&quot; id=&quot;drop-2&quot; name=&quot;drop-1&quot;  /&gt;
+                &lt;input type=&quot;radio&quot; class=&quot;drop-radio&quot; id=&quot;drop-3&quot; name=&quot;drop-1&quot;  /&gt;
+                &lt;input type=&quot;radio&quot; class=&quot;drop-radio&quot; id=&quot;drop-4&quot; name=&quot;drop-1&quot;  /&gt;
+                &lt;input type=&quot;radio&quot; class=&quot;drop-radio&quot; id=&quot;drop-5&quot; name=&quot;drop-1&quot; checked=&quot;checked&quot; /&gt;
+                
+                &lt;div class=&quot;label-container&quot;&gt;
+                    &lt;div class=&quot;label-wrap&quot;&gt;
+                        &lt;label class=&quot;drop-label&quot; for=&quot;drop-1&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;label-wrap&quot;&gt;
+                        &lt;label class=&quot;drop-label&quot; for=&quot;drop-2&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;label-wrap&quot;&gt;
+                        &lt;label class=&quot;drop-label&quot; for=&quot;drop-3&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;label-wrap&quot;&gt;
+                        &lt;label class=&quot;drop-label&quot; for=&quot;drop-4&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;label-wrap&quot;&gt;
+                        &lt;label class=&quot;drop-label&quot; for=&quot;drop-5&quot;&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;carousel-drop__content&quot;&gt;
+                    
+                    &lt;div class=&quot;slide slide-1&quot;&gt;
+                        &lt;img src=&quot;images/boat.jpg&quot; alt=&quot;boat&quot; /&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&quot;slide slide-2&quot;&gt;
+                        &lt;img src=&quot;images/color-houses.jpg&quot; alt=&quot;sky&quot; /&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&quot;slide slide-3&quot;&gt;
+                        &lt;img src=&quot;images/other-world.jpg&quot; alt=&quot;moutains&quot; /&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&quot;slide slide-4&quot;&gt;
+                        &lt;img src=&quot;images/sand-castle.jpg&quot; alt=&quot;castle&quot; /&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&quot;slide slide-5&quot;&gt;
+                        &lt;img src=&quot;images/sun-set.jpg&quot; alt=&quot;sun&quot; /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+            &lt;/div&gt;
+          </code></pre>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  <script type="text/javascript" src="../../scripts/app.js"></script>
+  </body>
+</html>
