@@ -27,6 +27,7 @@ import layer_2d from './evolution/layer_2d'
 import singleInputForm from './evolution/single_input_form'
 import layerAnimations from './evolution/layer-animations'
 import layerDragAndDrop from './evolution/layer-drag-and-drop'
+import spaceSavingMinimalistForm from './evolution/space_saving_minimalist_form'
 
 /************************************************************************
  *
@@ -79,3 +80,6 @@ documentReady(
   layerDragAndDrop,
   stdTabs
 )
+
+singleInputForm();
+spaceSavingMinimalistForm();
