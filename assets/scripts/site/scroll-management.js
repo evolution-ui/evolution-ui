@@ -22,7 +22,7 @@ export default () => {
   }, 100)
 
   const sideMenuStickyHandler = throttle(() => {
-    const topOffset = siteMain.offsetTop
+    const topOffset = siteMain && siteMain.offsetTop || 0
 
     if ( sideMenu ) {
       if (window.pageYOffset > topOffset) {
