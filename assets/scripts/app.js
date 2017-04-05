@@ -12,12 +12,11 @@ import scrollManagement from './site/scroll-management'
  *
  ***********************************************************************/
 
-
 import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
 import eyelids from './evolution/eyelids'
 import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
-// import bookmarklet from './evolution/bookmarklet';
+import bookmarklet from './evolution/bookmarklet'
 import demoComponent from './evolution/demo-component'
 import readabilityPanel from './evolution/readability_improvement_panel'
 import herald from './evolution/herald'
@@ -43,15 +42,13 @@ import sticky from './standard/sticky'
  *
  ***********************************************************************/
 
-
-
 documentReady(
   offCanvasNavigation,
   crumble,
   dotNavigation,
   eyelids,
   fadeLinesOnScroll,
-// bookmarklet,
+  bookmarklet,
   cssAnimations,
   codeMarkup,
   stdForms,

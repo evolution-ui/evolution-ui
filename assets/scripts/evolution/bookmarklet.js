@@ -2,6 +2,8 @@
 export default function() {
 
   var bookmarkListComponent = document.querySelector('.evo_c-bookmarklet');
+  // JS safegaurd
+  if (bookmarkListComponent === null) { return; }
   var bookmarkList = bookmarkListComponent.querySelector('.evo_c-bookmaklet__bookmark-list');
   var highlightColor = bookmarkListComponent.dataset.highlightColor;
   var clearAllBtn = bookmarkListComponent.querySelector('.evo_c-bookmarklet__clear-all');
@@ -24,6 +26,9 @@ export default function() {
   }
 
   function _keysDown(e) {
+
+    e.preventDefault();
+
     keysPressed[e.keyCode] = true;
     // keyboard shortcut Shift(16) + Control(17) + L(76) + M(77)
     if (keysPressed[16] && keysPressed[17] && keysPressed[76] && keysPressed[77]) {
@@ -114,7 +119,9 @@ export default function() {
     var googleSearchBtn;
     var alertBackground;
 
+
     alertNode = bookmarkListComponent.parentNode;
+
 
     // create span node for text hightlighting
     highlightNode = document.createElement('span');

@@ -31,7 +31,7 @@ $bookmarklet-success-color: get-color('accent4');
     }
   }
   &--is-visible {
-    transform: translateX(calc(87% + 2.6em));
+    transform: translateX(calc(87% + 3em));
     &:hover {
       transform: translateX(5%);
     }
@@ -42,7 +42,7 @@ $bookmarklet-success-color: get-color('accent4');
   }
   & .evo_c-bookmarklet__clear-all {
     margin: 0;
-    width: 94.5%;
+    width: 81.5%;
     text-align: center;
     border-color: get-color('background');
     transition: all 0.25s ease;
