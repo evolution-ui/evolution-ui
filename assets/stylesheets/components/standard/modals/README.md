@@ -1,4 +1,4 @@
-# Evolution UI Framework Component - Eyelids
+# Evolution UI Framework Component - Modals
 
 Modal components display content blocks, such as confirmation, dialog boxes, and search results. When a modal is triggered, interactions with the main page are temporarily blocked. To close an opened modal, you may click the close button or the space (overlay) other than the modal itself.
 
