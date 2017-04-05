@@ -20,6 +20,7 @@ import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
 import demoComponent from './evolution/demo-component'
 import readabilityPanel from './evolution/readability_improvement_panel'
 import herald from './evolution/herald'
+import layer_2d from './evolution/layer_2d'
 
 /************************************************************************
  *
@@ -58,5 +59,6 @@ documentReady(
   stdCarousel,
   sticky,
   herald,
+  layer_2d,
   scrollManagement
 )
