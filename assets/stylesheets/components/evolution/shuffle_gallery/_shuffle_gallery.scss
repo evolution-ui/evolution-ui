@@ -156,3 +156,21 @@
 	color: lighten($c-shuffle-gallery-primary-grey, 10%);
 	font-weight: $c-shuffle-gallery-font-weight-light;
 }
+<<<<<<< 4894ff20c33ad711686a0875cfee68dce83030ee
+=======
+
+// General base styles
+input, select, textarea, button {
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+}
+
+input::-moz-focus-inner {   
+    border : 0px;
+} 
+
+input:focus {     
+    outline : none; 
+}
+>>>>>>> Updating gallery sass files
