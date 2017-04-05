@@ -1,0 +1,188 @@
+---
+title:"svg_pagination"
+description: |
+<p> The SVG pagination is a evolution component. It is only supported in IE 11+, Firefox 51+, Chrome 49+, Safari 10+ and Opera 43+. It use SVG(Scalable Vector Graphics) to display the current selectedpagination. We use an unordered list to display pagination. It contains the basic style with `evo_c-svg-dot--default` class and each type will have its own specific style, such as `evo_c-svg-dot--cross`. Each `li` contains the `svg` tag to display the specific selected type and `a` tag is used to display the round dot. The selected style is triggered by some JS code. When you click the dot, it will add `is-active` class to that `li` tag, then the specific `svg` tag will change style.
+
+You can easily use this component in your next project by using the following HTML code (along with the JavaScript code) as a base.
+</p>
+type:svg_pagination
+order:1
+---
+  
+      <h3>Draw Cross</h3>
+      <ul class="evo_c-svg-dot--default evo_c-svg-dot--cross">
+        <li>
+          <a href=""></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <line x1="13" y1="13" x2="3" y2="3" />
+            <line x1="3" y1="13" x2="13" y2="3" />
+          </svg>
+        </li>
+        <li>
+          <a href=""></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <line x1="13" y1="13" x2="3" y2="3" />
+            <line x1="3" y1="13" x2="13" y2="3" />
+          </svg>
+        </li>
+        <li>
+          <a href=""></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <line x1="13" y1="13" x2="3" y2="3" />
+            <line x1="3" y1="13" x2="13" y2="3" />
+          </svg>
+        </li>
+        <li>
+          <a href=""></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <line x1="13" y1="13" x2="3" y2="3" />
+            <line x1="3" y1="13" x2="13" y2="3" />
+          </svg>
+        </li>
+        <li>
+          <a href=""></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <line x1="13" y1="13" x2="3" y2="3" />
+            <line x1="3" y1="13" x2="13" y2="3" />
+          </svg>
+        </li>
+      </ul>
+      <h3>Draw Ellipse</h3>
+      <ul class="evo_c-svg-dot--default evo_c-svg-dot--ellipse">
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <ellipse cx="8" cy="8" rx="7" ry="4" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <ellipse cx="8" cy="8" rx="7" ry="4" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <ellipse cx="8" cy="8" rx="7" ry="4" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <ellipse cx="8" cy="8" rx="7" ry="4" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <ellipse cx="8" cy="8" rx="7" ry="4" />
+          </svg>
+        </li>
+
+      </ul>
+
+      <h3>Draw Sector</h3>
+      <ul class="evo_c-svg-dot--default evo_c-svg-dot--sector">
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+        </li>
+      </ul>
+
+       <h3>Draw Square</h3>
+      <ul class="evo_c-svg-dot--default evo_c-svg-dot--square">
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+            <polygon points="2,0 28,2 30,28 0,28"/>
+          </svg>
+
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  preserveAspectRatio="none">
+            <polygon points="2,0 28,2 30,28 0,28"/>
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  preserveAspectRatio="none">
+            <polygon points="2,0 28,2 30,28 0,28"/>
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  preserveAspectRatio="none">
+            <polygon points="2,0 28,2 30,28 0,28"/>
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  preserveAspectRatio="none">
+            <polygon points="2,0 28,2 30,28 0,28"/>
+          </svg>
+        </li>
+      </ul>
+
+      <h3>Draw Check</h3>
+      <ul class="evo_c-svg-dot--default evo_c-svg-dot--check">
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+            <path d="M6,12 Q6,12 6,12" />
+          </svg>
+
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  preserveAspectRatio="none">
+            <path d="M2,4 Q2,4 2,4" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  preserveAspectRatio="none">
+            <path d="M2,4 Q2,4 2,4" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  preserveAspectRatio="none">
+            <path d="M2,4 Q2,4 2,4" />
+          </svg>
+        </li>
+        <li>
+          <a href="#"></a>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  preserveAspectRatio="none">
+            <path d="M2,4 Q2,4 2,4" />
+          </svg>
+        </li>
+      </ul>
+
