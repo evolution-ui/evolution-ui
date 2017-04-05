@@ -1,0 +1,158 @@
+/* OFF CANVAS NAVIGATION COMPONENT  */
+
+@import 'off_canvas_navigation-config';
+
+body {
+// I want this elsewhere, most desirable in basic settings
+  position: relative;
+  margin: 0;
+}
+
+.evo_aside {
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 20px;
+  max-width: 30vw;
+  background-color: get_color('background');
+  border-radius: 3px;
+  * {
+    box-sizing: border-box;
+  }
+  &.evo_left {
+    margin-left: 0;
+    text-align: right;
+    float: left;
+    li {
+      border-right: $borderWidth solid transparent;
+    }
+    li.evo_sidenav-current,
+    li:hover {
+      border-right: $borderWidth solid get_color('secondary');
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      transition: all 0.2s ease-in-out 0s;
+      &.evo_sidenav-current a,
+      a:hover {
+        background-color: get_color('primary');
+        color: get_color('secondary');
+      }
+      a {
+        display: block;
+        height: 100%;
+        padding: 15px;
+        text-decoration: none;
+        color: get_color('primary');
+      }
+    }
+  }
+  &.evo_theme-light {
+    background-color: get_color('primary');
+    ul li {
+      &.evo_sidenav-current a,
+      a:hover {
+        background-color: get_color('background');
+        color: get_color('secondary');
+      }
+      a {
+        color: get_color('background');
+      }
+    }
+    &.evo_left {
+      li.evo_sidenav-current,
+      li:hover {
+        border-right: $borderWidth solid get_color('secondary');
+      }
+    }
+  }
+}
+
+.evo_offcanvas-wrapper {
+  background-color: white(1);
+  padding: 20px 40px;
+}
+
+.evo_offcanvas-wrapper::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black(1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+body.evo_offcanvas-menu-active {
+  overflow: hidden;
+  .evo_offcanvas-wrapper::after {
+    opacity: 0.4;
+  }
+  .evo_offcanvas-wrapper > .evo_offcanvas-wrapper--inner {
+    pointer-events: none;
+  }
+}
+
+.evo_offcanvas-menu-slide-in,
+.evo_offcanvas-menu-slide-over,
+.evo_offcanvas-menu-reveal,
+.evo_offcanvas-menu-swing {
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -300px;
+  z-index: 1000;
+  transition: all 0.5s ease-in-out 0s;
+  .evo_aside {
+    margin: 0;
+    width: 300px;
+    max-width: 90vw;
+    height: 100%;
+    border-radius: 0;
+  }
+  ~ .evo_offcanvas-wrapper {
+    padding-bottom: 1px;
+    position: relative;
+    transition: all 0.5s ease-in-out 0s;
+  }
+}
+
+.evo_offcanvas-menu-slide-over {
+  &[data-menu-effect="slide-over"] {
+    z-index: 2000;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.evo_offcanvas-menu-slide-in {
+  &[data-menu-effect="slide-in"] {
+    transform: translate3d(100%, 0, 0);
+    ~ .evo_offcanvas-wrapper {
+      transform: translate3d(300px, 0, 0);
+    }
+  }
+}
+
+.evo_offcanvas-menu-reveal {
+  left: 0;
+  z-index: 10;
+  ~ .evo_offcanvas-wrapper {
+    z-index: 1000;
+  }
+  &[data-menu-effect="reveal"] {
+    ~ .evo_offcanvas-wrapper {
+      transform: translate3d(300px, 0, 0);
+    }
+  }
+
+}
+
+/* END OFF CANVAS NAVIGATION */

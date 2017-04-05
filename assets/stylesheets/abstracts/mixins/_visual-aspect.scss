@@ -1,0 +1,222 @@
+///
+/// Generate rounded borders
+///
+/// @link http://www.sassmeister.com/gist/560e2816a58a02d9e4b15d520efeacf2 - Usage Examples
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {Number} $radius - The value of the border's radius
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include border-radius(5px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///     border-radius: 5px;
+///     background-clip: padding-box;
+///  }
+///
+///
+///
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  // stops bg color from leaking outside the border
+  background-clip: padding-box;
+}
+
+
+///
+/// Generate single side border-radius [TOP]
+///
+/// @param {Number} $radius - The value used for setting the properties
+///                           border-top-right-radius, and border-top-left-radius
+///                           respectively.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {Number} $radius - The value of the border's radius
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include border-top-radius(5px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    border-top-right-radius: 5px;
+///    border-top-left-radius: 5px;
+///    background-clip: padding-box;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/560e2816a58a02d9e4b15d520efeacf2 - Usage Examples
+///
+
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+
+///
+/// Generate single side border-radius [RIGHT]
+///
+/// @param {Number} $radius - The value used for setting the properties
+///                           border-top-right-radius, and border-bottom-right-radius,
+///                           respectively.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {Number} $radius - The value of the border's radius
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include border-right-radius(5px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    border-bottom-right-radius: 5px;
+///    border-top-right-radius: 5px;
+///    background-clip: padding-box;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/560e2816a58a02d9e4b15d520efeacf2 - Usage Examples
+///
+
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+  background-clip: padding-box;
+}
+
+///
+/// Generate single side border-radius [BOTTOM]
+///
+/// @param {Number} $radius - The value used for setting the properties
+///                           border-bottom-right-radius, and border-bottom-left-radius,
+///                             respectively.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include border-bottom-radius(5px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    border-bottom-right-radius: 5px;
+///    border-bottom-right-radius: 5px;
+///    background-clip: padding-box;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/560e2816a58a02d9e4b15d520efeacf2 - Usage Examples
+///
+
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+  background-clip: padding-box;
+}
+
+///
+/// Generate single side border-radius [LEFT]
+///
+/// @param {Number} $radius - The value used for setting the properties
+///                           border-top-left-radius, and border-left-radius,
+///                           respectively.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include border-left-radius(5px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    border-bottom-left-radius: 5px;
+///    border-top-left-radius: 5px;
+///    background-clip: padding-box;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/560e2816a58a02d9e4b15d520efeacf2 - Usage Examples
+///
+
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+
+
+///
+/// Generate opposite side border-radius [TOP-LEFT & BOTTOM-RIGHT | TOP-RIGHT & BOTTOM LEFT]
+///
+/// @param {Number} $top-l-bottom-r - The value of the TOP-LEFT & BOTTOM-RIGHT borders
+/// @param {Number} $top-r-bottom-l - The value of the TOP-RIGHT & BOTTOM LEFT border
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include border-opposite-radius(5px);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///     border-top-left-radius: 5px;
+///     border-bottom-right-radius: 5px;
+///     border-top-right-radius: 5px;
+///     border-bottom-left-radius: 5px;
+///     background-clip: padding-box;
+///  }
+///
+///
+/// @link http://www.sassmeister.com/gist/560e2816a58a02d9e4b15d520efeacf2 - Usage Examples
+///
+
+@mixin border-opposite-radius($top-l-bottom-r, $top-r-bottom-l) {
+  border-top-left-radius: $top-l-bottom-r;
+  border-bottom-right-radius: $top-l-bottom-r;
+  border-top-right-radius: $top-r-bottom-l;
+  border-bottom-left-radius: $top-r-bottom-l;
+  background-clip: padding-box;
+}

@@ -1,0 +1,14 @@
+#
+# Footer Navigation
+#
+
+- title: 'Home'
+  url: 'https://bovacademy.com/'
+- title: 'Programs and Career Paths'
+  url: 'https://bovacademy.com/programs-and-career-paths.html'
+- title: 'Our Mission'
+  url: 'https://bovacademy.com/mission.html'
+- title: 'Careers'
+  url: 'https://bovacademy.com/contact.html'
+- title: 'Contact'
+  url: 'https://bovacademy.com/contact.html'

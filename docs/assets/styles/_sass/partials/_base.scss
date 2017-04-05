@@ -1,0 +1,133 @@
+//
+// BASE
+//
+
+// GLOBAL STYLES
+body {
+  font: $site-font-weight #{$site-font-size}/#{$site-line-height} $site-font-family;
+  color: $site-text-color;
+  background-color: $site-background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  overflow-y: scroll;
+}
+
+// VERTICAL RHYTHM
+hr,
+p,
+pre,
+ol,
+ul,
+%#{$site-prefix}-vertical-rhythm {
+  margin-bottom: $site-spacing-unit;
+}
+
+// LINKS
+a {
+  color: $site-link-color;
+  text-decoration: none;
+
+  &:visited,
+  &:hover {
+    color: darken($site-link-color, 15%);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// IMAGES
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+// LISTS
+ol,
+ul {
+  margin-left: $site-spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+// HEADINGS
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $site-heading-color;
+  font-weight: $site-font-weight;
+  margin-top: $site-spacing-unit + ($site-spacing-unit / 2);
+  margin-bottom: ($site-spacing-unit / 2);
+}
+
+h1 {
+  font-size: $site-font-size-xl;
+}
+
+// HORIZONTAL RULES
+hr {
+  margin-top: 0;
+  border: 0;
+  height: 1px;
+  background-color: $site-hr-background-color;
+}
+
+// PRE-FORMATTED TEXT
+code,
+kbd,
+pre,
+samp {
+  font-family: $site-font-family-monospace;
+  font-size: $site-font-size-sm;
+  font-weight: $site-font-weight;
+  background-color: $site-pre-background-color;
+  border: $site-pre-border;
+  border-radius: $site-border-radius;
+}
+
+code,
+kbd,
+samp {
+  white-space: nowrap;
+  padding: 1px ($site-spacing-unit / 3);
+  margin: 0;
+}
+
+pre {
+  position: relative;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+  border-radius: $site-border-radius;
+  padding: $site-spacing-unit;
+  margin-top: 0;
+}
+
+pre code {
+  display: block;
+  overflow: visible;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}

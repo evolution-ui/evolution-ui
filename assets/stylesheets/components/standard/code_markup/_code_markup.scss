@@ -1,0 +1,76 @@
+/******************************************************************************
+                              Code-Markup Component
+******************************************************************************/
+// @import 'prism';
+@import 'code_markup-config';
+
+@include c('markup') {
+
+  @include e('tabs') {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  @include e('item') {
+    flex: 1 0 auto;
+    z-index: 5;
+    padding: $markup-tab-padding;
+    margin-right: $markup-tab-margin-right;
+    &:last-child {
+      margin-right: 0;
+    }
+    text-align: center;
+    text-transform: uppercase;
+    border-top: 1px solid get-color('secondary', 'light');
+    border-right: 1px solid get-color('secondary', 'light');
+    border-left: 1px solid get-color('secondary', 'light');
+    border-bottom: 1px solid get-color('secondary', 'light');
+    border-top-left-radius: $markup-border-radius;
+    border-top-right-radius: $markup-border-radius;
+    background-color: black(.2);
+    transition: background .3s ease;
+    &:hover,
+    &:focus {
+      background: black(.3);
+      cursor: pointer;
+    }
+
+    @include s('is-active') {
+      border-top: 3px solid get-color('primary', 'base');
+      border-bottom: 0;
+      background-color: $markup-active-tab-and-container-bg-color;
+    }
+  }
+
+  @include e('container') {
+    position: relative;
+    top: -1px;
+    min-height: 0;
+    border: 1px solid get-color('secondary', 'light');
+    border-bottom: none;
+    background-color: $markup-active-tab-and-container-bg-color;
+    transition: min-height .3s ease, padding .3s ease;
+    overflow: hidden;
+    @include s('is-expanded') {
+      border-bottom: 1px solid get-color('secondary', 'light');
+      min-height: 70vh;
+      overflow-x: scroll;
+      overflow-y: scroll;
+    }
+  }
+
+  @include e('content') {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity .3s ease;
+    @include s('is-active') {
+      opacity: 1;
+    }
+  }
+}
+/** END CODE-MARKUP COMPONENT **/

@@ -1,0 +1,159 @@
+---
+title: "Default"
+description: |
+  <p>The Code Markup component is a standard tabs UI that can be used to display HTML, CSS and JavaScript code or really any piece of content that would come in a triad.  The entire component is wrapped in a `&lt;div&gt;` with a class of `.evo_c-markup`.  For the tab titles and styling, we use an `&lt;ul&gt;` with a class of `.evo_c-markup__tabs`.  To separate out the JavaScript functionality, there is also a class of `.js-c-markup-toggle` on the `&lt;ul&gt;` that will help to target which tab is clicked.  When a tab is clicked, this will reveal the contents of that tab.  If the second click is made on an open or active tab, it will close the associated content and deactiveate the tab.  Each tab is a `&lt;li&gt;` element with the class `.evo_c-markup__item`.  The content is divided into 3 `&lt;div&gt;`s, each with a class of `.evo_c-markup__content`.  These 3 `&lt;div&gt;`s are in turn wrapped in a `&lt;div&gt;` with the class `.evo_c-markup__container` that sits next to the `&lt;ul class=&quot;evo_c-markup__tabs js-c-markup-toggle&quot;&gt;` element.  Within the `&lt;div class=&quot;evo_c-markup__content&quot;&gt;` elements, we added `&lt;pre&gt;` and `&lt;code&gt;` for displaying code. However, these can be removed to add content other than code.  The `&lt;code&gt;` elements have individual classes of `.evo_h-language-xxxx` to integrate [http://prismjs.com/](http://prismjs.com/) for syntax highlighting if you choose to add this to your project as well.</p>
+type: code markup
+order: 1
+---
+
+  <div class="evo_c-markup">
+    <ul class="evo_c-markup__tabs js-c-markup-toggle">
+      <li class="evo_c-markup__item">html</li>
+      <li class="evo_c-markup__item">css</li>
+      <li class="evo_c-markup__item">js</li>
+    </ul>
+    <div class="evo_c-markup__container">
+      <div class="evo_c-markup__content">
+        <pre><code class="evo_h-language-html">
+  &lt;div class=&quot;evo_c-markup&quot;&gt;
+    &lt;ul class=&quot;evo_c-markup__tabs js-c-markup-toggle&quot;&gt;
+      &lt;li class=&quot;evo_c-markup__item&quot;&gt;html&lt;/li&gt;
+      &lt;li class=&quot;evo_c-markup__item&quot;&gt;css&lt;/li&gt;
+      &lt;li class=&quot;evo_c-markup__item&quot;&gt;js&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;evo_c-markup__container&quot;&gt;
+      &lt;div class=&quot;evo_c-markup__content&quot;&gt;
+        &lt;pre&gt;&lt;code class=&quot;evo_h-language-html&quot;&gt;
+
+        &lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;evo_c-markup__content&quot;&gt;
+        &lt;pre&gt;&lt;code class=&quot;evo_h-language-css&quot;&gt;
+
+        &lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;evo_c-markup__content&quot;&gt;
+        &lt;pre&gt;&lt;code class=&quot;evo_h-language-javascript&quot;&gt;
+
+        &lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+        </code></pre>
+      </div>
+      <div class="evo_c-markup__content">
+        <pre><code class="evo_h-language-css">
+@import 'code_markup-config';
+
+@include c('markup') {
+
+@include e('tabs') {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+@include e('item') {
+  flex: 1 0 auto;
+  z-index: 5;
+  padding: $markup-tab-padding;
+  margin-right: $markup-tab-margin-right;
+  &amp;:last-child {
+    margin-right: 0;
+  }
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-top-left-radius: $markup-border-radius;
+  border-top-right-radius: $markup-border-radius;
+  background-color: black(.2);
+  transition: background .3s ease;
+  &amp;:hover,
+  &amp;:focus {
+    background: black(.3);
+    cursor: pointer;
+  }
+
+  @include s('is-active') {
+    border-top: 3px solid get-color('primary', 'base');
+    border-bottom: 0;
+    background-color: $markup-active-tab-and-container-bg-color;
+  }
+}
+
+@include e('container') {
+  position: relative;
+  top: -1px;
+  min-height: 0;
+  border: 1px solid #000;
+  border-bottom: none;
+  background-color: $markup-active-tab-and-container-bg-color;
+  transition: min-height .3s ease, padding .3s ease;
+  overflow: hidden;
+  @include s('is-expanded') {
+    border-bottom: 1px solid #000;;
+    min-height: 70vh;
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+}
+
+@include e('content') {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .3s ease;
+  @include s('is-active') {
+    opacity: 1;
+  }
+}
+}
+        </code></pre>
+      </div>
+      <div class="evo_c-markup__content">
+        <pre><code class="evo_h-language-javascript">
+export default function() {
+var markupTabs = document.getElementsByClassName('js-c-markup-toggle');
+
+if (markupTabs) {
+  for (var i = 0; i &lt; markupTabs.length; i++) {
+    //FIXME: Should be a better way than adding a listener to each element??
+    markupTabs[i].addEventListener('click', function(event) {
+      var clickedTabClassList = event.target.classList;
+      var markupContainerClassList = this.parentNode.children[1].classList;
+      var markupContentDivs = this.parentNode.children[1].children;
+
+      if (clickedTabClassList.contains(&quot;is-active&quot;)) {
+        clickedTabClassList.remove(&quot;is-active&quot;);
+        markupContainerClassList.remove(&quot;is-expanded&quot;);
+      } else {
+        for (var i = 0; i &lt; this.children.length; i++) {
+          if (this.children[i].classList.contains(&quot;is-active&quot;)) {
+            this.children[i].classList.remove(&quot;is-active&quot;);
+          }
+        }
+        clickedTabClassList.add(&quot;is-active&quot;);
+        this.parentNode.children[1].scrollTop = 0;
+        markupContainerClassList.add(&quot;is-expanded&quot;);
+        for (var j = 0; j &lt; markupContentDivs.length; j++) {
+          if (markupContentDivs[j].classList.contains(&quot;is-active&quot;)) {
+            markupContentDivs[j].classList.remove(&quot;is-active&quot;);
+          }
+          if (this.children[j].classList.contains(&quot;is-active&quot;)) {
+            markupContentDivs[j].classList.add(&quot;is-active&quot;);
+          }
+        }
+      }
+    }, false);
+  }
+}
+}
+        </code></pre>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,41 @@
+/******************************************************************************
+                        Cubby component
+******************************************************************************/
+@import 'cubby-config.scss';
+
+@include c('cubby') {
+  $door-selector: getBEMReference($c-cubby-name, 'door');
+  position: relative;
+  perspective: 500px;
+
+  @include e('door') {
+    position: absolute;
+    padding: 5px 0;
+    background: get-color('primary', 'light');
+    width: 100%;
+    text-align: center;
+    line-height: 3em;
+    transform-style: preserve-3d;
+    transform-origin: bottom;
+    transition: all .3s ease;
+  }
+
+  @include e('inside') {
+    position: absolute;
+    z-index: -5;
+    padding: 5px 0;
+    background: get-color('secondary', 'dark');
+    width: 100%;
+    color: white(1);
+    text-align: center;
+    line-height: 3em;
+  }
+
+  &:hover,
+  &:focus {
+    & .#{$door-selector} {
+      transform: rotateX(-90deg);
+    }
+  }
+}
+/** END CUBBY COMPONENT **/
