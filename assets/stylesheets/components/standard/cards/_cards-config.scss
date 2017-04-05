@@ -1,7 +1,11 @@
 $c-card: 'card';
 
-// Component's variables
-
-
-
-// Element's variables
+// Color variants
+$c-card-bck-variants: (
+	'primary': ('base'),
+	'secondary': ('base', 'light')
+);
+$c-card-txt-variants: (
+	'primary': ('light'),
+	'secondary': ('light')
+);

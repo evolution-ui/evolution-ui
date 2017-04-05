@@ -7,27 +7,32 @@
 @import 'cards-config';
 
 @include c( $c-card ) {
-  background-color: get-color( 'primary' );
+  border: 1px solid get-color( 'background', $opacity:.1);
   border-radius: 4px;
-  box-shadow: 0px 3px 3px 0px get-color( 'primary', 'dark' );
+  box-shadow: 0px 8px 24px -9px get-color( 'background', $opacity:.3 );
   padding: 1.5rem;
-
-  &.su_color-primary {
-    background-color: get-color();
-    color: get-color( 'primary', 'light' );
-  }
-
-  &.su_color-info {
-    background-color: get-color( 'accent' );
-    color: get-color( 'primary', 'light' );
-  }
-
+  @include backgroundVariants($c-card-bck-variants);
+  
   @include e( 'title' ) {
-    margin-bottom: 0.875rem;
+    margin-top: 0;
+    margin-bottom: 0.3125rem;
+  }
+
+  @include e( 'sub-title' ) {
+    color: get-color( 'secondary' );
+    font-size: 0.9em;
+  }
+
+  @include h( 'txt-dark-bck' ) {
+    color: white(.9);
+  }
+
+  @include h( 'txt-dark-bck2' ) {
+    color: white(.6);
   }
 
   @include e( 'image' ) {
-    margin-bottom: 1.25rem;
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
 
     > img {
       width: 100%;
@@ -40,56 +45,28 @@
 
   }
 
-  &.su_img-fill {
-
-    @include e( 'image' ) {
-      margin: -1.5rem -1.5rem 1.5rem -1.5rem;
-    }
-
-  }
-
-  &.su_img-overlap {
-    margin: 0 auto;
-    width: 90%;
-
-    @include e( 'image' ) {
-      margin: -2.5rem -3rem 1.5rem -3rem;
-
-      > img {
-        border-radius: 4px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      }
-    }
-  }
-
   &.evo_c-card__product {
+    text-align: center;
 
-    @include e( 'body' ) {
+    .evo_c-card__body {
       padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
     }
 
-    .su_product-price {
-      font-size: 1.5em;
-    }
-
-    .su_product-share {
-      cursor: pointer;
-      color: get-color( 'accent' );
-
-      &:hover {
-
-      }
+    .evo_c-card__price {
+      font-size: 2em;
+      margin-right: 3em;
     }
   }
 
   &.evo_c-card__profile {
-    @include e( 'image' ) {
+    text-align: center;
+
+    .evo_c-card__image {
       position: relative;
       margin-bottom: 30%;
     }
-    @include e( 'profile-image' ) {
-      border: 5px solid get-color( 'primary', 'light' );
+    .evo_c-card__profile-image {
+      border: 5px solid lighten(get-color( 'secondary' ), 35%);
       border-radius: 50%;
       bottom: -25%;
       height: auto;
@@ -99,42 +76,31 @@
     }
   }
 
-  &.evo_c-card__horizontal {
-    display: flex;
-
-    @include e( 'image' ) {
-      margin-bottom: 0;
-      padding: 0.625rem 0.625rem 0 0;
-
-      > img {
-        border-radius: 4px;
-      }
-    }
-
-    @include e( 'body' ) {
-      margin-bottom: 0;
-      padding: 0.625rem 0 0 0.625rem;
-    }
-
-  }
-
-
   @include e( 'body' ) {
     margin-bottom: 1.5rem;
   }
 
-  @include e( 'footer' ) {
-    border-top: 1px solid get-color( 'primary' );
-    padding-top: 1.25rem;
+  @include e( 'icon' ) {
+    cursor: pointer;
+    color: get-color( 'accent' );
+    margin-right: 0.625rem;
 
-    .su_icon {
-      color: get-color( 'accent' );
-      margin-right: 0.625rem;
+    &:hover {
+      color: get-color( 'accent' , 'dark' );
     }
   }
 
-  p {
-    font-weight: 300;
+  @include e( 'btn' ) {
+    border: 1px solid get-color( 'background', $opacity:.3 );
+    background-color: get-color( 'background', $opacity:.1 );
+    border-radius: 3px;
+    cursor: pointer;
+    @include padding-tb-lr( 0.625em, 1em );
+    transition: opacity .3s ease-out;
+
+    &:hover {
+      background-color: get-color( 'background', $opacity:.2 );
+    }
   }
 
   @media screen and (max-width: 499px) {
