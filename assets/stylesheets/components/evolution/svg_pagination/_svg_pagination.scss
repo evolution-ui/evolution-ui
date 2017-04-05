@@ -1,5 +1,6 @@
 @import 'svg_pagination-config';
 
+
 .evo_c-svg-dot--default {
   margin: 0;
   padding: 0;
@@ -17,13 +18,11 @@
      left:50%;
      width: 16px;
      height: 16px;
-     -webkit-transform:translate(-50%,-50%);
      transform:translate(-50%,-50%);
      border-radius: 50%;
      background-color:rgba(255, 255, 255, 0.3);
      outline: none;
      background: rgba(0, 0, 0, .3);
-     -webkit-transition: opacity 0.3s ease;
      transition: opacity 0.3s ease;
      &:focus {
         outline: none;
@@ -109,10 +108,8 @@
   li {
     svg {
       ellipse {
-     -webkit-transform-origin: center center;
             transform-origin: center center;
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
+            transform: rotate(-45deg);
       }
     }
   }   
@@ -124,7 +121,6 @@
 .evo_c-svg-dot--square li.is-active svg polygon {
   opacity: 1;
   stroke-dashoffset: 0;
-  -webkit-transition: stroke-dashoffset .7s, opacity .7s;
   transition: stroke-dashoffset .7s, opacity .7s;
 }
 
@@ -139,8 +135,7 @@
           left: 50%;
           width: 50%;
           height: 50%;
-          -webkit-transform:translate(-50%,-50%);
-                transform:translate(-50%,-50%);
+          transform:translate(-50%,-50%);
           border-radius: 50%;
           circle {
               opacity: 0;
@@ -148,11 +143,8 @@
               stroke:#65c5de;
               stroke-width: 16px;
               stroke-dasharray: 0 25;
-              -webkit-transform-origin: center center;
-                    transform-origin: center center;
-              -webkit-transform: rotate(-90deg);
-                      transform: rotate(-90deg);
-              -webkit-transition: stroke-dasharray 0.5s linear, opacity 0.5s;
+              transform-origin: center center;
+              transform: rotate(-90deg);
               transition: stroke-dasharray 0.5s linear, opacity 0.5s;
           }
       }
@@ -161,7 +153,6 @@
       circle {
         opacity: 1;
         stroke-dasharray: 50 25;
-        -webkit-transition: stroke-dasharray .5s linear, opacity 0.5s;
         transition: stroke-dasharray .5s linear, opacity 0.5s;
       }
     }
