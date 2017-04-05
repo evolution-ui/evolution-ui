@@ -11,6 +11,7 @@
     "deploy:major": "gulp deploy --env=prod --bump=major",
     "sassdoc": "gulp sassdoc",
     "start-docs": "gulp start-docs --env=prod",
+    "dev-docs": "gulp dev-docs --env=prod",
     "deploy-docs": "gulp deploy-docs --env=prod"
   },
   "repository": {
