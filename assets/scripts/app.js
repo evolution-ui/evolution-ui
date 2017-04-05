@@ -41,6 +41,7 @@ import codeMarkup from './standard/code_markup'
 import stdForms from './standard/forms'
 import stdCarousel from './standard/carousel'
 import sticky from './standard/sticky'
+import modals from './standard/modals'
 
 
 /************************************************************************
@@ -48,6 +49,7 @@ import sticky from './standard/sticky'
  *                      COMPONENT INITIALIZATION
  *
  ***********************************************************************/
+
 
 
 documentReady(
@@ -69,5 +71,6 @@ documentReady(
   scrollManagement,
   paragraphGallery,
   popover,
-  ikonize
+  ikonize,
+  modals
 )
