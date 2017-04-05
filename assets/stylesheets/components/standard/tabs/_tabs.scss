@@ -21,12 +21,15 @@
     margin: $c-tabs-navigation-margin-normal;
   }
 
-  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  //                              Helpers
-  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //--------------------------------------------------------------------------
+    //                         Helpers & Status
+    //--------------------------------------------------------------------------
 
-
-
+    @include h('border', $g-no-prefix, $apply-on-descendants: false) {
+      @include m('tiny') {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+      }
+    }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //                       navigation ELEMENT
@@ -58,6 +61,7 @@
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include e('item') {
+    @extend %c-tabs-cursor-pointer;
     padding: $c-tabs-item-padding-top-bottom $c-tabs-item-padding-left-right;
 
     &:hover {
@@ -81,5 +85,13 @@
   @include e('tabcontent') {
     @extend %c-tabs-display-none;
     padding: $c-tabs-tab-content-padding;
+
+      //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      //                            Status
+      //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        @include s('is-active') {
+          display: block;
+        }
   }
 }
