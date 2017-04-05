@@ -11,6 +11,7 @@
     "deploy:major": "gulp deploy --env=prod --bump=major",
     "sassdoc": "gulp sassdoc",
     "start-docs": "gulp start-docs --env=prod",
+    "dev-docs": "gulp dev-docs --env=prod",
     "deploy-docs": "gulp deploy-docs --env=prod"
   },
   "repository": {
@@ -59,5 +60,8 @@
     "lodash.throttle": "^4.1.1",
     "minimist": "^1.2.0",
     "webpack": "^2.3.2"
+  },
+  "dependencies": {
+    "gulp-shell": "^0.6.3"
   }
 }

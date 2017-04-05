@@ -6,7 +6,7 @@ import scrollSpy from './scrollspy'
 export default () => {
   const siteMain = document.querySelector('.site-main')
   const sideMenu = document.querySelector('.js-offcanvas-target')
-  let sideMenuWidth = sideMenu.offsetWidth
+  let sideMenuWidth = sideMenu ? sideMenu.offsetWidth : 0
   const sectionLinks = document.querySelectorAll('.site-sidebar-link')
   const sections = document.querySelectorAll('.site-section')
   const fixedHeader = document.querySelector('.evo_c-scrollspy')
@@ -22,15 +22,17 @@ export default () => {
   }, 100)
 
   const sideMenuStickyHandler = throttle(() => {
-    const topOffset = siteMain.offsetTop
+    if (sideMenu) {
+      const topOffset = siteMain ? siteMain.offsetTop : 0
 
-    if (window.pageYOffset > topOffset) {
-      sideMenu.style.width = sideMenuWidth + 'px'
-      sideMenu.classList.add('is-sticky')
-    } else {
-      sideMenu.removeAttribute('style')
-      sideMenu.classList.remove('is-sticky')
-      sideMenuWidth = sideMenu.offsetWidth
+      if (window.pageYOffset > topOffset) {
+        sideMenu.style.width = sideMenuWidth + 'px'
+        sideMenu.classList.add('is-sticky')
+      } else {
+        sideMenu.removeAttribute('style')
+        sideMenu.classList.remove('is-sticky')
+        sideMenuWidth = sideMenu.offsetWidth
+      }
     }
   }, 100)
 

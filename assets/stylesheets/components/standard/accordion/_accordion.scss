@@ -29,7 +29,8 @@
     &:link,
     &:visited,
     &:active {
-      // color: initial;
+      text-decoration: none;
+      color: white(1);
     }
 
     &:hover {

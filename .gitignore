@@ -9,6 +9,7 @@ dist
 .publish
 assets/**/*.map
 assets/**/*.css
+!assets/sassdoc/assets/css/main.css
 docs/assets/evolution-ui/scripts/app.js
 docs/assets/evolution-ui/styles/main.css
 

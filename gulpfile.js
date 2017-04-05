@@ -134,6 +134,13 @@ function devel () {
 
   gulp.watch(['public/**/*.html', 'public/styles/**/*.css', 'public/scripts/**/*.js', 'public/images/**/*'], reload)
 }
+function develDocs () {
+  gulp.watch('./assets/stylesheets/**/*.scss', ['styles'])
+  gulp.watch('./assets/scripts/**/*.js', ['scripts'])
+}
+
+gulp.task('dev-docs', develDocs)
+
 
 gulp.task('dev', ['dev-init'], devel)
 

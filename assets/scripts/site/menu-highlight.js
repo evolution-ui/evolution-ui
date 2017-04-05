@@ -4,5 +4,5 @@ export default (articles) => {
       .find((article) => article.getBoundingClientRect().top + window.pageYOffset < window.pageYOffset + (window.innerHeight / 2))
     || articles[0];
 
-  return articleToHighlight.getAttribute('id');
+  return articleToHighlight ? articleToHighlight.getAttribute('id') : '';
 }

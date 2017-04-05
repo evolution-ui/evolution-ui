@@ -78,9 +78,7 @@ Thanks for your help!
 - Joseph Michael Matembu ([@jmatembu][maintainer-jmatembu])
 - Vojislav Grujić ([@Gruximillian][maintainer-gruximillian])
 - Brian Hernandez ([@brianhernandez][maintainer-brianhernandez])
-- Léna Faure ([@lenafaure][maintainer-lenafaure])
 - Carlos Coves ([@escorponox][maintainer-escorponox])
-- Jake Tom ([@codephobe][maintainer-codephobe])
 - Chris Bracco ([@cbracco][maintainer-cbracco])
 
 ## License
@@ -97,11 +95,9 @@ This project is released under the [MIT License][license].
 [maintainer-brianhernandez]: https://github.com/brianhernandez
 [maintainer-cbracco]: https://github.com/cbracco
 [maintainer-escorponox]: https://github.com/escorponox
-[maintainer-codephobe]: https://github.com/codephobe
 [maintainer-gabrieleromeo]: https://github.com/GabrieleRomeo
 [maintainer-gruximillian]: https://github.com/Gruximillian
 [maintainer-jmatembu]: https://github.com/jmatembu
-[maintainer-lenafaure]: https://github.com/lenafaure
 [node]: https://nodejs.org/en/
 [node-install]: https://docs.npmjs.com/getting-started/installing-node
 [npm]: https://www.npmjs.com

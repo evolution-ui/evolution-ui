@@ -2,19 +2,35 @@
                             Sticky Component
 ******************************************************************************/
 
-.su_stick {
-  padding: 15px;
-  box-shadow: 0px 3px 3px 0px #c4c4b3;
-  background: get-color('primary', 'light');
+@import 'sticky-config';
+
+@include c('sticky') {
+
+  max-width: $sticky-max-width;
+  margin: 0 auto;
+  padding: $sticky-padding;
+  z-index: 5;
+  background: get-color('accent', 'light');
+  border-radius: $sticky-border-radius;
+  color: white(1);
+  clear: both;
+
+  @include e('end') {
+    clear: both;
+  }
 }
 
-.su_stick-end {
-}
-
-.brian_su_stick_presentation {
+@include h('sticky') {
   display: block;
   max-width: 300px;
   padding: 15px;
-  box-shadow: 0px 3px 3px 0px #c4c4b3;
+
+  @include m('left') {
+    float: left;
+  }
+
+  @include m('right') {
+    float: right;
+  }
 }
 /** END STICKY COMPONENT **/

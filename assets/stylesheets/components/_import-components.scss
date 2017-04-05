@@ -13,7 +13,7 @@
 @import 'evolution/roll_menu/roll_menu';
 @import 'evolution/drop_dots/drop_dots';
 @import 'evolution/dot_navigation_effects/dot_navigation_effects';
-@import 'evolution/innovative_accordion/innovative_accordion';
+@import 'evolution/flip_display_accordion/flip_display_accordion';
 @import 'evolution/rainbow_form/rainbow_form';
 @import 'evolution/sneak_peek/sneak_peek';
 @import 'evolution/eyelids/eyelids';
@@ -43,7 +43,7 @@
 @import 'evolution/informative_form/informative_form';
 @import 'evolution/dot_navigation/dot_navigation';
 @import 'evolution/bov_academy_3D_menu/bov_academy_3D_menu';
-@import 'evolution/new_author_layout_(new_card_style)/new_author_layout_(new_card_style)';
+@import 'evolution/ikon/_ikon';
 @import 'evolution/new_scrollspy/new_scrollspy';
 @import 'evolution/new_scrollspy_with_time_remaining/new_scrollspy_with_time_remaining';
 @import 'evolution/carousel_with_dropping_circle_nav/carousel_with_dropping_circle_nav';
@@ -57,6 +57,12 @@
 @import 'evolution/fold_out_tooltip/fold_out_tooltip';
 @import 'evolution/interactive_form/interactive_form';
 @import 'evolution/naviator/naviator';
+=======
+@import "evolution/tooltip_scale_from_corner/tooltip_scale_from_corner";
+@import 'evolution/paragraph_gallery/paragraph_gallery';
+@import 'evolution/pop_over/pop_over';
+@import 'evolution/layer_2d/layer_2d';
+@import 'evolution/carousel_with_dropping_circle_nav/carousel_with_dropping_circle_nav';
 
 
 @import 'standard/modals/modals';

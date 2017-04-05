@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Single Input Form component styles
+   ========================================================================== */
+
+@import 'single_input_form_space_saving_minimalist_form-config';
+
+@mixin sif-flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.evo_c-sif {
+  font-family: $g-framework-font-family;
+  font-size: $g-framework-base-font-size;
+  display: block;
+  position: relative;
+
+  label,
+  input,
+  button {
+    outline: none;
+    border: none;
+  }
+}
+
+.evo_c-sif__input-wrap {
+  @include sif-flexbox;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  flex-wrap: nowrap;
+  width: 12em;
+  height: 3em;
+  padding-left: 3em;
+  padding-right: 3em;
+  background-color: shade($c-sif-white-color, 10%);
+  border-radius: 1.5em;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+
+  animation-duration: 0.1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+
+  &:first-of-type {
+    background-color: $c-sif-prim-dark-color;
+    color: $c-sif-white-color;
+    .c-sif__submission-msg {
+      font-size: 1.2em;
+    }
+  }
+
+  .evo_c-sif__input {
+    border: 0;
+    line-height: 2.4em;
+    font-size: inherit;
+    color: $c-sif-input-txt-color;
+    margin-left: 0;
+    background-color: transparent;
+    width: 10em;
+    animation-duration: 0.1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+
+    &:focus + .evo_c-sif__label {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .evo_c-sif__label {
+    @include sif-flexbox;
+
+    font-size: 0.9em;
+    position: absolute;
+    left: 4.2em;
+    color: $c-sif-secondary-light-color;
+    transition: opacity 0.2s, visibility 0s 0.2s;
+    animation-duration: 0.1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+
+    .evo_c-sif__icon-label {
+      margin-right: 0.3em;
+    }
+  }
+
+  .evo_c-sif__indicator,
+  [class^='evo_c-sif__btn--']{
+    @include sif-flexbox;
+
+    position: absolute;
+    top: 0;
+  }
+
+  .evo_c-sif__indicator {
+    left: 0;
+    margin: 0;
+    border-radius: 50%;
+    height: 3em;
+    width: 3em;
+    color: $c-sif-white-color;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    z-index: 5;
+  }
+
+  button.evo_c-sif__btn--next {
+    @extend %c-sif__btn;
+    right: 0.5em;
+    color: $c-sif-prim-color;
+
+    &:hover {
+      color: $c-sif-prim-dark-color !important;
+    }
+
+    & .evo_c-sif__icon-next {
+      font-weight: 700;
+    }
+  }
+
+  .evo_c-sif__btn--prev {
+    @extend %c-sif__btn;
+    right: 2.7em;
+    color: tint($c-sif-secondary-light-color, 3%);
+
+    &:hover {
+      color: $c-sif-secondary-dark-color;
+    }
+
+    & .evo_c-sif__icon-prev {
+      font-weight: 700;
+      font-size: 1.7em;
+    }
+  }
+}
+
+.js-sif-is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+// colors for different indicators
+.evo_c-sif-color--0 .evo_c-sif__indicator {
+  background-color: shade($c-sif-prim-color, 3%);
+}
+
+.evo_c-sif-color--1 .evo_c-sif__indicator {
+  background-color: tint($c-sif-prim-dark-color, 8%);
+}
+
+.evo_c-sif-color--2 .evo_c-sif__indicator {
+  background-color: $c-sif-prim-darken-color;
+}
+
+
+// Animations
+@keyframes sif-fadeOutRight {
+  0% {
+    right: 100%;
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: auto;
+    right: 0;
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sif-fadeInLeft {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  20% {
+    transform: rotate(360deg);
+  }
+  100% {
+    right: auto;
+    left: 0;
+    transform: rotate(00deg);
+    opacity: 1;
+  }
+}
+
+@keyframes sif-fadeOut {
+  99% {
+    opacity: 0;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+@keyframes sif-fadeIn {
+  100% {
+    opacity: 1;
+  }
+}

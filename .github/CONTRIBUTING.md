@@ -80,7 +80,7 @@ Please, note the use of the `c-` prefix before the actual component's name.
 **Remember to rebase often to stay updated and minimize conflicts**:
 
 ```shell
-~ [c-super-easy]$ git pull --rebase evolution development
+~ [c-super-easy]$ git pull --rebase upstream development
 ```
 
 Now we are ready to work at our component by staging and committing the changes on the new dedicated branch.
