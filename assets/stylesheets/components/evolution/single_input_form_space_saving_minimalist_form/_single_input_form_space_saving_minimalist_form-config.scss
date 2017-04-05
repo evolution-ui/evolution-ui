@@ -3,14 +3,19 @@
 //------------------------------------------------------------------------------
 
 $c-sif-name: 'sif';
+$c-mini-form-name: 'mini-form';
 
 $c-sif-white-color: white();
+$c-sif-light-gray-color: shade($c-sif-white-color, 12%);
 $c-sif-secondary-light-color: get-color('secondary', 'light');
 $c-sif-secondary-dark-color: get-color('secondary', 'dark');
 $c-sif-input-txt-color: get-color('secondary', 'darken');
 $c-sif-prim-color: get-color('primary', 'base');
+$c-sif-prim-light-color: get-color('primary', 'light');
 $c-sif-prim-dark-color: get-color('primary', 'dark');
 $c-sif-prim-darken-color: get-color('primary', 'darken');
+$c-sif-bg-light-color: get-color('background', 'light');
+$c-sif-invalid-color: get-color('accent2', 'base');
 
 // Placeholders
 %c-sif__btn {
