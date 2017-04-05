@@ -26,7 +26,7 @@ import paragraphGallery from './evolution/paragraph-gallery'
 import popover from './evolution/pop_over'
 import ikonize from './evolution/ikon'
 import layer_2d from './evolution/layer_2d'
-
+import singleInputForm from './evolution/single_input_form'
 
 /************************************************************************
  *
@@ -74,5 +74,6 @@ documentReady(
   popover,
   ikonize,
   modals,
-  layer_2d
+  layer_2d,
+  singleInputForm
 )
