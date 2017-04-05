@@ -1,5 +1,5 @@
-export const isOutOfLayers = (element) => element.classList.contains('c-layers')
-|| !Array.from(element.classList).some(elementClass => elementClass.match(/^c-layer/))
+export const isOutOfLayers = (element) => element.classList.contains('evo_c-3dlayers')
+|| !Array.from(element.classList).some(elementClass => elementClass.match(/^evo_c-3dlayer/))
 
 export const isNextSibling = (element, sibling) => {
   let nextElement = element.nextElementSibling
@@ -23,10 +23,10 @@ export const calculateLayerHeight = layer => {
   return contentHeight < 480 ? 480 : contentHeight
 }
 
-export const calculateContainerHeight = layer => Array.from(layer.parentNode.querySelectorAll('.c-layer'))
+export const calculateContainerHeight = layer => Array.from(layer.parentNode.querySelectorAll('.evo_c-3dlayer'))
   .reduce((total, curr) => curr === layer
       ? calculateLayerHeight(curr) + total
-      : curr.querySelector('.c-layer__header').offsetHeight + 1 + total
+      : curr.querySelector('.evo_c-3dlayer__header').offsetHeight + 1 + total
     , 0)
 
 export const slide = (layer, endHeight, duration, down = false) => new Promise((resolve, reject) => {

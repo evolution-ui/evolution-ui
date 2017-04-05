@@ -1,7 +1,7 @@
 import * as utils from './layer-utils'
 
-const layers = Array.from(document.querySelectorAll('.c-layer'))
-const layerDragIcons = Array.from(document.querySelectorAll('.c-layer__header__icon-drag'))
+const layers = Array.from(document.querySelectorAll('.evo_c-3dlayer'))
+const layerDragIcons = Array.from(document.querySelectorAll('.evo_c-3dlayer__header__icon-drag'))
 
 let draggedLayer = undefined
 
@@ -22,7 +22,7 @@ const mouseLeave = event => {
     if (utils.isOutOfLayers(enteringElement)) {
       console.log('leave', leavingLayer, enteringElement)
       leavingLayer.parentNode.insertBefore(draggedLayer, draggedLayer.parentNode.firstElementChild)
-      draggedLayer.classList.add('c-layer--drop')
+      draggedLayer.classList.add('evo_c-3dlayer--drop')
     }
   }
 }
@@ -33,12 +33,12 @@ const mouseEnter = event => {
     if (target !== draggedLayer && utils.isNextSibling(draggedLayer, target)) {
       safeTransition(target)
       target.parentNode.insertBefore(draggedLayer, target.nextElementSibling)
-      draggedLayer.classList.add('c-layer--drop')
+      draggedLayer.classList.add('evo_c-3dlayer--drop')
     }
     if (target !== draggedLayer && utils.isPreviousSibling(draggedLayer.previousElementSibling, target)) {
       safeTransition(target)
       target.parentNode.insertBefore(draggedLayer, target.nextElementSibling)
-      draggedLayer.classList.add('c-layer--drop')
+      draggedLayer.classList.add('evo_c-3dlayer--drop')
     }
   }
 }
@@ -50,14 +50,14 @@ const dropLayer = () => {
     const frontHeight = utils.calculateLayerHeight(newFrontLayer)
     const containerHeight = utils.calculateContainerHeight(newFrontLayer)
 
-    document.body.classList.remove('h-layer--body-grabbing')
-    draggedLayer.classList.remove('c-layer--dragging')
-    newFrontLayer.classList.add('c-layer--selected')
+    document.body.classList.remove('evo_h-3dlayer--body-grabbing')
+    draggedLayer.classList.remove('evo_c-3dlayer--dragging')
+    newFrontLayer.classList.add('evo_c-3dlayer--selected')
     utils.slide(newFrontLayer, frontHeight, 500, true)
     utils.slide(container, containerHeight, 500, true)
 
     draggedLayer.draggable = false
-    draggedLayer.classList.remove('c-layer--drop')
+    draggedLayer.classList.remove('evo_c-3dlayer--drop')
     draggedLayer = undefined
   }
 }
@@ -66,17 +66,17 @@ const pickLabel = event => {
   event.preventDefault()
   draggedLayer = event.target.parentNode.parentNode
   draggedLayer.draggable = true
-  draggedLayer.classList.add('c-layer--dragging')
+  draggedLayer.classList.add('evo_c-3dlayer--dragging')
 }
 
 const pickLayer = event => {
-  document.body.classList.add('h-layer--body-grabbing')
+  document.body.classList.add('evo_h-3dlayer--body-grabbing')
   event.preventDefault()
   event.stopPropagation()
   utils.slide(event.currentTarget.parentNode.lastElementChild, 480, 300)
     .then(layer => {
-      layer.classList.remove('c-layer--selected')
-      layer.classList.add('c-layer--visited')
+      layer.classList.remove('evo_c-3dlayer--selected')
+      layer.classList.add('evo_c-3dlayer--visited')
     })
 }
 

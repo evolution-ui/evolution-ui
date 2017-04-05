@@ -1,6 +1,6 @@
 @import "layers-config";
 
-.c-layers {
+.evo_c-3dlayers {
 
   margin-bottom: 24px;
 
@@ -11,7 +11,7 @@
   }
 }
 
-.c-layer {
+.evo_c-3dlayer {
   background-color: white();
   border: 1px solid $c-layers-color-unvisited-border;
   border-bottom: none;
@@ -33,7 +33,7 @@
   transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
   opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
   background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  &:hover:not(.c-layer--selected) {
+  &:hover:not(.evo_c-3dlayer--selected) {
     border-color: $c-layers-color-selected-border;
     color: $c-layers-color-selected-border;
   }
@@ -45,7 +45,7 @@
     }
 
     @media only screen and (min-width: 960px) {
-      &:nth-last-of-type(#{$index + 1}):not(.c-layer--selected) {
+      &:nth-last-of-type(#{$index + 1}):not(.evo_c-3dlayer--selected) {
         transform: scale(1 - 0.1 * $index);
       }
     }
@@ -68,7 +68,7 @@
   will-change: left, top;
 }
 
-.c-layer--selected {
+.evo_c-3dlayer--selected {
   background-color: $c-layers-color-selected-bg;
   border-bottom: 1px solid $c-layers-color-selected-border;
   border-color: $c-layers-color-selected-border;
@@ -77,7 +77,7 @@
   transition-duration: 0.8s;
 }
 
-.c-layer--hide {
+.evo_c-3dlayer--hide {
   opacity: 0;
   transform: scale(0.8) !important;
 
@@ -86,17 +86,17 @@
   }
 }
 
-.c-layer--visited:not(.c-layer--selected):not(.c-layer--hide):not(.c-layer--dragging) {
+.evo_c-3dlayer--visited:not(.evo_c-3dlayer--selected):not(.evo_c-3dlayer--hide):not(.evo_c-3dlayer--dragging) {
   border-color: $c-layers-color-visited;
   color: $c-layers-color-visited;
 
-  &:hover:not(.c-layer--selected) {
+  &:hover:not(.evo_c-3dlayer--selected) {
     border-color: $c-layers-color-selected-border;
     color: $c-layers-color-selected-border;
   }
 }
 
-.c-layer--dragging {
+.evo_c-3dlayer--dragging {
   border-color: $c-layers-color-selected-border;
   color: $c-layers-color-selected-border;
 }
@@ -114,21 +114,21 @@
     }
   }
 
-  .c-layer--drop {
+  .evo_c-3dlayer--drop {
     &:nth-last-of-type(#{$index}) {
       animation: droplayer#{$index} 0.3s ease-in 1;
     }
   }
 }
 
-.c-layer__content {
+.evo_c-3dlayer__content {
   color: $c-layers-color-selected-text;
   opacity: 0;
   padding: 24px;
   transition: opacity 0.8s, visibility 0s linear 0.85s;
   visibility: hidden;
 
-  @at-root .c-layer--selected > & {
+  @at-root .evo_c-3dlayer--selected > & {
     opacity: 1;
     transition: opacity 0.8s;
     visibility: visible;
@@ -136,43 +136,43 @@
 
 }
 
-.c-layer__header {
+.evo_c-3dlayer__header {
   align-items: center;
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
   user-select: none;
 
-  @at-root .c-layer--selected & {
+  @at-root .evo_c-3dlayer--selected & {
     color: $c-layers-color-selected-title;
     transition: color 0.8s;
   }
 
 }
 
-.c-layer__header__label {
+.evo_c-3dlayer__header__label {
   font-size: 20px;
   line-height: 60px;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  @at-root .c-layer--selected & {
+  @at-root .evo_c-3dlayer--selected & {
     font-weight: 600;
   }
 }
 
-.c-layer__header__icon-visited {
+.evo_c-3dlayer__header__icon-visited {
   display: none;
   flex-shrink: 0;
   margin: 0 16px;
 
-  @at-root .c-layer--visited:not(.c-layer--selected) & {
+  @at-root .evo_c-3dlayer--visited:not(.evo_c-3dlayer--selected) & {
     display: block;
   }
 }
 
-.c-layer__header__icon-drag {
+.evo_c-3dlayer__header__icon-drag {
   cursor: move;
   cursor: grab;
   flex-shrink: 0;
@@ -181,7 +181,7 @@
   transform: rotateZ(90deg);
 }
 
-.h-layer--body-grabbing {
+.evo_h-layer--body-grabbing {
 
   * {
     cursor: move !important;

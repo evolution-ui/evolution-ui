@@ -1,7 +1,7 @@
 import {slide, calculateLayerHeight, calculateContainerHeight} from './layer-utils'
 
-const layers = Array.from(document.querySelectorAll('.c-layer'))
-const layerContainers = Array.from(document.querySelectorAll('.c-layers'))
+const layers = Array.from(document.querySelectorAll('.evo_c-3dlayer'))
+const layerContainers = Array.from(document.querySelectorAll('.evo_c-3dlayers'))
 
 
 const staggeredBackwards = (backwardsLayers, previousLayer) => {
@@ -23,8 +23,8 @@ const staggeredBackwards = (backwardsLayers, previousLayer) => {
 
 const animateFrontLayers = layer => slide(layer.parentNode.lastElementChild, 480, 300)
   .then(oldFrontLayer => new Promise((resolve) => {
-    oldFrontLayer.classList.add('c-layer--visited')
-    oldFrontLayer.classList.remove('c-layer--selected')
+    oldFrontLayer.classList.add('evo_c-3dlayer--visited')
+    oldFrontLayer.classList.remove('evo_c-3dlayer--selected')
     const backwardsLayers = [oldFrontLayer]
     let previousLayer = oldFrontLayer.previousElementSibling
     while (previousLayer !== layer) {
@@ -38,7 +38,7 @@ const animateFrontLayers = layer => slide(layer.parentNode.lastElementChild, 480
   .then(backwardsLayers => Promise.all(backwardsLayers.map((blayer, index) => {
     return new Promise(resolve => {
       setTimeout(() => {
-        blayer.classList.add('c-layer--hide')
+        blayer.classList.add('evo_c-3dlayer--hide')
         resolve(blayer)
       }, 150 * index)
     })
@@ -49,12 +49,12 @@ const animateFrontLayers = layer => slide(layer.parentNode.lastElementChild, 480
     }, 150)
   }))
   .then(backwardsLayers => new Promise((resolve) => {
-    layer.classList.add('c-layer--selected')
+    layer.classList.add('evo_c-3dlayer--selected')
     resolve(layer)
     staggeredBackwards(backwardsLayers, layer)
       .then(backwardsLayers => backwardsLayers.forEach((blayer, index) => {
         setTimeout(() => {
-          blayer.classList.remove('c-layer--hide')
+          blayer.classList.remove('evo_c-3dlayer--hide')
         }, 200 * (index + 1))
       }))
   }))
@@ -77,7 +77,7 @@ const moveForward = layer => {
 
 const moveForwardListener = event => {
   const layer = event.currentTarget
-  if (!layer.classList.contains('c-layer--selected')) {
+  if (!layer.classList.contains('evo_c-3dlayer--selected')) {
     moveForward(layer)
   }
 }
@@ -85,7 +85,7 @@ const moveForwardListener = event => {
 export default () => {
   layers.forEach(layer => layer.addEventListener('click', moveForwardListener))
   layerContainers.forEach(layerContainer => {
-    const selected = layerContainer.querySelector('.c-layer--selected')
+    const selected = layerContainer.querySelector('.evo_c-3dlayer--selected')
     selected.style.height = calculateLayerHeight(selected) +'px'
     layerContainer.style.height = calculateContainerHeight(selected) +'px'
   })
