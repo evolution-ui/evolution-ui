@@ -6,13 +6,11 @@
 import documentReady from './site/document-ready'
 import scrollManagement from './site/scroll-management'
 
-
 /************************************************************************
  *
  *                      EVOLUTION COMPONENTS
  *
  ***********************************************************************/
-
 
 import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
@@ -27,13 +25,14 @@ import popover from './evolution/pop_over'
 import ikonize from './evolution/ikon'
 import layer_2d from './evolution/layer_2d'
 import singleInputForm from './evolution/single_input_form'
+import layerAnimations from './evolution/layer-animations'
+import layerDragAndDrop from './evolution/layer-drag-and-drop'
 
 /************************************************************************
  *
  *                      STANDARD COMPONENTS
  *
  ***********************************************************************/
-
 
 import accordion from './standard/accordion'
 import offCanvasNavigation from './standard/off_canvas_navigation'
@@ -50,7 +49,6 @@ import modals from './standard/modals'
  *                      COMPONENT INITIALIZATION
  *
  ***********************************************************************/
-
 
 
 documentReady(
@@ -75,5 +73,7 @@ documentReady(
   ikonize,
   modals,
   layer_2d,
-  singleInputForm
+  singleInputForm,
+  layerAnimations,
+  layerDragAndDrop,
 )

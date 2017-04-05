@@ -1,0 +1,190 @@
+@import "layers-config";
+
+.c-layers {
+
+  margin-bottom: 24px;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 480px;
+  }
+}
+
+.c-layer {
+  background-color: white();
+  border: 1px solid $c-layers-color-unvisited-border;
+  border-bottom: none;
+  border-radius: 2px;
+  color: $c-layers-color-unvisited-title;
+  cursor: pointer;
+  height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -480px;
+  overflow: hidden;
+  padding: 0 24px;
+  position: relative;
+  transform-origin: 0 0 0;
+  transition: border 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+  top 0.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+  left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+  color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+  transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+  opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+  background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  &:hover:not(.c-layer--selected) {
+    border-color: $c-layers-color-selected-border;
+    color: $c-layers-color-selected-border;
+  }
+
+  @for $index from 1 through 4 {
+    &:nth-of-type(#{$index}) {
+      top: 60px * ($index - 1);
+      width: calc(100% - #{16px / 2 * ($index - 1)});
+    }
+
+    @media only screen and (min-width: 960px) {
+      &:nth-last-of-type(#{$index + 1}):not(.c-layer--selected) {
+        transform: scale(1 - 0.1 * $index);
+      }
+    }
+  }
+
+  @media only screen and (min-width: 960px) {
+    border-right: none;
+    margin-left: 0;
+    margin-right: 0;
+
+    @for $index from 1 through 4 {
+      &:nth-of-type(#{$index}) {
+        left: 16px * ($index - 1);
+        max-width: 780px;
+        width: calc(100% - #{16px * ($index - 1)});
+      }
+    }
+  }
+
+  will-change: left, top;
+}
+
+.c-layer--selected {
+  background-color: $c-layers-color-selected-bg;
+  border-bottom: 1px solid $c-layers-color-selected-border;
+  border-color: $c-layers-color-selected-border;
+  border-right: 1px solid $c-layers-color-selected-border;
+  cursor: auto;
+  transition-duration: 0.8s;
+}
+
+.c-layer--hide {
+  opacity: 0;
+  transform: scale(0.8) !important;
+
+  @media only screen and (min-width: 960px) {
+    transform: scale(0.8) translate(200px, 200px) !important;
+  }
+}
+
+.c-layer--visited:not(.c-layer--selected):not(.c-layer--hide):not(.c-layer--dragging) {
+  border-color: $c-layers-color-visited;
+  color: $c-layers-color-visited;
+
+  &:hover:not(.c-layer--selected) {
+    border-color: $c-layers-color-selected-border;
+    color: $c-layers-color-selected-border;
+  }
+}
+
+.c-layer--dragging {
+  border-color: $c-layers-color-selected-border;
+  color: $c-layers-color-selected-border;
+}
+
+@for $index from 1 through 4 {
+  @keyframes droplayer#{$index} {
+    0% {
+      opacity: 0;
+      transform: scale(0.1) translate(200px, 200px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1 - 0.1 * $index) translate(0, 0);
+    }
+  }
+
+  .c-layer--drop {
+    &:nth-last-of-type(#{$index}) {
+      animation: droplayer#{$index} 0.3s ease-in 1;
+    }
+  }
+}
+
+.c-layer__content {
+  color: $c-layers-color-selected-text;
+  opacity: 0;
+  padding: 24px;
+  transition: opacity 0.8s, visibility 0s linear 0.85s;
+  visibility: hidden;
+
+  @at-root .c-layer--selected > & {
+    opacity: 1;
+    transition: opacity 0.8s;
+    visibility: visible;
+  }
+
+}
+
+.c-layer__header {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  user-select: none;
+
+  @at-root .c-layer--selected & {
+    color: $c-layers-color-selected-title;
+    transition: color 0.8s;
+  }
+
+}
+
+.c-layer__header__label {
+  font-size: 20px;
+  line-height: 60px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @at-root .c-layer--selected & {
+    font-weight: 600;
+  }
+}
+
+.c-layer__header__icon-visited {
+  display: none;
+  flex-shrink: 0;
+  margin: 0 16px;
+
+  @at-root .c-layer--visited:not(.c-layer--selected) & {
+    display: block;
+  }
+}
+
+.c-layer__header__icon-drag {
+  cursor: move;
+  cursor: grab;
+  flex-shrink: 0;
+  margin-left: auto;
+  text-align: right;
+  transform: rotateZ(90deg);
+}
+
+.h-layer--body-grabbing {
+
+  * {
+    cursor: move !important;
+    cursor: grabbing !important;
+  }
+}
