@@ -1,0 +1,153 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//           CARD COMPONENT
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+@import 'cards-config';
+
+@include c( $c-card ) {
+  background-color: get-color( 'primary' );
+  border-radius: 4px;
+  box-shadow: 0px 3px 3px 0px get-color( 'primary', 'dark' );
+  padding: 1.5rem;
+
+  &.su_color-primary {
+    background-color: get-color();
+    color: get-color( 'primary', 'light' );
+  }
+
+  &.su_color-info {
+    background-color: get-color( 'accent' );
+    color: get-color( 'primary', 'light' );
+  }
+
+  @include e( 'title' ) {
+    margin-bottom: 0.875rem;
+  }
+
+  @include e( 'image' ) {
+    margin-bottom: 1.25rem;
+
+    > img {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .su_img-profile {
+      border-radius: 50%;
+    }
+
+  }
+
+  &.su_img-fill {
+
+    @include e( 'image' ) {
+      margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    }
+
+  }
+
+  &.su_img-overlap {
+    margin: 0 auto;
+    width: 90%;
+
+    @include e( 'image' ) {
+      margin: -2.5rem -3rem 1.5rem -3rem;
+
+      > img {
+        border-radius: 4px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+    }
+  }
+
+  &.evo_c-card__product {
+
+    @include e( 'body' ) {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+
+    .su_product-price {
+      font-size: 1.5em;
+    }
+
+    .su_product-share {
+      cursor: pointer;
+      color: get-color( 'accent' );
+
+      &:hover {
+
+      }
+    }
+  }
+
+  &.evo_c-card__profile {
+    @include e( 'image' ) {
+      position: relative;
+      margin-bottom: 30%;
+    }
+    @include e( 'profile-image' ) {
+      border: 5px solid get-color( 'primary', 'light' );
+      border-radius: 50%;
+      bottom: -25%;
+      height: auto;
+      max-width: 40%;
+      position: absolute;
+      left: 30%;
+    }
+  }
+
+  &.evo_c-card__horizontal {
+    display: flex;
+
+    @include e( 'image' ) {
+      margin-bottom: 0;
+      padding: 0.625rem 0.625rem 0 0;
+
+      > img {
+        border-radius: 4px;
+      }
+    }
+
+    @include e( 'body' ) {
+      margin-bottom: 0;
+      padding: 0.625rem 0 0 0.625rem;
+    }
+
+  }
+
+
+  @include e( 'body' ) {
+    margin-bottom: 1.5rem;
+  }
+
+  @include e( 'footer' ) {
+    border-top: 1px solid get-color( 'primary' );
+    padding-top: 1.25rem;
+
+    .su_icon {
+      color: get-color( 'accent' );
+      margin-right: 0.625rem;
+    }
+  }
+
+  p {
+    font-weight: 300;
+  }
+
+  @media screen and (max-width: 499px) {
+
+    &.evo_c-card__horizontal {
+      flex-wrap: wrap;
+      flex-direction: column;
+      padding: 0;
+
+      @include e( 'image' ) {
+        padding: 0;
+      }
+    }
+  }
+
+}
