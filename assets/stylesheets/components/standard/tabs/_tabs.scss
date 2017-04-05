@@ -1,0 +1,97 @@
+/******************************************************************************
+                            TABS component
+******************************************************************************/
+
+
+@import 'tabs-config';
+
+
+@include c($c-component-name) {
+
+  min-width: $c-tabs-navigation-min-width - ($c-tabs-navigation-margin-tiny * 2);
+  margin: $c-tabs-navigation-margin-tiny;
+  font-family: $c-tabs-navigation-font-family;
+
+
+  @media screen and (min-width: $c-tabs-media-phablet) {
+    margin: $c-tabs-navigation-margin-small;
+  }
+
+  @media screen and (min-width: $c-tabs-media-tablet) {
+    margin: $c-tabs-navigation-margin-normal;
+  }
+
+    //--------------------------------------------------------------------------
+    //                         Helpers & Status
+    //--------------------------------------------------------------------------
+
+    @include h('border', $g-no-prefix, $apply-on-descendants: false) {
+      @include m('tiny') {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+      }
+    }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       navigation ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('navigation') {
+    background-color: $c-tabs-navigation-background-color;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       list ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('list') {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+      /*
+      @media screen and (min-width: $c-tabs-media-tablet) {
+        display: flex;
+      }*/
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       item ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('item') {
+    @extend %c-tabs-cursor-pointer;
+    padding: $c-tabs-item-padding-top-bottom $c-tabs-item-padding-left-right;
+
+    &:hover {
+      background-color: $c-tabs-item-hover-background-color;
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       link ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('link') {
+    color: $c-tabs-link-color;
+    text-decoration: none;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       tabcontent ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('tabcontent') {
+    @extend %c-tabs-display-none;
+    padding: $c-tabs-tab-content-padding;
+
+      //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      //                            Status
+      //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        @include s('is-active') {
+          display: block;
+        }
+  }
+}

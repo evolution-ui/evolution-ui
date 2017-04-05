@@ -1,0 +1,27 @@
+//------------------------------------------------------------------------------
+//                          Single Input Form config
+//------------------------------------------------------------------------------
+
+$c-sif-name: 'sif';
+
+$c-sif-white-color: white();
+$c-sif-secondary-light-color: get-color('secondary', 'light');
+$c-sif-secondary-dark-color: get-color('secondary', 'dark');
+$c-sif-input-txt-color: get-color('secondary', 'darken');
+$c-sif-prim-color: get-color('primary', 'base');
+$c-sif-prim-dark-color: get-color('primary', 'dark');
+$c-sif-prim-darken-color: get-color('primary', 'darken');
+
+// Placeholders
+%c-sif__btn {
+  bottom: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.2s;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+

@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="author" content="Jing Ran">
+  <title>Single Input Form</title>
+  <meta name="description" content="{{DESCRIBE THIS PAGE HERE}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+  <link href="../../styles/main.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="l-grid">
+    <div class="l-grid__item">
+      <h2>Single-Input Form</h2>
+
+      <form class="evo_c-sif">
+        <div class="evo_c-sif__input-wrap">
+          <span class="evo_c-sif__submission-msg">Thank you for subscribing</span>
+        </div>
+
+        <div class="evo_c-sif__input-wrap evo_c-sif-color--2">
+          <span class="evo_c-sif__indicator">3/3</span>
+          <input class="evo_c-sif__input" type="text" name="city" id="sif-input-city" required formnovalidate>
+          <label class="evo_c-sif__label" for="sif-input-city">
+            <i class="evo_c-sif__icon-label material-icons">language</i>
+            City you live in
+          </label>
+          <button type="button" class="evo_c-sif__btn--prev">
+            <i class="evo_c-sif__icon-prev material-icons">arrow_back</i>
+          </button>
+          <button type="submit" class="evo_c-sif__btn--next">
+            <i class="evo_c-sif__icon-next material-icons">arrow_forward</i>
+          </button>
+        </div>
+
+        <div class="evo_c-sif__input-wrap evo_c-sif-color--1">
+          <span class="evo_c-sif__indicator">2/3</span>
+          <input class="evo_c-sif__input" type="email" name="email" id="sif-input-email" required formnovalidate>
+          <label class="evo_c-sif__label" for="sif-input-email">
+            <i class="evo_c-sif__icon-label material-icons">email</i>
+            Email
+          </label>
+          <button type="button" class="evo_c-sif__btn--prev">
+            <i class="evo_c-sif__icon-prev material-icons">arrow_back</i>
+          </button>
+          <button type="button" class="evo_c-sif__btn--next">
+            <i class="evo_c-sif__icon-next  material-icons">arrow_forward</i>
+          </button>
+        </div>
+
+        <div class="evo_c-sif__input-wrap js-sif-is-active evo_c-sif-color--0">
+          <span class="evo_c-sif__indicator">1/3</span>
+          <input class="evo_c-sif__input" type="text" name="username" id="sif-input-nm" required formnovalidate>
+          <label class="evo_c-sif__label" for="sif-input-nm">
+            <i class="evo_c-sif__icon-label material-icons">person</i>
+            User Name
+          </label>
+          <button type="button" class="evo_c-sif__btn--next">
+            <i class="evo_c-sif__icon-next  material-icons">arrow_forward</i>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../../scripts/app.js"></script>
+</body>
+</html>

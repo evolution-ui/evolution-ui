@@ -65,7 +65,7 @@
         $variant-selector: addParentSelector($tmp-selector, $is-descendant);
 
         #{$variant-selector} {
-          #{$CSSproperty}: $color-variant-value;
+          #{$CSSproperty}: $color-variant-value!important;
         }
       }
     }
@@ -176,7 +176,7 @@
           $selector: addParentSelector($tmp-selector, $is-descendant);
 
           #{$selector} {
-            #{$CSSproperty}: map-get($base-color-variants, $variant);
+            #{$CSSproperty}: map-get($base-color-variants, $variant)!important;
           }
         }
       }

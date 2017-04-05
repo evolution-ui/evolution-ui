@@ -11,6 +11,10 @@
 ///
 /// @param {String} $class - A class name
 /// @param {String} $prefix [$g-framework-name] - An optional prefix
+/// @param {Boolean} $apply-on-descendants [TRUE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise it applies
+///                                                 on the parent itself
 /// @require $g-framework-name
 ///
 /// @example scss - Usage
@@ -30,15 +34,19 @@
 /// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
 ///
 
-@mixin namespaced( $class, $prefix: $g-framework-name ) {
-  .#{$prefix}_#{$class} {
+@mixin namespaced( $class, $prefix: $g-framework-name, $apply-on-descendants: true ) {
+  $selector:'';
+  @if (& != null) and ($apply-on-descendants == false) {
+    $selector:'&';
+  }
+  #{$selector}.#{$prefix}_#{$class} {
     @content;
   }
 }
 
 /// @alias namespaced
-@mixin nm( $class, $prefix: $g-framework-name ) {
-  @include namespaced( $class, $prefix ) {
+@mixin nm( $class, $prefix: $g-framework-name,  $apply-on-descendants: true) {
+  @include namespaced( $class, $prefix, $apply-on-descendants ) {
     @content;
   }
 }
@@ -216,6 +224,10 @@
 /// @param {String} $BEMIT-namespace - The name of a BEMIT namespace
 /// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
 ///                                          the namespace's name
+/// @param {Boolean} $apply-on-descendants [TRUE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise
+///                                                 it applies on the parent itself
 ///
 ///
 /// @example scss - Usage
@@ -247,16 +259,20 @@
 /// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
 ///
 
-@mixin bit( $componentName, $BEMIT-namespace, $is-namespaced ) {
-  $className: '#{$BEMIT-namespace}-#{$componentName}';
+@mixin bit( $componentName, $BEMIT-namespace, $is-namespaced, $apply-on-descendants: true) {
+
+  $separator: if($BEMIT-namespace == 's', '', '-');
+  $BEMIT-namespace: if($BEMIT-namespace == 's', '', $BEMIT-namespace);
+  $className: '#{$BEMIT-namespace}#{$separator}#{$componentName}';
+
   @if ($is-namespaced == true) {
-    @include namespaced($className) {
+    @include namespaced($className, $apply-on-descendants: $apply-on-descendants) {
       @content;
     }
   } @else {
-    @if ($BEMIT-namespace == 's') {
+    @if ($BEMIT-namespace == 's' or $apply-on-descendants == false) {
       // Status class without the namespace
-      &.#{$componentName} {
+      &.#{$className} {
         @content;
       }
       } @else {
@@ -365,6 +381,11 @@
 /// @param {String}  $helperName - The helper's name
 /// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
 ///                                          the namespace's name
+/// @param {Boolean} $apply-on-descendants [TRUE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise
+///                                                 it applies on the parent itself
+///
 ///
 /// @example scss - Usage
 ///
@@ -387,12 +408,54 @@
 ///    clip: rect(10px, 10px, 10px, 10px);
 ///  }
 ///
+///
+/// @example scss - Usage
+///
+///   @include c( 'myComponent' ) {
+///     width: 500px;
+///
+///     @include h('test') {
+///       width: 100px;
+///     }
+///   }
+///
+///
+/// @example css - CSS output
+///
+///   .evo_c-myComponent {
+///     width: 500px;
+///   }
+///   .evo_c-myComponent .evo_h-test {
+///     width: 100px;
+///   }
+///
+///
+/// @example scss - Usage
+///
+///   @include c( 'myComponent' ) {
+///     width: 500px;
+///
+///     @include h('test', $apply-on-descendants: false) {
+///       width: 100px;
+///     }
+///   }
+///
+///
+/// @example css - CSS output
+///
+///   .evo_c-myComponent {
+///     width: 500px;
+///   }
+///   .evo_c-myComponent.evo_h-test {
+///     width: 100px;
+///   }
+///
 /// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
 /// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
 ///
 
-@mixin h( $helperName, $is-namespaced: true ) {
-  @include bit($helperName, 'h', $is-namespaced) {
+@mixin h( $helperName, $is-namespaced: true, $apply-on-descendants: true ) {
+  @include bit($helperName, 'h', $is-namespaced, $apply-on-descendants) {
     @content;
   }
 }
@@ -479,6 +542,10 @@
 /// @param {String}  $StatusName - The Status's name
 /// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
 ///                                          the namespace's name
+/// @param {Boolean} $apply-on-descendants [FALSE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise
+///                                                 it applies on the parent itself
 ///
 /// @example scss - Usage
 ///
@@ -509,7 +576,7 @@
 ///
 
 @mixin s( $statusName, $is-namespaced: false ) {
-  @include bit($statusName, 's', $is-namespaced) {
+  @include bit($statusName, 's', $is-namespaced, $apply-on-descendants: false) {
     @content;
   }
 }

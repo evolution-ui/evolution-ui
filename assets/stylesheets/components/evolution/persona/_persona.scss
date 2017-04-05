@@ -1,0 +1,105 @@
+@import 'persona-config';
+
+@include c($c-persona-container) {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0;
+  //@include padding(0);
+  font-family: Roboto, Helvetica, sans-serif;
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+}
+
+@include c($c-persona-name) {
+  flex: 0 0 13em;
+  margin: 0;
+  //@include margin(0);
+  padding: 2em 1em;
+  //@include padding-tb-lr(2em, 1em);
+  color: get-color('secondary');
+  text-align: center;
+  background: transparent;
+  border: 0.2em solid transparent;
+  border-radius: 0.4em;
+  transform: scale(0.9) translate(0, 0);
+  transition: all $c-persona-transition-timing $c-persona-easing-func;
+  cursor: pointer;
+
+  @include e( 'image' ) {
+    width: 5em;
+    height: 5em;
+    margin-top: 1em;
+    border-radius: 50%;
+    transform: scale(1.1);
+    transition: transform $c-persona-transition-timing $c-persona-easing-func;
+  }
+
+  @include e( 'name' ) {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+    font-size: 1.3em;
+  }
+
+  @include e( 'title' ) {
+    margin-top: 0.2em;
+    color: get-color('secondary');
+    opacity: 0;
+    transition: opacity $c-persona-transition-timing $c-persona-easing-func;
+  }
+
+  @include e( 'links' ) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    color: get-color('primary');
+  }
+
+  @include e( 'link' ) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    color: inherit;
+    opacity: 0;
+    transition: opacity $c-persona-transition-timing $c-persona-easing-func;
+  }
+
+  @include e( 'icon' ) {
+    margin: 0;
+    padding: 1px;
+    //@include padding(1px);
+    font-size: 1.2em;
+    color: inherit;
+
+    &:hover {
+      color: get-color('primary', 'dark');
+    }
+  }
+
+  &:hover {
+    color: get-color('primary');
+    background: white();
+    border-color: get-color('primary', 'dark');
+    transform: scale(1) translate(0, -40%);
+
+    $ref-persona-image: getBEMReference($c-persona-name, 'image');
+    $ref-persona-title: getBEMReference($c-persona-name, 'title');
+    $ref-persona-link: getBEMReference($c-persona-name, 'link');
+
+    & .#{$ref-persona-image} {
+      transform: scale(1.5);
+    }
+
+    & .#{$ref-persona-title}, & .#{$ref-persona-link} {
+      opacity: 1;
+    }
+  }
+
+}
+
