@@ -27,6 +27,8 @@ import layer_2d from './evolution/layer_2d'
 import singleInputForm from './evolution/single_input_form'
 import layerAnimations from './evolution/layer-animations'
 import layerDragAndDrop from './evolution/layer-drag-and-drop'
+import svg_pagination from './evolution/svg_pagination'
+
 
 /************************************************************************
  *
@@ -77,5 +79,6 @@ documentReady(
   singleInputForm,
   layerAnimations,
   layerDragAndDrop,
-  stdTabs
+  stdTabs,
+  svg_pagination
 )

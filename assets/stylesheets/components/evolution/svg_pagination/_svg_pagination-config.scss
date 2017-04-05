@@ -1,0 +1,9 @@
+@mixin c-svg-dot-commonStyle {
+        opacity: 0;
+        fill: none;
+        stroke:#65c5de;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        -webkit-transition: stroke-dashoffset .7s, opacity .7s;
+        transition: stroke-dashoffset .7s, opacity .7s;
+}
