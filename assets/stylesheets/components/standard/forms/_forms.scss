@@ -152,7 +152,7 @@
   @include e( 'field' ) {
 
     //@extend %c-form-vertical-rythm-1;
-    @include vertical-rhythm(18px, $top-rows: 2, $bottom-rows: 2);
+    @include vertical-rhythm(16px, $top-rows: 2, $bottom-rows: 2);
     @extend %c-form-flex-align-center;
 
     $label-selector: getBEMReference($c-form-component-name, 'label');
@@ -218,9 +218,7 @@
     @extend %c-form-pointer;
     @include margin-auto();
 
-    width: 99%;
-    max-width: $c-form-button-max-width;
-    padding: $c-form-input-padding-default;
+    padding: $c-form-button-padding-default;
     background-color: white();
     border: 1px solid get-color('primary2', 'light');
     border-radius: $c-form-button-border-radius;
@@ -229,8 +227,21 @@
 
     &:hover {
       color: white();
-      background-color: get-color('primary2', 'light');
+      background-color: get-color('primary2');
     }
+
+    //--------------------------------------------------------------------------
+    //                       SIZE HELPERS - BUTTON
+    //--------------------------------------------------------------------------
+
+    @include h('padding-small', $g-no-prefix, $apply-on-descendants: false) {
+      padding: $c-form-button-padding-small;
+    }
+
+    @include h('padding-huge', $g-no-prefix, $apply-on-descendants: false) {
+      padding: $c-form-button-padding-huge;
+    }
+
 
     //--------------------------------------------------------------------------
     //                          Rounded - BUTTON
@@ -239,7 +250,24 @@
     @include m( 'rounded' ) {
       border-radius: 45px;
     }
+
+    //--------------------------------------------------------------------------
+    //                         Type2 - BUTTON
+    //--------------------------------------------------------------------------
+
+    @include m( 'type2' ) {
+      color: white(.85);
+      background-color: get-color('primary');
+      border: 0;
+      text-shadow: 0 1px 1px black(.5);
+
+      &:hover {
+        color: white();
+        background-color: get-color('primary', light);
+      }
+    }
   }
+
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -357,19 +385,36 @@
     @extend %c-form-none;
 
     $checkbox-default: getBEMReference($c-form-component-name, 'checkbox');
+    $checkbox-x: getBEMReference($c-form-component-name, 'checkbox', 'x');
 
     &:checked + .#{$checkbox-default}:before {
+      @extend %c-form-checkbox-sizes;
+      @extend %c-form-checkbox-before-borders;
       top: -4px;
       left: -3px;
-      width: 12px;
-      height: 22px;
-      border-top-color: black(0);
-      border-left-color: black(0);
-      border-right-color: $c-form-checkbox-border-right-color;
-      border-bottom-color: $c-form-checkbox-border-bottom-color;
+      transform: rotate(40deg);
       -webkit-backface-visibility: hidden;
       transform-origin: 100% 100%;
-      transform: rotate(40deg);
+    }
+
+    &:checked + .#{$checkbox-x}:before {
+      @extend %c-form-checkbox-sizes;
+      @extend %c-form-checkbox-x-before-after-borders;
+      top: -4px;
+      left: -15px;
+      transform: rotate(45deg);
+      -webkit-backface-visibility: hidden;
+      transform-origin: 100% 100%;
+    }
+
+    &:checked + .#{$checkbox-x}:after {
+      @extend %c-form-checkbox-sizes;
+      @extend %c-form-checkbox-x-before-after-borders;
+      top: -5px;
+      left: 3px;
+      transform: rotate(-45deg);
+      -webkit-backface-visibility: hidden;
+      transform-origin: 100% 100%;
     }
 
   }
@@ -378,12 +423,80 @@
   @include e ( 'checkbox' ) {
     @extend %c-form-checkbox;
     margin: 10px 0;
+    border-top-color: $c-form-checkbox-border-color-default;
+    border-left-color: $c-form-checkbox-border-color-default;
+    border-bottom-color: $c-form-checkbox-border-color-default;
+    border-right-color: $c-form-checkbox-border-color-default;
+
+    //----------------------------------------------------------------------
+    //                    COLOR VARIATIONS - CHECKBOX
+    //----------------------------------------------------------------------
+
+    @include m('accent') {
+      border-top-color: $c-form-checkbox-border-color-accent;
+      border-left-color: $c-form-checkbox-border-color-accent;
+      border-bottom-color: $c-form-checkbox-border-color-accent;
+      border-right-color: $c-form-checkbox-border-color-accent;
+    }
+
+    @include m('accent2') {
+      border-top-color: $c-form-checkbox-border-color-accent2;
+      border-left-color: $c-form-checkbox-border-color-accent2;
+      border-bottom-color: $c-form-checkbox-border-color-accent2;
+      border-right-color: $c-form-checkbox-border-color-accent2;
+    }
+
+    @include m('accent3') {
+      border-top-color: $c-form-checkbox-border-color-accent3;
+      border-left-color: $c-form-checkbox-border-color-accent3;
+      border-bottom-color: $c-form-checkbox-border-color-accent3;
+      border-right-color: $c-form-checkbox-border-color-accent3;
+    }
+
+    @include m('accent4') {
+      border-top-color: $c-form-checkbox-border-color-accent4;
+      border-left-color: $c-form-checkbox-border-color-accent4;
+      border-bottom-color: $c-form-checkbox-border-color-accent4;
+      border-right-color: $c-form-checkbox-border-color-accent4;
+    }
 
     &:before {
       @extend %c-form-checkbox-before;
       width: $c-form-checkbox-size;
       height: $c-form-checkbox-size;
-      border: $c-form-checkbox-border;
+      border-width: $c-form-checkbox-border-width;
+      border-style: $c-form-checkbox-border-style;
+      border-top-color: inherit;
+      border-left-color: inherit;
+      border-bottom-color: inherit;
+      border-right-color: inherit;
+    }
+
+    //----------------------------------------------------------------------
+    //                    CHECKBOX X - MODIFIER
+    //----------------------------------------------------------------------
+
+
+    @include m('x') {
+        &:before {
+        @extend %c-form-checkbox-before;
+        width: $c-form-checkbox-size;
+        height: $c-form-checkbox-size;
+        border-width: $c-form-checkbox-border-width;
+        border-style: $c-form-checkbox-border-style;
+      }
+
+        &:after {
+        @extend %c-form-checkbox-before;
+        width: $c-form-checkbox-size;
+        height: $c-form-checkbox-size;
+        border-width: $c-form-checkbox-border-width;
+        border-style: $c-form-checkbox-border-style;
+        border-top-color: inherit;
+        border-left-color: inherit;
+        border-bottom-color: inherit;
+        border-right-color: inherit;
+      }
     }
 
   }
@@ -397,18 +510,41 @@
   & input[type='radio'] {
 
     $radio-selector: getBEMReference($c-form-component-name, 'radio');
+    $radio-variation2-selector: getBEMReference($c-form-component-name, 'radio', 'variation2');
+    $radio-variation3-selector: getBEMReference($c-form-component-name, 'radio', 'variation3');
 
     @extend %c-form-none;
 
     &:checked + .#{$radio-selector}:before {
-      box-shadow: 0 0 0 2px get-color('secondary');
+      box-shadow: 0 0 0 2px get-color('primary2', 'dark');
     }
 
     &:checked + .#{$radio-selector}:after {
-      background-color: black();
+      background-color: get-color('accent3');
       -webkit-transform: scale(0.4);
       transform: scale(0.4);
     }
+
+    &:checked + .#{$radio-variation2-selector}:before {
+      box-shadow: 0 0 0 2px get-color('accent2');
+    }
+
+    &:checked + .#{$radio-variation2-selector}:after {
+      background-color: get-color('background');
+      -webkit-transform: scale(0.4);
+      transform: scale(0.4);
+    }
+
+    &:checked + .#{$radio-variation3-selector}:before {
+      box-shadow: 0 0 0 2px get-color('primary');
+    }
+
+    &:checked + .#{$radio-variation3-selector}:after {
+      background-color: get-color('secondary');
+      -webkit-transform: scale(0.4);
+      transform: scale(0.4);
+    }
+
   }
 
   @include e ( 'radio' ) {
@@ -444,6 +580,28 @@
       background-color: black(0.7);
       -webkit-transition: background-color 0.3s ease, transform 0.3s ease;
       transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    @include m('variation2') {
+      &:before {
+        @extend %c-form-rounded;
+        @extend %c-form-radio-size;
+      }
+      &:after {
+        @extend %c-form-rounded;
+        @extend %c-form-radio-size;
+      }
+    }
+
+    @include m('variation3') {
+      &:before {
+        @extend %c-form-rounded;
+        @extend %c-form-radio-size;
+      }
+      &:after {
+        @extend %c-form-rounded;
+        @extend %c-form-radio-size;
+      }
     }
   }
 
@@ -518,6 +676,10 @@
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       @include e( 'dropdown' ) {
+
+        $dropdown-selector: getBEMReference($c-form-component-name, 'dropdown');
+        $select-selector: getBEMReference($c-form-component-name, 'select');
+
         position: relative;
         display: inline-block;
         border: 1px solid black(.1);
@@ -552,8 +714,82 @@
           line-height: 1;
         }
 
-        @include m( 'disabled' ) {
-          color: black(.1);
+        //----------------------------------------------------------------------
+        //                    DISABLED HELPERS - DROPDOWN
+        //----------------------------------------------------------------------
+
+
+        @include h( 'disabled', $g-no-prefix, $apply-on-descendants: false ) {
+          &:after {
+            color: black(.1);
+          }
+        }
+
+        //----------------------------------------------------------------------
+        //                    COLOR VARIATIONS - DROPDOWN
+        //----------------------------------------------------------------------
+
+        @include m('white') {
+
+          .#{$select-selector} {
+            background-color: #fff;
+            color: #444;
+          }
+
+          &:before {
+            background-color: #fff;
+            border-left: 1px solid rgba(0,0,0,.1);
+          }
+
+          &:after {
+            color: rgba(0,0,0,.9);
+          }
+        }
+
+        @include m('primary') {
+
+          .#{$select-selector} {
+            background-color: get-color('primary');
+            color: white(.9);
+          }
+
+          &:before {
+            background-color: get-color('primary');
+            border-left: 1px solid rgba(0,0,0,.1);
+          }
+
+          &:after {
+            color: white();
+          }
+        }
+
+        @include m('secondary') {
+
+          .#{$select-selector} {
+            background-color: get-color('secondary');
+            color: white(.9);
+          }
+
+          &:before {
+            background-color: get-color('secondary');
+            border-left: 1px solid get-color('background');
+          }
+
+          &:after {
+            color: white();
+          }
+        }
+
+        //----------------------------------------------------------------------
+        //                       SIZE HELPERS - DROPDOWN
+        //----------------------------------------------------------------------
+
+        @include m('small') {
+          font-size: $c-form-dropdown-font-size-small;
+        }
+
+        @include m('large') {
+          font-size: $c-form-dropdown-font-size-large;
         }
 
       }

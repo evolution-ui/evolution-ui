@@ -35,10 +35,16 @@ $c-form-input-padding-default: 10px;
 
 $c-form-checkbox-size: 15px;
 $c-form-checkbox-x-size: 15px;
-$c-form-checkbox-border: 2px solid get-color('primary2', 'dark');
-$c-form-checkbox-x-border: 2px solid get-color('primary2', 'dark');
-$c-form-checkbox-border-right-color: get-color('primary2', 'light');
-$c-form-checkbox-border-bottom-color: get-color('primary2', 'light');
+
+$c-form-checkbox-border-color-default: get-color('primary2', 'dark');
+$c-form-checkbox-border-color-accent: get-color('accent');
+$c-form-checkbox-border-color-accent2: get-color('accent2');
+$c-form-checkbox-border-color-accent3: get-color('accent3');
+$c-form-checkbox-border-color-accent4: get-color('accent4');
+
+$c-form-checkbox-border-width: 2px;
+$c-form-checkbox-border-style: solid;
+$c-form-checkbox-border-color: $c-form-checkbox-border-color-default;
 
 
 //------------------------------------------------
@@ -50,13 +56,14 @@ $c-form-radio-x-size: 25px;
 $c-form-radio-border: 2px solid get-color('primary2', 'dark');
 
 
-
 //------------------------------------------------
 //              Forms Button
 //------------------------------------------------
 
-$c-form-button-max-width: 300px;
-$c-form-button-border-radius: 4px;
+$c-form-button-padding-small: 10px 20px;
+$c-form-button-padding-default: 10px 60px;
+$c-form-button-padding-huge: 10px 80px;
+
 $c-form-button-border-radius: 4px;
 
 //------------------------------------------------
@@ -84,6 +91,14 @@ $c-form-field-status-font-size: 1rem;
 $c-form-field-status-width: 21%;
 $c-form-field-status-max-width: 200px;
 $c-form-field-status-padding-left: 10px;
+
+
+//------------------------------------------------
+//              Forms Dropdown
+//------------------------------------------------
+
+$c-form-dropdown-font-size-small: .7rem;
+$c-form-dropdown-font-size-large: 1.25rem;
 
 
 //------------------------------------------------------------------------------
@@ -147,6 +162,25 @@ $c-form-field-status-padding-left: 10px;
   margin: auto;
   display:block;
   transition: all .2s;
+}
+
+%c-form-checkbox-sizes {
+  width: 12px;
+  height: 22px;
+}
+
+%c-form-checkbox-before-borders {
+  border-top-color: black(0);
+  border-left-color: black(0);
+  border-right-color: inherit;
+  border-bottom-color: inherit;
+}
+
+%c-form-checkbox-x-before-after-borders {
+  border-top-color: black(0);
+  border-left-color: black(0);
+  border-bottom-color: black(0);
+  border-right-color: inherit;
 }
 
 
