@@ -30,6 +30,7 @@ import layerDragAndDrop from './evolution/layer-drag-and-drop'
 import spaceSavingMinimalistForm from './evolution/space_saving_minimalist_form'
 import curtain from './evolution/curtain'
 import text2speech from './evolution/text2speech'
+import svg_pagination from './evolution/svg_pagination'
 
 /************************************************************************
  *
@@ -83,7 +84,8 @@ documentReady(
   layerDragAndDrop,
   stdTabs,
   curtain,
-  text2speech
+  text2speech,
+  svg_pagination
 )
 
 singleInputForm();
