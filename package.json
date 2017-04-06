@@ -11,6 +11,7 @@
     "deploy:major": "gulp deploy --env=prod --bump=major",
     "sassdoc": "gulp sassdoc",
     "start-docs": "gulp start-docs --env=prod",
+    "dev-docs": "gulp dev-docs --env=prod",
     "deploy-docs": "gulp deploy-docs --env=prod"
   },
   "repository": {
@@ -50,7 +51,7 @@
     "gulp-sequence": "^0.4.6",
     "gulp-shell": "^0.6.3",
     "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^2.0.0",
+    "gulp-uglify": "^2.1.2",
     "gulp-webpack": "^1.5.0",
     "imagemin-gifsicle": "^5.1.0",
     "imagemin-jpegtran": "^5.0.2",
@@ -59,5 +60,8 @@
     "lodash.throttle": "^4.1.1",
     "minimist": "^1.2.0",
     "webpack": "^2.3.2"
+  },
+  "dependencies": {
+    "gulp-shell": "^0.6.3"
   }
 }

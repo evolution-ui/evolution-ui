@@ -2,6 +2,8 @@
                             Accordion Component
 ******************************************************************************/
 
+@import 'accordion-config';
+
 @include c('accordion') {
   // margin: 0 auto;
   padding-left: 0;
