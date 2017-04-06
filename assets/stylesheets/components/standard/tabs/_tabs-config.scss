@@ -34,11 +34,19 @@ $c-tabs-media-desktop: 1000px;
 $c-tabs-media-desktop-HD: 1200px;
 
 
+//------------------------------------------------
+//                  Z-indexes
+//------------------------------------------------
+
+$c-tabs-navigation-z-index: 10;
+$c-tabs-tab-content-z-index: 0;
+
+
 //------------------------------------------------------------------------------
 //                          Navigation
 //------------------------------------------------------------------------------
 
-
+$c-tabs-navigation-font-size: 1rem;
 $c-tabs-navigation-background-color: get-color('primary');
 $c-tabs-navigation-dark-background-color: get-color('background', 'light');
 
@@ -74,7 +82,7 @@ $c-tabs-tab-content-padding: 20px;
 //                          List
 //------------------------------------------------------------------------------
 
-$c-tabs-tab-lateral-list-min-width: 300px;
+$c-tabs-tab-lateral-list-min-width: 250px;
 
 
 
@@ -89,4 +97,23 @@ $c-tabs-tab-lateral-list-min-width: 300px;
 
 %c-tabs-cursor-pointer {
   cursor: pointer;
+}
+
+%c-tabs-flex-columns {
+  display: flex;
+  flex-direction: column;
+}
+
+%c-tabs-scroll {
+  @extend %c-tabs-flex-columns;
+  position: relative;
+  overflow: hidden;
+}
+
+%c-tabs-scroll-tab-content {
+  position: absolute;
+  top: $c-tabs-item-padding-top-bottom * 2 + $c-tabs-tab-content-padding + strip-units($c-tabs-navigation-font-size);
+  left: 0;
+  display: block;
+  overflow-y: hidden;
 }
