@@ -14,20 +14,23 @@
   @include backgroundVariants($c-card-bck-variants);
   
   @include e( 'title' ) {
+    font-size: 1.5rem;
     margin-top: 0;
-    margin-bottom: 0.3125rem;
+    margin-bottom: 0;
   }
 
   @include e( 'sub-title' ) {
     color: get-color( 'secondary' );
+    display: block;
     font-size: 0.9em;
+    margin-bottom: 1rem;
   }
 
-  @include h( 'txt-dark-bck' ) {
+  @include h( 'txt-light' ) {
     color: white(.9);
   }
 
-  @include h( 'txt-dark-bck2' ) {
+  @include h( 'txt-light2' ) {
     color: white(.6);
   }
 
@@ -82,12 +85,7 @@
 
   @include e( 'icon' ) {
     cursor: pointer;
-    color: get-color( 'accent' );
     margin-right: 0.625rem;
-
-    &:hover {
-      color: get-color( 'accent' , 'dark' );
-    }
   }
 
   @include e( 'btn' ) {
@@ -100,19 +98,6 @@
 
     &:hover {
       background-color: get-color( 'background', $opacity:.2 );
-    }
-  }
-
-  @media screen and (max-width: 499px) {
-
-    &.evo_c-card__horizontal {
-      flex-wrap: wrap;
-      flex-direction: column;
-      padding: 0;
-
-      @include e( 'image' ) {
-        padding: 0;
-      }
     }
   }
 

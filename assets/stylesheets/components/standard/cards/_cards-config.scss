@@ -2,8 +2,14 @@ $c-card: 'card';
 
 // Color variants
 $c-card-bck-variants: (
-	'primary': ('base'),
-	'secondary': ('base', 'light')
+	'accent': ( 'base', 'dark' ),
+	'accent2': ( 'base', 'dark' ),
+	'accent3': ( 'base', 'dark' ),
+	'accent4': ( 'base', 'dark' ),
+	'primary': ( 'base', 'dark' ),
+	'primary2': ( 'base', 'dark' ),
+	'secondary': ( 'base', 'dark' ),
+	'background': ( 'base', 'dark' )
 );
 $c-card-txt-variants: (
 	'primary': ('light'),
