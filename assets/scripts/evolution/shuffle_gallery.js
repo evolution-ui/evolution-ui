@@ -1,5 +1,4 @@
 export default function() {
-
 	/******** Shuffle Gallery Component ********/
 
 	var links = document.getElementsByClassName("evo_c-shuffle-gallery__link"),
