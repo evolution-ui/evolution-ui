@@ -6,7 +6,8 @@ var gulp = require('gulp'),
   del = require('del'),
   minimist = require('minimist'),
   webpack = require('webpack'),
-  shell = require('gulp-shell')
+  shell = require('gulp-shell'),
+  uglify = require('gulp-uglify')
 
 var knownOptions = {
   string: ['env', 'bump'],
@@ -36,7 +37,7 @@ gulp.task('styles', function () {
     .pipe(plugins.if(!development, plugins.cssnano()))
     .pipe(plugins.if(development, plugins.sourcemaps.write()))
     .pipe(gulp.dest(outputPath + '/styles'))
-    .pipe(gulp.dest('docs/assets/evolution-ui/styles'))
+    .pipe(gulp.dest('docs/assets/styles/evolution-ui'))
     .pipe(plugins.notify({message: 'Styles task complete'}))
 })
 
@@ -50,8 +51,9 @@ gulp.task('eslint', function () {
 gulp.task('scripts', function () {
   return gulp.src('assets/scripts/app.js')
     .pipe(plugins.webpack(require('./webpack.config.js')(options.env), webpack))
+    .pipe(plugins.if(!development, plugins.uglify()))
     .pipe(gulp.dest(outputPath + '/scripts'))
-    .pipe(gulp.dest('docs/assets/evolution-ui/scripts'))
+    .pipe(gulp.dest('docs/assets/scripts/evolution-ui'))
 })
 
 gulp.task('html', function () {
@@ -80,11 +82,27 @@ gulp.task('images', function () {
       interlaced: true
     }))))
     .pipe(gulp.dest(outputPath + '/images'))
+    .pipe(gulp.dest('docs/assets/images/'))
 })
 
 gulp.task('clean', function () {
-  return del(['dist/', 'public/', 'docs/assets/evolution-ui/'])
+  return del([
+    'dist/',
+    'public/'
+  ])
 })
+
+gulp.task('clean-docs', function () {
+  return del([
+    'docs/_site',
+    'docs/assets/styles/evolution-ui/',
+    'docs/assets/scripts/evolution-ui/',
+    'docs/assets/images/component_assets/',
+    'docs/assets/images/components/',
+    'docs/assets/images/developers/',
+    'docs/assets/images/standard/'
+  ])
+});
 
 gulp.task('jekyll', shell.task([
   'jekyll build --source=docs/ --destination=docs/_site --config=docs/_config.yml,docs/_config.prod.yml'
@@ -103,11 +121,11 @@ function buildInit (cb) {
 }
 
 function docsInit(cb) {
-  plugins.sequence('clean', 'styles', 'scripts', 'jekyll-serve', cb)
+  plugins.sequence('clean', 'clean-docs', 'styles', 'scripts', 'images', 'jekyll-serve', cb)
 }
 
 function docsBuild(cb) {
-  plugins.sequence('clean', 'styles', 'scripts', 'jekyll', cb)
+  plugins.sequence('clean', 'clean-docs', 'styles', 'scripts', 'images', 'jekyll', cb)
 }
 
 gulp.task('dev-init', devInit)
@@ -134,9 +152,11 @@ function devel () {
 
   gulp.watch(['public/**/*.html', 'public/styles/**/*.css', 'public/scripts/**/*.js', 'public/images/**/*'], reload)
 }
+
 function develDocs () {
   gulp.watch('./assets/stylesheets/**/*.scss', ['styles'])
   gulp.watch('./assets/scripts/**/*.js', ['scripts'])
+  gulp.watch('./assets/images/**/*', ['images'])
 }
 
 gulp.task('dev-docs', develDocs)
