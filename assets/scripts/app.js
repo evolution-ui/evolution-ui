@@ -27,6 +27,7 @@ import layer_2d from './evolution/layer_2d'
 import singleInputForm from './evolution/single_input_form'
 import layerAnimations from './evolution/layer-animations'
 import layerDragAndDrop from './evolution/layer-drag-and-drop'
+import spaceSavingMinimalistForm from './evolution/space_saving_minimalist_form'
 import curtain from './evolution/curtain'
 
 /************************************************************************
@@ -41,6 +42,7 @@ import cssAnimations from './standard/css_animations'
 import codeMarkup from './standard/code_markup'
 import stdForms from './standard/forms'
 import stdCarousel from './standard/carousel'
+import stdTabs from './standard/tabs'
 import sticky from './standard/sticky'
 import modals from './standard/modals'
 
@@ -77,5 +79,9 @@ documentReady(
   singleInputForm,
   layerAnimations,
   layerDragAndDrop,
+  stdTabs,
   curtain,
 )
+
+singleInputForm();
+spaceSavingMinimalistForm();

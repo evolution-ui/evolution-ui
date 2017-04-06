@@ -260,15 +260,19 @@
 ///
 
 @mixin bit( $componentName, $BEMIT-namespace, $is-namespaced, $apply-on-descendants: true) {
-  $className: '#{$BEMIT-namespace}-#{$componentName}';
+
+  $separator: if($BEMIT-namespace == 's', '', '-');
+  $BEMIT-namespace: if($BEMIT-namespace == 's', '', $BEMIT-namespace);
+  $className: '#{$BEMIT-namespace}#{$separator}#{$componentName}';
+
   @if ($is-namespaced == true) {
     @include namespaced($className, $apply-on-descendants: $apply-on-descendants) {
       @content;
     }
   } @else {
-    @if ($BEMIT-namespace == 's') {
+    @if ($BEMIT-namespace == 's' or $apply-on-descendants == false) {
       // Status class without the namespace
-      &.#{$componentName} {
+      &.#{$className} {
         @content;
       }
       } @else {
@@ -538,6 +542,10 @@
 /// @param {String}  $StatusName - The Status's name
 /// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
 ///                                          the namespace's name
+/// @param {Boolean} $apply-on-descendants [FALSE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise
+///                                                 it applies on the parent itself
 ///
 /// @example scss - Usage
 ///
@@ -568,7 +576,7 @@
 ///
 
 @mixin s( $statusName, $is-namespaced: false ) {
-  @include bit($statusName, 's', $is-namespaced) {
+  @include bit($statusName, 's', $is-namespaced, $apply-on-descendants: false) {
     @content;
   }
 }

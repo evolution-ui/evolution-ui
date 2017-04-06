@@ -10,10 +10,10 @@
   justify-content: center;
 }
 
-.evo_c-sif {
+.evo_c-sif,
+.evo_c-mini-form {
   font-family: $g-framework-font-family;
-  font-size: $g-framework-base-font-size;
-  display: block;
+  font-size: 1rem;
   position: relative;
 
   label,
@@ -209,5 +209,222 @@
 @keyframes sif-fadeIn {
   100% {
     opacity: 1;
+  }
+}
+
+
+
+
+/* ==========================================================================
+   Space-saving-minimalist Form component styles
+   ========================================================================== */
+
+// General styles
+.evo_c-mini-form {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: $c-sif-white-color;
+
+  * {
+    box-sizing: inherit;
+    font-size: inherit;
+  }
+
+  .evo_c-mini-form__btn--prev {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 3.3em;
+    width: 4px;
+    margin: 0;
+    background-color: $c-sif-light-gray-color;
+    cursor: pointer;
+    visibility: hidden;
+    transition: visibility 0s, background-color 0.2s;
+
+    &:hover {
+      background-color: tint($c-sif-prim-light-color, 25%);
+    }
+  }
+}
+
+/* sub-elements styles
+   ========================================================================== */
+
+// outer wrap styles
+.evo_c-mini-form__input-wrap {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  background-color: $c-sif-white-color;
+  border-right: 4px solid $c-sif-light-gray-color;
+  min-width: 0;
+  width: 0;
+  height: 3.3em;
+  margin: 0;
+  padding: 0;
+
+  animation-duration: 0.65s;
+  animation-fill-mode: forwards;
+  transition: border-right-color 0.2s 0.45s;
+
+  &:first-of-type {
+    border: 0;
+    width: 19em;
+  }
+
+  &.js-mini-form-is-active {
+    min-width: 19em;
+
+    // Valid border color of the first card after the active card
+    & ~ .evo_c-mini-form__input-wrap {
+      transition: border-right-color 0.2s;
+      border-right-color: tint($c-sif-prim-light-color, 25%);
+    }
+
+    // Valid border color of the rest cards after the active card
+    & ~ .evo_c-mini-form__input-wrap ~ .evo_c-mini-form__input-wrap {
+      transition: border-right-color 0.2s;
+      border-right-color: $c-sif-light-gray-color;
+    }
+  }
+  // Invalid border color
+  &.js-mini-form-is-invalid ~ .evo_c-mini-form__input-wrap {
+    border-right-color: $c-sif-invalid-color;
+  }
+  // Valid border color
+  &.js-mini-form-is-invalid ~ .evo_c-mini-form__input-wrap ~ .evo_c-mini-form__input-wrap {
+    border-right-color: $c-sif-light-gray-color;
+  }
+
+  &.evo_c-mini-form__submit > .evo_c-mini-form__input-inner {
+    @include sif-flexbox;
+    background-color: $c-sif-prim-dark-color;
+    color: $c-sif-white-color;
+  }
+}
+
+// Inner wrap styles
+.evo_c-mini-form__input-inner {
+  position: absolute;
+  left: 0.5em;
+  width: 18em;
+  height: 100%;
+  background-color: $c-sif-light-gray-color;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 1;
+  overflow: hidden;
+  animation-duration: 0.65s;
+  animation-fill-mode: forwards;
+
+  .evo_c-mini-form__input,
+  .evo_c-mini-form__submit-btn {
+    height: 100%;
+    width: 14.7em;
+    margin: 0;
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+  }
+
+  .evo_c-mini-form__input {
+    background-color: transparent;
+    color: $c-sif-bg-light-color;
+  }
+
+  .evo_c-mini-form__btn--next,
+  .evo_c-mini-form__btn--back {
+    cursor: pointer;
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    width: 3.3em;
+    transition: background-color 0.2s;
+
+    .material-icons {
+      font-size: 1.5em;
+    }
+  }
+  .evo_c-mini-form__btn--next {
+    background-color: $c-sif-prim-color;
+    color: $c-sif-white-color;
+    animation-duration: 0.65s;
+    animation-fill-mode: forwards;
+
+    &:hover {
+      background-color: tint($c-sif-prim-dark-color, 10%);
+    }
+  }
+
+  .evo_c-mini-form__btn--back {
+    background-color: shade($c-sif-white-color, 17%);
+    color: shade($c-sif-white-color, 3%);
+
+    &:hover {
+      background-color: shade($c-sif-white-color, 22%);
+    }
+  }
+
+  .evo_c-mini-form__submit-btn {
+    cursor: pointer;
+    color: $c-sif-white-color;
+    background-color: shade($c-sif-prim-color, 4%);
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: tint($c-sif-prim-dark-color, 10%);
+    }
+  }
+}
+
+// Animations
+@keyframes mini-fadeOut {
+  0% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes mini-expandToRight {
+  0% {
+    width: 0;
+    min-width: 0;
+  }
+  100% {
+    width: 19.5em;
+    min-width: 19em;
+  }
+}
+
+@keyframes mini-rollToLeft {
+  0% {
+    width: 19.5em;
+    min-width: 19em;
+  }
+  100% {
+    width: 0;
+    min-width: 0;
+  }
+}
+
+@keyframes mini-bgChange {
+  0% {
+    background-color: shade($c-sif-white-color, 5%);
+  }
+  75% {
+    background-color: shade($c-sif-white-color, 5%);
+  }
+  100% {
+    background-color: $c-sif-light-gray-color;
   }
 }
