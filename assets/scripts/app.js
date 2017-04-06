@@ -28,8 +28,12 @@ import singleInputForm from './evolution/single_input_form'
 import layerAnimations from './evolution/layer-animations'
 import layerDragAndDrop from './evolution/layer-drag-and-drop'
 import spaceSavingMinimalistForm from './evolution/space_saving_minimalist_form'
+<<<<<<< HEAD
 import curtain from './evolution/curtain'
 import text2speech from './evolution/text2speech'
+=======
+import shuffleGallery from './evolution/shuffle_gallery'
+>>>>>>> 5713eac0bc535eca478957362d5bfdea44fd0a43
 
 /************************************************************************
  *
@@ -82,8 +86,7 @@ documentReady(
   layerAnimations,
   layerDragAndDrop,
   stdTabs,
-  curtain,
-  text2speech
+  shuffleGallery
 )
 
 singleInputForm();
