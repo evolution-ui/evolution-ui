@@ -1,0 +1,38 @@
+//switch 2
+.s-container2{
+  position: relative;
+  padding-top: 3%;
+  padding-left: 5%;
+  margin: 3% 0 3% 0;
+}
+
+.s-container2 label{
+  font-weight: 200;
+  position: relative;
+  color: grey;
+}
+
+.switch-input-background{
+  //border: 1px solid grey;
+  display: inline;
+  border-radius: 3px;
+}
+
+.s-container2 .switch-input-background input[type="radio"]{
+  display: none;
+}
+
+.s-container2 label[for='r1'], .s-container2 label[for='r2']{
+  color: red;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.s-container2 .switch-input-background input:checked + label[for='r1'], .s-container2 .switch-input-background input:checked + label[for='r2']{
+  color: green;
+  font-weight: 500;
+}
+
+.s-container label[for='s1']:before, .s-container2 label[for='r1']:before, .s-container2 label[for='r2']:before{
+  content: '';
+}
