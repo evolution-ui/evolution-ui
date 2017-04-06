@@ -27,6 +27,7 @@ import layer_2d from './evolution/layer_2d'
 import singleInputForm from './evolution/single_input_form'
 import layerAnimations from './evolution/layer-animations'
 import layerDragAndDrop from './evolution/layer-drag-and-drop'
+import divTable from './evolution/div_table'
 
 /************************************************************************
  *
@@ -77,5 +78,6 @@ documentReady(
   singleInputForm,
   layerAnimations,
   layerDragAndDrop,
-  stdTabs
+  stdTabs,
+  divTable
 )
