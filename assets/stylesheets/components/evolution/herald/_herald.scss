@@ -41,7 +41,10 @@
     }
   }
   &__img {
-    background: url("../../../../images/component_assets/herald-demo-img.png");
+    // This URL access's the image in the development folder
+    // background: url("../../../../images/component_assets/herald-demo-img.png");
+    // This URL access's the image on the showcase site
+    background: url("/assets/images/component_assets/herald-demo-img.png");
     height: 50%;
     background-position: center center;
     background-repeat: no-repeat;
