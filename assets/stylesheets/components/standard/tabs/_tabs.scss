@@ -70,13 +70,110 @@
     }
 
     //--------------------------------------------------------------------------
-    //                    CARD - MODIFIER
+    //                          CARD - MODIFIER
     //--------------------------------------------------------------------------
 
     @include m('card') {
       box-shadow: 0 2px 4px 0 black(.16),
                   0 2px 11px 0 black(.12);
     }
+
+    //--------------------------------------------------------------------------
+    //                     SCROLL-FROM-TOP - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('scroll-from-top') {
+      @extend %c-tabs-scroll;
+
+      .#{$tab-content-selector} {
+        @extend %c-tabs-scroll-tab-content;
+        transform-origin: top center;
+        transform: translateY(-220%);
+        transition: transform 2s ease-in-out;
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                            Status
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include s('is-active') {
+            transform: translateY(0);
+          }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                     SCROLL-FROM-BOTTOM - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('scroll-from-bottom') {
+      @extend %c-tabs-scroll;
+
+      .#{$tab-content-selector} {
+        @extend %c-tabs-scroll-tab-content;
+        transform-origin: top center;
+        transform: translateY(200%);
+        transition: transform 2s ease-in-out;
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                            Status
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include s('is-active') {
+            transform: translateY(0);
+          }
+      }
+    }
+
+
+    //--------------------------------------------------------------------------
+    //                   SCROLL-FROM-LEFT - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('scroll-from-left') {
+      @extend %c-tabs-scroll;
+
+      .#{$tab-content-selector} {
+        @extend %c-tabs-scroll-tab-content;
+        transform-origin: left center;
+        transform: translateX(-220%);
+        transition: transform 2s ease-in-out;
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                            Status
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include s('is-active') {
+            transform: translateX(0);
+          }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                   SCROLL-FROM-RIGHT - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('scroll-from-right') {
+      @extend %c-tabs-scroll;
+
+      .#{$tab-content-selector} {
+        @extend %c-tabs-scroll-tab-content;
+        transform-origin: left center;
+        transform: translateX(220%);
+        transition: transform 2s ease-in-out;
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                            Status
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include s('is-active') {
+            transform: translateX(0);
+          }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                        Sticky-Half - MODIFIER
+    //--------------------------------------------------------------------------
 
     @include m('sticky-half') {
       display: flex;
@@ -96,21 +193,28 @@
       }
     }
 
+    //--------------------------------------------------------------------------
+    //                        LATERAL - MODIFIER
+    //--------------------------------------------------------------------------
 
     @include m('lateral') {
       display: flex;
       flex-wrap: wrap;
+      flex-direction: column;
 
       @media screen and (min-width: $c-tabs-media-tablet) {
         flex-wrap: nowrap;
+        flex-direction: row;
       }
 
       .#{$tab-list-selector} {
-        display: flex;
-        flex-direction: column;
+        @extend %c-tabs-flex-columns;
         min-width: $c-tabs-tab-lateral-list-min-width;
         height: 100%;
-        justify-content: space-around;
+
+          @media screen and (min-width: $c-tabs-media-tablet) {
+            justify-content: space-around;
+          }
       }
 
       .#{$tab-item-selector} {
@@ -119,17 +223,28 @@
       }
 
       .#{$tab-content-selector} {
-        min-height: 400px;
         flex-grow: 1;
+
+        @media screen and (min-width: $c-tabs-media-tablet) {
+          top: 0;
+          max-width: calc(100% - #{$c-tabs-tab-lateral-list-min-width + ($c-tabs-tab-content-padding * 2)});
+        }
       }
 
       .#{$sticky-selector} {
         flex-grow: 1;
       }
 
-        @include h('right', $apply-on-descendants: false) {
-          flex-direction: row-reverse;
-        }
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                        RIGTH - LETERAL HELPER
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include h('right', $apply-on-descendants: false) {
+
+            @media screen and (min-width: $c-tabs-media-tablet) {
+              flex-direction: row-reverse;
+            }
+          }
     }
 
 
@@ -138,8 +253,10 @@
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include e('navigation') {
+    font-size: $c-tabs-navigation-font-size;
     color: $c-tabs-link-color;
     background-color: $c-tabs-navigation-background-color;
+    z-index: $c-tabs-navigation-z-index;
 
       @include m('dark') {
         background-color: $c-tabs-navigation-dark-background-color;
@@ -233,6 +350,7 @@
   @include e('tabcontent') {
     @extend %c-tabs-display-none;
     padding: $c-tabs-tab-content-padding;
+    z-index: $c-tabs-tab-content-z-index;
 
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       //                            Status
