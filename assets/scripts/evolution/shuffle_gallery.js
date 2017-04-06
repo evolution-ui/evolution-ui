@@ -2,10 +2,11 @@ export default function() {
 
 	/******** Shuffle Gallery Component ********/
 
-	var links = document.getElementsByClassName("evo_c-shuffle-gallery__link");
+	var links = document.getElementsByClassName("evo_c-shuffle-gallery__link"),
+		linksLen = links && links.length || 0;
 
 	// Adds mouse event listener to all links
-	for (var i = 0; i < links.length; i++) {
+	for (var i = 0; i < linksLen; i++) {
 		links[i].addEventListener("mouseover", showImg);
 		links[i].addEventListener("mouseout", hideImg);
 	}
@@ -22,7 +23,7 @@ export default function() {
 	// Function to show an image on mouseover
 	function showImg(e){
 		var targetId = e.target.id;
-		for (var j = 0; j < links.length; j++) {
+		for (var j = 0; j < linksLen; j++) {
 			var id = links[j].getAttribute("id");
 			if((id !== targetId && id === "link_1") || (id !== targetId && id === "link_5") || (id !== targetId && id === "link_10") || (id !== targetId && id === "link_2") || (id !== targetId && id === "link_6") || (id !== targetId && id === "link_11")){
 				setProperties(links[j], "0", "translate3d(70%, 0px, 0px)");
@@ -44,7 +45,7 @@ export default function() {
 	function hideImg(e){
 		var targetId = e.target.id;
 
-		for (var j = 0; j < links.length; j++) {
+		for (var j = 0; j < linksLen; j++) {
 			var id = links[j].getAttribute("id");
 			if(id !== targetId){
 				setProperties(links[j], "1", "translate3d(0, 0, 0)");
