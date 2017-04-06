@@ -29,6 +29,7 @@ import layerAnimations from './evolution/layer-animations'
 import layerDragAndDrop from './evolution/layer-drag-and-drop'
 import spaceSavingMinimalistForm from './evolution/space_saving_minimalist_form'
 import curtain from './evolution/curtain'
+import text2speech from './evolution/text2speech'
 
 /************************************************************************
  *
@@ -52,6 +53,7 @@ import modals from './standard/modals'
  *                      COMPONENT INITIALIZATION
  *
  ***********************************************************************/
+
 
 
 documentReady(
@@ -81,6 +83,7 @@ documentReady(
   layerDragAndDrop,
   stdTabs,
   curtain,
+  text2speech
 )
 
 singleInputForm();
