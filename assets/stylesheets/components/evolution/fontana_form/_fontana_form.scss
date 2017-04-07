@@ -197,10 +197,9 @@
  padding-top:64.5%;
 }
 /* submit buttons */
-.evo_c-fontana-form__button_white, .evo_c-fontana-form__button_black{
+.evo_c-fontana-form__button--light, .evo_c-fontana-form__button--black{
   position:relative;
   left: -80px;
- /* padding: 30px 10px -12px 2px;*/
   background: #060708;
   margin : 20px auto;
   width : 250px;
@@ -212,12 +211,12 @@
   border-radius: 4px;
   box-shadow: 0px 1px 2px rgba(0,0,0,.2);
 }
-.evo_c-fontana-form__button_white{
+.evo_c-fontana-form__button--light{
   background:#e5e5e5;
 }
 
-.evo_c-fontana-form__button_black__btnText, 
-.evo_c-fontana-form__button_white__btnText{
+.evo_c-fontana-form__button--black-btnText, 
+.evo_c-fontana-form__button--light-btnText{
   text-align:center;
   padding-top:0.5em;
   color : white;
@@ -229,11 +228,11 @@
   font-weight:300;
 }
 
-.evo_c-fontana-form__button_white__btnText{
+.evo_c-fontana-form__button--light-btnText{
   color:black;
-}
+} 
 
-.evo_c-fontana-form__button_black__line-before{
+.evo_c-fontana-form__button--black-line_before{
   position:relative;
   top: 1.4em;
   height:1px;
@@ -248,7 +247,7 @@
     ) 100% 0 0 0/1px 0 0 0 stretch;
    box-shadow: inset 0 -3px 3px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 1px 0 rgba(255, 255, 255, 0.4), 0 2px 0 0 rgba(0, 0, 0, 0.2);
 }
-.evo_c-fontana-form__button_black__line-after{
+.evo_c-fontana-form__button--black-line_after{
   position:relative;
   bottom:0.25em;
   width:250px;
@@ -264,7 +263,7 @@
 
 }
 
-.evo_c-fontana-form__button_white__line-before{
+.evo_c-fontana-form__button--light-line_before{
   position:relative;
   top: 1.4em;
   border-style:solid;
@@ -278,7 +277,7 @@
     ) 100% 0 0 0/1px 0 0 0 stretch;
 
 }
-.evo_c-fontana-form__button_white__line-after{
+.evo_c-fontana-form__button--light-line_after{
   position:relative;
   bottom:0.25em;;
   width:250px;
@@ -294,6 +293,6 @@
 }
 
 
-.evo_c-fontana-form__button_black:active, .evo_c-fontana-form__button_white:active { 
+.evo_c-fontana-form__button--black:active, .evo_c-fontana-form__button--light:active { 
   box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
 }
