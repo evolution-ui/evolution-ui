@@ -83,10 +83,7 @@ documentReady(
   layerDragAndDrop,
   stdTabs,
   shuffleGallery
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ea632878191c5857059e95033b1f19d702f0fd8
 )
 
 singleInputForm();
