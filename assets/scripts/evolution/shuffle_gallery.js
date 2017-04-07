@@ -1,4 +1,8 @@
 export default function() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1ea632878191c5857059e95033b1f19d702f0fd8
 	/******** Shuffle Gallery Component ********/
 
 	var links = document.getElementsByClassName("evo_c-shuffle-gallery__link"),
@@ -43,7 +47,10 @@ export default function() {
 	// Function to hide an image on mouseout
 	function hideImg(e){
 		var targetId = e.target.id;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ea632878191c5857059e95033b1f19d702f0fd8
 		for (var j = 0; j < linksLen; j++) {
 			var id = links[j].getAttribute("id");
 			if(id !== targetId){
