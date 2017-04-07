@@ -894,7 +894,7 @@ Here is an example of what a component template file should look like:
 ```html
 ---
 title: "Burst"
-description: |
+description:
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, accusamus, minima. Sit, iure ipsum dolor, debitis aliquam facilis iste excepturi ullam doloribus odio suscipit necessitatibus aut, in dolores quas similique.</p>
 type: dot navigation
 order: 1
