@@ -43,10 +43,7 @@ export default function() {
 	// Function to hide an image on mouseout
 	function hideImg(e){
 		var targetId = e.target.id;
-<<<<<<< 8ee8e952d79d1e66a392b431d90d93aa3e00b130
 
-=======
->>>>>>> Updating modified script files
 		for (var j = 0; j < linksLen; j++) {
 			var id = links[j].getAttribute("id");
 			if(id !== targetId){
