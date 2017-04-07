@@ -7,13 +7,9 @@
 /* General styles
    ========================================================================== */
 
-.evo_c-modal-wrapper {
-  font-family: $g-framework-font-family;
-  font-size: $g-framework-base-font-size;
 
-  a {
-    text-decoration: none;
-  }
+.evo_c-modal-wrapper {
+
 }
 
 
@@ -21,26 +17,36 @@
 /* Modal buttons that trigger modals
    ========================================================================== */
 
-.evo_c-modal-trigger {
-  background: transparent;
+a.evo_c-modal-trigger {
+  font-family: $g-framework-font-family;
+  font-size: 1rem;
+  background: $c-modal-white-color;
   border: 0.1em solid $c-modal-basic-color;
   border-radius: 0.2em;
   cursor: pointer;
   display: inline-block;
-  font-family: inherit;
   line-height: 2.4em;
   margin: 0 0.5em;
   padding: 0.1em 1.2em;
   position: relative;
-  color: $c-modal-basic-color;
+
+  &:link,
+  &:visited {
+    @extend %c-modal-link;
+  }
   &:hover {
     background-color: $c-modal-basic-color;
     color: $c-modal-white-color;
+  }
+
+  &:active {
+    @extend %c-modal-link;
   }
 }
 
 /* Overlay styles
    ========================================================================== */
+
 .evo_c-modal-overlay {
   position: fixed;
   top: 0;
@@ -52,11 +58,11 @@
   visibility: hidden;
   transition: visibility 0s, opacity 0.3s;
 
-  &.evo_c-modal-overlay--gray {
+  &--default {
     background-color: shade($c-modal-white-color, 4%);
     opacity: 0.6;
   }
-  &.evo_c-modal-overlay--full {
+  &--full {
     background-color: tint($c-modal-basic-color, 30%);
     opacity: 1;
   }
@@ -68,6 +74,12 @@
 
 .evo_c-modal {
   @extend %c-modal-basic;
+
+  * {
+    font-family: $g-framework-font-family;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
 
   &__content {
     width: 100%;
@@ -100,7 +112,9 @@
     align-items: center;
   }
 
-  &__close {
+  a.evo_c-modal__close {
+    @extend %c-modal-link;
+
     border: none;
     border-radius: 3px;
     padding: 0.6em 1em;
@@ -189,25 +203,25 @@
    ========================================================================== */
 
 // Spin
-.c-modal-transition--0 {
+.c-modal-transition--spin {
   @extend %c-modal-transform-basic;
   transform: scale(1) rotate(0deg);
 }
 
 // Fade in and scale up
-.c-modal-transition--1 {
+.c-modal-transition--full {
   @extend %c-modal-transform-basic;
   transform: scale(1);
 }
 
 // Fade in and scale down
-.c-modal-transition--2 {
+.c-modal-transition--scale-down {
   @extend %c-modal-transform-basic;
   transform: scale(1);
 }
 
 // Fade in and stick at top
-.c-modal-transition--3 {
+.c-modal-transition--stick-top {
   @extend %c-modal-transform-basic;
   transform: translateY(0%);
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
