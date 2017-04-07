@@ -48,20 +48,29 @@ We use the [Gitflow Workflow][gitflow] for this project. If you would like to ma
 
     **IMPORTANT:** All work stems from the `development` branch. Never start new work directly from the `master` branch, or work directly on the `master` branch.
 
-4. From the `development` branch, create a new feature branch that describes your contribution in a few short words (e.g. `my-new-component`) and begin working:
+4. If you haven’t yet, install the the required packages for the framework and the showcase website by running the following command(s):
+
+    ```bash
+    npm install
+    cd docs/
+    gem install bundler
+    bundle install
+    ```
+
+5. From the `development` branch, create a new feature branch that describes your contribution in a few short words (e.g. `my-new-component`) and begin working:
 
     ```bash
     git checkout -b my-new-component
     npm start
     ```
 
-5. Remember to rebase often to stay updated and minimize conflicts:
+6. Remember to rebase often to stay updated and minimize conflicts:
 
     ```bash
     git pull --rebase upstream development
     ```
 
-6. When your component is ready, [submit a Pull Request][pull-request] to the `development` branch of the original repository. Your work will be reviewed by one of the core maintainers, as soon as possible.
+7. When your component is ready, [submit a Pull Request][pull-request] to the `development` branch of the original repository. Your work will be reviewed by one of the core maintainers, as soon as possible.
 
 ## Building a component
 
