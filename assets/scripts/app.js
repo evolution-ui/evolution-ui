@@ -29,7 +29,8 @@ import layerAnimations from './evolution/layer-animations'
 import layerDragAndDrop from './evolution/layer-drag-and-drop'
 import spaceSavingMinimalistForm from './evolution/space_saving_minimalist_form'
 import shuffleGallery from './evolution/shuffle_gallery'
-
+import curtain from './evolution/curtain'
+import text2speech from './evolution/text2speech'
 
 /************************************************************************
  *
@@ -82,8 +83,9 @@ documentReady(
   layerAnimations,
   layerDragAndDrop,
   stdTabs,
-  shuffleGallery
-
+  shuffleGallery,
+  curtain,
+  text2speech
 )
 
 singleInputForm();
