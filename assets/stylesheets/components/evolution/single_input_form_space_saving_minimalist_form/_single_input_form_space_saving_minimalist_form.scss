@@ -15,6 +15,12 @@
   font-family: $g-framework-font-family;
   font-size: 1rem;
   position: relative;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: inherit;
+    font-size: inherit;
+  }
 
   label,
   input,
@@ -33,10 +39,10 @@
   bottom: 0;
   right: 0;
   flex-wrap: nowrap;
-  width: 12em;
+  width: 18em;
   height: 3em;
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-left: 3.5em;
+  padding-right: 3.5em;
   background-color: shade($c-sif-white-color, 10%);
   border-radius: 1.5em;
   overflow: hidden;
@@ -57,9 +63,9 @@
   }
 
   .evo_c-sif__input {
+    cursor: text;
     border: 0;
     line-height: 2.4em;
-    font-size: inherit;
     color: $c-sif-input-txt-color;
     margin-left: 0;
     background-color: transparent;
@@ -221,16 +227,10 @@
 
 // General styles
 .evo_c-mini-form {
-  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   background-color: $c-sif-white-color;
-
-  * {
-    box-sizing: inherit;
-    font-size: inherit;
-  }
 
   .evo_c-mini-form__btn--prev {
     display: block;

@@ -1,7 +1,7 @@
 import * as utils from './layer-utils'
 
 const layers = Array.from(document.querySelectorAll('.evo_c-3dlayer'))
-const layerDragIcons = Array.from(document.querySelectorAll('.evo_c-3dlayer__header__icon-drag'))
+const layerDragIcons = Array.from(document.querySelectorAll('.evo_c-3dlayer__icon-drag'))
 
 let draggedLayer = undefined
 

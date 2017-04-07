@@ -47,6 +47,7 @@ import stdCarousel from './standard/carousel'
 import stdTabs from './standard/tabs'
 import sticky from './standard/sticky'
 import modals from './standard/modals'
+import audioPlayer from './standard/audio_player'
 
 
 /************************************************************************
@@ -90,3 +91,4 @@ documentReady(
 
 singleInputForm();
 spaceSavingMinimalistForm();
+audioPlayer();
