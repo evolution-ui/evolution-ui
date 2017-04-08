@@ -33,6 +33,12 @@ export default function() {
     },
 
     toggleSpeechController: function (e) {
+
+      // When the checkbox is null, do nothing
+      if (!this.chbxReadController) {
+        return;
+      }
+
       if (this.chbxReadController.checked === false) {
         // console.log(e.target);
         document.querySelector('.evo_c-text2speech__controller ').style.transform = 'translateX(-5.4rem)';
