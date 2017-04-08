@@ -43,7 +43,7 @@ export default function() {
 
       var target = event.target;
       var isOpenButton = getClassName(target, '--expand')[0];
-      var isCloseButton = getClassName(target, 'js-c-event-close-button')[0];
+      var isCloseButton = getClassName(target, 'js-crumble-close-button')[0];
 
       if ( isOpenButton ) {
 
@@ -52,12 +52,12 @@ export default function() {
         $('[class*="crumble__span"]' , target).classList.toggle('is-active');
         $('[class*="c-event"]' , target).classList.toggle('is-open');
 
-        $('[class*="event__header"]', target).classList.toggle('is-rotate-to-initial');
-        $('[class*="event__body"]', target).classList.toggle('is-rotate-to-initial');
+        $('[class*="event__header"]', target).classList.toggle('is-rotated-to-zero');
+        $('[class*="event__body"]', target).classList.toggle('is-rotated-to-zero');
 
       } else if ( isCloseButton ) {
-        target.parentElement.classList.remove('is-rotate-to-initial');
-        target.parentElement.nextElementSibling.classList.remove('is-rotate-to-initial');
+        target.parentElement.classList.remove('is-rotated-to-zero');
+        target.parentElement.nextElementSibling.classList.remove('is-rotated-to-zero');
         target.parentElement.parentElement.classList.remove('is-open');
         target.parentElement.parentElement.previousElementSibling.classList.remove('is-active');
       }
