@@ -1,7 +1,23 @@
 ---
 title: "Default"
 description: |
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, accusamus, minima. Sit, iure ipsum dolor, debitis aliquam facilis iste excepturi ullam doloribus odio suscipit necessitatibus aut, in dolores quas similique.</p>
+  <p>
+    Crumble is an evolution UI component useful when you want to aggregate more
+    details in a small space.
+  </p>
+  <p>
+    The inner <em>event</em> wrapper must contain:
+     <ul>
+      <li>a <em>header</em> element (<code>evo_c-event__header</code>)</li>
+      <li>a <em>body</em> element (<code>evo_c-event__body</code>)</li>
+     </ul>
+  </p>
+  <p>
+    You can exploit the <em>description</em> element if you want to extend
+    the available space for providing more information to the end user.
+    (<code>evo_c-event__description</code>). Like the Tuesday event in the
+    following example.
+  </p>
 type: crumble
 order: 1
 ---
@@ -17,7 +33,7 @@ order: 1
       <div class="evo_c-event">
         <div class="evo_c-event__header">
           <h5 class="evo_c-event__title">Event Details</h5>
-          <i class="evo_c-crumble__icon--close js-c-event-close-button material-icons">close</i>
+          <i class="evo_c-crumble__icon--close js-crumble-close-button material-icons">close</i>
         </div>
         <div class="evo_c-event__body">
           <ul class="evo_c-crumble__list evo_c-crumble__list--actions">
@@ -54,7 +70,7 @@ order: 1
       <div class="evo_c-event">
         <div class="evo_c-event__header">
           <h5 class="evo_c-event__title">Event Details</h5>
-          <i class="evo_c-crumble__icon--close js-c-event-close-button material-icons">close</i>
+          <i class="evo_c-crumble__icon--close js-crumble-close-button material-icons">close</i>
         </div>
         <div class="evo_c-event__body">
           <ul class="evo_c-crumble__list evo_c-crumble__list--actions">
@@ -81,44 +97,12 @@ order: 1
           </ul>
         </div>
         <div class="evo_c-event__description">
-        Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation minim nostrud enim dolor fugiat incididunt cillum in fugiat exercitation ad.
-        </div>
-      </div>
-    </li>
-    <li class="evo_c-crumble__item">
-      <div class="evo_c-crumble__tag" data-tag="wed">03</div>
-      <span class="evo_c-crumble__span">
-        <i class="evo_c-crumble__icon--expand material-icons">expand_more</i>
-        Wednesday
-      </span>
-      <div class="evo_c-event">
-        <div class="evo_c-event__header">
-          <h5 class="evo_c-event__title">Event Details</h5>
-          <i class="evo_c-crumble__icon--close js-c-event-close-button material-icons">close</i>
-        </div>
-        <div class="evo_c-event__body">
-          <ul class="evo_c-crumble__list evo_c-crumble__list--actions">
-            <li>
-              <a href="#" title="dashboard">
-                <i class="evo_c-crumble__icon material-icons">dashboard</i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="credit_card">
-                <i class="evo_c-crumble__icon material-icons">credit_card</i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="date_range">
-                <i class="evo_c-crumble__icon material-icons">date_range</i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="explore">
-                <i class="evo_c-crumble__icon material-icons">explore</i>
-              </a>
-            </li>
-          </ul>
+          <h2 class="evo_h-typo__h3">Full Description</h2>
+          <p>
+            Lorem ipsum Consectetur Ut fugiat sed esse ut dolore Ut exercitation
+            minim nostrud enim dolor fugiat incididunt cillum in fugiat
+            exercitation ad.
+          </p>
         </div>
       </div>
     </li>

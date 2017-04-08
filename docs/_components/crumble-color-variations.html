@@ -1,16 +1,27 @@
 ---
-title: "Details at full width"
+title: "Color Variations"
 description: |
   <p>
-    By adding the <code>evo_c-crumble--full-width</code> class into the main
-     wrapper element, event details will be shown at full width.
+    Crumble comes with four variation of colors based on the Evolution UI color
+    palette.
+  </p>
+  <ul>
+    <li><code>background</code></li>
+    <li><code>secondary</code></li>
+    <li><code>accent3</code></li>
+    <li><code>accent4</code></li>
+  </ul>
+  <p>
+    Each variation can be applied to the entire list of events
+    <code>evo_c-crumble__list</code> or to a single
+    item <code>evo_c-crumble__item</code>.
   </p>
 type: crumble
-order: 2
+order: 4
 ---
 
-<div class="evo_c-crumble evo_c-crumble--full-width">
-  <ul class="evo_c-crumble__list">
+<div class="evo_c-crumble">
+  <ul class="evo_c-crumble__list evo_c-crumble__list--background">
     <li class="evo_c-crumble__item">
       <div class="evo_c-crumble__tag" data-tag="">1</div>
       <span class="evo_c-crumble__span">
@@ -48,7 +59,7 @@ order: 2
         </div>
       </div>
     </li>
-    <li class="evo_c-crumble__item">
+    <li class="evo_c-crumble__item evo_c-crumble__item--accent4">
       <div class="evo_c-crumble__tag" data-tag="">2</div>
       <span class="evo_c-crumble__span">
         <i class="evo_c-crumble__icon--expand material-icons">expand_more</i>
