@@ -1,0 +1,99 @@
+
+
+@import 'spiralText_button-config';
+
+// Spiral Text in Button
+.evo_c-spiral__text * {
+  box-sizing: border-box;
+}
+
+.evo_c-spiral__text {
+
+  @extend %c-spiralText_button-clearDefaults;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: $c-spiralText_button-background-color;
+  width: auto;
+  font-family: inherit;
+  height: 36px;
+  padding: 0 12px;
+  width: 300px;
+  border-radius: 3px;
+  font-size: $c-spiralText-button-font-size;
+  color: $c-spiralText-button-font-color;
+  &:hover {
+    @extend %c-spiralText_button-pointer;
+    background: lighten($c-spiralText_button-background-color, 5%);
+    em:nth-of-type(5n+1) {
+      background-color: get-color(primary, dark);
+    }
+    em:nth-of-type(5n+2) {
+      background-color: get-color(accent, base);
+    }
+    em:nth-of-type(5n+3) {
+      background-color: get-color(accent2, base);
+    }
+    em:nth-of-type(5n+4) {
+      background-color: get-color(accent3, base);
+    }
+    em:nth-of-type(5n+5) {
+      background-color: get-color(accent4, base);
+    }
+    em {
+      transform: rotateY(360deg);
+    }
+  }
+  em {
+    transition: background .25s, transform .25s;
+    width: 1.25em;
+    $i: 2;
+    $j: 4;
+    @while $i > 0 {
+      &:nth-of-type(#{$i}) {
+        transition-delay: .0#{$j}s;
+        $i: $i + 1;
+        $j: $j + 4;
+      }
+    }
+    // &:nth-of-type(2) {
+    //   transition-delay: .04s;
+    // }
+    // &:nth-of-type(3) {
+    //   transition-delay: .08s;
+    // }
+    // &:nth-of-type(4) {
+    //   transition-delay: .12s;
+    // }
+    // &:nth-of-type(5) {
+    //   transition-delay: .16s;
+    // }
+    // &:nth-of-type(6) {
+    //   transition-delay: .20s;
+    // }
+    // &:nth-of-type(7) {
+    //   transition-delay: .24s;
+    // }
+    // &:nth-of-type(8) {
+    //   transition-delay: .28s;
+    // }
+    // &:nth-of-type(9) {
+    //   transition-delay: .32s;
+    // }
+    // &:nth-of-type(n+10) {
+    //   transition-delay: .36s;
+    // }
+    // &:last-of-type {
+    //   transition-delay: .4s;
+    // }
+  }
+  .space {
+    margin: 0 6px;
+  }
+  &.evo_c-spiral__text--circle {
+    em {
+      border-radius: 50%;
+    }
+  }
+}
