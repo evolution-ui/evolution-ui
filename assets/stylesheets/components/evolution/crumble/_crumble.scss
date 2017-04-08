@@ -7,10 +7,15 @@
 
 
 @include c( $c-crumble-name ) {
+
   @include vertical-rhythm(1rem);
+  font-family: $g-framework-font-family;
   font-weight: $c-crumble-font-weight;
 
-  // Full width Event Details
+  //----------------------------------------------------------------------------
+  //                      EVENT DETAILS - Full Width
+  //----------------------------------------------------------------------------
+
   @include m('full-width') {
 
     $reference-crumble-item: getBEMReference($c-crumble-name, 'item');
@@ -21,8 +26,17 @@
     }
   }
 
-  // List element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             LIST ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   @include e( 'list' ) {
+
+    $list-item: getBEMReference($c-crumble-name, 'item');
+
+    position: relative;
+    bottom: 10px;
+    margin: 0;
     padding: 0;
     list-style-type: none;
 
@@ -30,9 +44,72 @@
       display: flex;
       justify-content: center;
     }
+
+    //--------------------------------------------------------------------------
+    //                       SIZE HELPERS - LIST ELEMENT
+    //--------------------------------------------------------------------------
+
+    @include h('space-around', $g-no-prefix, $apply-on-descendants: false) {
+      justify-content: space-around;
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    //--------------------------------------------------------------------------
+    //                   COLOR MODIFIER - ITEM ELEMENT
+    //--------------------------------------------------------------------------
+
+    @include m('secondary') {
+
+      .#{$list-item} {
+        background-color: get-color('secondary', 'dark');
+
+        &:hover {
+          background-color: get-color('secondary', $opacity: .9);
+        }
+      }
+    }
+
+    @include m('accent3') {
+
+      .#{$list-item} {
+        background-color: get-color('accent3');
+
+        &:hover {
+          background-color: tint(get-color('accent3'), 9%);
+        }
+      }
+    }
+
+    @include m('accent4') {
+
+      .#{$list-item} {
+        background-color: get-color('accent4', 'dark');
+
+        &:hover {
+          background-color: get-color('accent4');
+        }
+      }
+    }
+
+    @include m('background') {
+
+      .#{$list-item} {
+
+        background-color: get-color('background');
+
+        &:hover {
+          background-color: get-color('background', $opacity: .9);
+        }
+      }
+    }
+
   }
 
-  // Item element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             ITEM ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   @include e('item') {
     position: relative;
     display: flex;
@@ -43,16 +120,55 @@
       &:hover {
         background-color: get-color('primary', $opacity: .9);
       }
+
+      //--------------------------------------------------------------------------
+      //                   COLOR MODIFIER - ITEM ELEMENT
+      //--------------------------------------------------------------------------
+
+      @include m('secondary') {
+        background-color: get-color('secondary', 'dark')!important;
+
+        &:hover {
+          background-color: get-color('secondary', $opacity: .9)!important;
+        }
+      }
+
+      @include m('accent3') {
+        background-color: get-color('accent3')!important;
+
+        &:hover {
+          background-color: tint(get-color('accent3'), 9%)!important;
+        }
+      }
+
+      @include m('accent4') {
+        background-color: get-color('accent4', 'dark')!important;
+
+        &:hover {
+          background-color: get-color('accent4')!important;
+        }
+      }
+
+      @include m('background') {
+        background-color: get-color('background')!important;
+
+        &:hover {
+          background-color: get-color('background', $opacity: .9)!important;
+        }
+      }
   }
 
-  // Tag element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             TAG ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   @include e('tag') {
     position: absolute;
     left: 10px;
     top: 0;
     display: flex;
     height: 100%;
-    width: 60px;
+    width: $c-crumble-tag-width;
     background-color: rgb(196, 196, 179);
     align-items: center;
     justify-content: center;
@@ -65,13 +181,17 @@
       };
   }
 
-  // SPAN element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             SPAN ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   @include e('span') {
+    padding-left: #{$c-crumble-tag-width + 40px};
+    width: calc(100% - #{$c-crumble-tag-width});
+    min-height: $c-crumble-span-min-height;
     display: flex;
     align-items: center;
     color: white();
-    padding-left: 100px;
-    min-height: $c-crumble-span-min-height;
 
     @include s('is-active') {
       min-height: 0;
@@ -81,11 +201,12 @@
     }
   }
 
-  // ICON element
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             ICON ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   @include e('icon') {
     @extend %c-crumble-pointer;
-    position: relative;
-    bottom: 10px;
     padding: 10px;
     color: white(0.69);
     background-color: get-color('secondary', 'light');
@@ -119,8 +240,13 @@
       }
   }
 
-  // The inner Event component
-  @include c('event') {
+  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  //
+  //                             EVENT COMPONENT
+  //
+  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  @include c($c-crumble-event-name) {
     min-height: 0;
     height: 0;
     background-color: rgb(0, 0, 0);
@@ -131,15 +257,25 @@
 
     // Status
     @include s('is-open') {
+
+      $event-description: getBEMReference($c-crumble-event-name, 'description');
+
       min-height: $c-crumble-header-height + $c-crumble-body-height;
       height: auto;
       width: 100%;
       overflow: initial;
+
+        .#{$event-description} {
+          opacity: 1;
+          max-height: 2000px;
+        }
     }
 
     // event__title
     @include e('title') {
+      margin: 0;
       color: white();
+      font-weight: 400;
       text-transform: uppercase;
       letter-spacing: .3rem;
     }
@@ -150,7 +286,7 @@
 
       position: relative;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
       height: $c-crumble-header-height;
       text-align: center;
@@ -159,12 +295,15 @@
       transform-origin: 50% 0;
       transform-style: preserve-3d;
 
-      @include s('is-rotate-to-initial') {
+      @include s('is-rotated-to-zero') {
         @extend %c-crumble-rotate-to-initial;
       }
     }
 
-    // event__body
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //                          EVENT's BODY ELEMENT
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     @include e('body') {
       @extend %c-crumble-unfold-transition;
       height: $c-crumble-body-height;
@@ -175,15 +314,31 @@
       transform-style: preserve-3d;
       overflow: visible;
 
-      @include s('is-rotate-to-initial') {
+      @include s('is-rotated-to-zero') {
         @extend %c-crumble-rotate-to-initial;
       }
     }
 
-    // .event____description
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //                          EVENT's DESCRIPTION ELEMENT
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     @include e('description') {
+      max-height: 0;
+      opacity: 0;
       padding: 5px;
       color: white(.8);
+      overflow: hidden;
+      transition: max-height 3.5s #{$c-crumble-unfold-duration - .3s} ease-in,
+                  opacity .7s #{$c-crumble-unfold-duration - .3s} ease-in;
+
+        * {
+          color: white();
+        }
+
+        @media screen and (min-width: $c-crumble-media-tablet) {
+          padding: 15px;
+        }
     }
   }
 
