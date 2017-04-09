@@ -1,0 +1,67 @@
+---
+title: "Standard"
+description:
+  <p>Tooltips are simple text/html that appear when the user hovers over or touches an element. Use tooltips to display
+    auxiliary/complementary information.</p>
+
+  <h3>Creating and Using Tooltips</h3>
+  <p>To create a tooltip within your page, decide what part of text or html on your page needs a tooltip and wrap
+    that portion with a <code>span</code> or <code>div</code> tag and add <code>evo_c-tooltip-container</code> class to
+    this wrapper tag.</p>
+  <p>Along with that, just add your tooltip contents (can be plain text or html code) within the same wrapping element.
+    Wrap your tooltip contents inside a tag with class <code>evo_c-tooltip</code>.</p>
+  <p>By default the tooltip will slide in from above, but you may define <code>flow</code> attribute on the tooltip
+    and set it to <code>left</code>, <code>right</code>, <code>up</code> or <code>down</code> to make them slide in from
+    left, right, above or bottom respectively.</p>
+
+  <h3>Upcoming Enhancements</h3>
+  <ul>
+    <li>Container Collision Detection and Position Adjust</li>
+    <li>Dynamic Sizing</li>
+    <li>New Positions: Top-Left, Top-Right, Bottom-Left and Bottom-Right</li>
+    <li>Background Color Choices</li>
+  </ul>
+  <h3>Examples</h3>
+  <p>Hover over the links below to see tooltips:</p>
+
+type: tooltips
+order: 1
+---
+
+  <p>The tooltips may slide in from
+    <!-- Default tooltip from above (no flow attribute) -->
+    <span class="evo_c-tooltip-container">
+      <a href="#">above by default</a>
+      <span class="evo_c-tooltip">Default tooltip from above.</span>
+    </span>, or from
+
+    <!-- Tooltip from Left (flow="left") -->
+    <span class="evo_c-tooltip-container">
+      <a href="#">left</a>
+      <span class="evo_c-tooltip" flow="left">Tooltip from left.</span>
+    </span>, or from
+
+    <!-- Tooltip from Right (flow="right") -->
+    <span class="evo_c-tooltip-container">
+      <a href="#">right</a>
+      <span class="evo_c-tooltip" flow="right">Tooltip from right.</span>
+    </span>, or from
+
+    <!-- Tooltip from Bottom (flow="down") -->
+    <span class="evo_c-tooltip-container">
+      <a href="#">bottom</a>
+      <span class="evo_c-tooltip" flow="down">Tooltip from bottom.</span>
+    </span>. Moreover, tooltips may contain
+
+    <!-- Plain Text tooltip (flow="up") -->
+    <span class="evo_c-tooltip-container">
+      <a href="#">plain text</a>
+      <span class="evo_c-tooltip" flow="up">This is a plain text tooltip.</span>
+    </span> or
+
+    <!-- Tooltip with HTML (flow="up")-->
+    <span class="evo_c-tooltip-container">
+      <a href="#">html (including images)</a>
+      <span class="evo_c-tooltip" flow="up"><em>Tooltip</em> with <strong>HTML</strong>.</span>
+    </span>.
+  </p>
