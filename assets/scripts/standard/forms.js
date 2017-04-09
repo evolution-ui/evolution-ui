@@ -1,6 +1,7 @@
 export default function() {
 
   var selectors = {
+    form: '.evo_c-form',
     field: '[class*=form__field]'
   }
 
@@ -110,7 +111,7 @@ export default function() {
     }
   }
 
-  var formsList = $$( '[class$="c-form"]' );
+  var formsList = $$( selectors.form );
 
   [].slice.call(formsList).forEach(function(form){
     form.addEventListener( 'click', function(event) {
