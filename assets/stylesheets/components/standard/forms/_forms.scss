@@ -26,28 +26,29 @@
   $footer-selector: getBEMReference($c-form-component-name, 'footer');
 
   // Provide brackgrounds and text color variations
-  @include backgroundVariants($is-descendant: true);
-  @include textVariants($is-descendant: true);
+  @include backgroundVariants($is-descendant: false, $opacity: .09);
 
   padding: $c-form-padding-tiny;
+  margin:  $c-form-margin;
 
   font-family: $g-framework-font-family;
   font-size: $g-framework-base-font-size;
 
 
   @media screen and (min-width: $c-form-media-desktop) {
-    width: 75%;
-    margin: 0 auto;
     padding: $c-form-padding-default;
   }
 
   @media screen and (min-width: $c-form-media-desktop-HD) {
-    width: 80%;
     padding: $c-form-padding-huge;
   }
 
   @include h( 'full-width', $g-no-prefix ) {
     width: 100%;
+  }
+
+  @include h( 'center', $g-no-prefix ) {
+    margin: 0 auto;
   }
 
   @include h( 'border', $g-no-prefix ) {
@@ -230,17 +231,34 @@
       background-color: get-color('primary2');
     }
 
+    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+
+      @include _generate-button('primary');
+      @include _generate-button('secondary');
+      @include _generate-button('accent');
+      @include _generate-button('accent2');
+      @include _generate-button('accent3');
+      @include _generate-button('accent4');
+      @include _generate-button('background');
+
+    }
+
     //--------------------------------------------------------------------------
     //                       SIZE HELPERS - BUTTON
     //--------------------------------------------------------------------------
 
-    @include h('padding-small', $g-no-prefix, $apply-on-descendants: false) {
-      padding: $c-form-button-padding-small;
+    @include h('padding', $g-no-prefix, $apply-on-descendants: false) {
+
+      @include m('small') {
+        padding: $c-form-button-padding-small;
+      }
+
+      @include m('huge') {
+        padding: $c-form-button-padding-huge;
+      }
+
     }
 
-    @include h('padding-huge', $g-no-prefix, $apply-on-descendants: false) {
-      padding: $c-form-button-padding-huge;
-    }
 
 
     //--------------------------------------------------------------------------
@@ -252,20 +270,17 @@
     }
 
     //--------------------------------------------------------------------------
-    //                         Type2 - BUTTON
+    //                     COLOR VARIATIONS - BUTTON
     //--------------------------------------------------------------------------
 
-    @include m( 'type2' ) {
-      color: white(.85);
-      background-color: get-color('primary');
-      border: 0;
-      text-shadow: 0 1px 1px black(.5);
+    @include _generate-button-type-2('primary');
+    @include _generate-button-type-2('secondary');
+    @include _generate-button-type-2('accent');
+    @include _generate-button-type-2('accent2');
+    @include _generate-button-type-2('accent3');
+    @include _generate-button-type-2('accent4');
+    @include _generate-button-type-2('background');
 
-      &:hover {
-        color: white();
-        background-color: get-color('primary', light);
-      }
-    }
   }
 
 
@@ -400,8 +415,8 @@
     &:checked + .#{$checkbox-x}:before {
       @extend %c-form-checkbox-sizes;
       @extend %c-form-checkbox-x-before-after-borders;
-      top: -4px;
-      left: -15px;
+      top: -2px;
+      left: -13px;
       transform: rotate(45deg);
       -webkit-backface-visibility: hidden;
       transform-origin: 100% 100%;
@@ -432,32 +447,16 @@
     //                    COLOR VARIATIONS - CHECKBOX
     //----------------------------------------------------------------------
 
-    @include m('accent') {
-      border-top-color: $c-form-checkbox-border-color-accent;
-      border-left-color: $c-form-checkbox-border-color-accent;
-      border-bottom-color: $c-form-checkbox-border-color-accent;
-      border-right-color: $c-form-checkbox-border-color-accent;
-    }
+    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
 
-    @include m('accent2') {
-      border-top-color: $c-form-checkbox-border-color-accent2;
-      border-left-color: $c-form-checkbox-border-color-accent2;
-      border-bottom-color: $c-form-checkbox-border-color-accent2;
-      border-right-color: $c-form-checkbox-border-color-accent2;
-    }
+      @include _generate-checkbox-color('primary');
+      @include _generate-checkbox-color('secondary');
+      @include _generate-checkbox-color('accent');
+      @include _generate-checkbox-color('accent2');
+      @include _generate-checkbox-color('accent3');
+      @include _generate-checkbox-color('accent4');
+      @include _generate-checkbox-color('background');
 
-    @include m('accent3') {
-      border-top-color: $c-form-checkbox-border-color-accent3;
-      border-left-color: $c-form-checkbox-border-color-accent3;
-      border-bottom-color: $c-form-checkbox-border-color-accent3;
-      border-right-color: $c-form-checkbox-border-color-accent3;
-    }
-
-    @include m('accent4') {
-      border-top-color: $c-form-checkbox-border-color-accent4;
-      border-left-color: $c-form-checkbox-border-color-accent4;
-      border-bottom-color: $c-form-checkbox-border-color-accent4;
-      border-right-color: $c-form-checkbox-border-color-accent4;
     }
 
     &:before {
@@ -619,6 +618,18 @@
     background-color: get-color('primary');
     width: 0;
     transition: width .3s ease-in-out;
+
+    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+
+      @include _generate-focus-line('primary');
+      @include _generate-focus-line('secondary');
+      @include _generate-focus-line('accent');
+      @include _generate-focus-line('accent2');
+      @include _generate-focus-line('accent3');
+      @include _generate-focus-line('accent4');
+      @include _generate-focus-line('background');
+
+    }
 
   }
 

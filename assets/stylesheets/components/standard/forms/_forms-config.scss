@@ -11,6 +11,8 @@ $c-form-padding-default: 20px;
 $c-form-padding-large: 30px;
 $c-form-padding-huge:  60px;
 
+$c-form-margin: 30px 0;
+
 
 //------------------------------------------------
 //              Media Queries
@@ -195,4 +197,48 @@ $c-form-dropdown-font-size-large: 1.25rem;
 
 %c-form-pointer {
   cursor: pointer;
+}
+
+//------------------------------------------------------------------------------
+//                          Forms Mixins
+//------------------------------------------------------------------------------
+
+
+@mixin _generate-button($color-name, $color-name-hover: null) {
+  @include m($color-name) {
+    border: 1px solid get-color($color-name, 'light');
+    &:hover {
+      color: if($color-name-hover != null, get-color($color-name-hover), white());
+      background-color: get-color($color-name);
+    }
+  }
+}
+
+@mixin _generate-button-type-2($color-name, $color-name-hover: null) {
+  @include m($color-name) {
+    color: white(.9);
+    background-color: get-color($color-name);
+    border: 0;
+    text-shadow: 0 1px 1px black(.5);
+
+    &:hover {
+      color: if($color-name-hover != null, get-color($color-name-hover), white());
+      background-color: get-color($color-name, light);
+    }
+  }
+}
+
+@mixin _generate-focus-line($color-name){
+  @include m($color-name) {
+    background-color: get-color($color-name);
+  }
+}
+
+@mixin _generate-checkbox-color($color-name){
+  @include m($color-name) {
+    border-top-color: get-color($color-name);
+    border-left-color: get-color($color-name);
+    border-bottom-color: get-color($color-name);
+    border-right-color: get-color($color-name);
+  }
 }
