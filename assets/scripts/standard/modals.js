@@ -35,11 +35,9 @@ export default function() {
     activeModal = document.getElementById(triggerHref.slice(1));
 
     if (activeModal.classList.contains('evo_c-modal--full')) {
-      console.log('full');
       overlayClass = 'evo_c-modal-overlay--full';
       transitionClass = 'c-modal-transition--full';
     } else {
-      console.log('NOTfull');
       overlayClass = 'evo_c-modal-overlay--default';
       if (activeModal.classList.contains('evo_c-modal--basic'))
         transitionClass = 'c-modal-transition--spin';
