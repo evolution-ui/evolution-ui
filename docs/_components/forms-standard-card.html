@@ -1,0 +1,125 @@
+---
+title: "Card"
+description: |
+
+  <p>
+    Add the <code>card</code> modifier to a standard form to get a card form
+  </p>
+
+type: Standard Forms
+order: 2
+---
+
+
+<div class="evo_c-form evo_c-form--card">
+
+  <form class="js-validation">
+
+    <div class="evo_c-form__header">
+      <h2 class="evo_c-form__title h-txt__accent evo_c-typo__h2">join us</h2>
+    </div>
+
+    <!-- FORM BODY -->
+    <div class="evo_c-form__body">
+
+      <!-- username -->
+      <div class="evo_c-form__field">
+        <i class="evo_c-form__icon material-icons">person</i>
+        <label class="evo_c-form__label">Name</label>
+        <input class="evo_c-form__input"
+               id="name"
+               type="text" required>
+        <div class="evo_c-form__focus-line"></div>
+
+        <div class="evo_c-form__tooltip">
+          <span class="evo_c-form__tooltip-text">This field cannot be empty</span>
+        </div>
+      </div>
+
+      <!-- email -->
+      <div class="evo_c-form__field">
+        <i class="evo_c-form__icon material-icons">email</i>
+        <label class="evo_c-form__label">Email</label>
+        <input class="evo_c-form__input"
+               id="email"
+               type="email" required>
+        <div class="evo_c-form__focus-line"></div>
+
+        <div class="evo_c-form__tooltip">
+          <span class="evo_c-form__tooltip-text">Invalid email</span>
+        </div>
+
+      </div>
+
+      <!-- password -->
+      <div class="evo_c-form__field">
+
+        <i class="evo_c-form__icon material-icons">lock</i>
+        <label class="evo_c-form__label">Password</label>
+        <input class="evo_c-form__input"
+               id="password"
+               type="password"
+               pattern=".{6,}"
+               value="" required>
+        <div class="evo_c-form__focus-line"></div>
+
+        <div class="evo_c-form__tooltip">
+          <span class="evo_c-form__tooltip-text">
+            Password must contain 6 or more characters
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Radio Button -->
+      <div class="evo_c-form__field">
+
+        <fieldset class="evo_c-form__fieldset">
+
+
+          <input id="c-form-radio-2-1" name="c-form-radio-2" type="radio" checked>
+          <label class="evo_c-form__radio evo_c-form__radio--variation3" for="c-form-radio-2-1">
+            First Choice
+          </label>
+
+          <input id="c-form-radio-2-2" name="c-form-radio-2" type="radio">
+          <label class="evo_c-form__radio evo_c-form__radio--variation3" for="c-form-radio-2-2">
+            Second Choice
+          </label>
+
+          <input id="c-form-radio-2-3" name="c-form-radio-2" type="radio">
+          <label class="evo_c-form__radio evo_c-form__radio--variation3" for="c-form-radio-2-3">
+            Third Choice
+          </label>
+
+        </fieldset>
+
+      </div>
+
+      <div class="evo_c-form__field">
+
+        <fieldset class="evo_c-form__fieldset">
+
+          <input type="checkbox" id="c-form-checkbox-2">
+          <label class="evo_c-form__checkbox" for="c-form-checkbox-2">
+            I agree with terms and conditions
+          </label>
+
+        </fieldset>
+
+      </div>
+
+    </div>
+
+    <!-- FORM FOOTER -->
+    <div class="evo_c-form__footer">
+      <input class="evo_c-form__button h-bck--background evo_c-form__button--rounded evo_c-form__button--huge"
+             type="submit"
+             value="Sign Up">
+
+    </div>
+
+  </form>
+
+</div>
+

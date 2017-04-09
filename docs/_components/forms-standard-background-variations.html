@@ -1,0 +1,82 @@
+---
+title: "Background Variations"
+description: |
+
+  <p>
+    By adding the <code>h-bck__[color-name][--variation]</code> helper class on
+    an <code>evo_c-form</code> component, you can change the background color of
+    the form.
+    The <em>color-name</em> part comes from one of the colors in the
+    Evolution UI's color palette. The <em>--variation</em> part is
+    optional instead.
+  </p>
+  <p>
+    By adding the <code>h-bck__[color-name]</code> helper class on
+    an <code>evo_c-form__focus-line</code> element, you can change the background
+    color of a focus line.
+  </p>
+
+
+type: Standard Forms
+order: 4
+---
+
+
+<div class="evo_c-form h-bck__secondary">
+
+  <form class="js-validation">
+
+    <div class="evo_c-form__header">
+      <h2 class="evo_c-form__title evo_c-typo__h2">Sign in</h2>
+    </div>
+
+    <!-- FORM BODY -->
+    <div class="evo_c-form__body">
+
+      <!-- username -->
+      <div class="evo_c-form__field">
+        <i class="evo_c-form__icon material-icons">person</i>
+        <label class="evo_c-form__label">Username</label>
+        <input class="evo_c-form__input"
+               id="username"
+               type="text" required>
+        <div class="evo_c-form__focus-line h-bck--accent3"></div>
+
+        <div class="evo_c-form__tooltip">
+          <span class="evo_c-form__tooltip-text">This field cannot be empty</span>
+        </div>
+      </div>
+
+      <!-- password -->
+      <div class="evo_c-form__field">
+
+        <i class="evo_c-form__icon material-icons">lock</i>
+        <label class="evo_c-form__label">Password</label>
+        <input class="evo_c-form__input"
+               id="password"
+               type="password"
+               pattern=".{6,}"
+               value="" required>
+        <div class="evo_c-form__focus-line h-bck--accent3"></div>
+
+        <div class="evo_c-form__tooltip">
+          <span class="evo_c-form__tooltip-text">
+            Password must contain 6 or more characters
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FORM FOOTER -->
+    <div class="evo_c-form__footer">
+      <input class="evo_c-form__button evo_c-form__button--accent3"
+             type="submit"
+             value="Login">
+    </div>
+
+  </form>
+
+</div>
+
