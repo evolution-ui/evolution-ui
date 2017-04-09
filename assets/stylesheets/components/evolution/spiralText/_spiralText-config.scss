@@ -14,15 +14,15 @@
 $c-spiralText-button-name: 'spiralText_button';
 
 // Components Variables
-$c-spiralText_button-background-color: get-color('primary', 'light');
-$c-spiralText-button-font-color: get-color(secondary, darken);
-$c-spiralText-button-font-size: 1.4em;
+$c-spiralText_background-color: get-color('primary', 'light');
+$c-spiralText-font-color: get-color(secondary, darken);
+$c-spiralText-font-size: 1.4em;
 
 // Component placeholder
-%c-spiralText_button-pointer {
+%c-spiralText__button-pointer {
   cursor: pointer;
 }
-%c-spiralText_button-clearDefaults {
+%c-spiralText__button-clearDefaults {
   border: none;
   outline: none;
   text-decoration: none;

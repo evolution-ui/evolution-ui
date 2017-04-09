@@ -1,30 +1,30 @@
 
 
-@import 'spiralText_button-config';
+@import 'spiralText-config';
 
 // Spiral Text in Button
-.evo_c-spiral__text * {
+.evo_c-spiralText * {
   box-sizing: border-box;
 }
 
-.evo_c-spiral__text {
+.evo_c-spiralText {
 
-  @extend %c-spiralText_button-clearDefaults;
+  @extend %c-spiralText__button-clearDefaults;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: $c-spiralText_button-background-color;
+  background: $c-spiralText-background-color;
   width: auto;
   font-family: inherit;
   height: 36px;
   padding: 0 12px;
   width: 300px;
   border-radius: 3px;
-  font-size: $c-spiralText-button-font-size;
-  color: $c-spiralText-button-font-color;
+  font-size: $c-spiralText-font-size;
+  color: $c-spiralText-font-color;
   &:hover {
-    @extend %c-spiralText_button-pointer;
+    @extend %c-spiralText__button-pointer;
     background: lighten($c-spiralText_button-background-color, 5%);
     em:nth-of-type(5n+1) {
       background-color: get-color(primary, dark);
@@ -91,7 +91,7 @@
   .space {
     margin: 0 6px;
   }
-  &.evo_c-spiral__text--circle {
+  &.evo_c-spiralText--circle {
     em {
       border-radius: 50%;
     }
