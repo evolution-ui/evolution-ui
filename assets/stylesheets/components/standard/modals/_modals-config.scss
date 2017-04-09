@@ -42,3 +42,9 @@ $c-modal-primary-darken-color: get-color('primary', 'darken');
   opacity: 1;
   pointer-events: all;
 }
+
+%c-modal-link {
+  text-decoration: none;
+  color: $c-modal-basic-color;
+}
+
