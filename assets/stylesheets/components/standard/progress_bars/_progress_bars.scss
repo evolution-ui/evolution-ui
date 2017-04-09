@@ -178,6 +178,11 @@ $bar-element: getBEMReference($c-component-name, 'bar');
           animation: c-progress-bars-infinite 3.2s infinite forwards linear;
         }
 
+
+        //----------------------------------------------------------------------
+        //                          Animations
+        //----------------------------------------------------------------------
+
         @include h('animation', $g-no-prefix) {
 
           @include m('backward') {
@@ -192,32 +197,38 @@ $bar-element: getBEMReference($c-component-name, 'bar');
         }
 
           &.#{$bar-shape2},
-          &.#{$bar-shape3},
-          &.#{$bar-45},
-          &.#{$bar-90},
-          &.#{$bar-135} {
+          &.#{$bar-shape3} {
+            .#{$bar-element} {
+              @extend %c-progress-bars;
+            }
+          }
 
-             .#{$bar-element} {
-               @extend %c-progress-bars-shapes;
-               @include _progress-bars-medias;
-               animation: c-progress-bars-infinite--pr 2.5s infinite forwards linear;
-             }
+          & .#{$bar-45}.#{$bar-element},
+          & .#{$bar-90}.#{$bar-element},
+          & .#{$bar-135}.#{$bar-element} {
+           @extend %c-progress-bars
           }
 
 
-         .#{$bar-shape2},
-         .#{$bar-shape3},
+         &.#{$bar-shape2},
+         &.#{$bar-shape3} {
+            .#{$bar-element} {
+              @include h('animation', $g-no-prefix, $apply-on-descendants: false) {
+
+                @include m('backward') {
+                  @extend %c-progress-bars-shapes;
+                  @include _progress-bars-medias;
+                  animation: c-progress-bars-infinite-b-pr 2.5s infinite forwards linear;
+                }
+              }
+            }
+        }
+
          .#{$bar-45},
          .#{$bar-90},
          .#{$bar-135} {
 
           @include h('animation', $g-no-prefix, $apply-on-descendants: false) {
-
-            @include m('forward') {
-              @extend %c-progress-bars-shapes;
-              @include _progress-bars-medias;
-              animation: c-progress-bars-infinite--pr 2.5s infinite forwards linear;
-            }
 
             @include m('backward') {
               @extend %c-progress-bars-shapes;

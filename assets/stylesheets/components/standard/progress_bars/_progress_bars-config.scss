@@ -18,6 +18,42 @@ $c-progress-bars-percentage-margin-left: 50px;
 
 
 //------------------------------------------------------------------------------
+//                          Progress Bars Mixin
+//------------------------------------------------------------------------------
+
+@mixin _background-linear-gradient($deg, $color-name) {
+  background: repeating-linear-gradient(
+              $deg,
+                get-color($color-name, 'dark'),
+                get-color($color-name, 'dark') 10px,
+                get-color($color-name, 'light') 10px,
+                get-color($color-name, 'light') 20px
+              );
+}
+
+@mixin _progress-bars-medias() {
+  @media screen and (min-width: 550px) {
+      animation-duration: 4.5s;
+  }
+
+  @media screen and (min-width: 760px) {
+      animation-duration: 8.5s;
+  }
+
+  @media screen and (min-width: 1200px) {
+      animation-duration: 10s;
+  }
+
+  @media screen and (min-width: 1700px) {
+      animation-duration: 15s;
+  }
+
+  @media screen and (min-width: 2000px) {
+      animation-duration: 20s;
+  }
+}
+
+//------------------------------------------------------------------------------
 //                          Progress Bars Placeholders
 //------------------------------------------------------------------------------
 
@@ -58,6 +94,12 @@ $c-progress-bars-percentage-margin-left: 50px;
   width: 250%;
 }
 
+%c-progress-bars {
+  @extend %c-progress-bars-shapes;
+  @include _progress-bars-medias;
+  animation: c-progress-bars-infinite--pr 2.5s infinite forwards linear;
+}
+
 
 //------------------------------------------------------------------------------
 //                          Progress Bars Animations
@@ -85,40 +127,4 @@ $c-progress-bars-percentage-margin-left: 50px;
 @keyframes c-progress-bars-infinite-b-pr {
   0% { left: 0; };
   100% { left: -110%; };
-}
-
-//------------------------------------------------------------------------------
-//                          Progress Bars Mixin
-//------------------------------------------------------------------------------
-
-@mixin _background-linear-gradient($deg, $color-name) {
-  background: repeating-linear-gradient(
-              $deg,
-                get-color($color-name, 'dark'),
-                get-color($color-name, 'dark') 10px,
-                get-color($color-name, 'light') 10px,
-                get-color($color-name, 'light') 20px
-              );
-}
-
-@mixin _progress-bars-medias() {
-  @media screen and (min-width: 550px) {
-      animation-duration: 4.5s;
-  }
-
-  @media screen and (min-width: 760px) {
-      animation-duration: 8.5s;
-  }
-
-  @media screen and (min-width: 1200px) {
-      animation-duration: 10s;
-  }
-
-  @media screen and (min-width: 1700px) {
-      animation-duration: 15s;
-  }
-
-  @media screen and (min-width: 2000px) {
-      animation-duration: 20s;
-  }
 }
