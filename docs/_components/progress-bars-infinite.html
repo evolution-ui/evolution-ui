@@ -1,0 +1,56 @@
+---
+title: "Infinite loading"
+description: |
+  <p>
+    Infinite loading progress bars provide to the user the idea that an action
+    is under execution.
+  </p>
+  <p>
+    Using the <code>h-animation--[type]</code> helper class on an <code>
+    evo_c-progress-bar__bar</code> element, you can change the animation.
+    The available animation for the standard progress bars are:
+
+    <ul>
+      <li>backward</li>
+      <li>forth-back</li>
+    </ul>
+  </p>
+  <p>
+    The available animation for the non standard progress (<code>type2, type3,
+    45, 90, 135</code>) bars are:
+
+    <ul>
+      <li>forward</li>
+      <li>backward</li>
+    </ul>
+  </p>
+
+type: Progress Bars
+order: 9
+---
+
+
+<div class="evo_c-progress-bar evo_c-progress-bar--rounded evo_c-progress-bar--infinite">
+  <div class="evo_c-progress-bar__bar"></div>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--infinite">
+  <div class="evo_c-progress-bar__bar h-animation--backward"></div>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--infinite">
+  <div class="evo_c-progress-bar__bar h-animation--forth-back"></div>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--shape3 evo_c-progress-bar--infinite">
+  <span class="evo_c-progress-bar__bar"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--infinite">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--45 h-animation--forward"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--big evo_c-progress-bar--infinite">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--45 h-bck--accent4 h-animation--backward"></span>
+</div>
+

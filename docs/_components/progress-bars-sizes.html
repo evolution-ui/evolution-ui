@@ -1,0 +1,38 @@
+---
+title: "Different sizes"
+description: |
+  <p>
+    By adding the <code>big</code> modifier on an <code>evo_c-progress-bar</code>
+    component you can change the size of the trackbar.
+  </p>
+  <p>
+    By adding the <code>small</code>, <code>big</code>, or <code>huge</code>
+    modifier on an <code>evo_c-progress-bar__bar</code> bar, you can change
+    the bar's sizes instead.
+  </p>
+  <p>
+    You could also use a combination of the both two dimensions.
+  </p>
+type: Progress Bars
+order: 4
+---
+
+<div class="evo_c-progress-bar evo_c-progress-bar--big" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 10%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--big" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--small" style="width: 10%"></span>
+</div>
+
+<div class="evo_c-progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--small" style="width: 10%"></span>
+</div>
+
+<div class="evo_c-progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--big evo_c-progress-bar__bar--warn" style="width: 25%"></span>
+</div>
+
+<div class="evo_c-progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--huge evo_c-progress-bar__bar--succ" style="width: 25%"></span>
+</div>
