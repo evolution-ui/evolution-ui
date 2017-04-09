@@ -14,6 +14,7 @@
 /// @param {String} $helperName - The name of the helper class
 /// @param {String} $CSSproperty ['color'] - The CSS property you want to set
 /// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
+/// @param {Number} $opacity [1] - Set a custom opacity
 ///
 /// @require $g-framework-colors
 ///
@@ -46,11 +47,10 @@
 ///
 
 
-@mixin colorHelpers($type, $CSSproperty: 'color', $is-descendant: false) {
-
+@mixin colorHelpers($type, $CSSproperty: 'color', $is-descendant: false, $opacity: 1) {
   @each $color-key, $color-variants in $g-framework-colors {
 
-    $base-color-value: map-get($color-variants, 'base');
+    $base-color-value: get-color($color-key, $opacity: $opacity);
 
     $base-selector: addParentSelector('.h-#{$type}__#{$color-key}', $is-descendant);
 
@@ -65,7 +65,7 @@
         $variant-selector: addParentSelector($tmp-selector, $is-descendant);
 
         #{$variant-selector} {
-          #{$CSSproperty}: $color-variant-value!important;
+          #{$CSSproperty}: get-color($color-key, $color-variant, $opacity: $opacity);
         }
       }
     }
@@ -87,6 +87,7 @@
 /// @param {String} $colorMap   - A map containing base colors and their variants
 /// @param {String} $CSSproperty ['color'] - The CSS property you want to set
 /// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
+/// @param {Number} $opacity [1] - Set a custom opacity
 ///
 /// @require $g-framework-colors
 ///
@@ -161,7 +162,7 @@
 ///    background-color: #######
 ///  }
 
-@mixin colorHelper($type, $colorMap, $CSSproperty: 'color', $is-descendant: false) {
+@mixin colorHelper($type, $colorMap, $CSSproperty: 'color', $is-descendant: false, $opacity: 1) {
 
   @each $color-key, $color-variants in $colorMap {
 
@@ -176,11 +177,13 @@
           $selector: addParentSelector($tmp-selector, $is-descendant);
 
           #{$selector} {
-            #{$CSSproperty}: map-get($base-color-variants, $variant)!important;
+            #{$CSSproperty}: get-color($color-key, $variant, $opacity: $opacity);
           }
         }
       }
+
     }
+
   }
 }
 
@@ -201,6 +204,7 @@
 ///                               and their variants. If Null it generates all
 ///                               colors and variants contained inside $g-framework-colors
 /// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
+/// @param {Number} $opacity [1] - Set a custom opacity
 ///
 ///
 /// @example scss - Usage
@@ -267,11 +271,11 @@
 ///  }
 ///
 
-@mixin backgroundVariants($colorMap: null, $is-descendant: false) {
+@mixin backgroundVariants($colorMap: null, $is-descendant: false, $opacity: 1) {
   @if ( $colorMap == null ) {
-    @include colorHelpers('bck', $CSSproperty: 'background-color', $is-descendant: $is-descendant);
+    @include colorHelpers('bck', $CSSproperty: 'background-color', $is-descendant: $is-descendant, $opacity:$opacity);
   } @else {
-      @include colorHelper('bck', $colorMap, $CSSproperty: 'background-color', $is-descendant: $is-descendant);
+      @include colorHelper('bck', $colorMap, $CSSproperty: 'background-color', $is-descendant: $is-descendant, $opacity:$opacity);
   }
 }
 
@@ -292,6 +296,7 @@
 ///                               and their variants. If Null it generates all
 ///                               colors and variants contained inside $g-framework-colors
 /// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
+/// @param {Number} $opacity [1] - Set a custom opacity
 ///
 ///
 /// @example scss - Usage
@@ -326,10 +331,10 @@
 ///  }
 ///
 
-@mixin textVariants($colorMap: null, $is-descendant: false) {
+@mixin textVariants($colorMap: null, $is-descendant: false, $opacity: 1) {
   @if ( $colorMap == null ) {
-    @include colorHelpers('txt', $is-descendant: $is-descendant);
+    @include colorHelpers('txt', $is-descendant: $is-descendant, $opacity:$opacity);
   } @else {
-      @include colorHelper('txt', $colorMap, $is-descendant: $is-descendant);
+      @include colorHelper('txt', $colorMap, $is-descendant: $is-descendant, $opacity:$opacity);
   }
 }
