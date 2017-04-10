@@ -119,7 +119,7 @@ export default function() {
     var isItem = hasClassName(event.target, 'tab__item');
     var tab    = getClosest(event.target, selectors.tab);
     var activeItem = $('[class$="tab__item ' + activeStatusClass +'"]', tab);
-    var activeTab = $('[class$="tab__tabcontent ' + activeStatusClass +'"]', tab);
+    var activeTab = $('[class$="tab__panel ' + activeStatusClass +'"]', tab);
 
 
     if ( !isLink && !isItem ) {
@@ -184,9 +184,9 @@ export default function() {
     var sticky = $(selectors.sticky, scrollTab);
     var stickyH = sticky && getAbsoluteHeight(sticky) || 0;
     var isLateral = hasClassName(scrollTab, 'tab--lateral');
-    var scrollTabs = $$('[class*="tab__tabcontent"]', scrollTab);
+    var scrollTabs = $$('[class*="tab__panel"]', scrollTab);
     var activeItem = $('[class$="tab__item ' + activeStatusClass +'"]', scrollTab);
-    var activeTabContent = $('[class$="tab__tabcontent ' + activeStatusClass +'"]', scrollTab);
+    var activeTabContent = $('[class$="tab__panel ' + activeStatusClass +'"]', scrollTab);
     var tallerTabContent;
     var firstTabContent = scrollTabs && scrollTabs[0];
     var scrollTabHeight = 0;
@@ -216,7 +216,7 @@ export default function() {
 
 
     // When the tab's type is lateral and the viewport width is less than or
-    // equal to the media tablet, add to each tabcontent a top position equal
+    // equal to the media tablet, add to each panel a top position equal
     // to the navigation's heigth
     if (isLateral && w <= mediaTablet) {
       scrollTabs.forEach(function(tab) {

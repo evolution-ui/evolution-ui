@@ -32,7 +32,7 @@
   $sticky-selector: getBEMReference($c-component-name, 'sticky');
   $tab-list-selector: getBEMReference($c-component-name, 'list');
   $tab-item-selector: getBEMReference($c-component-name, 'item');
-  $tab-content-selector: getBEMReference($c-component-name, 'tabcontent');
+  $tab-panel: getBEMReference($c-component-name, 'panel');
   $tab-link-selector: getBEMReference($c-component-name, 'link');
 
 
@@ -85,7 +85,7 @@
     @include m('scroll-from-top') {
       @extend %c-tabs-scroll;
 
-      .#{$tab-content-selector} {
+      .#{$tab-panel} {
         @extend %c-tabs-scroll-tab-content;
         transform-origin: top center;
         transform: translateY(-220%);
@@ -108,7 +108,7 @@
     @include m('scroll-from-bottom') {
       @extend %c-tabs-scroll;
 
-      .#{$tab-content-selector} {
+      .#{$tab-panel} {
         @extend %c-tabs-scroll-tab-content;
         transform-origin: top center;
         transform: translateY(200%);
@@ -132,7 +132,7 @@
     @include m('scroll-from-left') {
       @extend %c-tabs-scroll;
 
-      .#{$tab-content-selector} {
+      .#{$tab-panel} {
         @extend %c-tabs-scroll-tab-content;
         transform-origin: left center;
         transform: translateX(-220%);
@@ -155,7 +155,7 @@
     @include m('scroll-from-right') {
       @extend %c-tabs-scroll;
 
-      .#{$tab-content-selector} {
+      .#{$tab-panel} {
         @extend %c-tabs-scroll-tab-content;
         transform-origin: left center;
         transform: translateX(220%);
@@ -188,7 +188,7 @@
         flex-grow: 1;
       }
 
-      .#{$tab-content-selector} {
+      .#{$tab-panel} {
         flex-basis: 100%;
       }
     }
@@ -222,7 +222,7 @@
         text-align: center;
       }
 
-      .#{$tab-content-selector} {
+      .#{$tab-panel} {
         flex-grow: 1;
 
         @media screen and (min-width: $c-tabs-media-tablet) {
@@ -344,10 +344,10 @@
   }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  //                       tabcontent ELEMENT
+  //                       panel ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('tabcontent') {
+  @include e('panel') {
     @extend %c-tabs-display-none;
     padding: $c-tabs-tab-content-padding;
     z-index: $c-tabs-tab-content-z-index;
