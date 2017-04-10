@@ -336,6 +336,8 @@ After you started the development environment with the command `npm start`, your
 
 `http://localhost:3000/temp/[evolution|standard]/component-name.html`
 
+**IMPORTANT NOTE**: *npm* sometimes has problems with module dependencies. When you see error messages like `Module not found: Can't resolve ...` or `Cannot find module ...`, run `npm update` in your command line.
+
 #### ES6 Module
 
 Evolution UI makes use of ES6 modules to handle components' dependencies. Our goal is to build a dependency tree from our root file (`app.js`).
@@ -944,6 +946,7 @@ The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used
 - Evolution UI makes use of `autoprefixer`, so **you don't need to add vendor prefixes** to your CSS rules.
 - Don't forget to add your component’s HTML markup to the showcase website.
 - The target branch for each pull request is the `development` branch.
+- *npm* sometimes has problems with module dependencies. When you see error messages like `Module not found: Can't resolve ...` or `Cannot find module ...`, run `npm update` in your command line.
 
 [bov-academy]: https://bovacademy.com
 [color-palette]: http://codepen.io/DrLeleMeo/full/oZdMQa/
