@@ -65,7 +65,7 @@ documentReady(
   dotNavigation,
   eyelids,
   fadeLinesOnScroll,
-  bookmarklet,
+  // bookmarklet,
   cssAnimations,
   codeMarkup,
   stdForms,
