@@ -34,6 +34,9 @@
   opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
   background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   &:hover:not(.evo_c-3dlayer--selected) {
+    @media only screen and (max-width: 959px) {
+      border-right-color: $c-layers-color-selected-border;
+    }
     border-top-color: $c-layers-color-selected-border;
     border-left-color: $c-layers-color-selected-border;
     color: $c-layers-color-selected-border;
@@ -82,6 +85,20 @@
 
   @media only screen and (min-width: 960px) {
     transform: scale(0.8) translate(200px, 200px) !important;
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  .evo_c-3dlayer--visited:not(.evo_c-3dlayer--selected):not(.evo_c-3dlayer--hide):not(.evo_c-3dlayer--dragging) {
+    border-right-color: $c-layers-color-visited;
+
+    &:hover:not(.evo_c-3dlayer--selected) {
+      border-right-color: $c-layers-color-selected-border;
+    }
+  }
+
+  .evo_c-3dlayer--dragging {
+    border-right-color: $c-layers-color-selected-border;
   }
 }
 
