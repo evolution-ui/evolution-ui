@@ -31,6 +31,7 @@ import spaceSavingMinimalistForm from './evolution/space_saving_minimalist_form'
 import curtain from './evolution/curtain'
 import text2speech from './evolution/text2speech'
 import svg_pagination from './evolution/svg_pagination'
+import divTable from './evolution/div_table'
 
 /************************************************************************
  *
@@ -86,7 +87,8 @@ documentReady(
   stdTabs,
   curtain,
   text2speech,
-  svg_pagination
+  svg_pagination,
+  divTable
 )
 
 singleInputForm();
