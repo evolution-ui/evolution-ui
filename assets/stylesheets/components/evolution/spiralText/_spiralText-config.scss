@@ -8,15 +8,16 @@
 
 
 //--------------------------------------------------------------------------
-//                         spiralText_button Component config file
+//                         spiralText Component config file
 //--------------------------------------------------------------------------
 
-$c-spiralText-button-name: 'spiralText_button';
+$c-spiralText-name: 'spiralText';
 
 // Components Variables
 $c-spiralText_background-color: get-color('primary', 'light');
 $c-spiralText-font-color: get-color(secondary, darken);
 $c-spiralText-font-size: 1.4em;
+$c-spiralText-button-height: 45px;
 
 // Component placeholder
 %c-spiralText__button-pointer {
