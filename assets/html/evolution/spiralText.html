@@ -1,35 +1,60 @@
 <!doctype html>
 <html class="no-js" lang="en-us">
   <head>
-    <!-- THIS IS THE COMPONENT TEMPLATE FILE; DO NOT OVERWRITE ITS CONTENT!
-    IT SERVES YOU FOR THE DEVELOPMENT PURPOSE
-    COPY THE CONTENT OF THIS FILE INTO A NEW FILE
-    NEWLY CREATED FILE SHOULD HAVE THE NAME OF YOUR COMPONENT
-    ADD MINIMUM HTML REQUIRED BY YOUR COMPONENT TO WORK
-    EDIT SECTIONS BETWEEN CURLY BRACES APPROPRIATELY
-    DO NOT CHANGE LINKS TO 'main.css' AND 'main.js' FILES
-    AFTER YOU CREATE COMPONENT FILE, REMOVE THIS WHOLE COMMENT SECTION -->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="author" content="{{YOUR NAME HERE}}">
-    <title>{{spiralText-button}}</title>
-    <meta name="description" content="{{DESCRIBE THIS PAGE HERE}}">
+    <meta name="author" content="{{Blake Wilson}}">
+    <title>{{spiralText}}</title>
+    <meta name="description" content="{{Spiral Text Component}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
     <link href="../../styles/main.css" rel="stylesheet">
   </head>
   <body>
-    <a href="#" class="evo_c-spiral__text" role="button">
+    <h1>Spiral Text Affect</h1>
+    <p>Often on the hover state of a link or button, or even a small body of text, an effect is given to bring attention to the action. The <span class="evo_c-spiralText"><em>s</em><em>p</em><em>i</em><em>r</em><em>a</em><em>l</em><em>l</em><em>i</em><em>n</em><em>g</em></span> of text is such an effect that could add a little flare to the hover state.</p>
+    <p>The affect can be placed on either a <code>&lt;button></code> or <code>&lt;a></code> element as well as on any text surrounded by <code>&lt;span></code> tags. The element gets the <em class="emphasis">evo_c-spiralText</em> class for the affect to take place and each individual text is required to be wrapped by an <code>&lt;em</code> tag.</p> 
+    <p>Buttons and links wil need the <em class="emphasis">__button</em> class appended to have the proper appearance like so: <em class="emphasis">evo_c-spiralText__button</em>.</p>
+    <h2>Spiral Text</h2>
+    <span class="evo_c-spiralText">
+      <em>S</em><em>P</em><em>I</em><em>R</em><em>A</em><em>L</em>
+      <span class="space"></span>
+      <em>T</em><em>E</em><em>X</em><em>T</em>
+    </span>
+    <h2>Spiral Button or Link Text</h2>
+    <button class="evo_c-spiralText__button">
+      <em>S</em><em>P</em><em>I</em><em>R</em><em>A</em><em>L</em>
+      <span class="space"></span>
+      <em>T</em><em>E</em><em>X</em><em>T</em>
+    </button>
+    <a href="#" class="evo_c-spiralText__button" role="button">
       <em>S</em><em>P</em><em>I</em><em>R</em><em>A</em><em>L</em>
       <span class="space"></span>
       <em>T</em><em>E</em><em>X</em><em>T</em>
     </a>
-    <button class="evo_c-spiral__text evo_c-spiral__text--circle">
-      <em>S</em><em>P</em><em>I</em><em>R</em><em>A</em><!-- <em>L</em> -->
-      <!-- <span class="space"></span>
-      <em>T</em><em>E</em><em>X</em><em>T</em> -->
+    <h2>Background Size and Shape</h2>
+    <p>The text background on buttons and links can be changed both in size and shape.</p>
+    <p>The background size by default is styled with adequate padding and the shape is rectangular. Yet, can also be displayed full height and with a circular shape.</p>
+    <p>The full height background is displayed with the appended classes of <em class="emphasis">--fullHeight</em> or <em class="emphasis">circlefullHeight</em>. If the circle background is desired but not full height, simply append the class of <em class="emphasis">--circle</em> instead of <em class="emphasis">circlefullHeight</em>.</p> 
+    <h3>Circular</h3>
+    <button class="evo_c-spiralText__button--circle">
+      <em>S</em><em>P</em><em>I</em><em>R</em><em>A</em><em>L</em>
+      <span class="space"></span>
+      <em>T</em><em>E</em><em>X</em><em>T</em>
     </button>
+    <h3>Full height</h3>
+    <button class="evo_c-spiralText__button--fullHeight">
+      <em>S</em><em>P</em><em>I</em><em>R</em><em>A</em><em>L</em>
+      <span class="space"></span>
+      <em>T</em><em>E</em><em>X</em><em>T</em>
+    </button>
+    <a href="#" class="evo_c-spiralText__button--circlefullHeight" role="button">
+      <em>S</em><em>P</em><em>I</em><em>R</em><em>A</em><em>L</em>
+      <span class="space"></span>
+      <em>T</em><em>E</em><em>X</em><em>T</em>
+    </a>
+
   <script type="text/javascript" src="../../scripts/app.js"></script>
   </body>
 </html>
