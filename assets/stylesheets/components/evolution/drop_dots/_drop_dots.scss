@@ -1,13 +1,8 @@
-$drop-dot__radius: 10rem;
-$drop-dot__top-bg: #3498db;
-$drop-dot__text: #ecf0f1;
-$drop-dot__list-bg: #2980b9;
-$drop-dot__list-bg--hover: #72B0D9;
-$drop-dot__list-text: #ecf0f1;
+@import '_drop_dots-config.scss';
 
 // Drop Dot Element START
 //Create a label and give it the .drop-dot class
-.evo-c-drop-dot{
+@include c('drop-dot'){
   display: flex;
   position: relative;
   flex-direction: column;
@@ -28,7 +23,7 @@ $drop-dot__list-text: #ecf0f1;
     display: none;
     
     &:checked{
-      & ~ .evo-c-drop-dot__list{
+      & ~ .evo_c-drop-dot__list{
         max-height: 1000px;
         max-width: 1000px;
         width: $drop-dot__radius;
@@ -59,7 +54,7 @@ $drop-dot__list-text: #ecf0f1;
     &:hover ~ input[type="checkbox"]:not(:checked){
       border: 1px solid $drop-dot__list-bg;
       
-      & ~ .evo-c-drop-dot__list{
+      & ~ .evo_c-drop-dot__list{
         border-radius: 30%;
         max-height: 40%;
         padding: ($drop-dot__radius / 10) 0 1rem;
