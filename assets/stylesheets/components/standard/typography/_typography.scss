@@ -47,7 +47,7 @@
     $font-size: pow($_typography-base-scale, $levels - $i);
       .#{$component-name}__h#{$i} {
         @extend %c-typography-font-family;
-        @extend %c-typography-margin-bottom;
+        @extend %c-typography-margins;
         font-size: #{$font-size}rem;
         font-weight: $g-framework-font-weight;
         line-height: vrhythm($font-size);
@@ -63,7 +63,8 @@
 
       .#{$component-name}__#{$item} {
         @extend %c-typography-font-family;
-        @extend %c-typography-margin-bottom;
+        @extend %c-typography-margins;
+        @extend %c-typography-block;
         font-size: rem($g-framework-base-font-size * $font-size) + 0rem;
         line-height: vrhythm($font-size);
       }
@@ -76,7 +77,8 @@
 
       .#{$component-name}__#{$item} {
         @extend %c-typography-font-family;
-        @extend %c-typography-margin-bottom;
+        @extend %c-typography-margins;
+        @extend %c-typography-block;
         font-size: rem($g-framework-base-font-size / $font-size) + 0rem;
         line-height: vrhythm($font-size);
       }

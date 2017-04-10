@@ -41,6 +41,8 @@ This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating s
     ```
 
     This will install all the required software specific to the framework.
+    
+    **NOTE** *npm* sometimes has problems with module dependencies. When you see error messages like `Module not found: Can't resolve ...` or `Cannot find module ...`, run `npm update` in your command line.
 
 4. Use [Bundler][rubybundler] to install all required Ruby gems (the Ruby equivalent of “packages”) specific to the showcase website (located in the `/docs` directory) by running the following command(s):
 
