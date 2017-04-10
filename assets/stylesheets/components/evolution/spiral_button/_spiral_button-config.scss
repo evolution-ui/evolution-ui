@@ -16,8 +16,8 @@ $c-spiralText-name: 'spiralText';
 // Components Variables
 $c-spiralText_background-color: get-color('primary', 'light');
 $c-spiralText-font-color: get-color(secondary, darken);
-$c-spiralText-font-size: 1.4em;
-$c-spiralText-button-height: 45px;
+// $c-spiralText-font-size: inherit;
+$c-spiralText-button-height: 42px;
 
 // Component placeholder
 %c-spiralText__button-pointer {

@@ -12,11 +12,12 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 0 auto;
   font-family: inherit;
-  font-size: $c-spiralText-font-size;
   color: $c-spiralText-font-color;
-  margin: 12px;
   &:hover {
+    text-decoration: none;
+    color: $c-spiralText-font-color;
     em:nth-of-type(5n+1) {
       background-color: get-color(primary, dark);
     }
@@ -37,11 +38,14 @@
     }
   }
   &[class*="__button"] {
+    display: flex;
     background: $c-spiralText-background-color;
     height: $c-spiralText-button-height;
-    width: 480px;
+    width: 100%;
+    max-width: 360px;
     border-radius: 3px;
-    // padding: 0 12px;
+    margin: 24px auto;
+    padding: 0 12px;
     &:hover {
       background: lighten($c-spiralText-background-color, 5%);
       @extend %c-spiralText__button-pointer;
@@ -50,6 +54,7 @@
   &[class*="circle"] {
     em {
       border-radius: 50%;
+      width: 1.4em;
     }
   }
   &[class*="fullHeight"] {
@@ -62,9 +67,9 @@
       width: $c-spiralText-button-height;
     }
   }
-  &:not([class*="fullHeight"]) {
+  &:not([class*="circlefullHeight"]) {
     em {
-      padding: .08em;
+      padding: 0 .2em;
     }
   }
   em {
@@ -72,7 +77,7 @@
     justify-content: center;
     align-items: center;
     transition: background .25s, transform .25s;
-    width: 1.25em;
+    // padding: 1em;
     margin: 0;
     &:nth-of-type(2) {
       transition-delay: .04s;
