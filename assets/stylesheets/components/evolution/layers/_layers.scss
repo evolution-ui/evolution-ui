@@ -14,7 +14,7 @@
 .evo_c-3dlayer {
   background-color: white();
   border: 1px solid $c-layers-color-unvisited-border;
-  border-bottom: none;
+  border-bottom-color: transparent;
   border-radius: 2px;
   color: $c-layers-color-unvisited-title;
   cursor: pointer;
@@ -34,7 +34,11 @@
   opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
   background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   &:hover:not(.evo_c-3dlayer--selected) {
-    border-color: $c-layers-color-selected-border;
+    @media only screen and (max-width: 959px) {
+      border-right-color: $c-layers-color-selected-border;
+    }
+    border-top-color: $c-layers-color-selected-border;
+    border-left-color: $c-layers-color-selected-border;
     color: $c-layers-color-selected-border;
   }
 
@@ -52,7 +56,7 @@
   }
 
   @media only screen and (min-width: 960px) {
-    border-right: none;
+    border-right-color: transparent;
     margin-left: 0;
     margin-right: 0;
 
@@ -70,9 +74,7 @@
 
 .evo_c-3dlayer--selected {
   background-color: $c-layers-color-selected-bg;
-  border-bottom: 1px solid $c-layers-color-selected-border;
   border-color: $c-layers-color-selected-border;
-  border-right: 1px solid $c-layers-color-selected-border;
   cursor: auto;
   transition-duration: 0.8s;
 }
@@ -86,18 +88,35 @@
   }
 }
 
+@media only screen and (max-width: 959px) {
+  .evo_c-3dlayer--visited:not(.evo_c-3dlayer--selected):not(.evo_c-3dlayer--hide):not(.evo_c-3dlayer--dragging) {
+    border-right-color: $c-layers-color-visited;
+
+    &:hover:not(.evo_c-3dlayer--selected) {
+      border-right-color: $c-layers-color-selected-border;
+    }
+  }
+
+  .evo_c-3dlayer--dragging {
+    border-right-color: $c-layers-color-selected-border;
+  }
+}
+
 .evo_c-3dlayer--visited:not(.evo_c-3dlayer--selected):not(.evo_c-3dlayer--hide):not(.evo_c-3dlayer--dragging) {
-  border-color: $c-layers-color-visited;
+  border-top-color: $c-layers-color-visited;
+  border-left-color: $c-layers-color-visited;
   color: $c-layers-color-visited;
 
   &:hover:not(.evo_c-3dlayer--selected) {
-    border-color: $c-layers-color-selected-border;
+    border-top-color: $c-layers-color-selected-border;
+    border-left-color: $c-layers-color-selected-border;
     color: $c-layers-color-selected-border;
   }
 }
 
 .evo_c-3dlayer--dragging {
-  border-color: $c-layers-color-selected-border;
+  border-top-color: $c-layers-color-selected-border;
+  border-left-color: $c-layers-color-selected-border;
   color: $c-layers-color-selected-border;
 }
 

@@ -20,7 +20,6 @@ const mouseLeave = event => {
     const enteringElement = event.relatedTarget
 
     if (utils.isOutOfLayers(enteringElement)) {
-      console.log('leave', leavingLayer, enteringElement)
       leavingLayer.parentNode.insertBefore(draggedLayer, draggedLayer.parentNode.firstElementChild)
       draggedLayer.classList.add('evo_c-3dlayer--drop')
     }
