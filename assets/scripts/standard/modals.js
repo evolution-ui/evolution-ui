@@ -1,8 +1,4 @@
 export default function() {
-
-  var modalTriggers = document.querySelectorAll('.js-modal-trigger');
-  var modalTriggersArr = [].slice.call(modalTriggers);
-  var modalTriggersLen = modalTriggers && modalTriggers.length || 0;
   var closeBtns = document.querySelectorAll('.js-modal-close-btn');
   var closeBtnsLen = closeBtns && closeBtns.length || 0;
   var overlay = document.querySelector('.js-modal-overlay');
@@ -18,6 +14,12 @@ export default function() {
     overlay.style.visibility = 'hidden';
   }
 
+  function openModal() {
+    activeModal.classList.add(transitionClass);
+    overlay.classList.add(overlayClass);
+    overlay.style.visibility = 'visible';
+  }
+
   function addOverlayHandler() {
     overlay && overlay.addEventListener('click', closeModal);
   }
@@ -29,24 +31,23 @@ export default function() {
   }
 
   function addTriggerHandler(trigger) {
-    var index = modalTriggersArr.indexOf(trigger);
+    var triggerHref = trigger.getAttribute('href');
+    activeModal = document.getElementById(triggerHref.slice(1));
 
-    trigger.addEventListener('click', function() {
-      if (index === 1) {
-        overlayClass = 'evo_c-modal-overlay--full';
-      } else {
-        overlayClass = 'evo_c-modal-overlay--gray';
-      }
-      activeModal = document.getElementById(this.getAttribute('href').slice(1));
-      transitionClass = 'c-modal-transition--' + index;
-      activeModal.classList.add(transitionClass);
-      overlay.classList.add(overlayClass);
-      overlay.style.visibility = 'visible';
-    });
-  }
+    if (activeModal.classList.contains('evo_c-modal--full')) {
+      overlayClass = 'evo_c-modal-overlay--full';
+      transitionClass = 'c-modal-transition--full';
+    } else {
+      overlayClass = 'evo_c-modal-overlay--default';
+      if (activeModal.classList.contains('evo_c-modal--basic'))
+        transitionClass = 'c-modal-transition--spin';
+      if (activeModal.classList.contains('evo_c-modal--fixed'))
+        transitionClass = 'c-modal-transition--scale-down';
+      if (activeModal.classList.contains('evo_c-modal--dialog'))
+        transitionClass = 'c-modal-transition--stick-top';
+    }
 
-  for (i = 0; i < modalTriggersLen; i++) {
-    addTriggerHandler(modalTriggers[i]);
+    openModal();
   }
 
   for (i = 0; i < closeBtnsLen; i++) {
@@ -54,5 +55,14 @@ export default function() {
   }
 
   addOverlayHandler();
+
+  document.addEventListener('click', function(e) {
+    if (!e) e = window.event; // for firefox
+
+    var triggerEle = e.target || e.srcElement;
+
+    if (triggerEle.classList.contains('evo_c-modal-trigger') &&
+      triggerEle.tagName === 'A') addTriggerHandler(triggerEle);
+  });
 
 }

@@ -5,7 +5,8 @@ export default function () {
     toggleInvertColors = document.getElementById('toggle_InvertColors'),
     toggleGrayscale = document.getElementById('toggle_Grayscale'),
     toggleLargerFont = document.getElementById('toggle_LargerFont'),
-    readabilityToggleContainer = document.querySelector('.evo_c-readabilityPlaceholder');
+    readabilityToggleContainer = document.querySelector('.evo_c-readabilityPlaceholder--relative');
+
 
   docElementBody.classList += " evo_c-readabilityDocument";
   // computedBody.style.height = "100%";
@@ -68,17 +69,13 @@ export default function () {
   // first check if the element exists, and if it does, then assign the listener
   if (readabilityToggleContainer) {
     readabilityToggleContainer.addEventListener('click', function (event) {
-      readabilityToggleContainer.addEventListener('click', function (event) {
-        if (event.target.id === 'toggle_InvertColors') {
-          invertColors();
-        } else if (event.target.id === 'toggle_Grayscale') {
-          grayscaleColors();
-        } else if (event.target.id === 'toggle_LargerFont') {
-          enlargeFont();
-        }
-      }, false);
-    });
+      if (event.target.id === 'toggle_InvertColors') {
+        invertColors();
+      } else if (event.target.id === 'toggle_Grayscale') {
+        grayscaleColors();
+      } else if (event.target.id === 'toggle_LargerFont') {
+        enlargeFont();
+      }
+    }, false);
   }
-
-
 }

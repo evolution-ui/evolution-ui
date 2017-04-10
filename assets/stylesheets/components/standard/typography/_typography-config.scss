@@ -48,6 +48,11 @@ $_typography-base-scale: map-get($_typography-scales, 'major-third');
   font-family: 'Roboto', sans-serif;
 }
 
-%c-typography-margin-bottom {
+%c-typography-margins {
+  margin-top: $g-framework-line-height-base;
   margin-bottom: $g-framework-line-height-base;
+}
+
+%c-typography-block {
+  display: block;
 }
