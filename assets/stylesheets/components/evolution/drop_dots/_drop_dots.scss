@@ -30,6 +30,8 @@ $drop-dot__list-text: #ecf0f1;
     &:checked{
       & ~ .evo-c-drop-dot__list{
         max-height: 1000px;
+        max-width: 1000px;
+        width: $drop-dot__radius;
         padding: ($drop-dot__radius / 1.8) 0 1rem 0;
       }
     }
@@ -58,9 +60,10 @@ $drop-dot__list-text: #ecf0f1;
       border: 1px solid $drop-dot__list-bg;
       
       & ~ .evo-c-drop-dot__list{
-        max-height: 50%;
-        padding: ($drop-dot__radius / 1.8) 0 1rem;
-        width: 1rem;
+        border-radius: 30%;
+        max-height: 40%;
+        padding: ($drop-dot__radius / 10) 0 1rem;
+        max-width: 1rem;
       }
     }
   }
@@ -70,12 +73,13 @@ $drop-dot__list-text: #ecf0f1;
     text-align: center;
     top: $drop-dot__radius / 2;
     max-height: 0;
-    width: $drop-dot__radius;
+    max-width: 0;
     background: $drop-dot__list-bg;
     overflow: hidden;
-    transition: all .3s;
+    transition: all 0.25s;
     z-index: -1;
     border-radius: 0 0 2% 2%;
+    margin: 0;
     color: $drop-dot__list-text;
     
     & li{
@@ -90,7 +94,8 @@ $drop-dot__list-text: #ecf0f1;
     }
   }
 
-  &__example{
+  & .center{
     margin: 0 auto;
+
   }
 }
