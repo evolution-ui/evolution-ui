@@ -1,6 +1,6 @@
 <header class="site-header" role="banner">
   <div class="site-container">
-    <a href="/" class="site-logo">
+    <a href="{{ "/" | prepend: site.url }}" class="site-logo">
       <img class="site-logo-icon" src="{{ "/assets/images/logo.png" | prepend: site.url }}" width="83" alt="{{ site.title }}">
       <h1 class="site-logo-text">{{ site.title }} <span>UI Framework</span></h1>
     </a>
@@ -14,7 +14,7 @@
         {% assign pages = site.html_pages | sort: 'order' %}
         {% for item in pages %}
           <li class="site-nav-item{% if page.url == item.url %} is-current{% endif %}">
-            <a class="site-nav-link" href="{{ item.url }}">{{ item.title }}</a>
+            <a class="site-nav-link" href="{{ item.url | prepend: site.url }}">{{ item.title }}</a>
           </li>
         {% endfor %}
       </ul>
