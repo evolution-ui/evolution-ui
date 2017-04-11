@@ -89,7 +89,7 @@ $site-logo-text-span-color: map-get($site-colors, grayscale-white);
     vertical-align: middle;
     @extend %site-vertical-rhythm;
 
-    @include media-query($site-breakpoint-xl) {
+    @include media-query($site-breakpoint-lg) {
       margin-right: ($site-spacing-unit / 2);
       margin-bottom: 0;
     }
@@ -105,7 +105,7 @@ $site-logo-text-span-color: map-get($site-colors, grayscale-white);
       color: $site-logo-text-span-color;
     }
 
-    @include media-query($site-breakpoint-xl) {
+    @include media-query($site-breakpoint-lg) {
       position: relative;
       top: ($site-spacing-unit / 4);
       display: inline-block;
@@ -113,7 +113,7 @@ $site-logo-text-span-color: map-get($site-colors, grayscale-white);
     }
   }
 
-  @include media-query($site-breakpoint-xl) {
+  @include media-query($site-breakpoint-lg) {
     float: left;
     margin-top: $site-spacing-unit;
   }
@@ -156,7 +156,7 @@ $site-searchform-input-text-color: map-get($site-colors, grayscale-light);
     left: ($site-spacing-unit / 2);
   }
 
-  @include media-query($site-breakpoint-xl) {
+  @include media-query($site-breakpoint-lg) {
     margin-right: 0;
   }
 }
@@ -220,7 +220,7 @@ $site-nav-link-header-hover-border-color: map-get($site-colors, secondary);
       border-color: $site-nav-link-header-hover-border-color;
     }
 
-    @include media-query($site-breakpoint-xl) {
+    @include media-query($site-breakpoint-lg) {
       clear: left;
       text-align: right;
     }
@@ -299,7 +299,7 @@ $site-sidebar-nav-zindex: 9999;
     letter-spacing: $site-letter-spacing;
     color: $site-sidebar-text-color;
 
-    @include media-query($site-breakpoint-xl) {
+    @include media-query($site-breakpoint-lg) {
       color: $site-heading-color;
       padding: 0;
       margin-bottom: ($site-spacing-unit / 2);
@@ -363,7 +363,7 @@ $site-sidebar-nav-zindex: 9999;
     }
 
     // Sidebar Toggle Breakpoints
-    @include media-query($site-breakpoint-xl) {
+    @include media-query($site-breakpoint-lg) {
       display: none;
     }
   }
@@ -371,7 +371,7 @@ $site-sidebar-nav-zindex: 9999;
   // Sidebar Nav
   &-nav {
     position: fixed;
-    top: 0;
+    top: ($site-spacing-unit / 1.5);
     left: 0;
     width: $site-sidebar-nav-width;
     height: 100%;
@@ -387,7 +387,7 @@ $site-sidebar-nav-zindex: 9999;
     }
 
     // Sidebar Nav Breakpoints
-    @include media-query($site-breakpoint-xl) {
+    @include media-query($site-breakpoint-lg) {
       display: block;
       position: static;
       top: auto;
@@ -399,9 +399,11 @@ $site-sidebar-nav-zindex: 9999;
       background-color: transparent;
 
       &.is-sticky {
-        padding-top: $site-icon-xl-size;
         position: fixed;
-        top: 16px;
+        top: ($site-spacing-unit / 1.5);
+        padding-top: $site-spacing-unit;
+        bottom: 0;
+        overflow: auto;
       }
     }
   }
@@ -431,7 +433,7 @@ $site-sidebar-nav-zindex: 9999;
       background-color: $site-sidebar-link-hover-background-color;
     }
 
-    @include media-query($site-breakpoint-xl) {
+    @include media-query($site-breakpoint-lg) {
       padding: ($site-spacing-unit / 4) ($site-spacing-unit / 2) ($site-spacing-unit / 4) 0;
       border-right: 4px solid transparent;
 
@@ -450,7 +452,7 @@ $site-sidebar-nav-zindex: 9999;
   }
 
   // Sidebar Breakpoints
-  @include media-query($site-breakpoint-xl) {
+  @include media-query($site-breakpoint-lg) {
     float: left;
     width: $site-sidebar-xl-width;
   }
@@ -464,7 +466,7 @@ $site-content-xl-width: 75%;
     margin-bottom: 0;
   }
 
-  @include media-query($site-breakpoint-xl) {
+  @include media-query($site-breakpoint-lg) {
     .#{$site-prefix}-sidebar + & {
       float: right;
       width: $site-content-xl-width;
@@ -513,7 +515,7 @@ $site-section-content-divider-margin: ($site-spacing-unit * 1.5) 0 $site-spacing
     margin-bottom: $site-section-md-margin;
   }
 
-  @include media-query($site-breakpoint-xl) {
+  @include media-query($site-breakpoint-lg) {
     padding: $site-section-xl-padding;
     margin-bottom: $site-section-xl-margin;
   }
