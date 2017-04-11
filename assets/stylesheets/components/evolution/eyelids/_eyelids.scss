@@ -2,39 +2,47 @@
 
 @import 'eyelids-config';
 
-@include c('eyelids-notification') {
-  /* Positioning */
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 999999;
-  transform: translate3d(100%, 0, 0);
+@include c($c-eyelids-name) {
+  @include e('notification') {
+    /* Positioning */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999999;
+    transform: translate3d(100%, 0, 0);
 
-  /* Box Model */
-  box-sizing: border-box;
-  width: 280px;
-  padding: 10px 20px;
+    /* Box Model */
+    box-sizing: border-box;
+    width: 280px;
+    padding: 10px 20px;
 
-  /* Typography */
-  text-align: center;
-  text-transform: uppercase;
+    /* Typography */
+    text-align: center;
+    text-transform: uppercase;
 
-  /* Visual Aspect */
-  border-radius: 30px;
-  background-color: get_color('accent4', 'base', 1);
-  box-shadow: 2px 2px 5px 1px black(.3);
+    /* Visual Aspect */
+    border-radius: 30px;
+    color: white(.7);
+    background-color: get_color('background', 'base', .5);
+    border: 1px solid white(.7);
+    box-shadow: 2px 2px 5px 1px black(.3);
 
-  /* Animations */
-  transition: all .3s ease-in-out 0s;
-  @include s('is-active', $is-namespaced: false) {
-    animation: notify 5s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s forwards;
-  }
+    /* Animations */
+    transition: all .3s ease-in-out 0s;
+    @include s('is-active', $is-namespaced: false) {
+      animation: notify 5s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s forwards;
+    }
 
-  /* Misc */
-  cursor: pointer;
+    /* Misc */
+    cursor: pointer;
 
-  p {
-    margin-top: 0;
+    p {
+      margin-top: 0;
+    }
+
+    .evo_code {
+      color: get_color('background');
+    }
   }
 
 }
@@ -89,23 +97,25 @@
   }
 }
 
-@include c('eyelids-helper') {
-  /* Positioning */
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
+@include c('eyelids') {
+  @include e('helper') {
+    /* Positioning */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
 
-  /* Typography */
-  color: white(.8);
+    /* Typography */
+    color: white(.8);
 
-  /* Visual Aspect */
-  ul {
-    list-style: disc;
+    /* Visual Aspect */
+    ul {
+      list-style: disc;
+    }
+
+    /* Misc */
+    pointer-events: none;
   }
-
-  /* Misc */
-  pointer-events: none;
 }
 
 /* END EYELIDS */

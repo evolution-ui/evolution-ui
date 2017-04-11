@@ -2,8 +2,9 @@
 
 @import 'dot_navigation-config';
 
-.evo_dot-navigation {
+@include c($c-dot-navigation-name) {
 
+  /* Box Model */
   display: inline-block;
   margin: 30px 0;
   box-sizing: border-box;
@@ -15,71 +16,103 @@
   }
 
   ul {
-    list-style: none;
+    /* Positioning */
+    position: relative;
+
+    /* Box Model */
     padding: 0;
     margin: 0;
-    position: relative;
+    height: $dot-size;
+
+    /* Visual Aspect */
+    list-style: none;
     li {
+      /* Box Model */
       display: inline-block;
-      margin: 0 15px;
-      width: 20px;
-      height: 20px;
+      margin: 0 $dot-spacing / 2;
+      width: $dot-size;
+      height: $dot-size;
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+
+      /* Visual Aspect */
       border-radius: 50%;
-      cursor: pointer;
+
+      /* Animations */
       transition: all 0.15s ease-in-out 0s;
+
+      /* Misc */
+      cursor: pointer;
+
+      @include s('is-active') {
+        pointer-events: none;
+      }
+
     }
   }
 
-  &.evo_dot-navigation-burst {
+  @include m('burst') {
 
     ul {
       li {
-        border: 1px dotted get_color('accent2', 'base', 1);
+        border: 1px dotted get_color('secondary', 'base', 1);
         &:hover,
-        &.evo_dot-current {
-          border: 5px solid get_color('accent2', 'base', 1);
+        &.is-active {
+          border: 5px solid get_color('primary', 'base', 1);
         }
       }
     }
 
   }
 
-  &.evo_dot-navigation-scale {
+  @include m('scale') {
 
     ul {
       li {
-        background-color: get_color('accent', 'base', 0.7);
-        border: 1px solid get_color('accent', 'base', 0.7);
+        background-color: get_color('primary', 'base', 1);
+        border: 1px solid get_color('primary', 'base', 1);
         &:hover,
-        &.evo_dot-current {
+        &.is-active {
           transform: scale(1.2);
-          background-color: get_color('accent', 'base', 1);
-          border: 1px solid get_color('accent', 'base', 1);
+          background-color: get_color('primary2', 'base', 1);
+          border: 1px solid get_color('primary2', 'base', 1);
         }
       }
     }
 
   }
 
-  &.evo_dot-navigation-jiggle {
+  @include m('jiggle') {
 
     ul {
       li {
         background-color: get_color('primary', 'base', 1);
         &:hover,
-        &.evo_dot-current {
+        &.is-active {
           background-color: get_color('primary2', 'base', 1);
         }
       }
       #evo_dot-mask {
+        /* Positioning */
         position: absolute;
-        left: 15px;
+        left: 0;
         top: 0;
+
+        /* Box Model */
         display: block;
-        width: 20px;
-        height: 20px;
+        width: $dot-size;
+        height: $dot-size;
+
+        /* Visual Aspect */
         border-radius: 50%;
         background-color: get_color('primary2', 'base', 1);
+
+        /* Animations */
         transition: left 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s;
         &.moving {
           animation: jiggle 0.3s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s forwards;
@@ -89,6 +122,7 @@
 
   }
 
+  /* Animations */
   @keyframes jiggle {
     0%, 100% {
       transform: translateY(0px);
@@ -101,41 +135,59 @@
     }
   }
 
-  &.evo_dot-navigation-zap {
+  @include m('zap') {
 
     ul {
       #evo_dot-line {
+        /* Positioning */
         position: absolute;
-        top: 8px;
-        bottom: 12px;
-        right: calc(100% - 27px);
+        top: ($dot-size - $zap-line-width) / 2;
+        bottom: ($dot-size - $zap-line-width) / 2;
+
+        /* Visual Aspect */
         background-color: get_color('primary', 'base', 0.7);
+
+        /* Animations */
         transition: right 0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s, left 0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0.2s;
         &.backwards {
           transition: left 0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s, right 0.4s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0.2s;
         }
       }
       li {
-        border: 2px solid get_color('secondary', 'base', 1);
+        /* Positioning */
         position: relative;
+
+        /* Visual Aspect */
+        border: 2px solid get_color('secondary', 'base', 1);
+
         &::after {
+          /* Positioning */
           position: absolute;
-          top: 6px;
-          left: 6px;
-          content: '';
+          top: $dot-size / 2 - $zap-line-width;
+          left: $dot-size / 2 - $zap-line-width;
+
+          /* Box Model */
           display: inline-block;
-          width: 4px;
-          height: 4px;
+          width: $zap-line-width;
+          height: $zap-line-width;
+
+          /* Visual Aspect */
           border-radius: 50%;
+          content: '';
+
+          /* Animations */
           transition: all 0.8s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0.1s;
         }
         &:hover::after {
           background-color: get_color('primary', 'base', 1);
         }
-        &.evo_dot-current {
+        &.is-active {
           &::after {
+            /* Positioning */
+            transform: scale($dot-size / $zap-line-width);
+
+            /* Visual Aspect */
             background-color: get_color('primary', 'base', 1);
-            transform: scale(5) ;
           }
         }
       }
@@ -143,14 +195,18 @@
 
   }
 
-  &.evo_dot-navigation-flip {
+  @include m('flip') {
 
     ul {
       li {
+        /* Visual Aspect */
         border: 2px solid get_color('secondary', 'base', 1);
-        &.evo_dot-current {
-          border:none;
+        &.is-active {
+          /* Visual Aspect */
+          border: none;
           background-color: get_color('primary', 'base', 1);
+
+          /* Animations */
           animation: flip .7s;
           animation-iteration-count: 1;
         }
@@ -159,6 +215,7 @@
 
   }
 
+  /* Animations */
   @keyframes flip {
     0%{
       transform: rotateX(0deg);
@@ -173,14 +230,18 @@
   }
 
 
-  &.evo_dot-navigation-spin {
+  @include m('spin') {
 
     ul {
       li {
+        /* Visual Aspect */
         border: 2px solid get_color('secondary', 'base', 1);
-        &.evo_dot-current {
+        &.is-active {
+          /* Visual Aspect */
           border:none;
           background-color: get_color('primary', 'base', 1);
+
+          /* Animations */
           animation: spin .7s;
           animation-iteration-count: 1;
         }
@@ -189,6 +250,7 @@
 
   }
 
+  /* Animations */
   @keyframes spin {
     0%{
        transform: rotateY(0deg);
@@ -196,21 +258,24 @@
     50% {
        transform: rotateY(180deg);
        background-color: rgba(255,255,255,0.5);
-       
     }
     100% {
        transform: rotateY(0deg);
     }
   }
 
-  &.evo_dot-navigation-bounce {
+  @include m('bounce') {
 
     ul {
       li {
+        /* Visual Aspect */
         border: 2px solid get_color('secondary', 'base', 1);
-        &.evo_dot-current {
-          border:none;
+        &.is-active {
+          /* Visual Aspect */
+          border: none;
           background-color: get_color('primary', 'base', 1);
+
+          /* Animations */
           animation: bounce .7s;
           animation-iteration-count: 1;
         }
@@ -219,6 +284,7 @@
 
   }
 
+  /* Animations */
   @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         -webkit-transform: translateY(0);
@@ -231,15 +297,19 @@
     }
   }
 
-  &.evo_dot-navigation-rotating {
+  @include m('rotating') {
 
     ul {
       li {
+        /* Visual Aspect */
         border: 2px solid get_color('secondary', 'base', 1);
-        &.evo_dot-current {
+        &.is-active {
+          /* Visual Aspect */
           border: none;
           border-radius: 0;
           background-color: get_color('primary', 'base', 1);
+
+          /* Animations */
           animation: rotatingSquare .5s;
           animation-iteration-count: 1;
         }
@@ -248,77 +318,78 @@
   }
 
 
+  /* Animations */
   @keyframes rotatingSquare {
 
     0%{
-      -ms-transform: rotate(0deg); 
-      -webkit-transform: rotate(0deg); 
+      -ms-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
       border-radius: 40%;
     }
     10%{
-      -ms-transform: rotate(36deg); 
-      -webkit-transform: rotate(36deg); 
+      -ms-transform: rotate(36deg);
+      -webkit-transform: rotate(36deg);
       transform: rotate(36deg);
       border-radius: 36%;
     }
     20% {
-      -ms-transform: rotate(72deg); 
-      -webkit-transform: rotate(72deg); 
+      -ms-transform: rotate(72deg);
+      -webkit-transform: rotate(72deg);
       transform: rotate(72deg);
       border-radius: 32%
     }
     30% {
-      -ms-transform: rotate(108deg); 
-      -webkit-transform: rotate(108deg); 
+      -ms-transform: rotate(108deg);
+      -webkit-transform: rotate(108deg);
       transform: rotate(108deg);
       border-radius: 28%
     }
     40% {
-      -ms-transform: rotate(144deg); 
-      -webkit-transform: rotate(144deg); 
+      -ms-transform: rotate(144deg);
+      -webkit-transform: rotate(144deg);
       transform: rotate(144deg);
       border-radius: 24%
     }
     50% {
-      -ms-transform: rotate(180deg); 
-      -webkit-transform: rotate(180deg); 
+      -ms-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
       transform: rotate(180deg);
       border-radius: 20%
     }
     60% {
-      -ms-transform: rotate(216deg); 
-      -webkit-transform: rotate(216deg); 
+      -ms-transform: rotate(216deg);
+      -webkit-transform: rotate(216deg);
       transform: rotate(216deg);
       border-radius: 16%
     }
     70% {
-      -ms-transform: rotate(252deg); 
-      -webkit-transform: rotate(252deg); 
+      -ms-transform: rotate(252deg);
+      -webkit-transform: rotate(252deg);
       transform: rotate(252deg);
       border-radius: 12%
     }
     80% {
-      -ms-transform: rotate(288deg); 
-      -webkit-transform: rotate(288deg); 
+      -ms-transform: rotate(288deg);
+      -webkit-transform: rotate(288deg);
       transform: rotate(288deg);
       border-radius: 8%
     }
     90% {
-      -ms-transform: rotate(324deg); 
-      -webkit-transform: rotate(324deg); 
+      -ms-transform: rotate(324deg);
+      -webkit-transform: rotate(324deg);
       transform: rotate(324deg);
       border-radius: 4%
     }
     100% {
-      -ms-transform: rotate(360deg); 
-      -webkit-transform: rotate(360deg); 
+      -ms-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
       border-radius: 0%
     }
 
   }
-     
+
 
 }
 

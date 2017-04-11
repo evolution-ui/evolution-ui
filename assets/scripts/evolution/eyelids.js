@@ -31,12 +31,12 @@ export default function() {
 
     cacheDom: function() {
       this.bodyElement = document.querySelector('body');
-      this.notification = document.querySelector('.evo_c-eyelids-notification');
+      this.notification = document.querySelector('.evo_c-eyelids__notification');
       this.shortcut = this.notification && this.notification.querySelector('code');
       this.top = document.createElement('div');
       this.bottom = document.createElement('div');
       this.helper = document.createElement('div');
-      this.helper.classList.add('evo_c-eyelids-helper');
+      this.helper.classList.add('evo_c-eyelids__helper');
       this.top.classList.add('evo_c-eyelids--top');
       this.bottom.classList.add('evo_c-eyelids--bottom');
     },
