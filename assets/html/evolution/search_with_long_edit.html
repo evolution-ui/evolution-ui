@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search with long edit</title>
+</head>
+<body>
+<h3 class="componentSection__subheader">Long Search Editor [Innovative]</h3>
+<p class="componentSection__subDescription">
+<ul>
+    <li>Allows long search queries to be viewed and edited within the
+        search componenent.</li>
+    <li>Queries are updated
+        between editor and search field.</li>
+    <li>Option to expand editor
+        appears
+        when visible width of
+        search field
+        is exceeded.
+    </li>
+</ul>
+
+</p>
+<div class="componentSection__componentContainer">
+    <div class="componentContainer__display">
+        <div class="evo_c-searchBar" id="searchBar--longSearchEditor">
+            <label for="searchBar__searchEditorControl" class="searchBar__searchEditorControlLabel" id="searchBar__searchEditorControlLabel"><i
+                    class="fa fa-expand searchBar__expand" aria-hidden="true" id="searchBar__expand"></i></label>
+            <input class="searchBar__searchInput searchBar__searchInput--longSearchInput" id="searchBar__searchInput" type="text" name="" placeholder="Search" />
+            <div class="searchBar__searchButton" tabindex="0">
+                <i class="fa fa-search"></i> Search
+            </div>
+            <input class="searchBar__searchEditorControl" type="checkbox" id="searchBar__searchEditorControl" />
+            <div type="text" class="searchBar__searchEditor" id="searchBar__searchEditor" contenteditable="true" tabindex="0" placeholder="Edit long search strings here">
+
+            </div>
+        </div>
+    </div>
+    <div class="componentContainer__markup"></div>
+</div>
+</body>
+</html>
