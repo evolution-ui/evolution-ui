@@ -22,11 +22,49 @@ $bar-element: getBEMReference($c-component-name, 'bar');
   background-color: tint(get-color('background'), 90);
   box-sizing: content-box;
 
+
+    &[data-message] {
+      @extend %c-progress-bars-text-after;
+      height: $c-progress-bars-height-middle;
+      padding: 0;
+
+
+        & .#{$bar-element} {
+          height: $c-progress-bars-height-middle;
+        }
+
+        &:after {
+          @extend %c-progress-bars-message-after;
+          @extend %c-progress-bars-absolute-center;
+        }
+    }
+
+    //--------------------------------------------------------------------------
+    //                      Message - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include h('message', $g-no-prefix, $apply-on-descendants: false) {
+      @extend %c-progress-bars-text-after;
+      margin-left: $c-progress-bars-percentage-margin-left;
+      height: $c-progress-bars-height-middle;
+      padding: 0;
+
+
+        & .#{$bar-element} {
+          height: $c-progress-bars-height-middle;
+        }
+
+        &:after {
+          @extend %c-progress-bars-percentage-after;
+          @extend %c-progress-bars-absolute-center;
+        }
+    }
+
     //--------------------------------------------------------------------------
     //                      percentage - Progress Bars
     //--------------------------------------------------------------------------
 
-    &.h-percentage {
+    @include h('percentage', $g-no-prefix, $apply-on-descendants: false) {
       margin-left: $c-progress-bars-percentage-margin-left;
 
       &:after {
@@ -43,10 +81,9 @@ $bar-element: getBEMReference($c-component-name, 'bar');
       }
 
       @include m( 'center' ) {
+        @extend %c-progress-bars-text-after;
         height: $c-progress-bars-height-middle;
         padding: 0;
-        color: white(.9);
-        text-shadow: 0 1px 1px rgba(0,0,0,.5);
 
         & .#{$bar-element} {
           height: $c-progress-bars-height-middle;
@@ -218,7 +255,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
                 @include m('backward') {
                   @extend %c-progress-bars-shapes;
                   @include _progress-bars-medias;
-                  animation: c-progress-bars-infinite-b-pr 2.5s infinite forwards linear;
+                  animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
                 }
               }
             }
@@ -233,7 +270,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
             @include m('backward') {
               @extend %c-progress-bars-shapes;
               @include _progress-bars-medias;
-              animation: c-progress-bars-infinite-b-pr 2.5s infinite forwards linear;
+              animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
             }
 
           }

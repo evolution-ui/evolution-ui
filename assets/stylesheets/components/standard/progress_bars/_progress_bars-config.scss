@@ -32,24 +32,25 @@ $c-progress-bars-percentage-margin-left: 50px;
 }
 
 @mixin _progress-bars-medias() {
-  @media screen and (min-width: 550px) {
-      animation-duration: 4.5s;
+
+  @media screen and (min-width: 450px) {
+      animation-duration: 9s;
   }
 
   @media screen and (min-width: 760px) {
-      animation-duration: 8.5s;
-  }
-
-  @media screen and (min-width: 1200px) {
-      animation-duration: 10s;
-  }
-
-  @media screen and (min-width: 1700px) {
       animation-duration: 15s;
   }
 
+  @media screen and (min-width: 1200px) {
+      animation-duration: 25s;
+  }
+
+  @media screen and (min-width: 1700px) {
+      animation-duration: 35s;
+  }
+
   @media screen and (min-width: 2000px) {
-      animation-duration: 20s;
+      animation-duration: 50s;
   }
 }
 
@@ -57,14 +58,31 @@ $c-progress-bars-percentage-margin-left: 50px;
 //                          Progress Bars Placeholders
 //------------------------------------------------------------------------------
 
-%c-progress-bars-percentage-after {
+%c-progress-bars-info {
   position: absolute;
-  content: attr(aria-valuenow) "%";
   display: inline-block;
   font-family: #{$g-framework-font-family};
   color: inherit;
   line-height: $c-progress-bars-height;
 }
+
+%c-progress-bars-percentage-after {
+  @extend %c-progress-bars-info;
+  content: attr(aria-valuenow) "%";
+}
+
+%c-progress-bars-message-after {
+  @extend %c-progress-bars-info;
+  content: attr(data-message);
+}
+
+%c-progress-bars-text-after {
+  color: white(.9);
+  text-shadow: 0 1px 1px rgba(0,0,0,.5);
+}
+
+
+
 
 %c-progress-bars-absolute-center {
   display: flex;
