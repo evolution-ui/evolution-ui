@@ -97,7 +97,7 @@
   font-size: 1.1em;
   font-weight:200;
   margin-left:-0.5em;
-  padding: 7px 7px 5px 7px;
+  padding: 25px 7px 5px 7px;
   border-top: none;
   border-bottom: none;
   
@@ -165,13 +165,14 @@
     ) 0 0 100% 0/0 0 1.5px 0 stretch;
      
 }
-
 #evo_c-fontana-form__message::-webkit-input-placeholder{
- padding-top:62.5%;
+ padding-top:57.25%;
  padding-left:2.5%;
+ font-size:1.1em;
 }
 #evo_c-fontana-form__message::input-placeholder{
- padding-top:64.5%;
+ padding-top:57.25%;
+ padding-left:2.5%;
  font-size:1.1em;
 }
 /* submit button */
