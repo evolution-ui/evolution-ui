@@ -5,24 +5,14 @@ export default function() {
   var activeStatusClass = 'is-active';
   var selectors = {
     tab: '.evo_c-tab',
+    list: '[class*="tab__list"]',
+    item: '[class*="tab__item"]',
     scrollTabs: '[class*="tab--scroll"]',
     navigation: '[class*="tab__navigation"]',
     sticky: '[class*="tab__sticky"]'
   };
 
   var mediaTablet = 750;
-
-  var pfx = ['webkit', 'moz', 'MS', 'o', ''];
-
-  var $prefixedOn = function ( target, type, callback, useCapture ) {
-
-    for ( var p = 0, length = pfx.length; p < length; p++ ) {
-      if ( !pfx[p] ) {
-        type = type.toLowerCase();
-      }
-      target.addEventListener( pfx[p]+type, callback, !!useCapture );
-    }
-  };
 
   /**
    * Convert an Object List to an Array
@@ -104,59 +94,137 @@ export default function() {
     return (parent || document).querySelectorAll(selector);
   }
 
+  function setAriaStatus(tab, status) {
+    var panelId = tab.firstElementChild.getAttribute('href');
+    var panel   = $(panelId, panel);
+    tab.setAttribute('aria-selected', status);
+    panel && panel.setAttribute('aria-hidden', !status);
+  }
 
-  function handleClick( event ) {
+  function initAriaStatus(tabComponent) {
+
+    var tabs = toArr($$('[role="tab"]', tabComponent));
+    var activeTab = $('[class$="tab__item ' + activeStatusClass +'"]', tabComponent);
+
+    setAriaStatus(activeTab, true);
+
+    tabs.filter(function(tab) {
+      return !hasClassName(tab, activeStatusClass);
+    }).forEach(function(tab) {
+      setAriaStatus(tab, false);
+    });
+
+  }
+
+  function handleKeyDown(event) {
+    var key;
+    var tabComponent;
+    var targetLink;
+    var tabList;
+    var targetTab;
+    var activeTab;
+
+
+    event = event || window.event;
+    targetLink = event.target;
+    activeTab = targetLink.parentElement;
+    tabComponent = getClosest(targetLink, selectors.tab);
+    tabList    = getClosest(targetLink, selectors.list);
+    key   = event.keyCode;
+
+
+    if (key === 34 || key === 35) {
+        // end / page down
+        targetTab = tabList.lastElementChild;
+    } else if (key === 33 || key === 36) {
+        // home / page up
+        targetTab = tabList.firstElementChild;
+    } else if (key === 37 || key === 38) {
+        // left/up arrow
+        if (activeTab.previousElementSibling) {
+            targetTab = activeTab.previousElementSibling;
+        } else {
+            targetTab = tabList.lastElementChild;
+        }
+    }  else if (key === 39 || key === 40) {
+        // right/down arrow
+        if (activeTab.nextElementSibling) {
+            targetTab = activeTab.nextElementSibling;
+        } else {
+            targetTab = tabList.firstElementChild;
+        }
+    } else if (key === 32 || key === 13) {
+        // spacebar / enter
+        targetTab = activeTab;
+    }
+
+    if (key === 33 || key === 34 || key === 35 || key === 36 ||
+        key === 37 || key === 38 || key === 39 || key === 40) {
+        setActiveTab(tabComponent, targetTab);
+    }
+
+  }
+
+  function setActiveTab(tabComponent, targetTab) {
+    var oldActiveTab   = $('[class$="tab__item ' + activeStatusClass +'"]', tabComponent);
+    var oldActivePanel = $('[class$="tab__panel ' + activeStatusClass +'"]', tabComponent);
+    var link = targetTab && targetTab.firstElementChild;
+    var targetPanelSel = link && link.getAttribute('href') || 'null';
+    var targetPanel    = $( targetPanelSel, tabComponent );
+
+
+    // When the active tab is the same as the target one, focus it and return
+    if ( oldActiveTab && ( targetPanel.id === oldActivePanel.id )) {
+      link.focus();
+      return;
+    }
+
+    if (oldActiveTab && oldActivePanel) {
+      oldActiveTab.classList.remove(activeStatusClass);
+      oldActivePanel.classList.remove(activeStatusClass);
+      setAriaStatus(oldActiveTab, false);
+    }
+
+    if (targetTab && targetPanel) {
+      targetTab.classList.add(activeStatusClass);
+      targetPanel.classList.add(activeStatusClass);
+      setAriaStatus(targetTab, true);
+      targetTab.firstElementChild.focus();
+    }
+  }
+
+
+  function handleClick(event) {
 
     event.stopPropagation();
     event.preventDefault();
 
+    var target = event.target;
     var targetSelector;
-    var targetItem;
     var targetTab;
-    var targetTabContent;
+    var targetPanel;
 
-    var isLink = hasClassName(event.target, 'tab__link');
-    var isItem = hasClassName(event.target, 'tab__item');
-    var tab    = getClosest(event.target, selectors.tab);
-    var activeItem = $('[class$="tab__item ' + activeStatusClass +'"]', tab);
-    var activeTab = $('[class$="tab__panel ' + activeStatusClass +'"]', tab);
+    var isLink = hasClassName(target, 'tab__link');
+    var isItem = hasClassName(target, 'tab__item');
+    var isIcon = target.nodeName === 'I' || false;
+    var tabComponent = getClosest(target, selectors.tab);
+    var activeTab = $('[class$="tab__item ' + activeStatusClass +'"]', tabComponent);
+    var activePanel = $('[class$="tab__panel ' + activeStatusClass +'"]', tabComponent);
 
 
-    if ( !isLink && !isItem ) {
+    if (!isLink && !isItem && !isIcon) {
+      // focus the link of the active tab
+      activeTab.firstElementChild.focus();
       return;
     }
 
     if ( isItem ) {
-      targetItem = event.target;
+      targetTab = target;
     } else {
-      targetItem = event.target.parentElement;
+      targetTab = getClosest(target, selectors.item);
     }
 
-    if ( isLink ) {
-      targetSelector = event.target.getAttribute( 'href' );
-    } else {
-      targetSelector = event.target.firstElementChild.getAttribute( 'href' );
-    }
-
-    // Get the reference to the target Tab Content
-    targetTabContent = $( targetSelector );
-
-    // When the active tab is the same as the target one, simply returns
-    if ( activeTab && ( targetTabContent.id === activeTab.id )) {
-      return;
-    }
-
-    if ( activeItem ) {
-      activeItem.classList.remove(activeStatusClass);
-    }
-
-    targetItem.classList.add(activeStatusClass);
-
-    if ( targetTabContent ) {
-      activeTab.classList.remove(activeStatusClass);
-      targetTabContent.classList.add(activeStatusClass);
-    }
-
+    setActiveTab(tabComponent, targetTab);
   }
 
   function getCompStyle(el) {
@@ -251,6 +319,13 @@ export default function() {
   window.addEventListener('load', function (event) {
     toArr(scrollTabs).forEach(function(scrollTab) {
         calculateMinHeight(scrollTab);
+      });
+  });
+
+  window.addEventListener('DOMContentLoaded', function (event) {
+    toArr(tabs).forEach(function(tab) {
+        initAriaStatus(tab);
+        tab.addEventListener('keyup', handleKeyDown );
       });
   });
 
