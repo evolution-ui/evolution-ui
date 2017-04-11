@@ -32,6 +32,7 @@
   $sticky-selector: getBEMReference($c-component-name, 'sticky');
   $tab-list-selector: getBEMReference($c-component-name, 'list');
   $tab-item-selector: getBEMReference($c-component-name, 'item');
+  $tab-is-active: 'is-active';
   $tab-panel: getBEMReference($c-component-name, 'panel');
   $tab-link-selector: getBEMReference($c-component-name, 'link');
 
@@ -95,7 +96,7 @@
           //                            Status
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include s('is-active') {
+          @include s($tab-is-active) {
             transform: translateY(0);
           }
       }
@@ -118,7 +119,7 @@
           //                            Status
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include s('is-active') {
+          @include s($tab-is-active) {
             transform: translateY(0);
           }
       }
@@ -142,7 +143,7 @@
           //                            Status
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include s('is-active') {
+          @include s($tab-is-active) {
             transform: translateX(0);
           }
       }
@@ -165,7 +166,7 @@
           //                            Status
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include s('is-active') {
+          @include s($tab-is-active) {
             transform: translateX(0);
           }
       }
@@ -218,7 +219,6 @@
       }
 
       .#{$tab-item-selector} {
-        width: 90%;
         text-align: center;
       }
 
@@ -236,10 +236,10 @@
       }
 
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-          //                        RIGTH - LETERAL HELPER
+          //                       NAV RIGTH - LETERAL HELPER
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include h('right', $apply-on-descendants: false) {
+          @include h('nav--right', $g-no-prefix, $apply-on-descendants: false) {
 
             @media screen and (min-width: $c-tabs-media-tablet) {
               flex-direction: row-reverse;
@@ -258,9 +258,8 @@
     background-color: $c-tabs-navigation-background-color;
     z-index: $c-tabs-navigation-z-index;
 
-      @include m('dark') {
-        background-color: $c-tabs-navigation-dark-background-color;
-      }
+    // Provide brackgrounds and text color variations
+    @include backgroundVariants($is-descendant: false);
   }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -278,27 +277,163 @@
         justify-content: space-between;
       }
 
-      @include h('space-around', $apply-on-descendants: false) {
+      @include h('space-around', $g-no-prefix, $apply-on-descendants: false) {
         justify-content: space-around;
       }
 
-      @include h('grow', $apply-on-descendants: false) {
+      @include h('grow', $g-no-prefix, $apply-on-descendants: false) {
         .#{$tab-item-selector} {
             flex-grow: 1;
         }
       }
 
-      @include h('text', $apply-on-descendants: false) {
+      @include h('link-column', $g-no-prefix, $apply-on-descendants: false) {
+        & .#{$tab-link-selector} {
+            flex-direction: column;
+          }
+      }
+
+      @include h('content', $g-no-prefix, $apply-on-descendants: false) {
+
+        @include m('left') {
+          .#{$tab-item-selector} {
+            justify-content: flex-start;
+          }
+        }
 
         @include m('center') {
           .#{$tab-item-selector} {
-              text-align: center;
+            justify-content: center;
           }
         }
 
         @include m('right') {
           .#{$tab-item-selector} {
-              text-align: right;
+            justify-content: flex-end;
+          }
+        }
+
+      }
+
+      //------------------------------------------------------------------------
+      //                    COLOR VARIATIONS - ITEM HELPER
+      //------------------------------------------------------------------------
+
+      @include h('active-bck', $g-no-prefix, $apply-on-descendants: false) {
+          @include _generate-is-active-color('primary');
+          @include _generate-is-active-color('secondary');
+          @include _generate-is-active-color('accent');
+          @include _generate-is-active-color('accent2');
+          @include _generate-is-active-color('accent3');
+          @include _generate-is-active-color('accent4');
+          @include _generate-is-active-color('background');
+      }
+
+      //------------------------------------------------------------------------
+      //                    ANIMATIONS - ITEM HELPER
+      //------------------------------------------------------------------------
+
+
+      @include h('animation', $g-no-prefix, $apply-on-descendants:false) {
+
+        @include m('zoom-text') {
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            font-size: 1.3em;
+          }
+        }
+
+        @include m('underline') {
+
+          .#{$tab-item-selector} {
+            &:after {
+              content: '';
+              display: flex;
+              width: 100%;
+              height: 10%;
+              display:block;
+              margin-top: 3px;
+              transform: scale(0, 0);
+              transition: all .5s ease-out;
+            }
+          }
+
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            position: relative;
+            &:after {
+              transform: scale(1, 1);
+              background-color: white(.35);
+            }
+          }
+        }
+
+        // It makes a zoom effect on the shadow :after block element
+        @include m('zoom') {
+
+          .#{$tab-item-selector} {
+            &:after {
+              @extend %c-tabs-item-animations;
+              margin: auto;
+              transform: scale(1, 0);
+              transition: all .5s ease-out;
+            }
+          }
+
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            position: relative;
+            &:after {
+              animation-name: zoomI;
+              -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+              transform: scale(1, 1);
+              background-color: white(.2);
+            }
+          }
+        }
+
+        @include m('highlight') {
+
+          .#{$tab-item-selector} {
+            &:after {
+              @extend %c-tabs-item-animations;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: auto;
+              transform: scale(0, 0);
+              transition: all .5s ease-out;
+            }
+          }
+
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            position: relative;
+            &:after {
+              transform: scale(1, 1);
+              background-color: white(.2);
+            }
+          }
+        }
+
+        @include m('highlight-to-right') {
+
+          .#{$tab-item-selector} {
+            &:after {
+              @extend %c-tabs-item-animations;
+              margin: auto;
+              display:block;
+              transform: scale(0, 1);
+              transition: all .5s ease-out;
+            }
+          }
+
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            position: relative;
+            &:after {
+              transform-origin: left center;
+              transform: scale(1, 1);
+              background-color: white(.1);
+            }
           }
         }
 
@@ -313,17 +448,19 @@
 
   @include e('item') {
     @extend %c-tabs-cursor-pointer;
+    justify-content: center;
     padding: $c-tabs-item-padding-top-bottom $c-tabs-item-padding-left-right;
-    transition: background-color .8s ease;
+    transition: all .8s ease;
 
-    @include s('is-active') {
+    @include s($tab-is-active) {
       background-color: $c-tabs-item-active-background-color!important;
     }
 
     &:hover {
-      background-color: $c-tabs-item-hover-background-color;
+      background-color: white(.2);
       transition: all .4s;
     }
+
   }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -339,8 +476,21 @@
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include e('link') {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: inherit;
     color: inherit;
     text-decoration: none;
+
+    &:hover {
+      color: inherit;
+      text-decoration: inherit;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -356,7 +506,7 @@
       //                            Status
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        @include s('is-active') {
+        @include s($tab-is-active) {
           display: block;
         }
   }
