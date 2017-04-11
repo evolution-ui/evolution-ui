@@ -5,7 +5,7 @@
 
 
 .evo_c-searchBar__searchEditor{
-  background-color:$invertDefaultColor;
+  background-color:#ffffff;
   border:1px solid $altColor;
   border-radius: $borderRoundedSoft;
   display:none;
@@ -37,7 +37,7 @@
 }
 
 .evo_c-searchBar__expand{
-  color:$baseColorLight;
+  color:#56C5DE;
   margin-right:3px;
   padding:0;
   visibility: hidden;
@@ -72,21 +72,21 @@
   padding: 0.1rem 0.3rem;
   margin: 0;
   border: none;
-  border-bottom: 2px solid $baseColorLight;
+  border-bottom: 2px solid  #56C5DE;
   cursor: pointer;
 }
 
 .evo_c-searchBar__searchInput:focus {
   outline: none !important;
-  border-bottom: 2px dashed $baseColorLight;
+  //border-bottom: 2px dashed $baseColorLight;
   border-radius: 0;
   box-shadow: none;
 }
 
 .evo_c-searchBar__searchButton {
   @extend %button;
-  border:$borderDefault $baseColorMed;
-  background-color: $baseColorMed;
+  border:$borderDefault #56C5DE;
+  background-color: #56C5DE;
   color:$invertDefaultColor;
   //height: 2.3rem;
   margin: 0;
@@ -94,10 +94,10 @@
   display: flex;
   align-items: center;
   &:hover{
-    background-color: $baseColorLight;
+    background-color: #56C5DE;
   }
   &:active{
-    background-color: $baseColorDark;
+    background-color: #56C5DE;
   }
 }
 
