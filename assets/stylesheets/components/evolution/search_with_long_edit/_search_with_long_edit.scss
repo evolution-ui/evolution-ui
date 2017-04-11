@@ -10,14 +10,14 @@
   border-radius: $borderRoundedSoft;
   display:none;
   font-family: $fontMono;
-  left:15px;
+  //left:15px;
   //font-size:1em;
   max-width:400px;
   min-width:300px;
   outline:none;
   padding:10px;
   position:absolute;
-  top:43px;
+  top:60px;
   z-index:100;
 }
 
@@ -67,7 +67,7 @@
 .evo_c-searchBar__searchInput{
   @include fontContent();
   font-size: 1.2rem;
-  height: 2.2rem;
+  height: 2.3rem;
   border-radius: 0;
   padding: 0.1rem 0.3rem;
   margin: 0;
@@ -88,7 +88,7 @@
   border:$borderDefault $baseColorMed;
   background-color: $baseColorMed;
   color:$invertDefaultColor;
-  height: 2.2rem;
+  //height: 2.3rem;
   margin: 0;
   border-radius: 0 $borderRoundedSoft $borderRoundedSoft 0;
   display: flex;
