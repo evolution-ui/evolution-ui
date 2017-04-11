@@ -1,40 +1,65 @@
-# seed-ui
+# Evolution UI Showcase Website
 
-# [Live Site](https://codephobe.github.io/seed-ui/)
+> The source code for the showcase website of the Evolution UI Framework. It is built using [Jekyll][jekyll], a powerful and simple static site generation tool written in [Ruby][ruby].
 
-- Each component gets its own sub-folder in the `components` folder.
-- Add the scss partials of the components to the file named after you in the `partials` folder.
-- Refer to `_jake.scss` for an example.
-- Run `sass --watch components:css` to automatically compile scss.
-- Use your named html file in the `html-temp` folder to write up your components.
-- If you need fonts, Google Material icons have been added to each html file. (https://material.io/icons/ for usage instructions)
-- All classes to be prefixed with `su_`
+## Requirements
 
-# Installing Grunt tasks
+This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating systems. It requires the following software to be already installed on your system:
 
-1. First check if you system has node.js installed. In the command line type:
+- [Ruby][ruby]
+- [RubyGems][rubygems]
+- [Bundler][rubybundler]
+- [Node.js][node]
+- [npm][npm]
 
-    `node -v` // v7.6.0
+**Running Windows?** Jekyll does not officially support the Windows operating system, but they do provide [special instructions][jekyll-windows] if you want to take a crack at it anyway.
 
-    if you have it, then check if you have `npm` (node package manager) installed:
+## Features
 
-    `npm -v` // 4.3.0
+- [Jekyll][jekyll] as a blog-focused static site generator that uses the [Liquid][liquid] templating language.
+- [Sass][sass] for features that don’t exist in CSS yet like variables, nesting, mixins, inheritance, and more.
 
-    * if you don't have those installed, follow [these instructions](https://docs.npmjs.com/getting-started/installing-node) to install node.js and `npm`
+## Installation
 
-2. Now, install `grunt-cli`:
+Clone this repository to your local machine, and install its dependencies with the following command(s):
 
-    `npm install -g grunt-cli` // '-g' means install it globally on your system
+```bash
+git clone git@github.com:BovAcademy-opensource/evolution-ui.git
+cd evolution-ui/docs
+bundle install
+```
 
-3. Now, it is time to install all needed packages. `cd` into your repository directory and run this command:
+The `bundle install` command will install the required Ruby gems.
 
-    `npm install`
+## Usage
 
-4. After that use the following commands:
+To start working, first run the following command(s) from the **root directory** of this repository:
 
-    * `grunt` - this concatenates `js` files, compiles `sass` files, and watches for changes in those files
-    * `grunt build` - build for production, uglifies JS, and compiles sass
+```bash
+npm run start-docs
+```
 
-5. The `main.js`, `main.min.js` and `main.css` are located in the `prod` directory on the root of the repository. **Make sure you link to those files in your HTML file**
+The `npm run start-docs` command will run copy the compiled CSS/JS files from the UI framework into the `docs/assets/` directory, and run a Jekyll command that builds the templates and starts a local server at http://localhost:4000 that watches for changes to template and Sass files and automatically re-builds the website.
 
-6. You can stop grunt task by pressing `Ctrl + C` in the command line
+This is considered **“Development Mode”**, which means that the files being served in this local environment are not yet minified or optimized for deployment.
+
+## Deploying
+
+When you are finished working and want to deploy your changes to the production server (in this case [GitHub Pages][github-pages]), run the following command(s) from the **root directory** of this repository:
+
+```bash
+npm run deploy-docs
+```
+
+The `npm run deploy-docs` command will build a production-ready version of the website, and deploy only the `/docs/_site` directory to the `gh-pages` branch.
+
+[github-pages]: https://pages.github.com/
+[jekyll]: https://jekyllrb.com
+[jekyll-windows]: http://jekyllrb.com/docs/windows/#installation
+[liquid]: http://liquidmarkup.org
+[node]: https://nodejs.org/en/
+[npm]: https://www.npmjs.com
+[ruby]: https://www.ruby-lang.org/en/
+[rubybundler]: http://bundler.io
+[rubygems]: https://rubygems.org
+[sass]: http://sass-lang.com
