@@ -1,1 +1,107 @@
 @import '_search_with_long_edit-config.scss';
+
+
+//////SEARCH WITH LONG EDIT////////
+
+
+.evo_c-searchBar__searchEditor{
+  background-color:$invertDefaultColor;
+  border:1px solid $altColor;
+  border-radius: $borderRoundedSoft;
+  display:none;
+  font-family: $fontMono;
+  left:15px;
+  //font-size:1em;
+  max-width:400px;
+  min-width:300px;
+  outline:none;
+  padding:10px;
+  position:absolute;
+  top:43px;
+  z-index:100;
+}
+
+.evo_c-searchBar__searchInput--longSearchInput{
+  font-family: $fontMono !important;
+}
+
+.evo_c-searchBar__searchEditorControl{
+  visibility: hidden;
+  &:checked + .evo_c-searchBar__searchEditor{
+    display:block;
+  }
+}
+
+.evo_c-searchBar__searchEditorControlLabel{
+  visibility: hidden;
+}
+
+.evo_c-searchBar__expand{
+  color:$baseColorLight;
+  margin-right:3px;
+  padding:0;
+  visibility: hidden;
+}
+
+//Base Search Bar Styles//
+
+.evo_c-searchBar {
+  @include componentBoxSmall();
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.evo_c-searchBar--withSearchIndication{
+  height: 150px;
+  margin: 20px inherit;
+  z-index: 10;
+}
+
+.evo_c-searchBar__searchingToggle{
+  display:none;
+}
+
+.evo_c-searchBar__searchInput{
+  @include fontContent();
+  font-size: 1.2rem;
+  height: 2.2rem;
+  border-radius: 0;
+  padding: 0.1rem 0.3rem;
+  margin: 0;
+  border: none;
+  border-bottom: 2px solid $baseColorLight;
+  cursor: pointer;
+}
+
+.evo_c-searchBar__searchInput:focus {
+  outline: none !important;
+  border-bottom: 2px dashed $baseColorLight;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.evo_c-searchBar__searchButton {
+  @extend %button;
+  border:$borderDefault $baseColorMed;
+  background-color: $baseColorMed;
+  color:$invertDefaultColor;
+  height: 2.2rem;
+  margin: 0;
+  border-radius: 0 $borderRoundedSoft $borderRoundedSoft 0;
+  display: flex;
+  align-items: center;
+  &:hover{
+    background-color: $baseColorLight;
+  }
+  &:active{
+    background-color: $baseColorDark;
+  }
+}
+
+.evo_c-searchBar__searchButton > i{
+  margin-right: 0.3rem;
+  color: $invertDefaultColor;
+}
