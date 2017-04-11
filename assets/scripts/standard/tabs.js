@@ -153,9 +153,6 @@ export default function() {
         } else {
             targetTab = tabList.firstElementChild;
         }
-    } else if (key === 32 || key === 13) {
-        // spacebar / enter
-        targetTab = activeTab;
     }
 
     if (key === 33 || key === 34 || key === 35 || key === 36 ||
