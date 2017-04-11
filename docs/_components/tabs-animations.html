@@ -1,0 +1,269 @@
+---
+title: "Tab Animations"
+description: |
+
+  <p>
+    In Evolution UI, you can apply an animation effect on both the tab and the panel.
+  </p>
+  <p>
+    The current available effects are:
+    <strong>Tab effects</strong>
+    <ul>
+      <li>zoom</li>
+      <li>zoom-text</li>
+      <li>underline</li>
+      <li>highlight</li>
+      <li>highlight-to-right</li>
+    </ul>
+  </p>
+  <p>
+    You can apply the effects through the <code>h-animation--[effect-name]</code>
+    helper class on the <code>evo_c-tab__list</code> element.
+  </p>
+  <p>
+    <strong>Note:</strong> You could also mix some effect together.
+
+
+type: Standard Tabs
+order: 8
+---
+
+
+<div class="evo_c-tab evo_c-tab--lateral evo_c-tab--card">
+
+  <nav class="evo_c-tab__navigation h-bck__secondary--light" role="tablist">
+    <ul class="evo_c-tab__list h-active-bck--accent2 h-animation--zoom">
+      <li class="evo_c-tab__item is-active" aria-controls="panel-8-1" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8-1">Tab 1</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8-2">Tab 2</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8-3">Tab 3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="evo_c-tab__panel is-active" id="panel-8-1" aria-labelledby="tab1" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 1</h2>
+    <p>
+      <code>h-animation--zoom</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8-2" aria-labelledby="tab2" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 2</h2>
+    <p>
+      <code>h-animation--zoom</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8-3" aria-labelledby="tab3" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 3</h2>
+    <p>
+      <code>h-animation--zoom</code>
+    </p>
+  </div>
+
+</div>
+
+<div class="evo_c-tab evo_c-tab--card">
+
+  <nav class="evo_c-tab__navigation h-bck__secondary--light" role="tablist">
+    <ul class="evo_c-tab__list h-active-bck--accent2 h-animation--zoom-text">
+      <li class="evo_c-tab__item is-active" aria-controls="panel-8-1" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8b-1">Tab 1</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8b-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8b-2">Tab 2</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8b-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8b-3">Tab 3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="evo_c-tab__panel is-active" id="panel-8b-1" aria-labelledby="tab1" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 1</h2>
+    <p>
+      <code>h-animation--zoom-text</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8b-2" aria-labelledby="tab2" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 2</h2>
+    <p>
+      <code>h-animation--zoom-text</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8b-3" aria-labelledby="tab3" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 3</h2>
+    <p>
+      <code>h-animation--zoom-text</code>
+    </p>
+  </div>
+
+</div>
+
+<div class="evo_c-tab evo_c-tab--card">
+
+  <nav class="evo_c-tab__navigation h-bck__primary--dark" role="tablist">
+    <ul class="evo_c-tab__list h-active-bck--secondary h-animation--underline">
+      <li class="evo_c-tab__item is-active" aria-controls="panel-8-1" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8c-1">Tab 1</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8c-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8c-2">Tab 2</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8c-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8c-3">Tab 3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="evo_c-tab__panel is-active" id="panel-8c-1" aria-labelledby="tab1" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 1</h2>
+    <p>
+      <code>h-animation--underline</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8c-2" aria-labelledby="tab2" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 2</h2>
+    <p>
+      <code>h-animation--underline</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8c-3" aria-labelledby="tab3" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 3</h2>
+    <p>
+      <code>h-animation--underline</code>
+    </p>
+  </div>
+
+</div>
+
+
+<div class="evo_c-tab evo_c-tab--card">
+
+  <nav class="evo_c-tab__navigation h-bck__primary--dark" role="tablist">
+    <ul class="evo_c-tab__list h-active-bck--background h-animation--highlight">
+      <li class="evo_c-tab__item is-active" aria-controls="panel-8-1" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8d-1">Tab 1</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8d-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8d-2">Tab 2</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8d-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8d-3">Tab 3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="evo_c-tab__panel is-active" id="panel-8d-1" aria-labelledby="tab1" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 1</h2>
+    <p>
+      <code>h-animation--highlight</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8d-2" aria-labelledby="tab2" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 2</h2>
+    <p>
+      <code>h-animation--highlight</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8d-3" aria-labelledby="tab3" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 3</h2>
+    <p>
+      <code>h-animation--highlight</code>
+    </p>
+  </div>
+
+</div>
+
+<div class="evo_c-tab evo_c-tab--card">
+
+  <nav class="evo_c-tab__navigation h-bck__primary--dark" role="tablist">
+    <ul class="evo_c-tab__list h-active-bck--background h-animation--highlight-to-right">
+      <li class="evo_c-tab__item is-active" aria-controls="panel-8-1" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8e-1">Tab 1</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8e-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8e-2">Tab 2</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8e-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8e-3">Tab 3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="evo_c-tab__panel is-active" id="panel-8e-1" aria-labelledby="tab1" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 1</h2>
+    <p>
+      <code>h-animation--highlight-to-right</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8e-2" aria-labelledby="tab2" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 2</h2>
+    <p>
+      <code>h-animation--highlight-to-right</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8e-3" aria-labelledby="tab3" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 3</h2>
+    <p>
+      <code>h-animation--highlight-to-right</code>
+    </p>
+  </div>
+
+</div>
+
+<div class="evo_c-tab evo_c-tab--card">
+
+  <nav class="evo_c-tab__navigation h-bck__background" role="tablist">
+    <ul class="evo_c-tab__list h-active-bck--accent4 h-animation--zoom h-animation--zoom-text">
+      <li class="evo_c-tab__item is-active" aria-controls="panel-8-1" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8f-1">Tab 1</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8f-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8f-2">Tab 2</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-8f-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-8f-3">Tab 3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="evo_c-tab__panel is-active" id="panel-8f-1" aria-labelledby="tab1" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 1</h2>
+    <p>
+      <code>h-animation--zoom</code>
+      <code>h-animation--zoom-text</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8f-2" aria-labelledby="tab2" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 2</h2>
+    <p>
+      <code>h-animation--zoom</code>
+      <code>h-animation--zoom-text</code>
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-8f-3" aria-labelledby="tab3" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 3</h2>
+    <p>
+      <code>h-animation--zoom</code>
+      <code>h-animation--zoom-text</code>
+    </p>
+  </div>
+
+</div>
+
