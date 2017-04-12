@@ -160,6 +160,7 @@
     $tooltip-selector: getBEMReference($c-form-component-name, 'tooltip');
 
     position: relative;
+    justify-content: center;
 
 
     &.is-focused,
