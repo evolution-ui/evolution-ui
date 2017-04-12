@@ -11,10 +11,16 @@
 .c-breadcrumb {
   display: flex;
   height: 2em;
+  @media screen and (min-width: 500px) {
+    & .mobile-only {
+      display: none;
+    }
+  }
   & li {
     list-style: none;
   }
   & a {
+    position: relative;
     text-decoration: none;
   }
   &__li + &__li:before {
@@ -99,8 +105,32 @@
 
 // Breadcrumbs not needed on mobile
 
-@media (max-width: 767px) {
-  .breadcrumb-wrapper {
+@media (max-width: 500px) {
+  .no-mobile {
     display: none;
+  }
+  .c-breadcrumb {
+    flex-direction: column;
+    height: auto;
+    padding-left: 0;
+    &__li--rbn:not(:first-child) a:before, &__li--rbn:not(:last-child) a:after {
+      display: none;
+    }
+    &__li + &__li:before {
+      display: none;
+    }
+    & .mobile-only {
+      bottom: .2em;
+      position: absolute;
+      right: 0;
+    }
+    &__li--rbn {
+      &:first-of-type {
+        margin: 0 .6em;
+      }
+    }
+    &__li--rbn:first-child a, &__li--rbn:last-child a {
+      border-radius: 0;
+    }
   }
 }
