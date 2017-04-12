@@ -2,7 +2,7 @@
 
 // Drop Dot Element START
 //Create a label and give it the .drop-dot class
-@include c('drop-dot'){
+@include c($drop-dot__name){
   display: flex;
   position: relative;
   flex-direction: column;
@@ -93,4 +93,14 @@
     margin: 0 auto;
 
   }
+}
+
+.evo_c-drop-dot__example{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12rem;
+  justify-content: space-around;
+
+
+
 }
