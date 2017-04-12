@@ -1,25 +1,45 @@
 @import 'breadcrumbs-config';
 
+.breadcrumb-wrapper {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  & * {
+   box-sizing: border-box;
+  }
+}
+
 .c-breadcrumb {
   display: flex;
   height: 2em;
+  & li {
+    list-style: none;
+  }
+  & a {
+    text-decoration: none;
+  }
   &__li + &__li:before {
     color: $sk-blue;
     content: "/\00a0";
+    padding-left: 0.5em;
   }
   &__li--rbn {
     color: $wh;
     margin: 0 .6em;
     position: relative;
+    &:first-of-type {
+      margin: 0 .6em 0 0;
+    }
   }
   &__a--rbn {
     background-color: $teal;
     border: 0;
+    color: $wh;
     display: block;
-    height: 1em;
+    height: 0;
     line-height: 0em;
+    padding: 1em;
     &:hover {
-      background-color: $sk-blue;
+      background-color: lighten($teal,10%);
     }
   }
   &__li--rbn:first-child a {
@@ -40,7 +60,7 @@
     top: 0;
   }
   &__li--rbn:not(:first-child) > a:hover::before {
-    border-color: $sk-blue $sk-blue $sk-blue transparent;
+    border-color: lighten($teal,10%) lighten($teal,10%) lighten($teal,10%) transparent;
   }
   &__li--rbn:not(:last-child) a:after {
     content: "";
@@ -52,27 +72,35 @@
     top: 0;
   }
   &__li--rbn:not(:last-child) > a:hover::after {
-    border-left: 1em solid $sk-blue;
+    border-left: 1em solid lighten($teal,10%);
   }
   &__a:hover {
     border-bottom: 0;
   }
   &--var-col {
-    background-color: darken($teal,40%);
+    background-color: darken($teal,30%);
   }
   &__li--rbn a[class~="c-breadcrumb--var-col"]:before {
-    border-color: darken($g-blue,40%) darken($g-blue,40%) darken($g-blue,40%) transparent;
+    border-color: darken($teal,30%) darken($teal,30%) darken($teal,30%) transparent;
   }
   &__li--rbn a[class~="c-breadcrumb--var-col"]:after {
-    border-left: 1em solid darken($g-blue,40%);
+    border-left: 1em solid darken($teal,30%);
   }
   &--act-col, &__a--rbn:active, &--var-col:active {
-    background-color: darken($g-blue,10%);
+    background-color: darken($teal,20%);
   }
   &__li--rbn a[class~="c-breadcrumb--act-col"]:before, &__li--rbn:not(:first-child) > a:active::before, &__li--rbn a[class~="c-breadcrumb--var-col"]:active::before {
-    border-color: darken($g-blue,10%) darken($g-blue,10%) darken($g-blue,10%) transparent;
+    border-color: darken($teal,20%) darken($teal,20%) darken($teal,20%) transparent;
   }
   &__li--rbn a[class~="c-breadcrumb--act-col"]:after, &__li--rbn:not(:last-child) > a:active::after, &__li--rbn a[class~="c-breadcrumb--var-col"]:active::after {
-    border-left: 1em solid darken($g-blue,10%);
+    border-left: 1em solid darken($teal,20%);
+  }
+}
+
+// Breadcrumbs not needed on mobile
+
+@media (max-width: 767px) {
+  .breadcrumb-wrapper {
+    display: none;
   }
 }
