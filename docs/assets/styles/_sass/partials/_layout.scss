@@ -532,6 +532,8 @@ $site-markup-content-border: 1px solid map-get($site-colors, primary);
 $site-markup-content-background-color: map-get($site-colors, primary-lightest);
 
 .#{$site-prefix}-markup {
+  margin-top: $site-spacing-unit;
+
   &-input {
     @include visuallyhidden();
 
