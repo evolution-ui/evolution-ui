@@ -13,7 +13,7 @@ $c-tabs-navigation-font-family: $g-framework-font-family;
 //-------------------------------------------------
 
 
-$c-tabs-navigation-min-width: 320px;
+$c-tabs-navigation-min-width: 300px;
 
 $c-tabs-navigation-margin-tiny: 5px;
 $c-tabs-navigation-margin-small: 10px;
@@ -39,6 +39,7 @@ $c-tabs-media-desktop-HD: 1200px;
 //------------------------------------------------
 
 $c-tabs-navigation-z-index: 10;
+$c-tabs-sticky-z-index: 1;
 $c-tabs-tab-content-z-index: 0;
 
 
