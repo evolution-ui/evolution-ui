@@ -32,7 +32,7 @@ export default function() {
     cacheDom: function() {
       this.bodyElement = document.querySelector('body');
       this.notification = document.querySelector('.evo_c-eyelids__notification');
-      this.shortcut = this.notification && this.notification.querySelector('code');
+      this.shortcut = this.notification && this.notification.querySelector('kbd');
       this.top = document.createElement('div');
       this.bottom = document.createElement('div');
       this.helper = document.createElement('div');

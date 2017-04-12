@@ -37,11 +37,28 @@
     cursor: pointer;
 
     p {
+      /* Box Model */
       margin-top: 0;
+      margin-bottom: 24px;
+
+      /* Typography */
+      font-family: Roboto;
     }
 
-    .evo_code {
+    kbd {
+      /* Box Model */
+      padding: 1px 8px;
+
+      /* Visual Aspect */
       color: get_color('background');
+      background-color: #f2f5fa;
+      border: 1px solid #c3ced9;
+      border-radius: 4px;
+
+      /* Typography */
+      font-family: Monaco,Consolas,"Liberation Mono",Courier,monospace;
+      font-size: 14px;
+      font-weight: 400;
     }
   }
 
