@@ -32,6 +32,7 @@ import curtain from './evolution/curtain'
 import text2speech from './evolution/text2speech'
 import svg_pagination from './evolution/svg_pagination'
 import divTable from './evolution/div_table'
+import minimalistCarouselTwo from './evolution/minimalist_carousel_two';
 
 /************************************************************************
  *
@@ -76,6 +77,7 @@ documentReady(
   sticky,
   herald,
   scrollManagement,
+<<<<<<< HEAD
   paragraphGallery,
   popover,
   ikonize,
@@ -89,6 +91,9 @@ documentReady(
   text2speech,
   svg_pagination,
   divTable
+=======
+  minimalistCarouselTwo
+>>>>>>> added minimalist carousel two description text
 )
 
 singleInputForm();
