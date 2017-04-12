@@ -89,7 +89,7 @@ documentReady(
   curtain,
   text2speech,
   svg_pagination,
-  divTable
+  divTable,
   minimalistCarouselTwo
 )
 
