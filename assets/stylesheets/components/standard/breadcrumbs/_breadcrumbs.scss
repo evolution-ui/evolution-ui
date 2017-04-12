@@ -1,0 +1,78 @@
+@import 'breadcrumbs-config';
+
+.c-breadcrumb {
+  display: flex;
+  height: 2em;
+  &__li + &__li:before {
+    color: $sk-blue;
+    content: "/\00a0";
+  }
+  &__li--rbn {
+    color: $wh;
+    margin: 0 .6em;
+    position: relative;
+  }
+  &__a--rbn {
+    background-color: $teal;
+    border: 0;
+    display: block;
+    height: 1em;
+    line-height: 0em;
+    &:hover {
+      background-color: $sk-blue;
+    }
+  }
+  &__li--rbn:first-child a {
+    border-top-left-radius: 0.2em;
+    border-bottom-left-radius: 0.2em;
+  }
+  &__li--rbn:last-child a {
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+  }
+  &__li--rbn:not(:first-child) a:before {
+    content: "";
+    border-style: solid;
+    border-color: $teal $teal $teal transparent;
+    border-width: 1em 0 1em 1em;
+    left: -1em;
+    position: absolute;
+    top: 0;
+  }
+  &__li--rbn:not(:first-child) > a:hover::before {
+    border-color: $sk-blue $sk-blue $sk-blue transparent;
+  }
+  &__li--rbn:not(:last-child) a:after {
+    content: "";
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+    border-left: 1em solid $teal;
+    position: absolute;
+    right: -1em;
+    top: 0;
+  }
+  &__li--rbn:not(:last-child) > a:hover::after {
+    border-left: 1em solid $sk-blue;
+  }
+  &__a:hover {
+    border-bottom: 0;
+  }
+  &--var-col {
+    background-color: darken($teal,40%);
+  }
+  &__li--rbn a[class~="c-breadcrumb--var-col"]:before {
+    border-color: darken($g-blue,40%) darken($g-blue,40%) darken($g-blue,40%) transparent;
+  }
+  &__li--rbn a[class~="c-breadcrumb--var-col"]:after {
+    border-left: 1em solid darken($g-blue,40%);
+  }
+  &--act-col, &__a--rbn:active, &--var-col:active {
+    background-color: darken($g-blue,10%);
+  }
+  &__li--rbn a[class~="c-breadcrumb--act-col"]:before, &__li--rbn:not(:first-child) > a:active::before, &__li--rbn a[class~="c-breadcrumb--var-col"]:active::before {
+    border-color: darken($g-blue,10%) darken($g-blue,10%) darken($g-blue,10%) transparent;
+  }
+  &__li--rbn a[class~="c-breadcrumb--act-col"]:after, &__li--rbn:not(:last-child) > a:active::after, &__li--rbn a[class~="c-breadcrumb--var-col"]:active::after {
+    border-left: 1em solid darken($g-blue,10%);
+  }
+}
