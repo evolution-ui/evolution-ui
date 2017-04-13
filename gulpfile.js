@@ -108,11 +108,15 @@ gulp.task('jekyll-build', shell.task([
   'jekyll build --source=docs/ --destination=docs/_site --config=docs/_config.yml,docs/_config.prod.yml'
 ]))
 
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+gulp.task('jekyll-serve-build', shell.task([
+  'jekyll build --source=docs/ --destination=docs/_site --config=docs/_config.yml'
+]))
+
+gulp.task('jekyll-serve-rebuild', ['jekyll-serve-build'], function () {
   reload()
 })
 
-gulp.task('jekyll-serve', ['jekyll-build'], function () {
+gulp.task('jekyll-serve', ['jekyll-serve-build'], function () {
   bs({
     server: {
       baseDir: 'docs/_site/',
@@ -120,14 +124,14 @@ gulp.task('jekyll-serve', ['jekyll-build'], function () {
     port: 4000
   })
   gulp.watch([
-    'docs/**/*',
+    'docs/assets/**/*',
     'docs/_components/**/*',
     'docs/_data/**/*',
     'docs/_layouts/**/*',
     'docs/_includes/**/*',
     'docs/_posts/**/*',
     'docs/**/*.{html,markdown,md,yml,json,txt,xml}'
-  ], ['jekyll-rebuild'])
+  ], ['jekyll-serve-rebuild'])
 })
 
 function devInit (cb) {

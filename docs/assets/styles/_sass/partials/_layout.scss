@@ -274,6 +274,7 @@ $site-sidebar-link-color: map-get($site-colors, grayscale);
 $site-sidebar-link-hover-color: map-get($site-colors, grayscale-darkest);
 $site-sidebar-link-hover-background-color: darken(map-get($site-colors, secondary), 5%);
 $site-sidebar-link-hover-border-color: map-get($site-colors, secondary);
+$site-sidebar-link-current-color: map-get($site-colors, secondary);
 $site-sidebar-toggle-padding: ($site-spacing-unit - ($site-spacing-unit / 6)) ($site-spacing-unit * 0.75);
 $site-sidebar-toggle-background-color: map-get($site-colors, secondary);
 $site-sidebar-toggle-box-shadow-color: fade-out(map-get($site-colors, grayscale-black), 0.5);
@@ -444,9 +445,17 @@ $site-sidebar-nav-zindex: 9999;
 
       &:hover,
       &.is-current {
-        color: $site-sidebar-link-hover-color;
         border-right-color: $site-sidebar-link-hover-border-color;
         background-color: transparent;
+      }
+
+      &:hover {
+        color: $site-sidebar-link-hover-color;
+      }
+
+      &.is-current {
+        color: $site-sidebar-link-current-color;
+        font-size: ($site-font-size-md + 2);
       }
     }
   }
@@ -496,6 +505,10 @@ $site-section-content-divider-margin: ($site-spacing-unit * 1.5) 0 $site-spacing
 
   &-heading {
     margin-top: 0;
+  }
+
+  &-subheading {
+    color: map-get($site-colors, grayscale);
   }
 
   &-content {

@@ -29,6 +29,13 @@ layout: default
   {% for type in componentsByType %}
     <article class="site-section" id="site-section-{{ forloop.index }}">
       <h1 class="site-section-heading">{{ type.name | capitalize }}</h1>
+      {% for item in type.items %}
+        {% if forloop.first %}
+          {% if item.author %}
+            <span class="site-section-subheading">By {{ item.author }}</span>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
       <div class="site-section-content">
         {% assign sortedVariants = type.items | sort:'order' %}
         {% for variant in sortedVariants %}
