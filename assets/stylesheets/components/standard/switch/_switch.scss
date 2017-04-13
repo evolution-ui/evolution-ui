@@ -9,8 +9,7 @@ html{
 }
 
 @include c($c-switch-name){
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
 
   @include e('header'){
     text-align: center;
@@ -22,9 +21,8 @@ html{
   }
 
   @include e('container'){
-    margin-top: 5%;  
-    margin-left: 5%;
     text-align: center;
+    margin-top: 5%;
 
     #switch__title{
       color: #1c4249;
@@ -38,6 +36,7 @@ html{
       font-size: 1em;
       font-familyt: $font-family;
       font-weight: 300;
+      transition: all 1s ease-out;
     }
 
     input:checked + label[for='r1'], input:checked + label[for='r2']{
@@ -79,13 +78,9 @@ html{
 
   @include c($c-switch-name){
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
 
     @include e('header'){
       text-align: center;
-      margin-left: auto;
-      margin-right: auto;
       border-bottom: 1px solid $color;
     }
 
