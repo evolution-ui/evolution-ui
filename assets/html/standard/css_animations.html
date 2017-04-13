@@ -17,6 +17,7 @@
   .css_showcase_table td code { margin-left: 30px; }
 
   .animation__wrapper {
+    width: 100%;
     -webkit-perspective: 800;
     -moz-perspective: 800;
     -ms-perspective: 800;
@@ -27,8 +28,10 @@
 
   .animation__box {
     position: relative;
-    width: 310px;
+    width: inherit;
+    max-width: 320px;
     height: 400px;
+    margin: 0 auto;
     -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
