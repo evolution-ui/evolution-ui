@@ -640,12 +640,3 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
     }
   }
 }
-
-// COMPONENT OVERRIDES
-.evo_c-eyelids__notification {
-  top: 380px;
-
-  @include media-query($site-breakpoint-lg) {
-    top: 240px;
-  }
-}
