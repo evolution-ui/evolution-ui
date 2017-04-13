@@ -104,13 +104,31 @@ gulp.task('clean-docs', function () {
   ])
 });
 
-gulp.task('jekyll', shell.task([
+gulp.task('jekyll-build', shell.task([
   'jekyll build --source=docs/ --destination=docs/_site --config=docs/_config.yml,docs/_config.prod.yml'
 ]))
 
-gulp.task('jekyll-serve', shell.task([
-  'jekyll serve --source=docs/ --destination=docs/_site'
-]))
+gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+  reload()
+})
+
+gulp.task('jekyll-serve', ['jekyll-build'], function () {
+  bs({
+    server: {
+      baseDir: 'docs/_site/',
+    },
+    port: 4000
+  })
+  gulp.watch([
+    'docs/**/*',
+    'docs/_components/**/*',
+    'docs/_data/**/*',
+    'docs/_layouts/**/*',
+    'docs/_includes/**/*',
+    'docs/_posts/**/*',
+    'docs/**/*.{html,markdown,md,yml,json,txt,xml}'
+  ], ['jekyll-rebuild'])
+})
 
 function devInit (cb) {
   plugins.sequence('clean', ['images', 'audio', 'scripts'], ['html', 'html-temp', 'styles'], cb)
@@ -125,7 +143,7 @@ function docsInit(cb) {
 }
 
 function docsBuild(cb) {
-  plugins.sequence('clean', 'clean-docs', 'styles', 'scripts', 'images', 'jekyll', cb)
+  plugins.sequence('clean', 'clean-docs', 'styles', 'scripts', 'images', 'jekyll-build', cb)
 }
 
 gulp.task('dev-init', devInit)
