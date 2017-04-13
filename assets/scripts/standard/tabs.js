@@ -48,7 +48,7 @@ Tab.prototype.init = function(){
 
   // When a tab is scrollable we need to handle the sizes
   if (this.isScrollable) {
-    this.initPanelsHeight();
+    this.handlePanelsHeight();
     this.addResizeListener();
   }
 };
@@ -105,8 +105,11 @@ Tab.prototype.addResizeListener = function() {
 
 }
 
-Tab.prototype.initPanelsHeight = function() {
+Tab.prototype.handlePanelsHeight = function() {
   var self = this;
+  window.addEventListener('DOMContentLoaded', function (event) {
+    self._calculateTallestPanel(self.handleResize.bind(self));
+  });
   window.addEventListener('load', function (event) {
     self._calculateTallestPanel(self.handleResize.bind(self));
   });
