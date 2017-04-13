@@ -1,4 +1,4 @@
-.evo_c-fontana-form{
+.evo_c-fontana-form *{
    box-sizing: border-box;
 }
 #evo_c-fontana-form {
@@ -193,7 +193,8 @@
 
 .evo_c-fontana-form__button--black-btnText {
   text-align:center;
-  padding-top:0.4em;
+ /* padding-top:0.4em;*/
+  padding-top:1.25em;
   color : white;
   transition : .3s;
   font-size: 1.1em;
@@ -220,7 +221,7 @@
 }
 .evo_c-fontana-form__button--black-line_after{
   position:relative;
-  bottom:0.25em;
+  bottom:0.9em;
   width:200px;
   border-style:solid;
 
