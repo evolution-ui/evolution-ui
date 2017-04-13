@@ -1,30 +1,66 @@
 export default function() {
-
   /*FADE LINES ON SCROLL COMPONENT*/
-  // var fadedTextBlock = document.querySelector('.js-c-fade-lines-target');
-  // console.log(fadedTextBlock.innerHTML.split(wordMatch).length);
-  // for (var i = 0; i < fadedTextBlock.length; i++) {
-    // var wordMatch = /(\S+\s*)/g;
-    // console.log(fadedTextBlock[i].innerHTML.split(wordMatch).length);
-    //FIXME: This component is not yet ready, in the middle of trying to make
-    // it work
+  var fadedTextBlock = document.querySelectorAll('.js-c-fade-lines-target');
+  var wordMatch = /(\S+\s*)/g;
+  // console.log(fadedTextBlock);
 
-    // for (var j = 0; j < fadedTextBlock[i].innerHTML.split(wordMatch).length; j++) {
-    //   var temporaryScatterClass = 'class="evo_h-fade-lines-' + j;
-    //   var wrappedWordsInSpanTags = fadedTextBlock[i].innerHTML.replace(wordMatch, '<span " + temporaryScatterClass + ">$1</span>');
-    //   console.log(fadedTextBlock[i].innerHTML.split(wordMatch).length);
-    //   fadedTextBlock[i].innerHTML = wrappedWordsInSpanTags;
+  // for (var i = 0; i < fadedTextBlock.length; i++) {
+  //   console.log(fadedTextBlock[i]);
+  // }
+
+  // console.log(fadedTextBlock.innerHTML.split(wordMatch).length);
+  // console.log(fadedTextBlock.innerHTML.split(wordMatch));
+  // console.log(fadedTextBlock.length);
+  for (var i = 0; i < fadedTextBlock.length; i++) {
+    // var wordMatch = /(\S+\s*)/g;
+    var wrappedWordsInSpanTags;
+    // console.log(fadedTextBlock);
+    var wordCount = fadedTextBlock[i].innerHTML.split(wordMatch).length;
+
+    // console.log(fadedTextBlock[i].innerHTML.replace(wordMatch, '<span>$1</span>'));
+    wrappedWordsInSpanTags = fadedTextBlock[i].innerHTML.replace(wordMatch, '<span>$1</span>');
+    fadedTextBlock[i].innerHTML = wrappedWordsInSpanTags;
+    // console.log(fadedTextBlock[i].childNodes[3]);
+    for (var j = 0; j < fadedTextBlock[i].childNodes.length; j++) {
+      var temporaryScatterClass = 'class="evo_h-fade-lines-' + j + '"';
+      var randomTopDistValue = Math.floor(Math.random() * 200) + 80;
+      console.log(randomTopDistValue + "px");
+      if (fadedTextBlock[i].childNodes[j].tagName === "SPAN") {
+        fadedTextBlock[i].childNodes[j].classList.add(temporaryScatterClass);
+        fadedTextBlock[i].childNodes[j].style.position = "relative";
+        fadedTextBlock[i].childNodes[j].style.top = randomTopDistValue + "px";
+      }
+    }
+    // console.log(fadedTextBlock);
+    // FIXME: This component is not yet ready, in the middle of trying to make
+    // it work
+    // for (var j = 0; j <= fadedTextBlock[i].innerHTML.split(wordMatch).length; j++) {
+      // var temporaryScatterClass = 'class="evo_h-fade-lines-' + j + '"';
+      // var wrappedWordsInSpanTags = fadedTextBlock[i].innerHTML.replace(wordMatch, '<span>$1</span>');
+      // console.log(fadedTextBlock[i].innerHTML.split(wordMatch).length);
+      // console.log(temporaryScatterClass);
+
+
+      // if ( j === fadedTextBlock[i].innerHTML.split(wordMatch).length) {
+      //   console.log("finished loop!!!!!!!!!");
+      //   console.log(wrappedWordsInSpanTags);
+      // }
+      // fadedTextBlock[i].innerHTML = wrappedWordsInSpanTags;
     // }
+
+    // for (var k = 0; )
+
+
 
 
     // for (var j = 0; j < )
     // console.log(fadedTextBlock[i].innerText.replace(/(\S+\s*)/g, "<span>$1</span>"));
-  // }
+  }
 
   // for (var j = 0; fadedTextBlock.length; i++) {
-    // fadedTextBlock[j].addEventListener('scroll', function(event) {
-      // console.log('Ok, This is scrolling');
-    // });
+  //   fadedTextBlock[j].addEventListener('scroll', function(event) {
+  //     console.log('Ok, This is scrolling');
+  //   });
   // }
 
 
