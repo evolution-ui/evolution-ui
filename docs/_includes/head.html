@@ -3,7 +3,7 @@
   <meta charset="{{ page.encoding | default: site.encoding | default: 'utf-8' }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title and page.url != '/' %}{{ page.title | escape }} &bull; {% endif %}{{ site.title | escape }} UI Framework</title>
+  <title>{% if page.title and page.url != '/' %}{{ page.title | escape }} &bull; {% endif %}{{ site.title | escape }} UI Framework{% if site.title_after %} &bull; {{ site.title_after }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <!-- Favicon -->
