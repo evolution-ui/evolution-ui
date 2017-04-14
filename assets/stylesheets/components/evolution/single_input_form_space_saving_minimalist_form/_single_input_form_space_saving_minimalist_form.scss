@@ -331,7 +331,7 @@
 
   // Active input styles
   &.js-mini-form-is-active {
-    min-width: 19em;
+    min-width: 19.5em;
 
     // Valid border color of the first card after the active card
     & ~ .evo_c-mini-form__input-wrap {
@@ -360,6 +360,24 @@
     background-color: $c-sif-prim-dark-color;
     color: $c-sif-white-color;
   }
+
+  /** Animation classes **/
+  // Fadeout Animation
+  &.js-mini-form-anim-fadeout {
+    & .evo_c-mini-form__input-inner {
+      animation: mini-fadeout 0.65s forwards;
+    }
+  }
+
+  // Fadein Animation
+  &.js-mini-form-anim-fadein {
+    animation: mini-expandToRight 0.65s forwards;
+  }
+
+  // Fadeout-back animation
+  &.js-mini-form-anim-fadeout-back {
+    animation: mini-rollToLeft 0.65s forwards;
+  }
 }
 
 // Inner wrap styles
@@ -374,8 +392,6 @@
   justify-content: flex-start;
   opacity: 1;
   overflow: hidden;
-  animation-duration: 0.65s;
-  animation-fill-mode: forwards;
 
   .evo_c-mini-form__input,
   .evo_c-mini-form__submit-btn {
@@ -434,6 +450,12 @@
       background-color: tint($c-sif-prim-dark-color, 10%);
     }
   }
+
+  /** Animation classes **/
+  // Background Animation
+  &.js-mini-form-anim-bgchange {
+    animation: mini-bgChange 0.65s forwards;
+  }
 }
 
 // Animations
@@ -458,14 +480,14 @@
   }
   100% {
     width: 19.5em;
-    min-width: 19em;
+    min-width: 19.5em;
   }
 }
 
 @keyframes mini-rollToLeft {
   0% {
     width: 19.5em;
-    min-width: 19em;
+    min-width: 19.5em;
   }
   100% {
     width: 0;
