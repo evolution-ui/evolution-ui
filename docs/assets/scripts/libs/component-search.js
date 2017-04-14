@@ -8,6 +8,10 @@
    var mainSiteContent = document.querySelector(".site-content");
    var nothingFoundAlert = document.querySelector(".site-searchform-nothing-found-alert");
 
+   //top and bottom arrows
+   var topArrow = document.querySelector(".up-down-scroll__scroll-up");
+   var bottomArrow = document.querySelector(".up-down-scroll__scroll-down");
+
    //generate array of component keywords; these will be used to match search term via regex
    for(var i = 0; i < componentHeaders.length; i++) {
      componentKeywords.push(componentHeaders[i].textContent.toLowerCase());
@@ -79,6 +83,20 @@
       }
   }
 
+
+  //top and bottom arrow
+  topArrow.addEventListener("click", function(event) {
+    smoothScroll(500, 0, 0);
+  });
+
+  bottomArrow.addEventListener("click", function(event) {
+    var bottomScrollAmount = document.body.offsetHeight - window.innerHeight;
+    smoothScroll(800, bottomScrollAmount, 500);
+  });
+
+
+
+  //smooth scrolling functions
   function smoothScroll(duration, endScroll, offset) {
     offset = offset || 0
     let start = null

@@ -461,6 +461,7 @@ $site-sidebar-nav-zindex: 9999;
     transition: transform $site-transition-timing-function, height $site-transition-timing-function, border-bottom $site-transition-timing-function;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    z-index: 10;
 
     &.is-visible {
       transform: translate3d(0, 0, 0);
@@ -488,7 +489,7 @@ $site-sidebar-nav-zindex: 9999;
 
       &.bottom-hidden {
         height: 40%;
-        border-bottom: 5px solid map-get($site-colors, primary);
+        border-bottom: 4px solid map-get($site-colors, primary);
       }
     }
   }
@@ -695,6 +696,8 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
   padding: $site-footer-padding;
   background-color: $site-footer-background-color;
   text-align: center;
+  position: relative;
+  z-index: 20;
 
   hr {
     margin-bottom: $site-spacing-unit + ($site-spacing-unit / 2);
