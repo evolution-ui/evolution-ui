@@ -1,20 +1,10 @@
 /************************************************************************
  *
- *                      SITE
- *
- ***********************************************************************/
-
-import documentReady from './site/document-ready'
-import scrollManagement from './site/scroll-management'
-import hideSidebar from './site/hide-sidebar'
-import componentSearch from './site/component-search'
-
-/************************************************************************
- *
  *                      EVOLUTION COMPONENTS
  *
  ***********************************************************************/
 
+import documentReady from './evolution/document-ready'
 import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
 import eyelids from './evolution/eyelids'
@@ -78,9 +68,6 @@ documentReady(
   stdCarousel,
   sticky,
   herald,
-  scrollManagement,
-  hideSidebar,
-  componentSearch,
   paragraphGallery,
   popover,
   ikonize,

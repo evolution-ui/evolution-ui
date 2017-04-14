@@ -1,4 +1,4 @@
-export default function() {
+(function(window, document) {
    var sidebar = document.querySelector(".site-sidebar-nav");
    var footer = document.querySelector(".site-footer");
    var footerDistanceFromTop = footer.offsetTop;
@@ -32,7 +32,7 @@ export default function() {
      };
    }
 
-}
+})(window, document)
 
 
 
