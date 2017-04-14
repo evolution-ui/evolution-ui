@@ -1,0 +1,69 @@
+
+// Path: evolution-ui/assets/stylesheets/evolution/super-easy/_super-easy.scss
+
+//----------------------------------------------------------------
+//                 Super-Easy file
+//----------------------------------------------------------------
+
+// Import component's settings
+@import 'hover_fan-config';
+
+// This will be rendered to ./evo_c-super-easy
+@include c( $c-hover-fan-name ) {
+    display: inline-block;
+    display: flex;
+    flex-flow: column wrap;
+    width: 85%;
+    max-width: 665px;
+    cursor: pointer;
+    margin: 20px 10px;
+    position: relative;
+
+    // This will be rendered to .evo_c-super-easy__copy
+    // The 'copy' element
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //                             HOVER FAN ITEM ELEMENT
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    @include e( 'item' ) {
+      text-align: right;
+      display: block;
+      width: 100%;
+      padding: 8px;
+      color: get-color('primary2');
+      border-bottom: 1px solid get-color('primary2');
+      background-color: white;
+      border-radius: 5px;
+      position: absolute;
+      transform-origin: bottom left;
+      transform: rotate(0deg);
+      transition: 0.4s transform ease-in;
+      z-index: 10;
+      &:nth-of-type(1){
+        z-index: 15;
+         transform-origin: top left;
+         position: static;
+      }
+    }
+    
+    
+
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //                             HOVER FAN - ANIMATION
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    &:hover > &__item:nth-of-type(1){ transform: rotateX(90deg);  }
+    &:hover > &__item:nth-of-type(2){ transform: rotate(0deg);    }
+    &:hover > &__item:nth-of-type(3){ transform: rotate(7deg);    }
+    &:hover > &__item:nth-of-type(4){ transform: rotate(14deg);   }
+    &:hover > &__item:nth-of-type(5){ transform: rotate(21deg);   }
+    &:hover > &__item:nth-of-type(6){ transform: rotate(28deg);   }
+    &:hover > &__item:nth-of-type(7){ transform: rotate(35deg);   }
+    &:hover > &__item:nth-of-type(8){ transform: rotate(42deg);   }
+    &:hover > &__item:nth-of-type(9){ transform: rotate(49deg);   }
+    &:hover > &__item:nth-of-type(10){ transform: rotate(56deg);  }
+    &:hover > &__item:nth-of-type(11){ transform: rotate(63deg);  }
+
+}
+
