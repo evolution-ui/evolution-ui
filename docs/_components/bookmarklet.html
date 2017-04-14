@@ -1,6 +1,7 @@
 ---
 title: "Bookmarklet"
 description:
+    <div data-limit-bookmarklet>
     <h3>Using Bookmarklet</h3>
     <p>To use bookmarklet, highlight some text. If the text is able to be bookmarked a small dialogue will pop up, giving you the option to bookmark or not. Users can also use the keyboard shortcut <code>Shift</code> + <code>Control</code> + <code>L</code> + <code>M</code>. Currently you can only bookmark text that is inside of a single HTML tag. In other words you may not select text that belongs to two different paragraphs or splits any other node like a <code>span</code> or header. The component will warn you if you split nodes or try and activate the bookmark without selecting any text.</p>
 
@@ -13,7 +14,8 @@ description:
     <p>If you don't like the default yellow, a custom highlight color can be specified by adding a valid named color or hex color value to the <code>data-highlight-color</code> attribute. For example:</p>
 
     <h3>Limiting the Component's Scope</h3>
-    <p>You can limit the scope of bookmarklet's highlighting and bookmark creation by adding the <code>data-limit-bookmarklet</code> attribute to any element and the bookmarking will only be active for that element and its descendants. In the example below the <code>section</code> tag and its child elements will be bookmark-able but anything outside of the <code>section</code> tag will not.</p>
+    <p>You can limit the scope of bookmarklet's highlighting and bookmark creation by adding the <code>data-limit-bookmarklet</code> attribute to any element and the bookmarking will only be active for that element and its descendants. These demo bookmarklet component paragraphs are limited in this way so that the component will not extend to other sections of the Evolution UI demo site.</p>
+    </div>
 type: bookmarklet
 order: 1
 ---

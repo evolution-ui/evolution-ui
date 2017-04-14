@@ -4,7 +4,8 @@ export default function() {
   var bookmarkListComponent = document.querySelector('.evo_c-bookmarklet');
   // JS safegaurd
   if (bookmarkListComponent === null) {
-    return; }
+    return;
+  }
   var bookmarkList = bookmarkListComponent.querySelector('.evo_c-bookmaklet__bookmark-list');
   var highlightColor = bookmarkListComponent.dataset.highlightColor;
   var clearAllBtn = bookmarkListComponent.querySelector('.evo_c-bookmarklet__clear-all');
@@ -58,11 +59,17 @@ export default function() {
 
   function _checkForSelection(e) {
     if (e.target !== popUpYesBtn) {
-      var selection = window.getSelection();
-      var selectedRange = selection.getRangeAt(0);
+      var selectedRange;
+      var selection;
+      selection = window.getSelection();
+      if (selection && selection.rangeCount > 0) {
+        selectedRange = selection.getRangeAt(0);
+      }
 
-      if (selectedRange.startOffset !== selectedRange.endOffset && selectedRange.startContainer === selectedRange.endContainer) {
-        _setPopUp(selectedRange);
+      if (selectedRange) {
+        if (selectedRange.startOffset !== selectedRange.endOffset && selectedRange.startContainer === selectedRange.endContainer) {
+          _setPopUp(selectedRange);
+        }
       }
     }
 
@@ -210,7 +217,7 @@ export default function() {
           var warning = document.createElement('div');
           warning.classList.add('evo_c-bookmarklet__alert--warning');
           // add in html and message
-          warning.innerHTML = '<i class="material-icons">warning</i><p><strong>D\'oh!</strong> Your selection can\'t be a bookmarked.</p><p><small><em>(Keep your selection within a single HTML tag)</em></small></p>' + '<span class="c-alert__close-alert">' + '<i class="fa fa-times"></i>' + '</span>';
+          warning.innerHTML = '<i class="material-icons">warning</i><p><strong>D\'oh!</strong> Your selection can\'t be a bookmarked.</p><p><small><em>(Keep your selection within a single HTML tag)</em></small></p>' + '<span class="evo_c-bookmarklet__alert-close-icon">' + '<i class="fa fa-times"></i>' + '</span>';
           // add event listener for dismissing of alert
           alertNode.addEventListener('click', _dismissAlert(warning, alertBackground), false);
           // append alert div and background to document
@@ -227,7 +234,7 @@ export default function() {
           var caution = document.createElement('div');
           caution.classList.add('evo_c-bookmarklet__alert--caution');
           // add in html and message
-          caution.innerHTML = '<i class="material-icons">sentiment_dissatisfied</i><p><strong>Oops!</strong> You didn\'t select anything to bookmark. Nothing to see here...</p>' + '<span class="c-alert__close-alert">' + '<i class="fa fa-times"></i>' + '</span>';
+          caution.innerHTML = '<i class="material-icons">sentiment_dissatisfied</i><p><strong>Oops!</strong> You didn\'t select anything to bookmark. Nothing to see here...</p>' + '<span class="evo_c-bookmarklet__alert-close-icon">' + '<i class="fa fa-times"></i>' + '</span>';
           // add event listener for dismissing of alert
           alertNode.addEventListener('click', _dismissAlert(caution, alertBackground), false);
           // append alert div and background to document
@@ -320,3 +327,4 @@ export default function() {
   }
 
 }
+
