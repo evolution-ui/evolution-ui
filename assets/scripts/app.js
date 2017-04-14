@@ -3,8 +3,11 @@
  *                      SITE
  *
  ***********************************************************************/
+
 import documentReady from './site/document-ready'
 import scrollManagement from './site/scroll-management'
+import hideSidebar from './site/hide-sidebar'
+import componentSearch from './site/component-search'
 
 /************************************************************************
  *
@@ -65,7 +68,7 @@ documentReady(
   dotNavigation,
   eyelids,
   fadeLinesOnScroll,
-  // bookmarklet,
+  bookmarklet,
   cssAnimations,
   codeMarkup,
   stdForms,
@@ -76,6 +79,8 @@ documentReady(
   sticky,
   herald,
   scrollManagement,
+  hideSidebar,
+  componentSearch,
   paragraphGallery,
   popover,
   ikonize,

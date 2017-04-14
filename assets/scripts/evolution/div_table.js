@@ -138,17 +138,17 @@ export default function () {
         '<input type="checkbox" id="evo_c-divtable-modal' + tempObject.id + '" class="evo_c-divtable-modal_user_profile">' +
         '<label for="evo_c-divtable-modal' + tempObject.id + '">' +
         '<div class="evo_c-divtable-row_order_index">' +
-        '<img class="evo_c-divtable-avatar" src="' + tempObject.img_url + '">' +
+        '<i class="fa fa-taxi evo_c-divtable-avatar" aria-hidden="true"></i>' +
         '<span>' + tempAbbreviatedName + '</span>' +
         '<div class="evo_c-divtable-user_profile">' +
-        '<img class="evo_c-divtable-avatar" src="' + tempObject.img_url + '">' +
+        '<i class="fa fa-taxi evo_c-divtable-avatar2" aria-hidden="true"></i>' +
         '<span>' + tempObject.name + '</span>' +
         '<svg class="evo_c-divtable-icon evo_c-divtable_icon-cross">' +
         '<use xlink:href="#evo_c-divtable_icon-cross"></use>' +
         '</svg>' +
         '<div class="evo_c-divtable-user_profile_details">' +
         '<p>Lorem ipsum dolor sit amet.</p>' +
-        '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo incididunt.</p>' +
+        '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo.</p>' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -158,42 +158,42 @@ export default function () {
       column1HTML += tempColumn1HTML;
 
       var tempColumn2HTML = '<div class="evo_c-divtable-row evo_c-divtable-row' + (i + 1) + '">' +
-        '<img class="evo_c-divtable-avatar" src="' + tempObject.img_url + '">' +
+        '<i class="fa fa-taxi evo_c-divtable-avatar2" aria-hidden="true"></i>' +
         '<span>' + tempAbbreviatedName + '</span>' + tempObject.commission_rate +
         '</div>'
 
       column2HTML += tempColumn2HTML;
 
       var tempColumn3HTML = '<div class="evo_c-divtable-row evo_c-divtable-row' + (i + 1) + '">' +
-        '<img class="evo_c-divtable-avatar" src="' + tempObject.img_url + '">' +
+        '<i class="fa fa-taxi evo_c-divtable-avatar2" aria-hidden="true"></i>' +
         '<span>' + tempAbbreviatedName + '</span>' + tempObject.contract_end_day +
         '</div>'
 
       column3HTML += tempColumn3HTML;
 
       var tempColumn4HTML = '<div class="evo_c-divtable-row evo_c-divtable-row' + (i + 1) + '">' +
-        '<img class="evo_c-divtable-avatar" src="' + tempObject.img_url + '">' +
+        '<i class="fa fa-taxi evo_c-divtable-avatar2" aria-hidden="true"></i>' +
         '<span>' + tempAbbreviatedName + '</span>' + tempObject.total_deals +
         '</div>'
 
       column4HTML += tempColumn4HTML;
 
       var tempColumn5HTML = '<div class="evo_c-divtable-row evo_c-divtable-row' + (i + 1) + '">' +
-        '<img class="evo_c-divtable-avatar" src="' + tempObject.img_url + '">' +
+        '<i class="fa fa-taxi evo_c-divtable-avatar2" aria-hidden="true"></i>' +
         '<span>' + tempAbbreviatedName + '</span>' + tempObject.payment_cycle +
         '</div>'
 
       column5HTML += tempColumn5HTML;
 
       var tempColumn6HTML = '<div class="evo_c-divtable-row evo_c-divtable-row' + (i + 1) + '">' +
-        '<img class="evo_c-divtable-avatar" src="' + tempObject.img_url + '">' +
+        '<i class="fa fa-taxi evo_c-divtable-avatar2" aria-hidden="true"></i>' +
         '<span>' + tempAbbreviatedName + '</span>' + tempObject.outstanding_balance +
         '</div>'
 
       column6HTML += tempColumn6HTML;
 
       var tempColumn7HTML = '<div class="evo_c-divtable-row evo_c-divtable-row' + (i + 1) + '">' +
-        '<img class="evo_c-divtable-avatar" src="' + tempObject.img_url + '">' +
+        '<i class="fa fa-taxi evo_c-divtable-avatar2" aria-hidden="true"></i>' +
         '<span>' + tempAbbreviatedName + '</span>' + tempObject.paid_amount +
         '</div>'
 
@@ -223,7 +223,7 @@ export default function () {
         '</div>' +
         '<div id="evo_c-divtable_column3" class="evo_c-divtable-column" draggable="true">' +
         '<div class="evo_c-divtable-column_header">' +
-        'Payday' +
+        'Next Payday' +
         '<p id="" class="evo_c-divtable-numeric_sort_icon">' +
         '<svg class="evo_c-divtable-icon evo_c-divtable_icon-sort-numeric-asc" id="js-evolution-divtable-trigger_sort_by_date">' +
         '<use xlink:href="#evo_c-divtable_icon-sort-numeric-asc"></use></svg>' +
@@ -667,7 +667,7 @@ export default function () {
         }
       } else {
 
-        //Refresh the DOM to avoid duplicated listners. Not the best solution for this issue.
+        //Refresh the DOM to avoid duplicated listeners. Not the best solution for this issue.
         refreshTableDOM(mockUsers);
       }
     });
@@ -759,7 +759,6 @@ export default function () {
   function handleColumnDragEnd() {
 
     this.style.opacity = 1;
-    // this.style.width = "160px";
     this.style.transition = "all 0.6s ease";
     dragColumnId = "";
     dragColumnDOM = "";
@@ -805,7 +804,7 @@ export default function () {
   function handleRowDragStart(e) {
     dragRowDOM = this;
 
-    //Get row idea
+    //Get row id
     dragRowId = document.getElementById(this.id).id;
 
     //Select and Hide the row header
