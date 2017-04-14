@@ -1,4 +1,4 @@
-import smoothScroll from './smooth-scroll'
+require('./libs/smooth-scroll');
 
 export default function() {
    var searchInput = document.querySelector(".site-searchform-input");
