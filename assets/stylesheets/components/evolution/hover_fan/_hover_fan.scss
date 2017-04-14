@@ -1,14 +1,9 @@
-
-// Path: evolution-ui/assets/stylesheets/evolution/super-easy/_super-easy.scss
-
 //----------------------------------------------------------------
-//                 Super-Easy file
+//                HOVER FAN COMPONENT
 //----------------------------------------------------------------
 
-// Import component's settings
 @import 'hover_fan-config';
 
-// This will be rendered to ./evo_c-super-easy
 @include c( $c-hover-fan-name ) {
     display: inline-block;
     display: flex;
@@ -18,9 +13,8 @@
     cursor: pointer;
     margin: 20px 10px;
     position: relative;
+    z-index: 5;
 
-    // This will be rendered to .evo_c-super-easy__copy
-    // The 'copy' element
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //                             HOVER FAN ITEM ELEMENT
