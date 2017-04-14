@@ -270,8 +270,20 @@ Tab.prototype.setActiveTab = function(targetTab) {
   var targetPanel    = this._$( targetPanelSel, this.component );
 
 
+  if (!oldTab) {
+    console.log('Your Tab component does not contain an active tab item');
+  }
+
+  if (!oldPanel) {
+    console.log('Your Tab component does not contain a [default] active panel');
+  }
+
+  if (!targetPanel) {
+    console.log('Your Tab component does not contain a panel with ID ' + targetPanelSel);
+  }
+
   // When the active tab is the same as the target one, focus it and return
-  if ( oldTab && ( targetPanel.id === oldPanel.id )) {
+  if ( oldTab && targetPanel && oldPanel && ( targetPanel.id === oldPanel.id )) {
     link.focus();
     return;
   }

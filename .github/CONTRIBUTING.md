@@ -26,6 +26,8 @@
 
 ## Setting up the workflow
 
+**IMPORTANT:** Please first make sure you have the [required software][readme-required] installed on your local machine.
+
 We use the [Gitflow Workflow][gitflow] for this project. If you would like to make a contribution the project, please first follow these steps to setup the proper workflow:
 
 1. Instead of cloning, first fork the [original repository][repo] and clone your fork to your local machine:
@@ -963,6 +965,7 @@ The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used
 [npm]: https://www.npmjs.com
 [pull-request]: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 [readme]: ../README.md
+[readme-required]: ../README.md#requirements
 [repo]: https://github.com/BovAcademy-opensource/evolution-ui
 [ruby]: https://www.ruby-lang.org/en/
 [rubybundler]: http://bundler.io
