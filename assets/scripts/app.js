@@ -32,6 +32,7 @@ import curtain from './evolution/curtain'
 import text2speech from './evolution/text2speech'
 import svg_pagination from './evolution/svg_pagination'
 import divTable from './evolution/div_table'
+import inputScanner from './evolution/input_scanner'
 
 /************************************************************************
  *
@@ -79,6 +80,7 @@ documentReady(
   paragraphGallery,
   popover,
   ikonize,
+  inputScanner,
   modals,
   layer_2d,
   singleInputForm,
