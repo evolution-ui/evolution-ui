@@ -32,12 +32,9 @@ export default function() {
     keysPressed[e.keyCode] = true;
     // keyboard shortcut Shift(16) + Control(17) + L(76) + M(77)
     if (keysPressed[16] && keysPressed[17] && keysPressed[76] && keysPressed[77]) {
-<<<<<<< HEAD
-    e.preventDefault();
-=======
+
       e.preventDefault();
 
->>>>>>> aa5b03858648f6f0840290ee49db85da2b72d371
       var selectedRange;
       var rangeContainer;
 
