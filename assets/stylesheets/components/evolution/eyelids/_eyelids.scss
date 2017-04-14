@@ -6,7 +6,7 @@
   @include e('notification') {
     /* Positioning */
     position: fixed;
-    top: 10px;
+    top: 370px;
     right: 10px;
     z-index: 999999;
     transform: translate3d(100%, 0, 0);
@@ -21,7 +21,8 @@
     text-transform: uppercase;
 
     /* Visual Aspect */
-    border-radius: 30px;
+    display: none;
+    border-radius: 20px;
     color: white(.7);
     background-color: get_color('background', 'base', .5);
     border: 1px solid white(.7);
@@ -39,7 +40,7 @@
     p {
       /* Box Model */
       margin-top: 0;
-      margin-bottom: 24px;
+      margin-bottom: 0;
 
       /* Typography */
       font-family: Roboto;
@@ -62,6 +63,22 @@
     }
   }
 
+}
+
+@media(min-width: 500px) {
+  @include c($c-eyelids-name) {
+    @include e('notification') {
+      display: block;
+    }
+  }
+}
+
+@media(min-width: 960px) {
+  @include c($c-eyelids-name) {
+    @include e('notification') {
+      top: 210px;
+    }
+  }
 }
 
 @keyframes notify {

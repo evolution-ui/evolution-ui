@@ -2,7 +2,7 @@
   <div class="site-container">
     <a href="{{ "/" | prepend: site.url }}" class="site-logo">
       <img class="site-logo-icon" src="{{ "/assets/images/logo.png" | prepend: site.url }}" width="83" alt="{{ site.title }}">
-      <h1 class="site-logo-text">{{ site.title }} <span>UI Framework</span></h1>
+      <h1 class="site-logo-text">{{ site.title }} <span>UI Framework</span>{% if site.title_after %}<br><div class="site-logo-text-after">{{ site.title_after }}</div>{% endif %}</h1>
     </a>
     <form class="site-searchform" action="#!">
       <label class="site-searchform-label" for="siteSearchform">Search this Website</label>
