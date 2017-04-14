@@ -5,6 +5,8 @@
  ***********************************************************************/
 import documentReady from './site/document-ready'
 import scrollManagement from './site/scroll-management'
+import hideSidebar from './site/hide-sidebar'
+import componentSearch from './site/component-search'
 
 /************************************************************************
  *
@@ -76,6 +78,8 @@ documentReady(
   sticky,
   herald,
   scrollManagement,
+  hideSidebar,
+  componentSearch,
   paragraphGallery,
   popover,
   ikonize,

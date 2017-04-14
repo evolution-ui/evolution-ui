@@ -26,7 +26,8 @@ export default () => {
       const topOffset = siteMain ? siteMain.offsetTop : 0
 
       if (window.pageYOffset > topOffset) {
-        sideMenu.style.width = sideMenuWidth + 'px'
+        // sideMenu.style.width = sideMenuWidth + 'px';
+        sideMenu.style.width = "22.7%";
         sideMenu.classList.add('is-sticky')
       } else {
         sideMenu.removeAttribute('style')
