@@ -3,8 +3,7 @@
  *                      SITE
  *
  ***********************************************************************/
-import documentReady from './site/document-ready'
-import scrollManagement from './site/scroll-management'
+import documentReady from './evolution/document-ready'
 
 /************************************************************************
  *
@@ -75,7 +74,6 @@ documentReady(
   stdCarousel,
   sticky,
   herald,
-  scrollManagement,
   paragraphGallery,
   popover,
   ikonize,
