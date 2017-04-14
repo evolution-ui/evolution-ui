@@ -46,7 +46,11 @@ DEPENDENCIES
   jekyll (= 3.3.0)
 
 RUBY VERSION
+<<<<<<< HEAD
    ruby 2.2.3p173
+=======
+   ruby 2.0.0p481
+>>>>>>> cc3e53eb980bc6958b19284a141219c995ec2177
 
 BUNDLED WITH
    1.14.6

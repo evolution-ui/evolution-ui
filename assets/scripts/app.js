@@ -3,10 +3,14 @@
  *                      SITE
  *
  ***********************************************************************/
+<<<<<<< HEAD
 import documentReady from './site/document-ready'
 import scrollManagement from './site/scroll-management'
 import hideSidebar from './site/hide-sidebar'
 import componentSearch from './site/component-search'
+=======
+import documentReady from './evolution/document-ready'
+>>>>>>> cc3e53eb980bc6958b19284a141219c995ec2177
 
 /************************************************************************
  *
@@ -67,7 +71,7 @@ documentReady(
   dotNavigation,
   eyelids,
   fadeLinesOnScroll,
-  // bookmarklet,
+  bookmarklet,
   cssAnimations,
   codeMarkup,
   stdForms,
@@ -77,9 +81,12 @@ documentReady(
   stdCarousel,
   sticky,
   herald,
+<<<<<<< HEAD
   scrollManagement,
   hideSidebar,
   componentSearch,
+=======
+>>>>>>> cc3e53eb980bc6958b19284a141219c995ec2177
   paragraphGallery,
   popover,
   ikonize,

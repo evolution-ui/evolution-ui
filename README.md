@@ -11,8 +11,10 @@ This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating s
 - [Ruby][ruby]
 - [RubyGems][rubygems]
 - [Bundler][rubybundler]
-- [Node.js][node]
+- [Node.js][node] (version 7 and up)
 - [npm][npm]
+
+**Need to update Node.js?** Use [nvm][nvm] to manage multiple versions of Node.js on your local machine.
 
 **Running Windows?** Jekyll (what we use to build our `/docs`) does not officially support the Windows operating system, but they do provide [special instructions][jekyll-windows] if you want to take a crack at it anyway.
 
@@ -104,6 +106,7 @@ This project is released under the [MIT License][license].
 [node]: https://nodejs.org/en/
 [node-install]: https://docs.npmjs.com/getting-started/installing-node
 [npm]: https://www.npmjs.com
+[nvm]: https://github.com/creationix/nvm
 [pull-request]: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 [repo]: https://github.com/BovAcademy-opensource/evolution-ui
 [ruby]: https://www.ruby-lang.org/en/
