@@ -141,7 +141,7 @@ export default function() {
     var keyCode = e.keyCode || e.which;
     if (keyCode === 13) {
       e.stopPropagation();
-      e.preventDefault();;
+      e.preventDefault();
       if (currentCardIndex < nextBtnsLen) {
         goNext(currentCardIndex);
       }
