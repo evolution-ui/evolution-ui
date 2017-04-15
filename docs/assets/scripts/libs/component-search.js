@@ -7,6 +7,7 @@
    var matchedComponent;
    var mainSiteContent = document.querySelector(".site-content");
    var nothingFoundAlert = document.querySelector(".site-searchform-nothing-found-alert");
+   var progressBar = document.querySelector(".site-searchform-progress-bar");
 
    //top and bottom arrows
    var topArrow = document.querySelector(".up-down-scroll__scroll-up");
@@ -29,7 +30,10 @@
      searchInput.classList.remove("input-not-found");
      nothingFoundAlert.classList.remove("nothing-found-shown");
    });
+
+
    searchInput.addEventListener("keyup", _handleSearchInput);
+
    searchInput.addEventListener("keydown", function(event) {
       searchInput.classList.remove("input-not-found");
       nothingFoundAlert.classList.remove("nothing-found-shown");
@@ -40,11 +44,13 @@
    function _scrollToComponent(target) {
       "use strict";
 
-      smoothScroll(500, target.offsetTop, 120);
+      smoothScroll(900, target.offsetTop, 120);
+
 
       setTimeout(function() {
         mainSiteContent.classList.remove('content-faded');
         searchInput.value = "";
+        progressBar.classList.remove("expanded");
       }, 700);
    }
 
@@ -52,7 +58,7 @@
        searchInput.classList.remove("input-not-found");
        nothingFoundAlert.classList.remove("nothing-found-shown");
        clearTimeout(typingTimer);
-       typingTimer = setTimeout(_doneTyping, 1000);
+       typingTimer = setTimeout(_doneTyping, 900);
    }
 
 
@@ -72,7 +78,13 @@
             matchedComponent = componentHeaders[i];
             console.log(matchedComponent);
             found = true;
-            _scrollToComponent(matchedComponent);
+
+            progressBar.classList.add("expanded");
+
+            setTimeout(function() {
+              _scrollToComponent(matchedComponent);
+            }, 800);
+
             break;
           }
         }
@@ -86,12 +98,12 @@
 
   //top and bottom arrow
   topArrow.addEventListener("click", function(event) {
-    smoothScroll(500, 0, 0);
+    smoothScroll(900, 0, -210);
   });
 
   bottomArrow.addEventListener("click", function(event) {
     var bottomScrollAmount = document.body.offsetHeight - window.innerHeight;
-    smoothScroll(800, bottomScrollAmount, 500);
+    smoothScroll(900, bottomScrollAmount, 500);
   });
 
 
