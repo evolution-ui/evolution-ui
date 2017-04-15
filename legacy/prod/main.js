@@ -117,11 +117,11 @@
       var track = this.getAudioTrack(),
           playButtonIcon = this.getPlayer()
                                .querySelector(this.playback + ' button i');
-      
+
       if (track && playButtonIcon) {
 
         if (track.paused) {
-          
+
           this.changeIcon(playButtonIcon, this.playerIcons.pause);
           track.play();
 
@@ -133,7 +133,7 @@
         }
 
       }
-        
+
     },
 
     isPlaying: function() {
@@ -144,11 +144,11 @@
       if (track && trackProgress) {
         trackProgress.max = track.duration;
       }
-      
+
     },
 
     updateTrack: function () {
-      
+
       var player = this.getPlayer(),
           trackProgress = player.querySelector(this.playback + ' input[type="range"]'),
           track = this.getAudioTrack(),
@@ -157,12 +157,12 @@
           mins = parseInt((track.currentTime / 60) % 60);
 
       if (player && trackProgress && track && trackTime) {
-        
+
         trackProgress.value = track.currentTime;
         secs = (secs >= 10) ? secs : '0' + secs;
         mins = (mins >= 10) ? mins : '0' + mins;
-        trackTime.textContent = mins + ':' + secs; 
-      
+        trackTime.textContent = mins + ':' + secs;
+
       }
 
     },
@@ -209,7 +209,7 @@
           this.changeIcon(muteButtonIcon, this.playerIcons.volumeOff);
 
         }
-      } 
+      }
 
     }
 
@@ -238,9 +238,9 @@
         audioPlayer3 = document.getElementById('audioplayer3');
 
     audioPlayer2.querySelector('audio').removeAttribute('controls');
-    audioPlayer3.querySelector('audio').removeAttribute('controls');  
+    audioPlayer3.querySelector('audio').removeAttribute('controls');
   }
-  
+
 
 }());
 
@@ -459,246 +459,7 @@
 })();
 
 (function() {
-
-  var dotNav = {
-
-    init: function() {
-      this.cacheDom();
-      this.addEvents();
-    },
-
-    cacheDom: function() {
-      this.dotNavContainers = document.querySelectorAll('.su_dot-navigation');
-    },
-
-    addEvents: function() {
-      var i, len = this.dotNavContainers && this.dotNavContainers.length;
-
-      for ( i = 0; i < len; i++ ) {
-        this.dotNavContainers[i].addEventListener('click', function(e) {
-          var current = this.querySelector('.su_dot-current');
-          if ( e.target.tagName.toLowerCase() === 'li' && e.target !== current ) {
-            current && current.classList.remove('su_dot-current');
-            e.target.classList.add('su_dot-current');
-          }
-          if ( this.classList.contains('su_dot-navigation-jiggle') ) {
-            dotNav.moveDot(e.target);
-          } else if ( this.classList.contains('su_dot-navigation-zap') ) {
-            dotNav.drawLine(e.target);
-          }
-        });
-      }
-
-    },
-
-    moveDot: function(target) {
-      var mask = document.querySelector('#su_dot-mask');
-
-      if ( !mask ) {
-        mask = document.createElement('span');
-        mask.id = 'su_dot-mask';
-        target.parentElement.appendChild(mask);
-      }
-
-      if ( target.tagName.toLowerCase() === 'li' ) {
-        mask.classList.add('moving');
-        window.clearTimeout(stopMove);
-        var stopMove = window.setTimeout(function() {
-          mask.classList.remove('moving');
-        }, 300);
-        mask.style.left = target.offsetLeft + 'px';
-      }
-
-    },
-
-    drawLine: function(target) {
-      var line = document.querySelector('#su_dot-line'),
-          left;
-
-      if ( !line ) {
-        line = document.createElement('span');
-        line.id = 'su_dot-line';
-        line.style.left = '23px';
-        target.parentElement.appendChild(line);
-      }
-
-      if ( target.tagName.toLowerCase() === 'li' ) {
-        left = 1 * line.style.left.split('px')[0];
-        if ( left < target.offsetLeft ) {
-          line.classList.remove('backwards');
-        } else {
-          line.classList.add('backwards');
-        }
-        line.style.right = 'calc(100% - ' + (target.offsetLeft + 10) + 'px';
-        line.style.left = (target.offsetLeft + 10) + 'px';
-      }
-
-    }
-
-  }
-
-  dotNav.init();
-
-})();
-
-(function() {
 	//logic
-
-})();
-
-(function() {
-
-/* EYELIDS COMPONENT */
-
-  var eyelids = {
-
-    width: 180,
-    step: 10,
-    limitUp: 400,
-    limitDown: 50,
-    enabled: false,
-    helperCreated: false,
-    key: '1',
-    modifier: 'ctrlKey',
-    helpItems: [
-      'Hold "Shift" and scroll mouse to resize the highlight area.',
-      'Don\'t take crap from anyone!'
-    ],
-
-    init: function() {
-      this.cacheDom();
-      this.setShortcut();
-      this.notify();
-      this.addEvent(this.bodyElement, 'keydown', this.toggle.bind(this));
-      this.addEvent(this.bodyElement, 'wheel', this.resize.bind(this));
-      this.addEvent(this.notification, 'click', this.notify.bind(this));
-    },
-
-    cacheDom: function() {
-      this.bodyElement = document.querySelector('body');
-      this.notification = document.querySelector('.su_eyelids-notification');
-      this.shortcut = this.notification && this.notification.querySelector('code');
-      this.top = document.createElement('div');
-      this.bottom = document.createElement('div');
-      this.helper = document.createElement('div');
-      this.helper.classList.add('su_eyelids-helper');
-      this.top.classList.add('su_eyelids-top');
-      this.bottom.classList.add('su_eyelids-bottom');
-    },
-
-    addEvent: function(target, eventType, eventHandler) {
-      if ( target ) {
-        target.addEventListener(eventType, eventHandler);
-      } else return;
-    },
-
-    removeEvent: function(target, eventType, eventHandler) {
-      if ( target ) {
-        target.removeEventListener(eventType, eventHandler);
-      } else return;
-    },
-
-    setShortcut: function() {
-      if ( this.shortcut ) {
-        this.shortcut.textContent = this.modifier + ' + ' + this.key;
-      }
-    },
-
-    notify: function() {
-      var notification = this.notification;
-      if ( notification ) {
-        if ( notification.classList.contains('su_active') ) {
-          notification.classList.remove('su_active');
-          window.clearTimeout(removeClass);
-        } else {
-          notification.classList.add('su_active');
-          removeClass = window.setTimeout(function() {
-            notification.classList.remove('su_active');
-            window.clearTimeout(removeClass);
-          }, 5000);
-        }
-      }
-    },
-
-    enable: function() {
-      this.bodyElement.appendChild(this.top);
-      this.bodyElement.appendChild(this.bottom);
-      // this.top.style.height = 'calc(50vh - ' + this.width / 2 + 'px)';
-      // this.bottom.style.top = 'calc(50vh + ' + this.width / 2 + 'px)';
-      this.enabled = true;
-      this.addHelper();
-    },
-
-    disable: function() {
-      this.top = this.bodyElement.removeChild(this.top);
-      this.bottom = this.bodyElement.removeChild(this.bottom);
-      this.enabled = false;
-      this.removeHelper();
-    },
-
-    follow: function(e) {
-      this.top.style.height = (e.clientY - this.width / 2) + 'px';
-      this.bottom.style.top = (e.clientY + this.width / 2) + 'px';
-    },
-
-    toggle: function(e) {
-      var key = e.key.toLowerCase();
-
-      // console.log(e.key);
-
-      if ( this.enabled && (key === this.key && e[this.modifier] || key === 'escape') ) {
-        e.preventDefault();
-        this.disable();
-        this.removeEvent(document, 'mousemove', this.follow.bind(this));
-      } else if ( key === this.key && e[this.modifier] ) {
-        e.preventDefault();
-        this.enable();
-        this.addEvent(document, 'mousemove', this.follow.bind(this));
-      }
-    },
-
-    resize: function(e) {
-      if ( this.enabled && e.shiftKey ) {
-        e.preventDefault();
-        if ( e.deltaY > 0 ) {
-          this.width += this.width < this.limitUp && this.step;
-        } else {
-          this.width -= this.width > this.limitDown && this.step;
-        }
-        this.follow(e);
-      }
-    },
-
-    addHelper: function() {
-      // if helper does not exist, i.e. the first run of eyelids, then create its content
-      if ( !this.helperCreated ) {
-        var note = document.createElement('p'),
-            list = document.createElement('ul'),
-            li,
-            i, len = this.helpItems.length;
-
-        for ( i = 0; i < len; i++ ) {
-          li = document.createElement('li');
-          li.textContent = this.helpItems[i];
-          list.appendChild(li);
-        }
-        note.textContent = 'Eyelids help:';
-        this.helper.appendChild(note);
-        this.helper.appendChild(list);
-        this.helperCreated = true;
-      }
-
-      // append helper to the body, this happens no matter if it's the first run or not
-      this.bodyElement.appendChild(this.helper);
-    },
-
-    removeHelper: function() {
-      this.helper = this.bodyElement.removeChild(this.helper);
-    }
-
-  };
-
-  eyelids.init();
 
 })();
 
@@ -745,93 +506,6 @@
 })();
 
 (function() {
-
-  var modal = {
-
-    init: function() {
-      this.cacheDom();
-      this.addEvents();
-    },
-
-    cacheDom: function() {
-      this.body = document.querySelector('body');
-      this.modalTypes = document.querySelectorAll('[data-modal-type]');
-      this.modal = document.querySelector('.su_modal');
-      this.modalClose = document.querySelector('.su_modal-close');
-    },
-
-    addEvents: function() {
-      var i, len = this.modalTypes && this.modalTypes.length;
-
-      // if there are no modals on the page, do not add listeners
-      if ( !len ) return;
-
-      for ( i = 0; i < len; i++ ) {
-        this.modalTypes[i].addEventListener('click', this.showModal.bind(this));
-      }
-
-      this.modalClose.addEventListener('click', this.hideModal.bind(this));
-
-    },
-
-    showModal: function(e) {
-      var modal = this.modal,
-          modalType = e.target.dataset.modalType,
-          modalTextContent = e.target.dataset.modalTitle,
-          modalMediaContent = e.target.dataset.modalMedia,
-          modalContentContainer;
-
-      if ( modal ) {
-        modalMediaContentContainer = modal.querySelector('.su_modal-media');
-        modalMediaContentContainer.innerHTML = '';
-        modalMediaContentContainer.appendChild(this.addMedia[modalType](modalMediaContent, e));
-        modalTextContentContainer = modal.querySelector('.su_modal-title');
-        modalTextContentContainer.textContent = modalTextContent;
-        modal.classList.add('su_modal-active');
-        this.body.style.overflow = 'hidden'; // prevent scrolling of the page in the background
-      }
-
-    },
-
-    addMedia: {
-      simple: function(content, e) {
-        console.log(content);
-        var element = document.createElement('p');
-        element.innerHTML = content || 'No content provided!';
-        return element;
-      },
-      image: function(content, e) {
-        var element = document.createElement('img'),
-        // if the image url is explicitly provided through 'data-modal-media' attribute, use that url
-        // else use the 'src' attribute from the 'img' tag, and if that somehow does not exist, use placeholder image
-            url = content || e.target.getAttribute('src') || '../img/no_image.png';
-        element.setAttribute('src', url);
-        return element;
-      },
-      video: function(content, e) {
-        var element = document.createElement('div'),
-            iframe = document.createElement('iframe'),
-            url = content || 'https://www.youtube.com/embed/Sw5TfUi5rtQ'; // read url from 'data-modal-media' attribute, or fall back to this video
-        iframe.setAttribute('src', url);
-        iframe.setAttribute('frameborder', 0);
-        element.classList.add('su_video_container');
-        element.appendChild(iframe);
-        return element;
-      }
-    },
-
-    hideModal: function(e) {
-      e.target.parentElement.classList.remove('su_modal-active');
-      this.body.style.overflow = 'auto'; // enable scrolling of the page after the modal is closed
-    }
-
-  };
-
-  modal.init();
-
-})();
-
-(function() {
   var clipboard = document.createElement('textarea');
   clipboard.id = 'clipboard';
   clipboard.style.position = 'fixed';
@@ -864,147 +538,9 @@
 })();
 
 (function() {
-  
+
 
 })();
-
-/* NAVIGATION COMPONENT */
-
-(function() {
-
-  var menuControl = {
-
-    init: function() {
-      this.cacheDom();
-      this.addEvents(this.menuToggles, 'click', this.toggleMenu);
-      this.addEvents(this.menuLinks, 'click', this.highlightLink.bind(this));
-    },
-
-    cacheDom: function() {
-      this.menuToggles = document.querySelectorAll('.su_menu-toggle');
-      this.menuLinks = document.querySelectorAll('.su_navigation a');
-    },
-
-    addEvents: function(elements, event, eventHandler) {
-      var i, len = elements && elements.length;
-
-      for ( i = 0; i < len; i++ ) {
-        elements[i].addEventListener(event, eventHandler);
-      }
-
-    },
-
-    toggleMenu: function() {
-      this.parentElement.classList.toggle('su_is-open');
-    },
-
-    highlightLink: function(e) {
-      var i, len = this.menuLinks && this.menuLinks.length;
-      for ( i = 0; i < len; i++ ) {
-        if ( e.target === this.menuLinks[i] ) {
-          this.menuLinks[i].classList.add('su_link-active');
-        } else {
-          this.menuLinks[i].classList.remove('su_link-active');
-        }
-      }
-    }
-
-  };
-
-  menuControl.init();
-
-})();
-
-/* END NAVIGATION COMPONENT */
-
-/* OFF CANVAS NAVIGATION COMPONENT  */
-
-(function() {
-
-  var offCanvasNav = {
-
-    init: function() {
-      this.cacheDom();
-      this.addEvents();
-    },
-
-    cacheDom: function() {
-      this.body = document.querySelector('body');
-      this.navMenu = {
-        'slide-in': document.querySelector('.su_offcanvas-menu-slide-in'),
-        'slide-over': document.querySelector('.su_offcanvas-menu-slide-over'),
-        'reveal': document.querySelector('.su_offcanvas-menu-reveal')
-      };
-      this.menuTriggers = document.querySelectorAll('button[data-menu-effect]');
-      this.pageContent = document.querySelector('[class*="su_offcanvas-menu"] ~ .su_offcanvas-wrapper');
-    },
-
-    addEvents: function() {
-      var i, len = this.menuTriggers && this.menuTriggers.length;
-      if ( len ) {
-        for ( i = 0; i < len; i++ ) {
-          this.menuTriggers[i].addEventListener('click', this.showMenu.bind(this));
-        }
-      }
-      this.pageContent && this.pageContent.addEventListener('click', this.closeMenu.bind(this));
-    },
-
-    closeMenu: function(e) {
-      if ( !e.target.classList.contains('su_menu-triggers') ) {
-        this.body.classList.remove('su_offcanvas-menu-active');
-        for ( menuEffect in this.navMenu ) {
-          this.navMenu[menuEffect].removeAttribute('data-menu-effect');
-        }
-      }
-    },
-
-    showMenu: function(e) {
-      var menuEffect = e.target.dataset.menuEffect;
-      e.target.classList.contains('su_menu-triggers') && this.body.classList.add('su_offcanvas-menu-active');
-      this.navMenu[menuEffect].setAttribute('data-menu-effect', menuEffect);
-    }
-
-  }
-
-  offCanvasNav.init();
-
-})();
-
-/* END OFF CANVAS NAVIGATION COMPONENT  */
-
-/* PAGINATION COMPONENT */
-
-(function() {
-  var paginationBlocks = document.querySelectorAll('.su_pagination'),
-      i, len = paginationBlocks && paginationBlocks.length,
-      paginationItems,
-      j, size;
-
-  function applyDisabledStyles(node) {
-    node.style.backgroundColor = '#f0f0ed';
-    node.style.color = '#c4c4b3';
-    node.style.border = '1px solid #c4c4b3';
-    node.style.pointerEvents = 'none';
-  }
-
-  for ( i = 0; i < len; i++ ) {
-    paginationItems = paginationBlocks[i].querySelectorAll('li');
-    if ( !paginationItems ) return;
-    size = paginationItems.length;
-    for ( j = 0; j < size; j++ ) {
-      if ( paginationItems[j].classList.contains('su_current-page') ) {
-        if ( j === 1 ) {
-          applyDisabledStyles(paginationItems[j - 1]);
-        } else if ( j === size - 2 ) {
-          applyDisabledStyles(paginationItems[size - 1]);
-        }
-      }
-    }
-  }
-
-})();
-
-/* END PAGINATION COMPONENT */
 
 (function() {
 	//logic
@@ -1071,12 +607,12 @@
   'use strict';
 
   var suSift = {
-    
+
     pick: '.su_basket--pick',
     drop: '.su_basket--drop',
-    
+
     pickBasket: function () {
-      
+
       var basket = document.querySelector(this.pick);
 
       if ( basket ) {
@@ -1086,7 +622,7 @@
     },
 
     dropBasket: function () {
-      
+
       var basket = document.querySelector(this.drop);
 
       if ( basket ) {
@@ -1112,16 +648,16 @@
 
       var item = this.pickItem(),
           siftDrop = this.dropBasket.bind(this);
-          
+
       if (item) {
-        
+
         item.classList.add('su_animate--siftOut')
         setTimeout(function () {
           item.classList.remove('su_animate--siftOut');
           item.classList.add('su_animate--siftIn');
           siftDrop().appendChild(item);
           //siftDrop().lastElementChild.classList.add('su_animate--sift');
-        }, 1000);  
+        }, 1000);
       }
     }
   }
@@ -1131,9 +667,9 @@
       suSift.siftItem();
     });
   }
-  
 
-  
+
+
 }());
 (function() {
 	//logic

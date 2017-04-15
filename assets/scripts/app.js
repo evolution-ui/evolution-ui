@@ -7,7 +7,6 @@
 import documentReady from './evolution/document-ready'
 import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
-import eyelids from './evolution/eyelids'
 import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
 import bookmarklet from './evolution/bookmarklet'
 import demoComponent from './evolution/demo-component'
@@ -33,7 +32,6 @@ import divTable from './evolution/div_table'
  ***********************************************************************/
 
 import accordion from './standard/accordion'
-import offCanvasNavigation from './standard/off_canvas_navigation'
 import cssAnimations from './standard/css_animations'
 import codeMarkup from './standard/code_markup'
 import stdForms from './standard/forms'
@@ -53,10 +51,8 @@ import audioPlayer from './standard/audio_player'
 
 
 documentReady(
-  offCanvasNavigation,
   crumble,
   dotNavigation,
-  eyelids,
   fadeLinesOnScroll,
   bookmarklet,
   cssAnimations,
