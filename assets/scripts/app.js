@@ -81,7 +81,8 @@ documentReady(
   curtain,
   text2speech,
   svg_pagination,
-  divTable
+  divTable,
+  carouselDrop
 )
 
 singleInputForm();
