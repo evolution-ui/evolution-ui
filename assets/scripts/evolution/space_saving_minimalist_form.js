@@ -39,13 +39,18 @@ export default function() {
   }
 
   function fadeIn(ele) {
-    ele.style.animationName = 'mini-expandToRight';
-    ele.classList.add('js-mini-form-is-active');
-    ele.querySelector('.evo_c-mini-form__input-inner').style.animationName ='mini-bgChange';
+    // Input wrap: add active and anim-fadein classes
+    ele.classList.add('js-mini-form-is-active', 'js-mini-form-anim-fadein');
+    // Inner input wrap: add anim-bgchange class
+    ele.querySelector('.evo_c-mini-form__input-inner').classList.add('js-mini-form-anim-bgchange');
+    // Input wrap: remove anim-fadeout-back class
+    ele.classList.remove('js-mini-form-anim-fadeout-back');
   }
 
   function fadeOut(ele) {
-    ele.querySelector('.evo_c-mini-form__input-inner').style.animationName ='mini-fadeOut';
+    // Input wrap: add anim-fadeout class
+    ele.classList.add('js-mini-form-anim-fadeout');
+    // Input wrap: remove active class
     ele.classList.remove('js-mini-form-is-active');
   }
 
@@ -54,7 +59,7 @@ export default function() {
       // current card fades out
       fadeOut(inputWraps[index]);
 
-      // next card fades in
+      // next card fades in, prevBtn appears
       prevBtns[index].style.visibility = 'visible';
       prevBtns[index].style.transitionDelay = '0.65s, 0s';
       fadeIn(inputWraps[index + 1]);
@@ -67,17 +72,21 @@ export default function() {
   function goBack(index) {
     if (currentCardIndex > index) { // not the first input card
       // current card: roll back to left, remove active class
-      inputWraps[currentCardIndex].style.animationName = 'mini-rollToLeft';
-      inputWraps[currentCardIndex].classList.remove('js-mini-form-is-active');
+      inputWraps[currentCardIndex].classList.remove('js-mini-form-is-active', 'js-mini-form-anim-fadein');
+      inputWraps[currentCardIndex].classList.add('js-mini-form-anim-fadeout-back');
+
       // current inner wrap: remove animation
-      inputWraps[currentCardIndex].querySelector('.evo_c-mini-form__input-inner').style.animationName = '';
+      inputWraps[currentCardIndex].querySelector('.evo_c-mini-form__input-inner').classList.remove('js-mini-form-anim-bgchange');
+
       // hide indicator (prev btn)
       prevBtns[currentCardIndex - 1].style.visibility = 'hidden';
       prevBtns[currentCardIndex - 1].style.transitionDelay = '0s, 0s';
 
-      // next card: add active class, remove animation of inner wrap
+      // prev card: add active class, remove fadeout animation class
       inputWraps[--currentCardIndex].classList.add('js-mini-form-is-active');
-      inputWraps[currentCardIndex].querySelector('.evo_c-mini-form__input-inner').style.animationName = 'mini-bgChange';
+      inputWraps[currentCardIndex].classList.remove('js-mini-form-anim-fadeout');
+      // prev card - inner: add animation
+      inputWraps[currentCardIndex].querySelector('.evo_c-mini-form__input-inner').classList.add('js-mini-form-anim-bgchange');
 
       window.setTimeout(function() {
         goBack(index);
@@ -123,7 +132,7 @@ export default function() {
 
   submitBtn && submitBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    submitCardInner.style.animationName = '';
+    submitCardInner.classList.remove('js-mini-form-anim-bgchange');
     submitCardInner.innerHTML = 'Thank you for subscribing';
 
     // hide all indicators
