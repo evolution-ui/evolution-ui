@@ -29,6 +29,7 @@ export default function() {
         fadedTextBlock[i].childNodes[j].classList.add(temporaryScatterClass);
         fadedTextBlock[i].childNodes[j].style.position = "relative";
         fadedTextBlock[i].childNodes[j].style.top = randomTopDistValue + "px";
+        fadedTextBlock[i].childNodes[j].style.opacity = 0;
       }
     }
     // console.log(fadedTextBlock);
