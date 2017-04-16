@@ -99,7 +99,7 @@
     height: 24em;
     opacity: 0;
     background: tint(get-color('secondary', 'light'), 25%);
-    transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s cubic-bezier(.19, 1.0, .22, 1.0);
     pointer-events: none;
 
     @media (max-width: 550px) {
@@ -165,11 +165,10 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     max-height: 50%;
     padding: 1.5em;
     font-size: 0.8em;
-    //text-align: justify;
   }
 
   @include e('member-social-links') {
@@ -181,6 +180,10 @@
   @include e('social-link') {
     margin: 0.5em;
     color: $c-ikon-regular-color;
+
+    &:hover, &:visited {
+      color: $c-ikon-regular-color;
+    }
 
     @media (max-width: 480px) {
       margin: 0 0.5em;
@@ -211,6 +214,7 @@
     margin: 0;
     font-size: 1.1em;
     line-height: 1.2;
+    text-align: left;
   }
 
 }
