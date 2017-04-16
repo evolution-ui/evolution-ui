@@ -16,8 +16,6 @@ Drag Row feature is not working in Firefox.
 
 ### How to use
 
-
-Pass your
 ```js
 //Provide User Info in JSON format
 var mockUsers = [

@@ -17,7 +17,10 @@ export default function() {
   // Alert element
   var alert = document.getElementsByClassName("evo_c-safety__alert")[0];
 
-  alert.style.visibility = "hidden";
+  // Security check
+  if (alert) {
+    alert.style.visibility = "hidden";
+  }
 
   function hold() {
     timInt = window.setInterval(showTime,1000);
@@ -48,6 +51,6 @@ export default function() {
   }
 
   var safety = document.getElementsByClassName("evo_c-safety")[0];
-  safety.addEventListener("mousedown", hold);
+  safety && safety.addEventListener("mousedown", hold);
   document.body.addEventListener("mouseup", release);
 }

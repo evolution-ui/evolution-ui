@@ -1,6 +1,6 @@
 /* Innovative rainbow form suggested by Richard Bov */
-.evo_c-rainbow-form{
-   box-sizin: border-box;
+.evo_c-rainbow-form *{
+   box-sizing: border-box;
 }
 .evo_c-rainbow-form__rainbow {
   border-radius: 5px;
@@ -29,6 +29,7 @@
 .evo_c-rainbow-form__rainbow .evo_c-rainbow-form__rainbow-contentform {
   padding: 40px 30px;
   background-color:#d6d6d6;
+  overflow:auto;
 }
 
 .evo_c-rainbow-form__rainbow-leftcontact {
@@ -50,12 +51,13 @@
   border-radius: 5px;
   border: 3px solid #eee;
   margin-bottom: 5px;
-  width: 88%;
+  margin-left:2px;
+  width: 95%;
   height: 40px;
   float: left;
   color:white;
   font-size:1.1em;
-  padding: 0px 10px 0px 17px;
+  padding: 0px 10px 0px 20px;
   border-left:1px solid #696969;;
 }
 .evo_c-rainbow-form__rainbow input:focus{
@@ -201,6 +203,7 @@ iput[type="email"]::-webkit-input-placeholder{
   padding: 0px 0px;
   font-size: 1.1em;
   text-align:left;
+  padding:14px;
   color:white;
 }
 
@@ -240,7 +243,7 @@ iput[type="email"]::-webkit-input-placeholder{
   padding: 17px 25px;
   border-radius: 0px 0px 5px 5px;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 48px;
   font-size: 18px;
 }
 

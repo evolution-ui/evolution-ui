@@ -1,0 +1,227 @@
+/*==============================================
+ *           FULLSCREEN GALLERY COMPONENT
+ *==============================================*/
+
+
+
+@import 'fullscreen-gallery-config';
+
+@include c( $c-fullscreen-gallery ) {
+  background-color: transparent;
+  display: block;
+  margin-bottom: 1.85rem;
+  width: 100%;
+  transition: all .3s ease-in;
+  
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+  @include e( 'slides' ) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include e( 'slide' ) {
+    width: 30%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    figcaption {
+      text-align: center;
+      display: none;
+      color: #5a5565;
+    }
+
+  }
+
+  &.evo_s-is-active {
+    animation: .3s cubic-bezier(0.190, 1.000, 0.220, 1.000) forwards open-carousel;
+    background-color: rgba(20, 19, 33, 0.6);
+    color: #ababab;
+    position: fixed;
+    z-index: 99999;
+    
+    &.evo_s-is-open {
+      animation: .3s cubic-bezier(0.190, 1.000, 0.220, 1.000) forwards open-carousel;
+
+      .evo_c-fs-gallery__slides {
+        animation: .2s cubic-bezier(0.190, 1.000, 0.220, 1.000) forwards open-slides;
+      }
+    }    
+    
+    .evo_c-fs-gallery__icons {
+      display: block;
+    }
+
+    .evo_c-fs-gallery__slides {
+      position: relative;
+      height: 100%;
+
+      .evo_c-fs-gallery__bars {
+        background-color: lighten(#2c3141, 10%);
+        position: absolute;
+        height: 2px;
+        display: block;
+        width: 100%;
+        z-index: 100;
+        //transition: all .6s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+      }
+    }
+
+    .evo_c-fs-gallery__slide {
+      background-color: #1c1728;
+      opacity: 0;
+      padding: 10px 0;
+      pointer-events: none;
+      position: absolute;
+      user-select: none;
+      width: 100%;
+      
+
+      &:first-of-type {
+        z-index: 100;
+      }
+      &:nth-of-type(2) {
+        z-index: 90;
+      }
+      &:nth-of-type(3) {
+        z-index: 80;
+      }
+  
+      &.evo_h-mask-down,
+      &.evo_h-mask-up {
+        opacity: 1;
+      }
+
+      &.evo_h-mask-down {
+        animation: slide-down .7s forwards cubic-bezier(0.190, 1.000, 0.220, 1.000);
+      }
+      &.evo_h-mask-up {
+        animation: slide-up .7s forwards cubic-bezier(0.190, 1.000, 0.220, 1.000);
+      }
+      
+      figcaption {
+        display: block;
+        padding-top: 10px;
+      }
+
+      &.evo_c-fs-gallery__slide--active {
+        opacity: 1;        
+      }
+    }
+  }
+
+  .evo_c-fs-gallery__icons {
+    background-color: #1c1728;
+    display: none;
+    position: relative;
+    height: 50px;
+  }
+
+  .evo_c-fs-gallery__icon-close,
+  .evo_c-fs-gallery__icon-next,
+  .evo_c-fs-gallery__icon-prev {
+    background-color: transparent;
+    border: none;
+    color: lighten(#474055, 10%);
+    cursor: pointer;
+    height: 100%;
+    outline: none;
+    padding: 7px 0;
+    position: absolute;
+
+    &:hover {
+      color: #eeeeee;
+    }
+
+    i {
+      font-size: 34px;
+    }
+  }
+
+  .evo_c-fs-gallery__icon-close {
+    right: 20px;
+  }
+  .evo_c-fs-gallery__icon-next {
+    right: calc(50% - 50px);
+  }
+  .evo_c-fs-gallery__icon-prev {
+    right: calc(50% + 50px);
+  }
+
+  .evo_c-fs-gallery__icon-next,
+  .evo_c-fs-gallery__icon-prev {  
+    visibility: visible;
+  }
+
+  .evo_c-fs-gallery__icon-next {
+    z-index: 10;
+  }
+
+  .evo_c-fs-gallery__icon-prev {
+    overflow: hidden;
+    z-index: 9;
+  }
+
+  .evo_s-is-hidden {
+    visibility: hidden;
+  }
+
+}
+
+@keyframes slide-up {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0); 
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(100% 0 0 0); 
+  }
+}
+@keyframes open-carousel {
+  0% {
+    opacity: .3;
+    width: 98%;
+    height: 98%;
+    top: 1%;
+    left: 1%;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+@keyframes open-slides {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/** END FULLSCREEN GALLERY COMPONENT **/
