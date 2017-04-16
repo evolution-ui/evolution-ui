@@ -534,6 +534,7 @@ $site-sidebar-nav-zindex: 9999;
       color $site-transition-timing-function,
       background-color $site-transition-timing-function,
       border-color $site-transition-timing-function;
+    text-transform: capitalize;
 
     &,
     &:hover,
@@ -624,6 +625,7 @@ $site-section-content-divider-margin: ($site-spacing-unit * 1.5) 0 $site-spacing
 
   &-heading {
     margin-top: 0;
+    text-transform: capitalize;
   }
 
   &-subheading {
