@@ -85,7 +85,7 @@ documentReady(
   carouselDrop,
   safety,
   sift,
-  fullscreenGallery
+  fullscreen_gallery
 )
 
 singleInputForm();

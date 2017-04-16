@@ -122,8 +122,8 @@ export default function() {
 
           if ( slides[curPos] ) {
             slideWrapper.style.height = slideHeight + 'px;';
-            slides[curPos].classList.remove('su_mask-up');
-            slides[curPos].classList.add('su_mask-down');
+            slides[curPos].classList.remove('evo_h-mask-up');
+            slides[curPos].classList.add('evo_h-mask-down');
             curPos++;
             rulers[curPos].style.cssText = 'transition: all .3s cubic-bezier(0.190, 1.000, 0.220, 1.000)';          
             rulers[curPos].style.cssText += this.slideIndicatorPositions[curPos].bottom;
@@ -150,11 +150,9 @@ export default function() {
         if( curPos > 0 ){
 
           if ( rulers[curPos] ) {
-            console.log('thisSlide: ' + curPos);
             curPos--;
-            console.log('prevSlide: ' + curPos);
-            slides[curPos].classList.remove('su_mask-down');
-            slides[curPos].classList.add('su_mask-up');
+            slides[curPos].classList.remove('evo_h-mask-down');
+            slides[curPos].classList.add('evo_h-mask-up');
             rulers[curPos].style.cssText = 'transition: all .3s cubic-bezier(0.190, 1.000, 0.220, 1.000)';          
             rulers[curPos].style.cssText += this.slideIndicatorPositions[curPos].top;
 
@@ -218,7 +216,7 @@ export default function() {
       activeSlide && activeSlide.classList.remove('evo_c-fs-gallery__slide--active');
 
       slides && slides.forEach(function (element, index) {
-        element.classList.remove('su_mask-up', 'su_mask-down');
+        element.classList.remove('evo_h-mask-up', 'evo_h-mask-down');
       });
 
     }, false);
