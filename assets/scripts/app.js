@@ -26,7 +26,7 @@ import svg_pagination from './evolution/svg_pagination'
 import divTable from './evolution/div_table'
 import carouselDrop from './evolution/carousel_with_dropping_circle_nav'
 import safety from './evolution/safety'
-import dotValidator from './evolution/dotValidator'
+import dotValidator from './evolution/dotValidator
 
 /************************************************************************
  *
