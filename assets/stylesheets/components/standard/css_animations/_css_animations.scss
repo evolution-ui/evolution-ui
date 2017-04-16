@@ -263,6 +263,125 @@
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//                               Scale
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+@keyframes grow-center {
+  0% {
+    transform: scale(.5);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes grow-from-top {
+  0% {
+      transform: scaleX(.5) scaleY(.5);
+      transform-origin: center top;
+  }
+
+  100% {
+      transform: scaleX(1) scaleY(1);
+      transform-origin: center top;
+  }
+}
+
+@keyframes grow-from-bottom {
+  0% {
+      transform: scaleX(.5) scaleY(.5);
+      transform-origin: center bottom;
+  }
+
+  100% {
+      transform: scaleX(1) scaleY(1);
+      transform-origin: center top;
+  }
+}
+
+@keyframes grow-from-left {
+  0% {
+      transform: scaleX(.5);
+      transform-origin: center left;
+  }
+
+  100% {
+      transform: scaleX(1);
+      transform-origin: center left;
+  }
+}
+
+@keyframes grow-from-right {
+  0% {
+      transform: scaleX(.5);
+      transform-origin: center right;
+  }
+
+  100% {
+      transform: scaleX(1);
+      transform-origin: center right;
+  }
+}
+
+
+@keyframes grow-from-bottom-left {
+  0% {
+      transform: scaleX(.5) scaleY(.5);
+      transform-origin: left bottom;
+  }
+
+  100% {
+      transform: scaleX(1) scaleY(1);
+      transform-origin: left bottom;
+  }
+}
+
+@keyframes grow-from-bottom-right {
+  0% {
+      transform: scaleX(.5) scaleY(.5);
+      transform-origin: right bottom;
+  }
+
+  100% {
+      transform: scaleX(1) scaleY(1);
+      transform-origin: right bottom;
+  }
+}
+
+@keyframes grow-vertical-center {
+  0% {
+    transform: scaleY(.3);
+  }
+  100% {
+      transform: scaleY(1);
+  }
+}
+
+@keyframes grow-vertical-bottom {
+  0% {
+    transform: scaleY(.3);
+    transform-origin: center bottom;
+  }
+  100% {
+      transform: scaleY(1);
+      transform-origin: center bottom;
+  }
+}
+
+@keyframes grow-vertical-top {
+  0% {
+    transform: scaleY(.3);
+    transform-origin: center top;
+  }
+  100% {
+      transform: scaleY(1);
+      transform-origin: center top;
+  }
+}
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //                               zoomIn
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -608,8 +727,247 @@
   }
 }
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//                     Rotate From Center
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+@keyframes rotate-from-center {
+  0% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  100% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate3d(0, 1, 0, 360deg);
+  transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+
+@keyframes rotate-from-centerCC {
+  0% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  100% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate3d(0, 1, 0, -360deg);
+  transform: rotate3d(0, 1, 0, -360deg);
+  }
+}
+
+@keyframes rotate-upside-down {
+  0% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  100% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate3d(0, 1, 1, 360deg);
+  transform: rotate3d(0, 1, 1, 360deg);
+  }
+}
+
+
+@keyframes rotate-upside-downCC {
+  0% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  100% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate3d(0, 1, 1, -360deg);
+  transform: rotate3d(0, 1, 1, -360deg);
+  }
+}
+
+@keyframes rotate-all-upside-down {
+  0% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  100% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate3d(1, 1, 1, 360deg);
+  transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+
+@keyframes rotate-all-upside-downCC {
+  0% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  100% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate3d(1, 1, 1, -360deg);
+  transform: rotate3d(1, 1, 1, -360deg);
+  }
+}
+
+
+@keyframes rotate-vertical-center {
+  0% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  100% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate3d(1, 0, 0, 360deg);
+  transform: rotate3d(1, 0, 0, 360deg);
+  }
+}
+
+@keyframes rotate-vertical-centerCC {
+  0% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  100% {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate3d(1, 0, 0, -360deg);
+  transform: rotate3d(1, 0, 0, -360deg);
+  }
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//                             FLIP
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@keyframes flip-horiz-bottom {
+  0% {
+      transform: rotate3d(0, 0, 0, 0);
+  }
+  100% {
+      transform: rotate3d(1, 0, 0, -180deg);
+  }
+}
+
+@keyframes flip-horiz-top {
+  0% {
+      transform: rotate3d(0, 0, 0, 0);
+  }
+  100% {
+      transform: rotate3d(1, 0, 0, 180deg);
+  }
+}
+
+@keyframes flip-horiz-zoom-out {
+  0% {
+      transform: translate(0) rotate3d(1, 0, 0, 0);
+  }
+  100% {
+      transform: translateZ(-300px) rotate3d(1, 0, 0, 180deg);
+  }
+}
+
+@keyframes flip-horiz-zoom-in {
+  0% {
+      transform: translate(0) rotate3d(1, 0, 0, 0);
+  }
+  100% {
+      transform: translateZ(150px) rotate3d(1, 0, 0, -180deg);
+  }
+}
+
+@keyframes flip-vert-right {
+  0% {
+    transform: rotate3d(0, 1, 0, 0);
+  }
+  100% {
+     transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
+
+@keyframes flip-vert-left {
+  0% {
+    transform: rotate3d(0, 1, 0, 0);
+  }
+  100% {
+     transform: rotate3d(0, 1, 0, -180deg);
+  }
+}
+
+@keyframes flip-scale-up-horiz {
+  0% {
+    transform: scale(1) rotate3d(1, 0, 0, 0);
+  }
+  50% {
+    transform: scale(3) rotate3d(1, 0, 0, -90deg);
+  }
+  100% {
+    transform: scale(1) rotate3d(1, 0, 0, -180deg);
+  }
+}
+
+@keyframes flip-scale-up-horiz {
+  0% {
+    transform: scale(1) rotate3d(1, 0, 0, 0);
+  }
+  50% {
+    transform: scale(2.3) rotate3d(1, 0, 0, -90deg);
+  }
+  100% {
+    transform: scale(1) rotate3d(1, 0, 0, -180deg);
+  }
+}
+
+@keyframes flip-scale-down-horiz {
+  0% {
+    transform: scale(1) rotate3d(1, 0, 0, 0);
+  }
+  50% {
+    transform: scale(.5) rotate3d(1, 0, 0, 90deg);
+  }
+  100% {
+    transform: scale(1) rotate3d(1, 0, 0, 180deg);
+  }
+}
+
+
+
 
 @include h( 'anim' ) {
+
+  @include _create-animation(grow-center, ('animation-duration': 2s));
+  @include _create-animation(grow-from-top, ('animation-duration': 2s));
+  @include _create-animation(grow-from-right, ('animation-duration': 2s));
+  @include _create-animation(grow-from-bottom, ('animation-duration': 2s));
+  @include _create-animation(grow-from-left, ('animation-duration': 2s));
+  @include _create-animation(grow-from-bottom-left, ('animation-duration': 2s));
+  @include _create-animation(grow-from-bottom-right, ('animation-duration': 2s));
+  @include _create-animation(grow-vertical-center, ('animation-duration': 1s));
+  @include _create-animation(grow-vertical-top, ('animation-duration': 2s));
+  @include _create-animation(grow-vertical-bottom, ('animation-duration': 2s));
+
+
+  @include _create-animation(rotate-from-center, ('animation-duration': 1s));
+  @include _create-animation(rotate-from-centerCC, ('animation-duration': 1s));
+  @include _create-animation(rotate-upside-down, ('animation-duration': 1s));
+  @include _create-animation(rotate-upside-downCC, ('animation-duration': 1s));
+  @include _create-animation(rotate-all-upside-down, ('animation-duration': 1s));
+  @include _create-animation(rotate-all-upside-downCC, ('animation-duration': 1s));
+  @include _create-animation(rotate-vertical-center, ('animation-duration': 1s));
+  @include _create-animation(rotate-vertical-centerCC, ('animation-duration': 1s));
+
+  @include _create-animation(flip-horiz-bottom, ('animation-duration': .5s));
+  @include _create-animation(flip-horiz-top, ('animation-duration': .5s));
+  @include _create-animation(flip-horiz-zoom-out, ('animation-duration': .5s));
+  @include _create-animation(flip-horiz-zoom-in, ('animation-duration': .5s));
+  @include _create-animation(flip-vert-left, ('animation-duration': .5s));
+  @include _create-animation(flip-vert-right, ('animation-duration': .5s));
+  @include _create-animation(flip-scale-up-horiz, ('animation-duration': .5s));
+  @include _create-animation(flip-scale-down-horiz, ('animation-duration': .5s));
 
   @include m( 'fadeIn' ) {
     @extend %h-CSS-animations-default;

@@ -1,0 +1,59 @@
+---
+title: "Border and Shadow"
+description: |
+  <p>
+    Each progress bar has a border and a box-shadow.
+  </p>
+  <p>
+    Using the <code>h-border__[color-variation]</code> helper class on an <code>
+    evo_c-progress-bar</code> component, you can change the trackbar's border.
+    The available color variations for border are:
+
+    <ul>
+      <li>light - <code>h-border--light</code></li>
+      <li>default - <code>h-border--default</code></li>
+      <li>heavy - <code>h-border--heavy</code></li>
+    </ul>
+  </p>
+  <p>
+    Using the <code>h-border__[dimension]</code> helper class on an <code>
+    evo_c-progress-bar</code> component, you can change the trackbar's border tickness.
+    The available tickness are:
+
+    <ul>
+      <li>big - <code>h-border--big</code>  - border-width: 2px</li>
+      <li>huge - <code>h-border--huge</code> - border-width: 3px</li>
+    </ul>
+  </p>
+author: Gabriele Romeo
+category: standard
+type: Progress Bars
+order: 9
+---
+
+
+<div class="evo_c-progress-bar evo_c-progress-bar--rounded h-percentage--center h-border--huge h-border--light" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 50%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--big evo_c-progress-bar--rounded h-percentage--center h-border--default h-border--huge" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--small" style="width: 50%"></span>
+</div>
+
+
+<div class="evo_c-progress-bar h-percentage--right h-background--inset" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 65%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--type2 evo_c-progress-bar--rounded h-percentage--center h-background--inset" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar h-bck__accent--darken" style="width: 85%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--shape2 h-percentage--center h-background--inset" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar h-bck__accent--darken" style="width: 85%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--big h-background--inset" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--135 h-bck--accent3" style="width: 80%"></span>
+</div>
+

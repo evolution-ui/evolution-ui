@@ -1,0 +1,41 @@
+---
+title: "Percentages"
+description: |
+  <p>
+    Use the <code>h-percentage</code> helper class if you want to show the value
+    of the progress as percentage. By dafult, the percentage will be placed on the
+    left of the progress bar.
+  </p>
+  <p>
+    Use the <code>h-percentage--right</code> to move the percentage on the right
+    side of the progress bar.
+  </p>
+  <p>
+    Use the <code>h-percentage--center</code> to move the percentage at the center
+    of the progress bar.
+  </p>
+author: Gabriele Romeo
+category: standard
+type: Progress Bars
+order: 6
+---
+
+<div class="evo_c-progress-bar h-percentage" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 10%"></span>
+</div>
+
+<div class="evo_c-progress-bar h-percentage--right" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 65%"></span>
+</div>
+
+<div class="evo_c-progress-bar h-percentage--center" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 50%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--big h-percentage--center" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--small" style="width: 50%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--type2 h-percentage--center" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 80%"></span>
+</div>

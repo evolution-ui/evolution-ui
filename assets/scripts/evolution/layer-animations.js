@@ -1,8 +1,7 @@
-import {slide, calculateLayerHeight, calculateContainerHeight} from './layer-utils'
+import { slide, calculateLayerHeight, calculateContainerHeight } from './layer-utils'
 
 const layers = Array.from(document.querySelectorAll('.evo_c-3dlayer'))
 const layerContainers = Array.from(document.querySelectorAll('.evo_c-3dlayers'))
-
 
 const staggeredBackwards = (backwardsLayers, previousLayer) => {
 
@@ -49,9 +48,11 @@ const animateFrontLayers = layer => slide(layer.parentNode.lastElementChild, 480
     }, 150)
   }))
   .then(backwardsLayers => new Promise((resolve) => {
-    layer.classList.add('evo_c-3dlayer--selected')
-    resolve(layer)
     staggeredBackwards(backwardsLayers, layer)
+      .then(backwardsLayers => {
+        resolve(layer)
+        return backwardsLayers
+      })
       .then(backwardsLayers => backwardsLayers.forEach((blayer, index) => {
         setTimeout(() => {
           blayer.classList.remove('evo_c-3dlayer--hide')
@@ -62,6 +63,7 @@ const animateFrontLayers = layer => slide(layer.parentNode.lastElementChild, 480
 const animateNewFrontLayer = layer => {
   const frontHeight = calculateLayerHeight(layer)
   const containerHeight = calculateContainerHeight(layer)
+  layer.classList.add('evo_c-3dlayer--selected')
   return Promise.all([slide(layer, frontHeight, 500, true), slide(layer.parentNode, containerHeight, 500, true)])
 }
 
@@ -86,7 +88,7 @@ export default () => {
   layers.forEach(layer => layer.addEventListener('click', moveForwardListener))
   layerContainers.forEach(layerContainer => {
     const selected = layerContainer.querySelector('.evo_c-3dlayer--selected')
-    selected.style.height = calculateLayerHeight(selected) +'px'
-    layerContainer.style.height = calculateContainerHeight(selected) +'px'
+    selected.style.height = calculateLayerHeight(selected) + 'px'
+    layerContainer.style.height = calculateContainerHeight(selected) + 'px'
   })
 }

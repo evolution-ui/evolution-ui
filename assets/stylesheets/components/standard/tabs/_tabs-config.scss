@@ -13,7 +13,7 @@ $c-tabs-navigation-font-family: $g-framework-font-family;
 //-------------------------------------------------
 
 
-$c-tabs-navigation-min-width: 320px;
+$c-tabs-navigation-min-width: 300px;
 
 $c-tabs-navigation-margin-tiny: 5px;
 $c-tabs-navigation-margin-small: 10px;
@@ -39,6 +39,7 @@ $c-tabs-media-desktop-HD: 1200px;
 //------------------------------------------------
 
 $c-tabs-navigation-z-index: 10;
+$c-tabs-sticky-z-index: 1;
 $c-tabs-tab-content-z-index: 0;
 
 
@@ -57,7 +58,7 @@ $c-tabs-navigation-dark-background-color: get-color('background', 'light');
 //------------------------------------------------------------------------------
 
 $c-tabs-item-active-background-color: get-color('secondary', 'light');
-$c-tabs-item-hover-background-color: get-color('primary', 'light', .3);
+$c-tabs-item-hover-background-color: get-color('primary', 'light', .8);
 
 
 $c-tabs-item-padding-top-bottom: 14px;
@@ -116,4 +117,58 @@ $c-tabs-tab-lateral-list-min-width: 250px;
   left: 0;
   display: block;
   overflow-y: hidden;
+}
+
+%c-tabs-item-animations {
+  display:block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  height: 60%;
+}
+
+
+@keyframes zoomI {
+  0%   { transform: scale(0); }
+  10%   { transform: scale(.25); }
+  20%   { transform: scale(.5); }
+  30%   { transform: scale(1); }
+  40%   { transform: scale(1.3); }
+  50%   { transform: scale(1.5); }
+  70%   { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+@mixin _generate-is-active-color($color-name){
+  $tab-item: getBEMReference($c-component-name, 'item');
+  @include m($color-name) {
+    & .#{$tab-item}.is-active {
+      background-color: get-color($color-name)!important;
+    }
+  }
+}
+
+@mixin _generate-background-color($color-name){
+  @include m($color-name) {
+    background-color: get-color($color-name);
+  }
 }

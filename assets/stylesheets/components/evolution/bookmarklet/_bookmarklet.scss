@@ -18,7 +18,7 @@ $bookmarklet-success-color: get-color('accent4');
   border-radius: 0 0 0 0.2em;
   position: fixed;
   z-index: 1000;
-  top: 10em;
+  top: 20em;
   right: 0;
   width: 20em;
   transition: all 0.75s ease;
@@ -42,7 +42,7 @@ $bookmarklet-success-color: get-color('accent4');
   }
   & .evo_c-bookmarklet__clear-all {
     margin: 0;
-    width: 81.5%;
+    width: 94.5%;
     text-align: center;
     border-color: get-color('background');
     transition: all 0.25s ease;
@@ -63,7 +63,7 @@ $bookmarklet-success-color: get-color('accent4');
   padding: 0.61em;
   position: absolute;
   top: -1px;
-  left: -2.23em;
+  left: -2.25em;
   border-top: solid 1px get-color('background');
   border-left: solid 1px get-color('background');
   border-bottom: solid 1px get-color('background');
@@ -73,6 +73,10 @@ $bookmarklet-success-color: get-color('accent4');
 
 .evo_c-bookmarklet__highlight-text {
   background-color: yellow; //default
+}
+
+.evo_c-bookmarklet__bookmark-list-header {
+  margin-top: 0;
 }
 
 .evo_c-bookmaklet__bookmark-list {
@@ -121,11 +125,20 @@ $bookmarklet-success-color: get-color('accent4');
   }
 }
 
+.evo_c-bookmarklet__alert-close-icon {
+  position: absolute;
+  top: 0.2em;
+  right: 0.5em;
+  font-size: 1em;
+  color: white(0.75);
+}
+
 .evo_c-btn {
   background: transparent;
   border: 0.1em;
   border-radius: 0.2em;
   border-style: solid;
+  color: get-color('background');
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
@@ -133,6 +146,9 @@ $bookmarklet-success-color: get-color('accent4');
   margin: 0 0.5em;
   padding: 0.1em 1.2em;
   position: relative;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .evo_c-bookmarklet__google-button {
@@ -183,7 +199,7 @@ $bookmarklet-success-color: get-color('accent4');
   &--warning {
     @extend .evo_c-bookmarklet__alert;
     background-color: $bookmarklet-warning-color;
-    & i {
+    & > i {
       color: lighten($bookmarklet-warning-color, 15);
       width: 100%;
       font-size: 4em;
@@ -192,7 +208,7 @@ $bookmarklet-success-color: get-color('accent4');
   &--caution {
     @extend .evo_c-bookmarklet__alert;
     background-color: $bookmarklet-caution-color;
-    & i {
+    & > i {
       color: darken($bookmarklet-caution-color, 15);
       width: 100%;
       font-size: 4em;
@@ -262,12 +278,12 @@ $bookmarklet-success-color: get-color('accent4');
     border: solid 1px $bookmarklet-success-color;
     margin-right: 0.25em;
     border-radius: 0.2em;
-    padding: 0.2em;
+    padding: 0.1em;
     background-color: white(1);
     transition: all 0.25s ease;
     & i {
       font-size: 1.5em;
-      transform: translateY(25%);
+      transform: translateY(20%);
     }
     &:hover {
       background-color: lighten($bookmarklet-success-color, 31);
@@ -280,12 +296,12 @@ $bookmarklet-success-color: get-color('accent4');
     border: solid 1px $bookmarklet-warning-color;
     margin-left: 0.25em;
     border-radius: 0.2em;
-    padding: 0.2em;
+    padding: 0.1em;
     background-color: white(1);
     transition: all 0.25s ease;
     & i {
       font-size: 1.5em;
-      transform: translateY(25%);
+      transform: translateY(20%);
     }
     &:hover {
       background-color: lighten($bookmarklet-warning-color, 28);

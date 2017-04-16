@@ -20,7 +20,6 @@ const mouseLeave = event => {
     const enteringElement = event.relatedTarget
 
     if (utils.isOutOfLayers(enteringElement)) {
-      console.log('leave', leavingLayer, enteringElement)
       leavingLayer.parentNode.insertBefore(draggedLayer, draggedLayer.parentNode.firstElementChild)
       draggedLayer.classList.add('evo_c-3dlayer--drop')
     }
@@ -70,14 +69,16 @@ const pickLabel = event => {
 }
 
 const pickLayer = event => {
-  document.body.classList.add('evo_h-3dlayer--body-grabbing')
-  event.preventDefault()
-  event.stopPropagation()
-  utils.slide(event.currentTarget.parentNode.lastElementChild, 480, 300)
-    .then(layer => {
-      layer.classList.remove('evo_c-3dlayer--selected')
-      layer.classList.add('evo_c-3dlayer--visited')
-    })
+  if (event.target.nodeType === 1 && event.target.classList.contains('evo_c-3dlayer__icon-drag')) {
+    document.body.classList.add('evo_h-3dlayer--body-grabbing')
+    event.preventDefault()
+    event.stopPropagation()
+    utils.slide(event.currentTarget.parentNode.lastElementChild, 480, 300)
+      .then(layer => {
+        layer.classList.remove('evo_c-3dlayer--selected')
+        layer.classList.add('evo_c-3dlayer--visited')
+      })
+  }
 }
 
 export default () => {

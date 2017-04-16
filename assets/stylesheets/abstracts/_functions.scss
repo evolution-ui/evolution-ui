@@ -345,3 +345,100 @@
 
   @return $result;
 }
+
+
+///
+/// It merges the content of $ext-obj into $obj
+///
+/// @param {Map} $obj - The base map
+/// @param {Map} $ext-obj - A map containing the additional elements we wish to merge into $obj
+/// @return {Map}
+///
+
+
+@function extend($obj, $ext-obj) {
+  @return map-merge($obj, $ext-obj);
+}
+
+///
+/// Check if the provided parameter is a map
+///
+/// @param {Value} $obj - The value to check
+/// @return {Boolean}
+///
+
+@function is-map($map) {
+  @return type-of($map) == 'map';
+}
+
+///
+/// Get a value from a Map
+///
+/// @param {String} $conf - The configuration map
+/// @param {String} $property - The property's name
+/// @param {String} $sub-property [null] A sub property's name
+/// @return {Value}
+///
+/// @example
+///   $conf: (
+///     width: (
+///       base: 80%,
+///       media: (
+///         '>=Tablet': 500px,
+///         base: 200px
+///       )
+///     ),
+///     height: 100px
+///   );
+///
+///   In this example, the $conf map contains two property having the same name: 'base'.
+///   Using the $property parameter only, the 'conf' function returns the value of
+///   the first occurence. Using the $property and $sub-property paramaters
+///   we give a more specific query and the 'conf' function gives back the second
+///    occurence of the 'base' option instead.
+///
+///   get-conf($conf-c-modal, media)  ---> 80%
+///
+///   get-conf($conf-c-modal, media, base) --> 200px
+///
+///   If we are looking for a map nested inside the $conf map, the 'conf' function
+///   returns it as it is
+///
+///   get-conf($conf-c-modal, width)   ---> (
+///                                     base: 80%,
+///                                     media: (
+///                                       '>=Tablet': 500px,
+///                                       base: 200px
+///                                     )
+///
+
+@function get-conf($conf, $property, $sub-property:null) {
+
+  @if not is-map($conf) {
+    @error 'The option #{$conf} is not a map.'
+  }
+
+  $result: '';
+
+  @if map-has-key($conf, $property) {
+    @if is-map(map-get($conf, $property)) and ($sub-property != null) {
+      $conf: map-get($conf, $property);
+      $result: get-conf($conf, $sub-property);
+    } @else {
+      $result: map-get($conf, $property);
+    }
+  } @else {
+    // Try to find a property nested inside other list
+      @each $prop, $value in $conf {
+        @if is-map($value) {
+          $result: get-conf($value, $property, $sub-property);
+        }
+      }
+  }
+
+  @if $result == '' {
+    @error  'The option #{$property} does not exist in $conf. ';
+  }
+
+  @return $result;
+}

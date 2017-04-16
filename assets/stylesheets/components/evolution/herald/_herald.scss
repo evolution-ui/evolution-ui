@@ -1,6 +1,8 @@
 @import 'herald-config';
 
 .evo_c-herald-wrapper {
+  @extend %clearfix;
+
   & * {
    box-sizing: border-box;
   }
@@ -87,6 +89,7 @@
 }
 
 .evo_c-herald.announce {
+  @extend %clearfix;
   border-top: .5em solid get-color($type: 'primary', $variant: 'base', $opacity: 1);
   height: 25em;
   & > .evo_c-herald__furled-border {

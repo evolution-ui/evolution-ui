@@ -7,28 +7,64 @@
 
 
 $bar-element: getBEMReference($c-component-name, 'bar');
-$bar-element--b: getBEMReference($c-component-name, 'bar--b');
-$bar-element--fb: getBEMReference($c-component-name, 'bar--fb');
-$bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
+
 
 @include c($c-component-name) {
 
   // Provide brackground and text color variations
-  @include backgroundVariants();
+  @include backgroundVariants($opacity: .44);
   @include textVariants();
 
   position: relative;
   height: $c-progress-bars-height;
-  margin: 20px;
+  margin: $c-progress-bars-margin;
   text-align: center;
   background-color: tint(get-color('background'), 90);
+  box-sizing: content-box;
 
+
+    &[data-message] {
+      @extend %c-progress-bars-text-after;
+      height: $c-progress-bars-height-middle;
+      padding: 0;
+
+
+        & .#{$bar-element} {
+          height: $c-progress-bars-height-middle;
+        }
+
+        &:after {
+          @extend %c-progress-bars-message-after;
+          @extend %c-progress-bars-absolute-center;
+        }
+    }
+
+    //--------------------------------------------------------------------------
+    //                      Message - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include h('message', $g-no-prefix, $apply-on-descendants: false) {
+      @extend %c-progress-bars-text-after;
+      margin-left: $c-progress-bars-percentage-margin-left;
+      height: $c-progress-bars-height-middle;
+      padding: 0;
+
+
+        & .#{$bar-element} {
+          height: $c-progress-bars-height-middle;
+        }
+
+        &:after {
+          @extend %c-progress-bars-percentage-after;
+          @extend %c-progress-bars-absolute-center;
+        }
+    }
 
     //--------------------------------------------------------------------------
     //                      percentage - Progress Bars
     //--------------------------------------------------------------------------
 
-    &.h-percentage {
+    @include h('percentage', $g-no-prefix, $apply-on-descendants: false) {
       margin-left: $c-progress-bars-percentage-margin-left;
 
       &:after {
@@ -45,10 +81,9 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
       }
 
       @include m( 'center' ) {
+        @extend %c-progress-bars-text-after;
         height: $c-progress-bars-height-middle;
         padding: 0;
-        color: white(.9);
-        text-shadow: 0 1px 1px rgba(0,0,0,.5);
 
         & .#{$bar-element} {
           height: $c-progress-bars-height-middle;
@@ -65,28 +100,56 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
     //                        Rounded - Progress Bars
     //--------------------------------------------------------------------------
     @include m( 'rounded' ) {
+      @extend %c-progress-bars-hide-overflow-x;
       border-radius: 10px;
+
+        & .#{$bar-element} {
+          padding-right: 4px;
+          left: -2px;
+        }
     }
 
 
     //--------------------------------------------------------------------------
-    //                        Borders - Progress Bars
+    //                   HELPERS Border - Progress Bars
     //--------------------------------------------------------------------------
 
-    &.#{$g-framework-name}_h-border--light {
+
+    @include h('border--light', $g-no-prefix, $apply-on-descendants: false) {
       border: 1px solid black(.2);
     }
 
-    &.#{$g-framework-name}_h-border--normal {
+    @include h('border--default', $g-no-prefix, $apply-on-descendants: false) {
       border: 1px solid black(.5);
     }
 
-    &.#{$g-framework-name}_h-border--heavy {
+    @include h('border--heavy', $g-no-prefix, $apply-on-descendants: false) {
       border: 1px solid black(.8);
     }
 
+    @include h('border--big', $g-no-prefix, $apply-on-descendants: false) {
+      border-width: 2px;
+    }
+
+    @include h('border--huge', $g-no-prefix, $apply-on-descendants: false) {
+      border-width: 3px;
+    }
+
     //--------------------------------------------------------------------------
-    //                        Type2 - Progress Bars
+    //                   HELPERS box-shadow - Progress Bars
+    //--------------------------------------------------------------------------
+
+
+    @include h('background', $g-no-prefix, $apply-on-descendants: false) {
+
+        @include m('inset') {
+          box-shadow: inset 0 0 1em #000;
+        }
+    }
+
+
+    //--------------------------------------------------------------------------
+    //                        Big - Progress Bars
     //--------------------------------------------------------------------------
 
     @include m( 'big' ) {
@@ -94,10 +157,10 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
     }
 
     //--------------------------------------------------------------------------
-    //                        Type3 - Progress Bars
+    //                        shape2 - Progress Bars
     //--------------------------------------------------------------------------
 
-    @include m( 'type3' ) {
+    @include m( 'shape2' ) {
       @extend %c-progress-bars-hide-overflow-x;
       @extend %c-progress-bars-border-light;
       @extend %c-progress-bars-big;
@@ -110,155 +173,21 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
     }
 
     //--------------------------------------------------------------------------
-    //                        Type4 - Progress Bars
+    //                        shape3 - Progress Bars
     //--------------------------------------------------------------------------
 
-    @include m( 'type4' ) {
+    @include m( 'shape3' ) {
       @extend %c-progress-bars-hide-overflow-x;
       @extend %c-progress-bars-border-light;
       @extend %c-progress-bars-big;
 
       & .#{$bar-element} {
-        left: -20px;
+        left: -50px;
         padding-left: 20px;
         height: 0!important;
         background-color: transparent;
         border: $c-progress-bars-height dashed white(.9);
         transform: skew(-45deg);
-      }
-    }
-
-    //--------------------------------------------------------------------------
-    //                    Primary color - Progress Bars
-    //--------------------------------------------------------------------------
-
-    @include m( 'primary' ) {
-      @extend %c-progress-bars-hide-overflow-x;
-
-      & .#{$bar-element} {
-        height: 100%;
-        background: repeating-linear-gradient(
-          45deg,
-            get-color('primary', 'dark'),
-            get-color('primary', 'dark') 10px,
-            get-color('primary', 'light') 10px,
-            get-color('primary', 'light') 20px
-          );
-      }
-    }
-
-    //--------------------------------------------------------------------------
-    //                    Primary2 color - Progress Bars
-    //--------------------------------------------------------------------------
-
-    @include m( 'primary2' ) {
-      @extend %c-progress-bars-hide-overflow-x;
-
-      & .#{$bar-element} {
-        height: 100%;
-        background: repeating-linear-gradient(
-          45deg,
-            get-color('primary2', 'dark'),
-            get-color('primary2', 'dark') 10px,
-            get-color('primary2', 'light') 10px,
-            get-color('primary2', 'light') 20px
-          );
-      }
-    }
-
-    //--------------------------------------------------------------------------
-    //                    Secondary color - Progress Bars
-    //--------------------------------------------------------------------------
-
-    @include m( 'secondary' ) {
-      @extend %c-progress-bars-hide-overflow-x;
-
-      & .#{$bar-element} {
-        height: 100%;
-        background: repeating-linear-gradient(
-          45deg,
-            get-color('secondary', 'dark'),
-            get-color('secondary', 'dark') 10px,
-            get-color('secondary', 'light') 10px,
-            get-color('secondary', 'light') 20px
-          );
-      }
-    }
-
-    //--------------------------------------------------------------------------
-    //                    Accent color - Progress Bars
-    //--------------------------------------------------------------------------
-
-    @include m( 'accent' ) {
-      @extend %c-progress-bars-hide-overflow-x;
-
-      & .#{$bar-element} {
-        height: 100%;
-        background: repeating-linear-gradient(
-          45deg,
-            get-color('accent', 'dark'),
-            get-color('accent', 'dark') 10px,
-            get-color('accent', 'light') 10px,
-            get-color('accent', 'light') 20px
-          );
-      }
-    }
-
-    //--------------------------------------------------------------------------
-    //                    Accent2 color - Progress Bars
-    //--------------------------------------------------------------------------
-
-    @include m( 'accent2' ) {
-      @extend %c-progress-bars-hide-overflow-x;
-
-      & .#{$bar-element} {
-        height: 100%;
-        background: repeating-linear-gradient(
-          45deg,
-            get-color('accent2', 'dark'),
-            get-color('accent2', 'dark') 10px,
-            get-color('accent2', 'light') 10px,
-            get-color('accent2', 'light') 20px
-          );
-      }
-    }
-
-    //--------------------------------------------------------------------------
-    //                    Accent3 color - Progress Bars
-    //--------------------------------------------------------------------------
-
-    @include m( 'accent3' ) {
-      @extend %c-progress-bars-hide-overflow-x;
-
-      & .#{$bar-element} {
-        height: 100%;
-        background: repeating-linear-gradient(
-          45deg,
-            get-color('accent3', 'dark'),
-            get-color('accent3', 'dark') 10px,
-            get-color('accent3', 'light') 10px,
-            get-color('accent3', 'light') 20px
-          );
-      }
-    }
-
-    //--------------------------------------------------------------------------
-    //                    Accent4 color - Progress Bars
-    //--------------------------------------------------------------------------
-
-    @include m( 'accent4' ) {
-      @extend %c-progress-bars-hide-overflow-x;
-      @extend %c-progress-bars-border-light;
-
-      & .#{$bar-element} {
-        height: 100%;
-        background: repeating-linear-gradient(
-          45deg,
-            get-color('accent4', 'dark'),
-            get-color('accent4', 'dark') 10px,
-            get-color('accent4', 'light') 10px,
-            get-color('accent4', 'light') 20px
-          );
       }
     }
 
@@ -269,45 +198,83 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
     //--------------------------------------------------------------------------
     @include m( 'infinite' ) {
 
+      $bar-shape-forth: 'h-animation--shape-forth';
+      $bar-shape-back:  'h-animation--shape-back';
+
+      $bar-shape2: '#{$g-framework-name}_c-#{$c-component-name}--shape2';
+      $bar-shape3: '#{$g-framework-name}_c-#{$c-component-name}--shape3';
+      $bar-45: getBEMReference($c-component-name, 'bar', '45');
+      $bar-90: getBEMReference($c-component-name, 'bar', '90');
+      $bar-135: getBEMReference($c-component-name, 'bar', '135');
+
       overflow-x: hidden;
 
         .#{$bar-element} {
           left: -10%;
           width: 10%;
-          animation: c-progress-bars-infinite 2.2s infinite forwards linear;
-          -webkit-animation: c-progress-bars-infinite 2.2s infinite forwards linear;
+          animation: c-progress-bars-infinite 3.2s infinite forwards linear;
         }
 
-        .#{$bar-element--b} {
-          left: 110%;
-          animation: c-progress-bars-infinite--b 2.2s infinite forwards linear;
-          -webkit-animation: c-progress-bars-infinite--b 2.2s infinite forwards linear;
+
+        //----------------------------------------------------------------------
+        //                          Animations
+        //----------------------------------------------------------------------
+
+        @include h('animation', $g-no-prefix) {
+
+          @include m('backward') {
+            left: 110%;
+            animation: c-progress-bars-infinite--b 3.2s infinite forwards linear;
+          }
+
+          @include m('forth-back') {
+             animation: c-progress-bars-infinite--fb 3.2s infinite forwards linear;
+          }
+
         }
 
-        .#{$bar-element--fb} {
-          animation: c-progress-bars-infinite--fb 2.2s infinite forwards linear;
-          -webkit-animation: c-progress-bars-infinite--fb 2.2s infinite forwards linear;
+          &.#{$bar-shape2},
+          &.#{$bar-shape3} {
+            .#{$bar-element} {
+              @extend %c-progress-bars;
+            }
+          }
+
+          & .#{$bar-45}.#{$bar-element},
+          & .#{$bar-90}.#{$bar-element},
+          & .#{$bar-135}.#{$bar-element} {
+           @extend %c-progress-bars
+          }
+
+
+         &.#{$bar-shape2},
+         &.#{$bar-shape3} {
+            .#{$bar-element} {
+              @include h('animation', $g-no-prefix, $apply-on-descendants: false) {
+
+                @include m('backward') {
+                  @extend %c-progress-bars-shapes;
+                  @include _progress-bars-medias;
+                  animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
+                }
+              }
+            }
         }
 
-        .#{$bar-element--pr} {
-          right: 0;
-          width: 250%;
-          animation: c-progress-bars-infinite--pr 1.5s infinite forwards linear;
-          -webkit-animation: c-progress-bars-infinite--pr 1.5s infinite forwards linear;
-        }
+         .#{$bar-45},
+         .#{$bar-90},
+         .#{$bar-135} {
 
-        @media screen and (min-width: 760px) {
-          .#{$bar-element--pr} {
-            animation-duration: 4.5s;
+          @include h('animation', $g-no-prefix, $apply-on-descendants: false) {
+
+            @include m('backward') {
+              @extend %c-progress-bars-shapes;
+              @include _progress-bars-medias;
+              animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
+            }
+
           }
         }
-
-        @media screen and (min-width: 1200px) {
-          .#{$bar-element--pr} {
-            animation-duration: 6.5s;
-          }
-        }
-
 
     }
 
@@ -361,10 +328,172 @@ $bar-element--pr: getBEMReference($c-component-name, 'bar--pr');
       }
 
       //--------------------------------------------------------------------------
-      //                        Large - Bar
+      //                        Big - Bar
       //--------------------------------------------------------------------------
-      @include m( 'large' ) {
-        height: $c-progress-bars-height-large!important;
+      @include m( 'big' ) {
+        height: $c-progress-bars-height-big!important;
+      }
+
+      //--------------------------------------------------------------------------
+      //                        Huge - Bar
+      //--------------------------------------------------------------------------
+      @include m( 'huge' ) {
+        height: $c-progress-bars-height-huge!important;
+      }
+
+      //------------------------------------------------------------------------
+      //                            45deg - Bar
+      //------------------------------------------------------------------------
+
+      @include m( '45' ) {
+        height: 100%;
+        background: repeating-linear-gradient(
+          45deg,
+            get-color('primary', 'dark'),
+            get-color('primary', 'dark') 10px,
+            get-color('primary', 'light') 10px,
+            get-color('primary', 'light') 20px
+          );
+
+        //--------------------------------------------------------------------
+        //                  COLOR HELPERS - Bar
+        //--------------------------------------------------------------------
+
+
+        @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+
+          @include m('primary2') {
+            @include _background-linear-gradient(45deg, 'primary2');
+          }
+
+          @include m('secondary') {
+            @include _background-linear-gradient(45deg, 'primary');
+          }
+
+          @include m('background') {
+            @include _background-linear-gradient(45deg, 'background');
+          }
+
+          @include m('accent') {
+            @include _background-linear-gradient(45deg, 'accent');
+          }
+
+          @include m('accent2') {
+            @include _background-linear-gradient(45deg, 'accent2');
+          }
+
+          @include m('accent3') {
+            @include _background-linear-gradient(45deg, 'accent3');
+          }
+
+          @include m('accent4') {
+            @include _background-linear-gradient(45deg, 'accent4');
+          }
+        }
+
+      }
+
+      //--------------------------------------------------------------------------
+      //                      90deg - Bar
+      //--------------------------------------------------------------------------
+
+      @include m( '90' ) {
+        height: 100%;
+        background: repeating-linear-gradient(
+          90deg,
+            get-color('primary', 'dark'),
+            get-color('primary', 'dark') 10px,
+            get-color('primary', 'light') 10px,
+            get-color('primary', 'light') 20px
+          );
+
+        //--------------------------------------------------------------------
+        //                  COLOR HELPERS - Bar
+        //--------------------------------------------------------------------
+
+
+        @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+
+          @include m('primary2') {
+            @include _background-linear-gradient(90deg, 'primary2');
+          }
+
+          @include m('secondary') {
+            @include _background-linear-gradient(90deg, 'primary');
+          }
+
+          @include m('background') {
+            @include _background-linear-gradient(90deg, 'background');
+          }
+
+          @include m('accent') {
+            @include _background-linear-gradient(90deg, 'accent');
+          }
+
+          @include m('accent2') {
+            @include _background-linear-gradient(90deg, 'accent2');
+          }
+
+          @include m('accent3') {
+            @include _background-linear-gradient(90deg, 'accent3');
+          }
+
+          @include m('accent4') {
+            @include _background-linear-gradient(90deg, 'accent4');
+          }
+        }
+
+      }
+
+      //--------------------------------------------------------------------------
+      //                      135deg - Bar
+      //--------------------------------------------------------------------------
+
+      @include m( '135' ) {
+        height: 100%;
+        background: repeating-linear-gradient(
+          135deg,
+            get-color('primary', 'dark'),
+            get-color('primary', 'dark') 10px,
+            get-color('primary', 'light') 10px,
+            get-color('primary', 'light') 20px
+          );
+
+        //--------------------------------------------------------------------
+        //                  COLOR HELPERS - Bar
+        //--------------------------------------------------------------------
+
+        @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+
+          @include m('primary2') {
+            @include _background-linear-gradient(135deg, 'primary2');
+          }
+
+          @include m('secondary') {
+            @include _background-linear-gradient(135deg, 'primary');
+          }
+
+          @include m('background') {
+            @include _background-linear-gradient(135deg, 'background');
+          }
+
+          @include m('accent') {
+            @include _background-linear-gradient(135deg, 'accent');
+          }
+
+          @include m('accent2') {
+            @include _background-linear-gradient(135deg, 'accent2');
+          }
+
+          @include m('accent3') {
+            @include _background-linear-gradient(135deg, 'accent3');
+          }
+
+          @include m('accent4') {
+            @include _background-linear-gradient(135deg, 'accent4');
+          }
+        }
+
       }
 
   }

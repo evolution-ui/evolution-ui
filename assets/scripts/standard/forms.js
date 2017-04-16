@@ -1,8 +1,14 @@
 export default function() {
 
   var selectors = {
-    field: '[class*=form__field]'
+    form: '.evo_c-form',
+    field: '.evo_c-form__field',
+    input: '.evo_c-form__input',
+    inputDisabled: '.evo_c-form__input[disabled]'
   }
+
+  var disabledClass  = 'is-disabled';
+  var focusedClass  = 'is-focused';
 
 
   Array.prototype.where = function ( inclusionTest ) {
@@ -94,12 +100,25 @@ export default function() {
 
   }
 
+  function handleDisabledInputs(form) {
+    var disabledInputs = $$(selectors['inputDisabled'], form);
+
+    [].slice.call(disabledInputs).forEach(function(input) {
+      var closestField = getClosest(input, selectors['field']);
+      closestField.classList.add(disabledClass);
+    });
+  }
+
   function handleLabelsAnimation(event) {
 
-    var focusedClass  = 'is-focused';
-
     var closestField = getClosest(event.target, selectors['field']);
+    var input = $(selectors['input'], closestField);
+    var isDisabled = input && !!input.disabled || false;
     var focusedField = $('.' + focusedClass);
+
+    if (isDisabled) {
+      return;
+    }
 
     if (focusedField) {
       focusedField.classList.remove(focusedClass);
@@ -110,9 +129,12 @@ export default function() {
     }
   }
 
-  var formsList = $$( '[class$="c-form"]' );
+  var formsList = $$(selectors.form);
 
   [].slice.call(formsList).forEach(function(form){
+
+    handleDisabledInputs(form);
+
     form.addEventListener( 'click', function(event) {
       handleLabelsAnimation(event);
     });

@@ -15,6 +15,13 @@
   font-family: $g-framework-font-family;
   font-size: 1rem;
   position: relative;
+  height: 3em;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: inherit;
+    font-size: inherit;
+  }
 
   label,
   input,
@@ -33,20 +40,22 @@
   bottom: 0;
   right: 0;
   flex-wrap: nowrap;
-  width: 12em;
+  width: 18.5em;
   height: 3em;
-  padding-left: 3em;
-  padding-right: 3em;
+  //padding-left: 3.5em;
+  //padding-right: 3.5em;
   background-color: shade($c-sif-white-color, 10%);
   border-radius: 1.5em;
   overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
+  //opacity: 0;
+  //visibility: hidden;
+  z-index: 0;
 
-  animation-duration: 0.1s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-delay: 0.7s;
+
+  //animation-duration: 0.1s;
+  //animation-timing-function: ease-out;
+  //animation-fill-mode: forwards;
+  //animation-delay: 0.7s;
 
   &:first-of-type {
     background-color: $c-sif-prim-dark-color;
@@ -57,17 +66,17 @@
   }
 
   .evo_c-sif__input {
+    cursor: text;
     border: 0;
     line-height: 2.4em;
-    font-size: inherit;
     color: $c-sif-input-txt-color;
     margin-left: 0;
     background-color: transparent;
     width: 10em;
-    animation-duration: 0.1s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    animation-delay: 0.2s;
+    //animation-duration: 0.1s;
+    //animation-timing-function: ease-out;
+    //animation-fill-mode: forwards;
+    //animation-delay: 0.2s;
 
     &:focus + .evo_c-sif__label {
       opacity: 0;
@@ -78,14 +87,13 @@
   .evo_c-sif__label {
     @include sif-flexbox;
 
-    font-size: 0.9em;
     position: absolute;
-    left: 4.2em;
+    left: 4.5em;
     color: $c-sif-secondary-light-color;
     transition: opacity 0.2s, visibility 0s 0.2s;
-    animation-duration: 0.1s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
+    //animation-duration: 0.1s;
+    //animation-timing-function: ease-in;
+    //animation-fill-mode: forwards;
 
     .evo_c-sif__icon-label {
       margin-right: 0.3em;
@@ -107,8 +115,8 @@
     height: 3em;
     width: 3em;
     color: $c-sif-white-color;
-    animation-duration: 0.7s;
-    animation-fill-mode: forwards;
+    //animation-duration: 0.7s;
+    //animation-fill-mode: forwards;
     z-index: 5;
   }
 
@@ -121,15 +129,20 @@
       color: $c-sif-prim-dark-color !important;
     }
 
+    &.js-sif-is-invalid {
+      color: $c-sif-invalid-color;
+    }
+
     & .evo_c-sif__icon-next {
       font-weight: 700;
+      font-size: 1.5em;
     }
   }
 
   .evo_c-sif__btn--prev {
     @extend %c-sif__btn;
-    right: 2.7em;
-    color: tint($c-sif-secondary-light-color, 3%);
+    right: 2.2em;
+    color: tint($c-sif-secondary-light-color, 10%);
 
     &:hover {
       color: $c-sif-secondary-dark-color;
@@ -137,7 +150,43 @@
 
     & .evo_c-sif__icon-prev {
       font-weight: 700;
-      font-size: 1.7em;
+      font-size: 1.2em;
+    }
+  }
+
+
+  // Fade out animations
+  &.js-sif-anim-fadeout {
+    animation: sif-fadeOut 0.5s ease-out 0.5s forwards;
+
+    & .evo_c-sif__input {
+      animation: sif-fadeOut 0.2s ease-out 0.2s forwards;
+    }
+
+    & .evo_c-sif__indicator {
+      animation: sif-fadeOutRight 0.7s both;
+
+    }
+
+    & .evo_c-sif__btn--next {
+      animation: sif-fadeOut 0.2s ease-out 0.5s forwards;
+    }
+  }
+
+  // Fade in animations
+  &.js-sif-anim-fadein {
+    animation: sif-fadeIn 0.5s ease-out forwards;
+
+    & .evo_c-sif__indicator {
+      animation: sif-fadeInLeft 0.7s forwards;
+    }
+
+    & .evo_c-sif__btn--next {
+      animation: sif-fadeIn 0.2s ease-out 0.5s both;
+    }
+
+    & .evo_c-sif__btn--prev {
+      animation: sif-fadeIn 0.2s ease-out 0.5s both;
     }
   }
 }
@@ -146,6 +195,8 @@
   opacity: 1;
   visibility: visible;
 }
+
+
 
 
 // colors for different indicators
@@ -166,11 +217,12 @@
 @keyframes sif-fadeOutRight {
   0% {
     right: 100%;
+    left: 0;
   }
-  20% {
+  30% {
     transform: rotate(0deg);
   }
-  50% {
+  60% {
     opacity: 1;
   }
   100% {
@@ -192,12 +244,16 @@
   100% {
     right: auto;
     left: 0;
-    transform: rotate(00deg);
+    transform: rotate(0deg);
     opacity: 1;
   }
 }
 
 @keyframes sif-fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
   99% {
     opacity: 0;
   }
@@ -207,6 +263,10 @@
 }
 
 @keyframes sif-fadeIn {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
   100% {
     opacity: 1;
   }
@@ -221,16 +281,10 @@
 
 // General styles
 .evo_c-mini-form {
-  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   background-color: $c-sif-white-color;
-
-  * {
-    box-sizing: inherit;
-    font-size: inherit;
-  }
 
   .evo_c-mini-form__btn--prev {
     display: block;
@@ -275,8 +329,9 @@
     width: 19em;
   }
 
+  // Active input styles
   &.js-mini-form-is-active {
-    min-width: 19em;
+    min-width: 19.5em;
 
     // Valid border color of the first card after the active card
     & ~ .evo_c-mini-form__input-wrap {
@@ -290,6 +345,7 @@
       border-right-color: $c-sif-light-gray-color;
     }
   }
+
   // Invalid border color
   &.js-mini-form-is-invalid ~ .evo_c-mini-form__input-wrap {
     border-right-color: $c-sif-invalid-color;
@@ -303,6 +359,24 @@
     @include sif-flexbox;
     background-color: $c-sif-prim-dark-color;
     color: $c-sif-white-color;
+  }
+
+  /** Animation classes **/
+  // Fadeout Animation
+  &.js-mini-form-anim-fadeout {
+    & .evo_c-mini-form__input-inner {
+      animation: mini-fadeout 0.65s forwards;
+    }
+  }
+
+  // Fadein Animation
+  &.js-mini-form-anim-fadein {
+    animation: mini-expandToRight 0.65s forwards;
+  }
+
+  // Fadeout-back animation
+  &.js-mini-form-anim-fadeout-back {
+    animation: mini-rollToLeft 0.65s forwards;
   }
 }
 
@@ -318,8 +392,6 @@
   justify-content: flex-start;
   opacity: 1;
   overflow: hidden;
-  animation-duration: 0.65s;
-  animation-fill-mode: forwards;
 
   .evo_c-mini-form__input,
   .evo_c-mini-form__submit-btn {
@@ -378,6 +450,12 @@
       background-color: tint($c-sif-prim-dark-color, 10%);
     }
   }
+
+  /** Animation classes **/
+  // Background Animation
+  &.js-mini-form-anim-bgchange {
+    animation: mini-bgChange 0.65s forwards;
+  }
 }
 
 // Animations
@@ -402,14 +480,14 @@
   }
   100% {
     width: 19.5em;
-    min-width: 19em;
+    min-width: 19.5em;
   }
 }
 
 @keyframes mini-rollToLeft {
   0% {
     width: 19.5em;
-    min-width: 19em;
+    min-width: 19.5em;
   }
   100% {
     width: 0;

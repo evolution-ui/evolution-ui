@@ -5,6 +5,7 @@
 
 
 $c-crumble-name: 'crumble';
+$c-crumble-event-name: 'event';
 
 $c-crumble-font-weight: 300;
 
@@ -13,13 +14,28 @@ $c-crumble-header-height: 60px;
 $c-crumble-body-height: 60px;
 
 
+$c-crumble-tag-width: 60px;
+
+$c-crumble-unfold-duration: .7s;
+
+
+//------------------------------------------------
+//              Media Queries
+//------------------------------------------------
+
+$c-crumble-media-tablet: 768px;
+$c-crumble-media-desktop: 1024px;
+$c-crumble-media-desktop-HD: 1200px;
+
+
+
 //------------------------------------------------------------------------------
 //                          Crumble Placeholders
 //------------------------------------------------------------------------------
 
 
 %c-crumble-unfold-transition {
-  transition: transform .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform $c-crumble-unfold-duration cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 %c-crumble-pointer {

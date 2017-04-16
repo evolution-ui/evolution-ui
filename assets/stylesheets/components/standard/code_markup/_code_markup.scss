@@ -19,10 +19,6 @@
     flex: 1 0 auto;
     z-index: 5;
     padding: $markup-tab-padding;
-    margin-right: $markup-tab-margin-right;
-    &:last-child {
-      margin-right: 0;
-    }
     text-align: center;
     text-transform: uppercase;
     border-top: 1px solid $markup-border-color;
@@ -43,6 +39,13 @@
       border-top: 3px solid get-color('primary', 'base');
       border-bottom: 0;
       background-color: $markup-active-tab-and-container-bg-color;
+    }
+
+    @media screen and (min-width: 700px) {
+      margin-right: $markup-tab-margin-right;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 

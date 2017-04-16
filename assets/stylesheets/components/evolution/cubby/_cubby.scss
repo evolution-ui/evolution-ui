@@ -40,8 +40,9 @@
 }
 
 
-table.helper {
+ @include h('cubby-table') {
   position: relative;
   width: 100%;
+  height: 30vh;
 }
 /** END CUBBY COMPONENT **/

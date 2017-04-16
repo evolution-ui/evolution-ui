@@ -26,6 +26,8 @@
 
 ## Setting up the workflow
 
+**IMPORTANT:** Please first make sure you have the [required software][readme-required] installed on your local machine.
+
 We use the [Gitflow Workflow][gitflow] for this project. If you would like to make a contribution the project, please first follow these steps to setup the proper workflow:
 
 1. Instead of cloning, first fork the [original repository][repo] and clone your fork to your local machine:
@@ -335,6 +337,8 @@ To get more information on that, please read the **Installing Gulp tasks** in th
 After you started the development environment with the command `npm start`, your default browser will show up and the *preview file* will be visible at the following URL:
 
 `http://localhost:3000/temp/[evolution|standard]/component-name.html`
+
+**IMPORTANT NOTE**: *npm* sometimes has problems with module dependencies. When you see error messages like `Module not found: Can't resolve ...` or `Cannot find module ...`, run `npm update` in your command line.
 
 #### ES6 Module
 
@@ -906,6 +910,8 @@ title: "Burst"
 description:
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, accusamus, minima. Sit, iure ipsum dolor, debitis aliquam facilis iste excepturi ullam doloribus odio suscipit necessitatibus aut, in dolores quas similique.</p>
 type: dot navigation
+author: David Gierman
+category: evolution
 order: 1
 ---
 
@@ -925,6 +931,8 @@ The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used
 - `title`: the name of the component **variant** (for example, if your component was a button, you might have "Default", "Hover State", and "Pill-Shaped" variants.)
 - `description`: a short description of the variant. Try to keep it less than a few paragraphs. You can use basic HTML here.
 - `type`: the name of the component. This should be the same value for each variant of the component, so that they are all grouped in the right section on the webpage.
+- `author`: the author of the component.
+- `category`: this is either `standard` or `evolution`.
 - `order`: use this to control the order in which each variant appears in a component’s section on the webpage.
 
 ## Additional resources
@@ -944,6 +952,7 @@ The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used
 - Evolution UI makes use of `autoprefixer`, so **you don't need to add vendor prefixes** to your CSS rules.
 - Don't forget to add your component’s HTML markup to the showcase website.
 - The target branch for each pull request is the `development` branch.
+- *npm* sometimes has problems with module dependencies. When you see error messages like `Module not found: Can't resolve ...` or `Cannot find module ...`, run `npm update` in your command line.
 
 [bov-academy]: https://bovacademy.com
 [color-palette]: http://codepen.io/DrLeleMeo/full/oZdMQa/
@@ -960,6 +969,7 @@ The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used
 [npm]: https://www.npmjs.com
 [pull-request]: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 [readme]: ../README.md
+[readme-required]: ../README.md#requirements
 [repo]: https://github.com/BovAcademy-opensource/evolution-ui
 [ruby]: https://www.ruby-lang.org/en/
 [rubybundler]: http://bundler.io
