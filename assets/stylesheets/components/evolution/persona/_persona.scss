@@ -76,9 +76,9 @@
     padding: 1px;
     //@include padding(1px);
     font-size: 1.2em;
-    color: inherit;
+    color: get-color('primary');
 
-    &:hover {
+    &:hover, &:visited {
       color: get-color('primary', 'dark');
     }
   }
