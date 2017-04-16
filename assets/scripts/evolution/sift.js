@@ -6,44 +6,31 @@
     
     pick: '.evo_c-sift__basket-pick',
     drop: '.evo_c-sift__basket-drop',
-    
-    pickBasket: function () {
-      
-      var basket = document.querySelector(this.pick);
 
-      if ( basket ) {
-        return basket;
-      }
+    getBasket: function (selector) {
+      var basket = document.querySelector(selector);
 
-    },
-
-    dropBasket: function () {
-      
-      var basket = document.querySelector(this.drop);
-
-      if ( basket ) {
-        return basket;
-      }
-
+      return basket;
     },
 
     pickItem: function () {
-      if ( this.pickBasket() ) {
-        return this.pickBasket().firstElementChild;
+      if ( this.getBasket(this.pick) ) {
+        return this.getBasket(this.pick).firstElementChild;
       }
     },
 
     removeItem: function () {
-      if ( this.pickBasket() ) {
-        this.pickBasket()
+      if ( this.getBasket(this.pick) ) {
+        this.getBasket(this.pick)
             .removeChild(this.pickItem());
       }
     },
 
-    siftItem: function () {
+    siftItem: function (event) {
 
       var item = this.pickItem(),
-          siftDrop = this.dropBasket.bind(this);
+          siftDrop = this.getBasket.bind(this),
+          dropped = siftDrop(this.drop);
           
       if (item) {
         
@@ -51,14 +38,14 @@
         setTimeout(function () {
           item.classList.remove('evo_c-sift__items--animate-sift-out');
           item.classList.add('evo_c-sift__items--animate-sift-in');
-          siftDrop().appendChild(item);
-        }, 1000);  
+          dropped.appendChild(item);
+        }, 2000);  
       }
     }
   }
 
-  if (sift.pickBasket()) {
-    sift.pickBasket().addEventListener('click', function (e) {
+  if (sift.getBasket(sift.pick)) {
+    sift.getBasket(sift.pick).addEventListener('click', function (e) {
       sift.siftItem();
     });
   }

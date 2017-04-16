@@ -1,6 +1,6 @@
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//           SIFT COMPONENT
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*==============================================
+ *           SIFT COMPONENT
+ *==============================================*/
 
 
 
@@ -28,9 +28,6 @@
     overflow: hidden;
     position: relative;
     text-align: center;
-    
-
-    
 
     .evo_c-sift__items--animate-sift-out,
     .evo_c-sift__items--animate-sift-in {
@@ -48,9 +45,9 @@
 
   @include e( 'item' ) {
     background-color: get_color('primary');
-    border: 3px solid get_color('secondary', 'light');
     box-shadow: 0 3px 8px 0 get_color('secondary', 'light');
     bottom: 0px;
+    list-style-type: none;
     padding: 1.25rem;
     position: absolute;
     transform: rotateX(89deg) skew(-12deg);
@@ -95,7 +92,7 @@
       box-shadow: 10px 50px 50px -10px get_color('background', 'dark');
     }
 
-    .evo_c-sift__items.evo_c-sift__basket-drop & {
+    .evo_c-sift__basket-drop & {
       &:nth-child(-n+6) {
         //transform: rotateX(85deg) skew(-12deg);
         &:first-child {
@@ -135,29 +132,48 @@
     }
 
   }
+
+  .evo_s-is-picked {
+    background-color: get_color('primary');
+    box-shadow: 0 3px 8px 0 get_color('secondary', 'light');
+    list-style-type: none;
+    padding: 1.25rem;
+    position: absolute;
+  }
+
 }
 
 @keyframes siftOut {
   0% {
     transform: rotateX(85deg) skew(-12deg) translate(-30px, -200px);
+    opacity: 1;
   }
   20% {
-    transform: rotateX(0deg) skew(0) translate(18px, -40px);
+    transform: rotateX(0deg) skew(0) translate(0px, -60px);
+    width: 100%;
+  }
+  50% {
+    opacity: 1;
+    transform: rotateX(0deg) skew(0) translate(0px, -60px);
   }
   90% {
-    opacity: 0.4;
+    opacity: .4;
+    transform: rotateX(0deg) skew(0deg) translate(18px, -100px);
   }
   100% {
-    transform: rotateX(0deg) skew(0deg) translate(18px, -100px);
+    transform: rotateX(0deg) skew(0deg) translate(50px, -300px);
     opacity: 0;
+    width: 100%;
   }
 }
 
 @keyframes siftIn {
   0% {
-    transform: rotateX(0deg) skew(0deg) translate(60px, -200px);
+    transform: rotateX(0deg) skew(0deg) translate(-30px, -200px);
   }
   100% {
     transform: rotateX(85deg) skew(-12deg) translate(-30px, -200px);
   }
 }
+
+/** END SIFT COMPONENT **/
