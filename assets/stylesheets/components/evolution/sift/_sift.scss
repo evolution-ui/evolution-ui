@@ -6,7 +6,7 @@
 
 @import 'sift-config';
 
-.su_sift-container {
+@include c( $c-sift ) {
   display: flex;
   justify-content: space-between;
 	z-index: 500;
@@ -15,59 +15,114 @@
     box-sizing: border-box;
   }
 
-  .su_sift-items {
+
+  @include e( 'items' ) {
     border-radius: 0 0 10px 10px;
-    box-shadow: 0 3px 8px 0 su_color('background');
+    box-shadow: 0 3px 8px 0 get_color('secondary', 'light');
     cursor: pointer;
-    flex-basis: 30%;
+    width: 45%;
     height: 150px;
     list-style-type: none;
     min-width: 100px;
-    padding: 0;
+    padding: 0 0 20px 0;
     overflow: hidden;
     position: relative;
     text-align: center;
     
 
-    > li {
-      background-color: su_color('primary');
-      border: 3px solid su_color('background', 'base');
-      box-shadow: 0 3px 8px 0 su_color('background');
-      bottom: 0px;
-      padding: 1.25rem;
-      position: absolute;
-      transform: rotateX(89deg) skew(-12deg);
-      transform-origin: 50%;
-      width: 90%;
-      transition: transform .5s;
+    
 
+    .evo_c-sift__items--animate-sift-out,
+    .evo_c-sift__items--animate-sift-in {
+      border-width: 1px;
+    }
+
+    .evo_c-sift__items--animate-sift-out {
+      animation: siftOut 3s;
+    }
+    .evo_c-sift__items--animate-sift-in {
+      animation: siftIn 1s;
+    }
+
+  }
+
+  @include e( 'item' ) {
+    background-color: get_color('primary');
+    border: 3px solid get_color('secondary', 'light');
+    box-shadow: 0 3px 8px 0 get_color('secondary', 'light');
+    bottom: 0px;
+    padding: 1.25rem;
+    position: absolute;
+    transform: rotateX(89deg) skew(-12deg);
+    transform-origin: 50%;
+    transition: transform .5s;
+    width: 90%;
+
+    &:nth-child(-n+6) {
+      transform: rotateX(85deg) skew(-12deg);
+      &:first-child {
+        transform: rotateX(85deg) skew(-12deg) translate(20px, 26px);
+        z-index: 100;
+      }
+      &:nth-child(2) {
+        transform: rotateX(85deg) skew(-12deg) translate(35px, 100px);
+        z-index: 99;
+      }
+      &:nth-child(3) {
+        transform: rotateX(85deg) skew(-12deg) translate(50px, 174px);
+        z-index: 98;
+      }
+      &:nth-child(4) {
+        transform: rotateX(85deg) skew(-12deg) translate(65px, 248px);
+        z-index: 97;
+      }
+      &:nth-child(5) {
+        transform: rotateX(85deg) skew(-12deg) translate(80px, 322px);
+        z-index: 96;
+      }
+      &:nth-child(6) {
+        transform: rotateX(85deg) skew(-12deg) translate(95px, 396px);
+        z-index: 95;
+      }
+    }
+
+    &:nth-child(n+7) {
+      transform: rotateX(85deg) skew(-12deg) translate(110px, 470px);
+      z-index: 94;
+    }
+
+    &:last-child {
+      box-shadow: 10px 50px 50px -10px get_color('background', 'dark');
+    }
+
+    .evo_c-sift__items.evo_c-sift__basket-drop & {
       &:nth-child(-n+6) {
-        transform: rotateX(85deg) skew(-12deg);
+        //transform: rotateX(85deg) skew(-12deg);
         &:first-child {
-          transform: rotateX(85deg) skew(-12deg) translate(20px, 26px);
-          z-index: 100;
-        }
-        &:nth-child(2) {
-          transform: rotateX(85deg) skew(-12deg) translate(35px, 100px);
-          z-index: 99;
-        }
-        &:nth-child(3) {
-          transform: rotateX(85deg) skew(-12deg) translate(50px, 174px);
-          z-index: 98;
-        }
-        &:nth-child(4) {
-          transform: rotateX(85deg) skew(-12deg) translate(65px, 248px);
-          z-index: 97;
-        }
-        &:nth-child(5) {
-          transform: rotateX(85deg) skew(-12deg) translate(80px, 322px);
-          z-index: 96;
-        }
-        &:nth-child(6) {
           transform: rotateX(85deg) skew(-12deg) translate(95px, 396px);
           z-index: 95;
         }
-      }
+        &:nth-child(2) {
+          transform: rotateX(85deg) skew(-12deg) translate(80px, 322px);
+          z-index: 96;
+        }
+        &:nth-child(3) {
+          transform: rotateX(85deg) skew(-12deg) translate(65px, 248px);
+          z-index: 97;
+        }
+        &:nth-child(4) {
+          transform: rotateX(85deg) skew(-12deg) translate(50px, 174px);
+          z-index: 98; 
+        }
+        &:nth-child(5) {
+          transform: rotateX(85deg) skew(-12deg) translate(35px, 100px);
+          z-index: 99;
+        }
+        &:nth-child(6) {
+          transform: rotateX(85deg) skew(-12deg) translate(20px, 26px);
+          z-index: 100;
+        }
+      } 
 
       &:nth-child(n+7) {
         transform: rotateX(85deg) skew(-12deg) translate(110px, 470px);
@@ -75,60 +130,10 @@
       }
 
       &:last-child {
-        box-shadow: 10px 50px 50px -10px su_color('background', 'dark');
-      }
-
-      .su_sift-items.su_basket-drop & {
-        &:nth-child(-n+6) {
-          //transform: rotateX(85deg) skew(-12deg);
-          &:first-child {
-            transform: rotateX(85deg) skew(-12deg) translate(95px, 396px);
-            z-index: 95;
-          }
-          &:nth-child(2) {
-            transform: rotateX(85deg) skew(-12deg) translate(80px, 322px);
-            z-index: 96;
-          }
-          &:nth-child(3) {
-            transform: rotateX(85deg) skew(-12deg) translate(65px, 248px);
-            z-index: 97;
-          }
-          &:nth-child(4) {
-            transform: rotateX(85deg) skew(-12deg) translate(50px, 174px);
-            z-index: 98; 
-          }
-          &:nth-child(5) {
-            transform: rotateX(85deg) skew(-12deg) translate(35px, 100px);
-            z-index: 99;
-          }
-          &:nth-child(6) {
-            transform: rotateX(85deg) skew(-12deg) translate(20px, 26px);
-            z-index: 100;
-          }
-        } 
-
-        &:nth-child(n+7) {
-          transform: rotateX(85deg) skew(-12deg) translate(110px, 470px);
-          z-index: 94;
-        }
-
-        &:last-child {
-          box-shadow: 10px 50px 50px -10px su_color('background', 'dark');
-        }
+        box-shadow: 10px 50px 50px -10px get_color('background', 'dark');
       }
     }
 
-    .su_animate--siftOut,
-    .su_animate--siftIn {
-      border-width: 1px;
-    }
-
-    .su_animate--siftOut {
-      animation: siftOut 3s;
-    }
-    .su_animate--siftIn {
-      animation: siftIn 1s;
-    }
   }
 }
 

@@ -2,10 +2,10 @@
 
   'use strict';
 
-  var suSift = {
+  var sift = {
     
-    pick: '.su_basket--pick',
-    drop: '.su_basket--drop',
+    pick: '.evo_c-sift__basket-pick',
+    drop: '.evo_c-sift__basket-drop',
     
     pickBasket: function () {
       
@@ -29,7 +29,7 @@
 
     pickItem: function () {
       if ( this.pickBasket() ) {
-        return this.pickBasket().firstElementChild; //removeChild(this.pickBasket().firstElementChild());
+        return this.pickBasket().firstElementChild;
       }
     },
 
@@ -47,20 +47,19 @@
           
       if (item) {
         
-        item.classList.add('su_animate--siftOut')
+        item.classList.add('evo_c-sift__items--animate-sift-out')
         setTimeout(function () {
-          item.classList.remove('su_animate--siftOut');
-          item.classList.add('su_animate--siftIn');
+          item.classList.remove('evo_c-sift__items--animate-sift-out');
+          item.classList.add('evo_c-sift__items--animate-sift-in');
           siftDrop().appendChild(item);
-          //siftDrop().lastElementChild.classList.add('su_animate--sift');
         }, 1000);  
       }
     }
   }
 
-  if (suSift.pickBasket()) {
-    suSift.pickBasket().addEventListener('click', function (e) {
-      suSift.siftItem();
+  if (sift.pickBasket()) {
+    sift.pickBasket().addEventListener('click', function (e) {
+      sift.siftItem();
     });
   }
   
