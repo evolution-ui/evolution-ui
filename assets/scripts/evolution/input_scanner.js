@@ -2,15 +2,18 @@
 export default function(){
 var inputScannerInputConts =  document.querySelectorAll('.evo_c-input-scanner__inputContainer')
 var inputScanner = document.querySelector('.evo_c-input-scanner')
+
+//----------------------------------------------------------------
+//                 INPUT ELEMENT LOGIC
+//----------------------------------------------------------------
+
 for(var i = 0; i < inputScannerInputConts.length; i++){
 
   var inputScannerInput = inputScannerInputConts[i].querySelector('.evo_c-input-scanner__input');
   var inputScannerMask = inputScannerInputConts[i].cloneNode(true);
   inputScannerMask.firstElementChild.setAttribute('placeholder','');
   inputScannerMask.className = 'evo_c-input-scanner__inputMask';
-  if(i === 0){ inputScannerMask.classList.add('evo_c-input-scanner__cursor')
-         // inputScannerInput.focus();    
-             }
+
   inputScannerMask.querySelector('input').removeAttribute('required');
   inputScannerMask.querySelector('input').removeAttribute("tabindex");
   inputScannerMask.querySelector('input').addEventListener("focus", function(){
@@ -52,6 +55,11 @@ function inputScannerMaskClick() {
   inputScannerMask.classList.add('evo_c-input-scanner__cursor');
   inputScannerInput.focus();
 }
+
+
+//----------------------------------------------------------------
+//                 SUBMIT ELEMENT LOGIC
+//----------------------------------------------------------------
 
 var inputScannerSubmitConts = document.querySelectorAll('.evo_c-input-scanner__submitContainer');
 console.log(inputScannerSubmitConts.length)

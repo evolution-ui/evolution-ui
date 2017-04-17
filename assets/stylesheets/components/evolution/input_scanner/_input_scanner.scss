@@ -22,6 +22,11 @@
     box-sizing: border-box;
   }
 
+  //----------------------------------------------------------------
+  //                 INPUT/SUBMIT ELEMENT STYLING
+  //----------------------------------------------------------------
+
+
   @include e('inputContainer') {
     position: relative;
     margin: 10px;
@@ -89,6 +94,9 @@
    } 
 
 
+  //----------------------------------------------------------------
+  //                 MASK STYLING
+  //----------------------------------------------------------------
   @include e('inputMask') {
     position: absolute;
      left: -15px;
@@ -98,13 +106,13 @@
      z-index: 6;
      padding-left: 5px;
      /*  bgc should match body bgc  */
-     background-color: get-color('background');
+     background-color: white;
      cursor: pointer;
-     color: white;
+     color: black;
      transition: width 550ms cubic-bezier(0.215, 0.61, 0.355, 1);
       $reference-selectorB: getBEMReference($c-input-scanner-name, 'input');
      & > .#{$reference-selectorB} {
-      background-color: get-color('background');
+      background-color: white;
       color: get-color('secondary');
       width: 250px;
      }
@@ -119,22 +127,17 @@
      z-index: 6;
      padding-left: 5px;
      /*  bgc should match body bgc  */
-     background-color: get-color('background'); 
+     background-color: white; 
      cursor: pointer;
-     color: white;
+     color: black;
      transition: width 550ms cubic-bezier(0.215, 0.61, 0.355, 1);
      $reference-selectorC: getBEMReference($c-input-scanner-name, 'submit');
       & > .#{$reference-selectorC} {
-        color: white;
-        background-color: get-color('background');
+        color: black;
+        background-color: white;
           width: 260px;
           border: none;
           font-size: 1.1rem;
-          &:hover{
-            background-color: get-color('background');
-            color: white;
-           cursor: default;
-          }
       }
   }
 
@@ -147,7 +150,7 @@
       border-right: 3px solid rgba(0,0,0,0);;
       overflow: none;
       opacity: 1;
-      background-color: get-color('background');
+      background-color: white;
       -webkit-animation: formScanner__coverInputAnimation 0.55s;
               animation: formScanner__coverInputAnimation 0.55s;
       -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -163,6 +166,10 @@
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
+  //----------------------------------------------------------------
+  //                 CURSOR STYLING
+  //----------------------------------------------------------------
+
   @include e('cursor') {
     opacity: 1;
       -webkit-animation: formScanner__showCursorAnimation 0.5s;
@@ -172,6 +179,17 @@
       border-right: 3px solid lightblue;
   }
 
+  @include e('invalidInput') {
+    border-right: 3px solid rgba(255,0,0,1);
+     -webkit-animation: invalidInputAnimation 0.9s;
+             animation: invalidInputAnimation 0.9s;
+     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  //----------------------------------------------------------------
+  //                 INPUT CLEAR ON SUBMIT STYLING
+  //----------------------------------------------------------------
 
   @include e('clearInput') {
     opacity: 0;
@@ -181,16 +199,11 @@
           animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  @include e('invalidInput') {
-    border-right: 3px solid rgba(255,0,0,1);
-     -webkit-animation: invalidInputAnimation 0.9s;
-             animation: invalidInputAnimation 0.9s;
-     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
 }
 
-
+//----------------------------------------------------------------
+//                 KEYFRAME ANIMATIONS
+//----------------------------------------------------------------
 
 @keyframes formScanner__coverInputAnimation {
   0% {
