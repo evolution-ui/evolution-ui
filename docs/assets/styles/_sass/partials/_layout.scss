@@ -79,6 +79,8 @@ $site-logo-text-after-color: map-get($site-colors, quaternary);
 
 .#{$site-prefix}-logo {
   display: block;
+  font-family: "Roboto Slab", serif;
+
 
   &,
   &:hover {
@@ -86,13 +88,39 @@ $site-logo-text-after-color: map-get($site-colors, quaternary);
   }
 
   &-icon {
+    margin-top: 25px;
+    margin-bottom: 0;
     display: inline-block;
     vertical-align: middle;
     @extend %site-vertical-rhythm;
 
-    @include media-query($site-breakpoint-lg) {
-      margin-right: ($site-spacing-unit / 2);
+    @media screen and (max-width: $site-breakpoint-lg) {
       margin-bottom: 0;
+      margin-top: 20px;
+    }
+  }
+
+  & h1 {
+    font-size: 2.2em;
+  }
+
+  &-container {
+    display: inline-block;
+    width: 110px;
+    height: 110px;
+    background: #385370;
+    position: relative;
+    /* top: -20px; */
+    margin-right: 20px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 10px solid #647a92;
+
+    @media screen and (max-width: $site-breakpoint-lg) {
+      margin-top: 0;
+      margin-bottom: 20px;
+      height: 100px;
+      width: 100px;
     }
   }
 
@@ -105,11 +133,10 @@ $site-logo-text-after-color: map-get($site-colors, quaternary);
 
     & span {
       color: $site-logo-text-span-color;
+      font-weight: 100;
     }
 
     @include media-query($site-breakpoint-lg) {
-      // position: relative;
-      // top: ($site-spacing-unit / 4);
       display: inline-block;
       text-align: left;
       margin: 0;
@@ -149,16 +176,19 @@ $site-searchform-input-placeholder-text-color: map-get($site-colors, quaternary-
   }
 
   &-input {
+    position: relative;
     display: block;
     width: 100%;
     height: $site-searchform-input-height;
     line-height: 1;
-    font-size: 100%;
+    font-size: 110%;
     padding: $site-searchform-input-padding;
     background-color: $site-searchform-input-background-color;
     color: $site-searchform-input-text-color;
-    border: 0;
+    border: 2px solid transparent;
     border-radius: $site-border-radius;
+    outline: none;
+    transition: border $site-transition-timing-function;
 
     &::-webkit-input-placeholder {
       color: $site-searchform-input-placeholder-text-color;
@@ -181,10 +211,61 @@ $site-searchform-input-placeholder-text-color: map-get($site-colors, quaternary-
     color: $site-searchform-input-placeholder-text-color;
   }
 
+  &-input.input-not-found {
+    border: 2px solid map-get($site-colors, secondary);
+  }
+
+  &-nothing-found-alert {
+    width: 200px;
+    height: auto;
+    background-color: map-get($site-colors, secondary);
+    color: map-get($site-colors, primary-lightest);
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: -240px;
+    border-radius: 3px;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity $site-transition-timing-function, transform $site-transition-timing-function;
+
+    p {
+      position: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      width: 100%;
+      margin: 0;
+    }
+
+    .nothing-found-arrow {
+      width: 10px;
+      height: 10px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 15px solid #eb74aa;
+      position: absolute;
+      top: 15%;
+      right: -11px;
+    }
+
+    @media screen and (max-width: 960px) {
+      display: none;
+    }
+
+    &.nothing-found-shown {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+  }
+
+
   @include media-query($site-breakpoint-lg) {
     margin-right: 0;
   }
 }
+
+
 
 // NAV
 $site-nav-link-padding: ($site-spacing-unit / 2) ($site-spacing-unit / 1.5);
@@ -404,9 +485,10 @@ $site-sidebar-nav-zindex: 9999;
     z-index: $site-sidebar-nav-zindex;
     background-color: $site-sidebar-nav-background-color;
     transform: translate3d(-$site-sidebar-nav-width, 0, 0);
-    transition: transform $site-transition-timing-function;
+    transition: transform $site-transition-timing-function, height $site-transition-timing-function, border-bottom $site-transition-timing-function;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    z-index: 10;
 
     &.is-visible {
       transform: translate3d(0, 0, 0);
@@ -420,7 +502,7 @@ $site-sidebar-nav-zindex: 9999;
       left: auto;
       width: auto;
       transform: none;
-      transition: none;
+      transition: height $site-transition-timing-function, border-bottom $site-transition-timing-function;
       overflow: visible;
       background-color: transparent;
 
@@ -430,6 +512,11 @@ $site-sidebar-nav-zindex: 9999;
         padding-top: $site-spacing-unit;
         bottom: 0;
         overflow: auto;
+      }
+
+      &.bottom-hidden {
+        height: 40%;
+        border-bottom: 4px solid map-get($site-colors, primary);
       }
     }
   }
@@ -447,6 +534,7 @@ $site-sidebar-nav-zindex: 9999;
       color $site-transition-timing-function,
       background-color $site-transition-timing-function,
       border-color $site-transition-timing-function;
+    text-transform: capitalize;
 
     &,
     &:hover,
@@ -496,8 +584,15 @@ $site-sidebar-nav-zindex: 9999;
 $site-content-xl-width: 75%;
 
 .#{$site-prefix}-content {
+
+   transition: opacity $site-transition-timing-function;
+
   > *:last-child {
     margin-bottom: 0;
+  }
+
+  &.content-faded {
+    opacity: .2;
   }
 
   @include media-query($site-breakpoint-lg) {
@@ -530,6 +625,7 @@ $site-section-content-divider-margin: ($site-spacing-unit * 1.5) 0 $site-spacing
 
   &-heading {
     margin-top: 0;
+    text-transform: capitalize;
   }
 
   &-subheading {
@@ -629,6 +725,8 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
   padding: $site-footer-padding;
   background-color: $site-footer-background-color;
   text-align: center;
+  position: relative;
+  z-index: 20;
 
   hr {
     margin-bottom: $site-spacing-unit + ($site-spacing-unit / 2);
@@ -640,3 +738,4 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
     }
   }
 }
+

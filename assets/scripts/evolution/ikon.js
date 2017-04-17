@@ -8,10 +8,10 @@ export default function () {
   if (ikon) {
     var ikonMembers = ikon.querySelectorAll('.js-evo-c-ikon-member');
 
-    var rightmostIndex = ikonMembers.length - 1;
-    for (var i = rightmostIndex; i >= 0; --i) {
-      if (ikonMembers[i].getBoundingClientRect().right > ikonMembers[rightmostIndex].getBoundingClientRect().right) {
-        rightmostIndex = i;
+    var rightmost = ikonMembers.length - 1;
+    for (var i = rightmost; i >= 0; --i) {
+      if (ikonMembers[i].getBoundingClientRect().right > ikonMembers[rightmost].getBoundingClientRect().right) {
+        rightmost = i;
         break;
       }
     }
@@ -27,10 +27,12 @@ export default function () {
         member.classList.remove('evo_c-ikon__member--is-hovered');
       });
 
-      if (member.getBoundingClientRect().left === ikonMembers[0].getBoundingClientRect().left) {
-        info.classList.add('evo_c-ikon__member-info--leftmost');
-      } else if (member.getBoundingClientRect().right === ikonMembers[rightmostIndex].getBoundingClientRect().right) {
-        info.classList.add('evo_c-ikon__member-info--rightmost');
+      if (ikonMembers.length > 2) {
+        if (member.getBoundingClientRect().left === ikonMembers[0].getBoundingClientRect().left) {
+          info.classList.add('evo_c-ikon__member-info--leftmost');
+        } else if (member.getBoundingClientRect().right === ikonMembers[rightmost].getBoundingClientRect().right) {
+          info.classList.add('evo_c-ikon__member-info--rightmost');
+        }
       }
     });
   }

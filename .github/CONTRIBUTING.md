@@ -910,6 +910,8 @@ title: "Burst"
 description:
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, accusamus, minima. Sit, iure ipsum dolor, debitis aliquam facilis iste excepturi ullam doloribus odio suscipit necessitatibus aut, in dolores quas similique.</p>
 type: dot navigation
+author: David Gierman
+category: evolution
 order: 1
 ---
 
@@ -929,6 +931,8 @@ The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used
 - `title`: the name of the component **variant** (for example, if your component was a button, you might have "Default", "Hover State", and "Pill-Shaped" variants.)
 - `description`: a short description of the variant. Try to keep it less than a few paragraphs. You can use basic HTML here.
 - `type`: the name of the component. This should be the same value for each variant of the component, so that they are all grouped in the right section on the webpage.
+- `author`: the author of the component.
+- `category`: this is either `standard` or `evolution`.
 - `order`: use this to control the order in which each variant appears in a component’s section on the webpage.
 
 ## Additional resources
