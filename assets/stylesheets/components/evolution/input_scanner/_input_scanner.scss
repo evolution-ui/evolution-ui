@@ -54,9 +54,9 @@
       outline: none; 
       border: none;
     }
-    &:placeholder{
-    color: lightgray; 
-    line-height: 1;
+    &::-webkit-input-placeholder {
+      color: lightgray; 
+      line-height: 1;
     }
     $reference-selectorA: getBEMReference($c-input-scanner-name, 'cursor');
     &:valid ~ .#{$reference-selectorA} {
