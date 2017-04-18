@@ -69,9 +69,11 @@ const animateNewFrontLayer = layer => {
 
 const resizeFrontLayer = event => {
   const target = event.target
-  const frontHeight = calculateLayerHeight(target)
-  const containerHeight = calculateContainerHeight(target)
-  return Promise.all([slide(target, frontHeight, 500, true), slide(target.parentNode, containerHeight, 500, true)])
+  if (target.classList.contains('evo_c-3dlayer--selected')) {
+    const frontHeight = calculateLayerHeight(target)
+    const containerHeight = calculateContainerHeight(target)
+    return Promise.all([slide(target, frontHeight, 500, true), slide(target.parentNode, containerHeight, 500, true)])
+  }
 }
 
 const moveForward = layer => {
