@@ -30,7 +30,7 @@ $border_color_2: #51d0ef;
   > div {
     &:not(:first-child) {
       .evo_c-divtable-row {
-        img {
+        i {
           display: none;
         }
         span {
@@ -56,9 +56,9 @@ $border_color_2: #51d0ef;
   display: flex;
 }
 
-.evo_c-divtable-row_evo_c-divtable-header{
-  padding: 10px 10px 10px 10px;
-}
+//.evo_c-divtable-row_evo_c-divtable-header{
+//  padding: 10px 10px 10px 10px;
+//}
 
 .evo_c-divtable-column_header {
   border: solid 1px #e0e0e0;
@@ -109,9 +109,12 @@ $border_color_2: #51d0ef;
 }
 
 .evo_c-divtable-avatar {
-  width: 18px;
+  padding: 3px 0 2px 0;
   position: relative;
-  border-radius: 50%;
+}
+
+.evo_c-divtable-avatar2 {
+  margin: 10px 0 0 5px;
 }
 
 .evo_c-divtable-modal_user_profile {
@@ -138,18 +141,18 @@ $border_color_2: #51d0ef;
           span {
             display: inline-block;
             transition: all 0.3s ease;
-            margin-top: 6px;
-            margin-left: 2px;
+            margin: 7px 0px 5px 1px;
           }
-          img {
+          i {
             display: inline-block;
             transition: all 0.3s ease;
-            margin-top: 8px;
-            margin-left: 5px;
+            margin-top: 10px;
+            margin-left: 6px;
           }
         }
         .evo_c-divtable-user_profile_details {
           p {
+            margin: 2px 0px 0px 0px;
             display: inline-block;
             transition: all 0.3s ease;
           }
@@ -166,7 +169,7 @@ $border_color_2: #51d0ef;
   width: 300px;
   color: $color_2;
   transition: all 0.3s ease;
-  img {
+  i {
     display: none;
     transition: all 0.3s ease;
     z-index: 100;
@@ -182,13 +185,12 @@ $border_color_2: #51d0ef;
   z-index: 2000;
   p {
     font-weight:100;
-    font-size:10px;
+    font-size:12px;
     display: none;
     width: 80%;
     height: 20px;
-    margin-top: 5px;
     margin-bottom: 0px;
-    padding-left: 10px;
+    padding-left: 7px;
     transition: all 0.3s ease;
   }
 }
@@ -310,13 +312,42 @@ $border_color_2: #51d0ef;
     .evo_c-divtable-row_evo_c-divtable-header {
       div {
         span {
+          padding-left: 2px;
           font-size: 12px;
-          width: 5%;
+          width: 7%;
+        }
+        i {
+          height: 10px;
+        }
+      }
+    }
+  }
+  .evo_c-divtable-modal_user_profile {
+    display: none;
+    &:checked {
+      & + label {
+        > div {
+          .evo_c-divtable-user_profile {
+            display: none;
+            span {
+              display: none;
+            }
+            i {
+              display: none;
+            }
+          }
+          .evo_c-divtable-user_profile_details {
+            p {
+              display: none;
+            }
+          }
         }
       }
     }
   }
 }
+
+
 
 @media (max-width: 720px) {
   #evo_c-divtable-search_input {
@@ -329,8 +360,9 @@ $border_color_2: #51d0ef;
     > div {
       &:not(:first-child) {
         .evo_c-divtable-row {
-          img {
+          i {
             display: inline-block;
+            padding-right: 10px;
             margin-bottom: -5px;
           }
           span {

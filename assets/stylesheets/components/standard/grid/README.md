@@ -29,18 +29,18 @@ to the grid and they will automatically adjust to evenly distribute themselves b
 The code above gives a two-column grid row but we could easily add three more columns and create a five-column
 grid row.
 
-In cases where we need the columns to have differing widths, we can use the class `.colXof16` where X is a number between 1
+In cases where we need the columns to have differing widths, we can use the class `.colX_of16` where X is a number between 1
 and 16.
 
 
     <div class="evo_l-grid__row l-gridrow__gutters">
-      <div class="evo_l-grid__col col4of16">
+      <div class="evo_l-grid__col col4_of16">
 
       </div>
-      <div class="evo_l-grid__col col8of16">
+      <div class="evo_l-grid__col col8_of16">
 
       </div>
-      <div class="evo_l-grid__col col4of16">
+      <div class="evo_l-grid__col col4_of16">
 
       </div>
     </div>

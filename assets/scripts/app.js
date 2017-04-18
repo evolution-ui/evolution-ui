@@ -1,20 +1,12 @@
 /************************************************************************
  *
- *                      SITE
- *
- ***********************************************************************/
-import documentReady from './site/document-ready'
-import scrollManagement from './site/scroll-management'
-
-/************************************************************************
- *
  *                      EVOLUTION COMPONENTS
  *
  ***********************************************************************/
 
+import documentReady from './evolution/document-ready'
 import crumble from './evolution/crumble'
 import dotNavigation from './evolution/dot_navigation'
-import eyelids from './evolution/eyelids'
 import fadeLinesOnScroll from './evolution/fade_lines_on_scroll'
 import bookmarklet from './evolution/bookmarklet'
 import demoComponent from './evolution/demo-component'
@@ -33,6 +25,12 @@ import text2speech from './evolution/text2speech'
 import svg_pagination from './evolution/svg_pagination'
 import divTable from './evolution/div_table'
 import searchWithLongEdit from './evolution/search_with_long_edit'
+import inputScanner from './evolution/input_scanner'
+import carouselDrop from './evolution/carousel_with_dropping_circle_nav'
+import safety from './evolution/safety'
+import dotValidator from './evolution/dotValidator'
+import sift from './evolution/sift'
+import fullscreen_gallery from './evolution/fullscreen_gallery'
 
 /************************************************************************
  *
@@ -41,7 +39,6 @@ import searchWithLongEdit from './evolution/search_with_long_edit'
  ***********************************************************************/
 
 import accordion from './standard/accordion'
-import offCanvasNavigation from './standard/off_canvas_navigation'
 import cssAnimations from './standard/css_animations'
 import codeMarkup from './standard/code_markup'
 import stdForms from './standard/forms'
@@ -61,12 +58,10 @@ import audioPlayer from './standard/audio_player'
 
 
 documentReady(
-  offCanvasNavigation,
   crumble,
   dotNavigation,
-  eyelids,
   fadeLinesOnScroll,
-  // bookmarklet,
+  bookmarklet,
   cssAnimations,
   codeMarkup,
   stdForms,
@@ -76,10 +71,10 @@ documentReady(
   stdCarousel,
   sticky,
   herald,
-  scrollManagement,
   paragraphGallery,
   popover,
   ikonize,
+  inputScanner,
   modals,
   layer_2d,
   singleInputForm,
@@ -91,6 +86,10 @@ documentReady(
   svg_pagination,
   divTable,
   searchWithLongEdit
+  carouselDrop,
+  safety,
+  sift,
+  fullscreen_gallery
 )
 
 singleInputForm();

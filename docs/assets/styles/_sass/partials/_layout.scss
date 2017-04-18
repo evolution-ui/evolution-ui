@@ -64,7 +64,7 @@ body {
 
 // HEADER
 $site-header-padding: $site-spacing-unit $site-spacing-unit 0;
-$site-header-background-color: map-get($site-colors, grayscale-darkest);
+$site-header-background-color: map-get($site-colors, quaternary-light);
 
 .#{$site-prefix}-header {
   padding: $site-header-padding;
@@ -73,11 +73,14 @@ $site-header-background-color: map-get($site-colors, grayscale-darkest);
 }
 
 // LOGO
-$site-logo-text-color: map-get($site-colors, primary);
+$site-logo-text-color: map-get($site-colors, quaternary);
 $site-logo-text-span-color: map-get($site-colors, grayscale-white);
+$site-logo-text-after-color: map-get($site-colors, quaternary);
 
 .#{$site-prefix}-logo {
   display: block;
+  font-family: "Roboto Slab", serif;
+
 
   &,
   &:hover {
@@ -85,13 +88,39 @@ $site-logo-text-span-color: map-get($site-colors, grayscale-white);
   }
 
   &-icon {
+    margin-top: 25px;
+    margin-bottom: 0;
     display: inline-block;
     vertical-align: middle;
     @extend %site-vertical-rhythm;
 
-    @include media-query($site-breakpoint-lg) {
-      margin-right: ($site-spacing-unit / 2);
+    @media screen and (max-width: $site-breakpoint-lg) {
       margin-bottom: 0;
+      margin-top: 20px;
+    }
+  }
+
+  & h1 {
+    font-size: 2.2em;
+  }
+
+  &-container {
+    display: inline-block;
+    width: 110px;
+    height: 110px;
+    background: #385370;
+    position: relative;
+    /* top: -20px; */
+    margin-right: 20px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 10px solid #647a92;
+
+    @media screen and (max-width: $site-breakpoint-lg) {
+      margin-top: 0;
+      margin-bottom: 20px;
+      height: 100px;
+      width: 100px;
     }
   }
 
@@ -99,18 +128,26 @@ $site-logo-text-span-color: map-get($site-colors, grayscale-white);
     line-height: 1;
     color: $site-logo-text-color;
     margin-top: 0;
+    vertical-align: middle;
     @extend %site-vertical-rhythm;
 
     & span {
       color: $site-logo-text-span-color;
+      font-weight: 100;
     }
 
     @include media-query($site-breakpoint-lg) {
-      position: relative;
-      top: ($site-spacing-unit / 4);
       display: inline-block;
+      text-align: left;
       margin: 0;
     }
+  }
+
+  &-text-after {
+    display: inline-block;
+    color: $site-logo-text-after-color;
+    margin: 0;
+    font-size: $site-font-size;
   }
 
   @include media-query($site-breakpoint-lg) {
@@ -123,8 +160,9 @@ $site-logo-text-span-color: map-get($site-colors, grayscale-white);
 $site-searchform-width: 320px;
 $site-searchform-input-height: ($site-spacing-unit * 2);
 $site-searchform-input-padding: ($site-spacing-unit / 2) ($site-spacing-unit / 2) ($site-spacing-unit / 2) ($site-spacing-unit * 2);
-$site-searchform-input-background-color: map-get($site-colors, grayscale-darker);
-$site-searchform-input-text-color: map-get($site-colors, grayscale-light);
+$site-searchform-input-background-color: map-get($site-colors, quaternary-lighter);
+$site-searchform-input-text-color: map-get($site-colors, quaternary);
+$site-searchform-input-placeholder-text-color: map-get($site-colors, quaternary-lightest);
 
 .#{$site-prefix}-searchform {
   position: relative;
@@ -138,35 +176,103 @@ $site-searchform-input-text-color: map-get($site-colors, grayscale-light);
   }
 
   &-input {
+    position: relative;
     display: block;
     width: 100%;
     height: $site-searchform-input-height;
     line-height: 1;
-    font-size: 100%;
+    font-size: 110%;
     padding: $site-searchform-input-padding;
     background-color: $site-searchform-input-background-color;
     color: $site-searchform-input-text-color;
-    border: 0;
+    border: 2px solid transparent;
     border-radius: $site-border-radius;
+    outline: none;
+    transition: border $site-transition-timing-function;
+
+    &::-webkit-input-placeholder {
+      color: $site-searchform-input-placeholder-text-color;
+    }
+    &:-moz-input-placeholder {
+      color: $site-searchform-input-placeholder-text-color;
+    }
+    &::-moz-input-placeholder {
+      color: $site-searchform-input-placeholder-text-color;
+    }
+    &:-ms-input-placeholder {
+      color: $site-searchform-input-placeholder-text-color;
+    }
   }
 
   &-icon {
     position: absolute;
     top: ($site-spacing-unit / 2);
     left: ($site-spacing-unit / 2);
+    color: $site-searchform-input-placeholder-text-color;
   }
+
+  &-input.input-not-found {
+    border: 2px solid map-get($site-colors, secondary);
+  }
+
+  &-nothing-found-alert {
+    width: 200px;
+    height: auto;
+    background-color: map-get($site-colors, secondary);
+    color: map-get($site-colors, primary-lightest);
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: -240px;
+    border-radius: 3px;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity $site-transition-timing-function, transform $site-transition-timing-function;
+
+    p {
+      position: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      width: 100%;
+      margin: 0;
+    }
+
+    .nothing-found-arrow {
+      width: 10px;
+      height: 10px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 15px solid #eb74aa;
+      position: absolute;
+      top: 15%;
+      right: -11px;
+    }
+
+    @media screen and (max-width: 960px) {
+      display: none;
+    }
+
+    &.nothing-found-shown {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+  }
+
 
   @include media-query($site-breakpoint-lg) {
     margin-right: 0;
   }
 }
 
+
+
 // NAV
 $site-nav-link-padding: ($site-spacing-unit / 2) ($site-spacing-unit / 1.5);
-$site-nav-link-text-color: map-get($site-colors, grayscale);
+$site-nav-link-text-color: map-get($site-colors, quaternary);
 $site-nav-link-hover-text-color: map-get($site-colors, grayscale-white);
 $site-nav-icon-margin: 0 ($site-spacing-unit / 2);
-$site-nav-link-header-border: $site-border-radius solid map-get($site-colors, grayscale-darkest);
+$site-nav-link-header-border: $site-border-radius solid map-get($site-colors, quaternary);
 $site-nav-link-header-hover-border-color: map-get($site-colors, secondary);
 
 .#{$site-prefix}-nav {
@@ -274,6 +380,7 @@ $site-sidebar-link-color: map-get($site-colors, grayscale);
 $site-sidebar-link-hover-color: map-get($site-colors, grayscale-darkest);
 $site-sidebar-link-hover-background-color: darken(map-get($site-colors, secondary), 5%);
 $site-sidebar-link-hover-border-color: map-get($site-colors, secondary);
+$site-sidebar-link-current-color: map-get($site-colors, secondary);
 $site-sidebar-toggle-padding: ($site-spacing-unit - ($site-spacing-unit / 6)) ($site-spacing-unit * 0.75);
 $site-sidebar-toggle-background-color: map-get($site-colors, secondary);
 $site-sidebar-toggle-box-shadow-color: fade-out(map-get($site-colors, grayscale-black), 0.5);
@@ -378,9 +485,10 @@ $site-sidebar-nav-zindex: 9999;
     z-index: $site-sidebar-nav-zindex;
     background-color: $site-sidebar-nav-background-color;
     transform: translate3d(-$site-sidebar-nav-width, 0, 0);
-    transition: transform $site-transition-timing-function;
+    transition: transform $site-transition-timing-function, height $site-transition-timing-function, border-bottom $site-transition-timing-function;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    z-index: 10;
 
     &.is-visible {
       transform: translate3d(0, 0, 0);
@@ -394,7 +502,7 @@ $site-sidebar-nav-zindex: 9999;
       left: auto;
       width: auto;
       transform: none;
-      transition: none;
+      transition: height $site-transition-timing-function, border-bottom $site-transition-timing-function;
       overflow: visible;
       background-color: transparent;
 
@@ -404,6 +512,11 @@ $site-sidebar-nav-zindex: 9999;
         padding-top: $site-spacing-unit;
         bottom: 0;
         overflow: auto;
+      }
+
+      &.bottom-hidden {
+        height: 40%;
+        border-bottom: 4px solid map-get($site-colors, primary);
       }
     }
   }
@@ -421,6 +534,7 @@ $site-sidebar-nav-zindex: 9999;
       color $site-transition-timing-function,
       background-color $site-transition-timing-function,
       border-color $site-transition-timing-function;
+    text-transform: capitalize;
 
     &,
     &:hover,
@@ -444,9 +558,17 @@ $site-sidebar-nav-zindex: 9999;
 
       &:hover,
       &.is-current {
-        color: $site-sidebar-link-hover-color;
         border-right-color: $site-sidebar-link-hover-border-color;
         background-color: transparent;
+      }
+
+      &:hover {
+        color: $site-sidebar-link-hover-color;
+      }
+
+      &.is-current {
+        color: $site-sidebar-link-current-color;
+        font-size: ($site-font-size-md + 2);
       }
     }
   }
@@ -462,8 +584,15 @@ $site-sidebar-nav-zindex: 9999;
 $site-content-xl-width: 75%;
 
 .#{$site-prefix}-content {
+
+   transition: opacity $site-transition-timing-function;
+
   > *:last-child {
     margin-bottom: 0;
+  }
+
+  &.content-faded {
+    opacity: .2;
   }
 
   @include media-query($site-breakpoint-lg) {
@@ -496,6 +625,11 @@ $site-section-content-divider-margin: ($site-spacing-unit * 1.5) 0 $site-spacing
 
   &-heading {
     margin-top: 0;
+    text-transform: capitalize;
+  }
+
+  &-subheading {
+    color: map-get($site-colors, grayscale);
   }
 
   &-content {
@@ -532,6 +666,8 @@ $site-markup-content-border: 1px solid map-get($site-colors, primary);
 $site-markup-content-background-color: map-get($site-colors, primary-lightest);
 
 .#{$site-prefix}-markup {
+  margin-top: $site-spacing-unit;
+
   &-input {
     @include visuallyhidden();
 
@@ -589,6 +725,8 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
   padding: $site-footer-padding;
   background-color: $site-footer-background-color;
   text-align: center;
+  position: relative;
+  z-index: 20;
 
   hr {
     margin-bottom: $site-spacing-unit + ($site-spacing-unit / 2);
@@ -600,3 +738,4 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
     }
   }
 }
+

@@ -18,7 +18,7 @@ $bookmarklet-success-color: get-color('accent4');
   border-radius: 0 0 0 0.2em;
   position: fixed;
   z-index: 1000;
-  top: 10em;
+  top: 20em;
   right: 0;
   width: 20em;
   transition: all 0.75s ease;
@@ -125,6 +125,14 @@ $bookmarklet-success-color: get-color('accent4');
   }
 }
 
+.evo_c-bookmarklet__alert-close-icon {
+  position: absolute;
+  top: 0.2em;
+  right: 0.5em;
+  font-size: 1em;
+  color: white(0.75);
+}
+
 .evo_c-btn {
   background: transparent;
   border: 0.1em;
@@ -191,7 +199,7 @@ $bookmarklet-success-color: get-color('accent4');
   &--warning {
     @extend .evo_c-bookmarklet__alert;
     background-color: $bookmarklet-warning-color;
-    & i {
+    & > i {
       color: lighten($bookmarklet-warning-color, 15);
       width: 100%;
       font-size: 4em;
@@ -200,7 +208,7 @@ $bookmarklet-success-color: get-color('accent4');
   &--caution {
     @extend .evo_c-bookmarklet__alert;
     background-color: $bookmarklet-caution-color;
-    & i {
+    & > i {
       color: darken($bookmarklet-caution-color, 15);
       width: 100%;
       font-size: 4em;

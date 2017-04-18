@@ -37,8 +37,7 @@
   $tab-link-selector: getBEMReference($c-component-name, 'link');
 
 
-  min-width: $c-tabs-navigation-min-width - ($c-tabs-navigation-margin-tiny * 2);
-  margin: $c-tabs-navigation-margin-tiny;
+  min-width: $c-tabs-navigation-min-width;
   font-family: $c-tabs-navigation-font-family;
 
 
@@ -90,7 +89,7 @@
         @extend %c-tabs-scroll-tab-content;
         transform-origin: top center;
         transform: translateY(-220%);
-        transition: transform 2s ease-in-out;
+        transition: all 2s ease-in-out;
 
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           //                            Status
@@ -113,7 +112,7 @@
         @extend %c-tabs-scroll-tab-content;
         transform-origin: top center;
         transform: translateY(200%);
-        transition: transform 2s ease-in-out;
+        transition: all 2s ease-in-out;
 
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           //                            Status
@@ -137,7 +136,7 @@
         @extend %c-tabs-scroll-tab-content;
         transform-origin: left center;
         transform: translateX(-220%);
-        transition: transform 2s ease-in-out;
+        transition: all 2s ease-in-out;
 
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           //                            Status
@@ -160,7 +159,7 @@
         @extend %c-tabs-scroll-tab-content;
         transform-origin: left center;
         transform: translateX(220%);
-        transition: transform 2s ease-in-out;
+        transition: all 2s ease-in-out;
 
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           //                            Status
@@ -224,6 +223,7 @@
 
       .#{$tab-panel} {
         flex-grow: 1;
+        width: 95%;
 
         @media screen and (min-width: $c-tabs-media-tablet) {
           top: 0;
@@ -499,8 +499,12 @@
 
   @include e('panel') {
     @extend %c-tabs-display-none;
-    padding: $c-tabs-tab-content-padding;
+    padding: 10px;
     z-index: $c-tabs-tab-content-z-index;
+
+    @media screen and (min-width: $c-tabs-media-tablet) {
+      padding: $c-tabs-tab-content-padding;
+    }
 
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       //                            Status
