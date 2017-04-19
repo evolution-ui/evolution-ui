@@ -11,8 +11,10 @@ This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating s
 - [Ruby][ruby]
 - [RubyGems][rubygems]
 - [Bundler][rubybundler]
-- [Node.js][node]
+- [Node.js][node] (version 7 and up)
 - [npm][npm]
+
+**Need to update Node.js?** Use [nvm][nvm] to manage multiple versions of Node.js on your local machine.
 
 **Running Windows?** Jekyll (what we use to build our `/docs`) does not officially support the Windows operating system, but they do provide [special instructions][jekyll-windows] if you want to take a crack at it anyway.
 
@@ -41,12 +43,13 @@ This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating s
     ```
 
     This will install all the required software specific to the framework.
-    
+
     **NOTE** *npm* sometimes has problems with module dependencies. When you see error messages like `Module not found: Can't resolve ...` or `Cannot find module ...`, run `npm update` in your command line.
 
 4. Use [Bundler][rubybundler] to install all required Ruby gems (the Ruby equivalent of “packages”) specific to the showcase website (located in the `/docs` directory) by running the following command(s):
 
     ```bash
+    git checkout development
     cd docs/
     gem install bundler
     bundle install
@@ -103,6 +106,7 @@ This project is released under the [MIT License][license].
 [node]: https://nodejs.org/en/
 [node-install]: https://docs.npmjs.com/getting-started/installing-node
 [npm]: https://www.npmjs.com
+[nvm]: https://github.com/creationix/nvm
 [pull-request]: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 [repo]: https://github.com/BovAcademy-opensource/evolution-ui
 [ruby]: https://www.ruby-lang.org/en/

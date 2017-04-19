@@ -1,9 +1,26 @@
 ---
 title: ""
-description: |
-  <p><em>Ikon</em> is a new author card layout with details about the author. Showcase yourself on your blog or your team on the web app "about" page/section by creating <em>Ikon</em> cards. Hover over the names of the random authors below to see how <em>ikon</em> works</p>
-category: standard
-type: ikon
+description:
+  <p><em>Ikon</em> is a new author card layout with details about the author.</p>
+  <p>Showcase yourself on your blog or your team on the web app "about" page/section by creating <em>Ikon</em> cards.
+  </p>
+
+  <h3>Creating and Using Ikon</h3>
+  <p>To create ikon within your page, just add a <code>div</code> tag with <code>evo_c-ikon</code>
+    class and then add one or more child <code>div</code> tags with <code>evo_c-ikon__member</code> within it. Finally
+    add the content as shown in the code markup below. <strong>Make sure to add proper js-hook CSS classes for proper JS
+      function.</strong> Check out all the js-hooks (<code>js-evo-c-ikon</code>, <code>js-evo-c-ikon-member</code>,
+    <code>js-evo-c-ikon-member-info</code> and <code>js-evo-c-ikon-close-btn</code>) within the code markup shown below.
+  </p>
+  <p>You can add as many <code>evo_c-ikon__member</code>(s) as you like on your your website.</p>
+
+
+  <h3>Examples</h3>
+  <p>Check out the example code below by clicking on "Show Markup".</p>
+  <p>Hover over the names of the random authors below to see how <em>ikon</em> works:</p>
+author: Aashish Nagpal
+category: evolution
+type: ikon card
 order: 1
 ---
 <!-- Add a container with `class="evo_c-ikon js-evo-c-ikon"`  -->
@@ -116,8 +133,8 @@ order: 1
           </a>
         </div>
         <p class="evo_c-ikon__member-about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a semper
-        sem. Ut pellentesque libero ut ultricies vehicula. Morbi suscipit felis nulla, luctus ornare nunc fringilla
-        et</p>
+          sem. Ut pellentesque libero ut ultricies vehicula. Morbi suscipit felis nulla, luctus ornare nunc fringilla
+          et</p>
       </div>
       <!-- must add this close icon `class="evo_c-ikon__member-info__close-icon js-evo-c-ikon-close-btn"` -->
       <div class="evo_c-ikon__member-info__close-icon js-evo-c-ikon-close-btn"><i class="material-icons">close</i></div>

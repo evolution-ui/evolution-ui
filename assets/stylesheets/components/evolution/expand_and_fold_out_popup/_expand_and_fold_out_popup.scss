@@ -4,7 +4,7 @@
 
 
 .evo_c-expand-and-fold-out-popup-demo-wrapper {
-  margin-top: 350px;
+  //margin-top: 350px;
   * {
     box-sizing: border-box;
   }
@@ -202,6 +202,10 @@
     padding: 13px 33px 13px 15px;
     color: inherit;
     text-decoration: none;
+
+    &:hover, &:visited {
+      color: #1f4240;
+    }
 }
 
 

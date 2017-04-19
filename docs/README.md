@@ -9,8 +9,10 @@ This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating s
 - [Ruby][ruby]
 - [RubyGems][rubygems]
 - [Bundler][rubybundler]
-- [Node.js][node]
+- [Node.js][node] (version 7 and up)
 - [npm][npm]
+
+**Need to update Node.js?** Use [nvm][nvm] to manage multiple versions of Node.js on your local machine.
 
 **Running Windows?** Jekyll does not officially support the Windows operating system, but they do provide [special instructions][jekyll-windows] if you want to take a crack at it anyway.
 
@@ -59,6 +61,7 @@ The `npm run deploy-docs` command will build a production-ready version of the w
 [liquid]: http://liquidmarkup.org
 [node]: https://nodejs.org/en/
 [npm]: https://www.npmjs.com
+[nvm]: https://github.com/creationix/nvm
 [ruby]: https://www.ruby-lang.org/en/
 [rubybundler]: http://bundler.io
 [rubygems]: https://rubygems.org
