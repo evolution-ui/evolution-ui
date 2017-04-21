@@ -20,6 +20,7 @@ import singleInputForm from './evolution/single_input_form'
 import layerAnimations from './evolution/layer-animations'
 import layerDragAndDrop from './evolution/layer-drag-and-drop'
 import spaceSavingMinimalistForm from './evolution/space_saving_minimalist_form'
+import shuffleGallery from './evolution/shuffle_gallery'
 import curtain from './evolution/curtain'
 import text2speech from './evolution/text2speech'
 import svg_pagination from './evolution/svg_pagination'
@@ -80,6 +81,7 @@ documentReady(
   layerAnimations,
   layerDragAndDrop,
   stdTabs,
+  shuffleGallery,
   curtain,
   text2speech,
   svg_pagination,
