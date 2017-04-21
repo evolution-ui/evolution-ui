@@ -1,0 +1,155 @@
+//------------------------------------------------------------------------------
+//                       Typography SYSTEM
+//------------------------------------------------------------------------------
+
+@import 'typography-config';
+
+///
+/// Generate the vertical rhythm
+///
+/// @param {Value} $font-size - A valid font size
+/// @param {Value} $line-height [$g-framework-line-height-base] - A value height
+///
+/// @require $g-framework-line-height-base
+///
+/// @return {value}
+///
+///
+
+@function vrhythm( $font-size, $line-height: $g-framework-line-height-base ){
+  @return ceil( $font-size / $line-height ) * ( $line-height / $font-size )
+}
+
+///
+/// Generate headings (h1 - h6) and extra headings along with reusable classes
+///
+/// @author Gabriele Romeo
+///
+/// @access private
+///
+/// @param {Number} $levels - The number of headings
+/// @param {Boolean} $extraHeading - If true it generates extra headings
+///
+/// @require $_typography-base-scale
+/// @require $g-framework-base-font-size
+/// @require $_typography-scales-smaller
+/// @require $_typography-scales-bigger
+///
+
+@mixin generateHeadings( $levels, $extraHeading: true ){
+
+  $scale-smaller-sizes: $_typography-scales-smaller;
+  $scale-bigger-sizes: $_typography-scales-bigger;
+
+  $component-name: '#{$g-framework-name}_c-typo';
+
+  @for $i from 1 through $levels {
+    $font-size: pow($_typography-base-scale, $levels - $i);
+      .#{$component-name}__h#{$i} {
+        @extend %c-typography-font-family;
+        @extend %c-typography-margins;
+        font-size: #{$font-size}rem;
+        font-weight: $g-framework-font-weight;
+        line-height: vrhythm($font-size);
+    }
+  }
+
+  @if ( $extraHeading == true ) {
+
+    // BIGGER SIZES classes
+    @for $i from 1 through length($scale-bigger-sizes)  {
+      $item: nth($scale-bigger-sizes, $i);
+      $font-size: pow($_typography-base-scale, 5 + $i);
+
+      .#{$component-name}__#{$item} {
+        @extend %c-typography-font-family;
+        @extend %c-typography-margins;
+        @extend %c-typography-block;
+        font-size: rem($g-framework-base-font-size * $font-size) + 0rem;
+        line-height: vrhythm($font-size);
+      }
+    }
+
+    // SMALLER SIZES classes
+    @for $i from 1 through length($scale-smaller-sizes)  {
+      $item: nth($scale-smaller-sizes, $i);
+      $font-size: pow($_typography-base-scale, $i);
+
+      .#{$component-name}__#{$item} {
+        @extend %c-typography-font-family;
+        @extend %c-typography-margins;
+        @extend %c-typography-block;
+        font-size: rem($g-framework-base-font-size / $font-size) + 0rem;
+        line-height: vrhythm($font-size);
+      }
+    }
+
+  }
+
+}
+
+/******************************************************************************
+                                  Typography
+******************************************************************************/
+
+
+@include generateHeadings(6);
+
+
+@include h('txt--font-family') {
+  @extend %c-typography-font-family;
+}
+
+@include h('txt--bold') {
+  font-weight: 700;
+}
+
+@include h('txt--italic') {
+  font-style: italic;
+}
+
+@include h('txt--caps') {
+  text-transform: uppercase;
+  letter-spacing: .3em;
+}
+
+@include h('txt--left') {
+  text-align: left;
+}
+
+@include h('txt--right') {
+  text-align: right;
+}
+
+@include h('txt--center') {
+  text-align: center;
+}
+
+@include h('txt--capitalize') {
+  text-transform: capitalize;
+}
+
+@include h('txt--uppercase') {
+  text-transform: uppercase;
+}
+
+@include h('txt--lowercase') {
+  text-transform: lowercase;
+}
+
+@include h('txt--underline') {
+  text-decoration: underline;
+}
+
+@include h('txt--line-through') {
+  text-decoration: line-through;
+}
+
+@include h('txt--no-decoration') {
+  text-decoration: none;
+}
+
+@include h('txt--nowrap') {
+  white-space: nowrap;
+}
+

@@ -1,0 +1,77 @@
+/******************************************************************************
+                              Grid component
+******************************************************************************/
+
+
+@import 'grid-config';
+
+$gutter: 1em;
+
+@include l('grid', true){
+
+  @include e('row') {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  //Define columns for the row
+  @include e('col'){
+    flex: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+//Mobile First - Responsive Grid
+
+@media screen and (min-width: 500px){
+  @include l('grid', true){
+    @include e('row') {
+      flex-direction: row;
+    }
+  }
+
+  @include l('gridrow', false){
+    @include e('gutters'){
+      > .#{$g-framework-name}_l-grid__col {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@include l('gridrow', false){
+  @include e('gutters'){
+    margin-left: -$gutter;
+    > .#{$g-framework-name}_l-grid__col {
+      padding-left: $gutter;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+//create grid percentages
+
+@for $i from 1 through $l-grid_tot-columns {
+  .col#{$i}_of#{$l-grid_tot-columns} {
+    flex: 0 0 percentage($i/$l-grid_tot-columns);
+  }
+}
+
+
+/*Styles for showcase [NOT USED FOR GRID]*/
+.test{
+  background-color: get-color('primary', 'base', 1);
+  border-radius: 3px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: get-color('background', 'base', 1);
+  text-align: center;
+}
+

@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="author" content="Jing Ran">
+  <title>Modals</title>
+  <meta name="description" content="Modals Component">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+  <link href="../../styles/main.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="l-grid">
+    <div class="l-grid__item">
+
+      <div class="evo_c-modal-wrapper">
+        <h2>Modals</h2>
+
+        <!-- Modal Triggers -->
+        <a href="#modal1" class="evo_c-modal-trigger js-modal-trigger">Basic Modal</a>
+        <a href="#modal2" class="evo_c-modal-trigger js-modal-trigger js-modal-trigger--f">Full-screen Modal</a>
+        <a href="#modal3" class="evo_c-modal-trigger js-modal-trigger">Fixed Header and Footer Modal</a>
+        <a href="#modal4" class="evo_c-modal-trigger js-modal-trigger">Dialog Modal</a>
+
+
+        <!-- Modal Overlay -->
+        <div class="evo_c-modal-overlay js-modal-overlay"></div>
+
+        <!-- Modals -->
+        <!-- modal - basic -->
+        <div id="modal1" class="evo_c-modal evo_c-modal--basic">
+          <div class="evo_c-modal__content">
+            <h3 class="evo_c-modal__header">Basic Modal</h3>
+            <p class="evo_c-modal__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor diam, nec viverra ipsum semper nec. Curabitur accumsan neque eget leo auctor egestas. Proin posuere sem ut mauris commodo, ac maximus urna commodo. Quisque eget risus eget urna efficitur elementum dignissim at tellus. Ut feugiat bibendum porta.</p>
+          </div>
+          <div class="evo_c-modal__footer">
+            <a href="#!" class="evo_c-modal__close js-modal-close-btn">close</a>
+          </div>
+        </div>
+
+
+        <!-- modal - full screen -->
+        <div id="modal2" class="evo_c-modal evo_c-modal--full">
+          <div class="evo_c-modal__content">
+            <h3 class="evo_c-modal__header">Full-screen Modal</h3>
+            <p class="evo_c-modal__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor diam, nec viverra ipsum semper nec. Curabitur accumsan neque eget leo auctor egestas. Proin posuere sem ut mauris commodo, ac maximus urna commodo. Quisque eget risus eget urna efficitur elementum dignissim at tellus. Ut feugiat bibendum porta.</p>
+          </div>
+          <div class="evo_c-modal__footer">
+            <a href="#!" class="evo_c-modal__close js-modal-close-btn">close</a>
+          </div>
+        </div>
+
+
+        <!-- modal - fixed header and footer -->
+        <div id="modal3" class="evo_c-modal evo_c-modal--fixed">
+          <div class="evo_c-modal__content">
+            <h3 class="evo_c-modal__header">Fixed Modal</h3>
+            <p class="evo_c-modal__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor diam, nec viverra ipsum semper nec. Curabitur accumsan neque eget leo auctor egestas. Proin posuere sem ut mauris commodo, ac maximus urna commodo. Quisque eget risus eget urna efficitur elementum dignissim at tellus. Ut feugiat bibendum porta. Curabitur tristique quam eu est porttitor, id tincidunt arcu molestie. Morbi volutpat est orci, eget iaculis est rhoncus id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor diam, nec viverra ipsum semper nec. Curabitur accumsan neque eget leo auctor egestas. Proin posuere sem ut mauris commodo, ac maximus urna commodo. Quisque eget risus eget urna efficitur elementum dignissim at tellus. Ut feugiat bibendum porta. Curabitur tristique quam eu est porttitor, id tincidunt arcu molestie. Morbi volutpat est orci, eget iaculis est rhoncus id.</p>
+            <div class="evo_c-modal__footer">
+              <a href="#!" class="evo_c-modal__close js-modal-close-btn">close</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- modal - dialog -->
+        <div id="modal4" class="evo_c-modal evo_c-modal--dialog">
+          <div class="evo_c-modal__content">
+            <p class="evo_c-modal__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor diam, nec viverra ipsum semper nec. Curabitur accumsan neque eget leo auctor egestas. Proin posuere sem ut mauris commodo, ac maximus urna commodo. Quisque eget risus eget urna efficitur elementum dignissim at tellus. Ut feugiat bibendum porta.</p>
+          </div>
+          <div class="evo_c-modal__footer">
+            <a href="#!" class="evo_c-modal__cancel evo_c-modal__close js-modal-close-btn">cancel</a>
+            <a href="#!" class="evo_c-modal__ok evo_c-modal__close js-modal-close-btn">okay</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="../../scripts/app.js"></script>
+</body>
+</html>

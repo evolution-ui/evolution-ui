@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Joseph M. Matembu">
+    <title>Audio Player</title>
+    <meta name="description" content="Single file audio player.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+    <link href="../../styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <h3>Audio Player</h3>
+    <article style="margin-bottom: 70px;">
+      <h4>Basic Audio Player</h4>
+      <p>A standard cross-browser audio player. </p>
+      <div class="evo_l-grid__row l-gridrow__gutters">
+        <div class="evo_l-grid__col col8_of16">
+          <p>Working demo</p>
+            <figure id="audioplayer" class="evo_c-audio-player h-bck__primary--dark">
+              <div class="evo_c-audio-player__controls">
+                <div class="evo_c-audio-player__track">
+                  <button type="button" class="evo_c-audio-player__icon"><i class="material-icons">play_arrow</i></button>
+                  <input type="range" min="0" max="100" value="0" class="evo_c-audio-player__playhead" id="playhead">
+                </div>
+                <span class="evo_c-audio-player__track-time">00:00</span>
+                <div class="evo_c-audio-player__track-volume">
+                  <button type="button" class="evo_c-audio-player__icon"><i class="material-icons">volume_up</i></button>
+                </div>
+              </div>
+              <audio controls="controls" preload="auto" itemprop="audio">
+                <source src="../../audio/diana.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+            </figure>
+        </div>
+      </div>
+    </article>
+  <script type="text/javascript" src="../../scripts/app.js"></script>
+  </body>
+</html>
