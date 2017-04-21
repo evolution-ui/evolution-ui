@@ -19,10 +19,10 @@
     color: $drop-dot__list-text;
 
   }
-  
-  & input{ 
+
+  & input{
     display: none;
-    
+
     &:checked{
       & ~ .evo_c-drop-dot__list{
         max-height: 1000px;
@@ -41,7 +41,7 @@
     border-radius: 50%;
     width: $drop-dot__radius;
     height: $drop-dot__radius;
-    
+
     > *{
       display: flex;
       align-items: center;
@@ -54,7 +54,7 @@
 
     &:hover ~ input[type="checkbox"]:not(:checked){
       border: 1px solid $drop-dot__list-bg;
-      
+
       & ~ .evo_c-drop-dot__list{
         border-radius: 30%;
         max-height: 60%;
@@ -63,7 +63,7 @@
       }
     }
   }
-  
+
   &__list{
     position: absolute;
     text-align: center;
@@ -77,13 +77,13 @@
     border-radius: 0 0 2% 2%;
     margin: 0;
     color: $drop-dot__list-text;
-    
+
     & li{
       padding: 10px 0;
       background: $drop-dot__top-bg;
       margin: 0 0 5px 0;
       line-height: 2rem;
-      
+
       &:hover{
         background: $drop-dot__list-bg--hover;
       }
@@ -99,7 +99,7 @@
 .evo_c-drop-dot__example{
   display: flex;
   flex-direction: row;
-  margin-bottom: 12rem;
+  margin-bottom: 14rem;
   justify-content: space-around;
 
 
