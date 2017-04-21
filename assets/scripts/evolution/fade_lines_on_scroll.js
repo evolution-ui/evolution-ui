@@ -1,5 +1,5 @@
 export default function() {
-  /*FADE LINES ON SCROLL COMPONENT*/
+    /*FADE LINES ON SCROLL COMPONENT*/
   var fadedTextBlocks = document.querySelectorAll('.js-c-fade-lines-target');
   var wordMatch = /(\S+\s*)/g;
 
@@ -15,8 +15,7 @@ export default function() {
         fadedTextBlocks[i].childNodes[j].style.top = randomTopDistValue + "px";
         fadedTextBlocks[i].childNodes[j].style.opacity = 0;
         // fadedTextBlocks[i].childNodes[j].style.transform = "rotate(" + randomRotationValue + "deg)";
-        console.log(fadedTextBlocks[i].childNodes[j].style.transform);
-        fadedTextBlocks[i].childNodes[j].style.transition = 'top 3s, opacity 3s, transform 3s';
+        fadedTextBlocks[i].childNodes[j].style.transition = 'top 1s, opacity 1s, transform 1s';
       }
     }
   }
