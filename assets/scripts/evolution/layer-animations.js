@@ -67,6 +67,15 @@ const animateNewFrontLayer = layer => {
   return Promise.all([slide(layer, frontHeight, 500, true), slide(layer.parentNode, containerHeight, 500, true)])
 }
 
+const resizeFrontLayer = event => {
+  const target = event.target
+  if (target.classList.contains('evo_c-3dlayer--selected')) {
+    const frontHeight = calculateLayerHeight(target)
+    const containerHeight = calculateContainerHeight(target)
+    return Promise.all([slide(target, frontHeight, 500, true), slide(target.parentNode, containerHeight, 500, true)])
+  }
+}
+
 const moveForward = layer => {
   layers.forEach(label => label.removeEventListener('click', moveForwardListener))
 
@@ -85,7 +94,10 @@ const moveForwardListener = event => {
 }
 
 export default () => {
-  layers.forEach(layer => layer.addEventListener('click', moveForwardListener))
+  layers.forEach(layer => {
+    layer.addEventListener('click', moveForwardListener)
+    layer.addEventListener('resizelayer', resizeFrontLayer)
+  })
   layerContainers.forEach(layerContainer => {
     const selected = layerContainer.querySelector('.evo_c-3dlayer--selected')
     selected.style.height = calculateLayerHeight(selected) + 'px'
