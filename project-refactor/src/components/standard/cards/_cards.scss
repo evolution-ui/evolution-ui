@@ -1,0 +1,104 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//           CARD COMPONENT
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+@import 'cards-config';
+
+@include c( $c-card ) {
+  border: 1px solid get-color( 'background', $opacity:.1);
+  border-radius: 4px;
+  box-shadow: 0px 8px 24px -9px get-color( 'background', $opacity:.3 );
+  padding: 1.5rem;
+  @include backgroundVariants($c-card-bck-variants);
+  
+  @include e( 'title' ) {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @include e( 'sub-title' ) {
+    color: get-color( 'secondary' );
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 1rem;
+  }
+
+  @include h( 'txt-light' ) {
+    color: white(.9);
+  }
+
+  @include h( 'txt-light2' ) {
+    color: white(.6);
+  }
+
+  @include e( 'image' ) {
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+
+    > img {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .su_img-profile {
+      border-radius: 50%;
+    }
+
+  }
+
+  &.evo_c-card__product {
+    text-align: center;
+
+    .evo_c-card__body {
+      padding-top: 1.25rem;
+    }
+
+    .evo_c-card__price {
+      font-size: 2em;
+      margin-right: 3em;
+    }
+  }
+
+  &.evo_c-card__profile {
+    text-align: center;
+
+    .evo_c-card__image {
+      position: relative;
+      margin-bottom: 30%;
+    }
+    .evo_c-card__profile-image {
+      border: 5px solid lighten(get-color( 'secondary' ), 35%);
+      border-radius: 50%;
+      bottom: -25%;
+      height: auto;
+      max-width: 40%;
+      position: absolute;
+      left: 30%;
+    }
+  }
+
+  @include e( 'body' ) {
+    margin-bottom: 1.5rem;
+  }
+
+  @include e( 'icon' ) {
+    cursor: pointer;
+    margin-right: 0.625rem;
+  }
+
+  @include e( 'btn' ) {
+    border: 1px solid get-color( 'background', $opacity:.3 );
+    background-color: get-color( 'background', $opacity:.1 );
+    border-radius: 3px;
+    cursor: pointer;
+    @include padding-tb-lr( 0.625em, 1em );
+    transition: opacity .3s ease-out;
+
+    &:hover {
+      background-color: get-color( 'background', $opacity:.2 );
+    }
+  }
+
+}
