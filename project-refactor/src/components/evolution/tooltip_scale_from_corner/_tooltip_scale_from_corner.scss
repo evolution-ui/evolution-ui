@@ -1,0 +1,88 @@
+/* -------- tooltip scale from corner ----------*/
+@import "tooltip_scale_from_corner-config";
+
+@include c($c-tooltip_scale) {
+  font-size: 1.4rem;
+  border: 0 none;
+  border-radius: 2px;
+  padding: 1.2rem 2.4rem;
+  margin: 6px;
+  width: 150px;
+  display: inline-block;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16), 0 2px 9px 0 rgba(0, 0, 0, 0.12);
+  background-color: get-color('primary');
+  position: relative;
+
+  > div:after {
+    border: 7px solid;
+    border-color: transparent get-color('primary2') transparent transparent;
+    bottom: 0;
+    content: ' ';
+    height: 0;
+    left: -10px;
+    position: absolute;
+    right: auto;
+    top: auto;
+    width: 0;
+
+  }
+  &:hover {
+    div:after {
+      content: none;
+    }
+    .evo_c-tt-scale__content {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s 0.2s;
+    }
+    .evo_c-tt-scale__vertical {
+      opacity: 0.85;
+      width: 100%;
+      height: 20rem;
+    }
+    .evo_c-tt-scale__horizontal {
+      opacity: 0.85;
+      width: 25rem;
+      height: 6rem;
+    }
+  }
+
+  @include e('content') {
+    color: #FFFFFF;
+    font-size: 1rem;
+    line-height: 2rem;
+    opacity: 0;
+    padding: 1rem;
+    position: absolute;
+    text-align: left;
+    visibility: hidden;
+  }
+
+  @include e('vertical') {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    right: 0;
+    background-color: get-color('primary2');
+    z-index: 10;
+    transition: transform ease-out 0.5s;
+    transition: height ease-out 0.5s, width ease-out 0.5s;
+  }
+
+  @include e('horizontal') {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    right: 0;
+    background-color: get-color('primary2');
+    z-index: 10;
+    transition: transform ease-out 0.5s;
+    transition: height ease-out 0.5s, width ease-out 0.5s;
+  }
+}

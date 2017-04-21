@@ -1,0 +1,53 @@
+//------------------------------------------------------------------------------
+//                          CSS Animations config
+//------------------------------------------------------------------------------
+
+$c-css-base-conf: (
+  'animation-duration': 1s,
+  'animation-direction': normal,
+  'animation-fill-mode': both
+);
+
+
+
+//------------------------------------------------------------------------------
+//                          CSS Animations placeholders
+//------------------------------------------------------------------------------
+
+
+%h-CSS-animations-default {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+//------------------------------------------------------------------------------
+//                          CSS Animations mixins
+//------------------------------------------------------------------------------
+
+@mixin _create-animation($anim-name, $conf: null ) {
+
+  $anim-conf: $c-css-base-conf;
+
+  @if is-map($conf) {
+    // Using the provided config map, extend the basic configuration (if any)
+    $anim-conf: extend($c-css-base-conf, $conf);
+  }
+
+
+
+  @include m($anim-name) {
+    animation-name: $anim-name;
+    -webkit-animation-name: $anim-name;
+    -webkit-animation-duration: get-conf($anim-conf, 'animation-duration');
+    animation-duration: get-conf($anim-conf, 'animation-duration');
+    animation-direction: get-conf($anim-conf, 'animation-direction');
+    -webkit-animation-direction: get-conf($anim-conf, 'animation-direction');
+    -webkit-animation-fill-mode: get-conf($anim-conf, 'animation-fill-mode');
+    animation-fill-mode: get-conf($anim-conf, 'animation-fill-mode');
+    -webkit-animation-fill-mode: get-conf($anim-conf, 'animation-fill-mode');
+  }
+
+}
