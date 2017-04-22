@@ -1,6 +1,6 @@
 @import 'breadcrumbs-config';
 
-.breadcrumb-wrapper {
+.evo_breadcrumb-wrapper {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   & * {
@@ -8,11 +8,11 @@
   }
 }
 
-.c-breadcrumb {
+.evo_c-breadcrumb {
   display: flex;
   height: 2em;
   @media screen and (min-width: 500px) {
-    & .mobile-only {
+    & .evo_mobile-only {
       display: none;
     }
   }
@@ -20,8 +20,13 @@
     list-style: none;
   }
   & a {
+    color: $bk;
     position: relative;
     text-decoration: none;
+    &:hover, &:visited {
+     color: $bk;
+     text-decoration: none;
+    }
   }
   &__li + &__li:before {
     color: $sk-blue;
@@ -34,6 +39,10 @@
     position: relative;
     &:first-of-type {
       margin: 0 .6em 0 0;
+    }
+    & a, & a:hover, & a:visited {
+     color: $wh;
+     text-decoration: none;
     }
   }
   &__a--rbn {
@@ -86,19 +95,19 @@
   &--var-col {
     background-color: darken($teal,30%);
   }
-  &__li--rbn a[class~="c-breadcrumb--var-col"]:before {
+  &__li--rbn a[class~="evo_c-breadcrumb--var-col"]:before {
     border-color: darken($teal,30%) darken($teal,30%) darken($teal,30%) transparent;
   }
-  &__li--rbn a[class~="c-breadcrumb--var-col"]:after {
+  &__li--rbn a[class~="evo_c-breadcrumb--var-col"]:after {
     border-left: 1em solid darken($teal,30%);
   }
   &--act-col, &__a--rbn:active, &--var-col:active {
     background-color: darken($teal,20%);
   }
-  &__li--rbn a[class~="c-breadcrumb--act-col"]:before, &__li--rbn:not(:first-child) > a:active::before, &__li--rbn a[class~="c-breadcrumb--var-col"]:active::before {
+  &__li--rbn a[class~="evo_c-breadcrumb--act-col"]:before, &__li--rbn:not(:first-child) > a:active::before, &__li--rbn a[class~="evo_c-breadcrumb--var-col"]:active::before {
     border-color: darken($teal,20%) darken($teal,20%) darken($teal,20%) transparent;
   }
-  &__li--rbn a[class~="c-breadcrumb--act-col"]:after, &__li--rbn:not(:last-child) > a:active::after, &__li--rbn a[class~="c-breadcrumb--var-col"]:active::after {
+  &__li--rbn a[class~="evo_c-breadcrumb--act-col"]:after, &__li--rbn:not(:last-child) > a:active::after, &__li--rbn a[class~="evo_c-breadcrumb--var-col"]:active::after {
     border-left: 1em solid darken($teal,20%);
   }
 }
@@ -106,10 +115,10 @@
 // Breadcrumbs not needed on mobile
 
 @media (max-width: 500px) {
-  .no-mobile {
+  .evo_no-mobile {
     display: none;
   }
-  .c-breadcrumb {
+  .evo_c-breadcrumb {
     flex-direction: column;
     height: auto;
     padding-left: 0;
@@ -119,7 +128,7 @@
     &__li + &__li:before {
       display: none;
     }
-    & .mobile-only {
+    & .evo_mobile-only {
       bottom: .2em;
       position: absolute;
       right: 0;
