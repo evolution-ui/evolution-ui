@@ -1,1 +1,0 @@
-To use simply add the html and styles to your project, and update the links and icons. Depending on your project you may want to adjust the placement by modifying the `.evo_c-sidenav` style.
