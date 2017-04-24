@@ -1,17 +1,94 @@
+//foundational plugins
 var gulp = require('gulp');
+var gulpUtil = require('gulp-util');
+
+//script plugins
 var uglify = require('gulp-uglify');
 
+//style plugins
+var sass = require('gulp-sass');
+var cssmin = require('gulp-cssmin');
+
+//other general plugins
+var concat = require('gulp-concat');
+var ghPages = require('gulp-gh-pages');
+var imagemin = require('gulp-imagemin');
 
 
-gulp.task('default', function () {
-  console.log('gulp has run!');
+
+//paths to source files
+var paths = {
+    styles: [
+        './src/gulpTest/*.scss'
+    ],
+    scripts: [
+        './src/gulpTest/*.js'
+    ]
+};
+
+
+//tasks
+gulp.task("scripts", function() {
+    return gulp.src(paths.scripts)
+        .pipe(concat("app.js"))
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/gulpTest/'))
+        .on('end', function(){ gulpUtil.log('Scripts built'); });
+});
+
+
+gulp.task('styles', function() {
+    return gulp.src(paths.styles)
+        .pipe(sass({ style: 'compressed' }))
+        .pipe(concat('app.css'))
+        .pipe(cssmin())
+        .pipe(gulp.dest('./dist/gulpTest/'))
+        .on('end', function(){ gulpUtil.log('Styles built'); });
+});
+
+
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy());
 });
 
 
 gulp.task('uglify-js', function () {
-  return gulp.src("./src/gulpTest/*.js")
-  .pipe(uglify())
-  .pipe(gulp.dest('./dist/gulpTest/app.js'));
+    return gulp.src("./src/gulpTest/*.js")
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/gulpTest/app.js'));
 });
 
 
+gulp.task("sass", function() {
+    return gulp.src('./src/gulpTest/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./dist/gulpTest/'));
+});
+
+
+gulp.task('images', function() {
+    gulp.src(['src/gulpTest/*.jpeg', 'src/gulpTest/*.jpg'])
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/gulpTest'))
+        .on('end', function(){ gulpUtil.log('Images processed'); });
+});
+
+
+
+//master minify task
+gulp.task('minify', ["scripts", "styles", "images"]);
+
+
+//watch scripts and styles for changes and process
+gulp.task('watch', function() {
+    gulp.watch(paths.styles, ['styles']);
+    gulp.watch(paths.scripts.js, ['scripts']);
+});
+
+
+
+//default task
+gulp.task('default', function () {
+  console.log('gulp has run!');
+});
