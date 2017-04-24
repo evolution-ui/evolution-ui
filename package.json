@@ -25,9 +25,8 @@
   },
   "homepage": "https://github.com/evolution-ui/evolution-ui.git/#readme",
   "devDependencies": {
-
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.1.2"
   },
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }
