@@ -1,3 +1,4 @@
+//Part 1 - incorporate plugins
 //foundational plugins
 var gulp = require('gulp');
 var gulpUtil = require('gulp-util');
@@ -27,6 +28,9 @@ var paths = {
 };
 
 
+
+
+//Part 2 - create and configure tasks
 //tasks
 gulp.task("scripts", function() {
     return gulp.src(paths.scripts)
@@ -75,11 +79,13 @@ gulp.task('images', function() {
 });
 
 
-
 //master minify task
-gulp.task('minify', ["scripts", "styles", "images"]);
+gulp.task('process-all', ["scripts", "styles", "images"]);
 
 
+
+
+//Part 3 - watch task
 //watch scripts and styles for changes and process
 gulp.task('watch', function() {
     gulp.watch(paths.styles, ['styles']);
@@ -88,6 +94,8 @@ gulp.task('watch', function() {
 
 
 
+
+//Part 4 - default task
 //default task
 gulp.task('default', function () {
   console.log('gulp has run!');
