@@ -5,6 +5,8 @@ var gulpUtil = require('gulp-util');
 
 //script plugins
 var uglify = require('gulp-uglify');
+var eslint = require('gulp-eslint');
+var babel = require('gulp-babel');
 
 //style plugins
 var sass = require('gulp-sass');
@@ -32,8 +34,24 @@ var paths = {
 
 //Part 2 - create and configure tasks
 //tasks
-gulp.task("scripts", function() {
-    return gulp.src(paths.scripts)
+
+gulp.task('eslint', function () {
+  return gulp.src(['src/gulpTest/*.js', '!node_modules/**'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+});
+
+gulp.task('babel-transpile', ['eslint'],  function () {
+  return gulp.src('src/gulpTest/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('src/gulpTest/transpiled'));
+});
+
+gulp.task("scripts", ['babel-transpile'], function() {
+    return gulp.src('src/gulpTest/transpiled/*.js')
         .pipe(concat("app.js"))
         .pipe(uglify())
         .pipe(gulp.dest('./dist/gulpTest/'))
