@@ -1,11 +1,11 @@
 /**
  * Created by stu on 4/4/17.
  */
-window.onload = function() {
-    var searchInput = document.getElementById("searchBar__searchInput")
-    var editorField = document.getElementById("searchBar__searchEditor");
-    var checkBoxLabel = document.getElementById("searchBar__searchEditorControlLabel");
-    var expandIcon = document.getElementById("searchBar__expand");
+export default function(){
+    var searchInput = document.getElementById("evo_c-searchBar__searchInput")
+    var editorField = document.getElementById("evo_c-searchBar__searchEditor");
+    var checkBoxLabel = document.getElementById("evo_c-searchBar__searchEditorControlLabel");
+    var expandIcon = document.getElementById("evo_c-searchBar__expand");
     if(searchInput != null){
         var searchBoxWidth = searchInput.clientWidth;
     }

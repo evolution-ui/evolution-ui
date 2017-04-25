@@ -30,6 +30,7 @@ import safety from './evolution/safety'
 import dotValidator from './evolution/dotValidator'
 import sift from './evolution/sift'
 import fullscreen_gallery from './evolution/fullscreen_gallery'
+import searchWithLongEdit from './evolution/search_with_long_edit'
 
 /************************************************************************
  *
@@ -87,9 +88,12 @@ documentReady(
   carouselDrop,
   safety,
   sift,
-  fullscreen_gallery
+  fullscreen_gallery,
+  searchWithLongEdit
+
 )
 
 singleInputForm();
 spaceSavingMinimalistForm();
 audioPlayer();
+searchWithLongEdit();

@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Search with long edit</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="Stu Wood" content="{{STU WOOD}}">
+    <title>{{Search with Long Edit}}</title>
+    <meta name="description"
+          content="{{View and edit long search queries from within the search bar}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+    <link href="../../../docs/assets/styles/evolution-ui/main.css"
+          rel="stylesheet">
 </head>
 <body>
-<h3 class="componentSection__subheader">Long Search Editor [Innovative]</h3>
+<h3 class="componentSection__subheader">Search with Long Edit</h3>
 <p class="componentSection__subDescription">
 <ul>
     <li>Allows long search queries to be viewed and edited within the
@@ -21,22 +30,22 @@
 </ul>
 
 </p>
-<div class="componentSection__componentContainer">
-    <div class="componentContainer__display">
-        <div class="evo_c-searchBar" id="searchBar--longSearchEditor">
-            <label for="searchBar__searchEditorControl" class="searchBar__searchEditorControlLabel" id="searchBar__searchEditorControlLabel"><i
-                    class="fa fa-expand searchBar__expand" aria-hidden="true" id="searchBar__expand"></i></label>
-            <input class="searchBar__searchInput searchBar__searchInput--longSearchInput" id="searchBar__searchInput" type="text" name="" placeholder="Search" />
-            <div class="searchBar__searchButton" tabindex="0">
+
+        <div class="evo_c-searchBar" id="evo_c-searchBar--longSearchEditor">
+            <label for="evo_c-searchBar__searchEditorControl" class="evo_c-searchBar__searchEditorControlLabel" id="evo_c-searchBar__searchEditorControlLabel"><i
+                    class="fa fa-expand evo_c-searchBar__expand" aria-hidden="true" id="evo_c-searchBar__expand"></i></label>
+            <input class="evo_c-searchBar__searchInput evo_c-searchBar__searchInput--longSearchInput" id="evo_c-searchBar__searchInput" type="text" name="" placeholder="Search" />
+            <div class="evo_c-searchBar__searchButton" tabindex="0">
                 <i class="fa fa-search"></i> Search
             </div>
-            <input class="searchBar__searchEditorControl" type="checkbox" id="searchBar__searchEditorControl" />
-            <div type="text" class="searchBar__searchEditor" id="searchBar__searchEditor" contenteditable="true" tabindex="0" placeholder="Edit long search strings here">
+            <input class="evo_c-searchBar__searchEditorControl" type="checkbox" id="evo_c-searchBar__searchEditorControl" />
+            <div type="text" class="evo_c-searchBar__searchEditor" id="evo_c-searchBar__searchEditor" contenteditable="true" tabindex="0" placeholder="Edit long search strings here">
 
             </div>
         </div>
-    </div>
-    <div class="componentContainer__markup"></div>
-</div>
+<script type="text/javascript"
+        src="../../scripts/evolution/search_with_long_edit.js"></script>
+<script type="text/javascript" src="../../scripts/app.js"></script>
 </body>
+
 </html>
