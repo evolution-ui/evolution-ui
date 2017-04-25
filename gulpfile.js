@@ -16,6 +16,7 @@ var cssmin = require('gulp-cssmin');
 var concat = require('gulp-concat');
 var ghPages = require('gulp-gh-pages');
 var imagemin = require('gulp-imagemin');
+var rename = require('gulp-rename');
 
 
 
@@ -39,8 +40,9 @@ gulp.task('eslint', function () {
   return gulp.src(['src/gulpTest/*.js', '!node_modules/**'])
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
+    .pipe(eslint.failAfterError());
 });
+
 
 gulp.task('babel-transpile', ['eslint'],  function () {
   return gulp.src('src/gulpTest/*.js')
@@ -50,10 +52,12 @@ gulp.task('babel-transpile', ['eslint'],  function () {
     .pipe(gulp.dest('src/gulpTest/transpiled'));
 });
 
+
 gulp.task("scripts", ['babel-transpile'], function() {
     return gulp.src('src/gulpTest/transpiled/*.js')
         .pipe(concat("app.js"))
         .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./dist/gulpTest/'))
         .on('end', function(){ gulpUtil.log('Scripts built'); });
 });
@@ -64,6 +68,7 @@ gulp.task('styles', function() {
         .pipe(sass({ style: 'compressed' }))
         .pipe(concat('app.css'))
         .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./dist/gulpTest/'))
         .on('end', function(){ gulpUtil.log('Styles built'); });
 });
@@ -97,6 +102,7 @@ gulp.task('images', function() {
 });
 
 
+
 //master minify task
 gulp.task('process-all', ["scripts", "styles", "images"]);
 
@@ -107,7 +113,7 @@ gulp.task('process-all', ["scripts", "styles", "images"]);
 //watch scripts and styles for changes and process
 gulp.task('watch', function() {
     gulp.watch(paths.styles, ['styles']);
-    gulp.watch(paths.scripts.js, ['scripts']);
+    gulp.watch(paths.scripts, ['scripts']);
 });
 
 
