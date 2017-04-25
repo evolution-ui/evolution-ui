@@ -24,12 +24,16 @@ import curtain from './evolution/curtain'
 import text2speech from './evolution/text2speech'
 import svg_pagination from './evolution/svg_pagination'
 import divTable from './evolution/div_table'
+<<<<<<< HEAD
 import inputScanner from './evolution/input_scanner'
 import carouselDrop from './evolution/carousel_with_dropping_circle_nav'
 import safety from './evolution/safety'
 import dotValidator from './evolution/dotValidator'
 import sift from './evolution/sift'
 import fullscreen_gallery from './evolution/fullscreen_gallery'
+=======
+import minimalistCarouselTwo from './evolution/minimalist_carousel_two';
+>>>>>>> resolved merge conflict
 
 /************************************************************************
  *
@@ -70,6 +74,7 @@ documentReady(
   stdCarousel,
   sticky,
   herald,
+  scrollManagement,
   paragraphGallery,
   popover,
   ikonize,
@@ -87,7 +92,8 @@ documentReady(
   carouselDrop,
   safety,
   sift,
-  fullscreen_gallery
+  fullscreen_gallery,
+  minimalistCarouselTwo
 )
 
 singleInputForm();

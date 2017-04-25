@@ -1,0 +1,80 @@
+
+@import 'minimalist_carousel_two-config';
+
+.evo_c-minimalist-carousel-two__layer *{
+  box-sizing: border-box;
+}
+
+.evo_c-minimalist-carousel-two__layer{
+  position:absolute;
+  margin:30px;
+  width:480px;
+  height:320px;
+}
+
+.evo_c-minimalist-carousel-two__border{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-color:gray;
+}
+
+.evo_c-minimalist-carousel-two__border--default{
+  transition: .3s all ease;
+  -webkit-clip-path: polygon(1% 0, 1% 99%, 100% 99%, 100% 100%, 0 100%, 0 0);
+  clip-path: polygon(1% 0, 1% 99%, 100% 99%, 100% 100%, 0 100%, 0 0);
+}
+
+
+.evo_c-minimalist-carousel-two__border--active{
+  transition: .3s all ease;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 99% 100%, 99% 1%, 0 1%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 99% 100%, 99% 1%, 0 1%);
+}
+
+.evo_c-minimalist-carousel-two__inner{
+  width:100%;
+  height:100%;
+  border-left:10px solid white;
+  border-bottom:9px solid white;
+}
+
+.evo_c-minimalist-carousel-two__inner--default{
+  transition: .3s all ease;
+  -webkit-clip-path: polygon(1% 0, 1% 99%, 100% 99%, 100% 99%, 100% 0, 1% 0);
+  clip-path: polygon(1% 0, 1% 99%, 100% 99%, 100% 99%, 100% 0, 1% 0);
+}
+
+.evo_c-minimalist-carousel-two__inner--active{
+  transition: .3s all ease;
+  -webkit-clip-path: polygon(2% 0, 100% 0, 100% 98%, 100% 98%, 100% 0, 2% 0);
+  clip-path: polygon(2% 0, 100% 0, 100% 98%, 100% 98%, 100% 0, 2% 0);
+}
+
+.evo_c-minimalist-carousel-two__inner--one{
+  background-image: url("../../../../images/components/minimalist_carousel_two/forest.jpg");
+  background-size: cover;
+}
+.evo_c-minimalist-carousel-two__inner--two{
+  background-image: url("../../../../images/components/minimalist_carousel_two/snail.jpg");
+  background-size: cover;
+}
+.evo_c-minimalist-carousel-two__inner--three {
+  background-image: url("../../../../images/components/minimalist_carousel_two/treetrunk.jpg");
+  background-size: cover;
+}
+
+.evo_c-minimalist-carousel__layer--one {
+  transform: translate(20px, -17px);
+  z-index: 3;
+}
+
+.evo_c-minimalist-carousel__layer--two {
+  transform: translate(12px, -11px);
+  z-index: 2;
+}
+
+.evo_c-minimalist-carousel__layer--three {
+  transform: translate(4px, -5px);
+  z-index: 1;
+}
