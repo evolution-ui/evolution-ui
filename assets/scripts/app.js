@@ -90,7 +90,6 @@ documentReady(
   sift,
   fullscreen_gallery,
   searchWithLongEdit
-
 )
 
 singleInputForm();
