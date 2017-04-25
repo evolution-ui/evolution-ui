@@ -93,5 +93,4 @@ export default function(){
             searchInput.focus();
         });
     }
-    console.log(searchInput);
 };
