@@ -2,7 +2,11 @@ $color: red;
 $backgroundColor: navy;
 
 p {
-    color: $color;
+    color: coral;
+    font-size: 1.5em;
+    text-decoration: underline;
+    transition: height .5s;
+    transform: scale(1.1);
 }
 
 .derp {
@@ -11,4 +15,5 @@ p {
 
 .thisModal {
     color: coral;
+    border: 1px solid wheat;
 }
