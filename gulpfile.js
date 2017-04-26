@@ -65,14 +65,6 @@ gulp.task('eslint', function () {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('babel-transpile', ['eslint'],  function () {
-  return gulp.src('src/gulpTest/*.js')
-    .pipe(babel({
-      presets: ['es2015']
-    }))
-    .pipe(gulp.dest('src/gulpTest/transpiled'));
-});
-
 gulp.task('deploy', function () {
   return gulp.src("./dist/**/*")
     .pipe(deploy());
@@ -116,6 +108,14 @@ gulp.task("copyHTML", function() {
 
 //composite tasks
 
+gulp.task('babel-transpile', ['eslint'],  function () {
+  return gulp.src('src/gulpTest/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('src/gulpTest/transpiled'));
+});
+
 gulp.task("scripts", ['babel-transpile'], function() {
     return gulp.src('src/gulpTest/transpiled/*.js')
         .pipe(concat("app.js"))
@@ -143,11 +143,7 @@ gulp.task('images', function() {
         .on('end', function(){ gulpUtil.log('Images processed'); });
 });
 
-//master build
-// gulp.task('build', ["scripts", "styles", "images"], function() {
-//   console.log('Building files');
-// });
-
+//master build task
 gulp.task('build', function (callback) {
   runSequence('clean:dist',
     ["scripts", "styles", "images"],
