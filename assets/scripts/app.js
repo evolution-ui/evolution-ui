@@ -24,6 +24,7 @@ import curtain from './evolution/curtain'
 import text2speech from './evolution/text2speech'
 import svg_pagination from './evolution/svg_pagination'
 import divTable from './evolution/div_table'
+import searchWithLongEdit from './evolution/search_with_long_edit'
 import minimalistCarouselTwo from './evolution/minimalist_carousel_two'
 import inputScanner from './evolution/input_scanner'
 import carouselDrop from './evolution/carousel_with_dropping_circle_nav'
@@ -31,7 +32,7 @@ import safety from './evolution/safety'
 import dotValidator from './evolution/dotValidator'
 import sift from './evolution/sift'
 import fullscreen_gallery from './evolution/fullscreen_gallery'
-import minimalistCarouselTwo from './evolution/minimalist_carousel_two'
+
 
 /************************************************************************
  *
@@ -87,14 +88,15 @@ documentReady(
   text2speech,
   svg_pagination,
   divTable,
+  searchWithLongEdit,
   minimalistCarouselTwo,
   carouselDrop,
   safety,
   sift,
-  fullscreen_gallery,
-  minimalistCarouselTwo
+  fullscreen_gallery
 )
 
 singleInputForm();
 spaceSavingMinimalistForm();
 audioPlayer();
+searchWithLongEdit();
