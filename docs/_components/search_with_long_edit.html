@@ -1,0 +1,41 @@
+---
+title: "Expanding Search Field"
+description:
+  <p>
+    <ul>
+      <li>Allows long search queries to be viewed and edited within the
+          search component.</li>
+      <li>Queries are updated
+          between editor and search field.</li>
+      <li>Option to expand editor
+          appears
+          when visible width of
+          search field
+          is exceeded.
+      </li>
+    </ul>
+  </p>
+type: search
+author: Stu Wood
+category: evolution
+order: 1
+---
+
+
+
+
+
+<div class="evo_c-searchBar" id="evo_c-searchBar--longSearchEditor">
+    <label for="evo_c-searchBar__searchEditorControl" class="evo_c-searchBar__searchEditorControlLabel" id="evo_c-searchBar__searchEditorControlLabel"><i
+            class="fa fa-expand evo_c-searchBar__expand h-background__primary"
+            aria-hidden="true" id="evo_c-searchBar__expand"></i></label>
+    <input
+            class="evo_c-searchBar__searchInput evo_c-searchBar__searchInput--longSearchInput h-background__primary" id="evo_c-searchBar__searchInput" type="text" name="" placeholder="Search" />
+    <div class="evo_c-searchBar__searchButton" tabindex="0">
+        <i class="fa fa-search"></i> Search
+    </div>
+    <input class="evo_c-searchBar__searchEditorControl" type="checkbox" id="evo_c-searchBar__searchEditorControl" />
+    <div type="text" class="evo_c-searchBar__searchEditor" id="evo_c-searchBar__searchEditor" contenteditable="true" tabindex="0" placeholder="Edit long search strings here">
+
+    </div>
+</div>
