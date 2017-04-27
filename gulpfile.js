@@ -11,6 +11,16 @@ var browserSync = require('browser-sync').create();
 var del = require('del');
 var runSequence = require('run-sequence');
 var child = require('child_process');
+var flatten = require('gulp-flatten');
+var frontMatter = require("gulp-front-matter");
+var insert = require('gulp-insert');
+
+
+var prepend = '<!doctype html><html class="no-js" lang="en-us"><head><!-- THIS IS THE COMPONENT TEMPLATE FILE; DO NOT OVERWRITE ITS CONTENT! IT SERVES YOU FOR THE DEVELOPMENT PURPOSE COPY THE CONTENT OF THIS FILE INTO A NEW FILE NEWLY CREATED FILE SHOULD HAVE THE NAME OF YOUR COMPONENT ADD MINIMUM HTML REQUIRED BY YOUR COMPONENT TO WORK EDIT SECTIONS BETWEEN CURLY BRACES APPROPRIATELY DO NOT CHANGE LINKS TO main.css AND main.js FILES AFTER YOU CREATE COMPONENT FILE, REMOVE THIS WHOLE COMMENT SECTION --><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="author" content="{{YOUR NAME HERE}}"><title>{{NAME OF YOUR COMPONENT}}</title><meta name="description" content="{{DESCRIBE THIS PAGE HERE}}"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet"><link href="../../styles/main.css" rel="stylesheet"></head><body>';
+
+var append = '<script type="text/javascript" src="../../scripts/app.js"></script></body></html>';
+
+
 
 //paths to source files
 var paths = {
@@ -76,7 +86,7 @@ gulp.task('lint', function () {
   return gulp.src(paths.scripts)
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
-    .pipe(plugins.eslint.failAfterError())
+    .pipe(plugins.eslint.failAfterError());
 });
 
 //composite tasks
@@ -119,6 +129,25 @@ gulp.task('images', function () {
     .on('end', function () {
       gulpUtil.log('Images processed');
     });
+});
+
+//try to inject html from src/components into matching files in docs/components
+gulp.task("frontMatterTest", function() {
+  gulp.src("./docs/_components/*.html")
+  .pipe(frontMatter({ // optional configuration
+        property: 'frontMatter', // property added to file object
+                                 // also works with deep property selectors
+                                 // e.g., 'data.foo.bar'
+        remove: true // should we remove front-matter header?
+      }))
+  .pipe(gulp.dest("./docs/component_test/"));
+});
+
+gulp.task("htmlWrapper", function() {
+  gulp.src("./docs/component_test/*.html")
+  .pipe(insert.append(append))
+  .pipe(insert.prepend(prepend))
+  .pipe(gulp.dest("./docs/component_test/htmlWrapped/"));
 });
 
 //master build task
