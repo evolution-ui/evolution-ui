@@ -62,21 +62,9 @@ gulp.task("sass", function () {
     .pipe(plugins.browserSync.stream());
 });
 
-gulp.task('jekyll', () => {
-  const jekyll = child.spawn('jekyll', ['serve',
-    '--watch',
-    '--incremental',
-    '--drafts'
-  ]);
-
-  const jekyllLogger = (buffer) => {
-    buffer.toString()
-      .split(/\n/)
-      .forEach((message) => gulpUtil.log('Jekyll: ' + message));
-  };
-
-  jekyll.stdout.on('data', jekyllLogger);
-  jekyll.stderr.on('data', jekyllLogger);
+gulp.task('jekyll', function () {
+     require('child_process')
+        .spawn('jekyll', ['serve','-w', "-incremental"], {stdio: 'inherit', cwd: './docs/' });
 });
 
 gulp.task("copy:html", function () {
