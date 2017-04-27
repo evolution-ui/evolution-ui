@@ -17,3 +17,6 @@ docs/assets/images/components/
 docs/assets/images/developers/
 docs/assets/images/standard/
 /.csscomb.json
+
+# might as well delete it later
+src/gulpTest/transpiled

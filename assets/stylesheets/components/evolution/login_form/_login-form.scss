@@ -1,0 +1,356 @@
+//------------------------------------------------------------------------------
+//            Innovative Login Form File
+//------------------------------------------------------------------------------
+@import 'login-form-config';
+
+body{
+  font-size: 20px
+}
+
+@include c('title'){
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 2em;
+  color: $login-form-button-color;
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@include c($c-login-form){
+  position: relative;
+  width: 360px;
+  height: 640px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include e('log-header'){
+    position: relative;
+    top: 15%;
+    text-align: center;
+  }
+
+  &::before{
+    content:'';
+    position: absolute;
+    background-image: url('https://s20.postimg.org/iombn9l25/code_art.jpg');
+    width: 360px;
+    height: 640px;
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+  }
+
+
+  @include e('img-circle'){
+    border-radius: 50%;
+    border: 1px solid $login-form-button-color;
+    width: 40%;
+  }
+
+  @include e('log-body'){
+    position: relative;
+    margin: 10px;
+    top: 30%;
+    left: 20%;
+    text-align: center;
+    
+    input{
+      font-family: $font-family;
+      font-weight: 300;
+      margin: 1% 0 1% 0;
+      text-align: center;
+      display: block;
+      padding: 3% 0 3% 0;
+      background: transparent;
+      color: $login-form-font-color;
+      font-size: 18px;
+      border: none;
+      border-bottom: 2px solid $login-form-font-color-2;
+    }
+    
+    input::-webkit-input-placeholder{
+      color: $login-form-font-color-2;
+    }
+    
+    input:focus::-webkit-input-placeholder{
+      color: transparent;
+    }
+    
+    input:focus{
+      outline: none;
+    }
+    
+    input:hover{
+      outline: none;
+      border-bottom: 5px solid $login-form-font-color;
+      transition: border-bottom 0.3s ease-in-out 0s;
+    }
+  }
+
+  @include e(lbutton){
+    display: block;
+    padding: 3% 22% 3% 22%;
+    border-radius: 3px;
+    font-size: 18px;
+    background-color: rgba(66, 244, 179, 0.8);
+    border: none;
+    color: rgba(255, 255, 255, 0.50);
+    margin-top: 5%;
+
+    &:focus{
+      outline: none;
+    }
+
+    &:hover{
+      cursor: pointer;
+      color: #fff;
+      background-color: #42f4b3;
+      opacity: 1;
+      border-radius: 10px;
+      transition: border-radius 0.3s ease-in-out;
+    }
+  }
+
+  @include e('log-footer'){
+    position: relative;
+    text-align: center;
+    top: 40%;
+    font-size: 0.7em;
+    
+    p{
+      display: inline-block;
+      padding: 3px 10px 3px 10px; 
+      color: $login-form-font-color;
+      font-family: $font-family;  
+      font-weight: 300;
+    }    
+
+    #h-left{
+      border-right: 1px solid #fff;
+    }    
+  }
+
+  @include e('link'){
+    font-family: $font-family;
+    font-weight: 300;
+    position: relative;
+    color: #3b5c9b;
+    text-decoration: none;
+    font-weight: 300;
+
+    &::before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      background-color: #6d9fff;
+      top: 100%;
+      left: 0;
+      height: 2px;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s; 
+    }
+
+    &:hover{
+      &:before{
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+      }
+    }
+
+    &:hover{
+      color: #6d9fff;
+      font-weight: 600;
+      font-size: 18px;
+      -webkit-transition: font-size .3s ease-out;
+      text-decoration: none;
+    }
+  }
+}
+
+//------------------------------------------------------------------------------
+//                      Media Screen File
+//------------------------------------------------------------------------------
+
+@media (min-device-width: 320px) and (max-device-width: 400px){
+  body{
+    widht: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include c('title'){
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;    
+  }
+
+  @include c($c-login-form){
+    position: relative;
+    width: 100%;
+    height: 640px;
+    border-radius: 2px;
+
+    @include e('log-header'){
+      position: relative;
+      top: 15%;
+      text-align: center;
+    }
+
+    &::before{
+      content:'';
+      position: absolute;
+      background-image: url('https://s20.postimg.org/iombn9l25/code_art.jpg');
+      width: 100%;
+      height: 640px;
+      -webkit-filter: blur(2px);
+      -moz-filter: blur(2px);
+      -o-filter: blur(2px);
+      -ms-filter: blur(2px);
+      filter: blur(2px);
+    }
+
+
+    @include e('img-circle'){
+      border-radius: 50%;
+      border: 1px solid $login-form-button-color;
+      width: 40%;
+    }
+
+    @include e('log-body'){
+      position: relative;
+      margin: 10px;
+      top: 30%;
+      left: 20%;
+      text-align: center;
+      
+      input{
+        font-family: $font-family;
+        font-weight: 300;
+        margin: 1% 0 1% 0;
+        text-align: center;
+        display: block;
+        padding: 3% 0 3% 0;
+        background: transparent;
+        color: $login-form-font-color;
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid $login-form-font-color-2;
+      }
+      
+      input::-webkit-input-placeholder{
+        color: $login-form-font-color-2;
+        font-family: $font-family;
+        font-weight: 300;
+      }
+      
+      input:focus::-webkit-input-placeholder{
+        color: transparent;
+      }
+      
+      input:focus{
+        outline: none;
+      }
+      
+      input:hover{
+        outline: none;
+        border-bottom: 5px solid $login-form-font-color;
+        transition: border-bottom 0.3s ease-in-out 0s;
+      }
+    }
+
+    @include e(lbutton){
+      display: block;
+      padding: 3% 22% 3% 22%;
+      border-radius: 3px;
+      font-size: 0.8em;
+      background-color: rgba(66, 244, 179, 0.8);
+      border: none;
+      color: rgba(255, 255, 255, 0.50);
+      margin-top: 5%;
+      font-family: $font-family;
+      font-weight: 400;
+
+      &:focus{
+        outline: none;
+      }
+
+      &:hover{
+        cursor: pointer;
+        color: #fff;
+        background-color: #42f4b3;
+        opacity: 1;
+        border-radius: 10px;
+        transition: border-radius 0.3s ease-in-out;
+      }
+    }
+
+    @include e('log-footer'){
+      position: relative;
+      text-align: center;
+      top: 40%;
+      
+      p{
+        display: inline-block;
+        padding: 3px 10px 3px 10px; 
+        color: $login-form-font-color;
+        font-family: $font-family;
+        font-weight: 300;
+      }    
+
+      #h-left{
+        border-right: 1px solid #fff;
+      }    
+    }
+
+    @include e('link'){
+      position: relative;
+      color: #3b5c9b;
+      text-decoration: none;
+      font-family: $font-family;
+      font-weight: 300;
+
+      &::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        background-color: #6d9fff;
+        top: 100%;
+        left: 0;
+        height: 2px;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s; 
+      }
+
+      &:hover{
+        &:before{
+        visibility: visible;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        }
+      }
+
+      &:hover{
+        color: #6d9fff;
+        font-weight: 600;
+        font-size: 18px;
+        -webkit-transition: font-size .3s ease-out;
+      }
+    }  
+  }
+} 

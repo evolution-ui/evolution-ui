@@ -67,7 +67,7 @@ html{
 //                             SWITCH MEDIA FILE
 //------------------------------------------------------------------------------
 
-@media screen and (max-device-width: 360px) and (orientation: portrait){
+@media (max-device-width: 360px) and (orientation: portrait){
 
   body{
     font-size: 20px;

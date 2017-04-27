@@ -1,0 +1,19 @@
+$color: red;
+$backgroundColor: navy;
+
+p {
+    color: coral;
+    font-size: 1.5em;
+    text-decoration: underline;
+    transition: height .5s;
+    transform: scale(1.1);
+}
+
+.derp {
+    background: $backgroundColor;
+}
+
+.thisModal {
+    color: coral;
+    border: 1px solid wheat;
+}
