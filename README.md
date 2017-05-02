@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-# Evolution UI
-
-
-Currently in the alpha phase
-
-Read more details on the [development branch][development]
-
-[development]: https://github.com/BovAcademy-opensource/evolution-ui/tree/development
-=======
 # evolution-ui
 
 [![travis](https://img.shields.io/travis/evolution-ui/evolution-ui.svg)](https://travis-ci.org/evolution-ui/evolution-ui) [![npm (scoped)](https://img.shields.io/npm/v/@cbracco/evolution-ui.svg)](https://npm.im/@cbracco/evolution-ui) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE.md) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![slack](https://evolution-ui.herokuapp.com/badge.svg)](https://evolution-ui.herokuapp.com/)
@@ -215,4 +205,3 @@ This project is released under the [MIT License][license].
 [rubygems]: https://rubygems.org
 [semantic-release]: https://github.com/semantic-release/semantic-release
 [showcase-website]: https://evolution-ui.github.io/evolution-ui/
->>>>>>> fc4206ac449611231d1540e889e2acfabbe6230c
