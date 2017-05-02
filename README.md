@@ -120,9 +120,11 @@ A typical workflow would look something like this:
     npm start
     ```
 
-3. Do work!
+3. You can view any single component in the browser by visiting the following URL pattern: `http://localhost:300/[evolution|standard]/[component-name]/[variant-name].html`
 
-4. When you are finished with your feature, bug fix, or whatever, commit your changes using the [commitizen][commitizen] CLI (which we have handily aliased as an npm script):
+4. Do work!
+
+5. When you are finished with your feature, bug fix, or whatever, commit your changes using the [commitizen][commitizen] CLI (which we have handily aliased as an npm script):
 
     ```bash
     git add .
@@ -131,7 +133,7 @@ A typical workflow would look something like this:
 
     We also use [husky][husky] to ensure that our tests (`npm run test`) run and pass before every commit and push attempt.
 
-5. When ready to push a new release, we use [semantic-release][semantic-release] to automate the process of bumping the version number and publishing the package to npm:
+6. When ready to push a new release, we use [semantic-release][semantic-release] to automate the process of bumping the version number and publishing the package to npm:
 
     ```bash
     npm run release
@@ -177,6 +179,8 @@ npm run deploy-docs
 
 Please follow our [detailed guidelines][contributions] if you would like to make a contribution to this project.
 
+Thanks to all of [our wonderful contributors][credits] for your hard work!
+
 ## License
 This project is released under the [MIT License][license].
 
@@ -184,6 +188,7 @@ This project is released under the [MIT License][license].
 [browser-sync]: https://browsersync.io/
 [commitizen]: https://github.com/commitizen/cz-cli
 [contributions]: .github/CONTRIBUTING.md
+[credits]: https://github.com/evolution-ui/evolution-ui/graphs/contributors
 [husky]: https://github.com/typicode/husky
 [gh-pages]: https://pages.github.com/
 [git-flow]: https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow
