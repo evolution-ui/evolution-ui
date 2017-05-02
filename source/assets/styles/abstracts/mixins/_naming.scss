@@ -1,0 +1,582 @@
+///
+/// Usage examples
+/// http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf
+///
+///
+/// Generate a namespaced class
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $class - A class name
+/// @param {String} $prefix [$g-framework-name] - An optional prefix
+/// @param {Boolean} $apply-on-descendants [TRUE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise it applies
+///                                                 on the parent itself
+/// @require $g-framework-name
+///
+/// @example scss - Usage
+///
+///  @include namespaced('myClass') {
+///    color: red;
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///     color: red;
+///  }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin namespaced( $class, $prefix: $g-framework-name, $apply-on-descendants: true ) {
+  $selector:'';
+  @if (& != null) and ($apply-on-descendants == false) {
+    $selector:'&';
+  }
+  #{$selector}.#{$prefix}_#{$class} {
+    @content;
+  }
+}
+
+/// @alias namespaced
+@mixin nm( $class, $prefix: $g-framework-name,  $apply-on-descendants: true) {
+  @include namespaced( $class, $prefix, $apply-on-descendants ) {
+    @content;
+  }
+}
+
+///
+/// **************************** BEM ****************************
+/// http://getbem.com/
+///
+///
+/// Generate a BLOCK
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $blockName - The name of the block
+/// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
+///                                          the namespace's name
+/// @require {mixin} namespaced
+///
+/// @example scss - Usage
+///
+///  @include b('card') {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///  @include b('card', false) {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_card {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///  .card {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin b( $blockName, $is-namespaced: true ) {
+  @if $is-namespaced == true {
+    @include namespaced($blockName) {
+      @content;
+    }
+  } @else {
+    .#{$blockName} {
+      @content;
+    }
+  }
+}
+
+///
+/// Generate an Element
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $elementName - The element's name
+///
+/// @example scss - Usage
+///
+///  @include b('card') {
+///    width: 100%;
+///    height: 200px;
+///
+///    @include e('header') {
+///      width: 50%;
+///      color: blue;
+///    }
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_card {
+///    width: 100%;
+///    height: 200px;
+///  }
+///  .namespace_card__header {
+///      width: 50%;
+///      color: blue;
+///  }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin e( $elementName ) {
+  &__#{$elementName} {
+    @content;
+  }
+}
+
+///
+/// Generate an Element
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $modifierName - The element's modifier
+///
+/// @example scss - Usage
+///
+///  @include b('card') {
+///    width: 100%;
+///    height: 200px;
+///
+///    @include m('light') {
+///      opacity: .5;
+///    }
+///
+///    @include e('header') {
+///      width: 50%;
+///      color: blue;
+///
+///       @include m('active') {
+///         color: yello;
+///       }
+///    }
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_card {
+///    width: 100%;
+///    height: 200px;
+///  }
+///  .namespace_card--light {
+///    opacity: .5;
+///  }
+///  .namespace_card__header {
+///      width: 50%;
+///      color: blue;
+///  }
+///  .namespace_card__header--active {
+///      color: yello;
+///  }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin m( $modifierName ) {
+  &--#{$modifierName} {
+    @content;
+  }
+}
+
+///
+/// **************************** BEMIT ****************************
+///
+/// Bem with namespaces
+/// https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/
+///
+/// Generate an Element with the BEMIT methodology
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $componentName - The name of the component
+/// @param {String} $BEMIT-namespace - The name of a BEMIT namespace
+/// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
+///                                          the namespace's name
+/// @param {Boolean} $apply-on-descendants [TRUE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise
+///                                                 it applies on the parent itself
+///
+///
+/// @example scss - Usage
+///
+///  @include bit('card', 'c') {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///  @include bit('card', 'c', false) {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_c-card {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///  .c-card {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin bit( $componentName, $BEMIT-namespace, $is-namespaced, $apply-on-descendants: true) {
+
+  $separator: if($BEMIT-namespace == 's', '', '-');
+  $BEMIT-namespace: if($BEMIT-namespace == 's', '', $BEMIT-namespace);
+  $className: '#{$BEMIT-namespace}#{$separator}#{$componentName}';
+
+  @if ($is-namespaced == true) {
+    @include namespaced($className, $apply-on-descendants: $apply-on-descendants) {
+      @content;
+    }
+  } @else {
+    @if ($BEMIT-namespace == 's' or $apply-on-descendants == false) {
+      // Status class without the namespace
+      &.#{$className} {
+        @content;
+      }
+      } @else {
+        // Do not use the namespace
+        .#{$className} {
+          @content;
+        }
+      }
+  }
+}
+
+///
+/// Generate a BEMIT Component
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $componentName - The component's name
+/// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
+///                                          the namespace's name
+///
+/// @example scss - Usage
+///
+///  @include c('card') {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///  @include c('card', false) {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_c-card {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+///  .c-card {
+///    width: 100%;
+///    height: 200px;
+///  }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin c( $componentName, $is-namespaced: true ) {
+  @include bit($componentName, 'c', $is-namespaced) {
+    @content;
+  }
+}
+
+///
+/// Generate a BEMIT Object
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $componentName - The object's name
+/// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
+///                                          the namespace's name
+///
+/// @example scss - Usage
+///
+///  @include o('media') {
+///    font-size: 10;
+///  }
+///  @include o('media', false) {
+///    font-size: 10;
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_o-media {
+///    font-size: 10;
+///  }
+///
+///  .o-media {
+///    font-size: 10;
+///  }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin o( $objectName, $is-namespaced: true ) {
+  @include bit($objectName, 'o', $is-namespaced) {
+    @content;
+  }
+}
+
+///
+/// Generate a BEMIT Helper class
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String}  $helperName - The helper's name
+/// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
+///                                          the namespace's name
+/// @param {Boolean} $apply-on-descendants [TRUE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise
+///                                                 it applies on the parent itself
+///
+///
+/// @example scss - Usage
+///
+///  @include h('util') {
+///    clip: rect(10px, 10px, 10px, 10px);
+///  }
+///
+///  @include h('util', false) {
+///    clip: rect(10px, 10px, 10px, 10px);
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_u-util {
+///    clip: rect(10px, 10px, 10px, 10px);
+///  }
+///
+///  .h-util {
+///    clip: rect(10px, 10px, 10px, 10px);
+///  }
+///
+///
+/// @example scss - Usage
+///
+///   @include c( 'myComponent' ) {
+///     width: 500px;
+///
+///     @include h('test') {
+///       width: 100px;
+///     }
+///   }
+///
+///
+/// @example css - CSS output
+///
+///   .evo_c-myComponent {
+///     width: 500px;
+///   }
+///   .evo_c-myComponent .evo_h-test {
+///     width: 100px;
+///   }
+///
+///
+/// @example scss - Usage
+///
+///   @include c( 'myComponent' ) {
+///     width: 500px;
+///
+///     @include h('test', $apply-on-descendants: false) {
+///       width: 100px;
+///     }
+///   }
+///
+///
+/// @example css - CSS output
+///
+///   .evo_c-myComponent {
+///     width: 500px;
+///   }
+///   .evo_c-myComponent.evo_h-test {
+///     width: 100px;
+///   }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin h( $helperName, $is-namespaced: true, $apply-on-descendants: true ) {
+  @include bit($helperName, 'h', $is-namespaced, $apply-on-descendants) {
+    @content;
+  }
+}
+
+///
+/// Generate a BEMIT Layout Module
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String}  $StatusName - The Layout's name
+/// @param {Boolean} $is-namespaced [false] - Prefix the class's name with
+///                                          the namespace's name
+///
+/// @example scss - Usage
+///
+///
+///    Some components require a parent wrapper (or container) that dictates the layout
+///    of the children. A practicle example of a layout module in action:
+///
+///    <ul class="l-grid">
+///      <li class="l-grid__item">
+///        <div class="evo_c-box">
+///            <div class="evo_c-box__header">
+///                [...]
+///            </div>
+///            <div class="evo_c-box__body">
+///                [...]
+///            </div>
+///        </div>
+///      </li>
+///      <li class="l-grid__item">
+///        <div class="evo_c-box">
+///            <div class="evo_c-box__header">
+///                [...]
+///            </div>
+///            <div class="evo_c-box__body">
+///                [...]
+///            </div>
+///        </div>
+///      </li>
+///    </ul>
+///
+///
+///    @include l('grid') {
+///      margin: 10px;
+///      font-size: 1.3em;
+///
+///      // Element inside the layout module
+///      @include e('item') {
+///        padding: 10px;
+///      }
+///    }
+///
+/// @example css - CSS output
+///
+///  .l-grid {
+///   margin: 10px;
+///   font-size: 1.3em;
+///   }
+///   .l-grid__item {
+///     padding: 10px;
+///   }
+///
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin l( $layoutName, $is-namespaced: false ) {
+  @include bit($layoutName, 'l', $is-namespaced) {
+    @content;
+  }
+}
+
+///
+/// Generate a BEMIT Status class
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String}  $StatusName - The Status's name
+/// @param {Boolean} $is-namespaced [true] - Prefix the class's name with
+///                                          the namespace's name
+/// @param {Boolean} $apply-on-descendants [FALSE] - If true, the class applies to
+///                                                 all the items which are located
+///                                                 inside the parent item otherwise
+///                                                 it applies on the parent itself
+///
+/// @example scss - Usage
+///
+///  @include c('myComponent') {
+///     @include s('is-active') {
+///       clip: rect(10px, 10px, 10px, 10px);
+///     }
+///   }
+///
+///  @include c('myComponent', false) {
+///     @include s('is-active') {
+///       clip: rect(10px, 10px, 10px, 10px);
+///     }
+///   }
+///
+/// @example css - CSS output
+///
+///  .namespace_c-myComponent .namespace_s-is-active {
+///    clip: rect(10px, 10px, 10px, 10px);
+///  }
+///
+///  .namespace_c-myComponent.is-active {
+///    clip: rect(10px, 10px, 10px, 10px);
+///  }
+///
+/// @link http://www.sassmeister.com/gist/9efa03e3a6d7fee563d5b51ef2742cbf - Usage Examples
+/// @link http://www.sassmeister.com/gist/a009213e4ab148ac6ae808ce7fc9955e - Eyelids' refactoring example
+///
+
+@mixin s( $statusName, $is-namespaced: false ) {
+  @include bit($statusName, 's', $is-namespaced, $apply-on-descendants: false) {
+    @content;
+  }
+}

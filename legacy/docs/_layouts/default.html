@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ page.language | default: site.language | default: "en" }}">
+  {% include head.html %}
+  <body>
+    {% include svg-icons.html %}
+    {% include scrollspy.html %}
+    {% include updown.html %}
+    {% include header.html %}
+    <main class="site-main" role="main">
+      <div class="site-container">
+        {{ content }}
+      </div>
+    </main>
+    {% include footer.html bov=site.data.bov bovSocial=site.data.bovSocial maintainers=site.data.maintainers %}
+  </body>
+</html>

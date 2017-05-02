@@ -1,0 +1,27 @@
+<header class="site-header" role="banner">
+  <div class="site-container">
+    <a href="{{ "/" | prepend: site.url }}" class="site-logo">
+      <div class="site-logo-container">
+        <img class="site-logo-icon" src="{{ "/assets/images/evolution-logo.png" | prepend: site.url }}" alt="{{ site.title }}">
+      </div>
+      <h1 class="site-logo-text">{{ site.title }} <span>UI Framework</span>{% if site.title_after %}<br><div class="site-logo-text-after">{{ site.title_after }}</div>{% endif %}</h1>
+    </a>
+    <form class="site-searchform" action="#!">
+      <label class="site-searchform-label" for="siteSearchform">Search this Website</label>
+      <input class="site-searchform-input" type="search" id="siteSearchform" placeholder="Search">
+      <div class="site-searchform-progress-bar"></div>
+      <div class="site-searchform-nothing-found-alert"><p>Nothing found...</p><div class="nothing-found-arrow"></div></div>
+      <i class="site-searchform-icon site-icon site-icon-md material-icons">search</i>
+    </form>
+    <nav class="site-nav" role="navigation">
+      <ul class="site-nav-list">
+        {% assign pages = site.html_pages | sort: 'order' %}
+        {% for item in pages %}
+          <li class="site-nav-item{% if page.url == item.url %} is-current{% endif %}">
+            <a class="site-nav-link" href="{{ item.url | prepend: site.url }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

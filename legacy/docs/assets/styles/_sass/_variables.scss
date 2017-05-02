@@ -1,0 +1,78 @@
+//
+// VARIABLES
+//
+
+// PREFIX
+// Used for site-specific components in `_layout.scss`
+// (e.g. `.#{$site-prefix}-header`)
+$site-prefix: 'site' !default;
+
+// BREAKPOINTS
+$site-breakpoints: (
+  'xxs': 360px,
+  'xs': 480px,
+  'sm': 600px,
+  'md': 768px,
+  'lg': 960px,
+  'xl': 1140px,
+  'xxl': 1440px
+);
+
+$site-breakpoint-xxs: map-get($site-breakpoints, xxs);
+$site-breakpoint-xs: map-get($site-breakpoints, xs);
+$site-breakpoint-sm: map-get($site-breakpoints, sm);
+$site-breakpoint-md: map-get($site-breakpoints, md);
+$site-breakpoint-lg: map-get($site-breakpoints, lg);
+$site-breakpoint-xl: map-get($site-breakpoints, xl);
+$site-breakpoint-xxl: map-get($site-breakpoints, xxl);
+
+// COLORS
+$site-colors: (
+  'grayscale-white': #ffffff,
+  'grayscale-lightest': #f3f5f8,
+  'grayscale-lighter': #c3ced9,
+  'grayscale-light': #acb6bf,
+  'grayscale': #76818c,
+  'grayscale-dark': #58616b,
+  'grayscale-darker': #34383c,
+  'grayscale-darkest': #1e2226,
+  'grayscale-black': #000000,
+  'primary-lightest': #f2f5fa,
+  'primary-lighter': #dce8fa,
+  'primary-light': #a5cfdb,
+  'primary': #51d0ef,
+  'secondary': #eb74aa,
+  'tertiary': #ff9948,
+  'quaternary': #405069,
+  'quaternary-light': #7d8a9d,
+  'quaternary-lighter': #9ba8b8,
+  'quaternary-lightest': #c2cbd5
+);
+
+// TYPOGRAPHY
+$site-font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$site-font-family-monospace: Monaco, Consolas, "Liberation Mono", Courier, monospace !default;
+$site-font-size: 16px !default;
+$site-font-size-sm: 14px !default;
+$site-font-size-md: 18px !default;
+$site-font-size-lg: 24px !default;
+$site-font-size-xl: 32px !default;
+$site-font-weight: 400 !default;
+$site-font-weight-bold: 700 !default;
+$site-line-height: 1.5 !default;
+$site-letter-spacing: 0.05em !default;
+$site-spacing-unit: ($site-font-size * $site-line-height) !default;
+$site-text-color: map-get($site-colors, grayscale-dark) !default;
+$site-link-color: map-get($site-colors, tertiary) !default;
+$site-heading-color: map-get($site-colors, grayscale-darkest) !default;
+$site-background-color: map-get($site-colors, grayscale-lightest) !default;
+$site-hr-background-color: map-get($site-colors, grayscale-darker) !default;
+$site-pre-background-color: map-get($site-colors, primary-lightest) !default;
+$site-pre-border: 1px solid map-get($site-colors, grayscale-lighter) !default;
+
+// LAYOUT
+$site-border-radius: 4px;
+$site-container-width: 1280px !default;
+
+// TRANSITIONS
+$site-transition-timing-function: 0.33s ease;

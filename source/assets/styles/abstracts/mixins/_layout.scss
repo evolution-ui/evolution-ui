@@ -1,0 +1,119 @@
+///
+/// Maintain the Vertical-Rhythm
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {Value} $font-size - A value in px or rems
+/// @param {String} $bottom-rows [1] - Allow the specification of additional
+///                                base-line rows below the element
+/// @param {String} $top-rows [0] - Allow the specification of additional
+///                                base-line rows above the element
+/// @param {Boolean} $use-height [false] - If true it uses height for height-based
+///                                        element (block-level elements or replaced
+///                                        inline elements), otherwise it uses line-height
+/// @param {Value} $border [0] - On non-replaced inline elements (span, paragraphs)
+///                              it solves the problem with borders and margin collapsing
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include vertical-rhythm(2rem);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    height: 2rem;
+///    margin-top: 0.5rem;
+///    margin-bottom: 2rem;
+///  }
+///
+///
+///  .namespace_myClass {
+///     @include vertical-rhythm(2rem, $use-height: true);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    font-size:      2rem;
+///    line-height:    3rem;
+///    margin-top:     0;
+///    margin-bottom:  1.5rem;
+///  }
+///
+///
+///  .namespace_myClass {
+///     @include vertical-rhythm(350px, $use-height: true);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass {
+///    height: 21.875rem;
+///    margin-top: 0.3125rem;
+///    margin-bottom: 1.8125rem;
+///  }
+///
+
+@mixin vertical-rhythm($font-size,
+                       $bottom-rows: 1,
+                       $top-rows: 0,
+                       $use-height: false,
+                       $border: 0rem) {
+
+  // Get the current unit of measure
+  $unit: str-slice(to-string($font-size), 2, -1);
+
+  // $font-size and $border can be provided in rems or pixels
+  // the result of the function will translate them always in rems
+  $font-size: if($unit == 'rem', $font-size, rem($font-size) + 0rem);
+  $border: if($unit == 'rem', $border, rem($border) + 0rem);
+
+  $multiplier: ceil($font-size / $g-framework-line-height-base);
+
+  // if so use height property for height, otherwise use line-height property
+
+  // block-level elements or replaced inline elements
+  // images, divs, images, buttons, input fields, textareas, and select objects
+  // those elements are not governed by line-height in the same way that
+  // text-based elements are.
+  // use height property for height
+
+  @if $use-height {
+    $leftover:      $g-framework-line-height-base * $multiplier - $font-size;
+    height:         $font-size;
+    margin-top:     $g-framework-line-height-base * $top-rows + $leftover / 2;
+    margin-bottom:  $g-framework-line-height-base * $bottom-rows + $leftover / 2;
+  }
+  @else {
+    // otherwise use line-height property
+    // line-height property is applied to non-replaced inline elements
+    // like spans, paragraphs, etc.
+    font-size:      $font-size;
+    line-height:    $g-framework-line-height-base * $multiplier;
+    margin-top:     $g-framework-line-height-base * $top-rows;
+    margin-bottom:  $g-framework-line-height-base * $bottom-rows - $border;
+  }
+}
+
+// For clearing floats like a boss h5bp.com/q
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
