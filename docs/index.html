@@ -1,0 +1,97 @@
+---
+title: "Documentation"
+layout: default
+---
+
+{% assign evolutionComponents = site.components | where:'category','evolution' %}
+{% assign componentsByType = evolutionComponents | group_by:'type' %}
+<div class="site-sidebar" aria-label="Sidebar">
+  <button class="site-sidebar-toggle js-offcanvas-toggle" type="button">
+    <span class="site-sidebar-toggle-icon">
+      <span class="site-sidebar-toggle-line site-sidebar-toggle-line-1"></span>
+      <span class="site-sidebar-toggle-line site-sidebar-toggle-line-2"></span>
+      <span class="site-sidebar-toggle-line site-sidebar-toggle-line-3"></span>
+    </span>
+  </button>
+  <nav class="site-sidebar-nav js-offcanvas-target" role="navigation">
+    <h1 class="site-sidebar-heading">{{ page.title }}</h1>
+    <ul class="site-sidebar-list">
+      {% for type in componentsByType %}
+      <li class="site-sidebar-item">
+        <a href="#site-section-{{ forloop.index }}" class="site-sidebar-link">{{ type.name | capitalize }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+<div class="site-content" aria-label="Content">
+  {% for type in componentsByType %}
+    <article class="site-section" id="site-section-{{ forloop.index }}">
+      <h1 class="site-section-heading">{{ type.name | capitalize }}</h1>
+      {% for item in type.items %}
+        {% if forloop.first %}
+          {% if item.author %}
+            <span class="site-section-subheading">By {{ item.author }}</span>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      <div class="site-section-content">
+        {% assign sortedVariants = type.items | sort:'order' %}
+        {% for variant in sortedVariants %}
+          {% include variant.html %}
+          {% if forloop.last != true %}
+            <hr class="site-section-content-divider">
+          {% endif %}
+        {% endfor %}
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+{% comment %}
+{% assign componentsByType = site.components | group_by:'type' %}
+
+<div class="site-sidebar" aria-label="Sidebar">
+  <button class="site-sidebar-toggle js-offcanvas-toggle" type="button">
+    <span class="site-sidebar-toggle-icon">
+      <span class="site-sidebar-toggle-line site-sidebar-toggle-line-1"></span>
+      <span class="site-sidebar-toggle-line site-sidebar-toggle-line-2"></span>
+      <span class="site-sidebar-toggle-line site-sidebar-toggle-line-3"></span>
+    </span>
+  </button>
+  <nav class="site-sidebar-nav js-offcanvas-target" role="navigation">
+    <h1 class="site-sidebar-heading">{{ page.title }}</h1>
+    <ul class="site-sidebar-list">
+      {% for type in componentsByType %}
+      <li class="site-sidebar-item">
+        <a href="#site-section-{{ forloop.index }}" class="site-sidebar-link">{{ type.name | capitalize }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+
+<div class="site-content" aria-label="Content">
+  {% for type in componentsByType %}
+    <article class="site-section" id="site-section-{{ forloop.index }}">
+      <h1 class="site-section-heading">{{ type.name | capitalize }}</h1>
+      {% for item in type.items %}
+        {% if forloop.first %}
+          {% if item.author %}
+            <span class="site-section-subheading">By {{ item.author }}</span>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      <div class="site-section-content">
+        {% assign sortedVariants = type.items | sort:'order' %}
+        {% for variant in sortedVariants %}
+          {% include variant.html %}
+          {% if forloop.last != true %}
+            <hr class="site-section-content-divider">
+          {% endif %}
+        {% endfor %}
+      </div>
+    </article>
+  {% endfor %}
+</div>
+{% endcomment %}

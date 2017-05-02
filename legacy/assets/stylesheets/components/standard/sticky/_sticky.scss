@@ -1,0 +1,36 @@
+/******************************************************************************
+                            Sticky Component
+******************************************************************************/
+
+@import 'sticky-config';
+
+@include c('sticky') {
+
+  max-width: $sticky-max-width;
+  margin: 0 auto;
+  padding: $sticky-padding;
+  z-index: 5;
+  background: get-color('accent', 'light');
+  border-radius: $sticky-border-radius;
+  color: white(1);
+  clear: both;
+
+  @include e('end') {
+    clear: both;
+  }
+}
+
+@include h('sticky') {
+  display: block;
+  max-width: 300px;
+  padding: 15px;
+
+  @include m('left') {
+    float: left;
+  }
+
+  @include m('right') {
+    float: right;
+  }
+}
+/** END STICKY COMPONENT **/

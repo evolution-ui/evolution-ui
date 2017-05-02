@@ -1,0 +1,26 @@
+---
+title: "Default"
+description: |
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae impedit quidem tempore aliquam dolorum numquam asperiores quis, ut distinctio molestias sunt eveniet voluptatibus sint cum id voluptates minus repudiandae rem!</p>
+author: Chris Bracco
+category: evolution
+type: Audio Player
+order: 1
+---
+
+<figure id="audioplayer" class="evo_c-audio-player h-bck__primary--dark">
+  <div class="evo_c-audio-player__controls">
+    <div class="evo_c-audio-player__track">
+      <button type="button" class="evo_c-audio-player__icon"><i class="material-icons">play_arrow</i></button>
+      <input type="range" min="0" max="100" value="0" class="evo_c-audio-player__playhead" id="playhead">
+    </div>
+    <span class="evo_c-audio-player__track-time">00:00</span>
+    <div class="evo_c-audio-player__track-volume">
+      <button type="button" class="evo_c-audio-player__icon"><i class="material-icons">volume_up</i></button>
+    </div>
+  </div>
+  <audio controls="controls" preload="auto" itemprop="audio">
+    <source src="/assets/audio/evolution-ui/standard/audio-player/diana.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+</figure>

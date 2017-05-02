@@ -1,0 +1,33 @@
+#
+# CONFIGURATION
+#
+
+# SITE
+language: "en-us"
+encoding: "utf-8"
+title: "Evolution"
+title_after: "Cutting Edge UI Components for Modern Developers"
+description: "Evolution UI is a collection of standard and innovative front-end UI components made by Bov Academy students."
+author: "Bov Academy"
+
+# ROUTES
+baseurl: ""
+url: "http://localhost:3000"
+root: /
+permalink: /:categories/:title/
+
+# BUILD SETTINGS
+# gems:
+#   - jekyll-feed
+markdown: kramdown
+sass:
+    sass_dir: /assets/styles/_sass
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+# COLLECTIONS
+collections:
+  components:
+    output: false

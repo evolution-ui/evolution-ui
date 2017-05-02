@@ -1,0 +1,15 @@
+<h2>{{ variant.title }}</h2>
+
+{{ variant.description }}
+
+<div class="site-demo site-demo-{{ variant.type | slugify }}-{{ variant.title | slugify }}">
+  {{ variant.content }}
+</div>
+
+{% unless variant.no_markup %}
+<div class="site-markup">
+  <input class="site-markup-input" id="siteMarkup-{{ variant.type | slugify }}-{{ variant.title | slugify }}" type="checkbox">
+  <label class="site-markup-toggle" for="siteMarkup-{{ variant.type | slugify }}-{{ variant.title | slugify }}">Show Markup</label>
+  <div class="site-markup-content">{% highlight html %}{{ variant.content }}{% endhighlight %}</div>
+</div>
+{% endunless %}

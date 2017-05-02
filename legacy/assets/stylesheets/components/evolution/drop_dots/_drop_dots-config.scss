@@ -1,0 +1,10 @@
+$drop-dot__name: 'drop-dot';
+$ref__list: getBEMReference($drop-dot__name, 'list');
+
+$drop-dot__radius: 10rem;
+
+$drop-dot__top-bg: get-color('primary', 'base');
+$drop-dot__text: white();
+$drop-dot__list-bg:  get-color('primary', 'dark');
+$drop-dot__list-bg--hover:  get-color('primary', 'light');
+$drop-dot__list-text: white();

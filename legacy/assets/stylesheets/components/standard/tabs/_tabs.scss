@@ -1,0 +1,517 @@
+/******************************************************************************
+                            TABS component
+******************************************************************************/
+
+
+@import 'tabs-config';
+
+
+
+
+@include l( 'tab-grid' ) {
+
+  padding: 0;
+  list-style-type: none;
+
+  @include e( 'item' ) {
+    padding: 0;
+    margin: 20px 0;
+
+    @media screen and (min-width: $c-tabs-media-tablet) {
+      padding: 20px;
+    }
+  }
+
+}
+
+
+@include c($c-component-name) {
+
+  ///$component-selector: getBEMReference($c-form-component-name);
+  $nav-selector: getBEMReference($c-component-name, 'navigation');
+  $sticky-selector: getBEMReference($c-component-name, 'sticky');
+  $tab-list-selector: getBEMReference($c-component-name, 'list');
+  $tab-item-selector: getBEMReference($c-component-name, 'item');
+  $tab-is-active: 'is-active';
+  $tab-panel: getBEMReference($c-component-name, 'panel');
+  $tab-link-selector: getBEMReference($c-component-name, 'link');
+
+
+  min-width: $c-tabs-navigation-min-width;
+  font-family: $c-tabs-navigation-font-family;
+
+
+  @media screen and (min-width: $c-tabs-media-phablet) {
+    margin: $c-tabs-navigation-margin-small;
+  }
+
+  @media screen and (min-width: $c-tabs-media-tablet) {
+    margin: $c-tabs-navigation-margin-normal;
+  }
+
+    //--------------------------------------------------------------------------
+    //                         Helpers & Status
+    //--------------------------------------------------------------------------
+
+    @include h('border', $g-no-prefix, $apply-on-descendants: false) {
+
+      @include m('light') {
+        border: $c-tabs-border--light;
+      }
+
+      @include m('medium') {
+        border: $c-tabs-border--medium;
+      }
+
+      @include m('heavy') {
+        border: $c-tabs-border--heavy;
+      }
+
+    }
+
+    //--------------------------------------------------------------------------
+    //                          CARD - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('card') {
+      box-shadow: 0 2px 4px 0 black(.16),
+                  0 2px 11px 0 black(.12);
+    }
+
+    //--------------------------------------------------------------------------
+    //                     SCROLL-FROM-TOP - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('scroll-from-top') {
+      @extend %c-tabs-scroll;
+
+      .#{$tab-panel} {
+        @extend %c-tabs-scroll-tab-content;
+        transform-origin: top center;
+        transform: translateY(-220%);
+        transition: all 2s ease-in-out;
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                            Status
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include s($tab-is-active) {
+            transform: translateY(0);
+          }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                     SCROLL-FROM-BOTTOM - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('scroll-from-bottom') {
+      @extend %c-tabs-scroll;
+
+      .#{$tab-panel} {
+        @extend %c-tabs-scroll-tab-content;
+        transform-origin: top center;
+        transform: translateY(200%);
+        transition: all 2s ease-in-out;
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                            Status
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include s($tab-is-active) {
+            transform: translateY(0);
+          }
+      }
+    }
+
+
+    //--------------------------------------------------------------------------
+    //                   SCROLL-FROM-LEFT - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('scroll-from-left') {
+      @extend %c-tabs-scroll;
+
+      .#{$tab-panel} {
+        @extend %c-tabs-scroll-tab-content;
+        transform-origin: left center;
+        transform: translateX(-220%);
+        transition: all 2s ease-in-out;
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                            Status
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include s($tab-is-active) {
+            transform: translateX(0);
+          }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                   SCROLL-FROM-RIGHT - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('scroll-from-right') {
+      @extend %c-tabs-scroll;
+
+      .#{$tab-panel} {
+        @extend %c-tabs-scroll-tab-content;
+        transform-origin: left center;
+        transform: translateX(220%);
+        transition: all 2s ease-in-out;
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                            Status
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include s($tab-is-active) {
+            transform: translateX(0);
+          }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                        Sticky-Half - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('sticky-half') {
+      display: flex;
+      flex-wrap: wrap;
+
+      .#{$tab-list-selector} {
+        height: 100%;
+        align-items: center;
+      }
+
+      .#{$sticky-selector} {
+        flex-grow: 1;
+      }
+
+      .#{$tab-panel} {
+        flex-basis: 100%;
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                        LATERAL - MODIFIER
+    //--------------------------------------------------------------------------
+
+    @include m('lateral') {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      @media screen and (min-width: $c-tabs-media-tablet) {
+        flex-wrap: nowrap;
+        flex-direction: row;
+      }
+
+      .#{$tab-list-selector} {
+        @extend %c-tabs-flex-columns;
+        min-width: $c-tabs-tab-lateral-list-min-width;
+        height: 100%;
+
+          @media screen and (min-width: $c-tabs-media-tablet) {
+            justify-content: space-around;
+          }
+      }
+
+      .#{$tab-item-selector} {
+        text-align: center;
+      }
+
+      .#{$tab-panel} {
+        flex-grow: 1;
+        width: 95%;
+
+        @media screen and (min-width: $c-tabs-media-tablet) {
+          top: 0;
+          max-width: calc(100% - #{$c-tabs-tab-lateral-list-min-width + ($c-tabs-tab-content-padding * 2)});
+        }
+      }
+
+      .#{$sticky-selector} {
+        flex-grow: 1;
+      }
+
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          //                       NAV RIGTH - LETERAL HELPER
+          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+          @include h('nav--right', $g-no-prefix, $apply-on-descendants: false) {
+
+            @media screen and (min-width: $c-tabs-media-tablet) {
+              flex-direction: row-reverse;
+            }
+          }
+    }
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       navigation ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('navigation') {
+    font-size: $c-tabs-navigation-font-size;
+    color: $c-tabs-link-color;
+    background-color: $c-tabs-navigation-background-color;
+    z-index: $c-tabs-navigation-z-index;
+
+    // Provide brackgrounds and text color variations
+    @include backgroundVariants($is-descendant: false);
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       list ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('list') {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+
+      @include h('space-between', $apply-on-descendants: false) {
+        justify-content: space-between;
+      }
+
+      @include h('space-around', $g-no-prefix, $apply-on-descendants: false) {
+        justify-content: space-around;
+      }
+
+      @include h('grow', $g-no-prefix, $apply-on-descendants: false) {
+        .#{$tab-item-selector} {
+            flex-grow: 1;
+        }
+      }
+
+      @include h('link-column', $g-no-prefix, $apply-on-descendants: false) {
+        & .#{$tab-link-selector} {
+            flex-direction: column;
+          }
+      }
+
+      @include h('content', $g-no-prefix, $apply-on-descendants: false) {
+
+        @include m('left') {
+          .#{$tab-item-selector} {
+            justify-content: flex-start;
+          }
+        }
+
+        @include m('center') {
+          .#{$tab-item-selector} {
+            justify-content: center;
+          }
+        }
+
+        @include m('right') {
+          .#{$tab-item-selector} {
+            justify-content: flex-end;
+          }
+        }
+
+      }
+
+      //------------------------------------------------------------------------
+      //                    COLOR VARIATIONS - ITEM HELPER
+      //------------------------------------------------------------------------
+
+      @include h('active-bck', $g-no-prefix, $apply-on-descendants: false) {
+          @include _generate-is-active-color('primary');
+          @include _generate-is-active-color('secondary');
+          @include _generate-is-active-color('accent');
+          @include _generate-is-active-color('accent2');
+          @include _generate-is-active-color('accent3');
+          @include _generate-is-active-color('accent4');
+          @include _generate-is-active-color('background');
+      }
+
+      //------------------------------------------------------------------------
+      //                    ANIMATIONS - ITEM HELPER
+      //------------------------------------------------------------------------
+
+
+      @include h('animation', $g-no-prefix, $apply-on-descendants:false) {
+
+        @include m('zoom-text') {
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            font-size: 1.3em;
+          }
+        }
+
+        @include m('underline') {
+
+          .#{$tab-item-selector} {
+            &:after {
+              content: '';
+              display: flex;
+              width: 100%;
+              height: 10%;
+              display:block;
+              margin-top: 3px;
+              transform: scale(0, 0);
+              transition: all .5s ease-out;
+            }
+          }
+
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            position: relative;
+            &:after {
+              transform: scale(1, 1);
+              background-color: white(.35);
+            }
+          }
+        }
+
+        // It makes a zoom effect on the shadow :after block element
+        @include m('zoom') {
+
+          .#{$tab-item-selector} {
+            &:after {
+              @extend %c-tabs-item-animations;
+              margin: auto;
+              transform: scale(1, 0);
+              transition: all .5s ease-out;
+            }
+          }
+
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            position: relative;
+            &:after {
+              animation-name: zoomI;
+              -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+              transform: scale(1, 1);
+              background-color: white(.2);
+            }
+          }
+        }
+
+        @include m('highlight') {
+
+          .#{$tab-item-selector} {
+            &:after {
+              @extend %c-tabs-item-animations;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: auto;
+              transform: scale(0, 0);
+              transition: all .5s ease-out;
+            }
+          }
+
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            position: relative;
+            &:after {
+              transform: scale(1, 1);
+              background-color: white(.2);
+            }
+          }
+        }
+
+        @include m('highlight-to-right') {
+
+          .#{$tab-item-selector} {
+            &:after {
+              @extend %c-tabs-item-animations;
+              margin: auto;
+              display:block;
+              transform: scale(0, 1);
+              transition: all .5s ease-out;
+            }
+          }
+
+          .#{$tab-item-selector}.#{$tab-is-active} {
+            position: relative;
+            &:after {
+              transform-origin: left center;
+              transform: scale(1, 1);
+              background-color: white(.1);
+            }
+          }
+        }
+
+      }
+
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       item ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('item') {
+    @extend %c-tabs-cursor-pointer;
+    justify-content: center;
+    padding: $c-tabs-item-padding-top-bottom $c-tabs-item-padding-left-right;
+    transition: all .8s ease;
+
+    @include s($tab-is-active) {
+      background-color: $c-tabs-item-active-background-color!important;
+    }
+
+    &:hover {
+      background-color: white(.2);
+      transition: all .4s;
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       Sticky ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('sticky') {
+    text-align: center;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       link ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('link') {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: inherit;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: inherit;
+      text-decoration: inherit;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                       panel ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('panel') {
+    @extend %c-tabs-display-none;
+    padding: 10px;
+    z-index: $c-tabs-tab-content-z-index;
+
+    @media screen and (min-width: $c-tabs-media-tablet) {
+      padding: $c-tabs-tab-content-padding;
+    }
+
+      //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      //                            Status
+      //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        @include s($tab-is-active) {
+          display: block;
+        }
+  }
+}

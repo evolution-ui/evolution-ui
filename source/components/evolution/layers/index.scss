@@ -1,0 +1,230 @@
+@import '../../assets/styles/abstracts/variables';
+@import '../../assets/styles/abstracts/functions';
+@import '../../assets/styles/abstracts/import-mixins';
+@import '../../assets/styles/abstracts/placeholders';
+
+/******************************************************************************
+                            Layers Config
+******************************************************************************/
+
+$c-layers-color-visited: #6e6d6d;
+$c-layers-color-selected-bg: #ebf9fb;
+$c-layers-color-selected-border: #c0e4e9;
+$c-layers-color-selected-text: #535c5d;
+$c-layers-color-selected-title: #2ea3b3;
+$c-layers-color-unvisited-title: #656464;
+$c-layers-color-unvisited-border: #939191;
+
+/******************************************************************************
+                            Layers Component
+******************************************************************************/
+
+// @import "layers-config";
+
+.evo_c-3dlayers {
+
+  margin-bottom: 24px;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 480px;
+  }
+}
+
+.evo_c-3dlayer {
+  background-color: white();
+  border: 1px solid $c-layers-color-unvisited-border;
+  border-bottom-color: transparent;
+  border-radius: 2px;
+  color: $c-layers-color-unvisited-title;
+  cursor: pointer;
+  height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -480px;
+  overflow: hidden;
+  padding: 0 24px;
+  position: relative;
+  transform-origin: 0 0 0;
+  transition: border 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+  top 0.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+  left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+  color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+  transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+  opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+  background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  &:hover:not(.evo_c-3dlayer--selected) {
+    @media only screen and (max-width: 959px) {
+      border-right-color: $c-layers-color-selected-border;
+    }
+    border-top-color: $c-layers-color-selected-border;
+    border-left-color: $c-layers-color-selected-border;
+    color: $c-layers-color-selected-border;
+  }
+
+  @for $index from 1 through 4 {
+    &:nth-of-type(#{$index}) {
+      top: 60px * ($index - 1);
+      width: calc(100% - #{16px / 2 * ($index - 1)});
+    }
+
+    @media only screen and (min-width: 960px) {
+      &:nth-last-of-type(#{$index + 1}):not(.evo_c-3dlayer--selected) {
+        transform: scale(1 - 0.1 * $index);
+      }
+    }
+  }
+
+  @media only screen and (min-width: 960px) {
+    border-right-color: transparent;
+    margin-left: 0;
+    margin-right: 0;
+
+    @for $index from 1 through 4 {
+      &:nth-of-type(#{$index}) {
+        left: 16px * ($index - 1);
+        max-width: 780px;
+        width: calc(100% - #{16px * ($index - 1)});
+      }
+    }
+  }
+
+  will-change: left, top;
+}
+
+.evo_c-3dlayer--selected {
+  background-color: $c-layers-color-selected-bg;
+  border-color: $c-layers-color-selected-border;
+  cursor: auto;
+  transition-duration: 0.8s;
+}
+
+.evo_c-3dlayer--hide {
+  opacity: 0;
+  transform: scale(0.8) !important;
+
+  @media only screen and (min-width: 960px) {
+    transform: scale(0.8) translate(200px, 200px) !important;
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  .evo_c-3dlayer--visited:not(.evo_c-3dlayer--selected):not(.evo_c-3dlayer--hide):not(.evo_c-3dlayer--dragging) {
+    border-right-color: $c-layers-color-visited;
+
+    &:hover:not(.evo_c-3dlayer--selected) {
+      border-right-color: $c-layers-color-selected-border;
+    }
+  }
+
+  .evo_c-3dlayer--dragging {
+    border-right-color: $c-layers-color-selected-border;
+  }
+}
+
+.evo_c-3dlayer--visited:not(.evo_c-3dlayer--selected):not(.evo_c-3dlayer--hide):not(.evo_c-3dlayer--dragging) {
+  border-top-color: $c-layers-color-visited;
+  border-left-color: $c-layers-color-visited;
+  color: $c-layers-color-visited;
+
+  &:hover:not(.evo_c-3dlayer--selected) {
+    border-top-color: $c-layers-color-selected-border;
+    border-left-color: $c-layers-color-selected-border;
+    color: $c-layers-color-selected-border;
+  }
+}
+
+.evo_c-3dlayer--dragging {
+  border-top-color: $c-layers-color-selected-border;
+  border-left-color: $c-layers-color-selected-border;
+  color: $c-layers-color-selected-border;
+}
+
+@for $index from 1 through 4 {
+  @keyframes droplayer#{$index} {
+    0% {
+      opacity: 0;
+      transform: scale(0.1) translate(200px, 200px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1 - 0.1 * $index) translate(0, 0);
+    }
+  }
+
+  .evo_c-3dlayer--drop {
+    &:nth-last-of-type(#{$index}) {
+      animation: droplayer#{$index} 0.3s ease-in 1;
+    }
+  }
+}
+
+.evo_c-3dlayer__content {
+  color: $c-layers-color-selected-text;
+  opacity: 0;
+  padding: 24px;
+  transition: opacity 0.8s, visibility 0s linear 0.85s;
+  visibility: hidden;
+
+  @at-root .evo_c-3dlayer--selected > & {
+    opacity: 1;
+    transition: opacity 0.8s;
+    visibility: visible;
+  }
+
+}
+
+.evo_c-3dlayer__header {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  user-select: none;
+
+  @at-root .evo_c-3dlayer--selected & {
+    color: $c-layers-color-selected-title;
+    transition: color 0.8s;
+  }
+
+}
+
+.evo_c-3dlayer__label {
+  font-size: 20px;
+  line-height: 60px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @at-root .evo_c-3dlayer--selected & {
+    font-weight: 600;
+  }
+}
+
+.evo_c-3dlayer__icon-visited {
+  display: none;
+  flex-shrink: 0;
+  margin: 0 16px;
+
+  @at-root .evo_c-3dlayer--visited:not(.evo_c-3dlayer--selected) & {
+    display: block;
+  }
+}
+
+.evo_c-3dlayer__icon-drag {
+  cursor: move;
+  cursor: grab;
+  flex-shrink: 0;
+  margin-left: auto;
+  text-align: right;
+  transform: rotateZ(90deg);
+}
+
+.evo_h-layer--body-grabbing {
+
+  * {
+    cursor: move !important;
+    cursor: grabbing !important;
+  }
+}

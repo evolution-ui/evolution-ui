@@ -1,0 +1,65 @@
+---
+title: "Background color Variations"
+description: |
+  <p>
+    By adding the <code>h-bck__[color-name][--variation]</code> helper class on an <code>
+    evo_c-progress-bar</code> component, you can change the trackbar's color.
+    The <em>color-name</em> part comes from one of the colors in the
+    Evolution UI's color palette. The <em>--variation</em> part is
+    optional instead.
+  </p>
+  <p>
+    By adding the <code>h-bck__[color-name][--variation]</code> helper class on an <code>
+    evo_c-progress-bar__bar</code> bar, you can change the bar's color.
+    The <em>color-name</em> part comes from one of the colors in the
+    Evolution UI's color palette. The <em>--variation</em> part is
+    optional instead.
+  </p>
+  <p>
+    On the 45, 90, and 135 bars, you can apply color variations using the
+    <code>h-bck--[color-name]</code> helper class instead (without the variation part).
+  </p>
+author: Gabriele Romeo
+category: standard
+type: Progress Bars
+order: 8
+---
+
+<div class="evo_c-progress-bar h-bck__accent4--light" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 10%"></span>
+</div>
+
+<div class="evo_c-progress-bar h-bck__primary2--darken" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar" style="width: 65%"></span>
+</div>
+
+
+
+<div class="evo_c-progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar h-bck__accent3--light" style="width: 10%"></span>
+</div>
+
+<div class="evo_c-progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar h-bck__primary2--darken" style="width: 65%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--type2 h-percentage--center" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar h-bck__accent--darken" style="width: 85%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--shape2 h-percentage--center" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar h-bck__accent--darken" style="width: 85%"></span>
+</div>
+
+<div class="evo_c-progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--45" style="width: 80%"></span>
+</div>
+
+<div class="evo_c-progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--90 h-bck--primary2" style="width: 80%"></span>
+</div>
+
+<div class="evo_c-progress-bar evo_c-progress-bar--big" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+  <span class="evo_c-progress-bar__bar evo_c-progress-bar__bar--135 h-bck--accent2" style="width: 80%"></span>
+</div>
+

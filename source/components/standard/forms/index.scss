@@ -1,0 +1,1073 @@
+@import '../../assets/styles/abstracts/variables';
+@import '../../assets/styles/abstracts/functions';
+@import '../../assets/styles/abstracts/import-mixins';
+@import '../../assets/styles/abstracts/placeholders';
+
+/******************************************************************************
+                            Forms Config
+******************************************************************************/
+
+//------------------------------------------------------------------------------
+//                          Forms config
+//------------------------------------------------------------------------------
+
+
+$c-form-component-name: 'form';
+
+$c-form-padding-tiny:  5px;
+$c-form-padding-small: 10px;
+$c-form-padding-default: 20px;
+$c-form-padding-large: 30px;
+$c-form-padding-huge:  60px;
+
+$c-form-margin: 30px 0;
+
+
+//------------------------------------------------
+//              Media Queries
+//------------------------------------------------
+
+$c-form-media-tablet: 768px;
+$c-form-media-desktop: 1024px;
+$c-form-media-desktop-HD: 1200px;
+
+//------------------------------------------------
+//              Forms input
+//------------------------------------------------
+
+$c-form-input-height: 35px;
+$c-form-input-width: 100%;
+$c-form-input-padding-default: 10px;
+
+
+//------------------------------------------------
+//              Forms checkbox
+//------------------------------------------------
+
+$c-form-checkbox-size: 15px;
+$c-form-checkbox-x-size: 15px;
+
+$c-form-checkbox-border-color-default: get-color('primary2', 'dark');
+$c-form-checkbox-border-color-accent: get-color('accent');
+$c-form-checkbox-border-color-accent2: get-color('accent2');
+$c-form-checkbox-border-color-accent3: get-color('accent3');
+$c-form-checkbox-border-color-accent4: get-color('accent4');
+
+$c-form-checkbox-border-width: 2px;
+$c-form-checkbox-border-style: solid;
+$c-form-checkbox-border-color: $c-form-checkbox-border-color-default;
+
+
+//------------------------------------------------
+//              Forms radio
+//------------------------------------------------
+
+$c-form-radio-size: 15px;
+$c-form-radio-x-size: 25px;
+$c-form-radio-border: 2px solid get-color('primary2', 'dark');
+
+
+//------------------------------------------------
+//              Forms Button
+//------------------------------------------------
+
+$c-form-button-padding-small: 10px 20px;
+$c-form-button-padding-default: 10px 60px;
+$c-form-button-padding-huge: 10px 80px;
+
+$c-form-button-border-radius: 4px;
+
+//------------------------------------------------
+//              focus-line ELEMENT
+//------------------------------------------------
+
+$c-form-focus-line-left: 34px;
+$c-form-focus-line-height: 2.5px;
+
+//------------------------------------------------
+//              Forms tooltip
+//------------------------------------------------
+
+$c-form-tooltip-width: 180px;
+$c-form-tooltip-left: -150px;
+$c-form-tooltip-arrow-size: 14px;
+
+
+
+//------------------------------------------------
+//              Forms field-status
+//------------------------------------------------
+
+$c-form-field-status-font-size: 1rem;
+$c-form-field-status-width: 21%;
+$c-form-field-status-max-width: 200px;
+$c-form-field-status-padding-left: 10px;
+
+
+//------------------------------------------------
+//              Forms Dropdown
+//------------------------------------------------
+
+$c-form-dropdown-font-size-small: .7rem;
+$c-form-dropdown-font-size-large: 1.25rem;
+
+
+//------------------------------------------------------------------------------
+//                          Forms Placeholders
+//------------------------------------------------------------------------------
+
+%c-form-absolute {
+  position: absolute;
+}
+
+%c-form-h-full-width {
+  width: 100%;
+}
+
+%c-form-flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+%c-form-input-width {
+  width: $c-form-input-width;
+}
+
+%c-form-focus-line-width {
+  width: calc(#{$c-form-input-width} - #{$c-form-focus-line-left});
+}
+
+
+%c-form-inputs-and-buttons {
+  @include vertical-rhythm(18px, $top-rows: 1);
+  padding: 10px;
+}
+
+%c-form-vertical-rythm-1 {
+  @include vertical-rhythm(18px, $top-rows: 1);
+}
+
+%c-form-label-and-validation-anim {
+  transform: translate3d(-2px, -#{$c-form-input-height}, 0) scale(.8);
+}
+
+%c-form-none {
+  display: none;
+}
+
+%c-form-checkbox {
+  @extend %c-form-flex-align-center;
+  position: relative;
+  padding-left: $c-form-checkbox-size + 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+%c-form-checkbox-before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  display:block;
+  transition: all .2s;
+}
+
+%c-form-checkbox-sizes {
+  width: 12px;
+  height: 22px;
+}
+
+%c-form-checkbox-before-borders {
+  border-top-color: black(0);
+  border-left-color: black(0);
+  border-right-color: inherit;
+  border-bottom-color: inherit;
+}
+
+%c-form-checkbox-x-before-after-borders {
+  border-top-color: black(0);
+  border-left-color: black(0);
+  border-bottom-color: black(0);
+  border-right-color: inherit;
+}
+
+
+%c-form-radio-size {
+  height: $c-form-radio-size;
+  width: $c-form-radio-size;
+}
+
+%c-form-rounded {
+  border-radius:50%;
+}
+
+%c-form-pointer {
+  cursor: pointer;
+}
+
+//------------------------------------------------------------------------------
+//                          Forms Mixins
+//------------------------------------------------------------------------------
+
+
+@mixin _generate-button($color-name, $color-name-hover: null) {
+  @include m($color-name) {
+    border: 1px solid get-color($color-name, 'light');
+    &:hover {
+      color: if($color-name-hover != null, get-color($color-name-hover), white());
+      background-color: get-color($color-name);
+    }
+  }
+}
+
+@mixin _generate-button-type-2($color-name, $color-name-hover: null) {
+  @include m($color-name) {
+    color: white(.9);
+    background-color: get-color($color-name);
+    border: 0;
+    text-shadow: 0 1px 1px black(.5);
+
+    &:hover {
+      color: if($color-name-hover != null, get-color($color-name-hover), white());
+      background-color: get-color($color-name, light);
+    }
+  }
+}
+
+@mixin _generate-focus-line($color-name){
+  @include m($color-name) {
+    background-color: get-color($color-name);
+  }
+}
+
+@mixin _generate-checkbox-color($color-name){
+  @include m($color-name) {
+    border-top-color: get-color($color-name);
+    border-left-color: get-color($color-name);
+    border-bottom-color: get-color($color-name);
+    border-right-color: get-color($color-name);
+  }
+}
+
+/******************************************************************************
+                              Forms component
+******************************************************************************/
+
+
+// @import 'forms-config';
+
+
+
+@include l( 'grid' ) {
+
+  padding: 0;
+  list-style-type: none;
+
+  @include e( 'item' ) {
+    padding: 20px;
+  }
+
+}
+
+
+@include c( $c-form-component-name ) {
+
+  $header-selector: getBEMReference($c-form-component-name, 'header');
+  $body-selector: getBEMReference($c-form-component-name, 'body');
+  $footer-selector: getBEMReference($c-form-component-name, 'footer');
+
+  // Provide brackgrounds and text color variations
+  @include backgroundVariants($is-descendant: false, $opacity: .09);
+
+  padding: $c-form-padding-tiny;
+  margin:  $c-form-margin;
+
+  font-family: $g-framework-font-family;
+  font-size: $g-framework-base-font-size;
+
+
+  @media screen and (min-width: $c-form-media-desktop) {
+    padding: $c-form-padding-default;
+  }
+
+  @media screen and (min-width: $c-form-media-desktop-HD) {
+    padding: $c-form-padding-huge;
+  }
+
+  @include h( 'full-width', $g-no-prefix ) {
+    width: 100%;
+  }
+
+  @include h( 'center', $g-no-prefix ) {
+    margin: 0 auto;
+  }
+
+  @include h( 'border', $g-no-prefix ) {
+    border: 1px solid get-color('secondary', 'dark');
+  }
+
+  @include h( 'border-style--dotted', $g-no-prefix ) {
+    border-style: dotted;
+  }
+
+  @include h( 'border-style--dashed', $g-no-prefix ) {
+    border-style: dashed;
+  }
+
+  @include h( '3D', $g-no-prefix ) {
+    box-shadow: 0 3px 0 0 rgba(0,0,0,.23);
+
+    &:active {
+      top: 3px;
+      box-shadow: none;
+    }
+  }
+
+  & * { box-sizing: border-box; }
+  & *:focus { outline: 0; }
+  & fieldset {
+    margin: 0;
+    border: 0;
+  }
+
+  @include m( 'card' ) {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 11px 0 rgba(0, 0, 0, 0.12);
+  }
+
+
+  //--------------------------------------------------------------------------
+  //  Add a tooltip when a field contains an error
+  //--------------------------------------------------------------------------
+
+  & .js-validation {
+    $field-selector: getBEMReference($c-form-component-name, 'field');
+    $focus-line-selector: getBEMReference($c-form-component-name, 'focus-line');
+    $tooltip-selector: getBEMReference($c-form-component-name, 'tooltip');
+
+
+    & .#{$field-selector}.has-error:not(.is-focused) .#{$focus-line-selector} {
+      @extend %c-form-focus-line-width;
+      background-color: get-color('accent2');
+    }
+
+    //--------------------------------------------------------------------------
+    //  When the field element is not focused and contains errors the
+    //  tooltip element shows up
+    //--------------------------------------------------------------------------
+
+    & .#{$field-selector}.has-error:not(.is-focused) .#{$tooltip-selector} {
+      visibility: visible;
+      opacity: 1;
+      background-color: white(1);
+      color: get-color('accent2', 'dark');
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             HEADER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'header' ) {
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             BODY ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'body' ) {
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             FOOTER ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'footer' ) {
+    @include vertical-rhythm(80px, $top-rows: 0, $use-height: true);
+    @extend %c-form-flex-align-center;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              TITLE ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'title' ) {
+    text-transform: capitalize;
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             FIELD ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'field' ) {
+
+    //@extend %c-form-vertical-rythm-1;
+    @include vertical-rhythm(16px, $top-rows: 2, $bottom-rows: 2);
+    @extend %c-form-flex-align-center;
+
+    $label-selector: getBEMReference($c-form-component-name, 'label');
+    $focus-line-selector: getBEMReference($c-form-component-name, 'focus-line');
+    $tooltip-selector: getBEMReference($c-form-component-name, 'tooltip');
+
+    position: relative;
+    justify-content: center;
+
+
+    &.is-focused,
+    &.has-value {
+        & .#{$label-selector} {
+          @extend %c-form-label-and-validation-anim;
+        }
+    }
+
+    @include s( 'is-disabled', $g-no-prefix ) {
+      label,
+      i {
+          color: black(.3);
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //  When the field element gets the focus, the focus-line element grows
+    //--------------------------------------------------------------------------
+
+    &.is-focused {
+      & .#{$focus-line-selector} {
+          @extend %c-form-focus-line-width;
+      }
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              INPUT ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'input' ) {
+
+    @extend %c-form-input-width;
+
+    display: inline-block;
+    height: $c-form-input-height;
+
+    padding: $c-form-input-padding-default;
+
+    font-size: inherit;
+
+    background-color: white(0);
+
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    transition: border-color .3s ease-in-out;
+
+    &:not(:disabled):hover {
+      border-bottom-color: rgba(0,0,0,.6);
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                            BUTTON ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'button' ) {
+
+    @extend %c-form-vertical-rythm-1;
+    @extend %c-form-pointer;
+    @include margin-auto();
+
+    padding: $c-form-button-padding-default;
+    background-color: white();
+    border: 1px solid get-color('primary2', 'light');
+    border-radius: $c-form-button-border-radius;
+
+    transition: all .2s linear;
+
+    &:hover {
+      color: white();
+      background-color: get-color('primary2');
+    }
+
+    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+
+      @include _generate-button('primary');
+      @include _generate-button('secondary');
+      @include _generate-button('accent');
+      @include _generate-button('accent2');
+      @include _generate-button('accent3');
+      @include _generate-button('accent4');
+      @include _generate-button('background');
+
+    }
+
+    //--------------------------------------------------------------------------
+    //                       SIZE HELPERS - BUTTON
+    //--------------------------------------------------------------------------
+
+    @include h('padding', $g-no-prefix, $apply-on-descendants: false) {
+
+      @include m('small') {
+        padding: $c-form-button-padding-small;
+      }
+
+      @include m('huge') {
+        padding: $c-form-button-padding-huge;
+      }
+
+    }
+
+
+
+    //--------------------------------------------------------------------------
+    //                          Rounded - BUTTON
+    //--------------------------------------------------------------------------
+
+    @include m( 'rounded' ) {
+      border-radius: 45px;
+    }
+
+    //--------------------------------------------------------------------------
+    //                     COLOR VARIATIONS - BUTTON
+    //--------------------------------------------------------------------------
+
+    @include _generate-button-type-2('primary');
+    @include _generate-button-type-2('secondary');
+    @include _generate-button-type-2('accent');
+    @include _generate-button-type-2('accent2');
+    @include _generate-button-type-2('accent3');
+    @include _generate-button-type-2('accent4');
+    @include _generate-button-type-2('background');
+
+  }
+
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                            TOOLTIP ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'tooltip' ) {
+
+    @extend %c-form-absolute;
+
+    @extend %c-form-label-and-validation-anim;
+
+    left: 20px;
+    visibility: hidden;
+    font-size: .8rem;
+    color: black(0);
+    opacity: 0;
+    transition: opacity .4s ease-in;
+    z-index: 10;
+
+    background-color: rgba(255,255,255,.95);
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                        TOOLTIP-text ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'tooltip-text' ) {
+
+    @extend %c-form-flex-align-center;
+    position: relative;
+    justify-content: center;
+    word-break: break-word;
+  }
+
+
+  // Show the lateral tooltip only on Desktop
+
+  @media screen and (min-width: $c-form-media-desktop) {
+
+    @include e( 'tooltip' ) {
+
+      left: $c-form-tooltip-left;
+      width: $c-form-tooltip-width;
+      padding: 20px;
+
+      box-shadow: 0 0 8px 0 rgba(32,48,60,.16);
+
+      transform: inherit;
+
+
+      &:before,
+      &:after {
+        content: '';
+        width: $c-form-tooltip-arrow-size;
+        height: $c-form-tooltip-arrow-size;
+        background-color: rgba(255,255,255,.95);
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-7px) rotate(45deg);
+        -ms-transform: translateY(-7px) rotate(45deg);
+        transform: translateY(-7px) rotate(45deg);
+      }
+
+      &:before {
+        z-index: 11;
+        margin-top: 1px;
+        right: -1px;
+      }
+
+      &:after {
+        right: -#{$c-form-tooltip-arrow-size / 2};
+        box-shadow: 0 0 8px 0 rgba(32,48,60,.16);
+        z-index: 9;
+      }
+
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              LABEL ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'label' ) {
+
+    @extend %c-form-absolute;
+
+    left: 40px;
+    transition: transform .4s cubic-bezier(.25,.8,.25,1);
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              FIELDSET ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'fieldset' ) {
+
+    display: flex;
+    border: 0;
+
+    @media screen and(min-width: $c-form-media-tablet) {
+      display: block;
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                         CHECKBOX ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  & input[type='checkbox'] {
+    @extend %c-form-none;
+
+    $checkbox-default: getBEMReference($c-form-component-name, 'checkbox');
+    $checkbox-x: getBEMReference($c-form-component-name, 'checkbox', 'x');
+
+    &:checked + .#{$checkbox-default}:before {
+      @extend %c-form-checkbox-sizes;
+      @extend %c-form-checkbox-before-borders;
+      top: -4px;
+      left: -3px;
+      transform: rotate(40deg);
+      -webkit-backface-visibility: hidden;
+      transform-origin: 100% 100%;
+    }
+
+    &:checked + .#{$checkbox-x}:before {
+      @extend %c-form-checkbox-sizes;
+      @extend %c-form-checkbox-x-before-after-borders;
+      top: -2px;
+      left: -13px;
+      transform: rotate(45deg);
+      -webkit-backface-visibility: hidden;
+      transform-origin: 100% 100%;
+    }
+
+    &:checked + .#{$checkbox-x}:after {
+      @extend %c-form-checkbox-sizes;
+      @extend %c-form-checkbox-x-before-after-borders;
+      top: -5px;
+      left: 3px;
+      transform: rotate(-45deg);
+      -webkit-backface-visibility: hidden;
+      transform-origin: 100% 100%;
+    }
+
+  }
+
+
+  @include e ( 'checkbox' ) {
+    @extend %c-form-checkbox;
+    margin: 10px 0;
+    border-top-color: $c-form-checkbox-border-color-default;
+    border-left-color: $c-form-checkbox-border-color-default;
+    border-bottom-color: $c-form-checkbox-border-color-default;
+    border-right-color: $c-form-checkbox-border-color-default;
+
+    //----------------------------------------------------------------------
+    //                    COLOR VARIATIONS - CHECKBOX
+    //----------------------------------------------------------------------
+
+    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+
+      @include _generate-checkbox-color('primary');
+      @include _generate-checkbox-color('secondary');
+      @include _generate-checkbox-color('accent');
+      @include _generate-checkbox-color('accent2');
+      @include _generate-checkbox-color('accent3');
+      @include _generate-checkbox-color('accent4');
+      @include _generate-checkbox-color('background');
+
+    }
+
+    &:before {
+      @extend %c-form-checkbox-before;
+      width: $c-form-checkbox-size;
+      height: $c-form-checkbox-size;
+      border-width: $c-form-checkbox-border-width;
+      border-style: $c-form-checkbox-border-style;
+      border-top-color: inherit;
+      border-left-color: inherit;
+      border-bottom-color: inherit;
+      border-right-color: inherit;
+    }
+
+    //----------------------------------------------------------------------
+    //                    CHECKBOX X - MODIFIER
+    //----------------------------------------------------------------------
+
+
+    @include m('x') {
+        &:before {
+        @extend %c-form-checkbox-before;
+        width: $c-form-checkbox-size;
+        height: $c-form-checkbox-size;
+        border-width: $c-form-checkbox-border-width;
+        border-style: $c-form-checkbox-border-style;
+      }
+
+        &:after {
+        @extend %c-form-checkbox-before;
+        width: $c-form-checkbox-size;
+        height: $c-form-checkbox-size;
+        border-width: $c-form-checkbox-border-width;
+        border-style: $c-form-checkbox-border-style;
+        border-top-color: inherit;
+        border-left-color: inherit;
+        border-bottom-color: inherit;
+        border-right-color: inherit;
+      }
+    }
+
+  }
+
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                         RADIO ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  & input[type='radio'] {
+
+    $radio-selector: getBEMReference($c-form-component-name, 'radio');
+    $radio-variation2-selector: getBEMReference($c-form-component-name, 'radio', 'variation2');
+    $radio-variation3-selector: getBEMReference($c-form-component-name, 'radio', 'variation3');
+
+    @extend %c-form-none;
+
+    &:checked + .#{$radio-selector}:before {
+      box-shadow: 0 0 0 2px get-color('primary2', 'dark');
+    }
+
+    &:checked + .#{$radio-selector}:after {
+      background-color: get-color('accent3');
+      -webkit-transform: scale(0.4);
+      transform: scale(0.4);
+    }
+
+    &:checked + .#{$radio-variation2-selector}:before {
+      box-shadow: 0 0 0 2px get-color('accent2');
+    }
+
+    &:checked + .#{$radio-variation2-selector}:after {
+      background-color: get-color('background');
+      -webkit-transform: scale(0.4);
+      transform: scale(0.4);
+    }
+
+    &:checked + .#{$radio-variation3-selector}:before {
+      box-shadow: 0 0 0 2px get-color('primary');
+    }
+
+    &:checked + .#{$radio-variation3-selector}:after {
+      background-color: get-color('secondary');
+      -webkit-transform: scale(0.4);
+      transform: scale(0.4);
+    }
+
+  }
+
+  @include e ( 'radio' ) {
+    @extend %c-form-pointer;
+
+    position: relative;
+    padding-left: $c-form-radio-size + 10px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+    &:before {
+      @extend %c-form-rounded;
+      @extend %c-form-radio-size;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 8px);
+      display: block;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+      -webkit-transition: box-shadow 0.3s ease;
+      transition: box-shadow 0.3s ease;
+    }
+
+    &:after {
+      @extend %c-form-rounded;
+      @extend %c-form-radio-size;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 8px);
+      display: block;
+      background-color: black(0.7);
+      -webkit-transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    @include m('variation2') {
+      &:before {
+        @extend %c-form-rounded;
+        @extend %c-form-radio-size;
+      }
+      &:after {
+        @extend %c-form-rounded;
+        @extend %c-form-radio-size;
+      }
+    }
+
+    @include m('variation3') {
+      &:before {
+        @extend %c-form-rounded;
+        @extend %c-form-radio-size;
+      }
+      &:after {
+        @extend %c-form-rounded;
+        @extend %c-form-radio-size;
+      }
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                           focus-line ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'focus-line' ) {
+
+    @extend %c-form-absolute;
+
+    left: $c-form-focus-line-left;
+    bottom: 0;
+    height: $c-form-focus-line-height;
+    background-color: get-color('primary');
+    width: 0;
+    transition: width .3s ease-in-out;
+
+    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+
+      @include _generate-focus-line('primary');
+      @include _generate-focus-line('secondary');
+      @include _generate-focus-line('accent');
+      @include _generate-focus-line('accent2');
+      @include _generate-focus-line('accent3');
+      @include _generate-focus-line('accent4');
+      @include _generate-focus-line('background');
+
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                              ICON ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  @include e( 'icon' ) {
+
+    flex-basis: 1%;
+
+    $c-form__input: getBEMReference($c-form-component-name, 'input');
+
+    & ~ .#{$c-form__input} {
+      margin-left: 10px;
+    }
+
+  }
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                            Select ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  @include e( 'select' ) {
+    width: 100%;
+    padding-top: .5em;
+    padding-right: 2.5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    border: 0;
+    border-radius: 3px;
+    margin: 0;
+    font-size: inherit;
+    color: white();
+    background-color: get-color('primary2', 'dark');
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    // FF only
+    @-moz-document url-prefix() {
+      & { padding-right: .9em }
+    }
+
+    &[disabled] {
+      color: black(.3);
+    }
+
+  }
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                            Dropdown ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+      @include e( 'dropdown' ) {
+
+        $dropdown-selector: getBEMReference($c-form-component-name, 'dropdown');
+        $select-selector: getBEMReference($c-form-component-name, 'select');
+
+        position: relative;
+        display: inline-block;
+        border: 1px solid black(.1);
+        vertical-align: middle;
+
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          pointer-events: none;
+        }
+
+        &:before {
+          // Custom dropdown arrow cover
+          width: 2em;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 0 3px 3px 0;
+          background-color: get-color('primary2', 'light');
+          border-left: 1px solid rgba(0,0,0,.1);
+        }
+
+        &:after {
+          // Custom dropdown arrow
+          content: '\25BC';
+          top: 50%;
+          right: 1.2em;
+          height: 1em;
+          margin-top: -.5em;
+          font-size: .625em;
+          line-height: 1;
+        }
+
+        //----------------------------------------------------------------------
+        //                    DISABLED HELPERS - DROPDOWN
+        //----------------------------------------------------------------------
+
+
+        @include h( 'disabled', $g-no-prefix, $apply-on-descendants: false ) {
+          &:after {
+            color: black(.1);
+          }
+        }
+
+        //----------------------------------------------------------------------
+        //                    COLOR VARIATIONS - DROPDOWN
+        //----------------------------------------------------------------------
+
+        @include m('white') {
+
+          .#{$select-selector} {
+            background-color: #fff;
+            color: #444;
+          }
+
+          &:before {
+            background-color: #fff;
+            border-left: 1px solid rgba(0,0,0,.1);
+          }
+
+          &:after {
+            color: rgba(0,0,0,.9);
+          }
+        }
+
+        @include m('primary') {
+
+          .#{$select-selector} {
+            background-color: get-color('primary');
+            color: white(.9);
+          }
+
+          &:before {
+            background-color: get-color('primary');
+            border-left: 1px solid rgba(0,0,0,.1);
+          }
+
+          &:after {
+            color: white();
+          }
+        }
+
+        @include m('secondary') {
+
+          .#{$select-selector} {
+            background-color: get-color('secondary');
+            color: white(.9);
+          }
+
+          &:before {
+            background-color: get-color('secondary');
+            border-left: 1px solid get-color('background');
+          }
+
+          &:after {
+            color: white();
+          }
+        }
+
+        //----------------------------------------------------------------------
+        //                       SIZE HELPERS - DROPDOWN
+        //----------------------------------------------------------------------
+
+        @include m('small') {
+          font-size: $c-form-dropdown-font-size-small;
+        }
+
+        @include m('large') {
+          font-size: $c-form-dropdown-font-size-large;
+        }
+
+      }
+
+
+
+
+}
+

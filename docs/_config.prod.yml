@@ -1,0 +1,11 @@
+#
+# CONFIGURATION
+#
+
+# ROUTES
+url: "https://evolution-ui.github.io/evolution-ui"
+
+# PUBLISHING
+future: false
+show_drafts: false
+limit_posts: 0

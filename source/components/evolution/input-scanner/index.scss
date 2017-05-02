@@ -1,0 +1,304 @@
+@import '../../assets/styles/abstracts/variables';
+@import '../../assets/styles/abstracts/functions';
+@import '../../assets/styles/abstracts/import-mixins';
+@import '../../assets/styles/abstracts/placeholders';
+
+/******************************************************************************
+                          Input Scanner Config
+******************************************************************************/
+
+// component name
+$c-input-scanner-name: 'input-scanner';
+
+/******************************************************************************
+                          Input Scanner Component
+******************************************************************************/
+
+/* EYELIDS COMPONENT */
+
+// @import 'input_scanner-config';
+
+@include c($c-input-scanner-name) {
+
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 480px;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  @media only screen and (min-width: 600px) {
+    -webkit-flex-direction:  row;
+    -ms-flex-direction:  row;
+    flex-direction:  row;
+    box-sizing: border-box;
+  }
+
+  //----------------------------------------------------------------
+  //                 INPUT/SUBMIT ELEMENT STYLING
+  //----------------------------------------------------------------
+
+
+  @include e('inputContainer') {
+    position: relative;
+    margin: 10px;
+    width: 200px;
+    overflow: visible;
+    z-index: 1;
+    box-sizing: border-box;
+  }
+  @include e('submitContainer') {
+        position: relative;
+    margin: 10px;
+    width: 200px;
+    overflow: visible;
+    z-index: 1;
+    box-sizing: border-box;
+  }
+
+  @include e('input') {
+    background-color: get-color('secondary');
+    color: white;
+    width: 200px;
+    padding: 14px;
+    font-size: 1.1rem;
+    height: 50px;
+    border-radius: 4px;
+    border: none;
+    line-height: 0;
+    font-weight: 200;
+    &:focus{
+      outline: none;
+      border: none;
+    }
+    &::-webkit-input-placeholder {
+      color: lightgray;
+      line-height: 1;
+    }
+    $reference-selectorA: getBEMReference($c-input-scanner-name, 'cursor');
+    &:valid ~ .#{$reference-selectorA} {
+      border-color: lightgreen;
+
+    }
+    box-sizing: border-box;
+  }
+
+  @include e('submit') {
+    color: white;
+     background-color: get-color('primary');
+    font-weight: 200;
+    cursor: pointer;
+    font-size: 1.1rem;
+     width: 200px;
+     padding: 14px;
+      font-size: 1.1rem;
+     height: 50px;
+     border-radius: 4px;
+     border: 1px solid #4F6A6F;;
+     line-height: 0;
+    cursor: pointer;
+     &:hover, &:focus{
+      color: white;
+      background-color: get-color('primary2');
+      outline: none;
+       border: none;
+      }
+   }
+
+
+  //----------------------------------------------------------------
+  //                 MASK STYLING
+  //----------------------------------------------------------------
+  @include e('inputMask') {
+    position: absolute;
+     left: -15px;
+     overflow: hidden;
+     top: 0;
+     width: 0;
+     z-index: 6;
+     padding-left: 5px;
+     /*  bgc should match body bgc  */
+     background-color: white;
+     cursor: pointer;
+     color: black;
+     transition: width 550ms cubic-bezier(0.215, 0.61, 0.355, 1);
+      $reference-selectorB: getBEMReference($c-input-scanner-name, 'input');
+     & > .#{$reference-selectorB} {
+      background-color: white;
+      color: get-color('secondary');
+      width: 250px;
+     }
+  }
+
+   @include e('submitMask') {
+    position: absolute;
+     left: -15px;
+     overflow: hidden;
+     top: 0;
+     width: 0;
+     z-index: 6;
+     padding-left: 5px;
+     /*  bgc should match body bgc  */
+     background-color: white;
+     cursor: pointer;
+     color: black;
+     transition: width 550ms cubic-bezier(0.215, 0.61, 0.355, 1);
+     $reference-selectorC: getBEMReference($c-input-scanner-name, 'submit');
+      & > .#{$reference-selectorC} {
+        color: black;
+        background-color: white;
+          width: 260px;
+          border: none;
+          font-size: 1.1rem;
+      }
+  }
+
+
+
+
+
+  @include e('inputMaskCover') {
+    width:calc(100% + 20px);
+      border-right: 3px solid rgba(0,0,0,0);;
+      overflow: none;
+      opacity: 1;
+      background-color: white;
+      -webkit-animation: formScanner__coverInputAnimation 0.55s;
+              animation: formScanner__coverInputAnimation 0.55s;
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+              animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  @include e('submitMaskCover') {
+    width:calc(100% + 50px);
+    border-right: 3px solid rgba(0,0,0,0);
+    overflow: none;
+    opacity: 1;
+            animation: formScanner__coverSubmitAnimation 1s;
+            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  //----------------------------------------------------------------
+  //                 CURSOR STYLING
+  //----------------------------------------------------------------
+
+  @include e('cursor') {
+    opacity: 1;
+      -webkit-animation: formScanner__showCursorAnimation 0.5s;
+              animation: formScanner__showCursorAnimation 0.5s;
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+              animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      border-right: 3px solid lightblue;
+  }
+
+  @include e('invalidInput') {
+    border-right: 3px solid rgba(255,0,0,1);
+     -webkit-animation: invalidInputAnimation 0.9s;
+             animation: invalidInputAnimation 0.9s;
+     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  //----------------------------------------------------------------
+  //                 INPUT CLEAR ON SUBMIT STYLING
+  //----------------------------------------------------------------
+
+  @include e('clearInput') {
+    opacity: 0;
+  -webkit-animation: formScanner__clearInputAnimation 0.5s;
+          animation: formScanner__clearInputAnimation 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+}
+
+//----------------------------------------------------------------
+//                 KEYFRAME ANIMATIONS
+//----------------------------------------------------------------
+
+@keyframes formScanner__coverInputAnimation {
+  0% {
+    width: 0px;
+    border-width: 3px;
+  }
+  70% {
+    width: calc(100% + 20px);
+    border-right: 3px solid lightgreen;
+  }
+
+  95%{
+    border-width: 3px;
+  }
+  100% {
+    border-right: 0px solid none;
+
+  }
+}
+
+
+@keyframes formScanner__coverSubmitAnimation {
+  0% {
+    width: 0px;
+    opacity: 0;
+    border-right: 3px solid lightgreen;
+  }
+  60% {
+    opacity: 1;
+    width: 0px;
+  }
+
+  100% {
+    border-right: 3px solid lightgreen;
+    width:calc(100% + 50px);
+  }
+}
+
+
+@keyframes formScanner__showCursorAnimation{
+  0%{
+    border-right: 0px solid lightgreen;
+  }
+
+  99%{
+    border-right: 0px solid lightgreen;
+  }
+  100%{
+    border-right: 3px solid lightgreen;
+  }
+}
+
+
+
+@keyframes formScanner__clearInputAnimation{
+  0%{opacity:1};
+  100%{opacity: 0};
+}
+
+
+
+
+
+@keyframes invalidInputAnimation{
+  0%{
+    border-right: 3px solid rgba(255,0,0,0);
+  }
+
+  33%{
+    border-right: 3px solid rgba(255,0,0,1);
+  }
+
+  66%{
+    border-right: 3px solid rgba(255,0,0,0);
+  }
+
+  100%{
+    border-right: 3px solid rgba(255,0,0,1);
+  }
+}
+
+

@@ -1,0 +1,444 @@
+
+// -----------------------------------------------------------------------------
+//                           GENERIC HELPERS
+// -----------------------------------------------------------------------------
+
+///
+/// Generate a number without the unit
+///
+/// @param {Number} $number - A value like 1px, 2rem, etc.
+/// @return {Number}
+///
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+///
+/// Generate a string
+///
+/// @param {Value} $value - A value
+/// @return {String}
+///
+
+@function to-string($value) {
+  @return inspect($value);
+}
+
+
+// -----------------------------------------------------------------------------
+//                       CSS Selector HELPERS
+// -----------------------------------------------------------------------------
+
+
+///
+/// Reference a parent element
+/// Add the parent-selector character '&' if the caller @include directive
+/// is located within a css class
+///
+/// @access public
+/// @param {String}  $selector - A desired selector
+/// @param {Boolean} $is-descendant [false] - If TRUE, sets the selector as descendant of the parent class
+///
+/// @link http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8 - Usage Examples
+///
+/// @return {String}
+///
+///
+/// @example scss - Usage
+///
+///  $base-selector: addParentSelector('.mySelector');
+///  #{$base-selector} {}
+///
+/// @example css - CSS output
+///
+///  .mySelector {}
+///
+///
+/// @example scss - Usage
+///
+///  .parentClass {
+///     $base-selector: addParentSelector('.mySelector');
+///
+///     #{$base-selector} {
+///       color: white;
+///     }
+///
+/// @example css - CSS output
+///
+///  .parentClass.mySelector {
+///     color: white;
+///  }
+///
+/// @example scss - Usage
+///
+///  .parentClass {
+///     $base-selector: addParentSelector('.mySelector', $is-descendant: true);
+///
+///     #{$base-selector} {
+///       color: white;
+///     }
+///
+/// @example css - CSS output
+///
+///  .parentClass .mySelector {
+///     color: white;
+///  }
+///
+
+@function addParentSelector($selector, $is-descendant: false) {
+
+  // When we are not in the first level use the parent class
+  // and the strict mode variable has been set to true
+  $prepend: if($is-descendant == true, '& ', '&');
+
+  @if (& != null) {
+   @return '#{$prepend}#{$selector}';
+  }@else {
+    @return '#{$selector}';
+  }
+}
+
+
+///
+/// Return a reference to a BEM item
+///
+/// Use this function if you need to get a reference to an "external" element or
+/// modifier within your current component.
+///
+///
+/// @access public
+/// @param {String}  $block-name - The block's name
+/// @param {String}  $element-name [null] - If not null, adds the element's name
+/// @param {String}  $modifier-name [null] - If not null, adds the modifier's name
+/// @param {Boolean} $is-namespaced [true] - If TRUE, prepend the framework's prefix
+///
+/// @link http://www.sassmeister.com/gist/e480588a9e0c5eb3a3ae07e1546d2317 - Usage Examples
+///
+/// @return {String}
+///
+///
+/// @example scss - Usage
+///
+///   Remember to add the component's name into your config file.
+///
+///   For example:
+///
+///   // Component config
+///   $c-component-name: 'form';
+///
+///
+///    // Component file
+///
+///    // Icon element
+///    @include e( 'icon' ) {
+///
+///      position: absolute;
+///
+///      & + .evo_c-form__input {
+///        padding-left: 40px;
+///      }
+///    }
+///
+///   In the previous snippet of code, within the "icon" element we try to reference
+///   the 'input' element which is "external" to the sass include.
+///   Instead of hardcoded the sibling selector by hand, you can use
+///   the getBEMReference function
+///
+///    // Icon element
+///    @include e( 'icon' ) {
+///     $reference-selector: getBEMReference($c-component-name, 'input');
+///
+///      position: absolute;
+///
+///      & + .{#$reference-selector} {
+///        padding-left: 40px;
+///      }
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .evo_c-form__icon + .evo_c-form__input { padding-left: 40px;  }
+///
+///
+/// @example scss - Usage
+///
+///  .parentClass {
+///     $dummy-modifier: getBEMReference($c-component-name, 'dummy', 'red');
+///
+///     & .#{$dummy-modifier} { }
+///       color: red;
+///     }
+///
+/// @example css - CSS output
+///
+///  .parentClass .framework-prefix_c-componentName__dummy--red {
+///     color: red;
+///  }
+///
+
+@function getBEMReference($block-name,
+                          $element-name: null,
+                          $modifier-name: null,
+                          $is-namespaced: true ) {
+
+  $f-namespace:   if($is-namespaced == true, '#{$g-framework-name}_', '');
+  $block-name:    'c-#{$block-name}';
+  $element-name:  if($element-name == null, '', '__#{$element-name}');
+  $modifier-name: if($modifier-name == null, '', '--#{$modifier-name}');
+
+  @if ($element-name == '') and ($modifier-name != '') {
+    @error 'A modifier needs a parent element';
+  }
+
+ @return #{$f-namespace}#{$block-name}#{$element-name}#{$modifier-name};
+}
+
+
+// -----------------------------------------------------------------------------
+//                            COLORS HELPERS
+// -----------------------------------------------------------------------------
+
+///
+/// Slightly lighten a color (Add percentage of white to a color)
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+///
+/// Slightly darken a color (Add percentage of black to a color)
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+///
+/// Get the hexadecimal color value (and its variations) from the su_ colors palette.
+///
+/// @param {String} $type    ['primary'] - A valid color type. (primary, secondary,
+///                                        etc., see the variable $g-framework-colors)
+/// @param {String} $variant ['base']    - A variant of the color type
+/// @param {Number} $opacity [1]         - A number between 0 and 1 or a value
+///                                        specified within the $g-framework-colors-opacity map
+///
+/// @require $g-framework-colors
+/// @require $g-framework-colors-opacity
+/// @return {HEX Value}
+///
+/// @example - get-color function - opacity's name are specified in the $g-framework-colors-opacity variable
+///
+///   get-color('accent')
+///     // Returns the hex color of the BASE variant of the 'accent' color
+///
+///   get-color('accent', 'light')
+///     // Returns the hex color of the LIGHT variant of the hexadecimal color of the 'accent' color
+///
+///   get-color('accent4', 'dark', .5)
+///     // Returns the hex color of the DARK variant of the 'accent4' color with an opacity of .5
+///
+///   get-color('primary', $opacity:.8)
+///     // Returns the hex color of the BASE variant of the 'primary' color with an opacity of .8
+///
+///   get-color('secondary', $opacity:'heavy')
+///     // Returns the hex color of the BASE variant of the 'secondary' color with an opacity of .4
+///
+/// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
+///
+
+@function get-color( $type: 'primary', $variant: 'base', $opacity: 1 ) {
+
+  $color: null;
+
+  // Get the color spectrum
+  $color-spectrum: map-get($g-framework-colors, $type);
+
+  // Get the color variant
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+
+  // Get the alpha setting
+  $alpha: if(type-of($opacity) == 'number', $opacity, map-get($g-framework-colors-opacity, $opacity));
+
+  // Set the alpha of the color
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+
+  @return $color;
+}
+
+///
+/// Generate a black color with opacity
+///
+/// @param {Number} $opacity [1] - A value between 0 and 1
+///
+
+@function black($opacity: 1){
+  @return rgba(0, 0, 0, $opacity);
+}
+
+///
+/// Generate a white color with opacity
+/// @access public
+/// @param {Number} $opacity [1] - A value between 0 and 1
+/// @return {Color}
+///
+
+@function white($opacity: 1){
+  @return rgba(255, 255, 255, $opacity);
+}
+
+// -----------------------------------------------------------------------------
+//                            FONT HELPERS
+// -----------------------------------------------------------------------------
+
+///
+/// Convert a unit from pixels to rems
+///
+/// @param {Value} $size - A value in pixels
+/// @param {Value} $base-f-size - A base value in pixels
+///                               (by default is equal to System base font size)
+///                               refer to the $g-framework-base-font-size variable
+/// @param {Boolean} $unitless [true] - If true it returns a value without the rem unit
+///
+/// @require strip-units
+///
+/// @return {Number}
+
+@function rem( $size, $base-f-size: $g-framework-base-font-size, $unitless: true ) {
+  $newSize: strip-units($size);
+  $base: strip-units($base-f-size);
+  $remSize: if($newSize == 0, 0, $newSize / $base);
+  $remSize: if($unitless == true, $remSize, $remSize + 0rem);
+ @return $remSize;
+}
+
+// -----------------------------------------------------------------------------
+//                            MATH HELPERS
+// -----------------------------------------------------------------------------
+
+///
+/// Calculate the power of
+///
+/// @param {Value} $base - A base
+/// @param {Value} $exp  - An exponent
+/// @return {value}
+///
+
+@function pow( $base, $exp ) {
+  $result: 1;
+
+  @if ( $exp > 0 ) {
+    @for $i from 1 through $exp {
+      $result: $result * $base;
+    }
+  }
+
+  @return $result;
+}
+
+
+///
+/// It merges the content of $ext-obj into $obj
+///
+/// @param {Map} $obj - The base map
+/// @param {Map} $ext-obj - A map containing the additional elements we wish to merge into $obj
+/// @return {Map}
+///
+
+
+@function extend($obj, $ext-obj) {
+  @return map-merge($obj, $ext-obj);
+}
+
+///
+/// Check if the provided parameter is a map
+///
+/// @param {Value} $obj - The value to check
+/// @return {Boolean}
+///
+
+@function is-map($map) {
+  @return type-of($map) == 'map';
+}
+
+///
+/// Get a value from a Map
+///
+/// @param {String} $conf - The configuration map
+/// @param {String} $property - The property's name
+/// @param {String} $sub-property [null] A sub property's name
+/// @return {Value}
+///
+/// @example
+///   $conf: (
+///     width: (
+///       base: 80%,
+///       media: (
+///         '>=Tablet': 500px,
+///         base: 200px
+///       )
+///     ),
+///     height: 100px
+///   );
+///
+///   In this example, the $conf map contains two property having the same name: 'base'.
+///   Using the $property parameter only, the 'conf' function returns the value of
+///   the first occurence. Using the $property and $sub-property paramaters
+///   we give a more specific query and the 'conf' function gives back the second
+///    occurence of the 'base' option instead.
+///
+///   get-conf($conf-c-modal, media)  ---> 80%
+///
+///   get-conf($conf-c-modal, media, base) --> 200px
+///
+///   If we are looking for a map nested inside the $conf map, the 'conf' function
+///   returns it as it is
+///
+///   get-conf($conf-c-modal, width)   ---> (
+///                                     base: 80%,
+///                                     media: (
+///                                       '>=Tablet': 500px,
+///                                       base: 200px
+///                                     )
+///
+
+@function get-conf($conf, $property, $sub-property:null) {
+
+  @if not is-map($conf) {
+    @error 'The option #{$conf} is not a map.'
+  }
+
+  $result: '';
+
+  @if map-has-key($conf, $property) {
+    @if is-map(map-get($conf, $property)) and ($sub-property != null) {
+      $conf: map-get($conf, $property);
+      $result: get-conf($conf, $sub-property);
+    } @else {
+      $result: map-get($conf, $property);
+    }
+  } @else {
+    // Try to find a property nested inside other list
+      @each $prop, $value in $conf {
+        @if is-map($value) {
+          $result: get-conf($value, $property, $sub-property);
+        }
+      }
+  }
+
+  @if $result == '' {
+    @error  'The option #{$property} does not exist in $conf. ';
+  }
+
+  @return $result;
+}

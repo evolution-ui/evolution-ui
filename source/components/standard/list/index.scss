@@ -1,0 +1,52 @@
+@import '../../assets/styles/abstracts/variables';
+@import '../../assets/styles/abstracts/functions';
+@import '../../assets/styles/abstracts/import-mixins';
+@import '../../assets/styles/abstracts/placeholders';
+
+/******************************************************************************
+                            List Config
+******************************************************************************/
+
+/******************************************************************************
+                            List Component
+******************************************************************************/
+
+.evo_c-ulist {
+  list-style: disc outside;
+  padding-left: 2em;
+}
+
+.evo_c-olist {
+  list-style: decimal outside;
+  padding-left: 2em;
+}
+
+li > {
+
+  .evo_c-ulist,
+  .evo_c-olist {
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+
+  .evo_c-ulist {
+    list-style: circle outside;
+  }
+
+}
+
+.evo_c-olist--lower-alpha {
+  list-style-type: lower-alpha;
+}
+
+.evo_c-olist--upper-alpha {
+  list-style-type: upper-alpha;
+}
+
+.evo_c-olist--lower-roman {
+  list-style-type: lower-roman;
+}
+
+.evo_c-olist--upper-roman {
+  list-style-type: upper-roman;
+}

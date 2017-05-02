@@ -1,0 +1,27 @@
+---
+title: "Default"
+description: |
+  <p>The sticky component is a standard UI component seen on many screen interfaces.  This particular implementation uses a class of <code>evo_c-sticky</code> on a <code>div</code> element that is arbitrarily centered on the page.  When the viewport window scrolls past <code>div class="evo_c-sticky</code>, the element is switched to a fixed position stuck at the top of the viewport.  We have some lorem ipsum text floated on either sides to showcase how the stuck <code>div</code>will follow the viewport.  Once the sticky <code>div</code> reaches the <code>h3</code> element with "End of Sticky" as its content and a class of <code>evo_c-sticky__end</code>, the fixed positon of the sticky <code>div</code> will be set to an <code>absolute</code> position with its coordinates at the time it reached the <code>h3</code> element.</p>
+author: Brian Hernandez
+category: standard
+type: sticky
+order: 1
+---
+
+  <div class="evo_c-sticky">
+    <p>This is a sticky element</p>
+  </div>
+
+  <div class="evo_h-sticky evo_h-sticky--left">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias sed hic laudantium pariatur, a soluta est ut. Inventore possimus repellendus, voluptatum, cum natus doloribus nihil aspernatur corrupti modi tenetur et.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias sed hic laudantium pariatur, a soluta est ut. Inventore possimus repellendus, voluptatum, cum natus doloribus nihil aspernatur corrupti modi tenetur et.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias sed hic laudantium pariatur, a soluta est ut. Inventore possimus repellendus, voluptatum, cum natus doloribus nihil aspernatur corrupti modi tenetur et.</p>
+  </div>
+
+  <div class="evo_h-sticky evo_h-sticky--right">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias sed hic laudantium pariatur, a soluta est ut. Inventore possimus repellendus, voluptatum, cum natus doloribus nihil aspernatur corrupti modi tenetur et.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias sed hic laudantium pariatur, a soluta est ut. Inventore possimus repellendus, voluptatum, cum natus doloribus nihil aspernatur corrupti modi tenetur et.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias sed hic laudantium pariatur, a soluta est ut. Inventore possimus repellendus, voluptatum, cum natus doloribus nihil aspernatur corrupti modi tenetur et.</p>
+  </div>
+
+  <h3 class="evo_c-sticky__end">End of Sticky</h3>

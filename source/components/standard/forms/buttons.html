@@ -1,0 +1,111 @@
+---
+title: "Submit button color variations"
+description: |
+  <p>
+    By default, a button has a white background and a colored border.
+  </p>
+  <p>
+    You can change the background color on hover using a
+     <code>h-bck__[color-name]</code> helper class on
+    an <code>evo_c-form__button</code> component.
+    The <em>color-name</em> part comes from one of the colors in the
+    Evolution UI's color palette.
+  </p>
+  <p>
+    Using the <code>evo_c-form__button--[color-name]</code> modifier class,
+    the button gets the intended background color. The <em>color-name</em> part
+    comes from one of the colors in the Evolution UI's color palette.
+  </p>
+  <p>
+    Using the <code>evo_c-form__button--rounded</code> modifier class,
+    the button will be rounded by a predefined amount.
+  </p>
+  <p>
+    Using the <code>h--3D</code> helper class, the button will get a 3D effect.
+  </p>
+  <p>
+    Using the <code>h-padding--small</code> or <code>h-padding--huge</code>
+    helper classes on an <code>evo_c-form__button</code>, you can change the
+    button's padding.
+  </p>
+author: Gabriele Romeo
+category: standard
+type: Standard Forms
+order: 3
+---
+
+
+<div class="evo_c-form h-bck__secondary h-border h-border-style--dotted">
+
+    <!-- FORM FOOTER -->
+    <div class="evo_c-form__body">
+
+      <input class="evo_c-form__button"
+             type="submit"
+             value="Login">
+
+      <input class="evo_c-form__button h-bck--background"
+             type="submit"
+             value="Login">
+
+      <input class="evo_c-form__button h-bck--accent3"
+             type="submit"
+             value="Login">
+
+    </div>
+
+    <div class="evo_c-form__body">
+
+      <input class="evo_c-form__button evo_c-form__button--accent2"
+             type="submit"
+             value="Login">
+
+      <input class="evo_c-form__button evo_c-form__button--background"
+             type="submit"
+             value="Login">
+
+      <input class="evo_c-form__button evo_c-form__button--accent3"
+             type="submit"
+             value="Login">
+
+    </div>
+
+    <div class="evo_c-form__body">
+
+    <input class="evo_c-form__button evo_c-form__button--rounded h-bck--secondary"
+           type="submit"
+           value="Login">
+
+    <input class="evo_c-form__button evo_c-form__button--rounded evo_c-form__button--primary"
+           type="submit"
+           value="Login">
+
+    </div>
+
+    <div class="evo_c-form__body">
+
+      <input class="evo_c-form__button h-bck--secondary h-3D"
+             type="submit"
+             value="Login">
+
+
+      <input class="evo_c-form__button evo_c-form__button--rounded h-3D evo_c-form__button--primary"
+             type="submit"
+             value="Login">
+    </div>
+
+    <div class="evo_c-form__body">
+
+      <input class="evo_c-form__button h-bck--background h-padding--small"
+             type="submit"
+             value="Login">
+
+
+      <input class="evo_c-form__button h-bck--background h-padding--huge"
+             type="submit"
+             value="Login">
+    </div>
+
+
+</div>
+

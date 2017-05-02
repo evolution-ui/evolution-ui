@@ -1,0 +1,62 @@
+---
+title: "Space Saving Minimalist"
+description: |
+  <p>The space-saving-minimalist form shows one input card each time. Indicators are located on the left side of an input card, which show how many inputs left to be filled out. The indicator of the active input card is in light blue. If an invalid value is entered, the indicator turns to an orange red color. Once it is filled out correctly, press the <code>Enter</code> key or click the right arrow button to go to the next one. The next card slides in from the left. The indicator moves from left to right and becomes a go back button. You can go back to previous input cards by clicking one of the go back buttons. The last card is a submission card. Clicking the left arrow brings you back to the very first card. Clicking the submit button (subscribe in this case) to submit the form and a submission message appears.</p>
+
+  <p>To create a space-saving-minimalist form, the <code>form</code> element takes a <code>evo_c-mini-form</code>  class. Input cards are written in ascending order in the HTML file. Each of them has a <code>evo_c-mini-form__input-wrap</code> class. The first card should also have a <code>js-mini-form-is-active</code> class as default. The last card, submission card, should take a <code>evo_c-mini-form__submit</code> class.
+
+  <p>Inside of each card, there is a inner card wrap (<code>evo_c-mini-form__input-inner</code>). All input field, go next button and icons should go inside of the inner wrap.</p>
+
+  Other than the first card, the rest of the cards (<code>evo_c-mini-form__input-wrap</code>) should be followed by a go back button with class <code>evo_c-mini-form__btn--prev</code>.<p>
+author: Jing Ran
+category: evolution
+type: single input form
+order: 2
+---
+
+<form class="evo_c-mini-form">
+
+  <!-- 1st input -->
+  <div class="evo_c-mini-form__input-wrap js-mini-form-is-active">
+    <div class="evo_c-mini-form__input-inner">
+      <input type="text" name="first-nm" placeholder="First Name" class="evo_c-mini-form__input" required>
+      <button type="button" class="evo_c-mini-form__btn--next">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+    </div>
+  </div>
+
+  <!-- 2nd input -->
+  <div class="evo_c-mini-form__input-wrap">
+    <div class="evo_c-mini-form__input-inner">
+      <input type="text" name="last-nm" placeholder="Last Name" class="evo_c-mini-form__input" required>
+      <button type="button" class="evo_c-mini-form__btn--next">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+    </div>
+  </div>
+  <span class="evo_c-mini-form__btn--prev"></span>
+
+  <!-- 3rd input -->
+  <div class="evo_c-mini-form__input-wrap">
+    <div class="evo_c-mini-form__input-inner">
+      <input type="email" name="email" placeholder="Email" class="evo_c-mini-form__input" required>
+      <button type="button" class="evo_c-mini-form__btn--next">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+    </div>
+  </div>
+  <span class="evo_c-mini-form__btn--prev"></span>
+
+  <!-- Last input -->
+  <div class="evo_c-mini-form__input-wrap evo_c-mini-form__submit">
+    <div class="evo_c-mini-form__input-inner">
+      <button type="button" class="evo_c-mini-form__btn--back">
+        <i class="material-icons">arrow_back</i>
+      </button>
+      <input type="submit" name="submit" value="Subscribe" class="evo_c-mini-form__submit-btn">
+    </div>
+  </div>
+  <span class="evo_c-mini-form__btn--prev"></span>
+
+</form>

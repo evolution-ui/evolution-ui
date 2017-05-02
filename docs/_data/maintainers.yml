@@ -1,0 +1,13 @@
+#
+# Maintainers
+#
+
+- name: 'Gabriele Romeo'
+  image: 'gabriele.jpeg'
+  url: 'https://github.com/GabrieleRomeo'
+- name: 'Chris Bracco'
+  image: 'chris.jpg'
+  url: 'https://github.com/cbracco'
+- name: 'Carlos Coves'
+  image: 'escorponox.jpg'
+  url: 'https://github.com/escorponox'

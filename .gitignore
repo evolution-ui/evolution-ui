@@ -1,8 +1,7 @@
-dist
 node_modules
-css/main.css
-css/main.css.map
+npm-debug.log
 .sass-cache
-prod/main.min.js
-prod/main.css
-prod/main.css.map
+.dev/
+dist
+docs/assets/scripts/evolution-ui
+docs/assets/styles/evolution-ui

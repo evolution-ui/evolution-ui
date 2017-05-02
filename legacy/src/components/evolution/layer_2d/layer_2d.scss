@@ -1,0 +1,130 @@
+
+@import "layer_2d-config";
+
+
+.layer-wrapper {
+  position: relative;
+  margin: 3rem auto;
+  width: 650px;
+  height: 20rem;
+  font-size: 16px;
+}
+
+.layer-wrapper div {
+  color: #2e8275;
+}
+
+@include c( $c-2dlayer-name ){
+  display: block;
+  position: absolute;
+  width: $c-2dlayer-width;
+  border-radius: 2px;
+  background-color: #A0EDDF;
+  border: 1px solid #A0EDDF;
+  transition: top ease-out 0.5s;
+  outline: none;
+
+  &:hover header {
+    background-color: white;
+    cursor: pointer;
+  }
+
+  @include e('content'){
+    max-height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    header {
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 0 3rem 2rem 3rem;
+      transition: background-color 0.5s ease-out;
+      font-family: 'Roboto', Arial;
+    }
+    @include m('close'){
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      opacity: 0;
+      background-image: url("/assets/images/components/layer_2d/images/ic_close.png");
+      background-size: cover;
+      cursor: pointer;
+      transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s; /* easeInSine */
+      z-index: 1;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    @include m('done'){
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background-image: url("/assets/images/components/layer_2d/images/done.png");
+      background-size: cover;
+      cursor: pointer;
+      z-index: 1;
+    }
+  }
+}
+.active {
+  background-color: white;
+  transition: max-height cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+}
+
+.visited {
+  background-color: #D7E4E2;
+  border-color: #D9DEDD;
+}
+.visited header {
+  color: #A7AEAC;
+}
+
+.active article, .active .evo_c-layer__description {
+  white-space: normal;
+  line-height: 20px;
+  text-align: left;
+  padding: 0px 3rem 3rem 3rem;
+}
+
+.active .evo_c-layer__description {
+  padding: 0 3rem 0 3rem;
+}
+
+.active header {
+  cursor: auto !important;
+  pointer-events: none !important;
+}
+
+.active .evo_c-layer__content--close {
+  opacity: 1;
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.on-top {
+  z-index: 101;
+}
+
+
+#layer1 {
+  top: 0;
+}
+
+#layer2 {
+  top: 60px;
+}
+
+#layer3 {
+  top: 120px;
+}
+
+#layer4 {
+  top: 180px;
+}

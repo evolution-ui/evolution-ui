@@ -1,0 +1,46 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="site-container">
+    <nav class="site-nav" role="navigation">
+      <ul class="site-nav-list">
+        {% for item in include.bov %}
+          <li class="site-nav-item">
+            <a class="site-nav-link" href="{{ item.url }}" title="{{ item.title }}" target="_blank">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <nav class="site-nav" role="navigation">
+      <ul class="site-nav-list">
+        {% for item in include.bovSocial %}
+          <li class="site-nav-item">
+            <a class="site-nav-link" href="{{ item.url }}" title="{{ item.title }}" target="_blank">
+              <svg class="site-nav-icon site-icon-svg site-icon-svg-md site-icon-svg-{{ item.icon }}" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#site-icon-{{ item.icon }}"></use>
+              </svg>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <hr>
+    <p>Developed by Bov Academy Students</p>
+    <nav class="site-nav" role="navigation">
+      <ul class="site-nav-list">
+        {% for item in include.maintainers %}
+          <li class="site-nav-item">
+            <a class="site-nav-link site-credit" href="{{ item.url }}" title="{{ item.name }}" target="_blank">
+              <img class="site-nav-image" src="{{ site.url }}/assets/images/maintainers/{{ item.image }}" width="64" alt="{{ item.name }}">
+              <span class="site-nav-text">{{ item.name }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script src="{{ "/assets/scripts/evolution-ui/evolution-ui.min.js" | prepend: site.url }}"></script>
+<script src="{{ "/assets/scripts/libs/offCanvas.js" | prepend: site.url }}"></script>
+<script src="{{ "/assets/scripts/libs/site.js" | prepend: site.url }}"></script>
+<script src="{{ "/assets/scripts/libs/component-search.js" | prepend: site.url }}"></script>
+<script src="{{ "/assets/scripts/libs/hide-sidebar.js" | prepend: site.url }}"></script>
+<script src="{{ "/assets/scripts/main.js" | prepend: site.url }}"></script>

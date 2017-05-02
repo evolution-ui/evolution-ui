@@ -1,0 +1,345 @@
+/******************************************************************************
+                              Crumble component
+******************************************************************************/
+
+@import 'crumble-config';
+
+
+
+@include c( $c-crumble-name ) {
+
+  @include vertical-rhythm(1rem);
+  font-family: $g-framework-font-family;
+  font-weight: $c-crumble-font-weight;
+
+  //----------------------------------------------------------------------------
+  //                      EVENT DETAILS - Full Width
+  //----------------------------------------------------------------------------
+
+  @include m('full-width') {
+
+    $reference-crumble-item: getBEMReference($c-crumble-name, 'item');
+
+    // Item element
+    & .#{$reference-crumble-item} {
+      display: block;
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             LIST ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e( 'list' ) {
+
+    $list-item: getBEMReference($c-crumble-name, 'item');
+
+    position: relative;
+    bottom: 10px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    @include m('actions') {
+      display: flex;
+      justify-content: center;
+    }
+
+    //--------------------------------------------------------------------------
+    //                       SIZE HELPERS - LIST ELEMENT
+    //--------------------------------------------------------------------------
+
+    @include h('space-around', $g-no-prefix, $apply-on-descendants: false) {
+      justify-content: space-around;
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    //--------------------------------------------------------------------------
+    //                   COLOR MODIFIER - ITEM ELEMENT
+    //--------------------------------------------------------------------------
+
+    @include m('secondary') {
+
+      .#{$list-item} {
+        background-color: get-color('secondary', 'dark');
+
+        &:hover {
+          background-color: get-color('secondary', $opacity: .9);
+        }
+      }
+    }
+
+    @include m('accent3') {
+
+      .#{$list-item} {
+        background-color: get-color('accent3');
+
+        &:hover {
+          background-color: tint(get-color('accent3'), 9%);
+        }
+      }
+    }
+
+    @include m('accent4') {
+
+      .#{$list-item} {
+        background-color: get-color('accent4', 'dark');
+
+        &:hover {
+          background-color: get-color('accent4');
+        }
+      }
+    }
+
+    @include m('background') {
+
+      .#{$list-item} {
+
+        background-color: get-color('background');
+
+        &:hover {
+          background-color: get-color('background', $opacity: .9);
+        }
+      }
+    }
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             ITEM ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('item') {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: get-color('primary', 'dark');
+    border: 1px solid rgb(206, 206, 206);
+
+      &:hover {
+        background-color: get-color('primary', $opacity: .9);
+      }
+
+      //--------------------------------------------------------------------------
+      //                   COLOR MODIFIER - ITEM ELEMENT
+      //--------------------------------------------------------------------------
+
+      @include m('secondary') {
+        background-color: get-color('secondary', 'dark')!important;
+
+        &:hover {
+          background-color: get-color('secondary', $opacity: .9)!important;
+        }
+      }
+
+      @include m('accent3') {
+        background-color: get-color('accent3')!important;
+
+        &:hover {
+          background-color: tint(get-color('accent3'), 9%)!important;
+        }
+      }
+
+      @include m('accent4') {
+        background-color: get-color('accent4', 'dark')!important;
+
+        &:hover {
+          background-color: get-color('accent4')!important;
+        }
+      }
+
+      @include m('background') {
+        background-color: get-color('background')!important;
+
+        &:hover {
+          background-color: get-color('background', $opacity: .9)!important;
+        }
+      }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             TAG ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('tag') {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    display: flex;
+    height: 100%;
+    width: $c-crumble-tag-width;
+    background-color: rgb(196, 196, 179);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+      &:after {
+        content: attr(data-tag);
+        text-transform: uppercase;
+        font-size: .8em;
+      };
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             SPAN ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('span') {
+    padding-left: #{$c-crumble-tag-width + 40px};
+    width: calc(100% - #{$c-crumble-tag-width});
+    min-height: $c-crumble-span-min-height;
+    display: flex;
+    align-items: center;
+    color: white();
+
+    @include s('is-active') {
+      min-height: 0;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             ICON ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include e('icon') {
+    @extend %c-crumble-pointer;
+    padding: 10px;
+    color: white(0.69);
+    background-color: get-color('secondary', 'light');
+
+      &:hover {
+        background-color: get-color('secondary');
+        color: white(1);
+      }
+
+      // crumble__icon--close
+      @include m('close') {
+        @extend %c-crumble-pointer;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        color: white(.6);
+        transition: transform .7s cubic-bezier(0.39, 0.58, 0.57, 1);
+
+          &:hover {
+            color: white();
+            transform: rotate(360deg);
+          }
+      }
+
+      // crumble__icon--expand
+      @include m('expand') {
+        @extend %c-crumble-pointer;
+        padding: 10px;
+        margin: 0 10px;
+        background-color: white(.05);
+      }
+  }
+
+  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  //
+  //                             EVENT COMPONENT
+  //
+  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  @include c($c-crumble-event-name) {
+    min-height: 0;
+    height: 0;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    transition: min-height 1s cubic-bezier(0, 1.02, 0, 1);
+    perspective: 40px;
+    cursor: initial;
+
+    // Status
+    @include s('is-open') {
+
+      $event-description: getBEMReference($c-crumble-event-name, 'description');
+
+      min-height: $c-crumble-header-height + $c-crumble-body-height;
+      height: auto;
+      width: 100%;
+      overflow: initial;
+
+        .#{$event-description} {
+          opacity: 1;
+          max-height: 2000px;
+        }
+    }
+
+    // event__title
+    @include e('title') {
+      margin: 0;
+      color: white();
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: .3rem;
+    }
+
+    // event__header
+    @include e('header') {
+      @extend %c-crumble-unfold-transition;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: $c-crumble-header-height;
+      text-align: center;
+      background-color: get-color('background', 'light');
+      transform: rotateX(-10deg);
+      transform-origin: 50% 0;
+      transform-style: preserve-3d;
+
+      @include s('is-rotated-to-zero') {
+        @extend %c-crumble-rotate-to-initial;
+      }
+    }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //                          EVENT's BODY ELEMENT
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    @include e('body') {
+      @extend %c-crumble-unfold-transition;
+      height: $c-crumble-body-height;
+      background-color: #6f6f6f;
+      text-align: center;
+      transform: rotateX(10deg);
+      transform-origin: 50% 100%;
+      transform-style: preserve-3d;
+      overflow: visible;
+
+      @include s('is-rotated-to-zero') {
+        @extend %c-crumble-rotate-to-initial;
+      }
+    }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //                          EVENT's DESCRIPTION ELEMENT
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    @include e('description') {
+      max-height: 0;
+      opacity: 0;
+      padding: 5px;
+      color: white(.8);
+      overflow: hidden;
+      transition: max-height 3.5s #{$c-crumble-unfold-duration - .3s} ease-in,
+                  opacity .7s #{$c-crumble-unfold-duration - .3s} ease-in;
+
+        * {
+          color: white();
+        }
+
+        @media screen and (min-width: $c-crumble-media-tablet) {
+          padding: 15px;
+        }
+    }
+  }
+
+}

@@ -1,0 +1,249 @@
+@import '../../assets/styles/abstracts/variables';
+@import '../../assets/styles/abstracts/functions';
+@import '../../assets/styles/abstracts/import-mixins';
+@import '../../assets/styles/abstracts/placeholders';
+
+/******************************************************************************
+                Carousel With Dropping Circle Nav Config
+******************************************************************************/
+
+//----------------------------------------------------------------
+//                    Super-Easy Component config
+//----------------------------------------------------------------
+
+// The component's name - not mandatory but highly recommended
+$c-nav-drop-carousel: 'nav-drop-carousel';
+
+// Components variables
+
+// adjust this value for how you want carousel to be displayed at smaller screens
+$c-nav-drop-carousel-width: 95%;
+
+
+// change this value to adjust width of component
+$c-nav-drop-carousel-max-width: 760px;
+
+//  change this value to adjust the height of carousel
+$c-nav-drop-carousel-height: 500px;
+
+
+
+//  this does not need to be touched but if it does feel free to adjust
+//  this value will change the ending drop position of circles
+$c-nav-drop-circles-height: $c-nav-drop-carousel-height  - 110;
+
+/******************************************************************************
+                Carousel With Dropping Circle Nav Component
+******************************************************************************/
+
+// @import 'carousel_with_dropping_circle_nav-config';
+
+
+/* container for the whole carousel set to flex */
+
+.evo_c-nav-drop-carousel  {
+  // margin added for demonstration only remove or modify for your layout
+  margin: 50px auto;
+  margin-bottom: 0;
+  position: relative;
+  width: $c-nav-drop-carousel-width;
+  max-width: $c-nav-drop-carousel-max-width;
+  padding: 0 2px;
+  display: flex;
+  justify-content: center;
+  height: $c-nav-drop-carousel-height;
+
+
+}
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             NAV CIRCLES CLASSES
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/* change the order of label container to show on right side */
+.evo_c-nav-drop-carousel__label-wrap {
+  position: relative;
+  flex: 1 0 20px;
+  padding-left: 5px;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  }
+
+.evo_c-nav-drop-carousel__label-container {
+  display: flex;
+  background: transparent;
+  height: 15px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  margin-top: 1px;
+  transition: transform 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940); /* easeOutQuad */
+
+}
+
+
+
+/* style the lables */
+.evo_c-nav-drop-carousel__drop-label {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  background:#A7C4EF ;
+  border-radius: 50%;
+  }
+
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                            TRANSITION DELAYS
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.evo_c-nav-drop-carousel__label-container:nth-child(1) {
+  transition-delay: 20ms;
+}
+
+.evo_c-nav-drop-carousel__label-container:nth-child(2) {
+  transition-delay: 40ms;
+}
+.evo_c-nav-drop-carousel__label-container:nth-child(3) {
+  transition-delay: 60ms;
+}
+.evo_c-nav-drop-carousel__label-container:nth-child(4) {
+  transition-delay: 80ms;
+}
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             IMAGE BODY
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+/* set the carousel slide container width */
+.evo_c-nav-drop-carousel__drop-content {
+  display: flex;
+  flex-direction: column;
+  flex: 80 0 0;
+  position: relative;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.3);
+}
+
+.evo_c-nav-drop-carousel__slide {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.evo_c-nav-drop-carousel__slide img  {
+  display: flex;
+  flex: 1 0 0 ;
+  max-width: 100%;
+  width: 100%;
+}
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             AMINMATION KEYFRAME
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+@keyframes test {
+  0% {
+    background: #A7C4EF ;
+    border: none;
+  }
+
+  25% {
+    background: #A7C4EF ;
+    border: none;
+
+  }
+
+  75% {
+    background: #A7C4EF ;
+    border: none;
+
+  }
+
+  100% {
+    background: #fff;
+    border: 2px solid #CFD2D7;
+  }
+}
+
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             JAVASCRIPT CLASSES
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.js-drop {
+  transform: translateY($c-nav-drop-circles-height);
+  transition: transform 300ms cubic-bezier(0.600, 0.640, 0.320, 1.275);
+}
+
+.js-selected {
+  border: 2px solid #CFD2D7;
+  background: #fff;
+  cursor: default;
+  animation: test;
+  animation-duration: 400ms;
+}
+
+.js-slide__show {
+  opacity: 1;
+}
+
+
+
+
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                             MEDIA QUERIES
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0 5px;
+  }
+
+}
+
+
+
+@media (max-width: 800px) {
+  .evo_c-nav-drop-carousel  {
+    height: $c-nav-drop-carousel-height - 150px;
+
+  }
+
+ .evo_c-nav-drop-carousel__label-wrap {
+    padding: 0
+  }
+
+
+ .js-drop {
+  transform: translateY(195px);
+  transform: translateY($c-nav-drop-circles-height - 150px);
+ }
+
+ .evo_c-nav-drop-carousel__drop-content {
+  flex: 20 0 0;
+ }
+
+
+
+}
+

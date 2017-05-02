@@ -1,0 +1,19 @@
+<head>
+  <!-- Meta -->
+  <meta charset="{{ page.encoding | default: site.encoding | default: 'utf-8' }}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.url != '/' %}{{ page.title | escape }} &bull; {% endif %}{{ site.title | escape }} UI Framework{% if site.title_after %} &bull; {{ site.title_after }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon.png" | prepend: site.url }}">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://use.fontawesome.com/118670e9e2.js"></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ "/assets/styles/evolution-ui/evolution-ui.min.css" | prepend: site.url }}">
+  <link rel="stylesheet" href="{{ "/assets/styles/main.css" | prepend: site.url }}">
+</head>

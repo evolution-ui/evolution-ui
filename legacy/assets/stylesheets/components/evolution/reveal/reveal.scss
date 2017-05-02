@@ -1,0 +1,96 @@
+@import "reveal-config";
+
+@include c( $c-reveal-name ){
+  position: relative;
+  width: $c-reveal-width;
+  height: 5rem;
+  line-height: 5rem;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #172131;
+  z-index: 0;
+  transition: height 1050ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+  -webkit-backface-visibility: hidden;//prevent flicker in safari
+  &:hover{
+    height: 11rem;
+  }
+  &:hover .evo_c-reveal__text--hidden {
+    height: 8rem;
+  }
+  &:hover .evo_c-reveal__icon {
+    opacity: 0;
+  }
+  &:hover .evo_c-reveal__text>span {
+    height: 100%;
+    padding-bottom: 9rem;
+  }
+  &:hover .evo_c-reveal__text{
+    color: #4C5666;
+  }
+
+  @include e('text'){
+    position: absolute;
+    color: #54D7F3;
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    transition: color 950ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+    -webkit-transform: translate3d(0, 0, 0);//prevent flicker in safari
+    >span{
+      position: absolute;
+      display: block;
+      font-size: 1.6rem;
+      height: 0%;
+      top: 0;
+      width: 100%;
+      padding-bottom: 1.1rem;
+      left: 0;
+      overflow: hidden;
+      transition: height 1050ms cubic-bezier(0.190, 1.000, 0.220, 1.000), padding-bottom 1050ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+      &::before{
+        content: attr(rel);
+        position: absolute;
+        margin: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        color: #4C5666;
+      }
+    }
+    @include m('hidden'){
+      position: absolute;
+      color: #FFFFFF;
+      border-bottom: 1px dotted #5590b9;
+      overflow: hidden;
+      height: 0;
+      line-height: 1.2rem;
+      transition: height 1050ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+      width: 13rem;
+      top: 25px;
+      left: 15px;
+      -webkit-transform: translate3d(0, 0, 0);//prevent flicker in safari
+      >div{
+        padding: 2.8rem 0 1rem 0.5rem;
+        text-align: left;
+      }
+    }
+  }
+
+  @include e('icon'){
+    width: 5px;
+    height: 5px;
+    background-color: #5590b9;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    right: 15px;
+    opacity: 1;
+    transition: opacity 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+  }
+}
+.evo_c-reveal-wrapper {
+  width: 100%;
+  height: 20rem;
+  background-color: #172131;
+}
