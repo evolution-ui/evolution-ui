@@ -1,3 +1,8 @@
+/**
+ * Created by Neverland on 4/24/17.
+ */
+
+
 (function () {
     "use strict";
 
@@ -13,8 +18,8 @@
         //Setup CCS Property for All Layers
         for (var i = 0; i < tempLayers.length; i++) {
             tempLayers[i].style.zIndex = i;
-            tempLayers[i].style.left = (i * 25).toString() + 'px';
-            tempLayers[i].style.top = (i * 45).toString() + 'px';
+            tempLayers[i].style.marginLeft = (i * 25).toString() + 'px';
+            tempLayers[i].style.marginTop = (i * 45).toString() + 'px';
 
             //Setup Header
             var tempChildNodes = tempLayers[i].childNodes;
@@ -89,14 +94,15 @@
         for (var i = 0; i < tempLayers.length; i++) {
             tempLayers[i].addEventListener("click", function (e) {
                 shuffleLayers(e);
-                setCheckMark(e);
+                fadeVisitedLayer(e);
             }, false);
         }
     }
 
 
-    function setCheckMark(e) {
+    function fadeVisitedLayer(e) {
         var tempLayerPositions = createLayerMapping();
+        var layerNumbers = getLayerNumbers();
         sortTempLayerBasedOnTopPositions(tempLayerPositions);
 
         var clickedElement = (e.target.id).replace('_header', '');
@@ -119,11 +125,10 @@
             return clickedLayerPositionInArray;
         }
 
-        if (clickedLayerPositionInArray != 1 ) {
-        var reviewedLayer = document.getElementById(tempLayerPositions[1].layerName);
-
-
-        reviewedLayer.style.borderColor = "#e3e3e3";
+        if (clickedLayerPositionInArray != layerNumbers - 1) {
+            var reviewedLayer = document.getElementById(tempLayerPositions[layerNumbers - 1].layerName);
+            var reviewedLayerTitle = document.getElementById(tempLayerPositions[layerNumbers - 1].layerName).childNodes[1];
+            reviewedLayer.style.borderColor = "#e3e3e3";
         }
     }
 
@@ -147,13 +152,10 @@
                 updateLastLayerTopPosition();
                 updateSelectedLayerTopPosition();
                 sortTempLayerBasedOnTopPositions(tempLayerPositions);
-                console.log(tempLayerPositions);
-
 
                 if (clickedLayerPositionInArray == 0) {
-                    console.log("A");
                     setTimeout(function () {
-                        hideUnselectedLayerC();
+                        hideUnselectedLayer();
                     }, 100);
                     setTimeout(function () {
                         resetUnselectedLayersZIndex();
@@ -215,7 +217,6 @@
         }
 
         function updateLastLayerTopPosition() {
-            console.log(tempLayerPositions[tempLayerPositions.length - 1]);
             tempLayerPositions[tempLayerPositions.length - 1].topPosition = 0;
         }
 
@@ -229,10 +230,9 @@
 
         function resetUnselectedLayersPosition() {
             (function fn(i) {
-                console.log(tempLayerPositions[i].layerName);
                 var tempLayer = document.getElementById(tempLayerPositions[i].layerName);
-                tempLayer.style.left = (i * 25).toString() + 'px';
-                tempLayer.style.top = (i * 45).toString() + 'px';
+                tempLayer.style.marginLeft = (i * 25).toString() + 'px';
+                tempLayer.style.marginTop = (i * 45).toString() + 'px';
                 tempLayer.style.height = '480px';
                 tempLayer.style.opacity = "1";
                 if (i > 0)setTimeout(function () {
@@ -241,11 +241,11 @@
             }(0));
         }
 
-        function hideUnselectedLayerC() {
+        function hideUnselectedLayer() {
             var tempLayer = document.getElementById(tempLayerPositions[0].layerName);
             tempLayer.style.zIndex = 8;
-            tempLayer.style.left = (2 * 25).toString() + 'px';
-            tempLayer.style.top = (2 * 45).toString() + 'px';
+            tempLayer.style.marginLeft = (2 * 25).toString() + 'px';
+            tempLayer.style.marginTop = (2 * 45).toString() + 'px';
             tempLayer.style.background = "#FDFFFC";
             tempLayer.style.color = "#808080";
             tempLayer.style.borderBottom = "0";
@@ -270,13 +270,12 @@
         function pushClickedLayer() {
             var tempLayer = document.getElementById(tempLayerPositions[1].layerName);
             tempLayer.style.zIndex = 1;
-            tempLayer.style.left = (1 * 25).toString() + 'px';
-            tempLayer.style.top = (1 * 45).toString() + 'px';
+            tempLayer.style.marginLeft = (1 *25).toString() + 'px';
+            tempLayer.style.marginTop = (1 * 45).toString() + 'px';
         }
 
 
         //Highlight the clicked layer
-
         function highLightClickedLayer() {
             var clickedLayer = document.getElementById(tempLayerPositions[tempLayerPositions.length - 1].layerName);
             clickedLayer.style.background = " #E7F6FE";
@@ -301,6 +300,7 @@
         }
     }
 
+
     function createScrollEventListener() {
         window.addEventListener('scroll', function () {
             var currentScrollTopPosition = getCurrentScrollPosition();
@@ -319,7 +319,6 @@
     var headerPositionIndicator = 0;
 
     function setHeaderPositionToVertical() {
-
         var tempLayerPositions = createLayerMapping();
         sortTempLayerBasedOnTopPositions(tempLayerPositions);
 
@@ -329,7 +328,7 @@
             var tempChildNodes = tempLayer.childNodes;
             tempChildNodes[1].style.transform = "rotate(90deg)";
             tempChildNodes[1].style.top = "400px";
-            tempChildNodes[1].style.left = "-46%";
+            tempChildNodes[1].style.marginLeft = "-50%";
             tempChildNodes[1].style.whiteSpace = "nowrap";
         }
         headerPositionIndicator = 1;
@@ -342,9 +341,9 @@
         var currentScrollTopPosition = getCurrentScrollPosition();
         var containerTopPosition = getContainerTopPosition();
         var lastLayerHeight = getLastLayerHeight();
+        var lastLayerTitleWidth = getLastLayerTitleWidth();
         var adjustedVerticalHeaderTop = (350 + currentScrollTopPosition - containerTopPosition);
         var adjustedLayerHeight = (200 + currentScrollTopPosition - containerTopPosition);
-
 
         if (lastLayerHeight > adjustedVerticalHeaderTop + 100) {
             for (var i = 0; i < tempLayerPositions.length - 1; i++) {
@@ -372,7 +371,7 @@
                 var tempChildNodes = tempLayers[i].childNodes;
                 tempChildNodes[1].style.transform = "rotate(0deg)";
                 tempChildNodes[1].style.top = "0";
-                tempChildNodes[1].style.left = "25px";
+                tempChildNodes[1].style.marginLeft = "0";
                 tempChildNodes[1].style.whiteSpace = "normal";
             }
             headerPositionIndicator = 2;
@@ -384,7 +383,7 @@
     }
 
     function scrollBackToContainerTop() {
-        TweenLite.to(window, 0.8, {scrollTo:0, autoKill:false, ease:Power2.easeOut});
+        TweenLite.to(window, 0.8, {scrollTo: 0, autoKill: false, ease: Power2.easeOut});
     }
 
     function getLayerTopPosition(layerId) {
@@ -392,9 +391,17 @@
     }
 
     function getLastLayerHeight() {
+        var layerNumbers = getLayerNumbers();
         var tempLayerPositions = createLayerMapping();
         sortTempLayerBasedOnTopPositions(tempLayerPositions);
-        return parseInt(window.getComputedStyle(document.getElementById(tempLayerPositions[1].layerName)).getPropertyValue('height').replace('px', ''));
+        return parseInt(window.getComputedStyle(document.getElementById(tempLayerPositions[layerNumbers - 1].layerName)).getPropertyValue('height').replace('px', ''));
+    }
+
+    function getLastLayerTitleWidth() {
+        var layerNumbers = getLayerNumbers();
+        var tempLayerPositions = createLayerMapping();
+        sortTempLayerBasedOnTopPositions(tempLayerPositions);
+        return parseInt(window.getComputedStyle(document.getElementById(tempLayerPositions[layerNumbers - 1].layerName).childNodes[1]).getPropertyValue('width').replace('px', ''));
     }
 
     function getContainerTopPosition() {
