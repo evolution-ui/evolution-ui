@@ -12,7 +12,7 @@ author: "Bov Academy"
 
 # ROUTES
 baseurl: ""
-url: "http://localhost:4000"
+url: "http://localhost:3000"
 root: /
 permalink: /:categories/:title/
 
@@ -22,7 +22,6 @@ permalink: /:categories/:title/
 markdown: kramdown
 sass:
     sass_dir: /assets/styles/_sass
-    style: compressed
 exclude:
   - Gemfile
   - Gemfile.lock

@@ -1,0 +1,68 @@
+.up-down-scroll {
+    height: 50px;
+    width: 120px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    z-index: 100;
+    box-shadow: 1px 1px 2px 0 lightgrey;
+
+    img {
+        display: block;
+        width: 80%;
+        height: 70%;
+        margin: auto;
+    }
+
+    p {
+        font-size: 0.6em;
+        margin: 0;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.up-down-scroll__scroll-up,
+.up-down-scroll__scroll-down {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    transition: background-color .1s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: map-get($site-colors, grayscale-lighter);
+    }
+}
+
+
+
+.evo_c-text2speech__controller {
+    z-index: 100;
+}
+
+
+//search progress bar
+
+.site-searchform-progress-bar {
+    width: 0;
+    height: 3px;
+    background: map-get($site-colors, primary);
+    position: absolute;
+    top: 0;
+    border-radius: 4px;
+    opacity: .8;
+    height: 48px;
+    transition: width .9s;
+
+    &.expanded {
+        width: 100%;
+    }
+}

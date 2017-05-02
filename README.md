@@ -1,8 +1,12 @@
-# Evolution UI
+# evolution-ui
 
-> A collection of standard and innovative UI components made by [Bov Academy][bov-academy] students.
+[![travis](https://img.shields.io/travis/evolution-ui/evolution-ui.svg)](https://travis-ci.org/evolution-ui/evolution-ui) [![npm (scoped)](https://img.shields.io/npm/v/@cbracco/evolution-ui.svg)](https://npm.im/@cbracco/evolution-ui) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE.md) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![slack](https://evolution-ui.herokuapp.com/badge.svg)](https://evolution-ui.herokuapp.com/)
 
-[View Showcase Website][showcase-website]
+> A playground for the new Evolution UI directory structure and workflow.
+
+## What is Evolution UI?
+
+Evolution UI is a collection of standard and evolutionary web UI components built by students in the [Bov Academy][bov-academy].
 
 ## Requirements
 
@@ -16,101 +20,183 @@ This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating s
 
 **Need to update Node.js?** Use [nvm][nvm] to manage multiple versions of Node.js on your local machine.
 
-**Running Windows?** Jekyll (what we use to build our `/docs`) does not officially support the Windows operating system, but they do provide [special instructions][jekyll-windows] if you want to take a crack at it anyway.
+## Usage
 
-## Installation
+There are several ways to begin using Evolution UI in your project.
 
-1. First, make sure all of the software listed above is installed on your local machine. The latest stable versions should work fine.
+### npm
 
-    - [Install Ruby/RubyGems][ruby]
-    - [Install Ruby Bundler][rubybundler]
-    - [Install Node.js/npm][node-install]
+You can download Evolution UI as an npm package, which includes the required CSS and JavaScript files.
 
-2. Once you have Node.js/npm installed, use it to install `gulp-cli` globally:
+```bash
+npm install evolution-ui
+```
 
-    ```bash
-    npm install -g gulp-cli`
-    ```
+### CDN
 
-    The `-g` flag means it will be installed globally on your system, and can be used for any project.
+Or, you can include external links the required CSS and JavaScript files using a CDN.
 
-3. Clone this repository to your local machine, and install the required packages by running the following command(s):
+We recommend you include a link to the CSS in the `<head>` of your HTML document, and a link to the JavaScript source at the bottom of your file, right before the closing `</body>` tag.
 
-    ```bash
-    git clone git@github.com:BovAcademy-opensource/evolution-ui.git
-    cd /path/to/repository
-    npm install
-    ```
+**CSS:**
 
-    This will install all the required software specific to the framework.
+```html
+<link rel="stylesheet" href="https://unpkg.com/evolution-ui/dist/evolution-ui.min.css">
+```
 
-    **NOTE** *npm* sometimes has problems with module dependencies. When you see error messages like `Module not found: Can't resolve ...` or `Cannot find module ...`, run `npm update` in your command line.
+**JavaScript:**
 
-4. Use [Bundler][rubybundler] to install all required Ruby gems (the Ruby equivalent of “packages”) specific to the showcase website (located in the `/docs` directory) by running the following command(s):
+```html
+<script src="https://unpkg.com/evolution-ui/dist/evolution-ui.min.css"></script>
+```
+
+After including the required CSS and JavaScript files, simply add the appropriate HTML to your document to render a component. For example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Project</title>
+    <link rel="stylesheet" href="https://unpkg.com/evolution-ui/dist/evolution-ui.min.css">
+</head>
+<body>
+    <!-- Dot Navigation -->
+    <nav class="evo_c-dot-navigation evo_c-dot-navigation--flip">
+        <ul>
+            <li class="is-active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav>
+    <script src="https://unpkg.com/evolution-ui/dist/evolution-ui.min.css"></script>
+</body>
+</html>
+```
+
+You can find many HTML markup examples and demos on the [showcase website][showcase-website] for Evolution UI.
+
+## Development
+
+### Source Code
+
+If you would like to modify the source of Evolution UI, you will have to install the project’s dependencies after you download, clone or fork the repository. To clone this repository to your local machine and navigate to its location, run the following command(s):
+
+```bash
+git clone git@github.com:evolution-ui/evolution-ui.git
+cd /path/to/repository
+```
+
+#### Install Dependencies
+
+First, make sure all of the software [listed above][requirements] is installed on your local machine. The latest stable versions should work fine.
+
+Next, install all of Evolution UI’s required software dependencies.
+
+```bash
+npm install
+```
+
+**NOTE:** Sometimes you will run into module dependency issues with `npm`. When you see error messages like `Module not found: Can't resolve ...` or `Cannot find module ...`, updating npm (run `npm update` in your command line) can sometimes fix these issues.
+
+#### Workflow
+
+Evolution UI follows the [git-flow][git-flow] workflow. Any new work should begin and/or branch from the `development` branch, which gets periodically merged into `master` as a somewhat-formal "release". We use [commitizen][commitizen] to ensure quality commits, and [semantic-release][semantic-release] to automate the release process.
+
+A typical workflow would look something like this:
+
+1. Checkout the `development` branch and pull in the latest changes:
 
     ```bash
     git checkout development
-    cd docs/
-    gem install bundler
-    bundle install
+    git pull --rebase origin development
     ```
 
-    **NOTE:** You only need to run `gem bundler install` if you didn’t already install [Bundler][rubybundler] on your machine in the previous steps.
+2. Start the development environment, and navigate to http://localhost:3000/ in your web browser:
 
-Voilà! You have successfully installed all the dependencies.
+    ```bash
+    npm start
+    ```
 
-## Usage
+3. Do work!
 
-After installing the required software specific to the framework and showcase website, you can begin using them. The following commands can now be run in the terminal from the root directory of the repository:
+4. When you are finished with your feature, bug fix, or whatever, commit your changes using the [commitizen][commitizen] CLI (which we have handily aliased as an npm script):
 
-- `npm start`: Builds the framework’s development environment, watches for file changes, and automatically reloads the browser window when files change.
-- `npm run start-docs`: Copies the framework’s compiled assets over to the showcase website, and serves the showcase website.
-- `npm run production`: Builds a “production-ready” version of the framework with minification and file hashes for a better cache management.
-- `npm run deploy-docs`: Deploys the showcase website to the `gh-pages` branch, which updates the live website.
-- `npm run sassdoc`: Builds and serves the Sass-specific documentation in your web browser.
+    ```bash
+    git add .
+    npm run commit
+    ```
 
-**ProTip:** You can stop a running task in the terminal by using the  `Ctrl` + `C` keyboard shortcut.
+    We also use [husky][husky] to ensure that our tests (`npm run test`) run and pass before every commit and push attempt.
+
+5. When ready to push a new release, we use [semantic-release][semantic-release] to automate the process of bumping the version number and publishing the package to npm:
+
+    ```bash
+    npm run release
+    ```
+
+### Showcase Website
+
+In addition to Evolution UI’s source code, we include the source code for the showcase website inside this same repository. The website serves as a showcase of all the UI components in this library. It is built using the [Jekyll][jekyll] static site generator, because Jekyll couples nicely with [GitHub Pages][gh-pages].
+
+#### Install Dependencies
+
+Use [Bundler][rubybundler] to install all required Ruby gems (the Ruby equivalent of “packages”) specific to the showcase website (located in the `/docs` directory) by running the following command(s):
+
+```bash
+cd docs/
+gem install bundler
+bundle install
+```
+
+**NOTE:** You only need to run `gem bundler install` if you didn’t already install [Bundler][rubybundler] on your machine in the previous steps.
+
+**Running Windows?** Jekyll (what we use to build our `/docs`) does not officially support the Windows operating system, but they do provide [special instructions][jekyll-windows] if you want to take a crack at it anyway.
+
+#### Workflow
+
+To build the showcase website, run the following the command(s):
+
+```bash
+npm run docs
+```
+
+This command will build the latest Evolution UI source and copy the compiled assets into the `docs/` directory. Then it builds the Jekyll source files and runs the result in the web browser at http://localhost:3000, and watches for changes as you work and automatically reloads (thanks [browser-sync][browser-sync]!).
+
+#### Deploying to GitHub Pages
+
+When you are done working on the showcase website, and your commits have been pushed/merged in, you can deploy the latest changes to the showcase website by running the following command(s):
+
+```bash
+npm run deploy-docs
+```
 
 ## Contributing
 
 Please follow our [detailed guidelines][contributions] if you would like to make a contribution to this project.
 
-Thanks for your help!
-
-## Core Maintainers
-
-- Gabriele Romeo ([@GabrieleRomeo][maintainer-gabrieleromeo])
-- Joseph Michael Matembu ([@jmatembu][maintainer-jmatembu])
-- Vojislav Grujić ([@Gruximillian][maintainer-gruximillian])
-- Brian Hernandez ([@brianhernandez][maintainer-brianhernandez])
-- Carlos Coves ([@escorponox][maintainer-escorponox])
-- Chris Bracco ([@cbracco][maintainer-cbracco])
-
 ## License
 This project is released under the [MIT License][license].
 
 [bov-academy]: https://bovacademy.com
+[browser-sync]: https://browsersync.io/
+[commitizen]: https://github.com/commitizen/cz-cli
 [contributions]: .github/CONTRIBUTING.md
-[gitflow]: https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow
-[github-pages]: https://pages.github.com/
+[husky]: https://github.com/typicode/husky
+[gh-pages]: https://pages.github.com/
+[git-flow]: https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow
 [jekyll]: https://jekyllrb.com
 [jekyll-windows]: http://jekyllrb.com/docs/windows/#installation
 [license]: LICENSE.md
-[liquid]: http://liquidmarkup.org
-[maintainer-brianhernandez]: https://github.com/brianhernandez
-[maintainer-cbracco]: https://github.com/cbracco
-[maintainer-escorponox]: https://github.com/escorponox
-[maintainer-gabrieleromeo]: https://github.com/GabrieleRomeo
-[maintainer-gruximillian]: https://github.com/Gruximillian
-[maintainer-jmatembu]: https://github.com/jmatembu
 [node]: https://nodejs.org/en/
 [node-install]: https://docs.npmjs.com/getting-started/installing-node
 [npm]: https://www.npmjs.com
 [nvm]: https://github.com/creationix/nvm
-[pull-request]: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
-[repo]: https://github.com/BovAcademy-opensource/evolution-ui
+[requirements]: #requirements
 [ruby]: https://www.ruby-lang.org/en/
 [rubybundler]: http://bundler.io
 [rubygems]: https://rubygems.org
-[sass]: http://sass-lang.com
-[showcase-website]: https://BovAcademy-opensource.github.io/evolution-ui/
+[semantic-release]: https://github.com/semantic-release/semantic-release
+[showcase-website]: https://evolution-ui.github.io/evolution-ui/

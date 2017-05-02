@@ -1,0 +1,18 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+//
+// MAIN
+//
+
+@charset 'utf-8';
+
+@import
+  'partials/variables',
+  'partials/mixins',
+  'partials/reset',
+  'partials/base',
+  'partials/layout',
+  'partials/site-styles'
+;
