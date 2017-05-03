@@ -10,11 +10,11 @@
     //get layer heights
     var firstLayerHeight = getFirstLayerHeight();
     console.log("First layer: ", firstLayerHeight);
-    var lastLayerHeight = getLastLayerHeight() - 450;
+    var lastLayerHeight = getLastLayerHeight();
     // var lastLayerHeight = getLastLayerHeight();
     console.log("Last layer: ", lastLayerHeight);
 
-    $('.evo_c_multiLayers_container')[0].style.height = lastLayerHeight + 50 + "px";
+    $('.evo_c_multiLayers_container')[0].style.height = lastLayerHeight + 100 + "px";
     console.log("Container height: ", $('.evo_c_multiLayers_container')[0].style.height);
 
     //create a layer/height object

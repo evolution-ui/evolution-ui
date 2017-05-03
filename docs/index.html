@@ -27,7 +27,7 @@ layout: default
         <ul class="site-sidebar-list">
           {% for type in componentsByType %}
           <li class="site-sidebar-item">
-            <a href="#site-section-{{ forloop.index }}" class="site-sidebar-link">{{ type.name | capitalize }}</a>
+            <a href="#site-section-standard-{{ forloop.index }}" class="site-sidebar-link">{{ type.name | capitalize }}</a>
           </li>
           {% endfor %}
         </ul>
@@ -35,7 +35,7 @@ layout: default
     </div>
     <div class="site-content" aria-label="Content">
       {% for type in componentsByType %}
-        <article class="site-section" id="site-section-{{ forloop.index }}">
+        <article class="site-section" id="site-section-standard-{{ forloop.index }}">
           <h1 class="site-section-heading">{{ type.name | capitalize }}</h1>
           {% for item in type.items %}
             {% if forloop.first %}
@@ -82,7 +82,7 @@ layout: default
 
     <div class="site-content" aria-label="Content">
       {% for type in componentsByType %}
-        <article class="site-section" id="site-section-{{ forloop.index }}">
+        <article class="site-section" id="site-section-standard-{{ forloop.index }}">
           <h1 class="site-section-heading">{{ type.name | capitalize }}</h1>
           {% for item in type.items %}
             {% if forloop.first %}
@@ -131,7 +131,7 @@ layout: default
         <ul class="site-sidebar-list">
           {% for type in componentsByType %}
           <li class="site-sidebar-item">
-            <a href="#site-section-{{ forloop.index }}" class="site-sidebar-link">{{ type.name | capitalize }}</a>
+            <a href="#site-section-evolution-{{ forloop.index }}" class="site-sidebar-link">{{ type.name | capitalize }}</a>
           </li>
           {% endfor %}
         </ul>
@@ -139,7 +139,7 @@ layout: default
     </div>
     <div class="site-content" aria-label="Content">
       {% for type in componentsByType %}
-        <article class="site-section" id="site-section-{{ forloop.index }}">
+        <article class="site-section" id="site-section-evolution-{{ forloop.index }}">
           <h1 class="site-section-heading">{{ type.name | capitalize }}</h1>
           {% for item in type.items %}
             {% if forloop.first %}
@@ -186,7 +186,7 @@ layout: default
 
     <div class="site-content" aria-label="Content">
       {% for type in componentsByType %}
-        <article class="site-section" id="site-section-{{ forloop.index }}">
+        <article class="site-section" id="site-section-evolution-{{ forloop.index }}">
           <h1 class="site-section-heading">{{ type.name | capitalize }}</h1>
           {% for item in type.items %}
             {% if forloop.first %}

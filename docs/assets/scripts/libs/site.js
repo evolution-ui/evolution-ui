@@ -127,13 +127,30 @@ exports.default = function () {
   var siteMain = document.querySelector('.site-main');
   var sideMenu = Array.from(document.querySelectorAll('.js-offcanvas-target'));
   var sideMenuWidth = sideMenu ? sideMenu.offsetWidth : 0;
-  var sectionLinks = document.querySelectorAll('.site-sidebar-link');
-  var sections = document.querySelectorAll('.site-section');
+  var sectionLinks = document.querySelectorAll('.selected-layer .site-sidebar-link');
+  var sections = document.querySelectorAll('.selected-layer .site-section');
   var fixedHeader = document.querySelector('.evo_c-scrollspy');
   var spy = document.getElementById('evo_c-scrollspy-indicator');
   var topOffset = siteMain ? $('.selected-layer').find(".js-offcanvas-target").offset().top: 0;
 
+  $('.evo_c_multiLayers_layer').on('click', function(event) {
+    // event.preventDefault();
+    sectionLinks = document.querySelectorAll('.selected-layer .site-sidebar-link');
+    Array.from(sectionLinks).forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var targetId = event.currentTarget.getAttribute('href').slice(1);
+        var targetPosition = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset;
+        (0, _smoothScroll2.default)(500, targetPosition, fixedHeader.offsetHeight);
+      });
+    });
+  });
+
   var highlightArticle = (0, _lodash2.default)(function () {
+    sections = document.querySelectorAll('.selected-layer .site-section');
+    sectionLinks = document.querySelectorAll('.selected-layer .site-sidebar-link');
+    console.log(sections);
     var sectionId = (0, _menuHighlight2.default)(sections);
     sectionLinks.forEach(function (link) {
       link.getAttribute('href').slice(1) === sectionId ? link.classList.add('is-current') : link.classList.remove('is-current');
