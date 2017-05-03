@@ -1,7 +1,8 @@
+.idea
 node_modules
 npm-debug.log
 .sass-cache
 .dev/
 dist
-docs/assets/scripts/evolution-ui
-docs/assets/styles/evolution-ui
+docs/assets
+docs/_components

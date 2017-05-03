@@ -18,15 +18,15 @@ export default function() {
 
         event.preventDefault();
       });
+    }
+  }
 
-      function removeActiveClasses(nodeList, className) {
-        for (var k = 0; k < nodeList.length; k++) {
-          for (var l = 0; l < nodeList[k].childNodes.length; l++) {
-            if (nodeList[k].childNodes[l].classList &&
-                nodeList[k].childNodes[l].classList.contains(className)) {
-              nodeList[k].childNodes[l].classList.remove(className);
-            }
-          }
+  function removeActiveClasses(nodeList, className) {
+    for (var k = 0; k < nodeList.length; k++) {
+      for (var l = 0; l < nodeList[k].childNodes.length; l++) {
+        if (nodeList[k].childNodes[l].classList &&
+            nodeList[k].childNodes[l].classList.contains(className)) {
+          nodeList[k].childNodes[l].classList.remove(className);
         }
       }
     }

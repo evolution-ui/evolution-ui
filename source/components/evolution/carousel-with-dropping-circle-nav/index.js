@@ -134,7 +134,7 @@ export default function() {
       slideCurrent.classList.add('js-slide__show');
     }
 
-  };
+  }
 
 
   /* function that pushes last circle to bottom immediately */

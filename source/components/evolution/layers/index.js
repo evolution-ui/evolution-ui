@@ -1,4 +1,5 @@
-/* From layer-utils.js */
+/*
+/!* From layer-utils.js *!/
 export const isOutOfLayers = (element) => element.classList.contains('evo_c-3dlayers')
 || !Array.from(element.classList).some(elementClass => elementClass.match(/^evo_c-3dlayer/))
 
@@ -64,7 +65,7 @@ export const slide = (layer, endHeight, duration, down = false) => new Promise((
   window.requestAnimationFrame(step)
 })
 
-/* From layer-animations.js */
+/!* From layer-animations.js *!/
 import { slide, calculateLayerHeight, calculateContainerHeight } from './layer-utils'
 
 const layers = Array.from(document.querySelectorAll('.evo_c-3dlayer'))
@@ -172,7 +173,7 @@ export default () => {
   })
 }
 
-/* From layer-drag-and-drop.js */
+/!* From layer-drag-and-drop.js *!/
 import * as utils from './layer-utils'
 
 const layers = Array.from(document.querySelectorAll('.evo_c-3dlayer'))
@@ -267,3 +268,4 @@ export default () => {
   window.addEventListener('mouseup', dropLayer)
 }
 
+*/
