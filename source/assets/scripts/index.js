@@ -13,6 +13,7 @@ import tabs from '../../components/standard/tabs';
 
 /* Evolution Components */
 import curtain from '../../components/evolution/curtain';
+
 import bookmarklet from '../../components/evolution/bookmarklet';
 import carouselWithDroppingCircleNav from '../../components/evolution/carousel-with-dropping-circle-nav';
 import crumble from '../../components/evolution/crumble';
@@ -35,6 +36,7 @@ import {singleInputForm, minimalistForm} from '../../components/evolution/single
 import svgPagination from '../../components/evolution/svg-pagination';
 import text2Speech from '../../components/evolution/text-2-speech';
 import versatileTable from '../../components/evolution/versatile-table';
+
 
 documentReady(
   /* Standard Components */
