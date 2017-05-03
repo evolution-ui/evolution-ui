@@ -1,0 +1,165 @@
+@import '../../assets/styles/abstracts/variables';
+@import '../../assets/styles/abstracts/functions';
+@import '../../assets/styles/abstracts/import-mixins';
+@import '../../assets/styles/abstracts/placeholders';
+
+/******************************************************************************
+                            Spiral Text Config
+******************************************************************************/
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//                             BODY ELEMENT
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//--------------------------------------------------------------------------
+//                         LOW -- HEADER MODIFIER
+//--------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------
+//                         spiralText Component config file
+//--------------------------------------------------------------------------
+
+$c-spiralText-name: 'spiralText';
+
+// Components Variables
+$c-spiralText_background-color: get-color('primary', 'light');
+$c-spiralText-font-color: get-color(secondary, darken);
+// $c-spiralText-font-size: inherit;
+$c-spiralText-button-height: 42px;
+
+// Component placeholder
+%c-spiralText__button-pointer {
+  cursor: pointer;
+}
+%c-spiralText__button-clearDefaults {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/******************************************************************************
+                              Spiral Text Component
+******************************************************************************/
+
+// @import 'spiral_button-config';
+
+// Spiral Text in Button
+.evo_c-spiralText * {
+  box-sizing: border-box;
+}
+
+[class^="evo_c-spiralText"] {
+  @extend %c-spiralText__button-clearDefaults;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  font-family: inherit;
+  color: $c-spiralText-font-color;
+  &:hover {
+    text-decoration: none;
+    color: $c-spiralText-font-color;
+    em:nth-of-type(5n+1) {
+      background-color: get-color(primary, dark);
+    }
+    em:nth-of-type(5n+2) {
+      background-color: get-color(accent, base);
+    }
+    em:nth-of-type(5n+3) {
+      background-color: get-color(accent2, base);
+    }
+    em:nth-of-type(5n+4) {
+      background-color: get-color(accent3, base);
+    }
+    em:nth-of-type(5n+5) {
+      background-color: get-color(accent4, base);
+    }
+    em {
+      transform: rotateY(360deg);
+    }
+  }
+  &[class*="__button"] {
+    display: flex;
+    background: $c-spiralText-background-color;
+    height: $c-spiralText-button-height;
+    width: 100%;
+    max-width: 360px;
+    border-radius: 3px;
+    margin: 24px auto;
+    padding: 0 12px;
+    &:hover {
+      background: lighten($c-spiralText-background-color, 5%);
+      @extend %c-spiralText__button-pointer;
+    }
+  }
+  &[class*="circle"] {
+    em {
+      border-radius: 50%;
+      width: 1.4em;
+    }
+  }
+  &[class*="fullHeight"] {
+    em {
+      height: inherit;
+    }
+  }
+  &[class*="circlefullHeight"] {
+    em {
+      width: $c-spiralText-button-height;
+    }
+  }
+  &:not([class*="circlefullHeight"]) {
+    em {
+      padding: 0 .2em;
+    }
+  }
+  em {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background .25s, transform .25s;
+    // padding: 1em;
+    margin: 0;
+    &:nth-of-type(2) {
+      transition-delay: .04s;
+    }
+    &:nth-of-type(3) {
+      transition-delay: .08s;
+    }
+    &:nth-of-type(4) {
+      transition-delay: .12s;
+    }
+    &:nth-of-type(5) {
+      transition-delay: .16s;
+    }
+    &:nth-of-type(6) {
+      transition-delay: .20s;
+    }
+    &:nth-of-type(7) {
+      transition-delay: .24s;
+    }
+    &:nth-of-type(8) {
+      transition-delay: .28s;
+    }
+    &:nth-of-type(9) {
+      transition-delay: .32s;
+    }
+    &:nth-of-type(n+10) {
+      transition-delay: .36s;
+    }
+    &:nth-of-type(n+11) {
+      transition-delay: .4s;
+    }
+  }
+  .space {
+    margin: 0 6px;
+  }
+}
+

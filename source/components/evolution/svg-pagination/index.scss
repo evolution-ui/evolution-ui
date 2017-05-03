@@ -1,0 +1,211 @@
+@import '../../assets/styles/abstracts/variables';
+@import '../../assets/styles/abstracts/functions';
+@import '../../assets/styles/abstracts/import-mixins';
+@import '../../assets/styles/abstracts/placeholders';
+
+/******************************************************************************
+                        SVG Pagination Config
+******************************************************************************/
+
+@mixin c-svg-dot-commonStyle {
+         opacity: 0;
+         fill: none;
+         stroke:#65c5de;
+         stroke-linecap: round;
+         stroke-linejoin: round;
+         transition: stroke-dashoffset .7s, opacity .7s;
+ }
+
+/******************************************************************************
+                        SVG Pagination Component
+******************************************************************************/
+
+// @import 'svg_pagination-config';
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//                             SVG Pagination
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.evo_c-svg-dot--default {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    user-select: none;
+    li {
+     position: relative;
+     display: inline-block;
+     width: 30px;
+     height: 30px;
+     cursor: pointer;
+     a {
+       position: absolute;
+       top: 50%;
+       left:50%;
+       width: 16px;
+       height: 16px;
+       transform:translate(-50%,-50%);
+       border-radius: 50%;
+       background-color:rgba(255, 255, 255, 0.3);
+       outline: none;
+       background: rgba(0, 0, 0, .3);
+       transition: opacity 0.3s ease;
+       &:focus {
+          outline: none;
+       }
+       &:hover {
+          opacity: .5;
+       }
+     }
+    }
+  }
+
+  .evo_c-svg-dot--cross,
+  .evo_c-svg-dot--sector,
+  .evo_c-svg-dot--square,
+  .evo_c-svg-dot--check {
+    li {
+    &.is-active {
+      a {
+          opacity: .5;
+        }
+    }
+
+      svg {
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: 2;
+      }
+    }
+  }
+
+  /*cross style pagination*/
+
+  .evo_c-svg-dot--cross {
+     li {
+      svg {
+        line {
+          @include c-svg-dot-commonStyle;
+        }
+      }
+     }
+  }
+  .evo_c-svg-dot--ellipse {
+     li {
+      svg {
+        ellipse {
+          @include c-svg-dot-commonStyle;
+          stroke-width: 2;
+          stroke-dasharray: 39;
+          stroke-dashoffset: 39;
+        }
+      }
+     }
+  }
+  .evo_c-svg-dot--square {
+     li {
+      svg {
+        polygon {
+          @include c-svg-dot-commonStyle;
+          stroke-width: 2;
+          stroke-dasharray: 39;
+          stroke-dashoffset: 39;
+        }
+      }
+     }
+  }
+
+
+
+  .evo_c-svg-dot--square
+    li {
+      svg {
+       polygon {
+          stroke-width: 5;
+          stroke-linecap: square;
+          stroke-dasharray: 120;
+          stroke-dashoffset: 120;
+          }
+      }
+    }
+
+  .evo_c-svg-dot--ellipse
+    li {
+      svg {
+        ellipse {
+              transform-origin: center center;
+              transform: rotate(-45deg);
+        }
+      }
+    }
+
+
+
+  .evo_c-svg-dot--cross li.is-active svg line,
+  .evo_c-svg-dot--ellipse li.is-active svg ellipse,
+  .evo_c-svg-dot--square li.is-active svg polygon {
+    opacity: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset .7s, opacity .7s;
+  }
+
+
+  /*sector pagination style*/
+  .evo_c-svg-dot--sector {
+    li {
+        svg {
+            position: absolute;
+            top:50%;
+            left: 50%;
+            width: 50%;
+            height: 50%;
+            transform:translate(-50%,-50%);
+            border-radius: 50%;
+            circle {
+                opacity: 0;
+                fill: none;
+                stroke:#65c5de;
+                stroke-width: 16px;
+                stroke-dasharray: 0 25;
+                transform-origin: center center;
+                transform: rotate(-90deg);
+                transition: stroke-dasharray 0.5s linear, opacity 0.5s;
+            }
+        }
+    &.is-active {
+      svg {
+        circle {
+          opacity: 1;
+          stroke-dasharray: 50 25;
+          transition: stroke-dasharray .5s linear, opacity 0.5s;
+        }
+      }
+    }
+  }
+  }
+
+  /*draw check*/
+  .evo_c-svg-dot--check {
+    li {
+      svg {
+         path {
+              fill:none;
+              stroke:#fff;
+              stroke-width: 4;
+              transition:.5s;
+         }
+      }
+    }
+  }
+
+  .evo_c-svg-dot--check {
+    li {
+    &.is-active {
+        svg {
+           path {
+               stroke:#65c5de;
+                d: path("M6,12 Q10,35 28,10");
+           }
+        }
+    }
+    }
+  }

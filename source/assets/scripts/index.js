@@ -8,6 +8,8 @@ import codeMarkup from '../../components/standard/code-markup';
 import cssAnimations from '../../components/standard/css-animations';
 import forms from '../../components/standard/forms';
 import modals from '../../components/standard/modals';
+import sticky from '../../components/standard/sticky';
+import tabs from '../../components/standard/tabs';
 
 /* Evolution Components */
 import curtain from '../../components/evolution/curtain';
@@ -29,6 +31,10 @@ import readabilityImprovementPanel from '../../components/evolution/readability-
 import safety from '../../components/evolution/safety';
 import searchWithLongEdit from '../../components/evolution/search-with-long-edit';
 import sift from '../../components/evolution/sift';
+import singleInputForm from '../../components/evolution/single-input-form';
+import svgPagination from '../../components/evolution/svg-pagination';
+import text2Speech from '../../components/evolution/text-2-speech';
+import versatileTable from '../../components/evolution/versatile-table';
 
 documentReady(
   /* Standard Components */
@@ -39,6 +45,8 @@ documentReady(
   cssAnimations,
   forms,
   modals,
+  sticky,
+  tabs,
   /* Evolution Components */
   curtain,
   bookmarklet,
@@ -58,5 +66,9 @@ documentReady(
   readabilityImprovementPanel,
   safety,
   searchWithLongEdit,
-  sift
+  sift,
+  singleInputForm,
+  svgPagination,
+  text2Speech,
+  versatileTable
 );

@@ -1,0 +1,144 @@
+@import '../../assets/styles/abstracts/variables';
+@import '../../assets/styles/abstracts/functions';
+@import '../../assets/styles/abstracts/import-mixins';
+@import '../../assets/styles/abstracts/placeholders';
+
+/******************************************************************************
+                            Tooltip Config
+******************************************************************************/
+
+$c-tooltip-name: 'tooltip';
+$c-tooltip-container: $c-tooltip-name + '-container';
+
+$reference-component: getBEMReference($c-tooltip-name);
+$c-tooltip-color: get-color('primary');
+
+$c-tooltip-flow-properties: (
+  up: (
+    '&':(
+      bottom:calc(100% + 0.35em)
+    ),
+    '&::after': (
+      bottom: -0.8em,
+      border-bottom-width: 0,
+      border-top-color: $c-tooltip-color
+    ),
+    '&, &::after': (
+      left: calc(50%),
+      transform: translate(-50%, -.5em)
+    )
+  ),
+  down: (
+    '&':(
+      top: calc(100% + 0.35em)
+    ),
+    '&::after': (
+      top: -0.8em,
+      border-top-width: 0,
+      border-bottom-color: $c-tooltip-color
+    ),
+    '&, &::after': (
+      left: 50%,
+      transform: translate(-50%, .5em)
+    )
+  ),
+  left: (
+    '&':(
+      right: calc(100% + 0.35em),
+    ),
+    '&::after': (
+      right: -0.8em,
+      border-right-width: 0,
+      border-left-color: $c-tooltip-color
+    ),
+    '&, &::after': (
+      top: 50%,
+      transform: translate(-.5em, -50%)
+    )
+  ),
+  right: (
+    '&':(
+      left: calc(100% + 0.35em),
+    ),
+    '&::after': (
+      left: -0.8em,
+      border-left-width: 0,
+      border-right-color: $c-tooltip-color
+    ),
+    '&, &::after': (
+      top: 50%,
+      transform: translate(.5em, -50%)
+    )
+  )
+);
+
+
+/******************************************************************************
+                            Tooltip Component
+******************************************************************************/
+
+// @import "tooltip-config";
+
+@include c($c-tooltip-container) {
+  position: relative;
+
+  @each $flow in map-keys($c-tooltip-flow-properties) {
+    &:hover > .#{$reference-component}[flow^="#{$flow}"] {
+
+      opacity: .9;
+
+      @if $flow == up or $flow == down {
+        transform: translate(-50%, 0);
+      } @else if $flow == left or $flow == right {
+        transform: translate(0, -50%);
+      }
+    }
+  }
+}
+
+@include c($c-tooltip-name) {
+  position: absolute;
+  display: block;
+  min-width: 30ch;
+  max-width: 120ch;
+  z-index: 999;
+  padding: 0.5em 1em;
+  font-size: 0.9em;
+  color: white();
+  text-align: center;
+  background: get-color('primary');
+  box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+  border-radius: 0.2em;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  pointer-events: none;
+
+  img {
+    max-width: 100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1000;
+    width: 0;
+    height: 0;
+    border: 0.4em solid transparent;
+  }
+
+  @each $flow, $propertyType in $c-tooltip-flow-properties {
+    @each $property, $declaration in $propertyType {
+      &[flow^="#{$flow}"] {
+        #{$property} {
+          @each $rule, $value in $declaration {
+            #{$rule}: $value;
+          }
+        }
+      }
+    }
+  }
+
+  &:not([flow]) {
+    @extend .#{$reference-component}[flow^="up"]
+  }
+}
