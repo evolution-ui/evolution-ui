@@ -1,6 +1,7 @@
 (function(window, document) {
    var searchInput = document.querySelector(".site-searchform-input");
-   var componentHeaders = Array.from(document.querySelectorAll(".site-section-heading"));
+   var componentHeaders = Array.from(document.querySelectorAll("section.selected-layer .site-section-heading"));
+   // var componentHeaders;
    var componentKeywords = [];
    var typingTimer;                //timer identifier
    var doneTypingInterval = 1000;
@@ -44,7 +45,7 @@
    function _scrollToComponent(target) {
       "use strict";
 
-      smoothScroll(900, target.offsetTop, 120);
+      smoothScroll(900, target.offsetTop, -200);
 
 
       setTimeout(function() {
@@ -64,6 +65,12 @@
 
   function _doneTyping() {
       if(searchInput.value !== "") {
+        componentHeaders = Array.from(document.querySelectorAll("section.selected-layer .site-section-heading"));
+        componentKeywords = [];
+        //generate array of component keywords; these will be used to match search term via regex
+        for(var i = 0; i < componentHeaders.length; i++) {
+          componentKeywords.push(componentHeaders[i].textContent.toLowerCase());
+        }
         var searchValue = searchInput.value;
         var searchRegex = new RegExp(searchValue, "i");
         matchedComponent = "";
@@ -98,12 +105,12 @@
 
   //top and bottom arrow
   topArrow.addEventListener("click", function(event) {
-    smoothScroll(900, 0, -210);
+    smoothScroll(900, 0, 0);
   });
 
   bottomArrow.addEventListener("click", function(event) {
     var bottomScrollAmount = document.body.offsetHeight - window.innerHeight;
-    smoothScroll(900, bottomScrollAmount, 500);
+    smoothScroll(900, bottomScrollAmount, 0);
   });
 
 
