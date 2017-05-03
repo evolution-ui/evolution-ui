@@ -1,5 +1,5 @@
 (function(window, document) {
-   var sidebar = document.querySelector(".site-sidebar-nav");
+   var sidebar = document.querySelectorAll(".site-sidebar-nav");
    var footer = document.querySelector(".site-footer");
    var footerDistanceFromTop = footer.offsetTop;
    var body = document.body;
@@ -7,16 +7,19 @@
    console.log(sidebar);
 
    //SIDEBAR SCROLLING
-   window.addEventListener("scroll", throttle(scrollCallback, 100));
+   window.addEventListener("scroll", throttle(scrollCallback, 20));
 
    //header resize
    function scrollCallback() {
        "use strict";
        console.log("scroll event triggered");
-       if(body.scrollTop > (document.body.offsetHeight - window.innerHeight - footer.offsetHeight - 30)) {
-            sidebar.classList.add("bottom-hidden");
+       console.log(footer.offsetHeight);
+       var pertinentSidebar = $('.selected-layer .site-sidebar-nav')[0];
+       var lastComponentDistanceFromTop = $('.selected-layer .site-content > *:last-child').offset().top;
+       if(body.scrollTop > lastComponentDistanceFromTop - 100) {
+            pertinentSidebar.classList.add("bottom-hidden");
        } else {
-            sidebar.classList.remove("bottom-hidden");
+            pertinentSidebar.classList.remove("bottom-hidden");
        }
    }
 

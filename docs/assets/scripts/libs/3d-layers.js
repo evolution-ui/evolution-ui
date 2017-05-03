@@ -8,10 +8,14 @@
     //Constructors
 
     //get layer heights
-    var firstLayerHeight = getFirstLayerHeight() + 10;
+    var firstLayerHeight = getFirstLayerHeight();
     console.log("First layer: ", firstLayerHeight);
-    var lastLayerHeight = getLastLayerHeight() + 10;
+    var lastLayerHeight = getLastLayerHeight() - 450;
+    // var lastLayerHeight = getLastLayerHeight();
     console.log("Last layer: ", lastLayerHeight);
+
+    $('.evo_c_multiLayers_container')[0].style.height = lastLayerHeight + 50 + "px";
+    console.log("Container height: ", $('.evo_c_multiLayers_container')[0].style.height);
 
     //create a layer/height object
 
@@ -30,8 +34,7 @@
 
     var $layers = $('.evo_c_multiLayers_layer');
 
-    console.log(firstLayerHeight);
-    $layers.filter(":not(.selected-layer)")[0].style.height = (firstLayerHeight - 10) + "px";
+    $layers.filter(":not(.selected-layer)")[0].style.height = 1000 + "px";
 
     $layers.on('click', function(event) {
         event.preventDefault();
@@ -45,8 +48,7 @@
         //get height of selected laye rusing object
         for(var i = 0; i < layerHeights.length; i++) {
             if(parseInt(layerHeights[i].id) === parseInt(clickedLayerID)) {
-               $('.evo_c_multiLayers_container').height(layerHeights[i].height + 100 + "px");
-               console.log($('.evo_c_multiLayers_container').height());
+               $('.evo_c_multiLayers_container')[0].style.height = layerHeights[i].height + 100 + "px";
             }
         }
 
@@ -285,7 +287,7 @@
                 tempLayer.style.marginLeft = (i * 25).toString() + 'px';
                 tempLayer.style.marginTop = (i * 75).toString() + 'px';
                 // tempLayer.style.height = '480px';
-                // tempLayer.style.height = '1000px';
+                tempLayer.style.height = '1000px';
                 tempLayer.style.opacity = "1";
                 if (i > 0)setTimeout(function () {
                     fn(--i);
@@ -303,7 +305,7 @@
             tempLayer.style.borderBottom = "0";
             tempLayer.style.borderRight = "0";
             // tempLayer.style.height = "480px";
-            // tempLayer.style.height = "1000px";
+            tempLayer.style.height = "1000px";
             tempLayer.style.opacity = "0";
 
             var tempChildNodes = tempLayer.childNodes;
@@ -474,11 +476,6 @@
     function getLayerNumbers() {
         return document.getElementsByClassName('evo_js_multiLayers_layer').length;
     }
-
-    jQuery(document).ready(function($) {
-        //set initial height of container
-        $('.evo_c_multiLayers_container').height(lastLayerHeight + 100);
-    });
 
 })();
 
