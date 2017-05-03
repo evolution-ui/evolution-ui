@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
 
   var selectors = {
     form: '.evo_c-form',
@@ -7,14 +7,14 @@ export default function() {
     inputDisabled: '.evo_c-form__input[disabled]'
   }
 
-  var disabledClass  = 'is-disabled';
-  var focusedClass  = 'is-focused';
+  var disabledClass = 'is-disabled';
+  var focusedClass = 'is-focused';
 
 
-  Array.prototype.where = function ( inclusionTest ) {
+  Array.prototype.where = function (inclusionTest) {
     var results = [];
-    for (var i = 0; i<this.length; i++) {
-      if ( inclusionTest(this[i]) ) {
+    for (var i = 0; i < this.length; i++) {
+      if (inclusionTest(this[i])) {
         results.push(this[i]);
       }
     }
@@ -27,32 +27,34 @@ export default function() {
    * @param  {String}  selector Selector to match notwithstanding
    * @return {Boolean|Element}  Returns null if not match found
    */
-  var getClosest = function ( elem, selector ) {
+  var getClosest = function (elem, selector) {
 
     // When elem is a Text node, get its parent node
     if (elem.nodeType === 3) {
-        elem = elem.parentNode;
+      elem = elem.parentNode;
     }
 
     // Element.matches() polyfill
     if (!Element.prototype.matches) {
-        Element.prototype.matches =
-        Element.prototype.matchesSelector ||
-        Element.prototype.mozMatchesSelector ||
-        Element.prototype.msMatchesSelector ||
-        Element.prototype.oMatchesSelector ||
-        Element.prototype.webkitMatchesSelector ||
-        function(s) {
+      Element.prototype.matches =
+          Element.prototype.matchesSelector ||
+          Element.prototype.mozMatchesSelector ||
+          Element.prototype.msMatchesSelector ||
+          Element.prototype.oMatchesSelector ||
+          Element.prototype.webkitMatchesSelector ||
+          function (s) {
             var matches = (this.document || this.ownerDocument).querySelectorAll(s),
                 i = matches.length;
-            while (--i >= 0 && matches.item(i) !== this) {}
+            while (i >= 0 && matches.item(i) !== this) {
+              --i;
+            }
             return i > -1;
-        };
+          };
     }
 
     // Get closest match
-    for ( ; elem && elem !== document; elem = elem.parentNode ) {
-        if ( elem.matches( selector ) ) return elem;
+    for (; elem && elem !== document; elem = elem.parentNode) {
+      if (elem.matches(selector)) return elem;
     }
 
     return null;
@@ -72,19 +74,19 @@ export default function() {
   }
 
   function getClassName(node, subString) {
-    return [].slice.call(node.classList).where(function(className) {
+    return [].slice.call(node.classList).where(function (className) {
       return className.indexOf(subString) !== -1;
     });
   }
 
   function handleChanges(event) {
 
-    var closestField   = getClosest(event.target, selectors['field']);
+    var closestField = getClosest(event.target, selectors['field']);
 
-    var hasValueClass  = 'has-value';
+    var hasValueClass = 'has-value';
     var hasErrorsClass = 'has-error';
 
-    var containsErrorClass  = !!getClassName(event.target, hasErrorsClass).length;
+    var containsErrorClass = !!getClassName(event.target, hasErrorsClass).length;
 
     if (!event.target.checkValidity() && !containsErrorClass) {
       closestField.classList.add(hasErrorsClass);
@@ -103,7 +105,7 @@ export default function() {
   function handleDisabledInputs(form) {
     var disabledInputs = $$(selectors['inputDisabled'], form);
 
-    [].slice.call(disabledInputs).forEach(function(input) {
+    [].slice.call(disabledInputs).forEach(function (input) {
       var closestField = getClosest(input, selectors['field']);
       closestField.classList.add(disabledClass);
     });
@@ -131,14 +133,14 @@ export default function() {
 
   var formsList = $$(selectors.form);
 
-  [].slice.call(formsList).forEach(function(form){
+  [].slice.call(formsList).forEach(function (form) {
 
     handleDisabledInputs(form);
 
-    form.addEventListener( 'click', function(event) {
+    form.addEventListener('click', function (event) {
       handleLabelsAnimation(event);
     });
-    form.addEventListener( 'change', function(event) {
+    form.addEventListener('change', function (event) {
       handleChanges(event);
     });
   });

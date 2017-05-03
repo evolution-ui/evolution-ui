@@ -1,45 +1,47 @@
-export default function() {
+export default function () {
 
   var animT = document.querySelector('#evo_showcase_animations');
 
   var pfx = ['webkit', 'moz', 'MS', 'o', ''];
 
-  var $prefixedOn = function ( target, type, callback, useCapture ) {
+  var $prefixedOn = function (target, type, callback, useCapture) {
 
-    for ( var p = 0, length = pfx.length; p < length; p++ ) {
-      if ( !pfx[p] ) {
+    for (var p = 0, length = pfx.length; p < length; p++) {
+      if (!pfx[p]) {
         type = type.toLowerCase();
       }
-      target.addEventListener( pfx[p]+type, callback, !!useCapture );
+      target.addEventListener(pfx[p] + type, callback, !!useCapture);
     }
   };
 
-  var getClosest = function(elem, selector) {
+  var getClosest = function (elem, selector) {
 
     // When elem is a Text node, get its parent node
     if (elem.nodeType === 3) {
-        elem = elem.parentNode;
+      elem = elem.parentNode;
     }
 
     // Element.matches() polyfill
     if (!Element.prototype.matches) {
-        Element.prototype.matches =
-        Element.prototype.matchesSelector ||
-        Element.prototype.mozMatchesSelector ||
-        Element.prototype.msMatchesSelector ||
-        Element.prototype.oMatchesSelector ||
-        Element.prototype.webkitMatchesSelector ||
-        function(s) {
+      Element.prototype.matches =
+          Element.prototype.matchesSelector ||
+          Element.prototype.mozMatchesSelector ||
+          Element.prototype.msMatchesSelector ||
+          Element.prototype.oMatchesSelector ||
+          Element.prototype.webkitMatchesSelector ||
+          function (s) {
             var matches = (this.document || this.ownerDocument).querySelectorAll(s),
                 i = matches.length;
-            while (--i >= 0 && matches.item(i) !== this) {}
+            while (i >= 0 && matches.item(i) !== this) {
+              --i;
+            }
             return i > -1;
-        };
+          };
     }
 
     // Get closest match
-    for ( ; elem && elem !== document; elem = elem.parentNode ) {
-        if ( elem.matches( selector ) ) return elem;
+    for (; elem && elem !== document; elem = elem.parentNode) {
+      if (elem.matches(selector)) return elem;
     }
 
     return null;
@@ -50,7 +52,7 @@ export default function() {
     return window.getComputedStyle(el);
   }
 
-  animT && animT.addEventListener( 'click', function( event ) {
+  animT && animT.addEventListener('click', function (event) {
 
     var target = event.target;
     var type = target && target.getAttribute('type') || null;
@@ -77,8 +79,8 @@ export default function() {
     previewElem.classList.add(animationClass);
 
 
-    $prefixedOn(previewElem, 'animationend', function() {
-      window.setTimeout(function() {
+    $prefixedOn(previewElem, 'animationend', function () {
+      window.setTimeout(function () {
         previewElem.classList.remove(animationClass);
       }, 2000);
     });
@@ -89,34 +91,34 @@ export default function() {
     return (parent || document).querySelectorAll(selector);
   }
 
-  function isPropertySupported( property ) {
+  function isPropertySupported(property) {
     return property in document.body.style;
   }
 
-  function isAnimation( attribute ) {
+  function isAnimation(attribute) {
     return /^data-animation/.test(attribute.nodeName);
   }
 
-  function applyAttributes( element ) {
+  function applyAttributes(element) {
 
-    [].slice.call(element.attributes).filter(isAnimation).forEach(function(attribute) {
+    [].slice.call(element.attributes).filter(isAnimation).forEach(function (attribute) {
 
       var style;
       var propertyName = attribute.nodeName.replace(/^data-/, '');
       var value = attribute.nodeValue;
-      var currentStyle = element.getAttribute( 'style') || '';
+      var currentStyle = element.getAttribute('style') || '';
 
-      if ( !isPropertySupported( propertyName )) {
+      if (!isPropertySupported(propertyName)) {
         return;
       }
 
       style = propertyName + ':' + value;
 
-      if ( isPropertySupported( '-webkit-' + propertyName ) ) {
+      if (isPropertySupported('-webkit-' + propertyName)) {
         style += ';-webkit-' + propertyName + ':' + value;
       }
 
-      element.setAttribute( 'style', style + ';' + currentStyle);
+      element.setAttribute('style', style + ';' + currentStyle);
 
     });
   }

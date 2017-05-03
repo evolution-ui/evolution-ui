@@ -8,8 +8,7 @@
     "no-console": 0,
     "no-unused-vars": 0,
     "no-undef": 0,
-    "no-redeclare": 0, // should be removed before prod
-    "no-empty": 0 // should be removed before prod
+    "no-redeclare": 0
   },
   "env": {
     "browser": true,

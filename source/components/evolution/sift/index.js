@@ -1,4 +1,4 @@
-(function () {
+export default function () {
 
   'use strict';
 
@@ -52,4 +52,4 @@
 
 
 
-}());
+}

@@ -2,7 +2,7 @@
 /******************************************************************************
                         From single_input_form.js
 ******************************************************************************/
-export default function() {
+export const singleInputForm = function() {
 
   var nextBtns = document.querySelectorAll('.evo_c-sif__btn--next');
   var nextBtnsArr = [].slice.call(nextBtns);
@@ -90,7 +90,7 @@ export default function() {
 /******************************************************************************
                         From From space_saving_minimalist_form.js
 ******************************************************************************/
-export default function() {
+export const minimalistForm =  function() {
   var inputWraps = document.querySelectorAll('.evo_c-mini-form__input-wrap');
   var inputWrapsLen = inputWraps && inputWraps.length || 0;
   var inputFields = document.querySelectorAll('.evo_c-mini-form__input');

@@ -275,7 +275,7 @@ export default function () {
     }
 
 
-  };
+  }
 
   //Utility functions
   function abbreviateLastName(username) {

@@ -21,7 +21,7 @@ import fadeLinesOnScroll from '../../components/evolution/fade-lines-on-scroll';
 import foldoutPopup from '../../components/evolution/foldout-popup';
 import fullscreenGallery from '../../components/evolution/fullscreen-gallery';
 import herald from '../../components/evolution/herald';
-import ikon from '../../components/evolution/ikon';
+import ikonize from '../../components/evolution/ikon';
 import inputScanner from '../../components/evolution/input-scanner';
 import layer2D from '../../components/evolution/layer-2d';
 import layers from '../../components/evolution/layers';
@@ -31,7 +31,7 @@ import readabilityImprovementPanel from '../../components/evolution/readability-
 import safety from '../../components/evolution/safety';
 import searchWithLongEdit from '../../components/evolution/search-with-long-edit';
 import sift from '../../components/evolution/sift';
-import singleInputForm from '../../components/evolution/single-input-form';
+import {singleInputForm, minimalistForm} from '../../components/evolution/single-input-form';
 import svgPagination from '../../components/evolution/svg-pagination';
 import text2Speech from '../../components/evolution/text-2-speech';
 import versatileTable from '../../components/evolution/versatile-table';
@@ -57,7 +57,7 @@ documentReady(
   foldoutPopup,
   fullscreenGallery,
   herald,
-  ikon,
+  ikonize,
   inputScanner,
   layer2D,
   layers,
@@ -68,6 +68,7 @@ documentReady(
   searchWithLongEdit,
   sift,
   singleInputForm,
+  minimalistForm,
   svgPagination,
   text2Speech,
   versatileTable
