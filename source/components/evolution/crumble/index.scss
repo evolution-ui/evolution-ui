@@ -1,6 +1,3 @@
-/******************************************************************************
-                          Crumble Config
-******************************************************************************/
 
 //------------------------------------------------------------------------------
 //                       Crumble config
@@ -54,11 +51,8 @@ $c-crumble-media-desktop-HD: 1200px;
                               Crumble component
 ******************************************************************************/
 
-// @import 'crumble-config';
 
-
-
-@include c( $c-crumble-name ) {
+@include component( $c-crumble-name ) {
 
   @include vertical-rhythm(1rem);
   font-family: $g-framework-font-family;
@@ -68,9 +62,9 @@ $c-crumble-media-desktop-HD: 1200px;
   //                      EVENT DETAILS - Full Width
   //----------------------------------------------------------------------------
 
-  @include m('full-width') {
+  @include modifier('full-width') {
 
-    $reference-crumble-item: getBEMReference($c-crumble-name, 'item');
+    $reference-crumble-item: get-bem-selector('item');
 
     // Item element
     & .#{$reference-crumble-item} {
@@ -82,9 +76,9 @@ $c-crumble-media-desktop-HD: 1200px;
   //                             LIST ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'list' ) {
+  @include element( 'list' ) {
 
-    $list-item: getBEMReference($c-crumble-name, 'item');
+    $list-item: get-bem-selector('item');
 
     position: relative;
     bottom: 10px;
@@ -92,26 +86,17 @@ $c-crumble-media-desktop-HD: 1200px;
     padding: 0;
     list-style-type: none;
 
-    @include m('actions') {
+    @include modifier('actions') {
       display: flex;
       justify-content: center;
     }
 
-    //--------------------------------------------------------------------------
-    //                       SIZE HELPERS - LIST ELEMENT
-    //--------------------------------------------------------------------------
-
-    @include h('space-around', $g-no-prefix, $apply-on-descendants: false) {
-      justify-content: space-around;
-      width: 60%;
-      margin: 0 auto;
-    }
 
     //--------------------------------------------------------------------------
     //                   COLOR MODIFIER - ITEM ELEMENT
     //--------------------------------------------------------------------------
 
-    @include m('secondary') {
+    @include modifier('secondary') {
 
       .#{$list-item} {
         background-color: get-color('secondary', 'dark');
@@ -122,7 +107,7 @@ $c-crumble-media-desktop-HD: 1200px;
       }
     }
 
-    @include m('accent3') {
+    @include modifier('accent3') {
 
       .#{$list-item} {
         background-color: get-color('accent3');
@@ -133,7 +118,7 @@ $c-crumble-media-desktop-HD: 1200px;
       }
     }
 
-    @include m('accent4') {
+    @include modifier('accent4') {
 
       .#{$list-item} {
         background-color: get-color('accent4', 'dark');
@@ -144,7 +129,7 @@ $c-crumble-media-desktop-HD: 1200px;
       }
     }
 
-    @include m('background') {
+    @include modifier('background') {
 
       .#{$list-item} {
 
@@ -162,7 +147,7 @@ $c-crumble-media-desktop-HD: 1200px;
   //                             ITEM ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('item') {
+  @include element('item') {
     position: relative;
     display: flex;
     align-items: center;
@@ -177,7 +162,7 @@ $c-crumble-media-desktop-HD: 1200px;
       //                   COLOR MODIFIER - ITEM ELEMENT
       //--------------------------------------------------------------------------
 
-      @include m('secondary') {
+      @include modifier('secondary') {
         background-color: get-color('secondary', 'dark')!important;
 
         &:hover {
@@ -185,7 +170,7 @@ $c-crumble-media-desktop-HD: 1200px;
         }
       }
 
-      @include m('accent3') {
+      @include modifier('accent3') {
         background-color: get-color('accent3')!important;
 
         &:hover {
@@ -193,7 +178,7 @@ $c-crumble-media-desktop-HD: 1200px;
         }
       }
 
-      @include m('accent4') {
+      @include modifier('accent4') {
         background-color: get-color('accent4', 'dark')!important;
 
         &:hover {
@@ -201,7 +186,7 @@ $c-crumble-media-desktop-HD: 1200px;
         }
       }
 
-      @include m('background') {
+      @include modifier('background') {
         background-color: get-color('background')!important;
 
         &:hover {
@@ -214,7 +199,7 @@ $c-crumble-media-desktop-HD: 1200px;
   //                             TAG ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('tag') {
+  @include element('tag') {
     position: absolute;
     left: 10px;
     top: 0;
@@ -237,7 +222,7 @@ $c-crumble-media-desktop-HD: 1200px;
   //                             SPAN ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('span') {
+  @include element('span') {
     padding-left: #{$c-crumble-tag-width + 40px};
     width: calc(100% - #{$c-crumble-tag-width});
     min-height: $c-crumble-span-min-height;
@@ -245,7 +230,7 @@ $c-crumble-media-desktop-HD: 1200px;
     align-items: center;
     color: white();
 
-    @include s('is-active') {
+    @include state('active') {
       min-height: 0;
       height: 0;
       width: 0;
@@ -257,7 +242,7 @@ $c-crumble-media-desktop-HD: 1200px;
   //                             ICON ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('icon') {
+  @include element('icon') {
     @extend %c-crumble-pointer;
     padding: 10px;
     color: white(0.69);
@@ -269,7 +254,7 @@ $c-crumble-media-desktop-HD: 1200px;
       }
 
       // crumble__icon--close
-      @include m('close') {
+      @include modifier('close') {
         @extend %c-crumble-pointer;
         position: absolute;
         right: 5px;
@@ -284,7 +269,7 @@ $c-crumble-media-desktop-HD: 1200px;
       }
 
       // crumble__icon--expand
-      @include m('expand') {
+      @include modifier('expand') {
         @extend %c-crumble-pointer;
         padding: 10px;
         margin: 0 10px;
@@ -292,106 +277,118 @@ $c-crumble-media-desktop-HD: 1200px;
       }
   }
 
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  //
-  //                             EVENT COMPONENT
-  //
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+}
 
-  @include c($c-crumble-event-name) {
-    min-height: 0;
-    height: 0;
-    background-color: rgb(0, 0, 0);
-    overflow: hidden;
-    transition: min-height 1s cubic-bezier(0, 1.02, 0, 1);
-    perspective: 40px;
-    cursor: initial;
 
-    // Status
-    @include s('is-open') {
+//--------------------------------------------------------------------------
+//                   SIZE HELPER - USED by the LIST ELEMENT
+//--------------------------------------------------------------------------
 
-      $event-description: getBEMReference($c-crumble-event-name, 'description');
+@include helper('space-around') {
+  justify-content: space-around;
+  width: 60%;
+  margin: 0 auto;
+}
 
-      min-height: $c-crumble-header-height + $c-crumble-body-height;
-      height: auto;
-      width: 100%;
-      overflow: initial;
 
-        .#{$event-description} {
-          opacity: 1;
-          max-height: 2000px;
-        }
-    }
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//
+//                             EVENT COMPONENT
+//
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-    // event__title
-    @include e('title') {
-      margin: 0;
-      color: white();
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: .3rem;
-    }
+@include component($c-crumble-event-name) {
+  min-height: 0;
+  height: 0;
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+  transition: min-height 1s cubic-bezier(0, 1.02, 0, 1);
+  perspective: 40px;
+  cursor: initial;
 
-    // event__header
-    @include e('header') {
-      @extend %c-crumble-unfold-transition;
+  // Status
+  @include state('open') {
 
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: $c-crumble-header-height;
-      text-align: center;
-      background-color: get-color('background', 'light');
-      transform: rotateX(-10deg);
-      transform-origin: 50% 0;
-      transform-style: preserve-3d;
+    $event-description: get-bem-selector('description');
 
-      @include s('is-rotated-to-zero') {
-        @extend %c-crumble-rotate-to-initial;
+    min-height: $c-crumble-header-height + $c-crumble-body-height;
+    height: auto;
+    width: 100%;
+    overflow: initial;
+
+      .#{$event-description} {
+        opacity: 1;
+        max-height: 2000px;
       }
-    }
+  }
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //                          EVENT's BODY ELEMENT
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // event__title
+  @include element('title') {
+    margin: 0;
+    color: white();
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+  }
 
-    @include e('body') {
-      @extend %c-crumble-unfold-transition;
-      height: $c-crumble-body-height;
-      background-color: #6f6f6f;
-      text-align: center;
-      transform: rotateX(10deg);
-      transform-origin: 50% 100%;
-      transform-style: preserve-3d;
-      overflow: visible;
+  // event__header
+  @include element('header') {
+    @extend %c-crumble-unfold-transition;
 
-      @include s('is-rotated-to-zero') {
-        @extend %c-crumble-rotate-to-initial;
-      }
-    }
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $c-crumble-header-height;
+    text-align: center;
+    background-color: get-color('background', 'light');
+    transform: rotateX(-10deg);
+    transform-origin: 50% 0;
+    transform-style: preserve-3d;
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //                          EVENT's DESCRIPTION ELEMENT
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    @include e('description') {
-      max-height: 0;
-      opacity: 0;
-      padding: 5px;
-      color: white(.8);
-      overflow: hidden;
-      transition: max-height 3.5s #{$c-crumble-unfold-duration - .3s} ease-in,
-                  opacity .7s #{$c-crumble-unfold-duration - .3s} ease-in;
-
-        * {
-          color: white();
-        }
-
-        @media screen and (min-width: $c-crumble-media-tablet) {
-          padding: 15px;
-        }
+    @include state('rotated-to-zero') {
+      @extend %c-crumble-rotate-to-initial;
     }
   }
 
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                          EVENT's BODY ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include element('body') {
+    @extend %c-crumble-unfold-transition;
+    height: $c-crumble-body-height;
+    background-color: #6f6f6f;
+    text-align: center;
+    transform: rotateX(10deg);
+    transform-origin: 50% 100%;
+    transform-style: preserve-3d;
+    overflow: visible;
+
+    @include state('rotated-to-zero') {
+      @extend %c-crumble-rotate-to-initial;
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                          EVENT's DESCRIPTION ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include element('description') {
+    max-height: 0;
+    opacity: 0;
+    padding: 5px;
+    color: white(.8);
+    overflow: hidden;
+    transition: max-height 3.5s #{$c-crumble-unfold-duration - .3s} ease-in,
+                opacity .7s #{$c-crumble-unfold-duration - .3s} ease-in;
+
+      * {
+        color: white();
+      }
+
+      @media screen and (min-width: $c-crumble-media-tablet) {
+        padding: 15px;
+      }
+  }
 }
