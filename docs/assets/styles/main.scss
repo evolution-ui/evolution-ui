@@ -15,9 +15,7 @@
   'partials/base',
   'partials/layout',
   'partials/site-styles',
-  "partials/layers"
-  // FIXME: These two imports are causing errors when the Jekyll task attemtps to
-  // run since they don't exist in partials/.  So, commenting them out for now.
-  // "partials/markup-modal",
-  // "partials/maintainers-page"
+  "partials/layers",
+  "partials/markup-modal",
+  "partials/maintainers-page"
 ;
