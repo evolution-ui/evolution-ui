@@ -515,8 +515,9 @@ $site-sidebar-nav-zindex: 9999;
       }
 
       &.bottom-hidden {
-        height: 30%;
+        height: 0%;
         // border-bottom: 4px solid map-get($site-colors, primary);
+        overflow: hidden;
       }
     }
   }

@@ -7,13 +7,13 @@
    console.log(sidebar);
 
    //SIDEBAR SCROLLING
-   window.addEventListener("scroll", throttle(scrollCallback, 20));
+   window.addEventListener("scroll", throttle(scrollCallback, 1));
 
    //header resize
    function scrollCallback() {
        "use strict";
-       console.log("scroll event triggered");
-       console.log(footer.offsetHeight);
+       // console.log("scroll event triggered");
+       // console.log(footer.offsetHeight);
        var pertinentSidebar = $('.selected-layer .site-sidebar-nav')[0];
        var lastComponentDistanceFromTop = $('.selected-layer .site-content > *:last-child').offset().top;
        if(body.scrollTop > lastComponentDistanceFromTop - 100) {

@@ -105,12 +105,12 @@
 
   //top and bottom arrow
   topArrow.addEventListener("click", function(event) {
-    smoothScroll(900, 0, 0);
+    smoothScroll(1300, 0, 0);
   });
 
   bottomArrow.addEventListener("click", function(event) {
     var bottomScrollAmount = document.body.offsetHeight - window.innerHeight;
-    smoothScroll(900, bottomScrollAmount, 0);
+    smoothScroll(1300, bottomScrollAmount, 0);
   });
 
 

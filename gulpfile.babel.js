@@ -209,7 +209,7 @@ gulp.task('images', () => {
     .pipe(plugins.changed(config.devAssets));                        // only transform changed files (faster)
 
   if (config.env.production || config.env.docs) {                    // optimize images for prod|docs
-    stream.pipe(plugins.imagemin());
+    // stream.pipe(plugins.imagemin());
   }
 
   stream.pipe(gulp.dest(`${config.docsAssets}/images/evolution-ui`)) // save to docs

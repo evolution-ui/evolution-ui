@@ -150,7 +150,7 @@ exports.default = function () {
   var highlightArticle = (0, _lodash2.default)(function () {
     sections = document.querySelectorAll('.selected-layer .site-section');
     sectionLinks = document.querySelectorAll('.selected-layer .site-sidebar-link');
-    console.log(sections);
+    // console.log(sections);
     var sectionId = (0, _menuHighlight2.default)(sections);
     sectionLinks.forEach(function (link) {
       link.getAttribute('href').slice(1) === sectionId ? link.classList.add('is-current') : link.classList.remove('is-current');
