@@ -63,41 +63,6 @@
     font-weight: 300;
 }
 
-.evo_c_multiLayers_container section .evo_c_multiLayer_title {
-    font-weight: 400;
-    font-size: 18px;
-    margin: 20px 0 0 0;
-}
-
-.evo_c_multiLayers_container section .evo_c_multiLayer_content {
-    font-weight: 300;
-    font-size: 15px;
-}
-
-.evo_c_multiLayers_container section .evo_c_multiLayer_bullet_point {
-    width: 85%;
-    font-weight: 300;
-    font-size: 13px;
-    padding: 5px 5px 5px 45px;
-}
-
-.evo_c_multiLayer_bullet_point::before {
-    content: "";
-    position: relative;
-    display: inline-block;
-    margin-right: 3px;
-    top: -2px;
-    padding: 2px;
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    background: currentColor;
-}
-
-.evo_c_multiLayers_container section div:nth-last-child(1) {
-    margin-bottom: 30px;
-}
-
 .evo_c_multiLayer_bold_text {
     font-weight: 400;
 }

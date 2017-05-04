@@ -1,0 +1,17 @@
+#
+# Maintainers
+#
+
+
+- name: 'Chris Bracco'
+  image: 'chris.jpg'
+  url: 'https://github.com/cbracco'
+  description: "A cool person"
+- name: 'Sebastian Ramirez-Brunner'
+  image: 'sebastian.jpg'
+  url: 'https://github.com/sebastianrrb'
+  description: "A cool person"
+- name: 'Gabriele Romeo'
+  image: 'gabriele.jpeg'
+  url: 'https://github.com/GabrieleRomeo'
+  description: "A cool person"

@@ -19,6 +19,7 @@ module.exports = function (duration, endScroll, offset) {
     return c * (t /= d) * t * t + b
   }
 
+
   function endAnimation () {
     window.scrollTo(0, endScroll - offset)
   }

@@ -1,0 +1,38 @@
+
+<!-- Add a container with `class="maintainer-page evo_c-ikon js-evo-c-ikon"`  -->
+<div class="maintainer-page evo_c-ikon js-evo-c-ikon">
+
+  <div class="maintainer-page evo_c-ikon js-evo-c-ikon-wrapper">
+    {% for item in include.maintainers %}
+      <!-- first ikon member - start -->
+      <!-- `class="maintainer-page evo_c-ikon__member js-evo-c-ikon-member"` -->
+      <div class="maintainer-page evo_c-ikon__member js-evo-c-ikon-member">
+        <div class="maintainer-page evo_c-ikon__member-name" style="background:url('{{ site.url }}/assets/images/maintainers/{{ item.thumbnail-image }}') no-repeat 50%; background-size: cover"><p class="maintainer-page evo_c-ikon__member-name-text">{{ item.name }}</p></div>
+
+        <!-- ikon member info `class="maintainer-page evo_c-ikon__member-info js-evo-c-ikon-member-info"` -->
+        <div class="maintainer-page evo_c-ikon__member-info js-evo-c-ikon-member-info">
+          <div class="maintainer-page evo_c-ikon__member-pic">
+            <img class="maintainer-page evo_c-ikon__member-pic-image" src="{{ site.url }}/assets/images/maintainers/{{ item.image }}">
+          </div>
+          <div class="maintainer-page evo_c-ikon__member-details">
+            <div class="maintainer-page evo_c-ikon__member-social-links">
+              <a class="maintainer-page evo_c-ikon__social-link" href="#">
+                <i class="maintainer-page fa fa-github-square" aria-hidden="true"></i>
+              </a>
+              <a class="maintainer-page evo_c-ikon__social-link" href="#">
+                <i class="maintainer-page fa fa-facebook-square" aria-hidden="true"></i>
+              </a>
+              <a class="maintainer-page evo_c-ikon__social-link" href="#">
+                <i class="maintainer-page fa fa-linkedin-square" aria-hidden="true"></i>
+              </a>
+            </div>
+            <p class="maintainer-page evo_c-ikon__member-about">{{item.description}}</p>
+          </div>
+          <!-- must add this close icon `class="maintainer-page evo_c-ikon__member-info__close-icon js-evo-c-ikon-close-btn"` -->
+          <div class="maintainer-page evo_c-ikon__member-info__close-icon js-evo-c-ikon-close-btn"><i class="maintainer-page material-icons">close</i></div>
+        </div>
+      </div>
+      <!-- first ikon member - end -->
+    {% endfor %}
+  </div>
+</div>
