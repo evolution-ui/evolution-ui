@@ -1,0 +1,433 @@
+
+//----------------------------------------------------------------
+//                 Evolution UI's Bemit system
+//----------------------------------------------------------------
+
+
+///
+/// If true, the bem system makes use of namespaces
+/// @access public
+/// @type boolean
+$g-use-bem-namespaces: true !default;
+
+///
+/// Represents the default BEM convention for the elements
+/// @access public
+/// @type string
+$g-bem-element-separator: '__' !default;
+
+///
+/// Represents the default BEM convention for the modifiers
+/// @access public
+/// @type string
+$g-bem-modifier-separator: '--' !default;
+
+///
+/// Represents the default state namespace
+/// @access public
+/// @type string
+$g-bem-state: 'is' !default;
+
+///
+/// Represents the default theme namespace
+/// @access public
+/// @type string
+$g-bem-theme: 't' !default;
+
+///
+/// Represents the default suffix namespace
+/// @access public
+/// @type string
+$g-bem-suffix: '\\@' !default;
+
+///
+/// Represents the default block namespaces
+/// @access public
+/// @type string
+///
+/// More about namespaces
+/// @url https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+///
+$g-bem-namespaces: (
+  'component': 'c',
+  'object': 'o',
+  'helper': 'h'
+) !default;
+
+
+// Store the global bem structure
+$g_bem-structure: () !global;
+
+// Store the bem structure for the current context
+$u_bem-context: () !global;
+
+
+
+@function _block($name, $type) {
+
+  // Sanity Check
+  $is-not-into: _is-not-into(('block', 'element', 'modifier', 'state'), $name);
+
+  @if $is-not-into == false {
+    @return false;
+  }
+
+  // Trace new block and check if already exists
+  $trace-block: _bem-trace-block($name);
+
+  @if $g-use-bem-namespaces {
+      @if not map-has-key($g-bem-namespaces, $type) {
+        $error: "`#{$type}` is not a valid BEM's type for Evolution UI. " +
+                "Available types: " +
+                "`#{map-keys($g-bem-namespaces)}`";
+
+      @error '#{$error}';
+
+      @return false;
+    }
+  }
+
+  $namespace: '';
+
+  @if $g-use-framework-prefix {
+    $namespace: $g-framework-name + '_'
+  }
+
+  @if $g-use-bem-namespaces {
+    $namespace: $namespace + map-get($g-bem-namespaces, $type) + '-'
+  }
+
+  $selector: '.' + $namespace + $name;
+
+  $current-context: _define-context('block', $name, $selector);
+
+  @return $selector;
+}
+
+@function _element($name) {
+
+  // Sanity Check
+  $is-into: _is-into(('block'), $name);
+  $is-not-into: _is-not-into(('element', 'modifier', 'state'), $name);
+
+  @if $is-into == false or $is-not-into == false {
+    @return false;
+  }
+
+  $parent: &;
+  $selector: selector-append($parent, '#{$g-bem-element-separator}#{$name}');
+
+  $current-context: _define-context('element', $name, $selector);
+
+  @return $selector;
+
+}
+
+@function _modifier($name) {
+
+  // Sanity Check
+  $is-into: _is-into(('block', 'element'), $name);
+  $is-not-into: _is-not-into(('modifier'), $name);
+
+  @if $is-into == false or $is-not-into == false {
+    @return false;
+  }
+
+  $parent: &;
+  $selector: selector-append($parent, '#{$g-bem-modifier-separator}#{$name}');
+
+  $current-context: _define-context('modifier', $name, $selector);
+
+  @return $selector;
+
+}
+
+@function _state($name) {
+
+  // Sanity Check
+  $is-not-into:  _is-not-into(('theme'), $name);
+
+  @if $is-not-into == false {
+    @return false;
+  }
+
+  $namespace: '';
+  $parent: &;
+
+  @if $g-use-bem-namespaces {
+    $namespace: $g-bem-state + '-';
+  }
+
+  $selector: selector-append($parent, '.#{$namespace}#{$name}');
+
+  $current-context: _define-context('state', $name, $selector);
+
+  @return $selector;
+}
+
+@function _theme($name) {
+
+  $namespace: '';
+  $parent: &;
+  $selector: ();
+
+  @if $g-use-bem-namespaces {
+    $namespace: $g-bem-theme + '-';
+  }
+
+  @each $s in $parent {
+    $selector: selector-nest('.#{$namespace}#{$name}', $s);
+  }
+
+  $current-context: _define-context('theme', $name, $selector);
+
+  @return $selector;
+}
+
+@function _suffix($name) {
+
+  $namespace: '';
+  $parent: &;
+
+  @if $g-use-bem-namespaces {
+    $namespace: $g-bem-suffix;
+  }
+
+  $selector: selector-append($parent, '#{$namespace}#{$name}');
+
+  $current-context: _define-context('suffix', $name, $selector);
+
+  @return $selector;
+}
+
+@function _define-context($obj, $name, $selector) {
+
+    $new-context: (#{$obj}: (name: $name, selector: $selector));
+    $u_bem-context: map-merge($u_bem-context, $new-context) !global;
+
+    @return $selector;
+}
+
+@function _clear-context($obj) {
+
+  $new-context: (#{$obj}: null);
+  $u_bem-context: map-merge($u_bem-context, $new-context) !global;
+
+  @return true;
+}
+
+@function _is-into($items, $name) {
+
+  @each $item in $items {
+    @if map-get($u_bem-context, $item) != null {
+      // it is within one of the intended items
+      @return true;
+    }
+  }
+
+  @error 'Wrong context for `#{$name}`. It should be defined within: #{inspect($items)}';
+
+  @return false;
+
+}
+
+@function _is-not-into($items, $name) {
+
+  @each $item in $items {
+    @if map-get($u_bem-context, $item) != null {
+      // it is within one of the intended items, but it shouldn't be
+      @error 'Wrong context for `#{$name}`. It should not be defined within #{inspect($items)}';
+      @return false;
+    }
+  }
+
+  @return true;
+
+}
+
+@function _block-exists($block) {
+  @return map-has-key($g_bem-structure, $block);
+}
+
+@function _bem-trace-block($block) {
+
+    // Check if the block already exists
+    @if _block-exists($block) {
+        @error 'The `#{$block}` block already exists';
+        @return false;
+    }
+
+    // Create a new map for the newly created block
+    $new-block: ($block: ('elements': (), 'modifiers': ()));
+
+    // Update global bem structure
+    $g_bem-structure: map-merge($g_bem-structure, $new-block) !global;
+
+    @return true;
+}
+
+@function get-bem-selector($element: null, $modifier: null) {
+
+  $parent: str-slice(#{&}, 2);
+  $sep: str-slice(#{$g-bem-element-separator}, 1);
+  $index-e: str-index($parent, $g-bem-element-separator);
+  $index-m: str-index($parent, $g-bem-modifier-separator);
+  $index-suff: str-index($parent, $g-bem-suffix);
+  $index-stat: str-index($parent, '.');
+
+  $index: 1;
+
+  @if $index-e {
+    $index: $index-e;
+  } @else if $index-m {
+    $index: $index-m;
+  } @else if $index-stat {
+    $index: $index-stat;
+  } @else if $index-suff {
+    $index: $index-suff;
+  }
+
+  $parent: str-slice($parent, 1, $index - 1);
+
+  @if $element {
+    $element: $g-bem-element-separator + $element;
+  } @else {
+    $element: '';
+  }
+
+  @if $modifier {
+    $modifier: $g-bem-modifier-separator + $modifier;
+  } @else {
+    $modifier: '';
+  }
+
+  $selector: $parent + $element + $modifier;
+
+  @return $selector;
+}
+
+@function get-dry($name: null) {
+
+  $parent: #{str-slice(#{&}, 2)};
+  $name: if($name != null, '_' + $name, '');
+
+  @return '%' + $parent + $name;
+
+}
+
+
+@mixin block($name, $type: 'component') {
+
+  $block-selector: _block($name, $type);
+
+  @at-root #{$block-selector} {
+    @content;
+  }
+
+  // Clear the current context
+  $clear-context: _clear-context('block');
+
+}
+
+@mixin element($name) {
+
+  $element-selector: _element($name);
+
+  @at-root {
+    #{$element-selector} {
+      @content;
+    }
+  }
+
+  // Clear the current context
+  $clear-context: _clear-context('element');
+}
+
+@mixin modifier($name) {
+
+  $modifier-selector: _modifier($name);
+
+  @at-root {
+    #{$modifier-selector} {
+      @content;
+    }
+  }
+
+  // Clear the current context
+  $clear-context: _clear-context('modifier');
+}
+
+@mixin object($name) {
+  @include block($name, 'object') {
+    @content;
+  }
+}
+
+@mixin component($name) {
+  @include block($name, 'component') {
+    @content;
+  }
+}
+
+@mixin helper($name) {
+
+  $g-use-framework-prefix: false !global;
+
+  @include block($name, 'helper') {
+    @content;
+  }
+
+  $g-use-framework-prefix: true !global;
+}
+
+@mixin theme($name) {
+
+  $theme-selector: _theme($name);
+
+  @at-root #{$theme-selector} {
+    @content;
+  }
+
+  // Clear the current context
+  $clear-context: _clear-context('theme');
+}
+
+@mixin state($name) {
+
+  $state-selector: _state($name);
+
+  @at-root #{$state-selector} {
+    @content;
+  }
+
+  // Clear the current context
+  $clear-context: _clear-context('state');
+}
+
+@mixin suffix($name) {
+
+  $suffix-selector: _suffix($name);
+
+  @at-root #{$suffix-selector} {
+    @content;
+  }
+
+  // Clear the current context
+  $clear-context: _clear-context('suffix');
+}
+
+@mixin define-dry($name: null) {
+
+  @if & == null {
+    @error 'A dry mixin must be defined within a parent class';
+  }
+
+  $parent: #{str-slice(#{&}, 2)};
+  $name: if($name != null, '_' + $name, '');
+
+  @at-root {
+    %#{$parent + $name} {
+      @content;
+    }
+  }
+}
