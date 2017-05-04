@@ -2,12 +2,13 @@
 # Maintainers
 #
 
-- name: 'Gabriele Romeo'
-  image: 'gabriele.jpeg'
-  url: 'https://github.com/GabrieleRomeo'
+
 - name: 'Chris Bracco'
   image: 'chris.jpg'
   url: 'https://github.com/cbracco'
 - name: 'Sebastian Ramirez-Brunner'
   image: 'sebastian.jpg'
   url: 'https://github.com/sebastianrrb'
+- name: 'Gabriele Romeo'
+  image: 'gabriele.jpeg'
+  url: 'https://github.com/GabrieleRomeo'
