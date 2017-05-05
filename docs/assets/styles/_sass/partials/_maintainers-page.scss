@@ -1,0 +1,49 @@
+.maintainer-page.evo_c-ikon.js-evo-c-ikon {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.maintainer-page.evo_c-ikon.js-evo-c-ikon-wrapper {
+    display: flex;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+
+
+.maintainer-page.evo_c-ikon__member {
+    position: relative;
+    -ms-flex-preferred-size: 7.5em;
+    flex-basis: 7.5em;
+    height: 7.5em;
+    margin: 1em;
+    background: #768ba1;
+    border-radius: 50%;
+}
+
+.maintainer-page.evo_c-ikon__member-info {
+    width: 25em;
+    height: 25em;
+}
+
+.maintainer-page.evo_c-ikon__member-pic-image {
+    object-fit: cover;
+}
+
+.maintainer-page.evo_c-ikon__member-name-text {
+    color: darken(map-get($site-colors, primary), 50%);
+    position: relative;
+    top: 95px;
+    z-index: 0;
+    transition: all .2s;
+}
+
+
+.maintainer-page.evo_c-ikon__member:hover .maintainer-page.evo_c-ikon__member-name-text {
+    opacity: 0;
+}
