@@ -7,7 +7,8 @@
       <!-- first ikon member - start -->
       <!-- `class="maintainer-page evo_c-ikon__member js-evo-c-ikon-member"` -->
       <div class="maintainer-page evo_c-ikon__member js-evo-c-ikon-member">
-        <div class="maintainer-page evo_c-ikon__member-name" style="background:url('{{ site.url }}/assets/images/maintainers/{{ item.thumbnail-image }}') no-repeat 50%; background-size: cover"><p class="maintainer-page evo_c-ikon__member-name-text">{{ item.name }}</p></div>
+        <div class="maintainer-page evo_c-ikon__member-name" style="background:url('{{ site.url }}/assets/images/maintainers/{{ item.thumbnail-image }}') no-repeat 50%; background-size: cover"></div>
+        <p class="maintainer-page evo_c-ikon__member-name-text">{{ item.name }}</p>
 
         <!-- ikon member info `class="maintainer-page evo_c-ikon__member-info js-evo-c-ikon-member-info"` -->
         <div class="maintainer-page evo_c-ikon__member-info js-evo-c-ikon-member-info">
@@ -16,13 +17,13 @@
           </div>
           <div class="maintainer-page evo_c-ikon__member-details">
             <div class="maintainer-page evo_c-ikon__member-social-links">
-              <a class="maintainer-page evo_c-ikon__social-link" href="#">
+              <a target="_blank" class="maintainer-page evo_c-ikon__social-link" href="{{ item.urlGH }}">
                 <i class="maintainer-page fa fa-github-square" aria-hidden="true"></i>
               </a>
-              <a class="maintainer-page evo_c-ikon__social-link" href="#">
+              <a target="_blank" class="maintainer-page evo_c-ikon__social-link" href="{{ item.urlGH }}">
                 <i class="maintainer-page fa fa-facebook-square" aria-hidden="true"></i>
               </a>
-              <a class="maintainer-page evo_c-ikon__social-link" href="#">
+              <a target="_blank" class="maintainer-page evo_c-ikon__social-link" href="{{ item.urlGH }}">
                 <i class="maintainer-page fa fa-linkedin-square" aria-hidden="true"></i>
               </a>
             </div>

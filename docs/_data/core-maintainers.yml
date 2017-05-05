@@ -4,17 +4,38 @@
 
 
 - name: 'Chris Bracco'
-  image: 'chris.jpg'
-  url: 'https://github.com/cbracco'
+  image: 'chris-ikon.jpg'
+  urlGH: 'https://github.com/cbracco'
   description: "A cool person"
   thumbnail-image: 'chris.jpg'
+
+- name: 'Imanuel Gittens'
+  image: 'imanuel-ikon.jpg'
+  urlGH: 'https://github.com/imanuelgittens'
+  description: "A cool person"
+  thumbnail-image: 'imanuel.jpg'
+
+- name: 'Brian Hernandex'
+  image: 'brian-ikon.jpg'
+  urlGH: 'https://github.com/brianhernandez'
+  description: "A cool person"
+  thumbnail-image: 'brian.jpeg'
+
+- name: 'Aashish Nagpal'
+  image: 'aashish-ikon.jpg'
+  urlGH: 'https://github.com/aashishnagpal'
+  description: "A cool person"
+  thumbnail-image: 'aashish.jpg'
+
 - name: 'Sebastian Ramirez-Brunner'
   image: 'sebastian-ikon.jpg'
-  url: 'https://github.com/sebastianrrb'
+  urlGH: 'https://github.com/sebastianrb'
   description: "A cool person"
   thumbnail-image: 'sebastian.jpg'
+
 - name: 'Gabriele Romeo'
-  image: 'gabriele.jpeg'
-  url: 'https://github.com/GabrieleRomeo'
+  image: 'gabriele-ikon.jpg'
+  urlGH: 'https://github.com/GabrieleRomeo'
   description: "A cool person"
   thumbnail-image: 'gabriele.jpeg'
+

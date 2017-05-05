@@ -3,25 +3,25 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
+    min-height: 350px;
 }
 
 .maintainer-page.evo_c-ikon.js-evo-c-ikon-wrapper {
     display: flex;
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    justify-content: space-around;
     align-items: center;
-    width: 70%;
+    width: 100%;
 }
 
 
 .maintainer-page.evo_c-ikon__member {
     position: relative;
     -ms-flex-preferred-size: 7.5em;
-    flex-basis: 7.5em;
-    height: 7.5em;
-    margin: 1em;
+    flex-basis: 6em;
+    height: 6em;
+    margin: 1.8em;
     background: #768ba1;
     border-radius: 50%;
 }
@@ -36,11 +36,14 @@
 }
 
 .maintainer-page.evo_c-ikon__member-name-text {
-    color: darken(map-get($site-colors, primary), 50%);
+    color: #05313c;
     position: relative;
     top: 95px;
     z-index: 0;
     transition: all .2s;
+    margin: 10px auto;
+    font-size: .8em;
+    width: 100%;
 }
 
 
