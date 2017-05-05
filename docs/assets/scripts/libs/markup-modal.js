@@ -19,8 +19,18 @@
 
         //populate markup container
         var $componentMarkupClone = $clickedButton.siblings('.site-markup-content').clone(true);
-        var titleText = $clickedButton[0].parentNode.parentNode.previousElementSibling.previousElementSibling.textContent + " Markup";
+        var titleText = $clickedButton[0].parentNode.parentNode.previousElementSibling.previousElementSibling.textContent;
+        var variantText;
         console.log(titleText);
+
+        //check for sub heading (indicating component variant)
+        if($clickedButton.closest(".site-section-content").find("h2").length > 1) {
+            variantText = $clickedButton.parent().prevAll("h2").first().text();
+            titleText += " - " + variantText + " Markup";
+            console.log(variantText);
+        } else {
+            titleText += " Markup";
+        }
 
         $markupTitle.text(titleText);
         $componentMarkupClone.css('display', 'block');
