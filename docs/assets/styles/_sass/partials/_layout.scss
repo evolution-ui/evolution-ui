@@ -70,6 +70,8 @@ $site-header-background-color: map-get($site-colors, quaternary-light);
   padding: $site-header-padding;
   background-color: $site-header-background-color;
   text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
 // LOGO

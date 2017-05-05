@@ -133,8 +133,13 @@
     }
 
     // Easein Cubic - George McGinley Smith - https://github.com/danro/jquery-easing/blob/master/jquery.easing.js
+    // function easing (t, b, c, d) {
+    //   return c * (t /= d) * t * t + b
+    // }
+
     function easing (t, b, c, d) {
-      return c * (t /= d) * t * t + b
+      if ((t/=d/2) < 1) return c/2*t*t*t + b;
+      return c/2*((t-=2)*t*t + 2) + b;
     }
 
     function endAnimation () {

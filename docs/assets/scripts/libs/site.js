@@ -142,7 +142,7 @@ exports.default = function () {
         event.preventDefault();
         var targetId = event.currentTarget.getAttribute('href').slice(1);
         var targetPosition = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset;
-        (0, _smoothScroll2.default)(500, targetPosition, fixedHeader.offsetHeight);
+        (0, _smoothScroll2.default)(700, targetPosition, fixedHeader.offsetHeight);
       });
     });
   });
@@ -204,7 +204,7 @@ exports.default = function () {
       event.preventDefault();
       var targetId = event.currentTarget.getAttribute('href').slice(1);
       var targetPosition = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset;
-      (0, _smoothScroll2.default)(500, targetPosition, fixedHeader.offsetHeight);
+      (0, _smoothScroll2.default)(700, targetPosition, fixedHeader.offsetHeight);
     });
   });
 
@@ -301,8 +301,13 @@ exports.default = function (duration, endScroll) {
   }
 
   // Easein Cubic - George McGinley Smith - https://github.com/danro/jquery-easing/blob/master/jquery.easing.js
-  function easing(t, b, c, d) {
-    return c * (t /= d) * t * t + b;
+  // function easing(t, b, c, d) {
+  //   return c * (t /= d) * t * t + b;
+  // }
+
+  function easing (t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t*t + b;
+    return c/2*((t-=2)*t*t + 2) + b;
   }
 
   function endAnimation() {

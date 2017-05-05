@@ -29,6 +29,8 @@
 .maintainer-page.evo_c-ikon__member-info {
     width: 25em;
     height: 25em;
+    background: #6fcde4;
+    box-shadow: 0 0 10px 0 rgba(158, 157, 157, 0.50);
 }
 
 .maintainer-page.evo_c-ikon__member-pic-image {
@@ -46,7 +48,57 @@
     width: 100%;
 }
 
+.evo_c-ikon__member-details {
+    padding: 1.5em 1.2em;
+}
+
+.maintainer-page.evo_c-ikon__member-description {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.evo_c-ikon__member-about {
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.2;
+    text-align: left;
+    float: right;
+    width: 70%;
+}
+
+.maintainer-page.evo_c-ikon__member-location {
+    width: 30%;
+    margin: 0;
+    width: 30%;
+    // color: #da1f74;
+    font-weight: bold;
+}
+
+.evo_c-ikon__member-about {
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.2;
+    text-align: left;
+    /* float: right; */
+    width: 70%;
+    padding-left: 15px;
+}
+
+i.fa.fa-map-marker {
+    font-size: 1.8em;
+    color: darken(map-get($site-colors, secondary), 20%);
+    display: block;
+    margin-bottom: 5px;
+}
+
 
 .maintainer-page.evo_c-ikon__member:hover .maintainer-page.evo_c-ikon__member-name-text {
     opacity: 0;
+}
+
+.evo_c-ikon__member:hover>.evo_c-ikon__member-name {
+    z-index: 32;
 }

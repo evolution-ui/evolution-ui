@@ -6,36 +6,35 @@
 - name: 'Chris Bracco'
   image: 'chris-ikon.jpg'
   urlGH: 'https://github.com/cbracco'
-  description: "A cool person"
+  description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
   thumbnail-image: 'chris.jpg'
-
-- name: 'Imanuel Gittens'
-  image: 'imanuel-ikon.jpg'
-  urlGH: 'https://github.com/imanuelgittens'
-  description: "A cool person"
-  thumbnail-image: 'imanuel.jpg'
+  location: "New York, NY"
 
 - name: 'Brian Hernandex'
   image: 'brian-ikon.jpg'
   urlGH: 'https://github.com/brianhernandez'
-  description: "A cool person"
+  description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
   thumbnail-image: 'brian.jpeg'
+  location: "Madrid, Spain"
 
 - name: 'Aashish Nagpal'
   image: 'aashish-ikon.jpg'
   urlGH: 'https://github.com/aashishnagpal'
-  description: "A cool person"
+  description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
   thumbnail-image: 'aashish.jpg'
+  location: "National Capital Region, India"
 
 - name: 'Sebastian Ramirez-Brunner'
   image: 'sebastian-ikon.jpg'
   urlGH: 'https://github.com/sebastianrb'
-  description: "A cool person"
+  description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
   thumbnail-image: 'sebastian.jpg'
+  location: "New York, NY"
 
 - name: 'Gabriele Romeo'
   image: 'gabriele-ikon.jpg'
   urlGH: 'https://github.com/GabrieleRomeo'
-  description: "A cool person"
+  description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
   thumbnail-image: 'gabriele.jpeg'
+  location: "Piemonte, Italy"
 
