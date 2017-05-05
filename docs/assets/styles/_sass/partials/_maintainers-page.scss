@@ -26,11 +26,22 @@
     border-radius: 50%;
 }
 
+.evo_c-ikon__member-name {
+    border: 2px solid map-get($site-colors, primary);
+    cursor: auto;
+}
+
 .maintainer-page.evo_c-ikon__member-info {
     width: 25em;
     height: 25em;
     background: #6fcde4;
     box-shadow: 0 0 10px 0 rgba(158, 157, 157, 0.50);
+}
+
+.evo_c-ikon__member--is-hovered:hover>.evo_c-ikon__member-info {
+    opacity: 1;
+    z-index: 21;
+    pointer-events: inherit;
 }
 
 .maintainer-page.evo_c-ikon__member-pic-image {
@@ -101,4 +112,5 @@ i.fa.fa-map-marker {
 
 .evo_c-ikon__member:hover>.evo_c-ikon__member-name {
     z-index: 32;
+    border: 2px solid white;
 }

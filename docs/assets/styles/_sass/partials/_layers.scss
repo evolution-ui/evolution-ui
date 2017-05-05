@@ -35,6 +35,14 @@
     box-shadow: 0 0px 9px 0px rgba(128, 128, 128, 0.54);
 }
 
+.evo_c_multiLayers_container section:not(.selected-layer) {
+    padding-top: 65px;
+
+    .evo_c_multiLayer_header {
+        margin: -45px 0 20px;
+    }
+}
+
 .evo_c_multiLayers_container section:hover,
 .evo_c_multiLayers_container section:hover .evo_c_multiLayer_header {
     border-color: #53A0C7 !important;
