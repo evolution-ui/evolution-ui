@@ -626,10 +626,10 @@ $u_bem-context: () !global;
 ///
 /// @example css - CSS output
 ///
-///  .[prefix]_[block-namespace]__shoe {
+///  .[prefix]_[block-name]__shoe {
 ///     font-size: 20px;
 ///  }
-///  .[prefix]_[block-namespace]__shoe.h-big-font {
+///  .[prefix]_[block-name]__shoe.h-big-font {
 ///     font-size: 50px;
 ///  }
 ///
