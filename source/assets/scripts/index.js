@@ -28,6 +28,7 @@ import layer2D from '../../components/evolution/layer-2d';
 import layers from '../../components/evolution/layers';
 import minimalistCarouselTwo from '../../components/evolution/minimalist-carousel-two';
 import popOver from '../../components/evolution/pop-over';
+import paragraphGallery from '../../components/evolution/paragraph-gallery';
 import readabilityImprovementPanel from '../../components/evolution/readability-improvement-panel';
 import safety from '../../components/evolution/safety';
 import searchWithLongEdit from '../../components/evolution/search-with-long-edit';
@@ -57,13 +58,14 @@ documentReady(
   dotValidator,
   fadeLinesOnScroll,
   foldoutPopup,
-  fullscreenGallery,
+/*  fullscreenGallery,*/
   herald,
   ikonize,
   inputScanner,
   layer2D,
   layers,
   minimalistCarouselTwo,
+    paragraphGallery,
   popOver,
   readabilityImprovementPanel,
   safety,

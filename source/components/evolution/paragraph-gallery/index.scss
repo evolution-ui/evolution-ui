@@ -1,22 +1,22 @@
-@import '../../assets/styles/abstracts/variables';
-@import '../../assets/styles/abstracts/functions';
-@import '../../assets/styles/abstracts/import-mixins';
-@import '../../assets/styles/abstracts/placeholders';
 
 /******************************************************************************
                         Paragraph Gallery Config
 ******************************************************************************/
 
-$c-paragraph-gallery: 'paragraph-galery';
+$component-name: 'paragraph-galery';
 
 /******************************************************************************
                         Paragraph Gallery Component
 ******************************************************************************/
 
-.paragraph-gallery-post{
+@include block($component-name){
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/*.paragraph-gallery-post{
+
+}*/
 
 p{
   display: inline;
