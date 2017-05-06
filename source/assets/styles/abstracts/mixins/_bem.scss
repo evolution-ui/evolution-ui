@@ -268,26 +268,7 @@ $u_bem-context: () !global;
 
 @function get-bem-selector($element: null, $modifier: null) {
 
-  $parent: str-slice(#{&}, 2);
-  $sep: str-slice(#{$g-bem-element-separator}, 1);
-  $index-e: str-index($parent, $g-bem-element-separator);
-  $index-m: str-index($parent, $g-bem-modifier-separator);
-  $index-suff: str-index($parent, $g-bem-suffix);
-  $index-stat: str-index($parent, '.');
-
-  $index: 1;
-
-  @if $index-e {
-    $index: $index-e;
-  } @else if $index-m {
-    $index: $index-m;
-  } @else if $index-stat {
-    $index: $index-stat;
-  } @else if $index-suff {
-    $index: $index-suff;
-  }
-
-  $parent: str-slice($parent, 1, $index - 1);
+  $context: str-slice(map-get(map-get($u_bem-context, 'block'), 'selector'), 2);
 
   @if $element {
     $element: $g-bem-element-separator + $element;
@@ -301,7 +282,7 @@ $u_bem-context: () !global;
     $modifier: '';
   }
 
-  $selector: $parent + $element + $modifier;
+  $selector: $context + $element + $modifier;
 
   @return $selector;
 }
