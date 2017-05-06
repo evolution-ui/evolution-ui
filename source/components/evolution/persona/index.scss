@@ -14,7 +14,7 @@ $c-persona-transition-timing: 0.6s;
 
 // @import 'persona-config';
 
-@include c($c-persona-container) {
+@include block($c-persona-container) {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -29,7 +29,7 @@ $c-persona-transition-timing: 0.6s;
   }
 }
 
-@include c($c-persona-name) {
+@include block($c-persona-name) {
   flex: 0 0 13em;
   margin: 0;
   //@include margin(0);
@@ -44,7 +44,7 @@ $c-persona-transition-timing: 0.6s;
   transition: all $c-persona-transition-timing $c-persona-easing-func;
   cursor: pointer;
 
-  @include e( 'image' ) {
+  @include element( 'image' ) {
     width: 5em;
     height: 5em;
     margin-top: 1em;
@@ -53,20 +53,20 @@ $c-persona-transition-timing: 0.6s;
     transition: transform $c-persona-transition-timing $c-persona-easing-func;
   }
 
-  @include e( 'name' ) {
+  @include element( 'name' ) {
     margin-top: 1.5em;
     margin-bottom: 0;
     font-size: 1.3em;
   }
 
-  @include e( 'title' ) {
+  @include element( 'title' ) {
     margin-top: 0.2em;
     color: get-color('secondary');
     opacity: 0;
     transition: opacity $c-persona-transition-timing $c-persona-easing-func;
   }
 
-  @include e( 'links' ) {
+  @include element( 'links' ) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +75,7 @@ $c-persona-transition-timing: 0.6s;
     color: get-color('primary');
   }
 
-  @include e( 'link' ) {
+  @include element( 'link' ) {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -85,7 +85,7 @@ $c-persona-transition-timing: 0.6s;
     transition: opacity $c-persona-transition-timing $c-persona-easing-func;
   }
 
-  @include e( 'icon' ) {
+  @include element( 'icon' ) {
     margin: 0;
     padding: 1px;
     //@include padding(1px);

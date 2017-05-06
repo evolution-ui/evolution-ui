@@ -21,8 +21,16 @@ $c-ikon-twitter-color: #1da1f2;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-family: Roboto, Helvetica, sans-serif;
+  font-size: 1.1rem;
   text-align: center;
+
+  @media (max-width: 550px) {
+    font-size: 1.0rem;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.9rem;
+  }
 
   *, *::before, *::after {
     box-sizing: inherit;
@@ -37,50 +45,43 @@ $c-ikon-twitter-color: #1da1f2;
     background: get-color('secondary');
     border-radius: 50%;
 
-    @media (max-width: 360px) {
+    @media (max-width: 550px) {
       margin: 0.5em;
     }
 
     $ref-c-ikon-member-name: getBEMReference($c-ikon-name, 'member-name');
     $ref-c-ikon-member-info: getBEMReference($c-ikon-name, 'member-info');
 
-    &:hover > .#{$ref-c-ikon-member-name} {
+    &:hover > .#{$ref-c-ikon-member-name},
+    &--is-hovered:hover > .#{$ref-c-ikon-member-name} {
       z-index: 30;
-
-      @media (max-width: 550px) {
-        z-index: 10;
-      }
     }
 
-    &:hover > .#{$ref-c-ikon-member-info} {
+    &:hover > .#{$ref-c-ikon-member-info},
+    &--is-hovered:hover > .#{$ref-c-ikon-member-info} {
       opacity: 1;
       z-index: 20;
       pointer-events: inherit;
-
-      @media (max-width: 550px) {
-        opacity: 0;
-        pointer-events: none;
-      }
     }
 
-    @include m ('is-hovered') {
+    @media (max-width: 550px) {
       &:hover > .#{$ref-c-ikon-member-name} {
+        z-index: 10;
+      }
+
+      &--is-hovered:hover > .#{$ref-c-ikon-member-name} {
         z-index: 30;
-        @media (max-width: 550px) { // Necessary to override
-          z-index: 30;
-        }
       }
 
       &:hover > .#{$ref-c-ikon-member-info} {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &--is-hovered:hover > .#{$ref-c-ikon-member-info} {
         opacity: 1;
         z-index: 20;
         pointer-events: inherit;
-
-        @media (max-width: 550px) { // Necessary to override
-          opacity: 1;
-          z-index: 20;
-          pointer-events: inherit;
-        }
       }
     }
   }
@@ -118,13 +119,11 @@ $c-ikon-twitter-color: #1da1f2;
     transition: opacity 0.5s cubic-bezier(.19, 1.0, .22, 1.0);
     pointer-events: none;
 
-    @media (max-width: 550px) {
-      height: 25em;
-    }
-
     @media (max-width: 480px) {
-      width: 20em;
+      width: 21em;
+      height: 22em;
       top: -8em;
+      left: -8em;
     }
 
     @include m('leftmost') {
@@ -158,7 +157,7 @@ $c-ikon-twitter-color: #1da1f2;
       font-size: 2em;
       font-weight: 300;
       color: get-color('background', 'dark');
-      background: rgba(255, 255, 255, 0.5);
+      background: white(0.5);
       visibility: hidden;
 
       @media (max-width: 550px) {
@@ -194,7 +193,7 @@ $c-ikon-twitter-color: #1da1f2;
   }
 
   @include e('social-link') {
-    margin: 0.5em;
+    margin: 1em 0.5em;
     color: $c-ikon-regular-color;
 
     &:hover, &:visited {
@@ -205,30 +204,30 @@ $c-ikon-twitter-color: #1da1f2;
       margin: 0 0.5em;
     }
 
-    .fa {
+    i {
       vertical-align: top;
     }
 
-    .fa-github-square {
-      color: $c-ikon-github-color;
-    }
-
-    .fa-linkedin-square {
-      color: $c-ikon-linkedin-color;
-    }
-
-    .fa-facebook-square {
+    @include m('facebook') {
       color: $c-ikon-facebook-color;
     }
 
-    .fa-twitter-square {
+    @include m('github') {
+      color: $c-ikon-github-color;
+    }
+
+    @include m('linkedin') {
+      color: $c-ikon-linkedin-color;
+    }
+
+    @include m('twitter') {
       color: $c-ikon-twitter-color;
     }
   }
 
   @include e('member-about') {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1em;
     line-height: 1.2;
     text-align: left;
   }

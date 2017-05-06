@@ -74,7 +74,7 @@ $c-tooltip-flow-properties: (
 
 // @import "tooltip-config";
 
-@include c($c-tooltip-container) {
+@include block($c-tooltip-container) {
   position: relative;
 
   @each $flow in map-keys($c-tooltip-flow-properties) {
@@ -91,7 +91,7 @@ $c-tooltip-flow-properties: (
   }
 }
 
-@include c($c-tooltip-name) {
+@include block($c-tooltip-name) {
   position: absolute;
   display: block;
   min-width: 30ch;

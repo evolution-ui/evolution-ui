@@ -212,7 +212,7 @@ gulp.task('images', () => {
     // stream.pipe(plugins.imagemin());
   }
 
-  stream.pipe(gulp.dest(`${config.docsAssets}/images/evolution-ui`)) // save to docs
+  stream.pipe(gulp.dest(`${config.docsAssets}/images/evolution-ui`)); // save to docs
   stream.pipe(gulp.dest(`${config.devAssets}/images/evolution-ui`)); // save to dev
 
   return stream;
