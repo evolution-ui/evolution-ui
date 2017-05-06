@@ -70,6 +70,8 @@ $site-header-background-color: map-get($site-colors, quaternary-light);
   padding: $site-header-padding;
   background-color: $site-header-background-color;
   text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
 // LOGO
@@ -515,8 +517,9 @@ $site-sidebar-nav-zindex: 9999;
       }
 
       &.bottom-hidden {
-        height: 40%;
-        border-bottom: 4px solid map-get($site-colors, primary);
+        height: 0%;
+        // border-bottom: 4px solid map-get($site-colors, primary);
+        overflow: hidden;
       }
     }
   }
@@ -737,5 +740,9 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
       margin-bottom: 0;
     }
   }
+}
+
+.evo_c-scrollspy {
+  background-color: rgba(86, 197, 222, 0.12);
 }
 

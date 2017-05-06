@@ -1,8 +1,3 @@
-@import '../../assets/styles/abstracts/variables';
-@import '../../assets/styles/abstracts/functions';
-@import '../../assets/styles/abstracts/import-mixins';
-@import '../../assets/styles/abstracts/placeholders';
-
 /******************************************************************************
                         Minimalist Carousel Two Config
 ******************************************************************************/
@@ -71,15 +66,15 @@ $c-minimalist-carousel-two: 'minimalist-carousel-two';
 }
 
 .evo_c-carousel-border-nav__inner--one{
-  background-image: url("../../../../images/components/minimalist_carousel_two/forest.jpg");
+  background-image: url("../../images/evolution-ui/evolution/minimalist-carousel-two/forest.jpg");
   background-size: cover;
 }
 .evo_c-carousel-border-nav__inner--two{
-  background-image: url("../../../../images/components/minimalist_carousel_two/snail.jpg");
+  background-image: url("../../images/evolution-ui/evolution/minimalist-carousel-two/snail.jpg");
   background-size: cover;
 }
 .evo_c-carousel-border-nav__inner--three {
-  background-image: url("../../../../images/components/minimalist_carousel_two/treetrunk.jpg");
+  background-image: url("../../images/evolution-ui/evolution/minimalist-carousel-two/treetrunk.jpg");
   background-size: cover;
 }
 

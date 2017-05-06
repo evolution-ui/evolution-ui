@@ -4,5 +4,8 @@ npm-debug.log
 .sass-cache
 .dev/
 dist
-docs/assets
+docs/assets/audio/evolution-ui
+docs/assets/images/evolution-ui
+docs/assets/scripts/evolution-ui
+docs/assets/styles/evolution-ui
 docs/_components

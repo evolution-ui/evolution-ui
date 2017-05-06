@@ -1,8 +1,3 @@
-@import '../../assets/styles/abstracts/variables';
-@import '../../assets/styles/abstracts/functions';
-@import '../../assets/styles/abstracts/import-mixins';
-@import '../../assets/styles/abstracts/placeholders';
-
 /******************************************************************************
                             Dropdot Config
 ******************************************************************************/
@@ -26,7 +21,7 @@ $drop-dot__list-text: white();
 
 // Drop Dot Element START
 //Create a label and give it the .drop-dot class
-@include c($drop-dot__name){
+@include block($drop-dot__name){
   display: flex;
   position: relative;
   flex-direction: column;

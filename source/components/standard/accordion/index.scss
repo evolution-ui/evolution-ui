@@ -1,8 +1,3 @@
-@import '../../assets/styles/abstracts/variables';
-@import '../../assets/styles/abstracts/functions';
-@import '../../assets/styles/abstracts/import-mixins';
-@import '../../assets/styles/abstracts/placeholders';
-
 /******************************************************************************
                             Accordion Config
 ******************************************************************************/
@@ -13,7 +8,7 @@
 
 // @import 'accordion-config';
 
-@include c('accordion') {
+@include block('accordion') {
   // margin: 0 auto;
   padding-left: 0;
   margin-left: 0;
@@ -29,7 +24,7 @@
     }
   }
 
-  @include e('title') {
+  @include element('title') {
     width: 100%;
     padding: .9375em;
     display: block;
@@ -50,12 +45,12 @@
 
     transition: background .3s ease, color .3s ease;
 
-    @include s('is-active') {
+    @include state('active') {
       background-color: get-color('primary', 'dark');
     }
   }
 
-  @include e('content') {
+  @include element('content') {
     max-height: 0;
     padding-left: .625em;
     padding-right: .625em;
@@ -63,7 +58,7 @@
     overflow-y: scroll;
     transition: all .5s ease;
 
-    @include s('is-expanded') {
+    @include state('expanded') {
       max-height: 50vh;
       padding-top: 1em;
     }

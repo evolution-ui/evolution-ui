@@ -1,8 +1,3 @@
-@import '../../assets/styles/abstracts/variables';
-@import '../../assets/styles/abstracts/functions';
-@import '../../assets/styles/abstracts/import-mixins';
-@import '../../assets/styles/abstracts/placeholders';
-
 /******************************************************************************
                     Innovative Login Form Config
 ******************************************************************************/
@@ -36,7 +31,7 @@ body{
   font-size: 20px
 }
 
-@include c('title'){
+@include component('title'){
   font-family: $font-family;
   font-weight: 400;
   font-size: 2em;
@@ -47,7 +42,7 @@ body{
   margin-right: auto;
 }
 
-@include c($c-login-form){
+@include component($c-login-form){
   position: relative;
   width: 360px;
   height: 640px;
@@ -55,7 +50,7 @@ body{
   margin-left: auto;
   margin-right: auto;
 
-  @include e('log-header'){
+  @include element('log-header'){
     position: relative;
     top: 15%;
     text-align: center;
@@ -75,13 +70,13 @@ body{
   }
 
 
-  @include e('img-circle'){
+  @include element('img-circle'){
     border-radius: 50%;
     border: 1px solid $login-form-button-color;
     width: 40%;
   }
 
-  @include e('log-body'){
+  @include element('log-body'){
     position: relative;
     margin: 10px;
     top: 30%;
@@ -121,7 +116,7 @@ body{
     }
   }
 
-  @include e(lbutton){
+  @include element(lbutton){
     display: block;
     padding: 3% 22% 3% 22%;
     border-radius: 3px;
@@ -145,7 +140,7 @@ body{
     }
   }
 
-  @include e('log-footer'){
+  @include element('log-footer'){
     position: relative;
     text-align: center;
     top: 40%;
@@ -164,7 +159,7 @@ body{
     }
   }
 
-  @include e('link'){
+  @include element('link'){
     font-family: $font-family;
     font-weight: 300;
     position: relative;
@@ -215,7 +210,7 @@ body{
     margin-left: auto;
     margin-right: auto;
   }
-
+  // Fixme: When moving to new `component()` mixin function, throws `title` block already exists error
   @include c('title'){
     font-family: $font-family;
     font-weight: 400;
@@ -225,13 +220,13 @@ body{
     margin-left: auto;
     margin-right: auto;
   }
-
+  // Fixme: When moving to new `component()` mixin function, throws `login-form` block already exists error
   @include c($c-login-form){
     position: relative;
     width: 100%;
     height: 640px;
     border-radius: 2px;
-
+    // Fixme: When moving to new `element()` mixin function, throws wrong context error
     @include e('log-header'){
       position: relative;
       top: 15%;
@@ -251,13 +246,13 @@ body{
       filter: blur(2px);
     }
 
-
+    // Fixme: When moving to new `element()` mixin function, throws wrong context error
     @include e('img-circle'){
       border-radius: 50%;
       border: 1px solid $login-form-button-color;
       width: 40%;
     }
-
+    // Fixme: When moving to new `element()` mixin function, throws wrong context error
     @include e('log-body'){
       position: relative;
       margin: 10px;
@@ -299,7 +294,7 @@ body{
         transition: border-bottom 0.3s ease-in-out 0s;
       }
     }
-
+    // Fixme: When moving to new `element()` mixin function, throws wrong context error
     @include e(lbutton){
       display: block;
       padding: 3% 22% 3% 22%;
@@ -325,7 +320,7 @@ body{
         transition: border-radius 0.3s ease-in-out;
       }
     }
-
+    // Fixme: When moving to new `element()` mixin function, throws wrong context error
     @include e('log-footer'){
       position: relative;
       text-align: center;
@@ -343,7 +338,7 @@ body{
         border-right: 1px solid #fff;
       }
     }
-
+    // Fixme: When moving to new `element()` mixin function, throws wrong context error
     @include e('link'){
       position: relative;
       color: #3b5c9b;

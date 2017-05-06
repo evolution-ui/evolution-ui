@@ -1,8 +1,3 @@
-@import '../../assets/styles/abstracts/variables';
-@import '../../assets/styles/abstracts/functions';
-@import '../../assets/styles/abstracts/import-mixins';
-@import '../../assets/styles/abstracts/placeholders';
-
 /******************************************************************************
                               Code-Markup Config
 ******************************************************************************/
@@ -20,9 +15,9 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
 
 // @import 'code_markup-config';
 
-@include c('markup') {
+@include block('markup') {
 
-  @include e('tabs') {
+  @include element('tabs') {
     display: flex;
     list-style: none;
     justify-content: space-between;
@@ -31,7 +26,7 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
     margin-bottom: 0;
   }
 
-  @include e('item') {
+  @include element('item') {
     flex: 1 0 auto;
     z-index: 5;
     padding: $markup-tab-padding;
@@ -51,7 +46,7 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
       cursor: pointer;
     }
 
-    @include s('is-active') {
+    @include state('active') {
       border-top: 3px solid get-color('primary', 'base');
       border-bottom: 0;
       background-color: $markup-active-tab-and-container-bg-color;
@@ -65,7 +60,7 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
     }
   }
 
-  @include e('container') {
+  @include element('container') {
     position: relative;
     top: -1px;
     min-height: 0;
@@ -74,7 +69,7 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
     background-color: $markup-active-tab-and-container-bg-color;
     transition: min-height .3s ease, padding .3s ease;
     overflow: hidden;
-    @include s('is-expanded') {
+    @include state('expanded') {
       border-bottom: 1px solid $markup-border-color;
       min-height: 70vh;
       overflow-x: scroll;
@@ -82,12 +77,12 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
     }
   }
 
-  @include e('content') {
+  @include element('content') {
     position: absolute;
     width: 100%;
     opacity: 0;
     transition: opacity .3s ease;
-    @include s('is-active') {
+    @include state('active') {
       opacity: 1;
     }
   }

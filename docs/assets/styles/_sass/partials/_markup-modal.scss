@@ -1,0 +1,78 @@
+.markup-modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: transparentize(map-get($site-colors, primary), .15);
+    z-index: 1000000;
+    left: -110%;
+    transition: all .5s;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    pre {
+        white-space: pre-wrap;
+        word-wrap: normal;
+        word-break: normal;
+        tab-size: 4;
+    }
+
+
+    pre code {
+        background: map-get($site-colors, primary-lightest);
+        color: map-get($site-colors, grayscale-darkest);
+        max-height: 500px;
+    }
+}
+
+
+.modal-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    top: -200px;
+    transition: all .4s;
+    transition-delay: .4s;
+    background: url("../images/cancel.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    cursor: pointer;
+}
+
+
+.markup-modal__markup {
+    width: 80%;
+    height: auto;
+    transition: all .4s;
+    transition-delay: .4s;
+}
+
+.markup-modal__markup-title {
+    margin: 20px auto;
+    font-size: 1.5em;
+    color: map-get($site-colors, primary-lightest);
+    background: map-get($site-colors, tertiary);
+    padding: 10px;
+    width: 40%;
+    text-align: center;
+}
+
+.modal-close--shown {
+    top: 30px
+}
+
+.markup-modal--shown {
+    left: 0
+}
+
+.markup-modal__markup--shown {
+    top: 10%;
+}
+
+.modal-no-scroll {
+    overflow-y: hidden;
+}
