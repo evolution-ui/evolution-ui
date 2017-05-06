@@ -165,7 +165,7 @@ $u_bem-context: () !global;
   @return $selector;
 }
 
-@function _helper-double-class($name) {
+@function _helper($name, $double-class: null, $use-framework-prefix: false) {
 
   // Sanity Check
   $is-into:  _is-into(('block'), $name);
@@ -175,13 +175,17 @@ $u_bem-context: () !global;
   }
 
   $namespace: '';
-  $parent: &;
+  $parent: if($double-class, '#{&}', '.#{get-bem-selector()} ');
 
-  @if $g-use-bem-namespaces {
-    $namespace: map-get($g-bem-namespaces, 'helper') + '-';
+  @if $g-use-framework-prefix and  $use-framework-prefix {
+    $namespace: $g-framework-name + '_'
   }
 
-  $selector: selector-append($parent, '.#{$namespace}#{$name}');
+  @if $g-use-bem-namespaces {
+    $namespace: $namespace + map-get($g-bem-namespaces, 'helper') + '-'
+  }
+
+  $selector: '#{$parent}.#{$namespace}#{$name}';
 
   @return $selector;
 }
@@ -589,8 +593,10 @@ $u_bem-context: () !global;
 /// @param {String} $name - The helper's name
 /// @param {Boolean} $double-class [false] - If True it appends the helper at
 ///                   the end of the parent context.  It represents a double class helper selector
+/// @param {Boolean} $use-framework-prefix - If True it prepends the framework's prefix to the helper class
 ///
-/// @example scss - Default usage - By default, the helper must be defined outside a parent block
+/// @example scss - Default usage - The helper class is context aware which means
+///   that it applies to all of the decendents of the parent block where it's defined.
 ///
 ///  @include helper('big-font') {
 ///
@@ -600,13 +606,14 @@ $u_bem-context: () !global;
 ///
 /// @example css - CSS output
 ///
-///  .h__big-font {
-///     font-size: 20px;
+///  .[prefix]_[block-name] .h__big-font {
+///     font-size: 50px;
 ///  }
 ///
-/// @example scss - Usage with a double class selector
+/// @example scss - Usage with a double class selector. It applies to the first
+///   ancestor item where the helper is defined.
 ///
-///  @include element('shoe') {
+///  @include element('shoe', $double-class: true) {
 ///
 ///    font-size: 20px;
 ///
@@ -630,24 +637,13 @@ $u_bem-context: () !global;
 /// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
 ///
 
-@mixin helper($name, $double-class: false) {
+@mixin helper($name, $double-class: false, $use-framework-prefix: false) {
 
-  @if $double-class {
-
-    $helper-selector: _helper-double-class($name);
+  $helper-selector: _helper($name, $double-class, $use-framework-prefix);
 
     @at-root #{$helper-selector} {
       @content;
     }
-  } @else {
-
-    $g-use-framework-prefix: false !global;
-    @include block($name, 'helper') {
-      @content;
-    }
-
-    $g-use-framework-prefix: true !global;
-  }
 }
 
 ///
