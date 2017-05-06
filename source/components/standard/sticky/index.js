@@ -25,7 +25,7 @@ export default function() {
         }
       };
     }
-  }, 5000);
+  }, 7000);
 
   function elementAbsolutePosition(element) {
     var elementBoundingBox = element.getBoundingClientRect();

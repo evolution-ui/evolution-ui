@@ -10,12 +10,12 @@ $c-cubby-name: 'cubby';
 
 // @import 'cubby-config.scss';
 
-@include c('cubby') {
+@include block('cubby') {
   $door-selector: getBEMReference($c-cubby-name, 'door');
   position: relative;
   perspective: 500px;
 
-  @include e('door') {
+  @include element('door') {
     position: absolute;
     padding: 5px 0;
     background: get-color('primary', 'light');
@@ -27,7 +27,7 @@ $c-cubby-name: 'cubby';
     transition: all .3s ease;
   }
 
-  @include e('inside') {
+  @include element('inside') {
     position: absolute;
     z-index: -5;
     padding: 5px 0;
