@@ -1,6 +1,3 @@
-/******************************************************************************
-                            Forms Config
-******************************************************************************/
 
 //------------------------------------------------------------------------------
 //                          Forms config
@@ -209,7 +206,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
 
 
 @mixin _generate-button($color-name, $color-name-hover: null) {
-  @include m($color-name) {
+  @include modifier($color-name) {
     border: 1px solid get-color($color-name, 'light');
     &:hover {
       color: if($color-name-hover != null, get-color($color-name-hover), white());
@@ -219,7 +216,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
 }
 
 @mixin _generate-button-type-2($color-name, $color-name-hover: null) {
-  @include m($color-name) {
+  @include modifier($color-name) {
     color: white(.9);
     background-color: get-color($color-name);
     border: 0;
@@ -233,13 +230,13 @@ $c-form-dropdown-font-size-large: 1.25rem;
 }
 
 @mixin _generate-focus-line($color-name){
-  @include m($color-name) {
+  @include modifier($color-name) {
     background-color: get-color($color-name);
   }
 }
 
 @mixin _generate-checkbox-color($color-name){
-  @include m($color-name) {
+  @include modifier($color-name) {
     border-top-color: get-color($color-name);
     border-left-color: get-color($color-name);
     border-bottom-color: get-color($color-name);
@@ -252,27 +249,11 @@ $c-form-dropdown-font-size-large: 1.25rem;
 ******************************************************************************/
 
 
-// @import 'forms-config';
+@include component( $c-form-component-name ) {
 
-
-
-@include l( 'grid' ) {
-
-  padding: 0;
-  list-style-type: none;
-
-  @include e( 'item' ) {
-    padding: 20px;
-  }
-
-}
-
-
-@include c( $c-form-component-name ) {
-
-  $header-selector: getBEMReference($c-form-component-name, 'header');
-  $body-selector: getBEMReference($c-form-component-name, 'body');
-  $footer-selector: getBEMReference($c-form-component-name, 'footer');
+  $header-selector: get-bem-selector('header');
+  $body-selector: get-bem-selector('body');
+  $footer-selector: get-bem-selector('footer');
 
   // Provide brackgrounds and text color variations
   @include backgroundVariants($is-descendant: false, $opacity: .09);
@@ -292,27 +273,15 @@ $c-form-dropdown-font-size-large: 1.25rem;
     padding: $c-form-padding-huge;
   }
 
-  @include h( 'full-width', $g-no-prefix ) {
+  @include helper('full-width', $double-class: true) {
     width: 100%;
   }
 
-  @include h( 'center', $g-no-prefix ) {
+  @include helper('center', $double-class: true) {
     margin: 0 auto;
   }
 
-  @include h( 'border', $g-no-prefix ) {
-    border: 1px solid get-color('secondary', 'dark');
-  }
-
-  @include h( 'border-style--dotted', $g-no-prefix ) {
-    border-style: dotted;
-  }
-
-  @include h( 'border-style--dashed', $g-no-prefix ) {
-    border-style: dashed;
-  }
-
-  @include h( '3D', $g-no-prefix ) {
+  @include helper('3D', $double-class: true) {
     box-shadow: 0 3px 0 0 rgba(0,0,0,.23);
 
     &:active {
@@ -321,6 +290,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
     }
   }
 
+
   & * { box-sizing: border-box; }
   & *:focus { outline: 0; }
   & fieldset {
@@ -328,7 +298,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
     border: 0;
   }
 
-  @include m( 'card' ) {
+  @include modifier( 'card' ) {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 11px 0 rgba(0, 0, 0, 0.12);
   }
 
@@ -338,9 +308,9 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //--------------------------------------------------------------------------
 
   & .js-validation {
-    $field-selector: getBEMReference($c-form-component-name, 'field');
-    $focus-line-selector: getBEMReference($c-form-component-name, 'focus-line');
-    $tooltip-selector: getBEMReference($c-form-component-name, 'tooltip');
+    $field-selector: get-bem-selector('field');
+    $focus-line-selector: get-bem-selector('focus-line');
+    $tooltip-selector: get-bem-selector('tooltip');
 
 
     & .#{$field-selector}.has-error:not(.is-focused) .#{$focus-line-selector} {
@@ -365,7 +335,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                             HEADER ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'header' ) {
+  @include element( 'header' ) {
 
   }
 
@@ -373,7 +343,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                             BODY ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'body' ) {
+  @include element( 'body' ) {
 
   }
 
@@ -381,7 +351,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                             FOOTER ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'footer' ) {
+  @include element( 'footer' ) {
     @include vertical-rhythm(80px, $top-rows: 0, $use-height: true);
     @extend %c-form-flex-align-center;
   }
@@ -390,7 +360,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                              TITLE ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'title' ) {
+  @include element( 'title' ) {
     text-transform: capitalize;
   }
 
@@ -398,15 +368,15 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                             FIELD ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'field' ) {
+  @include element( 'field' ) {
 
     //@extend %c-form-vertical-rythm-1;
     @include vertical-rhythm(16px, $top-rows: 2, $bottom-rows: 2);
     @extend %c-form-flex-align-center;
 
-    $label-selector: getBEMReference($c-form-component-name, 'label');
-    $focus-line-selector: getBEMReference($c-form-component-name, 'focus-line');
-    $tooltip-selector: getBEMReference($c-form-component-name, 'tooltip');
+    $label-selector: get-bem-selector('label');
+    $focus-line-selector: get-bem-selector('focus-line');
+    $tooltip-selector: get-bem-selector('tooltip');
 
     position: relative;
     justify-content: center;
@@ -442,7 +412,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                              INPUT ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'input' ) {
+  @include element( 'input' ) {
 
     @extend %c-form-input-width;
 
@@ -469,7 +439,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                            BUTTON ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'button' ) {
+  @include element( 'button' ) {
 
     @extend %c-form-vertical-rythm-1;
     @extend %c-form-pointer;
@@ -487,7 +457,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
       background-color: get-color('primary2');
     }
 
-    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('bck', $double-class: true) {
 
       @include _generate-button('primary');
       @include _generate-button('secondary');
@@ -503,13 +473,13 @@ $c-form-dropdown-font-size-large: 1.25rem;
     //                       SIZE HELPERS - BUTTON
     //--------------------------------------------------------------------------
 
-    @include h('padding', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('padding', $double-class: true) {
 
-      @include m('small') {
+      @include modifier('small') {
         padding: $c-form-button-padding-small;
       }
 
-      @include m('huge') {
+      @include modifier('huge') {
         padding: $c-form-button-padding-huge;
       }
 
@@ -521,7 +491,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
     //                          Rounded - BUTTON
     //--------------------------------------------------------------------------
 
-    @include m( 'rounded' ) {
+    @include modifier( 'rounded' ) {
       border-radius: 45px;
     }
 
@@ -545,7 +515,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                            TOOLTIP ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'tooltip' ) {
+  @include element( 'tooltip' ) {
 
     @extend %c-form-absolute;
 
@@ -567,7 +537,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                        TOOLTIP-text ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'tooltip-text' ) {
+  @include element( 'tooltip-text' ) {
 
     @extend %c-form-flex-align-center;
     position: relative;
@@ -580,7 +550,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
 
   @media screen and (min-width: $c-form-media-desktop) {
 
-    @include e( 'tooltip' ) {
+    @include element( 'tooltip' ) {
 
       left: $c-form-tooltip-left;
       width: $c-form-tooltip-width;
@@ -624,7 +594,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                              LABEL ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'label' ) {
+  @include element( 'label' ) {
 
     @extend %c-form-absolute;
 
@@ -637,7 +607,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                              FIELDSET ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'fieldset' ) {
+  @include element( 'fieldset' ) {
 
     display: flex;
     border: 0;
@@ -655,8 +625,8 @@ $c-form-dropdown-font-size-large: 1.25rem;
   & input[type='checkbox'] {
     @extend %c-form-none;
 
-    $checkbox-default: getBEMReference($c-form-component-name, 'checkbox');
-    $checkbox-x: getBEMReference($c-form-component-name, 'checkbox', 'x');
+    $checkbox-default: get-bem-selector('checkbox');
+    $checkbox-x: get-bem-selector('checkbox', 'x');
 
     &:checked + .#{$checkbox-default}:before {
       @extend %c-form-checkbox-sizes;
@@ -671,7 +641,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
     &:checked + .#{$checkbox-x}:before {
       @extend %c-form-checkbox-sizes;
       @extend %c-form-checkbox-x-before-after-borders;
-      top: -2px;
+      top: -4px;
       left: -13px;
       transform: rotate(45deg);
       -webkit-backface-visibility: hidden;
@@ -681,8 +651,8 @@ $c-form-dropdown-font-size-large: 1.25rem;
     &:checked + .#{$checkbox-x}:after {
       @extend %c-form-checkbox-sizes;
       @extend %c-form-checkbox-x-before-after-borders;
-      top: -5px;
-      left: 3px;
+      top: -6px;
+      left: 5px;
       transform: rotate(-45deg);
       -webkit-backface-visibility: hidden;
       transform-origin: 100% 100%;
@@ -691,7 +661,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   }
 
 
-  @include e ( 'checkbox' ) {
+  @include element( 'checkbox' ) {
     @extend %c-form-checkbox;
     margin: 10px 0;
     border-top-color: $c-form-checkbox-border-color-default;
@@ -703,7 +673,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
     //                    COLOR VARIATIONS - CHECKBOX
     //----------------------------------------------------------------------
 
-    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('bck', $double-class: true) {
 
       @include _generate-checkbox-color('primary');
       @include _generate-checkbox-color('secondary');
@@ -732,7 +702,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
     //----------------------------------------------------------------------
 
 
-    @include m('x') {
+    @include modifier('x') {
         &:before {
         @extend %c-form-checkbox-before;
         width: $c-form-checkbox-size;
@@ -764,9 +734,9 @@ $c-form-dropdown-font-size-large: 1.25rem;
 
   & input[type='radio'] {
 
-    $radio-selector: getBEMReference($c-form-component-name, 'radio');
-    $radio-variation2-selector: getBEMReference($c-form-component-name, 'radio', 'variation2');
-    $radio-variation3-selector: getBEMReference($c-form-component-name, 'radio', 'variation3');
+    $radio-selector: get-bem-selector('radio');
+    $radio-variation2-selector: get-bem-selector('radio', 'variation2');
+    $radio-variation3-selector: get-bem-selector('radio', 'variation3');
 
     @extend %c-form-none;
 
@@ -837,7 +807,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    @include m('variation2') {
+    @include modifier('variation2') {
       &:before {
         @extend %c-form-rounded;
         @extend %c-form-radio-size;
@@ -848,7 +818,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
       }
     }
 
-    @include m('variation3') {
+    @include modifier('variation3') {
       &:before {
         @extend %c-form-rounded;
         @extend %c-form-radio-size;
@@ -864,7 +834,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                           focus-line ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'focus-line' ) {
+  @include element( 'focus-line' ) {
 
     @extend %c-form-absolute;
 
@@ -875,7 +845,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
     width: 0;
     transition: width .3s ease-in-out;
 
-    @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('bck', $double-class: true) {
 
       @include _generate-focus-line('primary');
       @include _generate-focus-line('secondary');
@@ -892,11 +862,11 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //                              ICON ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  @include e( 'icon' ) {
+  @include element( 'icon' ) {
 
     flex-basis: 1%;
 
-    $c-form__input: getBEMReference($c-form-component-name, 'input');
+    $c-form__input: get-bem-selector('input');
 
     & ~ .#{$c-form__input} {
       margin-left: 10px;
@@ -910,7 +880,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-  @include e( 'select' ) {
+  @include element( 'select' ) {
     width: 100%;
     padding-top: .5em;
     padding-right: 2.5em;
@@ -942,10 +912,10 @@ $c-form-dropdown-font-size-large: 1.25rem;
   //                            Dropdown ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      @include e( 'dropdown' ) {
+      @include element( 'dropdown' ) {
 
-        $dropdown-selector: getBEMReference($c-form-component-name, 'dropdown');
-        $select-selector: getBEMReference($c-form-component-name, 'select');
+        $dropdown-selector: get-bem-selector('dropdown');
+        $select-selector: get-bem-selector('select');
 
         position: relative;
         display: inline-block;
@@ -986,7 +956,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
         //----------------------------------------------------------------------
 
 
-        @include h( 'disabled', $g-no-prefix, $apply-on-descendants: false ) {
+        @include helper('disabled', $double-class: true) {
           &:after {
             color: black(.1);
           }
@@ -996,7 +966,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
         //                    COLOR VARIATIONS - DROPDOWN
         //----------------------------------------------------------------------
 
-        @include m('white') {
+        @include modifier('white') {
 
           .#{$select-selector} {
             background-color: #fff;
@@ -1013,7 +983,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
           }
         }
 
-        @include m('primary') {
+        @include modifier('primary') {
 
           .#{$select-selector} {
             background-color: get-color('primary');
@@ -1030,7 +1000,7 @@ $c-form-dropdown-font-size-large: 1.25rem;
           }
         }
 
-        @include m('secondary') {
+        @include modifier('secondary') {
 
           .#{$select-selector} {
             background-color: get-color('secondary');
@@ -1051,11 +1021,11 @@ $c-form-dropdown-font-size-large: 1.25rem;
         //                       SIZE HELPERS - DROPDOWN
         //----------------------------------------------------------------------
 
-        @include m('small') {
+        @include modifier('small') {
           font-size: $c-form-dropdown-font-size-small;
         }
 
-        @include m('large') {
+        @include modifier('large') {
           font-size: $c-form-dropdown-font-size-large;
         }
 
