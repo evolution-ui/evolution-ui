@@ -3,58 +3,52 @@
                         Paragraph Gallery Config
 ******************************************************************************/
 
-$component-name: 'paragraph-galery';
+$component-wrapper-name: 'paragraph-gallery-post';
+$component-name: 'paragraph-gallery';
 
 /******************************************************************************
                         Paragraph Gallery Component
 ******************************************************************************/
 
-@include block($component-name){
-  max-width: 1200px;
+
+@include block($component-wrapper-name){
+  width: 100%;
   margin: 0 auto;
+  p{
+    display: inline;
+  }
 }
 
-/*.paragraph-gallery-post{
-
-}*/
-
-p{
-  display: inline;
-}
-
-.paragraph-gallery{
+@include block($component-name) {
   position: relative;
   display:inline;
   margin-left: 1em;
+  @include element('item'){
+    display: inline;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    margin-top: 3px;
+    overflow: hidden;
+    -webkit-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
+    -moz-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
+    -o-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
+    transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  @include element('image'){
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
 }
 
-.paragraph-gallery__item{
-  display: inline;
-  position: absolute;
-  width: 1em;
-  height: 1em;
-  margin-top: 3px;
-  overflow: hidden;
-  -webkit-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
-  -moz-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
-  -o-transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685);
-  transition: all 500ms cubic-bezier(0.800, 0.275, 0.105, 0.685); /* custom */
-
-}
-
-.paragraph-gallery__item:hover {
-  cursor: pointer;
-}
 .gallery-item__wrapper {
   display: inline-block;
   position: relative;
-  margin-right: 15px;
-}
-
-.paragraph-gallery__image{
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
+  margin-right: 16px;
 }
 
 .animate-up{
@@ -78,8 +72,8 @@ p{
 
 }
 
-@media screen and (max-width: 500px){
-  .paragraph-gallery{
+@media screen and (max-width: 768px){
+  .evo_c-paragraph-gallery {
     display:block;
     margin-left: 0;
   }
