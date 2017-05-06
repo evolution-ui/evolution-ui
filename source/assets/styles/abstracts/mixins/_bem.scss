@@ -295,13 +295,6 @@ $u_bem-context: () !global;
 /// @param {String} $modifier [null] - An optional modifier's name
 /// @param {String} $suffix   [null] - An optional suffix's name
 ///
-/// @author Gabriele Romeo
-///
-/// @access public
-///
-/// @param {String} $element  [null] - An optional element's name
-/// @param {String} $modifier [null] - An optional modifier's name
-///
 ///
 /// @example Let's imagine we have a block element called `car` that has two
 ///          modifiers called `ferrari` and `lamborghini` and which contains a
@@ -350,7 +343,7 @@ $u_bem-context: () !global;
 ///
 ///   }
 ///
-///
+/// @returns {String} - A CSS selector without the dot (.)
 ///
 
 @function get-bem-selector($element: null, $modifier: null, $suffix: null) {
@@ -380,6 +373,19 @@ $u_bem-context: () !global;
   @return $selector;
 }
 
+///
+///
+/// Generate the bem selector to a dry block
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $name  [null] - An optional dry's name
+///
+/// @returns {String} - A CSS selector without the dot (.)
+///
+
 @function get-dry($name: null) {
 
   $parent: #{str-slice(#{&}, 2)};
@@ -389,6 +395,35 @@ $u_bem-context: () !global;
 
 }
 
+
+///
+/// Generate a BEM block
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $name - The block's name
+/// @param {String} $type [component] - An optional block type
+///
+/// @require $g-bem-namespaces
+/// @see $g-bem-namespaces for seeing the available block types
+///
+/// @example scss - Usage
+///
+///  @include block('myClass') {
+///    color: red;
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .[prefix]_c-myClass {
+///     color: red;
+///  }
+///
+/// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
+///
 
 @mixin block($name, $type: 'component') {
 
@@ -402,6 +437,32 @@ $u_bem-context: () !global;
   $clear-context: _clear-context('block');
 
 }
+
+///
+/// Generate a BEM element.
+/// It must be defined within a [block] item.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $name - The element's name
+///
+/// @example scss - Usage
+///
+///  @include element('shoe') {
+///    font-size: 20px;
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .[prefix]_[block-namespace]__shoe {
+///     font-size: 20px;
+///  }
+///
+/// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
+///
 
 @mixin element($name) {
 
@@ -417,6 +478,41 @@ $u_bem-context: () !global;
   $clear-context: _clear-context('element');
 }
 
+///
+/// Generate a BEM modifier.
+/// It must be defined within a [block|element]
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $name - The modifier's name
+///
+/// @example scss - Usage
+///
+///  @include element('shoe') {
+///
+///    font-size: 20px;
+///
+///    @include modifier('yellow') {
+///       color: yello;
+///    }
+///
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .[prefix]_[block-namespace]__shoe {
+///     font-size: 20px;
+///  }
+///  .[prefix]_[block-namespace]__shoe--yellow {
+///     color: yellow;
+///  }
+///
+/// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
+///
+
 @mixin modifier($name) {
 
   $modifier-selector: _modifier($name);
@@ -431,17 +527,44 @@ $u_bem-context: () !global;
   $clear-context: _clear-context('modifier');
 }
 
+///
+/// Generate a BEM object.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @alias block($name, $type: 'object')
+
 @mixin object($name) {
   @include block($name, 'object') {
     @content;
   }
 }
 
+///
+/// Generate a BEM component.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @alias block($name, $type: 'component')
+
 @mixin component($name) {
   @include block($name, 'component') {
     @content;
   }
 }
+
+///
+/// Generate a BEM helper.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @alias block($name, $type: 'helper')
 
 @mixin helper($name) {
 
@@ -454,6 +577,40 @@ $u_bem-context: () !global;
   $g-use-framework-prefix: true !global;
 }
 
+///
+/// Generate a BEM theme.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $name - The theme's name
+///
+/// @example scss - Usage
+///
+///  @include element('shoe') {
+///
+///    font-size: 20px;
+///
+///    @include theme('Christmas') {
+///       background-color: red;
+///    }
+///
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .t-Christmas [prefix]_[block-namespace]__shoe {
+///     background-color: red;
+///  }
+///  .[prefix]_[block-namespace]__shoe {
+///     font-size: 20px;
+///  }
+///
+/// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
+/// @link https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/#theme-namespaces-t- - More info about the Theme namespace
+///
 @mixin theme($name) {
 
   $theme-selector: _theme($name);
@@ -466,6 +623,40 @@ $u_bem-context: () !global;
   $clear-context: _clear-context('theme');
 }
 
+///
+/// Generate a BEM state.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $name - The state's name
+///
+/// @example scss - Usage
+///
+///  @include element('shoe') {
+///
+///    font-size: 20px;
+///
+///    @include state('open') {
+///       font-size: 30px;
+///    }
+///
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .[prefix]_[block-namespace]__shoe {
+///     font-size: 20px;
+///  }
+///  .[prefix]_[block-namespace]__shoe.[is|default status namespace]-open {
+///     font-size: 30px;
+///  }
+///
+/// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
+/// @link https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/ - More info about the Status namespace
+///
 @mixin state($name) {
 
   $state-selector: _state($name);
@@ -478,6 +669,41 @@ $u_bem-context: () !global;
   $clear-context: _clear-context('state');
 }
 
+///
+/// Generate a BEM suffix.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $name - The suffix's name
+///
+/// @example scss - Usage
+///
+///  @include element('shoe') {
+///
+///    font-size: 20px;
+///   @media print {
+///     @include suffix('print') {
+///       font-size: 30px;
+///     }
+///   }
+///
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .[prefix]_[block-namespace]__shoe {
+///     font-size: 20px;
+///  }
+///  .[prefix]_[block-namespace]__shoe[\@|default suffix namespace]print {
+///     font-size: 30px;
+///  }
+///
+/// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
+/// @link https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/ - More info about the Suffix namespace
+///
 @mixin suffix($name) {
 
   $suffix-selector: _suffix($name);
@@ -490,6 +716,44 @@ $u_bem-context: () !global;
   $clear-context: _clear-context('suffix');
 }
 
+
+///
+/// Generate a dry - don't repeat yourself - block
+/// A dry block is a way to define a CSS ruleset that can be reused over
+/// and over again without that appears into the resulting CSS output
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $name [null] - An optional dry's name
+///
+/// @example scss - Usage
+///
+///  // Define a dry block called 'square'
+///  @include define-dry(square) {
+///    width: 100px;
+///    height: 100px;
+///  }
+///
+///  Somewhere else you can reference it with the `get-dry` function
+///  $square-reference: get-dry('square');
+///
+///  Then, using the sass's `@extend` directive, you can use your dry blocks
+///
+///  @include element('garden') {
+///    @extend #{$square-reference};
+///  }
+///
+/// @example css - CSS output
+///
+///  .[prefix]_[block-namespace]__garden {
+///     width: 100px;
+///     height: 100px;
+///  }
+///
+/// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
+///
 @mixin define-dry($name: null) {
 
   @if & == null {
