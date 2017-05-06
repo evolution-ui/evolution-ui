@@ -165,6 +165,27 @@ $u_bem-context: () !global;
   @return $selector;
 }
 
+@function _helper-double-class($name) {
+
+  // Sanity Check
+  $is-into:  _is-into(('block'), $name);
+
+  @if $is-into == false {
+    @return false;
+  }
+
+  $namespace: '';
+  $parent: &;
+
+  @if $g-use-bem-namespaces {
+    $namespace: map-get($g-bem-namespaces, 'helper') + '-';
+  }
+
+  $selector: selector-append($parent, '.#{$namespace}#{$name}');
+
+  @return $selector;
+}
+
 @function _theme($name) {
 
   $namespace: '';
@@ -564,17 +585,69 @@ $u_bem-context: () !global;
 ///
 /// @access public
 ///
-/// @alias block($name, $type: 'helper')
+///
+/// @param {String} $name - The helper's name
+/// @param {Boolean} $double-class [false] - If True it appends the helper at
+///                   the end of the parent context.  It represents a double class helper selector
+///
+/// @example scss - Default usage - By default, the helper must be defined outside a parent block
+///
+///  @include helper('big-font') {
+///
+///    font-size: 50px;
+///
+///  }
+///
+/// @example css - CSS output
+///
+///  .h__big-font {
+///     font-size: 20px;
+///  }
+///
+/// @example scss - Usage with a double class selector
+///
+///  @include element('shoe') {
+///
+///    font-size: 20px;
+///
+///    @include modifier('big-font') {
+///       font-size: 50px;
+///    }
+///
+///  }
+///
+///
+/// @example css - CSS output
+///
+///  .[prefix]_[block-namespace]__shoe {
+///     font-size: 20px;
+///  }
+///  .[prefix]_[block-namespace]__shoe.h-big-font {
+///     font-size: 50px;
+///  }
+///
+/// @link https://css-tricks.com/multiple-class-id-selectors/ - More info about double class selectors
+/// @link https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30 - Usage Examples
+///
 
-@mixin helper($name) {
+@mixin helper($name, $double-class: false) {
 
-  $g-use-framework-prefix: false !global;
+  @if $double-class {
 
-  @include block($name, 'helper') {
-    @content;
+    $helper-selector: _helper-double-class($name);
+
+    @at-root #{$helper-selector} {
+      @content;
+    }
+  } @else {
+
+    $g-use-framework-prefix: false !global;
+    @include block($name, 'helper') {
+      @content;
+    }
+
+    $g-use-framework-prefix: true !global;
   }
-
-  $g-use-framework-prefix: true !global;
 }
 
 ///
