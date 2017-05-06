@@ -593,7 +593,7 @@ $u_bem-context: () !global;
 /// @param {String} $name - The helper's name
 /// @param {Boolean} $double-class [false] - If True it appends the helper at
 ///                   the end of the parent context.  It represents a double class helper selector
-/// @param {Boolean} $use-framework-prefix - If True it prepends the framework's prefix to the helper class
+/// @param {Boolean} $use-framework-prefix [false] - If True it prepends the framework's prefix to the helper class
 ///
 /// @example scss - Default usage - The helper class is context aware which means
 ///   that it applies to all of the decendents of the parent block where it's defined.
