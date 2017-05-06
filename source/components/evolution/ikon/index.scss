@@ -16,7 +16,7 @@ $c-ikon-twitter-color: #1da1f2;
 
 // @import "ikon-config";
 
-@include c($c-ikon-name) {
+@include component($c-ikon-name) {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -36,7 +36,7 @@ $c-ikon-twitter-color: #1da1f2;
     box-sizing: inherit;
   }
 
-  @include e('member') {
+  @include element('member') {
     position: relative;
     flex-basis: 5.5em;
     width: 5.5em;
@@ -86,7 +86,7 @@ $c-ikon-twitter-color: #1da1f2;
     }
   }
 
-  @include e('member-name') {
+  @include element('member-name') {
     position: absolute;
     top: 0;
     left: 0;
@@ -106,7 +106,7 @@ $c-ikon-twitter-color: #1da1f2;
     cursor: pointer;
   }
 
-  @include e('member-info') {
+  @include element('member-info') {
     position: absolute;
     top: -9em;
     left: -9em;
@@ -126,7 +126,7 @@ $c-ikon-twitter-color: #1da1f2;
       left: -8em;
     }
 
-    @include m('leftmost') {
+    @include modifier('leftmost') {
       left: -1.2em;
       right: auto;
 
@@ -136,7 +136,7 @@ $c-ikon-twitter-color: #1da1f2;
 
     }
 
-    @include m('rightmost') {
+    @include modifier('rightmost') {
       right: -1.2em;
       left: auto;
 
@@ -144,7 +144,8 @@ $c-ikon-twitter-color: #1da1f2;
         right: -3.5em;
       }
     }
-
+    // Fixme: When switching this function to new `element()` function
+    // this throws an error.  Looks like a context issue
     @include e('close-icon') {
       position: absolute;
       top: 0;
@@ -166,7 +167,7 @@ $c-ikon-twitter-color: #1da1f2;
     }
   }
 
-  @include e('member-pic') {
+  @include element('member-pic') {
     flex: 1;
     max-height: 50%;
 
@@ -176,7 +177,7 @@ $c-ikon-twitter-color: #1da1f2;
     }
   }
 
-  @include e('member-details') {
+  @include element('member-details') {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -186,13 +187,13 @@ $c-ikon-twitter-color: #1da1f2;
     font-size: 0.8em;
   }
 
-  @include e('member-social-links') {
+  @include element('member-social-links') {
     display: flex;
     justify-content: center;
     font-size: 2em;
   }
 
-  @include e('social-link') {
+  @include element('social-link') {
     margin: 1em 0.5em;
     color: $c-ikon-regular-color;
 
@@ -208,24 +209,24 @@ $c-ikon-twitter-color: #1da1f2;
       vertical-align: top;
     }
 
-    @include m('facebook') {
+    @include modifier('facebook') {
       color: $c-ikon-facebook-color;
     }
 
-    @include m('github') {
+    @include modifier('github') {
       color: $c-ikon-github-color;
     }
 
-    @include m('linkedin') {
+    @include modifier('linkedin') {
       color: $c-ikon-linkedin-color;
     }
 
-    @include m('twitter') {
+    @include modifier('twitter') {
       color: $c-ikon-twitter-color;
     }
   }
 
-  @include e('member-about') {
+  @include element('member-about') {
     margin: 0;
     font-size: 1em;
     line-height: 1.2;

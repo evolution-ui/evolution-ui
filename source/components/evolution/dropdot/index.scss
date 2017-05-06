@@ -21,7 +21,7 @@ $drop-dot__list-text: white();
 
 // Drop Dot Element START
 //Create a label and give it the .drop-dot class
-@include c($drop-dot__name){
+@include block($drop-dot__name){
   display: flex;
   position: relative;
   flex-direction: column;

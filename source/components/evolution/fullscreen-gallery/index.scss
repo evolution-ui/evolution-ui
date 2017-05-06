@@ -16,7 +16,7 @@ $c-fullscreen-gallery: 'fs-gallery';
 
 // @import 'fullscreen-gallery-config';
 
-@include c( $c-fullscreen-gallery ) {
+@include component( $c-fullscreen-gallery ) {
   background-color: transparent;
   display: block;
   margin-bottom: 1.85rem;
@@ -34,12 +34,12 @@ $c-fullscreen-gallery: 'fs-gallery';
     height: auto;
   }
 
-  @include e( 'slides' ) {
+  @include element( 'slides' ) {
     display: flex;
     justify-content: space-between;
   }
 
-  @include e( 'slide' ) {
+  @include element( 'slide' ) {
     width: 30%;
 
     &:hover {

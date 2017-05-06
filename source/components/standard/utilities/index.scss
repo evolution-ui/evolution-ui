@@ -14,16 +14,16 @@
 
 @include helper('utilities') {
   /* UTILITIES COMPONENT - Float Classes */
-  @include element('floats') {
-    @include modifier('right') {
+  @include e('floats') {
+    @include m('right') {
       float: right;
     }
 
-    @include modifier('left'){
+    @include m('left'){
       float: left;
     }
 
-    @include modifier('clear') {
+    @include m('clear') {
       display: table;
       content: '';
       clear: both;
@@ -36,26 +36,26 @@
     }
   }
   /* UTILITIES COMPONENT - Text Transform Classes */
-  @include element('text') {
-    @include modifier('lowercase') {
+  @include e('text') {
+    @include m('lowercase') {
       text-transform: lowercase;
     }
 
-    @include modifier('uppercase') {
+    @include m('uppercase') {
       text-transform: uppercase;
     }
 
-    @include modifier('capitalize') {
+    @include m('capitalize') {
       text-transform: capitalize;
     }
   }
   /* UTILITIES COMPONENT - Visibility Classes */
-  @include element('visibility') {
-    @include modifier('hidden') {
+  @include e('visibility') {
+    @include m('hidden') {
       display: none;
     }
 
-    @include modifier('invisible') {
+    @include m('invisible') {
       visibility: hidden;
     }
   }
