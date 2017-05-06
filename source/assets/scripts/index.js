@@ -12,8 +12,6 @@ import sticky from '../../components/standard/sticky';
 import tabs from '../../components/standard/tabs';
 
 /* Evolution Components */
-import curtain from '../../components/evolution/curtain';
-
 import bookmarklet from '../../components/evolution/bookmarklet';
 import carouselWithDroppingCircleNav from '../../components/evolution/carousel-with-dropping-circle-nav';
 import crumble from '../../components/evolution/crumble';
@@ -28,6 +26,7 @@ import layer2D from '../../components/evolution/layer-2d';
 import layers from '../../components/evolution/layers';
 import minimalistCarouselTwo from '../../components/evolution/minimalist-carousel-two';
 import popOver from '../../components/evolution/pop-over';
+import psychotropicCurtain from '../../components/evolution/psychotropic-curtain';
 import readabilityImprovementPanel from '../../components/evolution/readability-improvement-panel';
 import safety from '../../components/evolution/safety';
 import searchWithLongEdit from '../../components/evolution/search-with-long-edit';
@@ -50,7 +49,6 @@ documentReady(
   sticky,
   tabs,
   /* Evolution Components */
-  curtain,
   bookmarklet,
   carouselWithDroppingCircleNav,
   crumble,
@@ -65,6 +63,7 @@ documentReady(
   layers,
   minimalistCarouselTwo,
   popOver,
+  psychotropicCurtain,
   readabilityImprovementPanel,
   safety,
   searchWithLongEdit,
