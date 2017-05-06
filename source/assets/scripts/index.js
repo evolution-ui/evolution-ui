@@ -17,6 +17,7 @@ import curtain from '../../components/evolution/curtain';
 import bookmarklet from '../../components/evolution/bookmarklet';
 import carouselWithDroppingCircleNav from '../../components/evolution/carousel-with-dropping-circle-nav';
 import crumble from '../../components/evolution/crumble';
+import demoComponent from '../../components/evolution/demo-component';
 import dotValidator from '../../components/evolution/dot-validator';
 import fadeLinesOnScroll from '../../components/evolution/fade-lines-on-scroll';
 import foldoutPopup from '../../components/evolution/foldout-popup';
@@ -54,6 +55,7 @@ documentReady(
   bookmarklet,
   carouselWithDroppingCircleNav,
   crumble,
+  demoComponent,
   dotValidator,
   fadeLinesOnScroll,
   foldoutPopup,
