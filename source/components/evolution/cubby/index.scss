@@ -11,7 +11,7 @@ $c-cubby-name: 'cubby';
 // @import 'cubby-config.scss';
 
 @include block('cubby') {
-  $door-selector: getBEMReference($c-cubby-name, 'door');
+  $door-selector: get-bem-selector($c-cubby-name, 'door');
   position: relative;
   perspective: 500px;
 
@@ -47,7 +47,7 @@ $c-cubby-name: 'cubby';
 }
 
 
- @include helper('cubby-table') {
+ @include h('cubby-table') {
   position: relative;
   width: 100%;
   height: 30vh;

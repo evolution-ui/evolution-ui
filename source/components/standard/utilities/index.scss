@@ -12,18 +12,18 @@
 
 // @import 'utilities-config';
 
-@include helper('utilities') {
+@include helper('utilities', false, true) {
   /* UTILITIES COMPONENT - Float Classes */
-  @include e('floats') {
-    @include m('right') {
+  @include element('floats') {
+    @include modifier('right') {
       float: right;
     }
 
-    @include m('left'){
+    @include modifier('left'){
       float: left;
     }
 
-    @include m('clear') {
+    @include modifier('clear') {
       display: table;
       content: '';
       clear: both;
@@ -36,26 +36,26 @@
     }
   }
   /* UTILITIES COMPONENT - Text Transform Classes */
-  @include e('text') {
-    @include m('lowercase') {
+  @include element('text') {
+    @include modifier('lowercase') {
       text-transform: lowercase;
     }
 
-    @include m('uppercase') {
+    @include modifier('uppercase') {
       text-transform: uppercase;
     }
 
-    @include m('capitalize') {
+    @include modifier('capitalize') {
       text-transform: capitalize;
     }
   }
   /* UTILITIES COMPONENT - Visibility Classes */
-  @include e('visibility') {
-    @include m('hidden') {
+  @include element('visibility') {
+    @include modifier('hidden') {
       display: none;
     }
 
-    @include m('invisible') {
+    @include modifier('invisible') {
       visibility: hidden;
     }
   }
@@ -352,7 +352,7 @@
 /* UTILITIES COMPONENT - Styles for Presentation Only
     (Not Needed For Component Functionality) */
 
-@include h('presentation') {
+@include helper('presentation', false, true) {
   margin-bottom: 1em;
   padding: 1.25em 1.875em;
   box-sizing: border-box;
@@ -364,19 +364,19 @@
     }
 
   /* UTILITIES COMPONENT - Floats Presentation */
-  @include e('floats') {
+  @include element('floats') {
 
-    @include m('left') {
+    @include modifier('left') {
       background-color: get-color('primary', 'light');
       color: white(1);
     }
 
-    @include m('right') {
+    @include modifier('right') {
       background-color: get-color('primary', 'light');
       color: white(1);
     }
 
-    @include m('clear') {
+    @include modifier('clear') {
       width: 100%;
       background-color: get-color('accent', 'light');
       color: white(1);
@@ -384,7 +384,7 @@
     }
   }
   /* UTILITIES COMPONENT - Text Transform Presentation */
-  @include e('text-container') {
+  @include element('text-container') {
     display: flex;
     margin-bottom: 1em;
     justify-content: space-between;
@@ -394,18 +394,18 @@
     }
   }
 
-  @include e('text') {
+  @include element('text') {
     margin-left: 1em;
     margin-right: 1em;
   }
 
-  @include e('visibility-container') {
+  @include element('visibility-container') {
     display: flex;
     margin-bottom: 2em;
     justify-content: space-between;
   }
 
-  @include e('visibility-span') {
+  @include element('visibility-span') {
     flex-grow: 1;
     margin-left: 1em;
     margin-right: 1em;
