@@ -343,7 +343,7 @@ $u_bem-context: () !global;
 ///
 ///
 
-@function get-bem-selector($element: null, $modifier: null) {
+@function get-bem-selector($element: null, $modifier: null, $suffix: null) {
 
   $context: str-slice(map-get(map-get($u_bem-context, 'block'), 'selector'), 2);
 
@@ -359,7 +359,13 @@ $u_bem-context: () !global;
     $modifier: '';
   }
 
-  $selector: $context + $element + $modifier;
+  @if $suffix {
+    $suffix: $g-bem-suffix + $suffix;
+  } @else {
+    $suffix: '';
+  }
+
+  $selector: $context + $element + $modifier + $suffix;
 
   @return $selector;
 }
