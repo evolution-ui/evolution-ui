@@ -91,6 +91,16 @@ $c-crumble-media-desktop-HD: 1200px;
       justify-content: center;
     }
 
+    //--------------------------------------------------------------------------
+    //                       Space-around HELPER
+    //--------------------------------------------------------------------------
+
+    @include helper('space-around') {
+      justify-content: space-around;
+      width: 60%;
+      margin: 0 auto;
+    }
+
 
     //--------------------------------------------------------------------------
     //                   COLOR MODIFIER - ITEM ELEMENT
@@ -277,17 +287,6 @@ $c-crumble-media-desktop-HD: 1200px;
       }
   }
 
-}
-
-
-//--------------------------------------------------------------------------
-//                   SIZE HELPER - USED by the LIST ELEMENT
-//--------------------------------------------------------------------------
-
-@include helper('space-around') {
-  justify-content: space-around;
-  width: 60%;
-  margin: 0 auto;
 }
 
 
