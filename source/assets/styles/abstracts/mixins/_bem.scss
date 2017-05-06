@@ -266,6 +266,83 @@ $u_bem-context: () !global;
     @return true;
 }
 
+
+///
+///
+/// Generate the bem selector without the need of hard coded it by hand.
+/// You need to remember neither the framework's prefix nor the bem
+/// namespace of the block where the function is being called.
+/// The function is context aware. It means that you don't need to specify
+/// the parent block
+///
+///
+/// - Calling the `get-bem-selector()` function without any argument, it returns
+///   a reference to the current *context* - parent block.
+/// - By providing an `element` argument, it returns a reference to the nested
+///   element within the current context.
+/// - By providing a `modifier` argument, it returns a reference to the intended
+///   modifier of the current context.
+/// - By providing both an `element` and a `modifier`, it returns a reference to
+//    the intended nested element having the provided modifier.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $element  [null] - An optional element's name
+/// @param {String} $modifier [null] - An optional modifier's name
+///
+///
+/// @example Let's imagine we have a block element called `car` that has two
+///          modifiers called `ferrari` and `lamborghini` and which contains a
+///          `wheel` element with two modifiers called `runflat` and `all-weather`
+///
+///  The structure is:
+///
+///      * `evo_c-car`
+///        * `evo_c-car--ferrari`
+///        * `evo_c-car--lamborghini`
+///      * `evo_c-car__wheel`
+///        * `evo_c-car__wheel--runflat`
+///        * `evo_c-car__wheel--all-weather`
+///
+/// @example scss - Usage
+///
+///   @include block('car') {
+///
+///     $ferrari-reference: get-bem-selector($modifier: 'ferrari');
+///
+///     // or $ferrari-reference: get-bem-selector(null, 'ferrari');
+///
+///     $wheel-reference: get-bem-selector('wheel');
+///     $wheel-runflat-reference: get-bem-selector('wheel', 'runflat');
+///
+///     @include modifier('ferrari') {
+///       background-color: red;
+///     }
+///
+///     @include modifier('lamborghini') {
+///       background-color: black;
+///     }
+///
+///
+///     @include element('wheel') {
+///
+///       @include modifier('runflat') {
+///
+///       }
+///
+///       @include modifier('all-weather') {
+///
+///       }
+///
+///     }
+///
+///   }
+///
+///
+///
+
 @function get-bem-selector($element: null, $modifier: null) {
 
   $context: str-slice(map-get(map-get($u_bem-context, 'block'), 'selector'), 2);
