@@ -284,6 +284,16 @@ $u_bem-context: () !global;
 ///   modifier of the current context.
 /// - By providing both an `element` and a `modifier`, it returns a reference to
 //    the intended nested element having the provided modifier.
+/// - By providing a `suffix`, it returns a reference to the intended
+///   block[__element|--modifier] followed by the default suffix namespace
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $element  [null] - An optional element's name
+/// @param {String} $modifier [null] - An optional modifier's name
+/// @param {String} $suffix   [null] - An optional suffix's name
 ///
 /// @author Gabriele Romeo
 ///
