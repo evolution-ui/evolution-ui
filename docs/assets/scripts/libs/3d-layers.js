@@ -8,7 +8,12 @@ $(window).load(function() {
     //Constructors
 
     //scroll to top
-    smoothScroll(1000, 0, 0);
+    console.log(document.body.scrollTop);
+    if(document.body.scrollTop > 0) {
+        smoothScroll(1000, 0, 0);
+        console.log("Scrolling to top.");
+    }
+    // smoothScroll(1000, 0, 0);
 
     //get layer heights
     var firstLayerHeight = getFirstLayerHeight();
