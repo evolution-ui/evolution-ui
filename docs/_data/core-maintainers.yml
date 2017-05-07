@@ -22,7 +22,7 @@
   urlGH: 'https://github.com/aashishnagpal'
   description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
   thumbnail-image: 'aashish.jpg'
-  location: "NCR, India"
+  location: "Delhi/NCR, India"
 
 - name: 'Sebastian Ramirez-Brunner'
   image: 'sebastian-ikon.jpg'

@@ -25,9 +25,9 @@ $font-family: 'Roboto Slab', serif;
 
 // @import 'switch-config';
 
-html{
-  font-size: 20px;
-}
+//html{
+//  font-size: 20px;
+//}
 
 @include c($c-switch-name){
   width: 100%;
@@ -90,12 +90,12 @@ html{
 
 @media (max-device-width: 360px) and (orientation: portrait){
 
-  body{
-    font-size: 20px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  //body{
+  //  font-size: 20px;
+  //  width: 100%;
+  //  margin-left: auto;
+  //  margin-right: auto;
+  //}
 
   @include c($c-switch-name){
     width: 100%;

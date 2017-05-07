@@ -160,8 +160,9 @@ $c-ikon-twitter-color: #1da1f2;
       color: get-color('background', 'dark');
       background: white(0.5);
       visibility: hidden;
+      cursor: pointer;
 
-      @media (max-width: 550px) {
+      @media (max-width: 770px) {
         visibility: visible;
       }
     }
@@ -174,6 +175,7 @@ $c-ikon-twitter-color: #1da1f2;
     & img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -185,6 +187,10 @@ $c-ikon-twitter-color: #1da1f2;
     max-height: 50%;
     padding: 1.5em;
     font-size: 0.8em;
+
+    @media (max-width: 480px) {
+      justify-content: flex-end;
+    }
   }
 
   @include element('member-social-links') {
@@ -211,18 +217,34 @@ $c-ikon-twitter-color: #1da1f2;
 
     @include modifier('facebook') {
       color: $c-ikon-facebook-color;
+
+      &:hover, &:visited {
+        color: $c-ikon-facebook-color;
+      }
     }
 
     @include modifier('github') {
       color: $c-ikon-github-color;
+
+      &:hover, &:visited {
+        color: $c-ikon-github-color;
+      }
     }
 
     @include modifier('linkedin') {
       color: $c-ikon-linkedin-color;
+
+      &:hover, &:visited {
+        color: $c-ikon-linkedin-color;
+      }
     }
 
     @include modifier('twitter') {
       color: $c-ikon-twitter-color;
+
+      &:hover, &:visited {
+        color: $c-ikon-twitter-color;
+      }
     }
   }
 

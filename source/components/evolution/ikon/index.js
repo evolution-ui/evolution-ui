@@ -5,7 +5,6 @@ export default function () {
   'use strict';
 
   var init = function () {
-    //console.log('init: entry');
     var ikon = document.querySelector('.js-evo-c-ikon');
     if (ikon) {
       var ikonMembers = ikon.querySelectorAll('.js-evo-c-ikon-member');
@@ -47,17 +46,14 @@ export default function () {
           } else if (memberBCR.right !== leftmostBCR.right && memberBCR.right === rightmostBCR.right) {
             info.classList.add('evo_c-ikon__member-info--rightmost');
           }
-
-          //console.log('member:' + member + ' -> classlist:' + info.classList);
         }
       });
     }
-    //console.log('init: exit');
   };
 
-  init();
+  init(); // window load call
 
-  window.addEventListener('resize', function () {
+  window.addEventListener('resize', function () { // window resize call
     init();
-  })
+  });
 }
