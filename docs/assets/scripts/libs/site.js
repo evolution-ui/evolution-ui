@@ -125,13 +125,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function () {
   var siteMain = document.querySelector('.site-main');
-  var sideMenu = Array.from(document.querySelectorAll('.js-offcanvas-target'));
+  var sideMenu = Array.from(document.querySelectorAll('.js-site-sidebar'));
   var sideMenuWidth = sideMenu ? sideMenu.offsetWidth : 0;
   var sectionLinks = document.querySelectorAll('.selected-layer .site-sidebar-link');
   var sections = document.querySelectorAll('.selected-layer .site-section');
   var fixedHeader = document.querySelector('.evo_c-scrollspy');
   var spy = document.getElementById('evo_c-scrollspy-indicator');
-  var topOffset = siteMain ? $('.selected-layer').find(".js-offcanvas-target").offset().top: 0;
+  var topOffset = siteMain ? $('.selected-layer').find(".js-site-sidebar").offset().top: 0;
 
   $('.evo_c_multiLayers_layer').on('click', function(event) {
     // event.preventDefault();
