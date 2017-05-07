@@ -113,7 +113,7 @@
 }
 
 .evo_c-fontana-form__inputAttr:hover:focus::placeholder, #evo_c-fontana-form__message:hover:focus::placeholder {
-  color: #2e8b57;
+  color: get-color('accent4', 'base'); // author original: #2e8b57;
 }
 
 .evo_c-fontana-form__inputAttr:hover::placeholder, #evo_c-fontana-form__message:hover::placeholder {
@@ -218,7 +218,7 @@
 .evo_c-fontana-form__button--black{
   position:relative;
   left: -80px;
-  background: #060708;
+  background: get-color('background', 'base'); // author original: #060708;
   margin : 20px auto;
   width : 200px;
   height : 80px;
@@ -280,6 +280,6 @@
 
 .evo_c-fontana-form__button--black:hover{
   // Original commented out to style more closely to framework styles while keeping the Fontana inspiration
-  background: get-color('accent4', 'base'); // author original: linear-gradient(135deg, black, limegreen, black);
+  background: linear-gradient(135deg, get-color('background', 'dark'), get-color('accent4', 'base'), get-color('background', 'dark')); // author original: linear-gradient(135deg, black, limegreen, black);
 
 }

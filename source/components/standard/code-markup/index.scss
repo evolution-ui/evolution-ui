@@ -24,6 +24,7 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
     padding-left: 0;
     margin-left: 0;
     margin-bottom: 0;
+    color: white(1);
   }
 
   @include element('item') {
@@ -50,6 +51,7 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
       border-top: 3px solid get-color('primary', 'base');
       border-bottom: 0;
       background-color: $markup-active-tab-and-container-bg-color;
+      color: lighten(get-color('secondary', 'base'), 15%);
     }
 
     @media screen and (min-width: 700px) {

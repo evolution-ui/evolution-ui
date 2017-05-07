@@ -31,7 +31,7 @@ import readabilityImprovementPanel from '../../components/evolution/readability-
 import safety from '../../components/evolution/safety';
 import searchWithLongEdit from '../../components/evolution/search-with-long-edit';
 import sift from '../../components/evolution/sift';
-import {singleInputForm, minimalistForm} from '../../components/evolution/single-input-form';
+import {singleInputForm, minimalistForm} from '../../components/evolution/single-input-forms';
 import svgPagination from '../../components/evolution/svg-pagination';
 import text2Speech from '../../components/evolution/text-2-speech';
 import versatileTable from '../../components/evolution/versatile-table';
