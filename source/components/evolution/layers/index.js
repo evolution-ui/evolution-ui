@@ -1,3 +1,4 @@
-import defaultFunc from './layer-drag-and-drop';
+import layerAnimations from './layer-animations'
+import layerDragAndDrop from './layer-drag-and-drop'
 
-export default defaultFunc;
+export {layerAnimations, layerDragAndDrop};

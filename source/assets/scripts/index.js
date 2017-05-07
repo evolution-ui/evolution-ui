@@ -23,7 +23,7 @@ import herald from '../../components/evolution/herald';
 import ikonize from '../../components/evolution/ikon';
 import inputScanner from '../../components/evolution/input-scanner';
 import layer2D from '../../components/evolution/layer-2d';
-import layers from '../../components/evolution/layers';
+import {layerAnimations, layerDragAndDrop} from '../../components/evolution/layers';
 import minimalistCarouselTwo from '../../components/evolution/minimalist-carousel-two';
 import popOver from '../../components/evolution/pop-over';
 import psychotropicCurtain from '../../components/evolution/psychotropic-curtain';
@@ -60,7 +60,8 @@ documentReady(
   ikonize,
   inputScanner,
   layer2D,
-  layers,
+  layerAnimations,
+  layerDragAndDrop,
   minimalistCarouselTwo,
   popOver,
   psychotropicCurtain,

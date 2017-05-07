@@ -85,7 +85,7 @@ export const singleInputForm = function() {
   }
 
   addListenerToBtns();
-}
+};
 
 /******************************************************************************
                         From From space_saving_minimalist_form.js
@@ -259,4 +259,4 @@ export const minimalistForm =  function() {
     }
   }
   document.onkeypress = stopReloadKey;
-}
+};
