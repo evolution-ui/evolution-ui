@@ -256,8 +256,8 @@ $bookmarklet-success-color: get-color('accent4');
   align-items: center;
   flex-flow: row wrap;
   background-color: white(1);
-  border: solid 1px get-color('background');
-  border-radius: 0.2em;
+  border: solid 1px get-color('secondary', 'base'); // author original: get-color('background',);
+  border-radius: $g-framework-borders-radius; // author original: 0.2em;
   text-align: center;
   padding: 1em 0.5em;
   width: 13em;
@@ -320,8 +320,8 @@ $bookmarklet-success-color: get-color('accent4');
   transform: rotate(45deg);
   position: absolute;
   top: calc(-0.35em - 1px);
-  border-left: solid 1px get-color('background');
-  border-top: solid 1px get-color('background');
+  border-left: solid 1px get-color('secondary', 'base'); // author original: get-color('background');
+  border-top: solid 1px get-color('secondary', 'base'); // author original: get-color('background');
 }
 
 @keyframes evo_c-bookmarklet--fade-out {
