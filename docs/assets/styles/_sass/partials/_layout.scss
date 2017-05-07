@@ -71,7 +71,6 @@ $site-header-background-color: map-get($site-colors, quaternary-light);
   background-color: $site-header-background-color;
   text-align: center;
   position: relative;
-  z-index: 10;
 }
 
 // LOGO
@@ -392,7 +391,7 @@ $site-sidebar-toggle-icon-width: 28px;
 $site-sidebar-toggle-icon-height: 24px;
 $site-sidebar-toggle-line-height: 4px;
 $site-sidebar-toggle-line-background-color: map-get($site-colors, grayscale-white);
-$site-sidebar-toggle-zindex: 9999;
+$site-sidebar-toggle-zindex: 10000;
 $site-sidebar-nav-width: 320px;
 $site-sidebar-nav-background-color: map-get($site-colors, secondary);
 $site-sidebar-nav-zindex: 9999;
@@ -419,7 +418,7 @@ $site-sidebar-nav-zindex: 9999;
   &-toggle {
     display: inline-block;
     position: fixed;
-    bottom: $site-spacing-unit;
+    top: $site-spacing-unit;
     right: $site-spacing-unit;
     z-index: $site-sidebar-toggle-zindex;
     padding: $site-sidebar-toggle-padding;

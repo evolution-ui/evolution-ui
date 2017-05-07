@@ -20,14 +20,14 @@ layout: default
     {% assign evolutionComponents = site.components | where:'category','standard' %}
     {% assign componentsByType = evolutionComponents | group_by:'type' %}
     <div class="site-sidebar" aria-label="Sidebar">
-      <button class="site-sidebar-toggle js-offcanvas-toggle" type="button">
+      <button class="site-sidebar-toggle js-offcanvas-toggle-1" type="button">
         <span class="site-sidebar-toggle-icon">
           <span class="site-sidebar-toggle-line site-sidebar-toggle-line-1"></span>
           <span class="site-sidebar-toggle-line site-sidebar-toggle-line-2"></span>
           <span class="site-sidebar-toggle-line site-sidebar-toggle-line-3"></span>
         </span>
       </button>
-      <nav class="site-sidebar-nav js-offcanvas-target" role="navigation">
+      <nav class="site-sidebar-nav js-offcanvas-target-1" role="navigation">
         <h1 class="site-sidebar-heading">{{ page.title }}</h1>
         <ul class="site-sidebar-list">
           {% for type in componentsByType %}
@@ -124,14 +124,14 @@ layout: default
     {% assign evolutionComponents = site.components | where:'category','evolution' %}
     {% assign componentsByType = evolutionComponents | group_by:'type' %}
     <div class="site-sidebar" aria-label="Sidebar">
-      <button class="site-sidebar-toggle js-offcanvas-toggle" type="button">
+      <button class="site-sidebar-toggle js-offcanvas-toggle-2" type="button">
         <span class="site-sidebar-toggle-icon">
           <span class="site-sidebar-toggle-line site-sidebar-toggle-line-1"></span>
           <span class="site-sidebar-toggle-line site-sidebar-toggle-line-2"></span>
           <span class="site-sidebar-toggle-line site-sidebar-toggle-line-3"></span>
         </span>
       </button>
-      <nav class="site-sidebar-nav js-offcanvas-target" role="navigation">
+      <nav class="site-sidebar-nav js-offcanvas-target-2" role="navigation">
         <h1 class="site-sidebar-heading">{{ page.title }}</h1>
         <ul class="site-sidebar-list">
           {% for type in componentsByType %}
