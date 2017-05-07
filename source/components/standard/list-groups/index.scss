@@ -1,0 +1,134 @@
+/******************************************************************************
+                            List Groups Config
+******************************************************************************/
+
+//------------------------------------------------------------------------------
+//                          List Group config
+//------------------------------------------------------------------------------
+
+$c-list-group: 'list-group';
+
+$c-list-group-bck-variants: (
+  'accent': ( 'base' ),
+  'accent2': ( 'base' ),
+  'accent3': ( 'base' ),
+  'accent4': ( 'base' ),
+  'primary': ( 'base' ),
+  'primary2': ( 'base' ),
+  'secondary': ( 'base' ),
+  'background': ( 'base' )
+);
+
+/******************************************************************************
+                            List Groups Component
+******************************************************************************/
+
+/* ==========================================================================
+   List Group Component Styles
+   ========================================================================== */
+// @import 'list_groups-config';
+
+@include c( 'list-group' ) {
+  border-radius: 4px;
+  box-shadow: 0px 3px 4px -1px rgba(0,0,0,0.28);
+  list-style-type: none;
+  overflow: auto;
+  padding: 0;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  @include e( 'item' ) {
+    border: .5px solid get_color( 'background', $opacity:.1 );
+    padding: 0.875rem;
+    transition: background-color .5s;
+
+    &:not( :first-child ) {
+      border-top: none;
+    }
+
+    &:hover {
+      background-color: get_color( 'background', $opacity:.1 );
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+
+
+    img {
+      border-radius: 4px;
+      float: left;
+      height: 70px;
+      margin-right: .625rem;
+      vertical-align: middle;
+      width: 70px;
+    }
+
+    h3, h4, h5, h6, p {
+      margin-bottom: 0.3125rem;
+      margin-top: 0;
+    }
+
+    @include h( 'rounded' ) {
+      border-radius: 50%;
+    }
+  }
+
+  @include e( 'label' ) {
+    background-color: get_color( 'accent2' );
+    border-radius: 4px;
+    color: white(.9);
+    display: inline-block;
+    float: right;
+    font-size: 60%;
+    font-weight: bold;
+    padding: 5px 8px;
+    @include backgroundVariants($c-list-group-bck-variants);
+  }
+
+  a.evo_c-list-group__item {
+    color: get_color( 'background', 'light' );
+    display: block;
+    text-decoration: none;
+    @include backgroundVariants($c-list-group-bck-variants);
+
+    &.s_is-active {
+      background-color: get_color( 'accent2' );
+      color: white(.9);
+    }
+  }
+
+
+
+  .evo_s-has-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .evo_c-list-group__item & {
+      padding: 0;
+    }
+
+  }
+
+  @include e( 'col' ) {
+    padding: 0.875rem;
+  }
+
+  i {
+    vertical-align: bottom;
+    line-height: .8;
+  }
+
+  @media screen and ( max-width: 360px ) {
+    .evo_s-has-columns {
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+  }
+}

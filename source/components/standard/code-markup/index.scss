@@ -51,7 +51,7 @@ $markup-active-tab-and-container-bg-color: #F2F5FA;
       border-top: 3px solid get-color('primary', 'base');
       border-bottom: 0;
       background-color: $markup-active-tab-and-container-bg-color;
-      color: lighten(get-color('secondary', 'base'), 15%);
+      color: get-color('primary', 'base'); // lighten(get-color('secondary', 'base'), 15%);
     }
 
     @media screen and (min-width: 700px) {
