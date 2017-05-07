@@ -279,7 +279,7 @@
 }
 
 .evo_c-fontana-form__button--black:hover{
-
-  background: linear-gradient(135deg, black, limegreen, black);
+  // Original commented out to style more closely to framework styles while keeping the Fontana inspiration
+  background: get-color('accent4', 'base'); // author original: linear-gradient(135deg, black, limegreen, black);
 
 }
