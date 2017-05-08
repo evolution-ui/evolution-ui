@@ -39,7 +39,8 @@ body {
   -o-font-feature-settings: "kern" 1;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  max-width: 1400px; }
 
 hr,
 p,
@@ -772,7 +773,8 @@ body {
     margin-bottom: 0; }
 
 .evo_c-scrollspy {
-  background-color: rgba(255, 153, 72, 0.6); }
+  background-color: rgba(255, 153, 72, 0.6);
+  max-width: 1400px; }
 
 .up-down-scroll {
   height: 50px;
@@ -856,7 +858,8 @@ body {
   width: 90%;
   padding: 25px 30px;
   overflow-y: hidden;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  max-width: 1300px; }
   @media screen and (max-width: 600px) {
     .evo_c_multiLayers_container section {
       padding: 25px 20px; } }
