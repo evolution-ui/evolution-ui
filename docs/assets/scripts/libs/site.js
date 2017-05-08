@@ -131,7 +131,7 @@ exports.default = function () {
   var sections = document.querySelectorAll('.selected-layer .site-section');
   var fixedHeader = document.querySelector('.evo_c-scrollspy');
   var spy = document.getElementById('evo_c-scrollspy-indicator');
-  var topOffset = siteMain ? $('.selected-layer').find(".js-site-sidebar").offset().top: 0;
+  var topOffset = siteMain ? $('.selected-layer').find(".js-site-sidebar").offset().top : 0;
 
   $('.evo_c_multiLayers_layer').on('click', function(event) {
     // event.preventDefault();
@@ -170,14 +170,6 @@ exports.default = function () {
             sideMenuWidth = sideMenu[i].offsetWidth;
           }
         }
-        // if (window.pageYOffset > topOffset) {
-        //   sideMenu[i].style.width = sideMenuWidth + 'px';
-        //   sideMenu[i].classList.add('is-sticky');
-        // } else {
-        //   sideMenu[i].removeAttribute('style');
-        //   sideMenu[i].classList.remove('is-sticky');
-        //   sideMenuWidth = sideMenu[i].offsetWidth;
-        // }
       }
     }
   }, 80);
@@ -193,10 +185,11 @@ exports.default = function () {
     };
   }
 
-  // window.addEventListener('scroll', sideMenuStickyHandler);
+
   window.addEventListener('scroll', throttle(sideMenuStickyHandler, 10));
   window.addEventListener('scroll', highlightArticle);
   window.addEventListener('scroll', _scrollspy2.default.bind(null, spy));
+
 
   Array.from(sectionLinks).forEach(function (link) {
     link.addEventListener('click', function (event) {

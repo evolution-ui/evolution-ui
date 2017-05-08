@@ -15,6 +15,10 @@ $(window).load(function() {
     }
     // smoothScroll(1000, 0, 0);
 
+    window.addEventListener("resize", function() {
+        smoothScroll(100, 0, 0);
+    });
+
     //get layer heights
     var firstLayerHeight = getFirstLayerHeight();
     console.log("First layer: ", firstLayerHeight);

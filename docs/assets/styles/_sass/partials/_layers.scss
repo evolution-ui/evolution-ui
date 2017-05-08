@@ -33,6 +33,10 @@
 .evo_c_multiLayers_container section.selected-layer {
     border: none;
     box-shadow: 0 0px 9px 0px rgba(128, 128, 128, 0.54);
+
+    @media screen and (max-width: $site-breakpoint-md) {
+      width: 93%;
+    }
 }
 
 .evo_c_multiLayers_container section:not(.selected-layer) {

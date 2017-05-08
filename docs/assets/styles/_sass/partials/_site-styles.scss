@@ -27,6 +27,11 @@
         width: 100%;
         text-align: center;
     }
+
+    @media screen and (max-width: $site-breakpoint-lg) {
+        bottom: 30px;
+        right: 50px;
+    }
 }
 
 .up-down-scroll__scroll-up,

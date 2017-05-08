@@ -372,6 +372,14 @@ $site-main-md-padding: ($site-spacing-unit * 2);
   @include media-query($site-breakpoint-md) {
     padding: $site-main-md-padding;
   }
+
+  @media screen and (max-width: $site-breakpoint-xl) {
+    padding-left: 35px;
+  }
+
+  @media screen and (max-width: $site-breakpoint-md) {
+    padding-left: 10px;
+  }
 }
 
 // SIDEBAR
@@ -384,7 +392,7 @@ $site-sidebar-link-hover-border-color: map-get($site-colors, secondary);
 $site-sidebar-link-current-color: map-get($site-colors, secondary);
 $site-sidebar-toggle-padding: ($site-spacing-unit - ($site-spacing-unit / 6)) ($site-spacing-unit * 0.75);
 $site-sidebar-toggle-background-color: map-get($site-colors, secondary);
-$site-sidebar-toggle-box-shadow-color: fade-out(map-get($site-colors, grayscale-black), 0.5);
+$site-sidebar-toggle-box-shadow-color: fade-out(map-get($site-colors, grayscale-black), 0.7);
 $site-sidebar-toggle-hover-background-color: darken(map-get($site-colors, secondary), 5%);
 $site-sidebar-toggle-hover-transform: scale(1.1);
 $site-sidebar-toggle-icon-width: 28px;
@@ -418,8 +426,8 @@ $site-sidebar-nav-zindex: 9999;
   &-toggle {
     display: inline-block;
     position: fixed;
-    top: $site-spacing-unit;
-    right: $site-spacing-unit;
+    bottom: 30px;
+    left: 50px;
     z-index: $site-sidebar-toggle-zindex;
     padding: $site-sidebar-toggle-padding;
     border: 0;
@@ -427,6 +435,7 @@ $site-sidebar-nav-zindex: 9999;
     background-color: $site-sidebar-toggle-background-color;
     box-shadow: 0 0 ($site-spacing-unit / 3) $site-sidebar-toggle-box-shadow-color;
     cursor: pointer;
+    outline: none;
     transition:
       transform $site-transition-timing-function,
       background-color $site-transition-timing-function,
@@ -654,6 +663,10 @@ $site-section-content-divider-margin: ($site-spacing-unit * 1.5) 0 $site-spacing
   @include media-query($site-breakpoint-lg) {
     padding: $site-section-xl-padding;
     margin-bottom: $site-section-xl-margin;
+  }
+
+  @media screen and (max-width: $site-breakpoint-lg) {
+    clear: both;
   }
 }
 
