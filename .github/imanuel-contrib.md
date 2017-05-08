@@ -103,91 +103,70 @@ Now we are ready to work at our component by staging and committing the changes 
 
 In Evolution UI we tried to define an easy and well-separate structure. To this end, each component is placed in a separate subfolder.
 
-The main path for components is `evolution-ui/assets/`
+The main path for components is `evolution-ui/source/components`
 
 Components are distributed into two main categories , `evolution` or `standard`, and based on its type, each one has its own directory:
 
 * HTML path:
-  *  `evolution-ui/assets/html/[evolution|standard]/component-name.html`
+  *  `evolution-ui/assets/html/[evolution|standard]/default.html`
 * Javascript path:
-  *  `evolution-ui/assets/scripts/[evolution|standard]/component-name.js`
+  *  `evolution-ui/assets/scripts/[evolution|standard]/index.js`
 * SASS path:
-  *   `evolution-ui/assets/stylesheets/[evolution|standard]/component_name/_component-name.scss`
+  *   `evolution-ui/assets/stylesheets/[evolution|standard]/component_name/index.scss`
 
 ```
-evolution-ui/
+
+    - evolution-ui/
     |
-    |- assets/
-          |
-          | - html
-          |     |
-          |     |- evolution/
-          |     |      |
-          |     |      | - eyelids.html
-          |     |
-          |     |- standard/
-          |            |
-          |            | - animations.html
-          |            | - audio.html
-          |
-          | - scripts
-          |      |
-          |      |- evolution/
-          |      |      |
-          |      |      | - eyelids.js
-          |      |
-          |      |- standard/
-          |             |
-          |             | - animations.js
-          |             | - audio.js
-          |
-          |
-          | - stylesheets/
-          |         |
-          |         |
-          |      components/
-          |         |
-          |         | - evolution/
-          |         |        |
-          |         |        |
-          |         |      Eyelids   # The Eyelids component
-          |         |         |
-          |         |         | -  _eyelids-config.scss
-          |         |         | -  _eyelids.scss
-          |         |
-          |         |
-          |         | - standard/
-          |         |      |
-          |         |      |
-          |         |      |-   animations  # The Animations component
-          |         |      |      | -  _animations-config.scss
-          |         |      |      | -  _animations.scss
-          |         |      |      | -  ...
-          |         |      |
-          |         |      |-   audio     # The Audio component
-          |         |      |      | -  _audio-config.scss
-          |         |      |      | -  _audio.scss
-          |         |      |      | -  ...
-          |         |
-          |         |
-          |         |- _import-components.scss
-          |
-          |- app.js
+    |
+    |
+    |----source/
+    |    |
+    |    |
+    |    |
+    |    |----components/
+    |    |    |
+    |    |    |
+    |    |    |
+    |    |    |----evolution/
+    |    |    |    |
+    |    |    |    |
+    |    |    |    |----[component-name]/
+    |    |    |         |
+    |    |    |         |
+    |    |    |         |
+    |    |    |         |----default.html
+    |    |    |         |----index.scss
+    |    |    |         |----index.js
+    |    |    |
+    |    |    |
+    |    |    |
+    |    |    |----standard/
+    |    |         |
+    |    |         |
+    |    |         |
+    |    |         |----[component-name]/
+    |    |              |
+    |    |              |
+    |    |              |
+    |    |              |----default.html
+    |    |              |----index.scss
+    |    |              |----index.js
+    
+   
 ```
 
 For example, the Eyelids component is an **evolution** component and it's main files are:
 
 - HTML:
-    - `evolution-ui/assets/html/evolution/eyelids.html` - (known as *preview file*)
+    - `evolution-ui/source/components/evolution/eyelids/default.html` - (known as *preview file*)
 - JavaScript path:
-    - `evolution-ui/assets/scripts/evolution/eyelids.js`
+    - `evolution-ui/source/components/evolution/eyelids/index.js`
 - SASS path:
-    - `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids.scss`
-    - `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids-config.scss`
+    - `evolution-ui/source/components/evolution/eyelids/index.scss`
 
-Looking at the SASS dir, we can see that the Eyelids component has two main files: `_Eyelids.scss` and a configuration file called `_Eyelids-config.scss`. You can import configuration files into the main file to keep the configuration separate.
 
-Each SASS component is imported through the `_import-components.scss` file.
+Each SASS component is imported through the `evolution-ui/source/assets/styles/main.scss` file.
 
 ### Naming Conventions
 
