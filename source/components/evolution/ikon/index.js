@@ -5,7 +5,7 @@ export default function () {
   'use strict';
 
   var init = function () {
-    console.log('init: entry');
+    //console.log('init: entry');
     var ikon = document.querySelector('.js-evo-c-ikon');
     if (ikon) {
       var ikonMembers = ikon.querySelectorAll('.js-evo-c-ikon-member');
@@ -48,11 +48,11 @@ export default function () {
             info.classList.add('evo_c-ikon__member-info--rightmost');
           }
 
-          console.log('member:' + member + ' -> classlist:' + info.classList);
+          //console.log('member:' + member + ' -> classlist:' + info.classList);
         }
       });
     }
-    console.log('init: exit');
+    //console.log('init: exit');
   };
 
   init();

@@ -19,7 +19,7 @@
      componentKeywords.push(componentHeaders[i].textContent.toLowerCase());
    }
 
-   console.log(componentKeywords);
+   //console.log(componentKeywords);
 
 
    //add event listener to input
@@ -83,7 +83,7 @@
             mainSiteContent.classList.add('content-faded');
 
             matchedComponent = componentHeaders[i];
-            console.log(matchedComponent);
+           // console.log(matchedComponent);
             found = true;
 
             progressBar.classList.add("expanded");

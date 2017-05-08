@@ -24,7 +24,7 @@ const showGifCurtain = event => {
 
     xhr.onload = function () {
       if (xhr.status === 200) {
-        console.log(xhr)
+        //console.log(xhr)
         curtain.querySelector('.evo_c-curtain__error').style.display = 'none'
         const img = curtain.querySelector('img') || document.createElement('IMG')
         img.setAttribute('src', xhr.data.url)

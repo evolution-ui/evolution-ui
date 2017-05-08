@@ -6,7 +6,7 @@
     var $markupTitle = $('.markup-modal__markup-title');
     var body = document.body;
 
-    console.log("Derp!");
+    //console.log("Derp!");
 
     $markupButtons.on('click', function(event) {
         event.preventDefault();
@@ -21,13 +21,13 @@
         var $componentMarkupClone = $clickedButton.siblings('.site-markup-content').clone(true);
         var titleText = $clickedButton[0].parentNode.parentNode.previousElementSibling.previousElementSibling.textContent;
         var variantText;
-        console.log(titleText);
+        //console.log(titleText);
 
         //check for sub heading (indicating component variant)
         if($clickedButton.closest(".site-section-content").find("h2").length > 1) {
             variantText = $clickedButton.parent().prevAll("h2").first().text();
             titleText += " - " + variantText + " Markup";
-            console.log(variantText);
+            //console.log(variantText);
         } else {
             titleText += " Markup";
         }
