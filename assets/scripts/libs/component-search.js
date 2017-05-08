@@ -1,6 +1,7 @@
 (function(window, document) {
    var searchInput = document.querySelector(".site-searchform-input");
-   var componentHeaders = Array.from(document.querySelectorAll(".site-section-heading"));
+   var componentHeaders = Array.from(document.querySelectorAll("section.selected-layer .site-section-heading"));
+   // var componentHeaders;
    var componentKeywords = [];
    var typingTimer;                //timer identifier
    var doneTypingInterval = 1000;
@@ -18,7 +19,7 @@
      componentKeywords.push(componentHeaders[i].textContent.toLowerCase());
    }
 
-   console.log(componentKeywords);
+   //console.log(componentKeywords);
 
 
    //add event listener to input
@@ -44,7 +45,7 @@
    function _scrollToComponent(target) {
       "use strict";
 
-      smoothScroll(900, target.offsetTop, 120);
+      smoothScroll(900, target.offsetTop, -200);
 
 
       setTimeout(function() {
@@ -64,6 +65,12 @@
 
   function _doneTyping() {
       if(searchInput.value !== "") {
+        componentHeaders = Array.from(document.querySelectorAll("section.selected-layer .site-section-heading"));
+        componentKeywords = [];
+        //generate array of component keywords; these will be used to match search term via regex
+        for(var i = 0; i < componentHeaders.length; i++) {
+          componentKeywords.push(componentHeaders[i].textContent.toLowerCase());
+        }
         var searchValue = searchInput.value;
         var searchRegex = new RegExp(searchValue, "i");
         matchedComponent = "";
@@ -76,7 +83,7 @@
             mainSiteContent.classList.add('content-faded');
 
             matchedComponent = componentHeaders[i];
-            console.log(matchedComponent);
+           // console.log(matchedComponent);
             found = true;
 
             progressBar.classList.add("expanded");
@@ -98,12 +105,12 @@
 
   //top and bottom arrow
   topArrow.addEventListener("click", function(event) {
-    smoothScroll(900, 0, -210);
+    smoothScroll(1300, 0, 0);
   });
 
   bottomArrow.addEventListener("click", function(event) {
     var bottomScrollAmount = document.body.offsetHeight - window.innerHeight;
-    smoothScroll(900, bottomScrollAmount, 500);
+    smoothScroll(1300, bottomScrollAmount, 0);
   });
 
 
@@ -126,8 +133,13 @@
     }
 
     // Easein Cubic - George McGinley Smith - https://github.com/danro/jquery-easing/blob/master/jquery.easing.js
+    // function easing (t, b, c, d) {
+    //   return c * (t /= d) * t * t + b
+    // }
+
     function easing (t, b, c, d) {
-      return c * (t /= d) * t * t + b
+      if ((t/=d/2) < 1) return c/2*t*t*t + b;
+      return c/2*((t-=2)*t*t + 2) + b;
     }
 
     function endAnimation () {

@@ -125,14 +125,32 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function () {
   var siteMain = document.querySelector('.site-main');
-  var sideMenu = document.querySelector('.js-offcanvas-target');
+  var sideMenu = Array.from(document.querySelectorAll('.js-site-sidebar'));
   var sideMenuWidth = sideMenu ? sideMenu.offsetWidth : 0;
-  var sectionLinks = document.querySelectorAll('.site-sidebar-link');
-  var sections = document.querySelectorAll('.site-section');
+  var sectionLinks = document.querySelectorAll('.selected-layer .site-sidebar-link');
+  var sections = document.querySelectorAll('.selected-layer .site-section');
   var fixedHeader = document.querySelector('.evo_c-scrollspy');
   var spy = document.getElementById('evo_c-scrollspy-indicator');
+  var topOffset = siteMain ? $('.selected-layer').find(".js-site-sidebar").offset().top : 0;
+
+  $('.evo_c_multiLayers_layer').on('click', function(event) {
+    // event.preventDefault();
+    sectionLinks = document.querySelectorAll('.selected-layer .site-sidebar-link');
+    Array.from(sectionLinks).forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var targetId = event.currentTarget.getAttribute('href').slice(1);
+        var targetPosition = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset;
+        (0, _smoothScroll2.default)(700, targetPosition, fixedHeader.offsetHeight);
+      });
+    });
+  });
 
   var highlightArticle = (0, _lodash2.default)(function () {
+    sections = document.querySelectorAll('.selected-layer .site-section');
+    sectionLinks = document.querySelectorAll('.selected-layer .site-sidebar-link');
+    // console.log(sections);
     var sectionId = (0, _menuHighlight2.default)(sections);
     sectionLinks.forEach(function (link) {
       link.getAttribute('href').slice(1) === sectionId ? link.classList.add('is-current') : link.classList.remove('is-current');
@@ -141,22 +159,37 @@ exports.default = function () {
 
   var sideMenuStickyHandler = (0, _lodash2.default)(function () {
     if (sideMenu) {
-      var topOffset = siteMain ? siteMain.offsetTop : 0;
-
-      if (window.pageYOffset > topOffset) {
-        sideMenu.style.width = sideMenuWidth + 'px';
-        sideMenu.classList.add('is-sticky');
-      } else {
-        sideMenu.removeAttribute('style');
-        sideMenu.classList.remove('is-sticky');
-        sideMenuWidth = sideMenu.offsetWidth;
+      for(var i = 0; i < sideMenu.length; i++) {
+        if($(sideMenu[i]).closest('.evo_c_multiLayers_layer').hasClass('selected-layer')) {
+          if (window.pageYOffset > topOffset) {
+            sideMenu[i].style.width = sideMenuWidth + 'px';
+            sideMenu[i].classList.add('is-sticky');
+          } else {
+            sideMenu[i].removeAttribute('style');
+            sideMenu[i].classList.remove('is-sticky');
+            sideMenuWidth = sideMenu[i].offsetWidth;
+          }
+        }
       }
     }
-  }, 100);
+  }, 80);
 
-  window.addEventListener('scroll', sideMenuStickyHandler);
+  //throttling function
+  function throttle(fn, wait) {
+    var time = Date.now();
+    return function() {
+      if ((time + wait - Date.now()) < 0) {
+        fn();
+        time = Date.now();
+      }
+    };
+  }
+
+
+  window.addEventListener('scroll', throttle(sideMenuStickyHandler, 10));
   window.addEventListener('scroll', highlightArticle);
   window.addEventListener('scroll', _scrollspy2.default.bind(null, spy));
+
 
   Array.from(sectionLinks).forEach(function (link) {
     link.addEventListener('click', function (event) {
@@ -164,7 +197,7 @@ exports.default = function () {
       event.preventDefault();
       var targetId = event.currentTarget.getAttribute('href').slice(1);
       var targetPosition = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset;
-      (0, _smoothScroll2.default)(500, targetPosition, fixedHeader.offsetHeight);
+      (0, _smoothScroll2.default)(700, targetPosition, fixedHeader.offsetHeight);
     });
   });
 
@@ -261,8 +294,13 @@ exports.default = function (duration, endScroll) {
   }
 
   // Easein Cubic - George McGinley Smith - https://github.com/danro/jquery-easing/blob/master/jquery.easing.js
-  function easing(t, b, c, d) {
-    return c * (t /= d) * t * t + b;
+  // function easing(t, b, c, d) {
+  //   return c * (t /= d) * t * t + b;
+  // }
+
+  function easing (t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t*t + b;
+    return c/2*((t-=2)*t*t + 2) + b;
   }
 
   function endAnimation() {
