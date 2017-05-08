@@ -30,6 +30,12 @@ $c-safety-name: 'safety';
   -webkit-box-shadow: 0px 4px 8px 0px rgba(135,132,135,1);
   -moz-box-shadow: 0px 4px 8px 0px rgba(135,132,135,1);
   box-shadow: 0px 4px 8px 0px rgba(135,132,135,1);
+  &:focus{
+    outline:none;
+  }
+  &:active{
+    outline:none;
+  }
 
 
   @include e( 'example' ) {
@@ -63,7 +69,10 @@ $c-safety-name: 'safety';
   }
 
   @include e( 'alert' ) {
-    border: 2px dotted green;
+    //border: 2px dotted green;
+
+    border: 1px solid get-color('primary');
+    border-radius: $g-framework-borders-radius;
     margin: 14px auto;
     text-align: center;
 
@@ -78,4 +87,11 @@ $c-safety-name: 'safety';
 
 
 
+}
+
+/*add to remove border around button text in firefox*/
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
