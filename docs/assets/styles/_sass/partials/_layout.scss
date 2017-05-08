@@ -286,6 +286,14 @@ $site-nav-link-header-hover-border-color: map-get($site-colors, secondary);
     line-height: $site-line-height;
     @include list-reset();
     @include clearfix();
+
+    @media screen and (max-width: $site-breakpoint-md) {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      width: 60%;
+      margin: 20px auto 40px;
+    }
   }
 
   &-item {
@@ -668,6 +676,10 @@ $site-section-content-divider-margin: ($site-spacing-unit * 1.5) 0 $site-spacing
   @media screen and (max-width: $site-breakpoint-lg) {
     clear: both;
   }
+
+  @media screen and (max-width: $site-breakpoint-md) {
+    font-size: 0.9em;
+  }
 }
 
 // MARKUP
@@ -755,6 +767,7 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
 }
 
 .evo_c-scrollspy {
-  background-color: rgba(86, 197, 222, 0.12);
+  // background-color: rgba(86, 197, 222, 0.12);
+  background-color: transparentize(map-get($site-colors, tertiary), .4);
 }
 

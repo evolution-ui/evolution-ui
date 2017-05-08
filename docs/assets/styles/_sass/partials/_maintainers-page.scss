@@ -44,6 +44,10 @@
     pointer-events: inherit;
 }
 
+.evo_c-ikon__member:hover>.evo_c-ikon__member-info {
+    z-index: 25;
+}
+
 .maintainer-page.evo_c-ikon__member-pic-image {
     object-fit: cover;
 }

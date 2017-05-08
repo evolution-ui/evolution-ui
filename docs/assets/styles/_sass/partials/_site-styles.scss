@@ -71,3 +71,10 @@
         width: 100%;
     }
 }
+
+
+.evo_c-bookmarklet__teaser {
+    @media screen and (max-width: $site-breakpoint-sm) {
+        left: 1.75em;
+    }
+}

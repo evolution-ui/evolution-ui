@@ -75,6 +75,10 @@ h6 {
 
 h1 {
   font-size: $site-font-size-xl;
+
+  @media screen and (max-width: $site-breakpoint-md) {
+      font-size: $site-font-size-xl - 10;
+  }
 }
 
 // HORIZONTAL RULES
