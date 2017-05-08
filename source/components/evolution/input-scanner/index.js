@@ -62,7 +62,7 @@ function inputScannerMaskClick() {
 //----------------------------------------------------------------
 
 var inputScannerSubmitConts = document.querySelectorAll('.evo_c-input-scanner__submitContainer');
-console.log(inputScannerSubmitConts.length)
+//console.log(inputScannerSubmitConts.length)
 for(var i = 0; i < inputScannerSubmitConts.length; i++){
   var inputScannerSubmit = inputScannerSubmitConts[i].querySelector('.evo_c-input-scanner__submit');
   var inputScannerSubmitMask = inputScannerSubmitConts[i].cloneNode(true);

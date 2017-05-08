@@ -59,7 +59,7 @@ $c-2dlayer-width: 40rem;
       top: 8px;
       right: 8px;
       opacity: 0;
-      background-image: url("/assets/images/components/layer_2d/images/ic_close.png");
+      background-image: url("../../images/evolution-ui/evolution/layer-2d/ic_close.png");
       background-size: cover;
       cursor: pointer;
       transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s; /* easeInSine */
@@ -74,7 +74,7 @@ $c-2dlayer-width: 40rem;
       position: absolute;
       top: 8px;
       right: 8px;
-      background-image: url("/assets/images/components/layer_2d/images/done.png");
+      background-image: url("../../images/evolution-ui/evolution/layer-2d/done.png");
       background-size: cover;
       cursor: pointer;
       z-index: 1;
