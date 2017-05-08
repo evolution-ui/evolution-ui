@@ -24,6 +24,7 @@
     padding: 25px 30px;
     overflow-y: hidden;
     box-sizing: border-box;
+    max-width: 1300px;
 
     @media screen and (max-width: $site-breakpoint-sm) {
         padding: 25px 20px;
