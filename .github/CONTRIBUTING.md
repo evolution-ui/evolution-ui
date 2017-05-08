@@ -9,12 +9,10 @@
         - [✖ - NOT worthwhile](#️-not-worthwhile)
         - [✔ - worthwhile](#️-worthwhile)
     - [State Hooks](#state-hooks)
-    - [Configuration](#configuration)
     - [Run your component in the browser](#run-your-component-in-the-browser)
         - [ES6 Module](#es6-module)
         - [Writing safe JavaScript code](#writing-safe-javascript-code)
     - [Setting up the HTML markup and SASS](#setting-up-the-html-markup-and-sass)
-    - [Import Stylesheets and app.js](#import-stylesheets-and-appjs)
     - [Sassdoc](#sassdoc)
     - [Let's code with SASS](#lets-code-with-sass)
         - [Make use of comments for improve readability](#make-use-of-comments-for-improve-readability)
@@ -102,91 +100,68 @@ Now we are ready to work at our component by staging and committing the changes 
 
 In Evolution UI we tried to define an easy and well-separate structure. To this end, each component is placed in a separate subfolder.
 
-The main path for components is `evolution-ui/assets/`
+The main path for components is `evolution-ui/source/components`
 
 Components are distributed into two main categories , `evolution` or `standard`, and based on its type, each one has its own directory:
 
-* HTML path:
-  *  `evolution-ui/assets/html/[evolution|standard]/component-name.html`
-* Javascript path:
-  *  `evolution-ui/assets/scripts/[evolution|standard]/component-name.js`
-* SASS path:
-  *   `evolution-ui/assets/stylesheets/[evolution|standard]/component_name/_component-name.scss`
+- HTML path:
+  - `evolution-ui/assets/html/[evolution|standard]/default.html`
+- Javascript path:
+  - `evolution-ui/assets/scripts/[evolution|standard]/index.js`
+- SASS path:
+  - `evolution-ui/assets/stylesheets/[evolution|standard]/component_name/index.scss`
 
 ```
-evolution-ui/
+    - evolution-ui/
     |
-    |- assets/
-          |
-          | - html
-          |     |
-          |     |- evolution/
-          |     |      |
-          |     |      | - eyelids.html
-          |     |
-          |     |- standard/
-          |            |
-          |            | - animations.html
-          |            | - audio.html
-          |
-          | - scripts
-          |      |
-          |      |- evolution/
-          |      |      |
-          |      |      | - eyelids.js
-          |      |
-          |      |- standard/
-          |             |
-          |             | - animations.js
-          |             | - audio.js
-          |
-          |
-          | - stylesheets/
-          |         |
-          |         |
-          |      components/
-          |         |
-          |         | - evolution/
-          |         |        |
-          |         |        |
-          |         |      Eyelids   # The Eyelids component
-          |         |         |
-          |         |         | -  _eyelids-config.scss
-          |         |         | -  _eyelids.scss
-          |         |
-          |         |
-          |         | - standard/
-          |         |      |
-          |         |      |
-          |         |      |-   animations  # The Animations component
-          |         |      |      | -  _animations-config.scss
-          |         |      |      | -  _animations.scss
-          |         |      |      | -  ...
-          |         |      |
-          |         |      |-   audio     # The Audio component
-          |         |      |      | -  _audio-config.scss
-          |         |      |      | -  _audio.scss
-          |         |      |      | -  ...
-          |         |
-          |         |
-          |         |- _import-components.scss
-          |
-          |- app.js
+    |
+    |
+    |----source/
+    |    |
+    |    |
+    |    |
+    |    |----components/
+    |    |    |
+    |    |    |
+    |    |    |
+    |    |    |----evolution/
+    |    |    |    |
+    |    |    |    |
+    |    |    |    |----[component-name]/
+    |    |    |         |
+    |    |    |         |
+    |    |    |         |
+    |    |    |         |----default.html
+    |    |    |         |----index.scss
+    |    |    |         |----index.js
+    |    |    |
+    |    |    |
+    |    |    |
+    |    |    |----standard/
+    |    |         |
+    |    |         |
+    |    |         |
+    |    |         |----[component-name]/
+    |    |              |
+    |    |              |
+    |    |              |
+    |    |              |----default.html
+    |    |              |----index.scss
+    |    |              |----index.js
+    
+   
 ```
 
 For example, the Eyelids component is an **evolution** component and it's main files are:
 
 - HTML:
-    - `evolution-ui/assets/html/evolution/eyelids.html` - (known as *preview file*)
+  - `evolution-ui/source/components/evolution/eyelids/default.html` - (known as *preview file*)
 - JavaScript path:
-    - `evolution-ui/assets/scripts/evolution/eyelids.js`
+  - `evolution-ui/source/components/evolution/eyelids/index.js`
 - SASS path:
-    - `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids.scss`
-    - `evolution-ui/assets/stylesheets/evolution/eyelids/_eyelids-config.scss`
+  - `evolution-ui/source/components/evolution/eyelids/index.scss`
 
-Looking at the SASS dir, we can see that the Eyelids component has two main files: `_Eyelids.scss` and a configuration file called `_Eyelids-config.scss`. You can import configuration files into the main file to keep the configuration separate.
-
-Each SASS component is imported through the `_import-components.scss` file.
+Each SASS component is imported through the `evolution-ui/source/assets/styles/main.scss` file.
 
 ### Naming Conventions
 
@@ -217,14 +192,14 @@ In *Evolution UI*, namespaces are all prefixed with a letter followed by a hyphe
 
 The following table shows common elements and their meanings
 
-| TYPE             | PREFIX       | Evolution UI - Mixin Name | EXAMPLES                       |
-| ---------------- | ------------ | :-----------------------: | ------------------------------ |
-| Component        | `c-`         |            `c`            | `evo_c-card` `evo_c-checklist` |
-| Layout module    | `l-`         |            `l`            | `l-grid` `l-container`         |
-| Helper           | `h-`         |            `h`            | `h-show` `h-hide`              |
-| Object           | `o-`         |            `o`            | `o-media`                      |
-| States           | `is-` `has-` |            `s`            | `is-visible` `has-loaded`      |
-| JavaScript hooks | `js-`        |                           | `js-tab-switcher`              |
+| TYPE             | PREFIX | Evolution UI - Mixin Name | EXAMPLES                       |
+| ---------------- | ------ | :-----------------------: | ------------------------------ |
+| Component        | `c-`   |        `component`        | `evo_c-card` `evo_c-checklist` |
+| Layout module    | `l-`   |         `layout`          | `l-grid` `l-container`         |
+| Helper           | `h-`   |         `h`elper          | `h-show` `h-hide`              |
+| Object           | `o-`   |         `object`          | `o-media`                      |
+| States           | `is-`  |          `state`          | `is-visible`                   |
+| JavaScript hooks | `js-`  |                           | `js-tab-switcher`              |
 
 Examples of common namespaces are:
 
@@ -257,6 +232,10 @@ Examples of common namespaces are:
   - `.evo_t-default` // class with the prefix
   - `.t-default` // class without the prefix
   - `$t-default-color` // scss variable
+
+- \@-: Suffix
+
+  - `.evo_c-card\@print`
 
 Others:
 
@@ -527,6 +506,7 @@ The following table shows the currently available core BEM mixins:
 |            `modifier($name)`             |          generate BEM modifier           | It can be defined within blocks or elements |
 |            `component($name)`            |         generate a BEM component         | As the block item                        |
 |             `object($name)`              |          generate a BEM object           | As the block item                        |
+|             `layout($name)`              |          generate a BEM layout           | As the block item                        |
 | `helper($name, $double-class: false, $use-framework-prefix: false)` |          generate a BEM helper           | By default it can be fined in the global scope. If you set the $double-class selector to true, it can be defined within blocks, modifiers, elements. |
 |              `theme($name)`              |           generate a BEM theme           | It can be defined                        |
 |              `state($name)`              |           generate a BEM state           | It can be defined everywhere but not in a theme |
@@ -715,28 +695,47 @@ With our previous code, make a reference is not easy unless you hard-coded the s
        padding-left: 40px;
     }
   }
+  
+  @include element( 'button' ) {
+    
+  }
 }
 ```
 
 In the previous snippet of code, within the *paragraph* element we try to reference
 the *button* element which is defined somewhere else in the file but not in the same `@include` directive.
 
-Here is where the `get-bem-selector` comes to the rescue. Instead of writing an hard-coded selector by hand, this function provides you the right selector with ease:
+Here is where the `get-bem-selector` function comes to the rescue. 
+
+The `get-bem-selector` function is context aware which means that you don't need to specify
+the parent block container. Its syntax is:
+
+```scss
+function get-bem-selector($element: null, $modifier: null, $suffix: null)
+```
+
+
+
+Instead of writing an hard-coded selector by hand, this function provides you the right selector with ease:
 
 ```scss
 // This will be rendered into .evo_c-super-easy__paragraph
 
 @include component( 'super-easy' ) {
+  
+  $button-selector: get-bem-selector('button');
 
   @include element( 'paragraph' ) {
-
-    $button-selector: get-bem-selector('button');
 
     font-size: 1.1rem;
 
     & + .#{$button-selector} {
        padding-left: 40px;
     }
+  }
+  
+  @include element( 'button' ) {
+    
   }
 
 }
@@ -814,7 +813,7 @@ order: 1
   </nav>
 ```
 
-**Please note the identation of two spaces for the HTML markup**
+**Please note the identation of two spaces before the HTML markup**
 
 The [YML](https://jekyllrb.com/docs/frontmatter/) at the top of the file is used to describe the component and make sure it appears in the right place on the page.
 
