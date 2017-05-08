@@ -99,8 +99,8 @@ gulp.task('build', callback => {
       'images',
       'audio'
     ],
-    config.env.docs ? 'jekyll' : 'skip',
-    config.env.docs ? 'jekyll:minify-styles' : 'skip',
+    config.env.docs || config.env.production ? 'jekyll' : 'skip',
+    config.env.docs || config.env.production ? 'jekyll:minify-styles' : 'skip',
     callback
   );
 });
@@ -208,8 +208,8 @@ gulp.task('images', () => {
   let stream = gulp.src(`${config.sourceComponents}/**/*.{png,gif,jpg,jpeg,svg}`)
     .pipe(plugins.changed(config.devAssets));                        // only transform changed files (faster)
 
-  if (config.env.production || config.env.docs) {                    // optimize images for prod|docs
-    // stream.pipe(plugins.imagemin());
+  if (config.env.production) {                    // optimize images for prod|docs
+    stream.pipe(plugins.imagemin());
   }
 
   stream.pipe(gulp.dest(`${config.docsAssets}/images/evolution-ui`)); // save to docs
@@ -249,6 +249,6 @@ gulp.task('skip', () => { return; });
 
 // Deploy
 gulp.task('deploy', ['build'], function () {
-  return gulp.src(config.docsSite)
+  return gulp.src(`${config.docsSite}/**/*`)
     .pipe(plugins.ghPages());
 });
