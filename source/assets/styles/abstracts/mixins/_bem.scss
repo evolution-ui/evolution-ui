@@ -51,7 +51,8 @@ $g-bem-suffix: '\\@' !default;
 $g-bem-namespaces: (
   'component': 'c',
   'object': 'o',
-  'helper': 'h'
+  'helper': 'h',
+  'layout': 'l'
 ) !default;
 
 
@@ -578,6 +579,20 @@ $u_bem-context: () !global;
 
 @mixin component($name) {
   @include block($name, 'component') {
+    @content;
+  }
+}
+
+///
+/// Generate a BEM Layout.
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @alias block($name, $type: 'layout')
+@mixin layout($name) {
+  @include block($name, 'layout') {
     @content;
   }
 }
