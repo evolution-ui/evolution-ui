@@ -3,12 +3,12 @@
 #
 
 
-- name: 'Chris Bracco'
-  image: 'chris-ikon.jpg'
-  urlGH: 'https://github.com/cbracco'
-  description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-  thumbnail-image: 'chris.jpg'
-  location: "New York, NY"
+# - name: 'Chris Bracco'
+#   image: 'chris-ikon.jpg'
+#   urlGH: 'https://github.com/cbracco'
+#   description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
+#   thumbnail-image: 'chris.jpg'
+#   location: "New York, NY"
 
 - name: 'Brian Hernandez'
   image: 'brian-ikon.jpg'

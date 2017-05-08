@@ -1,12 +1,17 @@
+.evo_c-ikon {
+    align-items: center;
+}
+
 .maintainer-page {
   min-height: 350px;
   width: 100%;
+
 
   .evo_c-ikon__member {
     flex-basis: 6em;
     height: 6em;
     width: 6em;
-    margin: 1.8em;
+    margin: 2em;
     background: #768ba1;
 
     &:hover > .evo_c-ikon__member-name,
