@@ -978,6 +978,5 @@ $site-footer-background-color: map-get($site-colors, grayscale-darkest);
 .evo_c-scrollspy {
   // background-color: rgba(86, 197, 222, 0.12);
   background-color: transparentize(map-get($site-colors, tertiary), .4);
-  max-width: 1400px;
 }
 
