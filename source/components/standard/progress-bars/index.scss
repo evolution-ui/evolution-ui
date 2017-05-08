@@ -1,6 +1,3 @@
-/******************************************************************************
-                            Progress Bars Config
-******************************************************************************/
 
 //------------------------------------------------------------------------------
 //                          Proress Bars config
@@ -156,13 +153,9 @@ $c-progress-bars-percentage-margin-left: 50px;
 ******************************************************************************/
 
 
-// @import 'progress_bars-config';
+@include component($c-component-name) {
 
-
-$bar-element: getBEMReference($c-component-name, 'bar');
-
-
-@include c($c-component-name) {
+  $bar-element: get-bem-selector('bar');
 
   // Provide brackground and text color variations
   @include backgroundVariants($opacity: .44);
@@ -196,7 +189,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //                      Message - Progress Bars
     //--------------------------------------------------------------------------
 
-    @include h('message', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('message', $double-class: true) {
       @extend %c-progress-bars-text-after;
       margin-left: $c-progress-bars-percentage-margin-left;
       height: $c-progress-bars-height-middle;
@@ -217,7 +210,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //                      percentage - Progress Bars
     //--------------------------------------------------------------------------
 
-    @include h('percentage', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('percentage', $double-class: true) {
       margin-left: $c-progress-bars-percentage-margin-left;
 
       &:after {
@@ -225,7 +218,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
         left: -#{$c-progress-bars-percentage-margin-left - 10px};
       }
 
-      @include m( 'right' ) {
+      @include modifier( 'right' ) {
         margin-right: $c-progress-bars-percentage-margin-left;
         &:after {
           @extend %c-progress-bars-percentage-after;
@@ -233,7 +226,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
         }
       }
 
-      @include m( 'center' ) {
+      @include modifier( 'center' ) {
         @extend %c-progress-bars-text-after;
         height: $c-progress-bars-height-middle;
         padding: 0;
@@ -252,7 +245,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //--------------------------------------------------------------------------
     //                        Rounded - Progress Bars
     //--------------------------------------------------------------------------
-    @include m( 'rounded' ) {
+    @include modifier( 'rounded' ) {
       @extend %c-progress-bars-hide-overflow-x;
       border-radius: 10px;
 
@@ -268,23 +261,23 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //--------------------------------------------------------------------------
 
 
-    @include h('border--light', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('border--light', $double-class: true) {
       border: 1px solid black(.2);
     }
 
-    @include h('border--default', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('border--default', $double-class: true) {
       border: 1px solid black(.5);
     }
 
-    @include h('border--heavy', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('border--heavy', $double-class: true) {
       border: 1px solid black(.8);
     }
 
-    @include h('border--big', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('border--big', $double-class: true) {
       border-width: 2px;
     }
 
-    @include h('border--huge', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('border--huge', $double-class: true) {
       border-width: 3px;
     }
 
@@ -293,9 +286,9 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //--------------------------------------------------------------------------
 
 
-    @include h('background', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('background', $double-class: true) {
 
-        @include m('inset') {
+        @include modifier('inset') {
           box-shadow: inset 0 0 1em #000;
         }
     }
@@ -305,7 +298,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //                        Big - Progress Bars
     //--------------------------------------------------------------------------
 
-    @include m( 'big' ) {
+    @include modifier( 'big' ) {
       @extend %c-progress-bars-big;
     }
 
@@ -313,7 +306,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //                        shape2 - Progress Bars
     //--------------------------------------------------------------------------
 
-    @include m( 'shape2' ) {
+    @include modifier( 'shape2' ) {
       @extend %c-progress-bars-hide-overflow-x;
       @extend %c-progress-bars-border-light;
       @extend %c-progress-bars-big;
@@ -329,7 +322,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //                        shape3 - Progress Bars
     //--------------------------------------------------------------------------
 
-    @include m( 'shape3' ) {
+    @include modifier( 'shape3' ) {
       @extend %c-progress-bars-hide-overflow-x;
       @extend %c-progress-bars-border-light;
       @extend %c-progress-bars-big;
@@ -349,16 +342,16 @@ $bar-element: getBEMReference($c-component-name, 'bar');
     //--------------------------------------------------------------------------
     //                  Infinite Loading - Progress Bars
     //--------------------------------------------------------------------------
-    @include m( 'infinite' ) {
+    @include modifier( 'infinite' ) {
 
       $bar-shape-forth: 'h-animation--shape-forth';
       $bar-shape-back:  'h-animation--shape-back';
 
       $bar-shape2: '#{$g-framework-name}_c-#{$c-component-name}--shape2';
       $bar-shape3: '#{$g-framework-name}_c-#{$c-component-name}--shape3';
-      $bar-45: getBEMReference($c-component-name, 'bar', '45');
-      $bar-90: getBEMReference($c-component-name, 'bar', '90');
-      $bar-135: getBEMReference($c-component-name, 'bar', '135');
+      $bar-45: get-bem-selector('bar', '45');
+      $bar-90: get-bem-selector('bar', '90');
+      $bar-135: get-bem-selector('bar', '135');
 
       overflow-x: hidden;
 
@@ -373,18 +366,16 @@ $bar-element: getBEMReference($c-component-name, 'bar');
         //                          Animations
         //----------------------------------------------------------------------
 
-        @include h('animation', $g-no-prefix) {
-
-          @include m('backward') {
-            left: 110%;
-            animation: c-progress-bars-infinite--b 3.2s infinite forwards linear;
-          }
-
-          @include m('forth-back') {
-             animation: c-progress-bars-infinite--fb 3.2s infinite forwards linear;
-          }
-
+        @include helper('animation--backward', $double-class: true) {
+          left: 110%;
+          animation: c-progress-bars-infinite--b 3.2s infinite forwards linear;
         }
+
+        @include helper('animation--forth-back', $double-class: true) {
+          animation: c-progress-bars-infinite--fb 3.2s infinite forwards linear;
+        }
+
+
 
           &.#{$bar-shape2},
           &.#{$bar-shape3} {
@@ -403,13 +394,10 @@ $bar-element: getBEMReference($c-component-name, 'bar');
          &.#{$bar-shape2},
          &.#{$bar-shape3} {
             .#{$bar-element} {
-              @include h('animation', $g-no-prefix, $apply-on-descendants: false) {
-
-                @include m('backward') {
-                  @extend %c-progress-bars-shapes;
-                  @include _progress-bars-medias;
-                  animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
-                }
+              @include helper('animation--backward', $double-class: true) {
+                @extend %c-progress-bars-shapes;
+                @include _progress-bars-medias;
+                animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
               }
             }
         }
@@ -418,14 +406,10 @@ $bar-element: getBEMReference($c-component-name, 'bar');
          .#{$bar-90},
          .#{$bar-135} {
 
-          @include h('animation', $g-no-prefix, $apply-on-descendants: false) {
-
-            @include m('backward') {
-              @extend %c-progress-bars-shapes;
-              @include _progress-bars-medias;
-              animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
-            }
-
+          @include helper('animation--backward', $double-class: true) {
+            @extend %c-progress-bars-shapes;
+            @include _progress-bars-medias;
+            animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
           }
         }
 
@@ -437,7 +421,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
   //                           BAR ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e( 'bar' ) {
+  @include element( 'bar' ) {
 
     // Provide brackground color variations
     @include backgroundVariants();
@@ -455,42 +439,42 @@ $bar-element: getBEMReference($c-component-name, 'bar');
       //------------------------------------------------------------------------
       //                        WARN - Bar
       //------------------------------------------------------------------------
-      @include m( 'warn' ) {
+      @include modifier( 'warn' ) {
         background-color: rgb(253, 142, 47);
       }
 
       //------------------------------------------------------------------------
       //                        ERR - Bar
       //------------------------------------------------------------------------
-      @include m( 'err' ) {
+      @include modifier( 'err' ) {
         background-color: rgb(244, 67, 54);
       }
 
       //------------------------------------------------------------------------
       //                        SUCC - Bar
       //------------------------------------------------------------------------
-      @include m( 'succ' ) {
+      @include modifier( 'succ' ) {
         background-color: rgb(128, 210, 107);
       }
 
       //--------------------------------------------------------------------------
       //                        Small - Bar
       //--------------------------------------------------------------------------
-      @include m( 'small' ) {
+      @include modifier( 'small' ) {
         height: $c-progress-bars-height-small!important;
       }
 
       //--------------------------------------------------------------------------
       //                        Big - Bar
       //--------------------------------------------------------------------------
-      @include m( 'big' ) {
+      @include modifier( 'big' ) {
         height: $c-progress-bars-height-big!important;
       }
 
       //--------------------------------------------------------------------------
       //                        Huge - Bar
       //--------------------------------------------------------------------------
-      @include m( 'huge' ) {
+      @include modifier( 'huge' ) {
         height: $c-progress-bars-height-huge!important;
       }
 
@@ -498,7 +482,7 @@ $bar-element: getBEMReference($c-component-name, 'bar');
       //                            45deg - Bar
       //------------------------------------------------------------------------
 
-      @include m( '45' ) {
+      @include modifier( '45' ) {
         height: 100%;
         background: repeating-linear-gradient(
           45deg,
@@ -507,50 +491,45 @@ $bar-element: getBEMReference($c-component-name, 'bar');
             get-color('primary', 'light') 10px,
             get-color('primary', 'light') 20px
           );
+      }
 
         //--------------------------------------------------------------------
         //                  COLOR HELPERS - Bar
         //--------------------------------------------------------------------
 
-
-        @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
-
-          @include m('primary2') {
+          @include helper('bck--primary2', $double-class: true) {
             @include _background-linear-gradient(45deg, 'primary2');
           }
 
-          @include m('secondary') {
+          @include helper('bck--secondary', $double-class: true) {
             @include _background-linear-gradient(45deg, 'primary');
           }
 
-          @include m('background') {
+          @include helper('bck--background', $double-class: true) {
             @include _background-linear-gradient(45deg, 'background');
           }
 
-          @include m('accent') {
+          @include helper('bck--accent', $double-class: true) {
             @include _background-linear-gradient(45deg, 'accent');
           }
 
-          @include m('accent2') {
+          @include helper('bck--accent2', $double-class: true) {
             @include _background-linear-gradient(45deg, 'accent2');
           }
 
-          @include m('accent3') {
+          @include helper('bck--accent3', $double-class: true) {
             @include _background-linear-gradient(45deg, 'accent3');
           }
 
-          @include m('accent4') {
+          @include helper('bck--accent4', $double-class: true) {
             @include _background-linear-gradient(45deg, 'accent4');
           }
-        }
-
-      }
 
       //--------------------------------------------------------------------------
       //                      90deg - Bar
       //--------------------------------------------------------------------------
 
-      @include m( '90' ) {
+      @include modifier( '90' ) {
         height: 100%;
         background: repeating-linear-gradient(
           90deg,
@@ -559,50 +538,45 @@ $bar-element: getBEMReference($c-component-name, 'bar');
             get-color('primary', 'light') 10px,
             get-color('primary', 'light') 20px
           );
+      }
 
         //--------------------------------------------------------------------
         //                  COLOR HELPERS - Bar
         //--------------------------------------------------------------------
 
-
-        @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
-
-          @include m('primary2') {
+          @include helper('bck--primary2', $double-class: true) {
             @include _background-linear-gradient(90deg, 'primary2');
           }
 
-          @include m('secondary') {
+          @include helper('bck--secondary', $double-class: true) {
             @include _background-linear-gradient(90deg, 'primary');
           }
 
-          @include m('background') {
+          @include helper('bck--background', $double-class: true) {
             @include _background-linear-gradient(90deg, 'background');
           }
 
-          @include m('accent') {
+          @include helper('bck--accent', $double-class: true) {
             @include _background-linear-gradient(90deg, 'accent');
           }
 
-          @include m('accent2') {
+          @include helper('bck--accent2', $double-class: true) {
             @include _background-linear-gradient(90deg, 'accent2');
           }
 
-          @include m('accent3') {
+          @include helper('bck--accent3', $double-class: true) {
             @include _background-linear-gradient(90deg, 'accent3');
           }
 
-          @include m('accent4') {
+          @include helper('bck--accent4', $double-class: true) {
             @include _background-linear-gradient(90deg, 'accent4');
           }
-        }
-
-      }
 
       //--------------------------------------------------------------------------
       //                      135deg - Bar
       //--------------------------------------------------------------------------
 
-      @include m( '135' ) {
+      @include modifier( '135' ) {
         height: 100%;
         background: repeating-linear-gradient(
           135deg,
@@ -611,43 +585,40 @@ $bar-element: getBEMReference($c-component-name, 'bar');
             get-color('primary', 'light') 10px,
             get-color('primary', 'light') 20px
           );
+      }
 
         //--------------------------------------------------------------------
         //                  COLOR HELPERS - Bar
         //--------------------------------------------------------------------
 
-        @include h('bck', $g-no-prefix, $apply-on-descendants: false) {
-
-          @include m('primary2') {
+          @include helper('bck--primary2', $double-class: true) {
             @include _background-linear-gradient(135deg, 'primary2');
           }
 
-          @include m('secondary') {
+          @include helper('bck--secondary', $double-class: true) {
             @include _background-linear-gradient(135deg, 'primary');
           }
 
-          @include m('background') {
+          @include helper('bck--background', $double-class: true) {
             @include _background-linear-gradient(135deg, 'background');
           }
 
-          @include m('accent') {
+          @include helper('bck--accent', $double-class: true) {
             @include _background-linear-gradient(135deg, 'accent');
           }
 
-          @include m('accent2') {
+          @include helper('bck--accent2', $double-class: true) {
             @include _background-linear-gradient(135deg, 'accent2');
           }
 
-          @include m('accent3') {
+          @include helper('bck--accent3', $double-class: true) {
             @include _background-linear-gradient(135deg, 'accent3');
           }
 
-          @include m('accent4') {
+          @include helper('bck--accent4', $double-class: true) {
             @include _background-linear-gradient(135deg, 'accent4');
           }
-        }
 
-      }
 
   }
 }
