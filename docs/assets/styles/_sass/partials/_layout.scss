@@ -249,13 +249,31 @@ $site-searchform-input-placeholder-text-color: map-get($site-colors, quaternary-
       right: -11px;
     }
 
-    @media screen and (max-width: 960px) {
-      display: none;
-    }
 
     &.nothing-found-shown {
       transform: translateX(0);
       opacity: 1;
+    }
+
+    @media screen and (max-width: $site-breakpoint-lg) {
+      left: 50%;
+      top: 75px;
+      transform: translateX(-50%) translateY(-50px);
+
+      .nothing-found-arrow {
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #eb74aa;
+        border-left: 15px solid transparent;
+        top: -24px;
+        right: auto;
+        transform: translateX(-50%);
+        left: 50%;
+      }
+
+      &.nothing-found-shown {
+        transform: translateY(0);
+        transform: translateX(-50%);
+      }
     }
 
   }
@@ -398,7 +416,7 @@ $site-sidebar-link-hover-color: map-get($site-colors, grayscale-darkest);
 $site-sidebar-link-hover-background-color: darken(map-get($site-colors, secondary), 5%);
 $site-sidebar-link-hover-border-color: map-get($site-colors, secondary);
 $site-sidebar-link-current-color: map-get($site-colors, secondary);
-$site-sidebar-toggle-padding: ($site-spacing-unit - ($site-spacing-unit / 6)) ($site-spacing-unit * 0.75);
+$site-sidebar-toggle-padding: ($site-spacing-unit - ($site-spacing-unit / 6) - 2) ($site-spacing-unit * 0.75 - 2);
 $site-sidebar-toggle-background-color: map-get($site-colors, secondary);
 $site-sidebar-toggle-box-shadow-color: fade-out(map-get($site-colors, grayscale-black), 0.7);
 $site-sidebar-toggle-hover-background-color: darken(map-get($site-colors, secondary), 5%);
@@ -680,6 +698,11 @@ $site-section-content-divider-margin: ($site-spacing-unit * 1.5) 0 $site-spacing
   @media screen and (max-width: $site-breakpoint-md) {
     font-size: 0.9em;
   }
+
+  @media screen and (max-width: $site-breakpoint-xs) {
+    padding: 24px 20px;
+  }
+
 }
 
 // MARKUP
