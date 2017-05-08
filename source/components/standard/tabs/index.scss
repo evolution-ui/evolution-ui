@@ -1,6 +1,3 @@
-/******************************************************************************
-                            Tabs Config
-******************************************************************************/
 
 //------------------------------------------------------------------------------
 //                          Tabs config
@@ -162,9 +159,8 @@ $c-tabs-tab-lateral-list-min-width: 250px;
   }
 }
 
-@mixin _generate-is-active-color($color-name){
-  $tab-item: getBEMReference($c-component-name, 'item');
-  @include m($color-name) {
+@mixin _generate-is-active-color($color-name, $tab-item){
+  @include modifier($color-name) {
     & .#{$tab-item}.is-active {
       background-color: get-color($color-name)!important;
     }
@@ -172,7 +168,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
 }
 
 @mixin _generate-background-color($color-name){
-  @include m($color-name) {
+  @include modifier($color-name) {
     background-color: get-color($color-name);
   }
 }
@@ -182,38 +178,16 @@ $c-tabs-tab-lateral-list-min-width: 250px;
 ******************************************************************************/
 
 
-// @import 'tabs-config';
+@include component($c-component-name) {
 
-
-
-
-@include l( 'tab-grid' ) {
-
-  padding: 0;
-  list-style-type: none;
-
-  @include e( 'item' ) {
-    padding: 0;
-    margin: 20px 0;
-
-    @media screen and (min-width: $c-tabs-media-tablet) {
-      padding: 20px;
-    }
-  }
-
-}
-
-
-@include c($c-component-name) {
-
-  ///$component-selector: getBEMReference($c-form-component-name);
-  $nav-selector: getBEMReference($c-component-name, 'navigation');
-  $sticky-selector: getBEMReference($c-component-name, 'sticky');
-  $tab-list-selector: getBEMReference($c-component-name, 'list');
-  $tab-item-selector: getBEMReference($c-component-name, 'item');
-  $tab-is-active: 'is-active';
-  $tab-panel: getBEMReference($c-component-name, 'panel');
-  $tab-link-selector: getBEMReference($c-component-name, 'link');
+  $nav-selector: get-bem-selector('navigation');
+  $sticky-selector: get-bem-selector('sticky');
+  $tab-list-selector: get-bem-selector('list');
+  $tab-item-selector: get-bem-selector('item');
+  $tab-is-active: 'active';
+  $tab-is-active-selector: $g-bem-state + '-' + $tab-is-active;
+  $tab-panel: get-bem-selector('panel');
+  $tab-link-selector: get-bem-selector('link');
 
 
   min-width: $c-tabs-navigation-min-width;
@@ -232,17 +206,17 @@ $c-tabs-tab-lateral-list-min-width: 250px;
     //                         Helpers & Status
     //--------------------------------------------------------------------------
 
-    @include h('border', $g-no-prefix, $apply-on-descendants: false) {
+    @include helper('border', $double-class: true) {
 
-      @include m('light') {
+      @include modifier('light') {
         border: $c-tabs-border--light;
       }
 
-      @include m('medium') {
+      @include modifier('medium') {
         border: $c-tabs-border--medium;
       }
 
-      @include m('heavy') {
+      @include modifier('heavy') {
         border: $c-tabs-border--heavy;
       }
 
@@ -252,7 +226,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
     //                          CARD - MODIFIER
     //--------------------------------------------------------------------------
 
-    @include m('card') {
+    @include modifier('card') {
       box-shadow: 0 2px 4px 0 black(.16),
                   0 2px 11px 0 black(.12);
     }
@@ -261,20 +235,20 @@ $c-tabs-tab-lateral-list-min-width: 250px;
     //                     SCROLL-FROM-TOP - MODIFIER
     //--------------------------------------------------------------------------
 
-    @include m('scroll-from-top') {
+    @include modifier('scroll-from-top') {
       @extend %c-tabs-scroll;
 
       .#{$tab-panel} {
         @extend %c-tabs-scroll-tab-content;
         transform-origin: top center;
-        transform: translateY(-220%);
+        transform: translateY(-300%);
         transition: all 2s ease-in-out;
 
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           //                            Status
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include s($tab-is-active) {
+          &.#{$tab-is-active-selector} {
             transform: translateY(0);
           }
       }
@@ -284,7 +258,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
     //                     SCROLL-FROM-BOTTOM - MODIFIER
     //--------------------------------------------------------------------------
 
-    @include m('scroll-from-bottom') {
+    @include modifier('scroll-from-bottom') {
       @extend %c-tabs-scroll;
 
       .#{$tab-panel} {
@@ -297,7 +271,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
           //                            Status
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include s($tab-is-active) {
+          &.#{$tab-is-active-selector} {
             transform: translateY(0);
           }
       }
@@ -308,20 +282,20 @@ $c-tabs-tab-lateral-list-min-width: 250px;
     //                   SCROLL-FROM-LEFT - MODIFIER
     //--------------------------------------------------------------------------
 
-    @include m('scroll-from-left') {
+    @include modifier('scroll-from-left') {
       @extend %c-tabs-scroll;
 
       .#{$tab-panel} {
         @extend %c-tabs-scroll-tab-content;
         transform-origin: left center;
-        transform: translateX(-220%);
+        transform: translateX(-300%);
         transition: all 2s ease-in-out;
 
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           //                            Status
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include s($tab-is-active) {
+          &.#{$tab-is-active-selector} {
             transform: translateX(0);
           }
       }
@@ -331,20 +305,20 @@ $c-tabs-tab-lateral-list-min-width: 250px;
     //                   SCROLL-FROM-RIGHT - MODIFIER
     //--------------------------------------------------------------------------
 
-    @include m('scroll-from-right') {
+    @include modifier('scroll-from-right') {
       @extend %c-tabs-scroll;
 
       .#{$tab-panel} {
         @extend %c-tabs-scroll-tab-content;
         transform-origin: left center;
-        transform: translateX(220%);
+        transform: translateX(300%);
         transition: all 2s ease-in-out;
 
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           //                            Status
           //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-          @include s($tab-is-active) {
+          &.#{$tab-is-active-selector} {
             transform: translateX(0);
           }
       }
@@ -354,7 +328,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
     //                        Sticky-Half - MODIFIER
     //--------------------------------------------------------------------------
 
-    @include m('sticky-half') {
+    @include modifier('sticky-half') {
       display: flex;
       flex-wrap: wrap;
 
@@ -376,7 +350,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
     //                        LATERAL - MODIFIER
     //--------------------------------------------------------------------------
 
-    @include m('lateral') {
+    @include modifier('lateral') {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
@@ -413,25 +387,25 @@ $c-tabs-tab-lateral-list-min-width: 250px;
       .#{$sticky-selector} {
         flex-grow: 1;
       }
-
-          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-          //                       NAV RIGTH - LETERAL HELPER
-          //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-          @include h('nav--right', $g-no-prefix, $apply-on-descendants: false) {
-
-            @media screen and (min-width: $c-tabs-media-tablet) {
-              flex-direction: row-reverse;
-            }
-          }
     }
+
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  //                       NAV RIGTH - LETERAL HELPER
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  @include helper('nav--right', $double-class: true) {
+
+    @media screen and (min-width: $c-tabs-media-tablet) {
+      flex-direction: row-reverse;
+    }
+  }
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //                       navigation ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('navigation') {
+  @include element('navigation') {
     font-size: $c-tabs-navigation-font-size;
     color: $c-tabs-link-color;
     background-color: $c-tabs-navigation-background-color;
@@ -445,48 +419,48 @@ $c-tabs-tab-lateral-list-min-width: 250px;
   //                       list ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('list') {
+  @include element('list') {
     display: flex;
     padding: 0;
     margin: 0;
     list-style-type: none;
 
 
-      @include h('space-between', $apply-on-descendants: false) {
+      @include helper('space-between', $double-class: true) {
         justify-content: space-between;
       }
 
-      @include h('space-around', $g-no-prefix, $apply-on-descendants: false) {
+      @include helper('space-around', $double-class: true) {
         justify-content: space-around;
       }
 
-      @include h('grow', $g-no-prefix, $apply-on-descendants: false) {
+      @include helper('grow', $double-class: true) {
         .#{$tab-item-selector} {
             flex-grow: 1;
         }
       }
 
-      @include h('link-column', $g-no-prefix, $apply-on-descendants: false) {
+      @include helper('link-column', $double-class: true) {
         & .#{$tab-link-selector} {
             flex-direction: column;
           }
       }
 
-      @include h('content', $g-no-prefix, $apply-on-descendants: false) {
+      @include helper('content', $double-class: true) {
 
-        @include m('left') {
+        @include modifier('left') {
           .#{$tab-item-selector} {
             justify-content: flex-start;
           }
         }
 
-        @include m('center') {
+        @include modifier('center') {
           .#{$tab-item-selector} {
             justify-content: center;
           }
         }
 
-        @include m('right') {
+        @include modifier('right') {
           .#{$tab-item-selector} {
             justify-content: flex-end;
           }
@@ -498,14 +472,14 @@ $c-tabs-tab-lateral-list-min-width: 250px;
       //                    COLOR VARIATIONS - ITEM HELPER
       //------------------------------------------------------------------------
 
-      @include h('active-bck', $g-no-prefix, $apply-on-descendants: false) {
-          @include _generate-is-active-color('primary');
-          @include _generate-is-active-color('secondary');
-          @include _generate-is-active-color('accent');
-          @include _generate-is-active-color('accent2');
-          @include _generate-is-active-color('accent3');
-          @include _generate-is-active-color('accent4');
-          @include _generate-is-active-color('background');
+      @include helper('active-bck', $double-class: true) {
+          @include _generate-is-active-color('primary', $tab-item-selector);
+          @include _generate-is-active-color('secondary', $tab-item-selector);
+          @include _generate-is-active-color('accent', $tab-item-selector);
+          @include _generate-is-active-color('accent2', $tab-item-selector);
+          @include _generate-is-active-color('accent3', $tab-item-selector);
+          @include _generate-is-active-color('accent4', $tab-item-selector);
+          @include _generate-is-active-color('background', $tab-item-selector);
       }
 
       //------------------------------------------------------------------------
@@ -513,110 +487,109 @@ $c-tabs-tab-lateral-list-min-width: 250px;
       //------------------------------------------------------------------------
 
 
-      @include h('animation', $g-no-prefix, $apply-on-descendants:false) {
-
-        @include m('zoom-text') {
-          .#{$tab-item-selector}.#{$tab-is-active} {
-            font-size: 1.3em;
-          }
+      @include helper('animation--zoom-text', $double-class: true) {
+        .#{$tab-item-selector}.#{$tab-is-active-selector} {
+          font-size: 1.3em;
         }
-
-        @include m('underline') {
-
-          .#{$tab-item-selector} {
-            &:after {
-              content: '';
-              display: flex;
-              width: 100%;
-              height: 10%;
-              display:block;
-              margin-top: 3px;
-              transform: scale(0, 0);
-              transition: all .5s ease-out;
-            }
-          }
-
-          .#{$tab-item-selector}.#{$tab-is-active} {
-            position: relative;
-            &:after {
-              transform: scale(1, 1);
-              background-color: white(.35);
-            }
-          }
-        }
-
-        // It makes a zoom effect on the shadow :after block element
-        @include m('zoom') {
-
-          .#{$tab-item-selector} {
-            &:after {
-              @extend %c-tabs-item-animations;
-              margin: auto;
-              transform: scale(1, 0);
-              transition: all .5s ease-out;
-            }
-          }
-
-          .#{$tab-item-selector}.#{$tab-is-active} {
-            position: relative;
-            &:after {
-              animation-name: zoomI;
-              -webkit-animation-duration: 1s;
-              animation-duration: 1s;
-              -webkit-animation-fill-mode: both;
-              animation-fill-mode: both;
-              transform: scale(1, 1);
-              background-color: white(.2);
-            }
-          }
-        }
-
-        @include m('highlight') {
-
-          .#{$tab-item-selector} {
-            &:after {
-              @extend %c-tabs-item-animations;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              margin: auto;
-              transform: scale(0, 0);
-              transition: all .5s ease-out;
-            }
-          }
-
-          .#{$tab-item-selector}.#{$tab-is-active} {
-            position: relative;
-            &:after {
-              transform: scale(1, 1);
-              background-color: white(.2);
-            }
-          }
-        }
-
-        @include m('highlight-to-right') {
-
-          .#{$tab-item-selector} {
-            &:after {
-              @extend %c-tabs-item-animations;
-              margin: auto;
-              display:block;
-              transform: scale(0, 1);
-              transition: all .5s ease-out;
-            }
-          }
-
-          .#{$tab-item-selector}.#{$tab-is-active} {
-            position: relative;
-            &:after {
-              transform-origin: left center;
-              transform: scale(1, 1);
-              background-color: white(.1);
-            }
-          }
-        }
-
       }
+
+      @include helper('animation--underline', $double-class: true) {
+
+        .#{$tab-item-selector} {
+          &:after {
+            content: '';
+            display: flex;
+            width: 100%;
+            height: 10%;
+            display:block;
+            margin-top: 3px;
+            transform: scale(0, 0);
+            transition: all .5s ease-out;
+          }
+        }
+
+        .#{$tab-item-selector}.#{$tab-is-active-selector} {
+          position: relative;
+          &:after {
+            transform: scale(1, 1);
+            background-color: white(.35);
+          }
+        }
+      }
+
+      // It makes a zoom effect on the shadow :after block element
+      @include helper('animation--zoom', $double-class: true) {
+
+        .#{$tab-item-selector} {
+          &:after {
+            @extend %c-tabs-item-animations;
+            margin: auto;
+            transform: scale(1, 0);
+            transition: all .5s ease-out;
+          }
+        }
+
+        .#{$tab-item-selector}.#{$tab-is-active-selector} {
+          position: relative;
+          &:after {
+            animation-name: zoomI;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            transform: scale(1, 1);
+            background-color: white(.2);
+          }
+        }
+      }
+
+      @include helper('animation--highlight', $double-class: true) {
+
+        .#{$tab-item-selector} {
+          position: relative;
+
+          &:after {
+            @extend %c-tabs-item-animations;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            transform: scale(0, 0);
+            transition: all .5s ease-out;
+          }
+        }
+
+        .#{$tab-item-selector}.#{$tab-is-active-selector} {
+          position: relative;
+          &:after {
+            transform: scale(1, 1);
+            background-color: white(.2);
+          }
+        }
+      }
+
+      @include helper('animation--highlight-to-right', $double-class: true) {
+
+        .#{$tab-item-selector} {
+          &:after {
+            @extend %c-tabs-item-animations;
+            margin: auto;
+            display:block;
+            transform: scale(0, 1);
+            transition: all .5s ease-out;
+          }
+        }
+
+        .#{$tab-item-selector}.#{$tab-is-active-selector} {
+          position: relative;
+          &:after {
+            transform-origin: left center;
+            transform: scale(1, 1);
+            background-color: white(.1);
+          }
+        }
+      }
+
 
 
   }
@@ -625,13 +598,13 @@ $c-tabs-tab-lateral-list-min-width: 250px;
   //                       item ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('item') {
+  @include element('item') {
     @extend %c-tabs-cursor-pointer;
     justify-content: center;
     padding: $c-tabs-item-padding-top-bottom $c-tabs-item-padding-left-right;
     transition: all .8s ease;
 
-    @include s($tab-is-active) {
+    @include state($tab-is-active) {
       background-color: $c-tabs-item-active-background-color!important;
     }
 
@@ -646,7 +619,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
   //                       Sticky ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('sticky') {
+  @include element('sticky') {
     text-align: center;
   }
 
@@ -654,7 +627,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
   //                       link ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('link') {
+  @include element('link') {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -676,7 +649,7 @@ $c-tabs-tab-lateral-list-min-width: 250px;
   //                       panel ELEMENT
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  @include e('panel') {
+  @include element('panel') {
     @extend %c-tabs-display-none;
     padding: 10px;
     z-index: $c-tabs-tab-content-z-index;
@@ -689,8 +662,13 @@ $c-tabs-tab-lateral-list-min-width: 250px;
       //                            Status
       //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        @include s($tab-is-active) {
+        @include state($tab-is-active) {
           display: block;
         }
   }
 }
+
+/******************************************************************************
+                          End TABS Component
+******************************************************************************/
+
