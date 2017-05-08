@@ -230,7 +230,7 @@ gulp.task('audio', () => {
 // Jekyll
 // Build Jekyll files for the /docs website
 gulp.task('jekyll', plugins.shell.task([
-  `jekyll build --source=${config.docs} --destination=${config.docsSite} --config=${config.docs}/_config.yml${config.env.production ? ',_config.prod.yml' : ''}`
+  `jekyll build --source=${config.docs} --destination=${config.docsSite} --config=${config.docs}/_config.yml${config.env.production ? `,${config.docs}/_config.prod.yml` : ''}`
 ]));
 
 // Jekyll: Minify Styles
