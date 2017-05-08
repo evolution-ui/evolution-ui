@@ -73,10 +73,194 @@ $site-header-background-color: map-get($site-colors, quaternary-light);
   position: relative;
 }
 
-// LOGO
+//------------------------------------------------------------------------------
+//                            Evolution UI Logo
+//------------------------------------------------------------------------------
+
 $site-logo-text-color: map-get($site-colors, quaternary);
 $site-logo-text-span-color: map-get($site-colors, grayscale-white);
 $site-logo-text-after-color: map-get($site-colors, quaternary);
+
+$site-logo-size: 70px;
+
+%site-logo-logo__title-after-before {
+  animation-name: evo-logo-fadeIn;
+  a-webkit-animation-name: evo-logo-fadeIn;
+  animation-name: evo-logo-fadeIn;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+   -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}
+
+.evo-logo {
+  display: inline-block;
+  width: $site-logo-size;
+  height: $site-logo-size;
+  margin: 20px 20px;
+}
+
+@media screen and (min-width: $site-breakpoint-lg) {
+  .evo-logo {
+    position: absolute;
+    left: ($site-spacing-unit * 2.5);
+    margin: 0;
+  }
+}
+
+.evo-logo__list {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.evo-logo__list,
+.evo-logo__item {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+}
+
+.evo-logo__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.evo-logo__item:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(80, 197, 224);
+  z-index: 1;
+}
+
+.evo-logo__item:nth-child(2) {
+  transform: rotate(-45deg);
+  background-color: rgba(80, 197, 224, 0.6);
+  z-index: 0;
+}
+
+.evo-logo__item:nth-child(3) {
+  transform: rotate(-15deg);
+  background-color: rgba(80, 197, 224, 0.3);
+  z-index: 0;
+}
+
+.evo-logo__item:nth-child(4) {
+  top: initial;
+  bottom: -4px;
+  height: 10px;
+  background: -webkit-radial-gradient(rgb(0, 0, 0) 5%,
+                                      rgb(102, 102, 102) 30%,
+                                      rgba(0, 0, 0, 0) 70%);
+}
+
+.evo-logo__title {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  text-shadow: 2px 2px 0 rgba(125, 138, 157, 0.75),
+               3px 3px 0 rgba(125, 138, 157, 0.75);
+  z-index: 2;
+}
+
+.evo-logo__title:before,
+.evo-logo__title:after {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.evo-logo.has-loaded .evo-logo__item:nth-child(2) {
+  -webkit-animation-name: evo-logo-rotate;
+  animation-name: evo-logo-rotate;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+
+.evo-logo.has-loaded .evo-logo__item:nth-child(3) {
+  -webkit-animation-name: evo-logo-rotate;
+           animation-name: evo-logo-rotate;
+   -webkit-animation-duration: 4s;
+           animation-duration: 4s;
+   -webkit-animation-direction: alternate-reverse;
+           animation-direction: alternate-reverse;
+   -webkit-animation-fill-mode: both;
+           animation-fill-mode: both;
+   -webkit-animation-delay: .2s;
+           animation-delay: .2s;
+   -webkit-animation-timing-function: cubic-bezier(0.5, 0.98, 0.26, 1.04);
+           animation-timing-function: cubic-bezier(0.5, 0.98, 0.26, 1.04);
+}
+
+.evo-logo.has-loaded .evo-logo__title {
+  -webkit-animation-name: evo-logo-fadeIn;
+            animation-name: evo-logo-fadeIn;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-direction: normal;
+            animation-direction: normal;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+}
+
+.evo-logo.has-loaded .evo-logo__title:after,
+.evo-logo.has-loaded .evo-logo__title:before, {
+  -webkit-animation-name: evo-logo-fadeIn;
+            animation-name: evo-logo-fadeIn;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-direction: normal;
+            animation-direction: normal;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes evo-logo-rotate {
+  from {
+    -webkit-transform: rotate(2000deg);
+            transform: rotate(2000deg);
+  }
+}
+
+@keyframes evo-logo-rotate {
+  from {
+    -webkit-transform: rotate(2000deg);
+            transform: rotate(2000deg);
+  }
+}
+
+@-webkit-keyframes evo-logo-fadeIn {
+  0%   { opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; }
+  100% { opacity: 1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
+}
+
+@keyframes evo-logo-fadeIn {
+  0%   { opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; }
+  100% { opacity: 1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
+}
+
 
 .#{$site-prefix}-logo {
   display: block;
@@ -140,7 +324,7 @@ $site-logo-text-after-color: map-get($site-colors, quaternary);
     @include media-query($site-breakpoint-lg) {
       display: inline-block;
       text-align: left;
-      margin: 0;
+      margin: 0 0 0 ($site-spacing-unit * 2.7 + $site-logo-size);
     }
   }
 
@@ -156,6 +340,8 @@ $site-logo-text-after-color: map-get($site-colors, quaternary);
     margin-top: $site-spacing-unit;
   }
 }
+
+
 
 // SEARCHFORM
 $site-searchform-width: 320px;
