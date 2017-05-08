@@ -8,10 +8,10 @@ $(window).load(function() {
     //Constructors
 
     //scroll to top
-    console.log(document.body.scrollTop);
+    //console.log(document.body.scrollTop);
     if(document.body.scrollTop > 0) {
         smoothScroll(1000, 0, 0);
-        console.log("Scrolling to top.");
+        //console.log("Scrolling to top.");
     }
     // smoothScroll(1000, 0, 0);
 
@@ -21,17 +21,17 @@ $(window).load(function() {
 
     //get layer heights
     var firstLayerHeight = getFirstLayerHeight();
-    console.log("First layer: ", firstLayerHeight);
+    //console.log("First layer: ", firstLayerHeight);
     var lastLayerHeight = getLastLayerHeight();
-    console.log("Last layer: ", lastLayerHeight);
+    //console.log("Last layer: ", lastLayerHeight);
 
     var largestLayerHeight = Math.max(parseInt(firstLayerHeight), parseInt(lastLayerHeight));
-    console.log(largestLayerHeight);
+    //console.log(largestLayerHeight);
     $('.evo_c_multiLayers_container')[0].style.maxHeight = (largestLayerHeight * 1.005) + "px";
 
     $('.evo_c_multiLayers_container')[0].style.height = lastLayerHeight + 100 + "px";
     // $('.site-main')[0].style.height = lastLayerHeight + 200 + "px";
-    console.log("Container height: ", $('.evo_c_multiLayers_container')[0].style.height);
+   // console.log("Container height: ", $('.evo_c_multiLayers_container')[0].style.height);
 
     //create a layer/height object
 

@@ -4,7 +4,7 @@
    var footerDistanceFromTop = footer.offsetTop;
    var body = document.body;
 
-   console.log(sidebar);
+   //console.log(sidebar);
 
    //SIDEBAR SCROLLING
    window.addEventListener("scroll", throttle(scrollCallback, 1));
