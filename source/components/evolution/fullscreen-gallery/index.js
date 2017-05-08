@@ -170,7 +170,15 @@ export default function () {
         },
         curPos = 0,
 
-        slides = fsCarousel.getElements(fsCarousel.elements.slide);
+        slides;
+
+    // When the full galler element does not exists in the current context
+    // do nothing
+    if (!document.querySelector(fsCarousel.elements.carouselEl)) {
+      return;
+    }
+
+    slides = fsCarousel.getElements(fsCarousel.elements.slide);
 
     slides && slides.forEach(function (element, index) {
       element.addEventListener('click', function () {
