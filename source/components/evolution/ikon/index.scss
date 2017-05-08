@@ -144,27 +144,28 @@ $c-ikon-twitter-color: #1da1f2;
         right: -3.5em;
       }
     }
-    // Fixme: When switching this function to new `element()` function
-    // this throws an error.  Looks like a context issue
-    @include e('close-icon') {
-      position: absolute;
-      top: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 1em;
-      width: 1em;
-      font-size: 2em;
-      font-weight: 300;
-      color: get-color('background', 'dark');
-      background: white(0.5);
-      visibility: hidden;
-      cursor: pointer;
+  }
 
-      @media (max-width: 770px) {
-        visibility: visible;
-      }
+  // Fixme: When switching this function to new `element()` function
+  // this throws an error.  Looks like a context issue
+  @include element('info-close-btn') {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1em;
+    width: 1em;
+    font-size: 2em;
+    font-weight: 300;
+    color: get-color('background', 'dark');
+    background: white(0.5);
+    visibility: hidden;
+    cursor: pointer;
+
+    @media (max-width: 770px) {
+      visibility: visible;
     }
   }
 
