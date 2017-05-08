@@ -4,9 +4,16 @@
 
 > A playground for the new Evolution UI directory structure and workflow.
 
-## What is Evolution UI?
+## Introduction
 
-Evolution UI is a collection of standard and evolutionary web UI components built by students in the [Bov Academy][bov-academy].
+Hello, and welcome to Evolution UI!
+
+The first of its kind, Evolution UI is an open source front-end web framework comprising a collection of innovative and unique web components. These cutting-edge web components are intended to provide a different and enriched online experience and were created by the students of Bov Academy Institute of Programming and Futuristic Engineering (you can learn more about this project and read a write-up on each component by visiting the Bov Academy Blog). This framework is intended to be a hub of web development innovation and we invite everyone to explore their creativity and contribute something innovative of their own to keep the project thriving.
+
+While some of the components are still in development, many are ready for production. The components have been developed with HTML, CSS, Sass, and vanilla JavaScript.
+
+Here, you'll be guided through the steps necessary to get started with Evolution UI. If you have any questions, please don't hesitate to contact the [project's maintainers]().
+
 
 ## Requirements
 

@@ -2,6 +2,10 @@
 
 > The source code for the showcase website of the Evolution UI Framework. It is built using [Jekyll][jekyll], a powerful and simple static site generation tool written in [Ruby][ruby].
 
+##Introduction
+
+This site serves as a presentational showcase for all of the components constituting the Evolution framework. Here, you can browse the various components and view the source HTML behind each one. You can also learn about bit about the framework's maintainers; please take a look at the "Maintainers" page if you'd like get to know us better, and, of course, feel free to reach out to any one of us with questions, comments, or to get involved with the project!
+
 ## Requirements
 
 This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating systems. It requires the following software to be already installed on your system:

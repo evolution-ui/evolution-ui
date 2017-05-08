@@ -20,7 +20,7 @@ $(window).load(function() {
     });
 
     //get layer heights
-    var firstLayerHeight = getFirstLayerHeight();
+    var firstLayerHeight = getFirstLayerHeight() + 100;
     //console.log("First layer: ", firstLayerHeight);
     var lastLayerHeight = getLastLayerHeight();
     //console.log("Last layer: ", lastLayerHeight);
