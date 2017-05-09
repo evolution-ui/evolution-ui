@@ -17,7 +17,7 @@ Here, you'll be guided through the steps necessary to get started with Evolution
 
 ## Requirements
 
-This project is compatible with **Linux**, **Unix**, and **Mac OSX** operating systems. It requires the following software to be already installed on your system:
+This project is compatible with **Linux**, **Unix**, **Windows**, and **Mac OSX** operating systems. It requires the following software to be already installed on your system:
 
 - [Ruby][ruby]
 - [RubyGems][rubygems]
