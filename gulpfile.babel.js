@@ -99,8 +99,8 @@ gulp.task('build', callback => {
       'images',
       'audio'
     ],
-    config.env.docs || config.env.production ? 'jekyll' : 'skip',
-    config.env.docs || config.env.production ? 'jekyll:minify-styles' : 'skip',
+    config.env.docs ? 'jekyll' : 'skip',
+    config.env.docs ? 'jekyll:minify-styles' : 'skip',
     callback
   );
 });

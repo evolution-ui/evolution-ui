@@ -17,7 +17,7 @@
     "test": "npm run lint",
     "release": "semantic-release pre && npm publish --access public && semantic-release post",
     "docs": "gulp serve --docs",
-    "deploy": "gulp deploy --production"
+    "docs:deploy": "gulp deploy --docs"
   },
   "author": "",
   "license": "MIT",
