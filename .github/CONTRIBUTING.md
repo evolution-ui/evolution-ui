@@ -451,13 +451,21 @@ evolution-ui/
           |
           | - components/
                    |
-		     	   |- [evolution|standard]/
-                             |
-                   	         |
-                   	         | - super-easy   # The Super easy component's assets
+		   |- [evolution|standard]/
+                              |
+                   	      | - [component_1]
+			      | - [component_2]
+                   	      | - super-easy   # All of the component's assets go here
                    	               |
                    	               | -  _index.scss
-                           
+				       | -   index.js
+				       | -   default.html
+				       | -   variant_2.html
+				       | -   variant_3.html
+    
+    
+    Path: evolution-ui/source/components/[evolution|standard]/[component-name]/
+    
 ```
 
 
@@ -544,7 +552,7 @@ $c-super-easy-copy-font-family: "Times New Roman", Times, serif;
 }
 
 //----------------------------------------------------------------
-//                 			Super-Easy file
+//                       Super-Easy file
 //----------------------------------------------------------------
 
 // This will be rendered to .evo_c-super-easy
@@ -763,7 +771,7 @@ At this point, you're ready for open a new [pull request](https://help.github.co
 
 ​                  **Note**:  The target branch of your pull-request is the `development` branch.
 
-----------------------------------------------
+-----------------------------------------------------------------
 
 Your component is now ready for a review by the Evolution UI core team.
 
