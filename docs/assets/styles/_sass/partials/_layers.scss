@@ -34,7 +34,8 @@
 
 .evo_c_multiLayers_container section.selected-layer {
     border: none;
-    box-shadow: 0 0px 9px 0px rgba(128, 128, 128, 0.54);
+    // box-shadow: 0 0px 9px 0px rgba(128, 128, 128, 0.54);
+    box-shadow: 0 0px 15px 0px rgba(128, 128, 128, 0.55);
 
     @media screen and (max-width: $site-breakpoint-md) {
       width: 93%;
@@ -50,6 +51,7 @@
 
     .evo_c_multiLayer_header {
         margin: -45px 0 20px;
+        color: rgb(200, 197, 197);
 
         @media screen and (max-width: $site-breakpoint-md) {
             font-size: 1.1em;
