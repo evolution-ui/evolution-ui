@@ -847,7 +847,7 @@ body {
   display: block; }
 
 .evo_c_multiLayers_container section {
-  background: #FDFFFC;
+  background: rgba(253, 255, 252, 0.5);
   opacity: 0;
   height: auto;
   border: solid 1px #808080;

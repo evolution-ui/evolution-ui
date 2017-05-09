@@ -316,7 +316,8 @@ $(window).load(function() {
             tempLayer.style.zIndex = 8;
             tempLayer.style.marginLeft = (2 * 25).toString() + 'px';
             tempLayer.style.marginTop = (2 * 45).toString() + 'px';
-            tempLayer.style.background = "#FDFFFC";
+            // tempLayer.style.background = "#FDFFFC";
+            tempLayer.style.background = "rgba(253, 255, 252, 0.5)";
             tempLayer.style.color = "#808080";
             tempLayer.style.borderBottom = "0";
             tempLayer.style.borderRight = "0";
