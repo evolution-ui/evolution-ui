@@ -34,7 +34,8 @@ const config = {
   browsers: 'last 2 versions',
   env: {
     production: !!plugins.util.env.production,
-    docs: !!plugins.util.env.docs
+    docs: !!plugins.util.env.docs,
+    docsDeploy: !!plugins.util.env.docsDeploy
   }
 };
 
@@ -99,8 +100,8 @@ gulp.task('build', callback => {
       'images',
       'audio'
     ],
-    config.env.docs ? 'jekyll' : 'skip',
-    config.env.docs ? 'jekyll:minify-styles' : 'skip',
+    config.env.docs ? 'jekyll' : config.env.docsDeploy ? 'jekyll:prod' : 'skip',
+    config.env.docs || config.env.docsDeploy ? 'jekyll:minify-styles' : 'skip',
     callback
   );
 });
@@ -230,7 +231,11 @@ gulp.task('audio', () => {
 // Jekyll
 // Build Jekyll files for the /docs website
 gulp.task('jekyll', plugins.shell.task([
-  `jekyll build --source=${config.docs} --destination=${config.docsSite} --config=${config.docs}/_config.yml${config.env.production ? `,${config.docs}/_config.prod.yml` : ''}`
+  `jekyll build --source=${config.docs} --destination=${config.docsSite} --config=${config.docs}/_config.yml`
+]));
+
+gulp.task('jekyll:prod', plugins.shell.task([
+  `jekyll build --source=${config.docs} --destination=${config.docsSite} --config=${config.docs}/_config.yml${`,${config.docs}/_config.prod.yml`}`
 ]));
 
 // Jekyll: Minify Styles
