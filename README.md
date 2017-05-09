@@ -17,7 +17,7 @@ Here, you'll be guided through the steps necessary to get started with Evolution
 
 ## Requirements
 
-This project is compatible with **Linux**, **Unix**, **Windows**, and **Mac OSX** operating systems. It requires the following software to be already installed on your system:
+This project is compatible with **Linux**, **Unix**, **Windows**<sup>*</sup>, and **Mac OSX** operating systems. It requires the following software to be already installed on your system:
 
 - [Ruby][ruby]
 - [RubyGems][rubygems]
@@ -26,6 +26,8 @@ This project is compatible with **Linux**, **Unix**, **Windows**, and **Mac OSX*
 - [npm][npm]
 
 **Need to update Node.js?** Use [nvm][nvm] to manage multiple versions of Node.js on your local machine.
+
+<sup>*</sup> **Running Windows?** Jekyll (what we use to build our `/docs`) does not officially support the Windows operating system, but they do provide [special instructions][jekyll-windows] if you want to take a crack at it anyway.
 
 ## Usage
 
