@@ -12,18 +12,18 @@ import sticky from '../../components/standard/sticky';
 import tabs from '../../components/standard/tabs';
 
 /* Evolution Components */
+import twoDLayers from '../../components/evolution/2d-layers';
+import {layerAnimations, layerDragAndDrop} from '../../components/evolution/3d-layers';
 import bookmarklet from '../../components/evolution/bookmarklet';
-import carouselWithDroppingCircleNav from '../../components/evolution/carousel-with-dropping-circle-nav';
 import crumble from '../../components/evolution/crumble';
 import dotValidator from '../../components/evolution/dot-validator';
+import dropNavigationCarousel from '../../components/evolution/drop-navigation-carousel';
 import fadeLinesOnScroll from '../../components/evolution/fade-lines-on-scroll';
 import foldoutPopup from '../../components/evolution/foldout-popup';
 import fullscreenGallery from '../../components/evolution/fullscreen-gallery';
 import herald from '../../components/evolution/herald';
 import ikonize from '../../components/evolution/ikon';
 import inputScanner from '../../components/evolution/input-scanner';
-import layer2D from '../../components/evolution/layer-2d';
-import {layerAnimations, layerDragAndDrop} from '../../components/evolution/layers';
 import minimalistCarouselTwo from '../../components/evolution/minimalist-carousel-two';
 import popOver from '../../components/evolution/pop-over';
 import psychotropicCurtain from '../../components/evolution/psychotropic-curtain';
@@ -49,17 +49,17 @@ documentReady(
   sticky,
   tabs,
   /* Evolution Components */
+  twoDLayers,
   bookmarklet,
-  carouselWithDroppingCircleNav,
   crumble,
   dotValidator,
+  dropNavigationCarousel,
   fadeLinesOnScroll,
   foldoutPopup,
   fullscreenGallery,
   herald,
   ikonize,
   inputScanner,
-  layer2D,
   layerAnimations,
   layerDragAndDrop,
   minimalistCarouselTwo,

@@ -26,12 +26,14 @@
 @import '../../components/standard/utilities/index';
 
 /* Evolution Components */
+@import '../../components/evolution/2d-layers/index';
+@import '../../components/evolution/3d-layers/index';
 @import '../../components/evolution/bookmarklet/index';
-@import '../../components/evolution/carousel-with-dropping-circle-nav/index';
 @import '../../components/evolution/crumble/index';
 @import '../../components/evolution/cubby/index';
 @import '../../components/evolution/dot-validator/index';
-@import '../../components/evolution/dropdot/index';
+@import '../../components/evolution/drop-dot/index';
+@import '../../components/evolution/drop-navigation-carousel/index';
 @import '../../components/evolution/fade-lines-on-scroll/index';
 @import '../../components/evolution/foldout-popup/index';
 // @import '../../components/evolution/fontana-form/index';
@@ -40,8 +42,6 @@
 @import '../../components/evolution/ikon/index';
 // @import '../../components/evolution/innovative-login-form/index';
 @import '../../components/evolution/input-scanner/index';
-@import '../../components/evolution/layer-2d/index';
-@import '../../components/evolution/layers/index';
 @import '../../components/evolution/minimalist-carousel-two/index';
 @import '../../components/evolution/persona/index';
 @import '../../components/evolution/pop-over/index';
