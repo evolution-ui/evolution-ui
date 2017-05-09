@@ -85,6 +85,19 @@ After including the required CSS and JavaScript files, simply add the appropriat
 
 You can find many HTML markup examples and demos on the [showcase website][showcase-website] for Evolution UI.
 
+### Build from Source
+
+Or, you can download the source code in this repository, and build the compiled asset files yourself.
+
+```bash
+git clone git@github.com:evolution-ui/evolution-ui.git
+cd /path/to/repository
+npm install
+npm run production
+```
+
+This will install the project and its dependencies on your local machine, and build the compiled asset files from source and output them to the `dist/` directory.
+
 ## Development
 
 ### Source Code
