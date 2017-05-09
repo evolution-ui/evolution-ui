@@ -867,7 +867,7 @@ body {
 
 .evo_c_multiLayers_container section.selected-layer {
   border: none;
-  box-shadow: 0 0px 9px 0px rgba(128, 128, 128, 0.54); }
+  box-shadow: 0 0px 15px 0px rgba(128, 128, 128, 0.55); }
   @media screen and (max-width: 768px) {
     .evo_c_multiLayers_container section.selected-layer {
       width: 93%; } }
@@ -878,7 +878,8 @@ body {
 .evo_c_multiLayers_container section:not(.selected-layer) {
   padding-top: 65px; }
   .evo_c_multiLayers_container section:not(.selected-layer) .evo_c_multiLayer_header {
-    margin: -45px 0 20px; }
+    margin: -45px 0 20px;
+    color: #c8c5c5; }
     @media screen and (max-width: 768px) {
       .evo_c_multiLayers_container section:not(.selected-layer) .evo_c_multiLayer_header {
         font-size: 1.1em; } }
@@ -1071,3 +1072,5 @@ body {
     color: #da1f74;
     display: block;
     margin-bottom: 0.3em; }
+  .maintainer-page .evo_c-ikon__member:last-child .evo_c-ikon__member-info .evo_c-ikon__member-pic-image {
+    object-position: 50% 20%; }
