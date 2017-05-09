@@ -179,7 +179,7 @@ This command will build the latest Evolution UI source and copy the compiled ass
 When you are done working on the showcase website, and your commits have been pushed/merged in, you can deploy the latest changes to the showcase website by running the following command(s):
 
 ```bash
-npm run deploy-docs
+npm run docs:deploy
 ```
 
 ## Contributing
