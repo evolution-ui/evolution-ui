@@ -431,7 +431,7 @@ In Evolution UI, there are a list of mixins and functions which can speed up you
 
 Take a look at the following usage examples:
 
-* [BEM & BEMit naming conventions through mixins](https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30)
+* [BEM & BEMit naming conventions through mixins](https://www.sassmeister.com/gist/45911053b3045e90805741bfa2875c30) - Please skip to the *USAGE EXAMPLES SECTION*
 
 * [Background & Text color variants](http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8)
 
