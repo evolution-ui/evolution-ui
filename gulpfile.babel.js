@@ -209,9 +209,9 @@ gulp.task('images', () => {
   let stream = gulp.src(`${config.sourceComponents}/**/*.{png,gif,jpg,jpeg,svg}`)
     .pipe(plugins.changed(config.devAssets));                        // only transform changed files (faster)
 
-  if (config.env.production) {                    // optimize images for prod|docs
-    stream.pipe(plugins.imagemin());
-  }
+  // if (config.env.production) {                    // optimize images for prod|docs
+  //   stream.pipe(plugins.imagemin());
+  // }
 
   stream.pipe(gulp.dest(`${config.docsAssets}/images/evolution-ui`)); // save to docs
   stream.pipe(gulp.dest(`${config.devAssets}/images/evolution-ui`)); // save to dev
