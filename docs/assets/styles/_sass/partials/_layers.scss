@@ -10,7 +10,7 @@
 }
 
 .evo_c_multiLayers_container section {
-    background: #FDFFFC;
+    background: transparentize(#FDFFFC, .5);
     // height: 480px;
     opacity: 0;
     height: auto;
