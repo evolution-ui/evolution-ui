@@ -334,7 +334,8 @@ var listItems = document.querySelectorAll('.my-list-item'),
     i, len = listItems.length;
 
 for ( i = 0; i < len; i++ ) {
-    // our list items could represent the accordion sections for example, and by clicking them we expand the section
+    // our list items could represent the accordion sections for example, 
+    // and by clicking them we expand the section
     listItems[i].addEventListener('click', expandItem);
 }
 ```
@@ -455,11 +456,12 @@ evolution-ui/
                               |
                    	      | - [component_1]
 			      | - [component_2]
+			      | - ...
                    	      | - super-easy   # All of the component's assets go here
                    	               |
-                   	               | -  _index.scss
-				       | -   index.js
-				       | -   default.html
+                   	               | -  _index.scss     { Main scss    }
+				       | -   index.js       { Main script  }
+				       | -   default.html   { Preview File }
 				       | -   variant_2.html
 				       | -   variant_3.html
     
@@ -521,7 +523,45 @@ The following table shows the currently available core BEM mixins:
 |             `suffix($name)`              |          generate a BEM suffix           | It can be defined everywhere             |
 |         `define-dry($name-null)`         | generate a dry - don't repeat yourself - block | It can be defined within blocks, elements, modifiers |
 
-More info about the previous mixins can be found in the SASSdoc.
+
+Evolution UI defines some `global` variables that can exploited within a component.
+
+
+```scss
+
+// -----------------------------------------------------------------------------
+//                               FONTS
+// -----------------------------------------------------------------------------
+
+
+/// Represents  the base font-family used by the Evolution framework
+$g-framework-font-family: 'Roboto', sans-serif;
+
+/// Represent the base font size used by the Evolution framework
+$g-framework-base-font-size:    16px;
+
+/// Represents  the line-height ratio used by the Evolution framework
+$g-framework-line-height-ratio: 1.5;
+
+/// Represents the base line-height used by the Evolution framework
+$g-framework-line-height-base:  1rem * $g-framework-line-height-ratio;
+
+/// Represents the base font-weight used by the Evolution framework
+$g-framework-font-weight: 400;
+
+
+// -----------------------------------------------------------------------------
+//                               BORDERS
+// -----------------------------------------------------------------------------
+
+/// Represents the base border radius
+$g-framework-borders-radius: 4px;
+
+
+```
+
+
+More info about mixins, functions and global variables can be found in the SASSdoc.
 
 Let's move to the `index.scss` SCSS file:
 
@@ -544,7 +584,15 @@ $c-super-easy-footer-height: $c-super-easy-body-height;
 
 $c-super-easy-button-border-color: #000;
 
-$c-super-easy-copy-font-family: "Times New Roman", Times, serif;
+// Use the Evolution's default font-family
+$c-super-easy-copy-font-family: $g-framework-font-family;
+
+// Use the Evolution's default font-size
+$c-super-easy-copy-font-size: $g-framework-base-font-size;
+
+// Use the Evolution's default font-weight
+$c-super-easy-copy-font-weight: $g-framework-font-weight;
+
 
 // Component placeholder
 %c-super-easy-pointer {
@@ -793,7 +841,7 @@ All component variant examples are located in the `source/assets/components/[evo
 
 Each variant is defined within a different HTML file. For example:
 
-* `default.html` - this file is the main version of your component
+* `default.html` - this file is the main version of your component **(known as preview file)**
 * `color-variations.html` - this file contains all of the component's color variations
 * `full-width.html`- this file contains the full-width variation
 
@@ -803,7 +851,11 @@ Here is an example of what a component template file should look like:
 ---
 title: "Burst"
 description:
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, accusamus, minima. Sit, iure ipsum dolor, debitis aliquam facilis iste excepturi ullam doloribus odio suscipit necessitatibus aut, in dolores quas similique.</p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, 
+    accusamus, minima. Sit, iure ipsum dolor, debitis aliquam facilis iste excepturi ullam doloribus 
+    odio suscipit necessitatibus aut, in dolores quas similique.
+  </p>
 type: dot navigation
 author: David Gierman
 category: evolution
@@ -819,6 +871,8 @@ order: 1
       <li></li>
     </ul>
   </nav>
+  
+  
 ```
 
 **Please note the identation of two spaces before the HTML markup**
