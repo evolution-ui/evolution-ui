@@ -6,8 +6,8 @@ import accordion from '../../components/standard/accordion';
 import carousel from '../../components/standard/carousel';
 import codeMarkup from '../../components/standard/code-markup';
 import cssAnimations from '../../components/standard/css-animations';
-import forms from '../../components/standard/forms';
 import modals from '../../components/standard/modals';
+import standardForms from '../../components/standard/standard-forms';
 import sticky from '../../components/standard/sticky';
 import tabs from '../../components/standard/tabs';
 
@@ -44,8 +44,8 @@ documentReady(
   carousel,
   codeMarkup,
   cssAnimations,
-  forms,
   modals,
+  standardForms,
   sticky,
   tabs,
   /* Evolution Components */
