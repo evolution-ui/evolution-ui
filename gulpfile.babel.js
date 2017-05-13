@@ -100,8 +100,8 @@ gulp.task('build', callback => {
       'images',
       'audio'
     ],
-    config.env.docs ? 'jekyll' : config.env.docsDeploy ? 'jekyll:prod' : 'skip',
-    config.env.docs || config.env.docsDeploy ? 'jekyll:minify-styles' : 'skip',
+    ...(config.env.docs ? ['jekyll'] : config.env.docsDeploy ? ['jekyll:prod'] : []),
+    ...(config.env.docs || config.env.docsDeploy ? ['jekyll:minify-styles'] : []),
     callback
   );
 });
@@ -113,7 +113,8 @@ gulp.task('clean', () => {
     config.dist,
     config.dev,
     config.docsComponents,
-    `${config.docsAssets}/images/evolution-ui`,
+    `${config.env.docsDeploy ? '' : '!'}${config.docsAssets}/images/evolution-ui`,
+    `${config.env.docsDeploy ? '' : '!'}${config.docsAssets}/audio/evolution-ui`,
     `${config.docsAssets}/scripts/evolution-ui`,
     `${config.docsAssets}/styles/evolution-ui`
   ]);
@@ -129,7 +130,7 @@ gulp.task('scripts', ['scripts:lint'], () => {
     .pipe(gulp.dest(`${config.devAssets}/scripts/evolution-ui`))  // save to dev
     .pipe(gulp.dest(config.dist))                                 // save to dist
     .pipe(plugins.uglify())                                       // minify js
-    .pipe(plugins.rename({ suffix: '.min' }))                     // add .min suffix
+    .pipe(plugins.rename({suffix: '.min'}))                     // add .min suffix
     .pipe(gulp.dest(`${config.devAssets}/scripts/evolution-ui`))  // save minified file to dev
     .pipe(gulp.dest(`${config.docsAssets}/scripts/evolution-ui`)) // save minified file to docs
     .pipe(gulp.dest(config.dist));                                // save minified file to dist
@@ -150,16 +151,16 @@ gulp.task('styles', () => {
   return gulp.src(`${config.sourceAssets}/styles/main.scss`)
     .pipe(plugins.sass().on('error', plugins.sass.logError))     // compile sass
     .pipe(plugins.postcss(postcssPlugins))                       // run through postcss processors (autoprefixer)
-    .pipe(plugins.rename({ basename: 'evolution-ui' }))          // rename compiled file
+    .pipe(plugins.rename({basename: 'evolution-ui'}))          // rename compiled file
     .pipe(gulp.dest(`${config.devAssets}/styles/evolution-ui`))  // save to dev
     .pipe(gulp.dest(config.dist))                                // save to dist
-    .pipe(browserSync.reload({ stream: true }))                  // inject changes into browser
+    .pipe(browserSync.reload({stream: true}))                  // inject changes into browser
     .pipe(plugins.cssmin())                                      // minify compiled file
-    .pipe(plugins.rename({ suffix: '.min' }))                    // add .min suffix
+    .pipe(plugins.rename({suffix: '.min'}))                    // add .min suffix
     .pipe(gulp.dest(`${config.devAssets}/styles/evolution-ui`))  // save to dev
     .pipe(gulp.dest(`${config.docsAssets}/styles/evolution-ui`)) // save minified file to docs
     .pipe(gulp.dest(config.dist))                                // save minified file to dist
-    .pipe(browserSync.reload({ stream: true }));                 // inject changes into browser
+    .pipe(browserSync.reload({stream: true}));                 // inject changes into browser
 });
 
 // HTML
@@ -196,7 +197,7 @@ gulp.task('html:copy-to-dev', () => {
 
   return gulp.src(`${config.sourceComponents}/**/*.html`)
     .pipe(plugins.changed(config.dev))                                    // only transform changed files (faster)
-    .pipe(plugins.frontMatter({ property: 'frontMatter', remove: true })) // remove yml front matter
+    .pipe(plugins.frontMatter({property: 'frontMatter', remove: true})) // remove yml front matter
     .pipe(plugins.insert.prepend(prefix))                                 // add prefix to source html file
     .pipe(plugins.insert.append(suffix))                                  // add suffix to source html file
     .pipe(gulp.dest(config.dev));                                         // save to dev
@@ -206,15 +207,18 @@ gulp.task('html:copy-to-dev', () => {
 // Copy/paste images to the correct location(s), and optimize them for
 // production builds
 gulp.task('images', () => {
-  let stream = gulp.src(`${config.sourceComponents}/**/*.{png,gif,jpg,jpeg,svg}`)
-    .pipe(plugins.changed(config.devAssets));                        // only transform changed files (faster)
+  let stream = gulp.src(`${config.sourceComponents}/**/*.{png,gif,jpg,jpeg,svg}`);
 
-  // if (config.env.production) {                    // optimize images for prod|docs
-  //   stream.pipe(plugins.imagemin());
-  // }
-
-  stream.pipe(gulp.dest(`${config.docsAssets}/images/evolution-ui`)); // save to docs
-  stream.pipe(gulp.dest(`${config.devAssets}/images/evolution-ui`)); // save to dev
+  if (config.env.docsDeploy || config.env.docs) {   // optimize images for docs|docsDeploy
+    const docsDest = `${config.docsAssets}/images/evolution-ui`;
+    stream.pipe(plugins.changed(docsDest)) // only transform changed files (faster)
+      .pipe(plugins.imagemin()) // call imagemin only for docs and docsDeploy
+      .pipe(gulp.dest(docsDest)); // save to docs
+  } else {
+    const devDest = `${config.devAssets}/images/evolution-ui`;
+    stream.pipe(plugins.changed(devDest))
+      .pipe(gulp.dest(devDest)); // save to dev
+  }
 
   return stream;
 });
@@ -222,10 +226,19 @@ gulp.task('images', () => {
 // Audio
 // Copy/paste audio files to the correct location(s)
 gulp.task('audio', () => {
-  return gulp.src(`${config.sourceComponents}/**/*.{wav,mp3,aiff,flac,ogg,wma,webm}`)
-    .pipe(plugins.changed(config.devAssets))                    // only transform changed files (faster)
-    .pipe(gulp.dest(`${config.docsAssets}/audio/evolution-ui`)) // save to docs
-    .pipe(gulp.dest(`${config.devAssets}/audio/evolution-ui`)); // save to dev
+  let stream = gulp.src(`${config.sourceComponents}/**/*.{wav,mp3,aiff,flac,ogg,wma,webm}`);
+
+  if (config.env.docsDeploy || config.env.docs) {   // optimize images for docs|docsDeploy
+    const docsDest = `${config.docsAssets}/audio/evolution-ui`;
+    stream.pipe(plugins.changed(docsDest)) // only transform changed files (faster)
+      .pipe(gulp.dest(docsDest)); // save to docs
+  } else {
+    const devDest = `${config.devAssets}/audio/evolution-ui`;
+    stream.pipe(plugins.changed(devDest))
+      .pipe(gulp.dest(devDest)); // save to dev
+  }
+
+  return stream;
 });
 
 // Jekyll
@@ -244,13 +257,9 @@ gulp.task('jekyll:minify-styles', () => {
   return gulp.src(`${config.docsSite}/assets/styles/main.css`)
     .pipe(plugins.postcss(postcssPlugins))               // run through postcss processors (autoprefixer)
     .pipe(plugins.cssmin())                              // minify compiled file
-    .pipe(plugins.rename({ suffix: '.min' }))            // add .min suffix
+    .pipe(plugins.rename({suffix: '.min'}))            // add .min suffix
     .pipe(gulp.dest(`${config.docsSite}/assets/styles`)) // save minified file to dist
 });
-
-// Skip
-// Use this empty task to skip a conditional task to prevent runSequence errors
-gulp.task('skip', () => { return; });
 
 // Deploy
 gulp.task('deploy', ['build'], function () {
