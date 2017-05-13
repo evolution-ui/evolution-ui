@@ -10,12 +10,12 @@
 #   thumbnail-image: 'chris.jpg'
 #   location: "New York, NY"
 
-- name: 'Brian Hernandez'
-  image: 'brian-ikon.jpg'
-  urlGH: 'https://github.com/brianhernandez'
-  description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-  thumbnail-image: 'brian.jpeg'
-  location: "New York, NY"
+# - name: 'Brian Hernandez'
+#   image: 'brian-ikon.jpg'
+#   urlGH: 'https://github.com/brianhernandez'
+#   description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
+#   thumbnail-image: 'brian.jpeg'
+#   location: "New York, NY"
 
 - name: 'Aashish Nagpal'
   image: 'aashish-ikon.jpg'
