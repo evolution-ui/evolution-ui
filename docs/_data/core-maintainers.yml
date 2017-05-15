@@ -17,6 +17,13 @@
 #   thumbnail-image: 'brian.jpeg'
 #   location: "New York, NY"
 
+- name: 'Chenfeng Lai'
+  image: 'chenfeng-ikon.jpg'
+  urlGH: 'https://github.com/kubbafox'
+  description: "\"Ambition is priceless.\" <br /> <em>- Wale</em>"
+  thumbnail-image: 'chenfeng.jpg'
+  location: "Delaware, USA"
+
 - name: 'Aashish Nagpal'
   image: 'aashish-ikon.jpg'
   urlGH: 'https://github.com/aashishnagpal'
@@ -27,9 +34,9 @@
 - name: 'Sebastian Ramirez-Brunner'
   image: 'sebastian-ikon.jpg'
   urlGH: 'https://github.com/sebastianrb'
-  description: "\"Word hard, be kind, and amazing things will happen.\" <br /> <em>- Conan O\'Brien</em>"
+  description: "\"Work hard, be kind, and amazing things will happen.\" <br /> <em>- Conan O\'Brien</em>"
   thumbnail-image: 'sebastian.jpg'
-  location: "New York, NY"
+  location: "New York City, USA"
 
 - name: 'Gabriele Romeo'
   image: 'gabriele-ikon.jpg'
