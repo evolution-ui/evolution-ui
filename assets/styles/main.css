@@ -140,6 +140,12 @@ pre code {
   border-radius: 0;
   background: transparent; }
 
+em {
+  font-style: italic;
+  font-size: .8em;
+  margin-top: 10px;
+  display: inline-block; }
+
 .site-icon {
   font-size: 18px; }
 
@@ -1065,8 +1071,9 @@ body {
     font-weight: bold; }
   .maintainer-page .evo_c-ikon__member-about {
     flex: 2;
-    font-size: 1.1em;
-    padding-left: 1em; }
+    font-size: 1em;
+    padding: 0 1em;
+    text-align: center; }
   .maintainer-page .fa-map-marker {
     font-size: 1.8em;
     color: #da1f74;
