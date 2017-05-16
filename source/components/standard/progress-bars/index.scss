@@ -1,0 +1,624 @@
+
+//------------------------------------------------------------------------------
+//                          Proress Bars config
+//------------------------------------------------------------------------------
+
+
+$c-component-name: 'progress-bar';
+
+
+$c-progress-bars-height: 10px;
+$c-progress-bars-height-small: 5px;
+$c-progress-bars-height-big: 15px;
+$c-progress-bars-height-huge: 25px;
+$c-progress-bars-height-middle: 25px;
+
+$c-progress-bars-margin: 35px;
+
+$c-progress-bars-percentage-margin-left: 50px;
+
+
+//------------------------------------------------------------------------------
+//                          Progress Bars Mixin
+//------------------------------------------------------------------------------
+
+@mixin _background-linear-gradient($deg, $color-name) {
+  background: repeating-linear-gradient(
+              $deg,
+                get-color($color-name, 'dark'),
+                get-color($color-name, 'dark') 10px,
+                get-color($color-name, 'light') 10px,
+                get-color($color-name, 'light') 20px
+              );
+}
+
+@mixin _progress-bars-medias() {
+
+  @media screen and (min-width: 450px) {
+      animation-duration: 9s;
+  }
+
+  @media screen and (min-width: 760px) {
+      animation-duration: 15s;
+  }
+
+  @media screen and (min-width: 1200px) {
+      animation-duration: 25s;
+  }
+
+  @media screen and (min-width: 1700px) {
+      animation-duration: 35s;
+  }
+
+  @media screen and (min-width: 2000px) {
+      animation-duration: 50s;
+  }
+}
+
+//------------------------------------------------------------------------------
+//                          Progress Bars Placeholders
+//------------------------------------------------------------------------------
+
+%c-progress-bars-info {
+  position: absolute;
+  display: inline-block;
+  font-family: #{$g-framework-font-family};
+  color: inherit;
+  line-height: $c-progress-bars-height;
+}
+
+%c-progress-bars-percentage-after {
+  @extend %c-progress-bars-info;
+  content: attr(aria-valuenow) "%";
+}
+
+%c-progress-bars-message-after {
+  @extend %c-progress-bars-info;
+  content: attr(data-message);
+}
+
+%c-progress-bars-text-after {
+  color: white(.9);
+  text-shadow: 0 1px 1px rgba(0,0,0,.5);
+}
+
+
+
+
+%c-progress-bars-absolute-center {
+  display: flex;
+  left:0;
+  right: 0;
+  top: 0;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+}
+
+%c-progress-bars-hide-overflow-x {
+  overflow-x: hidden;
+}
+
+%c-progress-bars-border-light {
+  border: 1px solid black(.2);
+}
+
+%c-progress-bars-big {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+%c-progress-bars-shapes {
+  right: 0;
+  width: 250%;
+}
+
+%c-progress-bars {
+  @extend %c-progress-bars-shapes;
+  @include _progress-bars-medias;
+  animation: c-progress-bars-infinite--pr 2.5s infinite forwards linear;
+}
+
+
+//------------------------------------------------------------------------------
+//                          Progress Bars Animations
+//------------------------------------------------------------------------------
+
+
+@keyframes c-progress-bars-infinite {
+  100% { left: 110%; }
+}
+
+@keyframes c-progress-bars-infinite--b {
+  100% { left: -10% }
+}
+
+@keyframes c-progress-bars-infinite--fb {
+  50% { left: 100%; }
+  100% { left: -10% }
+}
+
+@keyframes c-progress-bars-infinite--pr {
+  0% { left: -110%; };
+  100% { left: 0; };
+}
+
+@keyframes c-progress-bars-infinite-b-pr {
+  0% { left: 0; };
+  100% { left: -110%; };
+}
+
+/******************************************************************************
+                          Progress Bars Component
+******************************************************************************/
+
+
+@include component($c-component-name) {
+
+  $bar-element: get-bem-selector('bar');
+
+  // Provide brackground and text color variations
+  @include backgroundVariants($opacity: .44);
+  @include textVariants();
+
+  position: relative;
+  height: $c-progress-bars-height;
+  margin: $c-progress-bars-margin;
+  text-align: center;
+  background-color: tint(get-color('background'), 90);
+  box-sizing: content-box;
+
+
+    &[data-message] {
+      @extend %c-progress-bars-text-after;
+      height: $c-progress-bars-height-middle;
+      padding: 0;
+
+
+        & .#{$bar-element} {
+          height: $c-progress-bars-height-middle;
+        }
+
+        &:after {
+          @extend %c-progress-bars-message-after;
+          @extend %c-progress-bars-absolute-center;
+        }
+    }
+
+    //--------------------------------------------------------------------------
+    //                      Message - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include helper('message', $double-class: true) {
+      @extend %c-progress-bars-text-after;
+      margin-left: $c-progress-bars-percentage-margin-left;
+      height: $c-progress-bars-height-middle;
+      padding: 0;
+
+
+        & .#{$bar-element} {
+          height: $c-progress-bars-height-middle;
+        }
+
+        &:after {
+          @extend %c-progress-bars-percentage-after;
+          @extend %c-progress-bars-absolute-center;
+        }
+    }
+
+    //--------------------------------------------------------------------------
+    //                      percentage - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include helper('percentage', $double-class: true) {
+      margin-left: $c-progress-bars-percentage-margin-left;
+
+      &:after {
+        @extend %c-progress-bars-percentage-after;
+        left: -#{$c-progress-bars-percentage-margin-left - 10px};
+      }
+
+      @include modifier( 'right' ) {
+        margin-right: $c-progress-bars-percentage-margin-left;
+        &:after {
+          @extend %c-progress-bars-percentage-after;
+          right: -#{$c-progress-bars-percentage-margin-left - 10px};
+        }
+      }
+
+      @include modifier( 'center' ) {
+        @extend %c-progress-bars-text-after;
+        height: $c-progress-bars-height-middle;
+        padding: 0;
+
+        & .#{$bar-element} {
+          height: $c-progress-bars-height-middle;
+        }
+
+        &:after {
+          @extend %c-progress-bars-percentage-after;
+          @extend %c-progress-bars-absolute-center;
+        }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                        Rounded - Progress Bars
+    //--------------------------------------------------------------------------
+    @include modifier( 'rounded' ) {
+      @extend %c-progress-bars-hide-overflow-x;
+      border-radius: 10px;
+
+        & .#{$bar-element} {
+          padding-right: 4px;
+          left: -2px;
+        }
+    }
+
+
+    //--------------------------------------------------------------------------
+    //                   HELPERS Border - Progress Bars
+    //--------------------------------------------------------------------------
+
+
+    @include helper('border--light', $double-class: true) {
+      border: 1px solid black(.2);
+    }
+
+    @include helper('border--default', $double-class: true) {
+      border: 1px solid black(.5);
+    }
+
+    @include helper('border--heavy', $double-class: true) {
+      border: 1px solid black(.8);
+    }
+
+    @include helper('border--big', $double-class: true) {
+      border-width: 2px;
+    }
+
+    @include helper('border--huge', $double-class: true) {
+      border-width: 3px;
+    }
+
+    //--------------------------------------------------------------------------
+    //                   HELPERS box-shadow - Progress Bars
+    //--------------------------------------------------------------------------
+
+
+    @include helper('background', $double-class: true) {
+
+        @include modifier('inset') {
+          box-shadow: inset 0 0 1em #000;
+        }
+    }
+
+
+    //--------------------------------------------------------------------------
+    //                        Big - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include modifier( 'big' ) {
+      @extend %c-progress-bars-big;
+    }
+
+    //--------------------------------------------------------------------------
+    //                        shape2 - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include modifier( 'shape2' ) {
+      @extend %c-progress-bars-hide-overflow-x;
+      @extend %c-progress-bars-border-light;
+      @extend %c-progress-bars-big;
+
+      & .#{$bar-element} {
+        left: -#{$c-progress-bars-height * 2};
+        height: 0!important;
+        border: $c-progress-bars-height dashed white(.9);
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    //                        shape3 - Progress Bars
+    //--------------------------------------------------------------------------
+
+    @include modifier( 'shape3' ) {
+      @extend %c-progress-bars-hide-overflow-x;
+      @extend %c-progress-bars-border-light;
+      @extend %c-progress-bars-big;
+
+      & .#{$bar-element} {
+        left: -50px;
+        padding-left: 20px;
+        height: 0!important;
+        background-color: transparent;
+        border: $c-progress-bars-height dashed white(.9);
+        transform: skew(-45deg);
+      }
+    }
+
+
+
+    //--------------------------------------------------------------------------
+    //                  Infinite Loading - Progress Bars
+    //--------------------------------------------------------------------------
+    @include modifier( 'infinite' ) {
+
+      $bar-shape-forth: 'h-animation--shape-forth';
+      $bar-shape-back:  'h-animation--shape-back';
+
+      $bar-shape2: '#{$g-framework-name}_c-#{$c-component-name}--shape2';
+      $bar-shape3: '#{$g-framework-name}_c-#{$c-component-name}--shape3';
+      $bar-45: get-bem-selector('bar', '45');
+      $bar-90: get-bem-selector('bar', '90');
+      $bar-135: get-bem-selector('bar', '135');
+
+      overflow-x: hidden;
+
+        .#{$bar-element} {
+          left: -10%;
+          width: 10%;
+          animation: c-progress-bars-infinite 3.2s infinite forwards linear;
+        }
+
+
+        //----------------------------------------------------------------------
+        //                          Animations
+        //----------------------------------------------------------------------
+
+        @include helper('animation--backward', $double-class: true) {
+          left: 110%;
+          animation: c-progress-bars-infinite--b 3.2s infinite forwards linear;
+        }
+
+        @include helper('animation--forth-back', $double-class: true) {
+          animation: c-progress-bars-infinite--fb 3.2s infinite forwards linear;
+        }
+
+
+
+          &.#{$bar-shape2},
+          &.#{$bar-shape3} {
+            .#{$bar-element} {
+              @extend %c-progress-bars;
+            }
+          }
+
+          & .#{$bar-45}.#{$bar-element},
+          & .#{$bar-90}.#{$bar-element},
+          & .#{$bar-135}.#{$bar-element} {
+           @extend %c-progress-bars
+          }
+
+
+         &.#{$bar-shape2},
+         &.#{$bar-shape3} {
+            .#{$bar-element} {
+              @include helper('animation--backward', $double-class: true) {
+                @extend %c-progress-bars-shapes;
+                @include _progress-bars-medias;
+                animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
+              }
+            }
+        }
+
+         .#{$bar-45},
+         .#{$bar-90},
+         .#{$bar-135} {
+
+          @include helper('animation--backward', $double-class: true) {
+            @extend %c-progress-bars-shapes;
+            @include _progress-bars-medias;
+            animation: c-progress-bars-infinite-b-pr 5s infinite forwards linear;
+          }
+        }
+
+    }
+
+
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //                           BAR ELEMENT
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include element( 'bar' ) {
+
+    // Provide brackground color variations
+    @include backgroundVariants();
+
+    position: absolute;
+    height: inherit;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: get-color('primary');
+    border-radius: inherit;
+
+
+      //------------------------------------------------------------------------
+      //                        WARN - Bar
+      //------------------------------------------------------------------------
+      @include modifier( 'warn' ) {
+        background-color: rgb(253, 142, 47);
+      }
+
+      //------------------------------------------------------------------------
+      //                        ERR - Bar
+      //------------------------------------------------------------------------
+      @include modifier( 'err' ) {
+        background-color: rgb(244, 67, 54);
+      }
+
+      //------------------------------------------------------------------------
+      //                        SUCC - Bar
+      //------------------------------------------------------------------------
+      @include modifier( 'succ' ) {
+        background-color: rgb(128, 210, 107);
+      }
+
+      //--------------------------------------------------------------------------
+      //                        Small - Bar
+      //--------------------------------------------------------------------------
+      @include modifier( 'small' ) {
+        height: $c-progress-bars-height-small!important;
+      }
+
+      //--------------------------------------------------------------------------
+      //                        Big - Bar
+      //--------------------------------------------------------------------------
+      @include modifier( 'big' ) {
+        height: $c-progress-bars-height-big!important;
+      }
+
+      //--------------------------------------------------------------------------
+      //                        Huge - Bar
+      //--------------------------------------------------------------------------
+      @include modifier( 'huge' ) {
+        height: $c-progress-bars-height-huge!important;
+      }
+
+      //------------------------------------------------------------------------
+      //                            45deg - Bar
+      //------------------------------------------------------------------------
+
+      @include modifier( '45' ) {
+        height: 100%;
+        background: repeating-linear-gradient(
+          45deg,
+            get-color('primary', 'dark'),
+            get-color('primary', 'dark') 10px,
+            get-color('primary', 'light') 10px,
+            get-color('primary', 'light') 20px
+          );
+      }
+
+        //--------------------------------------------------------------------
+        //                  COLOR HELPERS - Bar
+        //--------------------------------------------------------------------
+
+          @include helper('bck--primary2', $double-class: true) {
+            @include _background-linear-gradient(45deg, 'primary2');
+          }
+
+          @include helper('bck--secondary', $double-class: true) {
+            @include _background-linear-gradient(45deg, 'primary');
+          }
+
+          @include helper('bck--background', $double-class: true) {
+            @include _background-linear-gradient(45deg, 'background');
+          }
+
+          @include helper('bck--accent', $double-class: true) {
+            @include _background-linear-gradient(45deg, 'accent');
+          }
+
+          @include helper('bck--accent2', $double-class: true) {
+            @include _background-linear-gradient(45deg, 'accent2');
+          }
+
+          @include helper('bck--accent3', $double-class: true) {
+            @include _background-linear-gradient(45deg, 'accent3');
+          }
+
+          @include helper('bck--accent4', $double-class: true) {
+            @include _background-linear-gradient(45deg, 'accent4');
+          }
+
+      //--------------------------------------------------------------------------
+      //                      90deg - Bar
+      //--------------------------------------------------------------------------
+
+      @include modifier( '90' ) {
+        height: 100%;
+        background: repeating-linear-gradient(
+          90deg,
+            get-color('primary', 'dark'),
+            get-color('primary', 'dark') 10px,
+            get-color('primary', 'light') 10px,
+            get-color('primary', 'light') 20px
+          );
+      }
+
+        //--------------------------------------------------------------------
+        //                  COLOR HELPERS - Bar
+        //--------------------------------------------------------------------
+
+          @include helper('bck--primary2', $double-class: true) {
+            @include _background-linear-gradient(90deg, 'primary2');
+          }
+
+          @include helper('bck--secondary', $double-class: true) {
+            @include _background-linear-gradient(90deg, 'primary');
+          }
+
+          @include helper('bck--background', $double-class: true) {
+            @include _background-linear-gradient(90deg, 'background');
+          }
+
+          @include helper('bck--accent', $double-class: true) {
+            @include _background-linear-gradient(90deg, 'accent');
+          }
+
+          @include helper('bck--accent2', $double-class: true) {
+            @include _background-linear-gradient(90deg, 'accent2');
+          }
+
+          @include helper('bck--accent3', $double-class: true) {
+            @include _background-linear-gradient(90deg, 'accent3');
+          }
+
+          @include helper('bck--accent4', $double-class: true) {
+            @include _background-linear-gradient(90deg, 'accent4');
+          }
+
+      //--------------------------------------------------------------------------
+      //                      135deg - Bar
+      //--------------------------------------------------------------------------
+
+      @include modifier( '135' ) {
+        height: 100%;
+        background: repeating-linear-gradient(
+          135deg,
+            get-color('primary', 'dark'),
+            get-color('primary', 'dark') 10px,
+            get-color('primary', 'light') 10px,
+            get-color('primary', 'light') 20px
+          );
+      }
+
+        //--------------------------------------------------------------------
+        //                  COLOR HELPERS - Bar
+        //--------------------------------------------------------------------
+
+          @include helper('bck--primary2', $double-class: true) {
+            @include _background-linear-gradient(135deg, 'primary2');
+          }
+
+          @include helper('bck--secondary', $double-class: true) {
+            @include _background-linear-gradient(135deg, 'primary');
+          }
+
+          @include helper('bck--background', $double-class: true) {
+            @include _background-linear-gradient(135deg, 'background');
+          }
+
+          @include helper('bck--accent', $double-class: true) {
+            @include _background-linear-gradient(135deg, 'accent');
+          }
+
+          @include helper('bck--accent2', $double-class: true) {
+            @include _background-linear-gradient(135deg, 'accent2');
+          }
+
+          @include helper('bck--accent3', $double-class: true) {
+            @include _background-linear-gradient(135deg, 'accent3');
+          }
+
+          @include helper('bck--accent4', $double-class: true) {
+            @include _background-linear-gradient(135deg, 'accent4');
+          }
+
+
+  }
+}

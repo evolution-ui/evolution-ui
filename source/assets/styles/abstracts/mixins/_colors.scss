@@ -1,0 +1,340 @@
+
+
+///
+/// Generate helper classes for each color and variants within the
+/// $g-framework-colors map
+///
+/// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
+/// @link http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $helperName - The name of the helper class
+/// @param {String} $CSSproperty ['color'] - The CSS property you want to set
+/// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
+/// @param {Number} $opacity [1] - Set a custom opacity
+///
+/// @require $g-framework-colors
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include colorHelpers('bck', $CSSproperty: 'background-color');
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass.h-bck__[color-key]--[color-variant] {
+///    background-color: #######
+///  }
+///
+///
+/// @example scss - Usage
+///
+///  .namespace_myClass {
+///     @include colorHelpers('txt', $CSSproperty: 'color');
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass.h-txt__[color-key]--[color-variant] {
+///    color: #######
+///  }
+///
+
+
+@mixin colorHelpers($type, $CSSproperty: 'color', $is-descendant: false, $opacity: 1) {
+  @each $color-key, $color-variants in $g-framework-colors {
+
+    $base-color-value: get-color($color-key, $opacity: $opacity);
+
+    $base-selector: addParentSelector('.h-#{$type}__#{$color-key}', $is-descendant);
+
+    #{$base-selector} {
+      #{$CSSproperty}: $base-color-value;
+    }
+
+    @each $color-variant, $color-variant-value in $color-variants {
+      @if $color-variant != 'base' {
+
+        $tmp-selector: '.h-#{$type}__#{$color-key}--#{$color-variant}';
+        $variant-selector: addParentSelector($tmp-selector, $is-descendant);
+
+        #{$variant-selector} {
+          #{$CSSproperty}: get-color($color-key, $color-variant, $opacity: $opacity);
+        }
+      }
+    }
+  }
+}
+
+///
+/// Generate helper classes for the base colors and their variants contained
+///  within the provided map
+///
+/// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
+/// @link http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $helperName - The name of the helper class
+/// @param {String} $colorMap   - A map containing base colors and their variants
+/// @param {String} $CSSproperty ['color'] - The CSS property you want to set
+/// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
+/// @param {Number} $opacity [1] - Set a custom opacity
+///
+/// @require $g-framework-colors
+///
+/// @example scss - Usage
+///
+///  $component-txt-variants: (
+///    'accent3': ('base', 'light', 'darken')
+///  );
+///
+///  .namespace_myClass {
+///     @include colorHelper('txt', $component-txt-variants);
+///   }
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass.h-txt__accent3 {
+///    color: #######
+///  }
+///
+///  .namespace_myClass.h-txt__accent3--light {
+///    color: #######
+///  }
+///
+///  .namespace_myClass.h-txt__accent3--darken {
+///    color: #######
+///  }
+///
+///
+/// @example scss - Usage
+///
+///  $component-txt-variants: (
+///    'accent3': ('base', 'light', 'darken')
+///  );
+///
+///  .namespace_myClass {
+///     @include colorHelper('txt', $component-txt-variants, $is-descendant: true);
+///   }
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass .h-txt__accent3 {
+///    color: #######
+///  }
+///
+///  .namespace_myClass .h-txt__accent3--light {
+///    color: #######
+///  }
+///
+///  .namespace_myClass .h-txt__accent3--darken {
+///    color: #######
+///  }
+///
+///  $component-bck-variants: (
+///    'accent3': ('base', 'light', 'darken')
+///  );
+///
+///  .namespace_myClass {
+///     @include colorHelper('background', $component-bck-variants, $CSSproperty: 'background-color');
+///   }
+///
+/// @example css - CSS output
+///
+///  .namespace_myClass.h-background__accent3 {
+///    background-color: #######
+///  }
+///
+///  .namespace_myClass.h-background__accent3--light {
+///    background-color: #######
+///  }
+///
+///  .namespace_myClass.h-background__accent3--darken {
+///    background-color: #######
+///  }
+
+@mixin colorHelper($type, $colorMap, $CSSproperty: 'color', $is-descendant: false, $opacity: 1) {
+
+  @each $color-key, $color-variants in $colorMap {
+
+    @if map-has-key($g-framework-colors, $color-key) {
+      $base-color-variants: map-get($g-framework-colors, $color-key);
+
+      // Generate each variant (if valid)
+      @each $variant in $color-variants {
+        @if map-has-key($base-color-variants, $variant) {
+
+          $tmp-selector: '.h-#{$type}__#{$color-key}--#{$variant}';
+          $selector: addParentSelector($tmp-selector, $is-descendant);
+
+          #{$selector} {
+            #{$CSSproperty}: get-color($color-key, $variant, $opacity: $opacity);
+          }
+        }
+      }
+
+    }
+
+  }
+}
+
+///
+/// Generate helper classes for the base colors and their variants contained
+/// within the provided map. By default, the helper's name is 'bck' and the
+/// CSS property used is 'background-color'
+///
+/// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
+/// @link http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $helperName - The name of the helper class
+/// @param {String} $colorMap   - An optional map containing base colors
+///                               and their variants. If Null it generates all
+///                               colors and variants contained inside $g-framework-colors
+/// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
+/// @param {Number} $opacity [1] - Set a custom opacity
+///
+///
+/// @example scss - Usage
+///
+///  $component-bck-variants: (
+///    'accent3': ('base', 'light', 'darken')
+///  );
+///
+///  .myComponent {
+///    @include backgroundVariants($component-bck-variants);
+///    width: 500px;
+///    margin: 10px;
+///  }
+///
+/// @example css - CSS output
+///
+///  .myComponent {
+///    width: 500px;
+///    margin: 10px;
+///  }
+///
+///  .myComponent.h-bck__accent3 {
+///    background-color: #######
+///  }
+///
+///  .myComponent.h-bck__accent3--light {
+///    background-color: #######
+///  }
+///
+///  .myComponent.h-bck__accent3--darken {
+///    background-color: #######
+///  }
+///
+///
+/// @example scss - Usage
+///
+///  $component-bck-variants: (
+///    'accent3': ('base', 'light', 'darken')
+///  );
+///
+///  .myComponent {
+///    @include backgroundVariants($component-bck-variants, $is-descendant: true);
+///    width: 500px;
+///    margin: 10px;
+///  }
+///
+/// @example css - CSS output
+///
+///  .myComponent {
+///    width: 500px;
+///    margin: 10px;
+///  }
+///
+///  .myComponent .h-bck__accent3 {
+///    background-color: #######
+///  }
+///
+///  .myComponent .h-bck__accent3--light {
+///    background-color: #######
+///  }
+///
+///  .myComponent .h-bck__accent3--darken {
+///    background-color: #######
+///  }
+///
+
+@mixin backgroundVariants($colorMap: null, $is-descendant: false, $opacity: 1) {
+  @if ( $colorMap == null ) {
+    @include colorHelpers('bck', $CSSproperty: 'background-color', $is-descendant: $is-descendant, $opacity:$opacity);
+  } @else {
+      @include colorHelper('bck', $colorMap, $CSSproperty: 'background-color', $is-descendant: $is-descendant, $opacity:$opacity);
+  }
+}
+
+///
+/// Generate helper classes for the base colors and their variants contained
+/// within the provided map. By default, the helper's name is 'txt' and the
+/// CSS property used is 'color'
+///
+/// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
+/// @link http://www.sassmeister.com/gist/08edd5072f77749bebca0081201de9a8
+///
+/// @author Gabriele Romeo
+///
+/// @access public
+///
+/// @param {String} $helperName - The name of the helper class
+/// @param {String} $colorMap   - An optional map containing base colors
+///                               and their variants. If Null it generates all
+///                               colors and variants contained inside $g-framework-colors
+/// @param {Boolean} $is-descendant [FALSE] - If TRUE sets the helpers as descendant of the parent class
+/// @param {Number} $opacity [1] - Set a custom opacity
+///
+///
+/// @example scss - Usage
+///
+///  $component-txt-variants: (
+///    'accent3': ('base', 'light', 'darken')
+///  );
+///
+///  .myComponent {
+///    @include textVariants($component-txt-variants);
+///    width: 500px;
+///    margin: 10px;
+///  }
+///
+/// @example css - CSS output
+///
+///  .myComponent {
+///    width: 500px;
+///    margin: 10px;
+///  }
+///
+///  .myComponent.h-txt__accent3 {
+///    color: #######
+///  }
+///
+///  .myComponent.h-txt__accent3--light {
+///    color: #######
+///  }
+///
+///  .myComponent.h-txt__accent3--darken {
+///    color: #######
+///  }
+///
+
+@mixin textVariants($colorMap: null, $is-descendant: false, $opacity: 1) {
+  @if ( $colorMap == null ) {
+    @include colorHelpers('txt', $is-descendant: $is-descendant, $opacity:$opacity);
+  } @else {
+      @include colorHelper('txt', $colorMap, $is-descendant: $is-descendant, $opacity:$opacity);
+  }
+}

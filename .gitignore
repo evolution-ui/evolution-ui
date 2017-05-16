@@ -1,4 +1,12 @@
-# IntelliJ project files
 .idea
-*.iml
-
+.publish
+node_modules
+npm-debug.log
+.sass-cache
+.dev/
+dist
+docs/assets/audio/evolution-ui
+docs/assets/images/evolution-ui
+docs/assets/scripts/evolution-ui
+docs/assets/styles/evolution-ui
+docs/_components

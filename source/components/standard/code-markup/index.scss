@@ -1,0 +1,92 @@
+/******************************************************************************
+                              Code-Markup Config
+******************************************************************************/
+
+$markup-border-radius: 3px;
+$markup-tab-padding: .4375em .625em;
+$markup-tab-margin-right: 10px;
+$markup-container-padding: 10px;
+$markup-border-color: #C3CED9;
+$markup-active-tab-and-container-bg-color: #F2F5FA;
+
+/******************************************************************************
+                              Code-Markup Component
+******************************************************************************/
+
+// @import 'code_markup-config';
+
+@include block('markup') {
+
+  @include element('tabs') {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    color: white(1);
+  }
+
+  @include element('item') {
+    flex: 1 0 auto;
+    z-index: 5;
+    padding: $markup-tab-padding;
+    text-align: center;
+    text-transform: uppercase;
+    border-top: 1px solid $markup-border-color;
+    border-right: 1px solid $markup-border-color;
+    border-left: 1px solid $markup-border-color;
+    border-bottom: 1px solid $markup-border-color;
+    border-top-left-radius: $markup-border-radius;
+    border-top-right-radius: $markup-border-radius;
+    background-color: lighten(get-color('secondary', 'base'), 15%);
+    transition: background .3s ease;
+    &:hover,
+    &:focus {
+      background: get-color('secondary', 'light');
+      cursor: pointer;
+    }
+
+    @include state('active') {
+      border-top: 3px solid get-color('primary', 'base');
+      border-bottom: 0;
+      background-color: $markup-active-tab-and-container-bg-color;
+      color: get-color('primary', 'base'); // lighten(get-color('secondary', 'base'), 15%);
+    }
+
+    @media screen and (min-width: 700px) {
+      margin-right: $markup-tab-margin-right;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include element('container') {
+    position: relative;
+    top: -1px;
+    min-height: 0;
+    border: 1px solid $markup-border-color;
+    border-bottom: none;
+    background-color: $markup-active-tab-and-container-bg-color;
+    transition: min-height .3s ease, padding .3s ease;
+    overflow: hidden;
+    @include state('expanded') {
+      border-bottom: 1px solid $markup-border-color;
+      min-height: 70vh;
+      overflow-x: scroll;
+      overflow-y: scroll;
+    }
+  }
+
+  @include element('content') {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity .3s ease;
+    @include state('active') {
+      opacity: 1;
+    }
+  }
+}
+/** END CODE-MARKUP COMPONENT **/

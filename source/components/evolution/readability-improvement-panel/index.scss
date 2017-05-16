@@ -1,0 +1,169 @@
+/******************************************************************************
+                        Readability Improvement Config
+******************************************************************************/
+
+$baseColorMed: #A06EBD;
+$readabilityContainerColor: #768BA1;
+
+/******************************************************************************
+                        Readability Improvement Component
+******************************************************************************/
+
+// @import 'readability_improvement_panel-config';
+
+
+.evo_c-readabilityDocument {
+  font-size: 100%;
+  -webkit-transition: font-size .2s linear;
+  transition: font-size .2s linear;
+  height: 100%;
+}
+
+.evo_c-readabilityPlaceholder--relative {
+  position: relative;
+  display: inline;
+}
+
+.evo_c-readabilityPlaceholder {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 12px;
+}
+
+.evo_c-readabilityElement {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0;
+  width: 80px;
+  border: none;
+}
+
+.evo_c-readabilityElement * {
+    box-sizing: border-box;
+}
+
+.evo_c-readabilityElement:hover + .evo_c-readabilityElement__toolTip {
+  display: block;
+}
+
+//.evo_c-readabilityElement:focus {
+//  outline: none;
+//  border: none;
+//}
+
+.evo_c-readabilityElement__toggleInput {
+  display: none;
+}
+
+.evo_c-readabilityElement__toggleInput:checked+.evo_c-readabilityElement__label {
+  position: relative;
+  border: solid $baseColorMed;
+  border-width: 5px 5px 5px 45px;
+  background-color: white;
+  transition: border-width .1s linear;
+}
+
+.evo_c-readabilityElement__toggleInput+.evo_c-readabilityElement__label:after {
+  top: 3px;
+  left: 43px;
+  position: absolute;
+  color: white;
+  font-size: 25px;
+}
+
+.evo_c-readabilityElement__toggleInput:checked+.evo_c-readabilityElement__label:before {
+  top: 3px;
+  left: -32px;
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  font-family: "Material Icons";
+}
+
+.evo_c-readabilityElement__toggleInput:checked+.evo_c-readabilityElement__label:after {
+  content: "\2001";
+}
+
+.evo_c-readabilityElement__label {
+  position: relative;
+  display: block;
+//  width: 30px;
+//  height: 30px;
+  height: 40px;
+  border: solid $readabilityContainerColor;
+  border-width: 5px 45px 5px 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-width .1s linear;
+}
+
+.evo_c-readabilityElement__label--invertColors:after {
+  content: "\E0C4";
+}
+
+.evo_c-readabilityElement__toggleInput:checked+.evo_c-readabilityElement__label--invertColors:before {
+  content: "\E891";
+}
+
+.evo_c-readabilityElement__label--grayScale:after {
+  content: "\E3B7";
+}
+
+.evo_c-readabilityElement__toggleInput:checked+.evo_c-readabilityElement__label--grayScale:before {
+  content: "\E3B7";
+}
+
+.evo_c-readabilityElement__label--textSize:after {
+  content: "\E245";
+}
+
+.evo_c-readabilityElement__toggleInput:checked+.evo_c-readabilityElement__label--textSize:before {
+  content: "\E245";
+}
+
+.evo_c-readabilityElement__toolTip--invertColors {
+  left: -19%;
+}
+
+.evo_c-readabilityElement__toolTip--grayScale {
+  left: -9%;
+}
+
+.evo_c-readabilityElement__toolTip--textSize {
+  left: 37%;
+}
+
+.evo_c-readabilityElement__toolTip {
+  position: absolute;
+//  margin: .5em 0;
+  display: none;
+  padding: 5px;
+  background-color: $readabilityContainerColor;
+  color: #1E2226;
+  white-space: nowrap;
+}
+
+.evo_c-readabilityElement__toolTip:after {
+  position: absolute;
+  top: -.5em;
+  right: .25em;
+  border-right: .75em solid transparent;
+  border-bottom: 0.75em solid #768BA1;
+  border-left: .75em solid transparent;
+  content: " ";
+}
+
+.evo_c-readability_Invert {
+  filter: invert(100%);
+}
+
+.evo_c-readability_Grayscale {
+  filter: grayscale(1);
+}
+
+.evo_c-readability_LargerFont {
+  font-size: 125% !important;
+  transition: font-size .1s linear;
+}

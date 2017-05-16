@@ -1,0 +1,160 @@
+
+$c-audio-player: 'audio-player';
+
+$c-audio-player-bck-variants: (
+  'accent': ( 'base', 'dark' ),
+  'accent2': ( 'base', 'dark' ),
+  'accent3': ( 'base', 'dark' ),
+  'accent4': ( 'base', 'dark' ),
+  'primary': ( 'base', 'dark' ),
+  'primary2': ( 'base', 'dark' ),
+  'secondary': ( 'base', 'dark' ),
+  'background': ( 'base', 'dark' )
+);
+
+@include c( $c-audio-player ) {
+  background-color: get-color('secondary', $opacity:.3);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 get-color('background', $opacity:.5);
+  min-width: 300px;
+  padding: 0.625rem 1rem;
+  @include backgroundVariants($c-audio-player-bck-variants);
+
+  @include h( 'txt-light' ) {
+    color: white(.9);
+  }
+  @include h( 'txt-light2' ) {
+    color: white(.6);
+  }
+
+  audio {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: white(.9);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[type="range"] {
+    background-color: transparent;
+    -webkit-appearance: none;
+    width: 100%;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-color: white();
+      border: 1px solid black(.1);
+      border-radius: 0.5625rem;
+      height: 1.125rem;
+      margin-top: -0.425rem;
+      width: 1.125rem;
+    }
+
+    &::-moz-range-thumb {
+      background-color: white(.6);
+      border: 1px solid white(.8);
+      border-radius: 0.5625rem;
+      height: 1.125rem;
+      width: 1.125rem;
+    }
+
+    &::-ms-thumb {
+      background-color: white(.6);
+      border: 1px solid white(.8);
+      border-radius: 0.5625rem;
+      height: 1.125rem;
+      width: 1.125rem;
+    }
+
+    &::-ms-track {
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    &::-webkit-slider-runnable-track {
+      background-color: white(.6);
+      border-radius: 2.5px;
+      cursor: pointer;
+      height: 0.3125rem;
+      width: 100%;
+    }
+
+    &::-moz-range-track {
+      background-color: transparent;
+      background-color: white(.6);
+      border-radius: 2.5px;
+      cursor: pointer;
+      height: 0.3125rem;
+      width: 100%;
+    }
+
+    &::-ms-track {
+      background-color: white(.6);
+      border-radius: 2.5px;
+      cursor: pointer;
+      height: 0.3125rem;
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @include e( 'controls' ) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include e( 'track-time' ) {
+    color: white(.9);
+    font-weight: bold;
+  }
+
+  @include e( 'track-volume' ) {
+    text-align: center;
+
+    input[type="range"] {
+      display: none;
+    }
+
+    .su_icon {
+
+      i {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  @include e( 'track' ) {
+    display: flex;
+    flex-basis: 70%;
+    align-items: center;
+
+    input[type="range"] {
+      flex-basis: 85%;
+    }
+
+    button {
+      flex-basis: 15%;
+      vertical-align: bottom;
+
+      i {
+        vertical-align: middle;
+        line-height: 27px;
+      }
+    }
+  }
+}

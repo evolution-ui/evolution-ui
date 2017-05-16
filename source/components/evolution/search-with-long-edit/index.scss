@@ -1,0 +1,218 @@
+/******************************************************************************
+                        Search With Long Edit Config
+******************************************************************************/
+
+//////VARIABLES////////
+
+$c-search-with-long-edit: 'search-with-long-edit';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700|Roboto+Mono');
+
+$roboto:'Roboto', serif;
+$open-sans:'Open Sans', sans-serif;
+
+// Font Variables - find related in _mixins
+$headerFont: 'Roboto', serif;
+$fontMono:"Roboto Mono", monospace;
+$fontContent: 'Open Sans', sans-serif;
+
+$weightRegular:400;
+$weightBold:700;
+$fontSmall:.8em;
+$fontMed:1.5em;
+$fontLarge:2em;
+
+$baseColorDark: #C31F5D;
+$baseColorMed: #EA1B64;
+$baseColorLight: #EF4381;
+$baseColorAlt: #CF477C; // USED FOR FORM TEXT INPUT BACKGROUND COLOR
+$defaultColor: #202020; // MAIN TEXT COLOR, PICKED FROM BLACK BUTTON IN BUTTON GROUPS
+$defaultColorLight:#6D6D6D;
+$invertDefaultColor:#FFFFFF;
+$altColor: #BDBDBD; // SUB TEXT COLOR, PICKED FROM GRAY 'DISABLED' BUTTON IN BUTTON GROUPS
+$altColorTransparent:rgba( $altColor, .6 );
+//Transition Variables
+
+$transitionFast: .2s;
+$transitionMed: .4s;
+$transitionSlow: .8s;
+
+//Div Shape Variables
+
+$borderRoundedSoft:3px;
+$borderRoundedHard:20px;
+$borderThin:1px solid;
+$borderDefault:2px solid;
+$borderThick:3px solid;
+
+//Box Model Variables -- find related in _mixins
+
+$baseMargin:20px;
+$basePadding:10px;
+
+
+/////MIXINS//////
+
+@mixin fontContent(){
+  font-family:$fontContent;
+  font-weight:$weightRegular;
+}
+
+
+@mixin componentBoxSmall(){
+  margin:$baseMargin/4;
+  padding:$basePadding/4;
+}
+
+@mixin componentBoxLarge(){
+  margin:$baseMargin;
+  padding:$basePadding;
+}
+
+//Link Mixins
+
+@mixin lovehate($self: false) { //Link Visited Hover Active
+  @if $self {
+    &{    //usage @include lovehate{} OR @include lovehate{$self:true}
+      text-decoration: none;
+    };
+    &,
+    &:visited,
+    &:hover,
+    &:active {
+      @content;
+    }
+  } @else {
+    &:visited,
+    &:hover,
+    &:active {
+      @content;
+    }
+  }
+}
+
+
+////PLACEHOLDERS////
+%button{
+  border-radius: $borderRoundedSoft;
+  cursor:pointer;
+  display: inline-block;
+  position: relative;
+  @include componentBoxLarge;
+  @include lovehate{$self:true}
+  transition:$transitionFast background-color;
+  white-space: nowrap;
+}
+
+/******************************************************************************
+                        Search With Long Edit Component
+******************************************************************************/
+
+// @import '_search_with_long_edit-config.scss';
+
+
+//////SEARCH WITH LONG EDIT////////
+
+
+.evo_c-searchBar__searchEditor{
+  background-color:#ffffff;
+  border:1px solid $altColor;
+  border-radius: $borderRoundedSoft;
+  display:none;
+  font-family: $fontMono;
+  //left:15px;
+  //font-size:1em;
+  max-width:400px;
+  min-width:300px;
+  outline:none;
+  padding:10px;
+  position:absolute;
+  top:60px;
+  z-index:100;
+}
+
+.evo_c-searchBar__searchInput--longSearchInput{
+  font-family: $fontMono !important;
+}
+
+.evo_c-searchBar__searchEditorControl{
+  visibility: hidden;
+  &:checked + .evo_c-searchBar__searchEditor{
+    display:block;
+  }
+}
+
+.evo_c-searchBar__searchEditorControlLabel{
+  visibility: hidden;
+}
+
+.evo_c-searchBar__expand{
+  color:#56C5DE;
+  margin-right:3px;
+  padding:0;
+  visibility: hidden;
+}
+
+//Base Search Bar Styles//
+
+.evo_c-searchBar {
+  @include componentBoxSmall();
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.evo_c-searchBar--withSearchIndication{
+  height: 150px;
+  margin: 20px inherit;
+  z-index: 10;
+}
+
+.evo_c-searchBar__searchingToggle{
+  display:none;
+}
+
+.evo_c-searchBar__searchInput{
+  @include fontContent();
+  font-size: 1.2rem;
+  height: 2.3rem;
+  border-radius: 0;
+  padding: 0.1rem 0.3rem;
+  margin: 0;
+  border: none;
+  border-bottom: 2px solid  #56C5DE;
+  cursor: pointer;
+}
+
+.evo_c-searchBar__searchInput:focus {
+  outline: none !important;
+  //border-bottom: 2px dashed $baseColorLight;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.evo_c-searchBar__searchButton {
+  @extend %button;
+  border:$borderDefault #56C5DE;
+  background-color: #56C5DE;
+  color:$invertDefaultColor;
+  //height: 2.3rem;
+  margin: 0;
+  border-radius: 0 $borderRoundedSoft $borderRoundedSoft 0;
+  display: flex;
+  align-items: center;
+  &:hover{
+    background-color: #56C5DE;
+  }
+  &:active{
+    background-color: #56C5DE;
+  }
+}
+
+.evo_c-searchBar__searchButton > i{
+  margin-right: 0.3rem;
+  color: $invertDefaultColor;
+}

@@ -1,0 +1,104 @@
+.maintainer-page {
+  min-height: 350px;
+  width: 90%;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+
+  .evo_c-ikon__member {
+    flex-basis: 6em;
+    height: 6em;
+    width: 6em;
+    margin: 2em;
+    background: #768ba1;
+
+    &:hover > .evo_c-ikon__member-name,
+    &--is-hovered:hover > .evo_c-ikon__member-name {
+      border: 2px solid white;
+    }
+
+    &:hover > .evo_c-ikon__member-info,
+    &--is-hovered:hover > .evo_c-ikon__member-info {
+      z-index: 21;
+    }
+  }
+
+  .evo_c-ikon__member-name {
+    border: 2px solid map-get($site-colors, primary);
+  }
+
+  .evo_c-ikon__member-info {
+    width: 25em;
+    height: 25em;
+    background: #6fcde4;
+    box-shadow: 0 0 10px 0 rgba(158, 157, 157, 0.50);
+
+    @media (max-width: 480px) {
+      width: 22em;
+      height: 22em;
+    }
+
+    &--leftmost {
+      @media (max-width: 620px) {
+        left: -3.5em;
+      }
+    }
+
+    &--rightmost {
+      @media (max-width: 620px) {
+        right: -3.5em;
+      }
+    }
+  }
+
+  .evo_c-ikon__member-name-text {
+    color: #05313c;
+    position: relative;
+    top: 7em;
+    z-index: 0;
+    transition: all .2s;
+    margin: 1em auto;
+    font-size: .8em;
+    width: 100%;
+  }
+
+  .evo_c-ikon__member-details {
+    padding: 1.5em 1.2em;
+  }
+
+  .evo_c-ikon__member-description {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .evo_c-ikon__member-location {
+    flex: 1;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .evo_c-ikon__member-about {
+    flex: 2;
+    font-size: 1em;
+    padding: 0 1em;
+    text-align: center;
+  }
+
+  .fa-map-marker {
+    font-size: 1.8em;
+    color: darken(map-get($site-colors, secondary), 20%);
+    display: block;
+    margin-bottom: 0.3em;
+  }
+
+  .evo_c-ikon__member:last-child .evo_c-ikon__member-info .evo_c-ikon__member-pic-image {
+    object-position: 50% 20%;
+  }
+
+  .evo_c-ikon__member:first-child .evo_c-ikon__member-info .evo_c-ikon__member-pic-image {
+    object-position: 50% 10%;
+  }
+}
+

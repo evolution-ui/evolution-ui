@@ -1,0 +1,36 @@
+/******************************************************************************
+                          Scrollspy Config
+******************************************************************************/
+
+/******************************************************************************
+                          Scrollspy Component
+******************************************************************************/
+
+.evo_c-scrollspy {
+  background-color: white();
+  height: 16px;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+}
+
+.evo_c-scrollspy__indicator {
+  background-color: get-color();
+  position: relative;
+  width: 0;
+  height: 16px;
+
+  &:after {
+    border-left: 8px solid get-color();
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    content: '';
+    height: 16px;
+    left: 100%;
+    position: absolute;
+    top: 0;
+  }
+}

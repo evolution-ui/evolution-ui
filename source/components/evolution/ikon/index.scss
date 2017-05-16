@@ -1,0 +1,259 @@
+/******************************************************************************
+                              Ikon Config
+******************************************************************************/
+
+$c-ikon-name: 'ikon';
+
+$c-ikon-regular-color: get-color('accent2', 'dark');
+$c-ikon-github-color: #333;
+$c-ikon-linkedin-color: #0077b5;
+$c-ikon-facebook-color: #3b5998;
+$c-ikon-twitter-color: #1da1f2;
+
+/******************************************************************************
+                              Ikon Component
+******************************************************************************/
+
+// @import "ikon-config";
+
+@include component($c-ikon-name) {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.1rem;
+  text-align: center;
+
+  @media (max-width: 550px) {
+    font-size: 1.0rem;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.9rem;
+  }
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+  @include element('member') {
+    position: relative;
+    flex-basis: 5.5em;
+    width: 5.5em;
+    height: 5.5em;
+    margin: 1em;
+    background: get-color('secondary');
+    border-radius: 50%;
+
+    @media (max-width: 550px) {
+      margin: 0.5em;
+    }
+
+    $ref-c-ikon-member-name: getBEMReference($c-ikon-name, 'member-name');
+    $ref-c-ikon-member-info: getBEMReference($c-ikon-name, 'member-info');
+
+    &:hover > .#{$ref-c-ikon-member-name},
+    &--is-hovered:hover > .#{$ref-c-ikon-member-name} {
+      z-index: 30;
+    }
+
+    &:hover > .#{$ref-c-ikon-member-info},
+    &--is-hovered:hover > .#{$ref-c-ikon-member-info} {
+      opacity: 1;
+      z-index: 20;
+      pointer-events: inherit;
+    }
+
+    @media (max-width: 550px) {
+      &:hover > .#{$ref-c-ikon-member-name} {
+        z-index: 10;
+      }
+
+      &--is-hovered:hover > .#{$ref-c-ikon-member-name} {
+        z-index: 30;
+      }
+
+      &:hover > .#{$ref-c-ikon-member-info} {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &--is-hovered:hover > .#{$ref-c-ikon-member-info} {
+        opacity: 1;
+        z-index: 20;
+        pointer-events: inherit;
+      }
+    }
+  }
+
+  @include element('member-name') {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0.8em;
+    font-size: .8em;
+    color: white();
+    line-height: 1.3;
+    background: get-color('secondary');
+    border-radius: inherit;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  @include element('member-info') {
+    position: absolute;
+    top: -9em;
+    left: -9em;
+    display: flex;
+    flex-direction: column;
+    width: 23em;
+    height: 24em;
+    opacity: 0;
+    background: tint(get-color('secondary', 'light'), 25%);
+    transition: opacity 0.5s cubic-bezier(.19, 1.0, .22, 1.0);
+    pointer-events: none;
+
+    @media (max-width: 480px) {
+      width: 21em;
+      height: 22em;
+      top: -8em;
+      left: -8em;
+    }
+
+    @include modifier('leftmost') {
+      left: -1.2em;
+      right: auto;
+
+      @media (max-width: 480px) {
+        left: -3.5em;
+      }
+
+    }
+
+    @include modifier('rightmost') {
+      right: -1.2em;
+      left: auto;
+
+      @media (max-width: 480px) {
+        right: -3.5em;
+      }
+    }
+  }
+
+  // Fixme: When switching this function to new `element()` function
+  // this throws an error.  Looks like a context issue
+  @include element('info-close-btn') {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1em;
+    width: 1em;
+    font-size: 2em;
+    font-weight: 300;
+    color: get-color('background', 'dark');
+    background: white(0.5);
+    visibility: hidden;
+    cursor: pointer;
+
+    @media (max-width: 770px) {
+      visibility: visible;
+    }
+  }
+
+  @include element('member-pic') {
+    flex: 1;
+    max-height: 50%;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include element('member-details') {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 50%;
+    padding: 1.5em;
+    font-size: 0.8em;
+
+    @media (max-width: 480px) {
+      justify-content: flex-end;
+    }
+  }
+
+  @include element('member-social-links') {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+  }
+
+  @include element('social-link') {
+    margin: 1em 0.5em;
+    color: $c-ikon-regular-color;
+
+    &:hover, &:visited {
+      color: $c-ikon-regular-color;
+    }
+
+    @media (max-width: 480px) {
+      margin: 0 0.5em;
+    }
+
+    i {
+      vertical-align: top;
+    }
+
+    @include modifier('facebook') {
+      color: $c-ikon-facebook-color;
+
+      &:hover, &:visited {
+        color: $c-ikon-facebook-color;
+      }
+    }
+
+    @include modifier('github') {
+      color: $c-ikon-github-color;
+
+      &:hover, &:visited {
+        color: $c-ikon-github-color;
+      }
+    }
+
+    @include modifier('linkedin') {
+      color: $c-ikon-linkedin-color;
+
+      &:hover, &:visited {
+        color: $c-ikon-linkedin-color;
+      }
+    }
+
+    @include modifier('twitter') {
+      color: $c-ikon-twitter-color;
+
+      &:hover, &:visited {
+        color: $c-ikon-twitter-color;
+      }
+    }
+  }
+
+  @include element('member-about') {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+}

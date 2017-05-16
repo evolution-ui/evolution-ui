@@ -1,0 +1,104 @@
+/******************************************************************************
+                        Dot Validator Config
+******************************************************************************/
+
+//----------------------------------------------------------------
+//                    Super-Easy Component config
+//----------------------------------------------------------------
+
+// The component's name - not mandatory but highly recommended
+$c-dotValidator: 'dotValidator';
+
+// Components variables
+
+// adjust this value for how you want component to be displayed at smaller screens
+$c-dotValidator-width: 95%;
+
+
+// change this value to adjust width of component
+$c-dotValidator-max-width: 220px;
+
+//  change this value to adjust the height of carousel
+$c-dotValidator-max-height: 60px;
+
+/******************************************************************************
+                        Dot Validator Component
+******************************************************************************/
+
+*[class^=”evo-c-dotValidator”] {
+    box-sizing: border-box;
+}
+
+/*Input Container*/
+
+.evo-c-dotValidator-container {
+    background-color: #ECEFF3;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 60px;
+    max-width: 100%;
+    position: relative;
+    width: 220px;
+}
+
+/*Descriptions: ex: "Phone Number (US)*/
+
+.evo-c-dotValidator-label {
+    color: #9CABBA;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    padding: 10px;
+    position: absolute;
+}
+
+
+/*Style the input boxes*/
+
+.evo-c-dotValidator-input {
+    background-color: #ECEFF3;
+    border: none;
+    color: #212121;
+    font-family: 'Roboto', sans-serif;
+    padding: 32px 10px 10px 10px;
+    width: 100%;
+}
+
+
+/*Add focus transition for input boxes*/
+
+.evo-c-dotValidator-input:focus {
+    border: 2px solid #51D0EF;
+    transition: .8s ease-in;
+    outline: none;
+}
+
+
+/*style the validation dot*/
+
+.evo-c-validation-dot {
+    background-color: #EDBE69;
+    border-radius: 20px;
+    height: 6px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 6px;
+}
+
+
+/*Change container values for Age Box*/
+
+.evo-c-dotValidator-container-age {
+    font-size: 16px;
+    width: 80px;
+}
+
+.evo-c-dotValidator-age-inactive {
+    background-color: lightslategray;
+    opacity: 0.48;
+    border-bottom: 2px solid #212121;
+}
+
+.evo-c-dotValidator-age-inactive + .evo-c-validation-dot {
+  background-color: #777;
+}
