@@ -1,8 +1,4 @@
-dist
-node_modules
-css/main.css
-css/main.css.map
-.sass-cache
-prod/main.min.js
-prod/main.css
-prod/main.css.map
+# IntelliJ project files
+.idea
+*.iml
+
