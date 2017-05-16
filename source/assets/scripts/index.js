@@ -1,4 +1,5 @@
 import documentReady from './libs/document-ready';
+import preventDefault from './libs/prevent-default';
 
 /* Standard Components */
 import audioPlayer from '../../components/standard/audio-player';
@@ -73,5 +74,9 @@ documentReady(
   minimalistForm,
   svgPagination,
   // text2Speech,
-  versatileTable
+  versatileTable,
+
+
+  // always keep as last call
+  preventDefault
 );
