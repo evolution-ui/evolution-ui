@@ -334,16 +334,21 @@
 /// @return {value}
 ///
 
-@function pow( $base, $exp ) {
-  $result: 1;
+@function pow($base, $exp) {
 
-  @if ( $exp > 0 ) {
+  $value: 1;
+
+  @if $exp > 0 {
     @for $i from 1 through $exp {
-      $result: $result * $base;
+      $value: $value * $base;
     }
   }
-
-  @return $result;
+  @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
 }
 
 
