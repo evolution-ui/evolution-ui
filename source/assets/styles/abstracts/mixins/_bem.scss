@@ -46,7 +46,7 @@ $g-bem-suffix: '\\@' !default;
 /// @type string
 ///
 /// More about namespaces
-/// @url https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+/// @link https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
 ///
 $g-bem-namespaces: (
   'component': 'c',
@@ -302,17 +302,6 @@ $u_bem-context: () !global;
 /// the parent block
 ///
 ///
-/// - Calling the `get-bem-selector()` function without any argument, it returns
-///   a reference to the current *context* - parent block.
-/// - By providing an `element` argument, it returns a reference to the nested
-///   element within the current context.
-/// - By providing a `modifier` argument, it returns a reference to the intended
-///   modifier of the current context.
-/// - By providing both an `element` and a `modifier`, it returns a reference to
-//    the intended nested element having the provided modifier.
-/// - By providing a `suffix`, it returns a reference to the intended
-///   block[__element|--modifier] followed by the default suffix namespace
-///
 /// @author Gabriele Romeo
 ///
 /// @access public
@@ -322,9 +311,7 @@ $u_bem-context: () !global;
 /// @param {String} $suffix   [null] - An optional suffix's name
 ///
 ///
-/// @example Let's imagine we have a block element called `car` that has two
-///          modifiers called `ferrari` and `lamborghini` and which contains a
-///          `wheel` element with two modifiers called `runflat` and `all-weather`
+/// @example Let us imagine we have a block element called `car` that has two modifiers called `ferrari` and `lamborghini` and which contains a `wheel` element with two modifiers called `runflat` and `all-weather`
 ///
 ///  The structure is:
 ///
@@ -560,7 +547,7 @@ $u_bem-context: () !global;
 ///
 /// @access public
 ///
-/// @alias block($name, $type: 'object')
+/// @alias block
 
 @mixin object($name) {
   @include block($name, 'object') {
@@ -575,7 +562,7 @@ $u_bem-context: () !global;
 ///
 /// @access public
 ///
-/// @alias block($name, $type: 'component')
+/// @alias block
 
 @mixin component($name) {
   @include block($name, 'component') {
@@ -590,7 +577,7 @@ $u_bem-context: () !global;
 ///
 /// @access public
 ///
-/// @alias block($name, $type: 'layout')
+/// @alias block
 @mixin layout($name) {
   @include block($name, 'layout') {
     @content;

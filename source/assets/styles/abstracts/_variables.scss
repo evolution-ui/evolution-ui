@@ -25,43 +25,50 @@ $g-no-prefix: false;
 // -----------------------------------------------------------------------------
 
 ///
-/// Represents the base font-family used by the Evolution framework
+/// Represents the base font-family used by the Evolution framework.
+/// You can exploit it in your components
 /// @access public
 /// @type String
 $g-framework-font-family: 'Roboto', sans-serif;
 
 ///
-/// Represents the base font size used by the Evolution framework
+/// Represents the base font size used by the Evolution framework.
+/// You can exploit it in your components
 /// @access public
 /// @type Number
 $g-framework-base-font-size:    16px;
 
 ///
-/// Represents the line-height ratio used by the Evolution framework
+/// Represents the line-height ratio used by the Evolution framework.
+/// You can exploit it in your components
 /// @access public
 /// @type Number
 $g-framework-line-height-ratio: 1.5;
 
 ///
-/// Represents the base line-height used by the Evolution framework
+/// Represents the base line-height used by the Evolution framework.
+/// You can exploit it in your components
 /// @access public
 /// @type Number
 $g-framework-line-height-base:  1rem * $g-framework-line-height-ratio;
 
 ///
-/// Represents the base font-weight used by the Evolution framework
+/// Represents the base font-weight used by the Evolution framework.
+/// You can exploit it in your components
 /// @access public
 /// @type Number
 $g-framework-font-weight: 400;
 
 ///
-/// Represents the global letter spacing value used by the Evolution framework
+/// Represents the global letter spacing value used by the Evolution framework.
+/// You can exploit it in your components
 /// @access public
 /// @type Number
 $g-letter-spacing: 0.03em;
 
 ///
-/// Represents the value of the global vertical rhythm by the Evolution framework
+/// Represents the value of the global vertical rhythm by the Evolution framework.
+/// You can exploit it in your components
 /// @access public
 /// @type Number
 $g-vertical-rhythm: 1rem;
@@ -181,17 +188,18 @@ $g-heading-xx-small-font-size: _rem(_pow($_tp-scl, -2) * $g-framework-base-font-
 /// @type Color
 $g-heading-margin: ($g-framework-line-height-base * 2) 0 ($g-framework-line-height-base);
 
-///@debug '#{$g-heading-xx-large-font-size}';
-///@debug '#{$g-heading-x-large-font-size}';
-///@debug '#{$g-heading-1-font-size}';
-///@debug '#{$g-heading-2-font-size}';
-///@debug '#{$g-heading-3-font-size}';
-///@debug '#{$g-heading-4-font-size}';
-///@debug '#{$g-heading-5-font-size}';
-///@debug '#{$g-heading-6-font-size}';
-///@debug '#{$g-heading-x-small-font-size}';
-///@debug '#{$g-heading-xx-small-font-size}';
-///@debug '#{$g-heading-margin}';
+
+//@debug '#{$g-heading-xx-large-font-size}';
+//@debug '#{$g-heading-x-large-font-size}';
+//@debug '#{$g-heading-1-font-size}';
+//@debug '#{$g-heading-2-font-size}';
+//@debug '#{$g-heading-3-font-size}';
+//@debug '#{$g-heading-4-font-size}';
+//@debug '#{$g-heading-5-font-size}';
+//@debug '#{$g-heading-6-font-size}';
+//@debug '#{$g-heading-x-small-font-size}';
+//@debug '#{$g-heading-xx-small-font-size}';
+//@debug '#{$g-heading-margin}';
 
 // -----------------------------------------------------------------------------
 //                               COLORS PALETTE
@@ -221,12 +229,12 @@ $g-heading-margin: ($g-framework-line-height-base * 2) 0 ($g-framework-line-heig
 }
 
 ///
-/// Represents the base colors palette used by the Evolution framework
-/// It is the main map used by the get-color function
-///
+/// Represents the base colors palette used by the Evolution framework.
+/// You can exploit it in your components.
+/// Using the `get-color function you can extract a particular variant of a color
 /// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
 ///
-/// @access private
+/// @access public
 /// @type MAP
 
 $g-framework-colors: (
@@ -294,7 +302,8 @@ $_accent-4-Conf: map-get($g-framework-colors, accent4);
 $_backgroundConf: map-get($g-framework-colors, background);
 
 ///
-/// Represents the primary color defined by the Evolution's Color Scheme
+/// Represents the primary color defined by the Evolution's Color Scheme.
+/// You can use it in your components
 /// @access public
 /// @type Color
 $g-color-primary: map-get($_primaryConf, base) !default;
@@ -308,27 +317,28 @@ $g-color-primary-as-background: map-get($_primaryConf, background) !default;
 
 ///
 /// Represents the light variation of the base primary color defined by the
-/// Evolution's Color Scheme
+/// Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-primary-light: map-get($_primaryConf, light) !default;
 
 ///
 /// Represents a dark variation of the base primary color defined by the
-/// Evolution's Color Scheme
+/// Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-primary-dark: map-get($_primaryConf, dark) !default;
 
 ///
 /// Represents a darker variation of the base primary color defined by the
-/// Evolution's Color Scheme
+/// Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-primary-darker: map-get($_primaryConf, darken) !default;
 
 ///
-/// Represents the secondary color defined by the Evolution's Color Scheme
+/// Represents the secondary color defined by the Evolution's Color Scheme.
+//  You can use it in your components
 /// @access public
 /// @type Color
 $g-color-secondary: map-get($_secondaryConf, base) !default;
@@ -343,27 +353,28 @@ $g-color-secondary-as-background: map-get($_secondaryConf, background) !default;
 
 ///
 /// Represents the light variation of the secondary color defined by the
-/// Evolution's Color Scheme
+/// Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-secondary-light: map-get($_secondaryConf, light) !default;
 
 ///
 /// Represents a dark variation of the secondary color defined by the
-/// Evolution's Color Scheme
+/// Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-secondary-dark: map-get($_secondaryConf, dark) !default;
 
 ///
 /// Represents a darker variation of the secondary color defined by the
-/// Evolution's Color Scheme
+/// Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-secondary-darker: map-get($_secondaryConf, darken) !default;
 
 ///
-/// Represents the first accent color defined by the Evolution's Color Scheme
+/// Represents the first accent color defined by the Evolution's Color Scheme.
+/// You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-1: map-get($_accent-1-Conf, base) !default;
@@ -377,27 +388,28 @@ $g-color-accent-1-as-background: map-get($_accent-1-Conf, background) !default;
 
 ///
 /// Represents the light variation of the first accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-1-light: map-get($_accent-1-Conf, light) !default;
 
 ///
 /// Represents a dark variation of the first accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-1-dark: map-get($_accent-1-Conf, dark) !default;
 
 ///
 /// Represents a darker variation of the first accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-1-darker: map-get($_accent-1-Conf, darken) !default;
 
 ///
-/// Represents the second accent color defined by the Evolution's Color Scheme
+/// Represents the second accent color defined by the Evolution's Color Scheme.
+/// You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-2: map-get($_accent-2-Conf, base) !default;
@@ -412,27 +424,28 @@ $g-color-accent-2-as-background: map-get($_accent-2-Conf, background) !default;
 
 ///
 /// Represents the light variation of the second accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-2-light: map-get($_accent-2-Conf, light) !default;
 
 ///
 /// Represents a dark variation of the second accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-2-dark: map-get($_accent-2-Conf, dark) !default;
 
 ///
 /// Represents a darker variation of the second accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-2-darker: map-get($_accent-2-Conf, darken) !default;
 
 ///
-/// Represents the third accent color defined by the Evolution's Color Scheme
+/// Represents the third accent color defined by the Evolution's Color Scheme.
+/// You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-3: map-get($_accent-3-Conf, base) !default;
@@ -440,27 +453,28 @@ $g-color-accent-3: map-get($_accent-3-Conf, base) !default;
 
 ///
 /// Represents the light variation of the third accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-3-light: map-get($_accent-3-Conf, light) !default;
 
 ///
 /// Represents a dark variation of the third accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-3-dark: map-get($_accent-3-Conf, dark) !default;
 
 ///
 /// Represents a darker variation of the third accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-3-darker: map-get($_accent-3-Conf, darken) !default;
 
 ///
-/// Represents the fourth accent color defined by the Evolution's Color Scheme
+/// Represents the fourth accent color defined by the Evolution's Color Scheme.
+/// You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-4: map-get($_accent-4-Conf, base) !default;
@@ -475,41 +489,42 @@ $g-color-accent-4-as-background: map-get($_accent-4-Conf, background) !default;
 
 ///
 /// Represents the variation of the fourth accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-4-light: map-get($_accent-4-Conf, light) !default;
 
 ///
 /// Represents a dark variation of the fourth accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-4-dark: map-get($_accent-4-Conf, dark) !default;
 
 ///
 /// Represents a darker variation of the fourth accent color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-accent-4-darker: map-get($_accent-4-Conf, darken) !default;
 
 ///
-/// Represents the background color defined by the Evolution's Color Scheme
+/// Represents the background color defined by the Evolution's Color Scheme.
+/// You can use it in your components
 /// @access public
 /// @type Color
 $g-color-background: map-get($_backgroundConf, base) !default;
 
 ///
 /// Represents the light variation of the background color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-background-light: map-get($_backgroundConf, light) !default;
 
 ///
 /// Represents a dark variation of the background color defined
-/// by the Evolution's Color Scheme
+/// by the Evolution's Color Scheme. You can use it in your components
 /// @access public
 /// @type Color
 $g-color-background-dark: map-get($_backgroundConf, dark) !default;
