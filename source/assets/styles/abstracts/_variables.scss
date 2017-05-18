@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 ///
-/// Represents the framework's name and the prefix of each component
+/// Representss the framework's name and the prefix of each component
 /// @access public
 /// @type String
 $g-framework-name: 'evo' !default;
@@ -25,34 +25,173 @@ $g-no-prefix: false;
 // -----------------------------------------------------------------------------
 
 ///
-/// Represent the base font-family used by the Evolution framework
-/// @access private
+/// Represents the base font-family used by the Evolution framework
+/// @access public
 /// @type String
 $g-framework-font-family: 'Roboto', sans-serif;
 
 ///
-/// Represent the base font size used by the Evolution framework
-/// @access private
+/// Represents the base font size used by the Evolution framework
+/// @access public
 /// @type Number
 $g-framework-base-font-size:    16px;
 
 ///
-/// Represent the line-height ratio used by the Evolution framework
-/// @access private
+/// Represents the line-height ratio used by the Evolution framework
+/// @access public
 /// @type Number
 $g-framework-line-height-ratio: 1.5;
 
 ///
-/// Represent the base line-height used by the Evolution framework
-/// @access private
+/// Represents the base line-height used by the Evolution framework
+/// @access public
 /// @type Number
 $g-framework-line-height-base:  1rem * $g-framework-line-height-ratio;
 
 ///
-/// Represent the base font-weight used by the Evolution framework
-/// @access private
+/// Represents the base font-weight used by the Evolution framework
+/// @access public
 /// @type Number
 $g-framework-font-weight: 400;
+
+///
+/// Represents the global letter spacing value used by the Evolution framework
+/// @access public
+/// @type Number
+$g-letter-spacing: 0.03em;
+
+///
+/// Represents the value of the global vertical rhythm by the Evolution framework
+/// @access public
+/// @type Number
+$g-vertical-rhythm: 1rem;
+
+//
+// Utility function used to calculate the font scale below
+//
+@function _pow($base, $exp) {
+  $value: 1;
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
+      $value: $value * $base;
+    }
+  }
+  @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
+}
+
+//
+// Utility function used to calculate the font scale below
+//
+@function _rem($size) {
+  $remSize: $size / $g-framework-base-font-size;
+  @return #{$remSize}rem;
+}
+
+///
+/// Represents the modular scale for headings
+///
+/// @access public
+/// @type MAP
+
+$g-framework-scales: (
+  minor-second:     1.067,
+  major-second:     1.125,
+  minor-third:      1.200,
+  major-third:      1.250,
+  perfect-fourth:   1.333,
+  augmented-fourth: 1.414,
+  perfect-fift:     1.5,
+  golden-ratio:     1.618
+);
+
+$_tp-scl: map-get($g-framework-scales, 'major-third');
+
+///
+/// Represents the extra extra large heading defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-xx-large-font-size: _rem(_pow($_tp-scl, 7) * $g-framework-base-font-size);
+
+///
+/// Represents the extra large heading defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-x-large-font-size: _rem(_pow($_tp-scl, 6) * $g-framework-base-font-size);
+
+///
+/// Represents the heading (H1) defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-1-font-size: _rem(_pow($_tp-scl, 5) * $g-framework-base-font-size);
+
+///
+/// Represents the heading (H2) defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-2-font-size: _rem(_pow($_tp-scl, 4) * $g-framework-base-font-size);
+
+///
+/// Represents the heading (H3) defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-3-font-size: _rem(_pow($_tp-scl, 3) * $g-framework-base-font-size);
+
+
+///
+/// Represents the heading (H4) defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-4-font-size: _rem(_pow($_tp-scl, 2) * $g-framework-base-font-size);
+
+
+///
+/// Represents the heading (H5) defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-5-font-size: _rem(_pow($_tp-scl, 1) * $g-framework-base-font-size);
+
+
+///
+/// Represents the heading (H6) defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-6-font-size: _rem(_pow($_tp-scl, 0) * $g-framework-base-font-size);
+
+///
+/// Represents the x small defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-x-small-font-size: _rem(_pow($_tp-scl, -1) * $g-framework-base-font-size);
+
+///
+/// Represents the x small defined within Evolution UI
+/// @access public
+/// @type Color
+$g-heading-xx-small-font-size: _rem(_pow($_tp-scl, -2) * $g-framework-base-font-size);
+
+///
+/// Represents the heading's margins (top and bottom) defined by Evolution UI
+/// for maintaining a good vertical rhythm
+/// @access public
+/// @type Color
+$g-heading-margin: ($g-framework-line-height-base * 2) 0 ($g-framework-line-height-base);
+
+///@debug '#{$g-heading-xx-large-font-size}';
+///@debug '#{$g-heading-x-large-font-size}';
+///@debug '#{$g-heading-1-font-size}';
+///@debug '#{$g-heading-2-font-size}';
+///@debug '#{$g-heading-3-font-size}';
+///@debug '#{$g-heading-4-font-size}';
+///@debug '#{$g-heading-5-font-size}';
+///@debug '#{$g-heading-6-font-size}';
+///@debug '#{$g-heading-x-small-font-size}';
+///@debug '#{$g-heading-xx-small-font-size}';
+///@debug '#{$g-heading-margin}';
 
 // -----------------------------------------------------------------------------
 //                               COLORS PALETTE
@@ -82,62 +221,310 @@ $g-framework-font-weight: 400;
 }
 
 ///
-/// Represent the base colors palette used by the Evolution framework
+/// Represents the base colors palette used by the Evolution framework
 /// It is the main map used by the get-color function
 ///
 /// @link http://codepen.io/DrLeleMeo/full/oZdMQa/ - Evolution UI colors palette
 ///
 /// @access private
 /// @type MAP
+
 $g-framework-colors: (
   'primary': (
-    'base': #56C5DE,
-    'light': tint(#56C5DE, 15%),
-    'dark': shade(#56C5DE, 15%),
-    'darken': shade(#56C5DE, 25%)
+    'base': #56c5de,
+    'background': tint(#56c5de, 25%),
+    'light': tint(#56c5de, 15%),
+    'dark': shade(#56c5de, 15%),
+    'darken': shade(#56c5de, 25%)
   ),
   'primary2': (
-    'base': #6C8CD7,
-    'light': tint(#6C8CD7, 15%),
-    'dark': shade(#6C8CD7, 15%),
-    'darken': shade(#6C8CD7, 25%)
+    'base': #6c8cd7,
+    'background': tint(#6c8cd7, 25%),
+    'light': tint(#6c8cd7, 15%),
+    'dark': shade(#6c8cd7, 15%),
+    'darken': shade(#6c8cd7, 25%)
   ),
   'accent': (
-    'base': #A06EBD,
-    'light': tint(#A06EBD, 15%),
-    'dark': shade(#A06EBD, 15%),
-    'darken': shade(#A06EBD, 25%)
+    'base': #a06ebd,
+    'background': tint(#a06ebd, 25%),
+    'light': tint(#a06ebd, 15%),
+    'dark': shade(#a06ebd, 15%),
+    'darken': shade(#a06ebd, 25%)
   ),
   'accent2': (
-    'base': #E57B7B,
-    'light': tint(#E57B7B, 15%),
-    'dark': shade(#E57B7B, 15%),
-    'darken': shade(#E57B7B, 25%)
+    'base': #e57b7b,
+    'background': tint(#e57b7b, 25%),
+    'light': tint(#e57b7b, 15%),
+    'dark': shade(#e57b7b, 15%),
+    'darken': shade(#e57b7b, 25%)
   ),
   'accent3': (
-    'base': #E189B9,
-    'light': tint(#E189B9, 15%),
-    'dark': shade(#E189B9, 15%),
-    'darken': shade(#E189B9, 25%)
+    'base': #ff9948,
+    'light': tint(#ff9948, 15%),
+    'dark': shade(#ff9948, 15%),
+    'darken': shade(#ff9948, 25%)
   ),
   'accent4': (
-    'base': #80D26B,
-    'light': tint(#80D26B, 20%),
-    'dark': shade(#80D26B, 15%),
-    'darken': shade(#80D26B, 25%)
+    'base': #80d26b,
+    'background': tint(#80d26b, 25%),
+    'light': tint(#80d26b, 20%),
+    'dark': shade(#80d26b, 15%),
+    'darken': shade(#80d26b, 25%)
   ),
   'secondary': (
-    'base': #768BA1,
-    'light': tint(#768BA1, 15%),
-    'dark': shade(#768BA1, 15%),
-    'darken': shade(#768BA1, 25%)
+    'base': #768ba1,
+    'background': tint(#768ba1, 25%),
+    'light': tint(#768ba1, 15%),
+    'dark': shade(#768ba1, 15%),
+    'darken': shade(#768ba1, 25%)
   ),
   'background': (
-    'base': #1E2226,
-    'light': tint(#1E2226, 15%),
-    'dark': shade(#1E2226, 15%)
+    'base': #1e2226,
+    'light': tint(#1e2226, 15%),
+    'dark': shade(#1e2226, 15%)
   )
 );
+
+$_primaryConf: map-get($g-framework-colors, primary);
+$_secondaryConf: map-get($g-framework-colors, secondary);
+$_accent-1-Conf: map-get($g-framework-colors, accent);
+$_accent-2-Conf: map-get($g-framework-colors, accent2);
+$_accent-3-Conf: map-get($g-framework-colors, accent3);
+$_accent-4-Conf: map-get($g-framework-colors, accent4);
+$_backgroundConf: map-get($g-framework-colors, background);
+
+///
+/// Represents the primary color defined by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-primary: map-get($_primaryConf, base) !default;
+
+///
+/// Represents a color variation of the base primary color that can be used as
+//  background color
+/// @access public
+/// @type Color
+$g-color-primary-as-background: map-get($_primaryConf, background) !default;
+
+///
+/// Represents the light variation of the base primary color defined by the
+/// Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-primary-light: map-get($_primaryConf, light) !default;
+
+///
+/// Represents a dark variation of the base primary color defined by the
+/// Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-primary-dark: map-get($_primaryConf, dark) !default;
+
+///
+/// Represents a darker variation of the base primary color defined by the
+/// Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-primary-darker: map-get($_primaryConf, darken) !default;
+
+///
+/// Represents the secondary color defined by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-secondary: map-get($_secondaryConf, base) !default;
+
+///
+/// Represents a color variation of the secondary color that can be used as
+//  background color
+/// @access public
+/// @type Color
+$g-color-secondary-as-background: map-get($_secondaryConf, background) !default;
+
+
+///
+/// Represents the light variation of the secondary color defined by the
+/// Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-secondary-light: map-get($_secondaryConf, light) !default;
+
+///
+/// Represents a dark variation of the secondary color defined by the
+/// Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-secondary-dark: map-get($_secondaryConf, dark) !default;
+
+///
+/// Represents a darker variation of the secondary color defined by the
+/// Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-secondary-darker: map-get($_secondaryConf, darken) !default;
+
+///
+/// Represents the first accent color defined by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-1: map-get($_accent-1-Conf, base) !default;
+
+///
+/// Represents a color variation of the first accent color that can be used as
+//  background color
+/// @access public
+/// @type Color
+$g-color-accent-1-as-background: map-get($_accent-1-Conf, background) !default;
+
+///
+/// Represents the light variation of the first accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-1-light: map-get($_accent-1-Conf, light) !default;
+
+///
+/// Represents a dark variation of the first accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-1-dark: map-get($_accent-1-Conf, dark) !default;
+
+///
+/// Represents a darker variation of the first accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-1-darker: map-get($_accent-1-Conf, darken) !default;
+
+///
+/// Represents the second accent color defined by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-2: map-get($_accent-2-Conf, base) !default;
+
+///
+/// Represents a color variation of the second accent color that can be used as
+//  background color
+/// @access public
+/// @type Color
+$g-color-accent-2-as-background: map-get($_accent-2-Conf, background) !default;
+
+
+///
+/// Represents the light variation of the second accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-2-light: map-get($_accent-2-Conf, light) !default;
+
+///
+/// Represents a dark variation of the second accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-2-dark: map-get($_accent-2-Conf, dark) !default;
+
+///
+/// Represents a darker variation of the second accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-2-darker: map-get($_accent-2-Conf, darken) !default;
+
+///
+/// Represents the third accent color defined by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-3: map-get($_accent-3-Conf, base) !default;
+
+
+///
+/// Represents the light variation of the third accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-3-light: map-get($_accent-3-Conf, light) !default;
+
+///
+/// Represents a dark variation of the third accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-3-dark: map-get($_accent-3-Conf, dark) !default;
+
+///
+/// Represents a darker variation of the third accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-3-darker: map-get($_accent-3-Conf, darken) !default;
+
+///
+/// Represents the fourth accent color defined by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-4: map-get($_accent-4-Conf, base) !default;
+
+///
+/// Represents a color variation of the fourth accent color that can be used as
+//  background color
+/// @access public
+/// @type Color
+$g-color-accent-4-as-background: map-get($_accent-4-Conf, background) !default;
+
+
+///
+/// Represents the variation of the fourth accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-4-light: map-get($_accent-4-Conf, light) !default;
+
+///
+/// Represents a dark variation of the fourth accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-4-dark: map-get($_accent-4-Conf, dark) !default;
+
+///
+/// Represents a darker variation of the fourth accent color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-accent-4-darker: map-get($_accent-4-Conf, darken) !default;
+
+///
+/// Represents the background color defined by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-background: map-get($_backgroundConf, base) !default;
+
+///
+/// Represents the light variation of the background color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-background-light: map-get($_backgroundConf, light) !default;
+
+///
+/// Represents a dark variation of the background color defined
+/// by the Evolution's Color Scheme
+/// @access public
+/// @type Color
+$g-color-background-dark: map-get($_backgroundConf, dark) !default;
+
+///
+/// Represents the primary color for links
+/// @access public
+/// @type Color
+$g-link-color: $g-color-accent-3;
+
+///
+/// Represents the primary color for links on hover
+/// @access public
+/// @type Color
+$g-link-color-hover: darken($g-link-color, 15%);
 
 ///
 /// Helper that can be used within the get-color function
@@ -153,4 +540,8 @@ $g-framework-colors-opacity: (
 //                               BORDERS
 // -----------------------------------------------------------------------------
 
+///
+/// Represents the default border radius for the Evolution's components
+/// @access public
+/// @type Value
 $g-framework-borders-radius: 4px;
