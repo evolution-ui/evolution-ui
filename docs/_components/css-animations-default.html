@@ -1,0 +1,580 @@
+---
+title: "Default"
+description:
+  <p>
+    Evolution UI provides useful CSS animations for your projects.
+  </p>
+  <p>
+    Using the helper class <code>.evo_h-anim--[animation name]</code> your can
+    add the intended animation to your elements.
+  </p>
+author: Gabriele Romeo
+type: CSS animations
+no_markup: true
+order: 1
+---
+
+
+<style>
+  .css_showcase_table td code { margin-left: 30px; }
+
+  .animation__wrapper {
+    width: 100%;
+    -webkit-perspective: 800;
+    -moz-perspective: 800;
+    -ms-perspective: 800;
+    perspective: 800;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .animation__box {
+    position: relative;
+    width: inherit;
+    max-width: 320px;
+    height: 400px;
+    margin: 0 auto;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.2);
+  }
+
+  .animation__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Century Gothic', sans-serif;
+    color: #fff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .animation_txt {
+    padding: 10px;
+    text-shadow: 0 1px 6px rgba(0,0,0,.5);
+    background-color: rgb(154, 205, 50);
+    border-radius: 20px;
+  }
+  .animation__face--front {
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: -webkit-linear-gradient(-45deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), -webkit-linear-gradient(-135deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), -webkit-linear-gradient(-225deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), -webkit-linear-gradient(45deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), rgb(3, 97, 160);
+    background: -moz-linear-gradient(135deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), -moz-linear-gradient(225deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), -moz-linear-gradient(315deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), -moz-linear-gradient(45deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), rgba(3,97,160,1);
+    background: linear-gradient(135deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), linear-gradient(225deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), linear-gradient(315deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), linear-gradient(45deg, rgb(236,237,220) 25%, rgba(0,0,0,0) 25%), rgb(108, 110, 189);
+    background-position: -50px 0, -50px 0, 0 0, 0 0;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-size: 100px 100px;
+    background-size: 100px 100px;
+  }
+  .animation__face--back {
+    background-color: rgb(64, 67, 71);
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+
+  @media screen and (min-width: 750px) {
+    .animation__wrapper {
+      margin-bottom: 3rem;
+    }
+  }
+
+ </style>
+
+
+<div class="evo_c-tab evo_c-tab--scroll-from-left h-border--light evo_c-tab--lateral h-nav--right" id="evo_showcase_animations">
+
+  <nav class="evo_c-tab__navigation" role="tablist">
+    <ul class="evo_c-tab__list h-animation--zoom">
+      <li class="evo_c-tab__item is-active" aria-controls="panel-anim-1" role="tab">
+        <a class="evo_c-tab__link" href="#panel-anim-1">Fade In</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-anim-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-anim-2">Fade Out</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-anim-3" role="tab">
+        <a class="evo_c-tab__link" href="#panel-anim-3">Scale</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-anim-4" role="tab">
+        <a class="evo_c-tab__link" href="#panel-anim-4">Zoom</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-anim-5" role="tab">
+        <a class="evo_c-tab__link" href="#panel-anim-5">Rotate</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-anim-6" role="tab">
+        <a class="evo_c-tab__link" href="#panel-anim-6">Flip</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="evo_c-tab__panel is-active" id="panel-anim-1">
+    <h2 class="evo_c-typo__h1">Fade In</h2>
+    <div class="evo_c-form evo_c-form--card">
+      <div class="evo_c-form__body">
+
+        <div class="evo_c-form__field">
+
+          <div class="animation__wrapper">
+            <div class="animation__box">
+              <div class="animation__face animation__face--front">
+                <p class="animation_txt evo_c-typo__x-large">Evo</p>
+              </div>
+              <div class="animation__face animation__face--back">
+                <p class="animation__txt evo_c-typo__x-large">UI</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="evo_c-form__field">
+          <span class="evo_c-form__dropdown evo_c-form__dropdown--white">
+            <select class="evo_c-form__select">
+              <option value=".evo_h-anim--fadeIn">.evo_h-anim--fadeIn</option>
+              <option value=".evo_h-anim--fadeInLeft">.evo_h-anim--fadeInLeft</option>
+              <option value=".evo_h-anim--fadeInRight">.evo_h-anim--fadeInRight</option>
+              <option value=".evo_h-anim--fadeInDown">.evo_h-anim--fadeInDown</option>
+            </select>
+          </span>
+        </div>
+
+        <div class="evo_c-form__field">
+          <input class="evo_c-form__button h-bck--background evo_c-form__button--huge"
+                 type="submit"
+                 value="Preview Effect">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-anim-2">
+    <h2 class="evo_c-typo__h1">Fade Out</h2>
+    <div class="evo_c-form evo_c-form--card">
+      <div class="evo_c-form__body">
+
+        <div class="evo_c-form__field">
+
+          <div class="animation__wrapper">
+            <div class="animation__box">
+              <div class="animation__face animation__face--front">
+                <p class="animation_txt evo_c-typo__x-large">Evo</p>
+              </div>
+              <div class="animation__face animation__face--back">
+                <p class="animation_txt evo_c-typo__x-large">UI</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="evo_c-form__field">
+          <span class="evo_c-form__dropdown evo_c-form__dropdown--white">
+              <select class="evo_c-form__select">
+                  <option>.evo_h-anim--fadeOut</option>
+                  <option>.evo_h-anim--fadeOutLeft</option>
+                  <option>.evo_h-anim--fadeOutRight</option>
+                  <option>.evo_h-anim--fadeOutDown</option>
+              </select>
+          </span>
+        </div>
+
+        <div class="evo_c-form__field">
+          <input class="evo_c-form__button h-bck--background evo_c-form__button--huge"
+                 type="submit"
+                 value="Preview Effect">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-anim-3">
+    <h2 class="evo_c-typo__h1">Scale</h2>
+      <div class="evo_c-form evo_c-form--card">
+        <div class="evo_c-form__body">
+
+          <div class="evo_c-form__field">
+
+            <div class="animation__wrapper">
+              <div class="animation__box">
+                <div class="animation__face animation__face--front">
+                  <p class="animation_txt evo_c-typo__x-large">Evo</p>
+                </div>
+                <div class="animation__face animation__face--back">
+                  <p class="animation_txt evo_c-typo__x-large">UI</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="evo_c-form__field">
+            <span class="evo_c-form__dropdown evo_c-form__dropdown--white">
+                <select class="evo_c-form__select">
+                  <option>.evo_h-anim--grow-center</option>
+                  <option>.evo_h-anim--grow-from-top</option>
+                  <option>.evo_h-anim--grow-from-right</option>
+                  <option>.evo_h-anim--grow-from-bottom</option>
+                  <option>.evo_h-anim--grow-from-left</option>
+                  <option>.evo_h-anim--grow-from-bottom-left</option>
+                  <option>.evo_h-anim--grow-from-bottom-right</option>
+                  <option>.evo_h-anim--grow-vertical-center</option>
+                  <option>.evo_h-anim--grow-vertical-bottom</option>
+                </select>
+            </span>
+          </div>
+
+          <div class="evo_c-form__field">
+            <input class="evo_c-form__button h-bck--background evo_c-form__button--huge"
+                   type="submit"
+                   value="Preview Effect">
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-anim-4">
+    <h2 class="evo_c-typo__h1">Zoom</h2>
+      <div class="evo_c-form evo_c-form--card">
+        <div class="evo_c-form__body">
+
+          <div class="evo_c-form__field">
+
+            <div class="animation__wrapper">
+              <div class="animation__box">
+                <div class="animation__face animation__face--front">
+                  <p class="animation_txt evo_c-typo__x-large">Evo</p>
+                </div>
+                <div class="animation__face animation__face--back">
+                  <p class="animation_txt evo_c-typo__x-large">UI</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="evo_c-form__field">
+            <span class="evo_c-form__dropdown evo_c-form__dropdown--white">
+                <select class="evo_c-form__select">
+                  <option>.evo_h-anim--zoomIn</option>
+                  <option>.evo_h-anim--zoomOut</option>
+                </select>
+            </span>
+          </div>
+
+          <div class="evo_c-form__field">
+            <input class="evo_c-form__button h-bck--background evo_c-form__button--huge"
+                   type="submit"
+                   value="Preview Effect">
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-anim-5">
+    <h2 class="evo_c-typo__h1">Rotate</h2>
+      <div class="evo_c-form evo_c-form--card">
+        <div class="evo_c-form__body">
+
+          <div class="evo_c-form__field">
+
+            <div class="animation__wrapper">
+              <div class="animation__box">
+                <div class="animation__face animation__face--front">
+                  <p class="animation_txt evo_c-typo__x-large">Evo</p>
+                </div>
+                <div class="animation__face animation__face--back">
+                  <p class="animation_txt evo_c-typo__x-large">UI</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="evo_c-form__field">
+            <span class="evo_c-form__dropdown evo_c-form__dropdown--white">
+                <select class="evo_c-form__select">
+                  <option>.evo_h-anim--rotateIn</option>
+                  <option>.evo_h-anim--rotateInCC</option>
+                  <option>.evo_h-anim--rotateOut</option>
+                  <option>.evo_h-anim--rotateOutCC</option>
+                  <option>.evo_h-anim--rotate-from-center</option>
+                  <option>.evo_h-anim--rotate-from-centerCC</option>
+                  <option>.evo_h-anim--rotate-upside-down</option>
+                  <option>.evo_h-anim--rotate-upside-downCC</option>
+                  <option>.evo_h-anim--rotate-all-upside-down</option>
+                  <option>.evo_h-anim--rotate-all-upside-downCC</option>
+                  <option>.evo_h-anim--rotate-vertical-center</option>
+                  <option>.evo_h-anim--rotate-vertical-centerCC</option>
+                </select>
+            </span>
+          </div>
+
+          <div class="evo_c-form__field">
+            <input class="evo_c-form__button h-bck--background evo_c-form__button--huge"
+                   type="submit"
+                   value="Preview Effect">
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-anim-6">
+    <h2 class="evo_c-typo__h1">Flip</h2>
+      <div class="evo_c-form evo_c-form--card">
+        <div class="evo_c-form__body">
+
+          <div class="evo_c-form__field">
+
+            <div class="animation__wrapper">
+              <div class="animation__box">
+                <div class="animation__face animation__face--front">
+                  <p class="animation_txt evo_c-typo__x-large">Evo</p>
+                </div>
+                <div class="animation__face animation__face--back">
+                  <p class="animation_txt evo_c-typo__x-large">UI</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="evo_c-form__field">
+            <span class="evo_c-form__dropdown evo_c-form__dropdown--white">
+              <select class="evo_c-form__select">
+                <option>.evo_h-anim--flip-horiz-bottom</option>
+                <option>.evo_h-anim--flip-horiz-top</option>
+                <option>.evo_h-anim--flip-horiz-zoom-out</option>
+                <option>.evo_h-anim--flip-horiz-zoom-in</option>
+                <option>.evo_h-anim--flip-vert-left</option>
+                <option>.evo_h-anim--flip-vert-right</option>
+                <option>.evo_h-anim--flip-scale-up-horiz</option>
+                <option>.evo_h-anim--flip-scale-down-horiz</option>
+              </select>
+            </span>
+          </div>
+
+          <div class="evo_c-form__field">
+            <input class="evo_c-form__button h-bck--background evo_c-form__button--huge"
+                   type="submit"
+                   value="Preview Effect">
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+</div>
+
+<div style="position: relative;">
+
+  <h2 class="evo_c-typo__h1 evo_h-txt--capitalize">CSS Animations</h2>
+
+  <table class="css_showcase_table">
+    <thead>
+      <tr>
+        <th class="evo_h-txt--font-family evo_h-txt--center"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="su_primary-bg-light" colspan="2">
+          <h3 class="evo_c-typo__h3">Fade In</h3>
+        </td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--fadeIn</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--fadeInLeft</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--fadeInRight</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--fadeInDown</code></td>
+      </tr>
+      <tr>
+        <td class="su_primary-bg-light" colspan="2">
+          <h3 class="evo_c-typo__h3">Fade Out</h3>
+        </td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--fadeOut</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--fadeOutLeft</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--fadeOutRight</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--fadeOutDown</code></td>
+      </tr>
+      <tr>
+        <td class="su_primary-bg-light" colspan="2">
+          <h3 class="evo_c-typo__h3">Scale</h3>
+        </td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-center</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-from-top</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-from-right</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-from-bottom</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-from-left</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-from-bottom-left</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-from-bottom-right</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-vertical-center</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-vertical-top</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--grow-vertical-bottom</code></td>
+      </tr>
+      <tr>
+        <td class="su_primary-bg-light" colspan="2">
+          <h3 class="evo_c-typo__h3">Zoom</h3>
+        </td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--zoomIn</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--zoomOut</code></td>
+      </tr>
+      <tr>
+        <td class="su_primary-bg-light" colspan="2">
+          <h3 class="evo_c-typo__h3">Rotate</h3>
+        </td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotateIn</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotateInCC</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotateOut</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotateOutCC</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotate-from-center</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotate-from-centerCC</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotate-upside-down</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotate-upside-downCC</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotate-all-upside-down</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotate-all-upside-downCC</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotate-vertical-center</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--rotate-vertical-centerCC</code></td>
+      </tr>
+      <tr>
+        <td class="su_primary-bg-light" colspan="2">
+          <h3 class="evo_c-typo__h3">Flip</h3>
+        </td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flip-horiz-bottom</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flip-horiz-top</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flip-horiz-zoom-out</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flip-horiz-zoom-in</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flip-vert-left</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flip-vert-right</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flip-scale-up-horiz</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flip-scale-down-horiz</code></td>
+      </tr>
+      <tr>
+        <td class="su_primary-bg-light" colspan="2">
+          <h3 class="evo_c-typo__h3">Others</h3>
+        </td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--flash</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--pulse</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--shake</code></td>
+      </tr>
+      <tr>
+        <td><code>.evo_h-anim--shakeUpDown</code></td>
+      </tr>
+      <tr>
+        <td class="evo_h-txt--font-family" colspan="2">
+          <p><h3>Important Note</h3></p>
+          <p>
+            All animations' attributes can be manipulated through
+            a <code>data-[CSS animation property]</code> attribute.
+          </p>
+          <p>Evolution UI will add automatically all prefixes for you (if necessary).</p>
+          <p>For Example:</p>
+          <p>
+            <code>
+              &lt;button class="evo_h-anim--fadeIn" data-animation-duration="5s"&gt;Test&lt;/button&gt;
+            </code>
+          </p>
+          <p>
+            <code>
+              &lt;img src=".." class="evo_h-anim--fadeIn" data-animation-timing-function="ease-out"&gt;
+            </code>
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
