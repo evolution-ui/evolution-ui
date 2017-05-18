@@ -142,7 +142,8 @@ A typical workflow would look something like this:
     npm start
     ```
 
-3. You can view any single component in the browser by visiting the following URL pattern: `http://localhost:300/[evolution|standard]/[component-name]/[variant-name].html`
+3. You can view any single component in the browser by visiting the following
+ URL pattern: `http://localhost:3000/[evolution|standard]/[component-name]/[variant-name].html`
 
 4. Do work!
 
