@@ -11,30 +11,27 @@ $(window).load(function() {
     //console.log(document.body.scrollTop);
     if(document.body.scrollTop > 0) {
         smoothScroll(1000, 0, 0);
-        //console.log("Scrolling to top.");
     }
-    // smoothScroll(1000, 0, 0);
 
     window.addEventListener("resize", function() {
-        smoothScroll(100, 0, 0);
+        if(window.innerWidth > 959) {
+            smoothScroll(100, 0, 0);
+        }
     });
 
     //get layer heights
     var firstLayerHeight = getFirstLayerHeight() + 100;
-    //console.log("First layer: ", firstLayerHeight);
+    console.log("First layer: ", firstLayerHeight);
     var lastLayerHeight = getLastLayerHeight();
-    //console.log("Last layer: ", lastLayerHeight);
+    console.log("Last layer: ", lastLayerHeight);
 
     var largestLayerHeight = Math.max(parseInt(firstLayerHeight), parseInt(lastLayerHeight));
     //console.log(largestLayerHeight);
     $('.evo_c_multiLayers_container')[0].style.maxHeight = (largestLayerHeight * 1.005) + "px";
 
     $('.evo_c_multiLayers_container')[0].style.height = lastLayerHeight + 100 + "px";
-    // $('.site-main')[0].style.height = lastLayerHeight + 200 + "px";
-   // console.log("Container height: ", $('.evo_c_multiLayers_container')[0].style.height);
 
     //create a layer/height object
-
     var layerHeights =
     [{
         name: "evolution",
