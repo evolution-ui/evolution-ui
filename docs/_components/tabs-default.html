@@ -1,0 +1,69 @@
+---
+title: "Default"
+description: |
+  <p>
+    In Evolution UI, tabs are wrapped by the <code>evo_c-tab</code> container
+    and are accessible to people with disabilities.
+  </p>
+  <p>
+    Use the <code>LEFT/RIGHT</code> and <code>UP/DOWN</code> arrows on your
+    keyboard for navigate through the active tab.
+  </p>
+  <p>
+    A tab contains a navigation list and a list of items.
+  </p>
+author: Gabriele Romeo
+category: standard
+type: Standard Tabs
+order: 1
+---
+
+
+<div class="evo_c-tab">
+
+  <nav class="evo_c-tab__navigation" role="tablist">
+    <ul class="evo_c-tab__list">
+      <li class="evo_c-tab__item is-active" aria-controls="panel-1-1" role="tab">
+        <a class="evo_c-tab__link" href="#panel-1-1">Tab 1</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-1-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-1-2">Tab 2</a>
+      </li>
+      <li class="evo_c-tab__item" aria-controls="panel-1-2" role="tab">
+        <a class="evo_c-tab__link" href="#panel-1-3">Tab 3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="evo_c-tab__panel is-active" id="panel-1-1" aria-labelledby="tab1" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 1</h2>
+    <p>
+      Lorem ipsum Anim enim dolore occaecat cupidatat laborum dolore eu
+      Excepteur amet laboris amet aliqua ut quis cupidatat et id in nisi
+      officia occaecat fugiat deserunt aliquip in ut pariatur ad dolore
+      aliquip aute et est voluptate.
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-1-2" aria-labelledby="tab2" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 2</h2>
+    <p>
+      Lorem ipsum Anim enim dolore occaecat cupidatat laborum dolore eu
+      Excepteur amet laboris amet aliqua ut quis cupidatat et id in nisi
+      officia occaecat fugiat deserunt aliquip in ut pariatur ad dolore
+      aliquip aute et est voluptate.
+    </p>
+  </div>
+
+  <div class="evo_c-tab__panel" id="panel-1-3" aria-labelledby="tab3" role="tabpanel">
+    <h2 class="evo_c-typo__h2">Tab 3</h2>
+    <p>
+      Lorem ipsum Anim enim dolore occaecat cupidatat laborum dolore eu
+      Excepteur amet laboris amet aliqua ut quis cupidatat et id in nisi
+      officia occaecat fugiat deserunt aliquip in ut pariatur ad dolore
+      aliquip aute et est voluptate.
+    </p>
+  </div>
+
+</div>
+
