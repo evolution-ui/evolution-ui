@@ -51,6 +51,7 @@
     "gulp-watch": "^4.3.11",
     "husky": "^0.13.3",
     "run-sequence": "^1.2.2",
+    "sassdoc": "^2.2.2",
     "semantic-release": "^6.3.2",
     "validate-commit-message": "^3.0.1",
     "webpack": "^2.4.1",
