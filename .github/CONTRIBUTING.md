@@ -416,10 +416,11 @@ Evolution UI contains a list predefined *mixins* and *functions* which speed up 
 To see them, type in your favorite shell or command line the following command:
 
 ```shell
-~ $ npm run sassdoc
+~ $ npm start
 ```
 
-This will open up your predefined browser and show you the Evolution UI documentation for Sass.
+Then go to the following URL: `http://localhost:3000/sassdoc/`
+
 
 ### Let's code with SASS
 
