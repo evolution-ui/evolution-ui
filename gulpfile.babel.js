@@ -8,6 +8,7 @@ import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
+import sassdoc from 'sassdoc';
 import del from 'del';
 import path from 'path';
 import runSequence from 'run-sequence';
@@ -26,6 +27,7 @@ const config = {
   sourceComponents: 'source/components',
   dev: '.dev',
   devAssets: '.dev/assets',
+  devSassdoc: '.dev/sassdoc',
   dist: 'dist',
   docs: 'docs',
   docsAssets: 'docs/assets',
@@ -69,6 +71,7 @@ gulp.task('serve', ['build'], () => {
   gulp.watch([`${config.sourceAssets}/scripts/**/*.js`, `${config.sourceComponents}/**/*.js`], ['scripts']);
   gulp.watch(`${config.devAssets}/scripts/*.js`).on('change', browserSync.reload);
   gulp.watch(`${config.sourceComponents}/**/*.html`, ['html', browserSync.reload]);
+  gulp.watch(`${config.sourceAssets}/styles/**/*.scss`, ['sassdoc', browserSync.reload]);
   if (config.env.docs) {
     gulp.watch([
       `!${config.docsSite}/**/*`,
@@ -93,7 +96,8 @@ gulp.task('build', callback => {
     'clean',
     [
       'scripts',
-      'styles'
+      'styles',
+      'sassdoc'
     ],
     [
       'html',
@@ -144,6 +148,13 @@ gulp.task('scripts:lint', () => {
     .pipe(plugins.eslint.format())
     .pipe(plugins.eslint.failAfterError());
 });
+
+// Sassdoc
+gulp.task('sassdoc', () => {
+  return gulp.src(['**/*.scss', '!**/main.scss'], {cwd: `${config.sourceAssets}/styles/` })
+      .pipe(sassdoc({dest: `${config.devSassdoc}`}));
+});
+
 
 // Styles
 // Compile Sass and copy/paste results to the correct location(s)
