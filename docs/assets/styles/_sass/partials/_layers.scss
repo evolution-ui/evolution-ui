@@ -34,8 +34,6 @@
 .evo_c_multiLayers_container section.selected-layer {
   border: none;
 
-
-
   @media screen and (max-width: $site-breakpoint-md) {
     width: 93%;
   }
@@ -50,12 +48,12 @@
 
   .evo_c_multiLayer_header {
     margin: -45px 0 20px;
-    color: rgb(200, 197, 197);
+    //color: rgb(200, 197, 197);
     transition-timing-function: cubic-bezier(0.950, 0.050, 0.795, 0.035);
-    transition: font-size 0.2s, color 0.2s;
+    transition: font-size 0.6s, color 0.6s;
 
     @media screen and (max-width: $site-breakpoint-md) {
-      font-size: 1.1em;
+      //font-size: 1.1em;
     }
   }
 }

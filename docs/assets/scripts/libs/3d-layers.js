@@ -50,12 +50,13 @@ $(window).load(function () {
 
     $layers.on('click', function (event) {
 
-      setTimeout(function () {
-        event.preventDefault();
+      event.preventDefault();
+
         var $clickedLayer = $(this);
         var clickedLayerID = $clickedLayer.data('layer-id');
 
         //switch classes
+      setTimeout(function () {
         $layers.removeClass('selected-layer');
         $clickedLayer.addClass('selected-layer');
 
@@ -219,11 +220,12 @@ $(window).load(function () {
           updateLastLayerTopPosition();
           updateSelectedLayerTopPosition();
           sortTempLayerBasedOnTopPositions(tempLayerPositions);
-          highLightClickedLayerHeader();
+          // highLightClickedLayerHeader();
 
           if (clickedLayerPositionInArray == 0) {
             setTimeout(function () {
               hideUnselectedLayer();
+              highLightClickedLayerHeader();
             }, 100);
             setTimeout(function () {
               resetUnselectedLayersZIndex();
