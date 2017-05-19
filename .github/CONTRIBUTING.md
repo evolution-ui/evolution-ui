@@ -438,7 +438,7 @@ Take a look at the following usage examples:
 
 * [Evolution UI - color palette](http://www.sassmeister.com/gist/d384a2c6746a3c4045b49512e6795aa6)
 
-For a complete list of these utilities, take a look at the internal sassdoc. Type in your shell the command: `npm run sassdoc`
+For a complete list of these utilities, take a look at the internal [sassdoc](#sassdoc).
 
 ---------------------------
 
