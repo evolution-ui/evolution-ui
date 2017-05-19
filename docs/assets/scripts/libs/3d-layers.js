@@ -21,7 +21,7 @@ $(window).load(function () {
 
 
     //get layer heights
-    var firstLayerHeight = getFirstLayerHeight() + 100;
+    var firstLayerHeight = getFirstLayerHeight() + 275;
     var lastLayerHeight = getLastLayerHeight();
 
     var largestLayerHeight = Math.max(parseInt(firstLayerHeight), parseInt(lastLayerHeight));
