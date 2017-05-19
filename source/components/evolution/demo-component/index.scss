@@ -1,0 +1,83 @@
+/******************************************************************************
+                              Demo component
+******************************************************************************/
+
+/* Demo Component Configuration */
+
+$component-name: 'demo-help';
+
+/* End config */
+
+@include block($component-name){
+  display: inline-flex;
+  position: relative;
+  @include element('content'){
+    border: 1px solid get-color('secondary', 'base', 1);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    display: inline-block;
+    position: absolute;
+    left: 25px;
+    max-width: 300px;
+    min-width: 200px;
+    padding: 0 0.5em;
+  }
+
+  @include element('message'){
+    margin-top: 0.5em;
+    width: auto;
+    opacity: 1;
+    transition: opacity 0.5s;
+    text-align: center;
+  }
+
+  @include element('message-icon'){
+    font-size: 1em;
+    color: get-color('primary2', 'base', 1);
+    &:hover{
+      cursor: pointer;
+      color: get-color('accent3', 'base', 1);
+    }
+  }
+
+  @include element('controls'){
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  @include element('button'){
+    padding: 0.3em;
+    border: none;
+    color: #fff;
+    &:hover{
+      cursor: pointer;
+    }
+    &:active{
+      outline: none;
+    }
+  }
+}
+
+/*helpers */
+
+@include h('bg-accent2', false) {
+  background-color: get-color('accent2', 'base', 1);
+}
+
+@include h('bg-primary2', false) {
+  background-color: get-color('primary2', 'base', 1);
+}
+
+/*States*/
+
+.is-hidden{
+  visibility: hidden;
+}
+
+.is-visible{
+  visibility: visible;
+}
+

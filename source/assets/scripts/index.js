@@ -17,6 +17,7 @@ import twoDLayers from '../../components/evolution/2d-layers';
 import {layerAnimations, layerDragAndDrop} from '../../components/evolution/3d-layers';
 import bookmarklet from '../../components/evolution/bookmarklet';
 import crumble from '../../components/evolution/crumble';
+import demoComponent from '../../components/evolution/demo-component';
 import dotValidator from '../../components/evolution/dot-validator';
 import dropNavigationCarousel from '../../components/evolution/drop-navigation-carousel';
 import fadeLinesOnScroll from '../../components/evolution/fade-lines-on-scroll';
@@ -53,6 +54,7 @@ documentReady(
   twoDLayers,
   bookmarklet,
   crumble,
+  demoComponent,
   dotValidator,
   dropNavigationCarousel,
   fadeLinesOnScroll,
