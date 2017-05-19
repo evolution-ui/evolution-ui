@@ -26,9 +26,9 @@
   .evo_c-audio-player.h-bck__accent2--dark {
     background-color: #c36969; }
   .evo_c-audio-player.h-bck__accent3--base {
-    background-color: #e189b9; }
+    background-color: #ff9948; }
   .evo_c-audio-player.h-bck__accent3--dark {
-    background-color: #bf749d; }
+    background-color: #d9823d; }
   .evo_c-audio-player.h-bck__accent4--base {
     background-color: #80d26b; }
   .evo_c-audio-player.h-bck__accent4--dark {
@@ -210,9 +210,9 @@
   .evo_c-card.h-bck__accent2--dark {
     background-color: #c36969; }
   .evo_c-card.h-bck__accent3--base {
-    background-color: #e189b9; }
+    background-color: #ff9948; }
   .evo_c-card.h-bck__accent3--dark {
-    background-color: #bf749d; }
+    background-color: #d9823d; }
   .evo_c-card.h-bck__accent4--base {
     background-color: #80d26b; }
   .evo_c-card.h-bck__accent4--dark {
@@ -1433,7 +1433,7 @@ li > .evo_c-ulist {
     .evo_c-list-group__label.h-bck__accent2--base {
       background-color: #e57b7b; }
     .evo_c-list-group__label.h-bck__accent3--base {
-      background-color: #e189b9; }
+      background-color: #ff9948; }
     .evo_c-list-group__label.h-bck__accent4--base {
       background-color: #80d26b; }
     .evo_c-list-group__label.h-bck__primary--base {
@@ -1453,7 +1453,7 @@ li > .evo_c-ulist {
     .evo_c-list-group a.evo_c-list-group__item.h-bck__accent2--base {
       background-color: #e57b7b; }
     .evo_c-list-group a.evo_c-list-group__item.h-bck__accent3--base {
-      background-color: #e189b9; }
+      background-color: #ff9948; }
     .evo_c-list-group a.evo_c-list-group__item.h-bck__accent4--base {
       background-color: #80d26b; }
     .evo_c-list-group a.evo_c-list-group__item.h-bck__primary--base {
@@ -1779,6 +1779,8 @@ a.evo_c-modal-trigger {
   box-sizing: content-box; }
   .evo_c-progress-bar.h-bck__primary {
     background-color: rgba(86, 197, 222, 0.44); }
+  .evo_c-progress-bar.h-bck__primary--background {
+    background-color: rgba(128, 212, 230, 0.44); }
   .evo_c-progress-bar.h-bck__primary--light {
     background-color: rgba(111, 206, 227, 0.44); }
   .evo_c-progress-bar.h-bck__primary--dark {
@@ -1787,6 +1789,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(65, 148, 167, 0.44); }
   .evo_c-progress-bar.h-bck__primary2 {
     background-color: rgba(108, 140, 215, 0.44); }
+  .evo_c-progress-bar.h-bck__primary2--background {
+    background-color: rgba(145, 169, 225, 0.44); }
   .evo_c-progress-bar.h-bck__primary2--light {
     background-color: rgba(130, 157, 221, 0.44); }
   .evo_c-progress-bar.h-bck__primary2--dark {
@@ -1795,6 +1799,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(81, 105, 161, 0.44); }
   .evo_c-progress-bar.h-bck__accent {
     background-color: rgba(160, 110, 189, 0.44); }
+  .evo_c-progress-bar.h-bck__accent--background {
+    background-color: rgba(184, 146, 206, 0.44); }
   .evo_c-progress-bar.h-bck__accent--light {
     background-color: rgba(174, 132, 199, 0.44); }
   .evo_c-progress-bar.h-bck__accent--dark {
@@ -1803,6 +1809,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(120, 83, 142, 0.44); }
   .evo_c-progress-bar.h-bck__accent2 {
     background-color: rgba(229, 123, 123, 0.44); }
+  .evo_c-progress-bar.h-bck__accent2--background {
+    background-color: rgba(236, 156, 156, 0.44); }
   .evo_c-progress-bar.h-bck__accent2--light {
     background-color: rgba(233, 143, 143, 0.44); }
   .evo_c-progress-bar.h-bck__accent2--dark {
@@ -1810,15 +1818,17 @@ a.evo_c-modal-trigger {
   .evo_c-progress-bar.h-bck__accent2--darken {
     background-color: rgba(172, 92, 92, 0.44); }
   .evo_c-progress-bar.h-bck__accent3 {
-    background-color: rgba(225, 137, 185, 0.44); }
+    background-color: rgba(255, 153, 72, 0.44); }
   .evo_c-progress-bar.h-bck__accent3--light {
-    background-color: rgba(230, 155, 196, 0.44); }
+    background-color: rgba(255, 168, 99, 0.44); }
   .evo_c-progress-bar.h-bck__accent3--dark {
-    background-color: rgba(191, 116, 157, 0.44); }
+    background-color: rgba(217, 130, 61, 0.44); }
   .evo_c-progress-bar.h-bck__accent3--darken {
-    background-color: rgba(169, 103, 139, 0.44); }
+    background-color: rgba(191, 115, 54, 0.44); }
   .evo_c-progress-bar.h-bck__accent4 {
     background-color: rgba(128, 210, 107, 0.44); }
+  .evo_c-progress-bar.h-bck__accent4--background {
+    background-color: rgba(160, 221, 144, 0.44); }
   .evo_c-progress-bar.h-bck__accent4--light {
     background-color: rgba(153, 219, 137, 0.44); }
   .evo_c-progress-bar.h-bck__accent4--dark {
@@ -1827,6 +1837,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(96, 158, 80, 0.44); }
   .evo_c-progress-bar.h-bck__secondary {
     background-color: rgba(118, 139, 161, 0.44); }
+  .evo_c-progress-bar.h-bck__secondary--background {
+    background-color: rgba(152, 168, 185, 0.44); }
   .evo_c-progress-bar.h-bck__secondary--light {
     background-color: rgba(139, 156, 175, 0.44); }
   .evo_c-progress-bar.h-bck__secondary--dark {
@@ -1841,6 +1853,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(26, 29, 32, 0.44); }
   .evo_c-progress-bar.h-txt__primary {
     color: #56c5de; }
+  .evo_c-progress-bar.h-txt__primary--background {
+    color: #80d4e6; }
   .evo_c-progress-bar.h-txt__primary--light {
     color: #6fcee3; }
   .evo_c-progress-bar.h-txt__primary--dark {
@@ -1849,6 +1863,8 @@ a.evo_c-modal-trigger {
     color: #4194a7; }
   .evo_c-progress-bar.h-txt__primary2 {
     color: #6c8cd7; }
+  .evo_c-progress-bar.h-txt__primary2--background {
+    color: #91a9e1; }
   .evo_c-progress-bar.h-txt__primary2--light {
     color: #829ddd; }
   .evo_c-progress-bar.h-txt__primary2--dark {
@@ -1857,6 +1873,8 @@ a.evo_c-modal-trigger {
     color: #5169a1; }
   .evo_c-progress-bar.h-txt__accent {
     color: #a06ebd; }
+  .evo_c-progress-bar.h-txt__accent--background {
+    color: #b892ce; }
   .evo_c-progress-bar.h-txt__accent--light {
     color: #ae84c7; }
   .evo_c-progress-bar.h-txt__accent--dark {
@@ -1865,6 +1883,8 @@ a.evo_c-modal-trigger {
     color: #78538e; }
   .evo_c-progress-bar.h-txt__accent2 {
     color: #e57b7b; }
+  .evo_c-progress-bar.h-txt__accent2--background {
+    color: #ec9c9c; }
   .evo_c-progress-bar.h-txt__accent2--light {
     color: #e98f8f; }
   .evo_c-progress-bar.h-txt__accent2--dark {
@@ -1872,15 +1892,17 @@ a.evo_c-modal-trigger {
   .evo_c-progress-bar.h-txt__accent2--darken {
     color: #ac5c5c; }
   .evo_c-progress-bar.h-txt__accent3 {
-    color: #e189b9; }
+    color: #ff9948; }
   .evo_c-progress-bar.h-txt__accent3--light {
-    color: #e69bc4; }
+    color: #ffa863; }
   .evo_c-progress-bar.h-txt__accent3--dark {
-    color: #bf749d; }
+    color: #d9823d; }
   .evo_c-progress-bar.h-txt__accent3--darken {
-    color: #a9678b; }
+    color: #bf7336; }
   .evo_c-progress-bar.h-txt__accent4 {
     color: #80d26b; }
+  .evo_c-progress-bar.h-txt__accent4--background {
+    color: #a0dd90; }
   .evo_c-progress-bar.h-txt__accent4--light {
     color: #99db89; }
   .evo_c-progress-bar.h-txt__accent4--dark {
@@ -1889,6 +1911,8 @@ a.evo_c-modal-trigger {
     color: #609e50; }
   .evo_c-progress-bar.h-txt__secondary {
     color: #768ba1; }
+  .evo_c-progress-bar.h-txt__secondary--background {
+    color: #98a8b9; }
   .evo_c-progress-bar.h-txt__secondary--light {
     color: #8b9caf; }
   .evo_c-progress-bar.h-txt__secondary--dark {
@@ -2009,6 +2033,8 @@ a.evo_c-modal-trigger {
     border-radius: inherit; }
     .evo_c-progress-bar__bar.h-bck__primary {
       background-color: #56c5de; }
+    .evo_c-progress-bar__bar.h-bck__primary--background {
+      background-color: #80d4e6; }
     .evo_c-progress-bar__bar.h-bck__primary--light {
       background-color: #6fcee3; }
     .evo_c-progress-bar__bar.h-bck__primary--dark {
@@ -2017,6 +2043,8 @@ a.evo_c-modal-trigger {
       background-color: #4194a7; }
     .evo_c-progress-bar__bar.h-bck__primary2 {
       background-color: #6c8cd7; }
+    .evo_c-progress-bar__bar.h-bck__primary2--background {
+      background-color: #91a9e1; }
     .evo_c-progress-bar__bar.h-bck__primary2--light {
       background-color: #829ddd; }
     .evo_c-progress-bar__bar.h-bck__primary2--dark {
@@ -2025,6 +2053,8 @@ a.evo_c-modal-trigger {
       background-color: #5169a1; }
     .evo_c-progress-bar__bar.h-bck__accent {
       background-color: #a06ebd; }
+    .evo_c-progress-bar__bar.h-bck__accent--background {
+      background-color: #b892ce; }
     .evo_c-progress-bar__bar.h-bck__accent--light {
       background-color: #ae84c7; }
     .evo_c-progress-bar__bar.h-bck__accent--dark {
@@ -2033,6 +2063,8 @@ a.evo_c-modal-trigger {
       background-color: #78538e; }
     .evo_c-progress-bar__bar.h-bck__accent2 {
       background-color: #e57b7b; }
+    .evo_c-progress-bar__bar.h-bck__accent2--background {
+      background-color: #ec9c9c; }
     .evo_c-progress-bar__bar.h-bck__accent2--light {
       background-color: #e98f8f; }
     .evo_c-progress-bar__bar.h-bck__accent2--dark {
@@ -2040,15 +2072,17 @@ a.evo_c-modal-trigger {
     .evo_c-progress-bar__bar.h-bck__accent2--darken {
       background-color: #ac5c5c; }
     .evo_c-progress-bar__bar.h-bck__accent3 {
-      background-color: #e189b9; }
+      background-color: #ff9948; }
     .evo_c-progress-bar__bar.h-bck__accent3--light {
-      background-color: #e69bc4; }
+      background-color: #ffa863; }
     .evo_c-progress-bar__bar.h-bck__accent3--dark {
-      background-color: #bf749d; }
+      background-color: #d9823d; }
     .evo_c-progress-bar__bar.h-bck__accent3--darken {
-      background-color: #a9678b; }
+      background-color: #bf7336; }
     .evo_c-progress-bar__bar.h-bck__accent4 {
       background-color: #80d26b; }
+    .evo_c-progress-bar__bar.h-bck__accent4--background {
+      background-color: #a0dd90; }
     .evo_c-progress-bar__bar.h-bck__accent4--light {
       background-color: #99db89; }
     .evo_c-progress-bar__bar.h-bck__accent4--dark {
@@ -2057,6 +2091,8 @@ a.evo_c-modal-trigger {
       background-color: #609e50; }
     .evo_c-progress-bar__bar.h-bck__secondary {
       background-color: #768ba1; }
+    .evo_c-progress-bar__bar.h-bck__secondary--background {
+      background-color: #98a8b9; }
     .evo_c-progress-bar__bar.h-bck__secondary--light {
       background-color: #8b9caf; }
     .evo_c-progress-bar__bar.h-bck__secondary--dark {
@@ -2095,7 +2131,7 @@ a.evo_c-modal-trigger {
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent2 {
       background: repeating-linear-gradient(45deg, #c36969, #c36969 10px, #e98f8f 10px, #e98f8f 20px); }
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent3 {
-      background: repeating-linear-gradient(45deg, #bf749d, #bf749d 10px, #e69bc4 10px, #e69bc4 20px); }
+      background: repeating-linear-gradient(45deg, #d9823d, #d9823d 10px, #ffa863 10px, #ffa863 20px); }
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent4 {
       background: repeating-linear-gradient(45deg, #6db35b, #6db35b 10px, #99db89 10px, #99db89 20px); }
     .evo_c-progress-bar__bar--90 {
@@ -2112,7 +2148,7 @@ a.evo_c-modal-trigger {
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent2 {
       background: repeating-linear-gradient(90deg, #c36969, #c36969 10px, #e98f8f 10px, #e98f8f 20px); }
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent3 {
-      background: repeating-linear-gradient(90deg, #bf749d, #bf749d 10px, #e69bc4 10px, #e69bc4 20px); }
+      background: repeating-linear-gradient(90deg, #d9823d, #d9823d 10px, #ffa863 10px, #ffa863 20px); }
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent4 {
       background: repeating-linear-gradient(90deg, #6db35b, #6db35b 10px, #99db89 10px, #99db89 20px); }
     .evo_c-progress-bar__bar--135 {
@@ -2129,7 +2165,7 @@ a.evo_c-modal-trigger {
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent2 {
       background: repeating-linear-gradient(135deg, #c36969, #c36969 10px, #e98f8f 10px, #e98f8f 20px); }
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent3 {
-      background: repeating-linear-gradient(135deg, #bf749d, #bf749d 10px, #e69bc4 10px, #e69bc4 20px); }
+      background: repeating-linear-gradient(135deg, #d9823d, #d9823d 10px, #ffa863 10px, #ffa863 20px); }
     .evo_c-progress-bar .evo_c-progress-bar__bar.h-bck--accent4 {
       background: repeating-linear-gradient(135deg, #6db35b, #6db35b 10px, #99db89 10px, #99db89 20px); }
 
@@ -2246,6 +2282,8 @@ a.evo_c-modal-trigger {
   font-size: 16px; }
   .evo_c-form.h-bck__primary {
     background-color: rgba(86, 197, 222, 0.09); }
+  .evo_c-form.h-bck__primary--background {
+    background-color: rgba(128, 212, 230, 0.09); }
   .evo_c-form.h-bck__primary--light {
     background-color: rgba(111, 206, 227, 0.09); }
   .evo_c-form.h-bck__primary--dark {
@@ -2254,6 +2292,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(65, 148, 167, 0.09); }
   .evo_c-form.h-bck__primary2 {
     background-color: rgba(108, 140, 215, 0.09); }
+  .evo_c-form.h-bck__primary2--background {
+    background-color: rgba(145, 169, 225, 0.09); }
   .evo_c-form.h-bck__primary2--light {
     background-color: rgba(130, 157, 221, 0.09); }
   .evo_c-form.h-bck__primary2--dark {
@@ -2262,6 +2302,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(81, 105, 161, 0.09); }
   .evo_c-form.h-bck__accent {
     background-color: rgba(160, 110, 189, 0.09); }
+  .evo_c-form.h-bck__accent--background {
+    background-color: rgba(184, 146, 206, 0.09); }
   .evo_c-form.h-bck__accent--light {
     background-color: rgba(174, 132, 199, 0.09); }
   .evo_c-form.h-bck__accent--dark {
@@ -2270,6 +2312,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(120, 83, 142, 0.09); }
   .evo_c-form.h-bck__accent2 {
     background-color: rgba(229, 123, 123, 0.09); }
+  .evo_c-form.h-bck__accent2--background {
+    background-color: rgba(236, 156, 156, 0.09); }
   .evo_c-form.h-bck__accent2--light {
     background-color: rgba(233, 143, 143, 0.09); }
   .evo_c-form.h-bck__accent2--dark {
@@ -2277,15 +2321,17 @@ a.evo_c-modal-trigger {
   .evo_c-form.h-bck__accent2--darken {
     background-color: rgba(172, 92, 92, 0.09); }
   .evo_c-form.h-bck__accent3 {
-    background-color: rgba(225, 137, 185, 0.09); }
+    background-color: rgba(255, 153, 72, 0.09); }
   .evo_c-form.h-bck__accent3--light {
-    background-color: rgba(230, 155, 196, 0.09); }
+    background-color: rgba(255, 168, 99, 0.09); }
   .evo_c-form.h-bck__accent3--dark {
-    background-color: rgba(191, 116, 157, 0.09); }
+    background-color: rgba(217, 130, 61, 0.09); }
   .evo_c-form.h-bck__accent3--darken {
-    background-color: rgba(169, 103, 139, 0.09); }
+    background-color: rgba(191, 115, 54, 0.09); }
   .evo_c-form.h-bck__accent4 {
     background-color: rgba(128, 210, 107, 0.09); }
+  .evo_c-form.h-bck__accent4--background {
+    background-color: rgba(160, 221, 144, 0.09); }
   .evo_c-form.h-bck__accent4--light {
     background-color: rgba(153, 219, 137, 0.09); }
   .evo_c-form.h-bck__accent4--dark {
@@ -2294,6 +2340,8 @@ a.evo_c-modal-trigger {
     background-color: rgba(96, 158, 80, 0.09); }
   .evo_c-form.h-bck__secondary {
     background-color: rgba(118, 139, 161, 0.09); }
+  .evo_c-form.h-bck__secondary--background {
+    background-color: rgba(152, 168, 185, 0.09); }
   .evo_c-form.h-bck__secondary--light {
     background-color: rgba(139, 156, 175, 0.09); }
   .evo_c-form.h-bck__secondary--dark {
@@ -2396,10 +2444,10 @@ a.evo_c-modal-trigger {
         color: white;
         background-color: #e57b7b; }
     .evo_c-form .evo_c-form__button.h-bck--accent3 {
-      border: 1px solid #e69bc4; }
+      border: 1px solid #ffa863; }
       .evo_c-form .evo_c-form__button.h-bck--accent3:hover {
         color: white;
-        background-color: #e189b9; }
+        background-color: #ff9948; }
     .evo_c-form .evo_c-form__button.h-bck--accent4 {
       border: 1px solid #99db89; }
       .evo_c-form .evo_c-form__button.h-bck--accent4:hover {
@@ -2450,12 +2498,12 @@ a.evo_c-modal-trigger {
         background-color: #e98f8f; }
     .evo_c-form__button--accent3 {
       color: rgba(255, 255, 255, 0.9);
-      background-color: #e189b9;
+      background-color: #ff9948;
       border: 0;
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); }
       .evo_c-form__button--accent3:hover {
         color: white;
-        background-color: #e69bc4; }
+        background-color: #ffa863; }
     .evo_c-form__button--accent4 {
       color: rgba(255, 255, 255, 0.9);
       background-color: #80d26b;
@@ -2564,10 +2612,10 @@ a.evo_c-modal-trigger {
       border-bottom-color: #e57b7b;
       border-right-color: #e57b7b; }
     .evo_c-form .evo_c-form__checkbox.h-bck--accent3 {
-      border-top-color: #e189b9;
-      border-left-color: #e189b9;
-      border-bottom-color: #e189b9;
-      border-right-color: #e189b9; }
+      border-top-color: #ff9948;
+      border-left-color: #ff9948;
+      border-bottom-color: #ff9948;
+      border-right-color: #ff9948; }
     .evo_c-form .evo_c-form__checkbox.h-bck--accent4 {
       border-top-color: #80d26b;
       border-left-color: #80d26b;
@@ -2604,7 +2652,7 @@ a.evo_c-modal-trigger {
   .evo_c-form input[type='radio']:checked + .evo_c-form__radio:before {
     box-shadow: 0 0 0 2px #5c77b7; }
   .evo_c-form input[type='radio']:checked + .evo_c-form__radio:after {
-    background-color: #e189b9;
+    background-color: #ff9948;
     transform: scale(0.4); }
   .evo_c-form input[type='radio']:checked + .evo_c-form__radio--variation2:before {
     box-shadow: 0 0 0 2px #e57b7b; }
@@ -2654,7 +2702,7 @@ a.evo_c-modal-trigger {
     .evo_c-form .evo_c-form__focus-line.h-bck--accent2 {
       background-color: #e57b7b; }
     .evo_c-form .evo_c-form__focus-line.h-bck--accent3 {
-      background-color: #e189b9; }
+      background-color: #ff9948; }
     .evo_c-form .evo_c-form__focus-line.h-bck--accent4 {
       background-color: #80d26b; }
     .evo_c-form .evo_c-form__focus-line.h-bck--background {
@@ -3013,6 +3061,8 @@ a.evo_c-modal-trigger {
     z-index: 10; }
     .evo_c-tab__navigation.h-bck__primary {
       background-color: #56c5de; }
+    .evo_c-tab__navigation.h-bck__primary--background {
+      background-color: #80d4e6; }
     .evo_c-tab__navigation.h-bck__primary--light {
       background-color: #6fcee3; }
     .evo_c-tab__navigation.h-bck__primary--dark {
@@ -3021,6 +3071,8 @@ a.evo_c-modal-trigger {
       background-color: #4194a7; }
     .evo_c-tab__navigation.h-bck__primary2 {
       background-color: #6c8cd7; }
+    .evo_c-tab__navigation.h-bck__primary2--background {
+      background-color: #91a9e1; }
     .evo_c-tab__navigation.h-bck__primary2--light {
       background-color: #829ddd; }
     .evo_c-tab__navigation.h-bck__primary2--dark {
@@ -3029,6 +3081,8 @@ a.evo_c-modal-trigger {
       background-color: #5169a1; }
     .evo_c-tab__navigation.h-bck__accent {
       background-color: #a06ebd; }
+    .evo_c-tab__navigation.h-bck__accent--background {
+      background-color: #b892ce; }
     .evo_c-tab__navigation.h-bck__accent--light {
       background-color: #ae84c7; }
     .evo_c-tab__navigation.h-bck__accent--dark {
@@ -3037,6 +3091,8 @@ a.evo_c-modal-trigger {
       background-color: #78538e; }
     .evo_c-tab__navigation.h-bck__accent2 {
       background-color: #e57b7b; }
+    .evo_c-tab__navigation.h-bck__accent2--background {
+      background-color: #ec9c9c; }
     .evo_c-tab__navigation.h-bck__accent2--light {
       background-color: #e98f8f; }
     .evo_c-tab__navigation.h-bck__accent2--dark {
@@ -3044,15 +3100,17 @@ a.evo_c-modal-trigger {
     .evo_c-tab__navigation.h-bck__accent2--darken {
       background-color: #ac5c5c; }
     .evo_c-tab__navigation.h-bck__accent3 {
-      background-color: #e189b9; }
+      background-color: #ff9948; }
     .evo_c-tab__navigation.h-bck__accent3--light {
-      background-color: #e69bc4; }
+      background-color: #ffa863; }
     .evo_c-tab__navigation.h-bck__accent3--dark {
-      background-color: #bf749d; }
+      background-color: #d9823d; }
     .evo_c-tab__navigation.h-bck__accent3--darken {
-      background-color: #a9678b; }
+      background-color: #bf7336; }
     .evo_c-tab__navigation.h-bck__accent4 {
       background-color: #80d26b; }
+    .evo_c-tab__navigation.h-bck__accent4--background {
+      background-color: #a0dd90; }
     .evo_c-tab__navigation.h-bck__accent4--light {
       background-color: #99db89; }
     .evo_c-tab__navigation.h-bck__accent4--dark {
@@ -3061,6 +3119,8 @@ a.evo_c-modal-trigger {
       background-color: #609e50; }
     .evo_c-tab__navigation.h-bck__secondary {
       background-color: #768ba1; }
+    .evo_c-tab__navigation.h-bck__secondary--background {
+      background-color: #98a8b9; }
     .evo_c-tab__navigation.h-bck__secondary--light {
       background-color: #8b9caf; }
     .evo_c-tab__navigation.h-bck__secondary--dark {
@@ -3109,7 +3169,7 @@ a.evo_c-modal-trigger {
     .evo_c-tab .evo_c-tab__list.h-active-bck--accent2 .evo_c-tab__item.is-active {
       background-color: #e57b7b !important; }
     .evo_c-tab .evo_c-tab__list.h-active-bck--accent3 .evo_c-tab__item.is-active {
-      background-color: #e189b9 !important; }
+      background-color: #ff9948 !important; }
     .evo_c-tab .evo_c-tab__list.h-active-bck--accent4 .evo_c-tab__item.is-active {
       background-color: #80d26b !important; }
     .evo_c-tab .evo_c-tab__list.h-active-bck--background .evo_c-tab__item.is-active {
@@ -4197,9 +4257,9 @@ a.evo_c-modal-trigger {
       .evo_c-crumble__list--secondary .evo_c-crumble__item:hover {
         background-color: rgba(118, 139, 161, 0.9); }
     .evo_c-crumble__list--accent3 .evo_c-crumble__item {
-      background-color: #e189b9; }
+      background-color: #ff9948; }
       .evo_c-crumble__list--accent3 .evo_c-crumble__item:hover {
-        background-color: #e494bf; }
+        background-color: #ffa258; }
     .evo_c-crumble__list--accent4 .evo_c-crumble__item {
       background-color: #6db35b; }
       .evo_c-crumble__list--accent4 .evo_c-crumble__item:hover {
@@ -4223,9 +4283,9 @@ a.evo_c-modal-trigger {
       .evo_c-crumble__item--secondary:hover {
         background-color: rgba(118, 139, 161, 0.9) !important; }
     .evo_c-crumble__item--accent3 {
-      background-color: #e189b9 !important; }
+      background-color: #ff9948 !important; }
       .evo_c-crumble__item--accent3:hover {
-        background-color: #e494bf !important; }
+        background-color: #ffa258 !important; }
     .evo_c-crumble__item--accent4 {
       background-color: #6db35b !important; }
       .evo_c-crumble__item--accent4:hover {
@@ -5796,7 +5856,8 @@ a.evo_c-modal-trigger {
 
 .evo_c-carousel-border-nav {
   position: relative;
-  min-height: 375px; }
+  min-height: 375px;
+  z-index: 1; }
 
 .evo_c-carousel-border-nav__layer {
   position: absolute;
@@ -6111,7 +6172,7 @@ a.evo_c-modal-trigger {
   .evo_c-curtain__shape:nth-child(2), .evo_c-curtain__shape:nth-child(5), .evo_c-curtain__shape:nth-child(12), .evo_c-curtain__shape:nth-child(15) {
     background-color: #e57b7b; }
   .evo_c-curtain__shape:nth-child(3), .evo_c-curtain__shape:nth-child(6), .evo_c-curtain__shape:nth-child(9), .evo_c-curtain__shape:nth-child(16) {
-    background-color: #e189b9; }
+    background-color: #ff9948; }
   .evo_c-curtain__shape:nth-child(4), .evo_c-curtain__shape:nth-child(7), .evo_c-curtain__shape:nth-child(10), .evo_c-curtain__shape:nth-child(13) {
     background-color: #80d26b; }
 
@@ -6496,7 +6557,7 @@ a.evo_c-modal-trigger {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
-  height: 2.3rem;
+  line-height: 2.7rem;
   border-radius: 0;
   padding: 0.1rem 0.3rem;
   margin: 0;
@@ -7056,7 +7117,7 @@ a.evo_c-modal-trigger {
     [class^="evo_c-spiralText"]:hover em:nth-of-type(5n+3) {
       background-color: #e57b7b; }
     [class^="evo_c-spiralText"]:hover em:nth-of-type(5n+4) {
-      background-color: #e189b9; }
+      background-color: #ff9948; }
     [class^="evo_c-spiralText"]:hover em:nth-of-type(5n+5) {
       background-color: #80d26b; }
     [class^="evo_c-spiralText"]:hover em {
