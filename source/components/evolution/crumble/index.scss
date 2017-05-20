@@ -158,6 +158,9 @@ $c-crumble-media-desktop-HD: 1200px;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include element('item') {
+
+    $expand-icon: get-bem-selector('icon', 'expand');
+
     position: relative;
     align-items: center;
     background-color: $g-color-primary-as-background;
@@ -169,6 +172,10 @@ $c-crumble-media-desktop-HD: 1200px;
 
       &:hover {
         background-color: get-color('primary', $opacity: .9);
+      }
+
+      &:hover .#{$expand-icon} {
+        background-color: white(0.10);
       }
 
       //--------------------------------------------------------------------------
@@ -326,6 +333,7 @@ $c-crumble-media-desktop-HD: 1200px;
 
     min-height: $c-crumble-header-height + $c-crumble-body-height;
     height: auto;
+    width: 100%;
     flex-basis: initial;
     overflow: initial;
 
