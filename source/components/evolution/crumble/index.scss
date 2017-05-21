@@ -54,9 +54,13 @@ $c-crumble-media-desktop-HD: 1200px;
 
 @include component( $c-crumble-name ) {
 
-  @include vertical-rhythm(1rem);
+  @include vertical-rhythm(14px);
   font-family: $g-framework-font-family;
   font-weight: $c-crumble-font-weight;
+
+  @media screen and (min-height: $c-crumble-media-tablet) {
+    @include vertical-rhythm(1rem);
+  }
 
   //----------------------------------------------------------------------------
   //                      EVENT DETAILS - Full Width
@@ -339,7 +343,7 @@ $c-crumble-media-desktop-HD: 1200px;
 
       .#{$event-description} {
         opacity: 1;
-        max-height: 2000px;
+        max-height: 10000px;
       }
   }
 
@@ -404,12 +408,29 @@ $c-crumble-media-desktop-HD: 1200px;
     opacity: 0;
     padding: 5px;
     color: white(.8);
+    line-height: $g-vertical-rhythm * 2;
     overflow: hidden;
     transition: max-height 3.5s #{$c-crumble-unfold-duration - .3s} ease-in,
                 opacity .7s #{$c-crumble-unfold-duration - .3s} ease-in;
 
       * {
         color: white();
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: $g-heading-margin;
+      }
+
+      h2 {
+        font-size: $g-heading-2-font-size;
+      }
+
+      h3 {
+        font-size: $g-heading-3-font-size;
+      }
+
+      h4 {
+        font-size: $g-heading-4-font-size;
       }
 
       @media screen and (min-width: $c-crumble-media-tablet) {
