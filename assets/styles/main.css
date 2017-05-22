@@ -1012,6 +1012,40 @@ body {
 .modal-no-scroll {
   overflow-y: hidden; }
 
+.loading-modal {
+  position: fixed;
+  overflow-y: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #a5cfdb;
+  transition: right 1.1s 1.7s, opacity 1.1s 1.7s;
+  opacity: 1;
+  z-index: 100000; }
+  .loading-modal .loading-icon {
+    width: 20%;
+    background-image: url("../images/evolution-loading.svg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    height: 150px;
+    width: 150px; }
+  .loading-modal .loading-caption {
+    font-size: 1.7em;
+    color: #405069;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center; }
+
+.loading-modal.hidden {
+  right: -200%;
+  opacity: 0; }
+
 .maintainer-page {
   min-height: 350px;
   width: 90%;
