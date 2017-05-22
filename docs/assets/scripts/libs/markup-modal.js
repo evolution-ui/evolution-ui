@@ -45,4 +45,12 @@
         $modalClose.removeClass('modal-close--shown');
         body.classList.remove("modal-no-scroll");
     });
+
+    //loading class
+    jQuery(document).ready(function($) {
+        setTimeout(function() {
+            $('.loading-modal').addClass('hidden');
+        }, 500);
+    });
 })();
+
