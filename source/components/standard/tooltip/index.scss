@@ -83,6 +83,7 @@ $c-tooltip-flow-properties: (
   max-width: 120ch;
   z-index: 999;
   padding: 0.5em 1em;
+  font-family: $g-framework-font-family;
   font-size: 0.9em;
   color: white();
   text-align: center;
