@@ -22,7 +22,7 @@
   transition: opacity 0.4s, margin-left 0.4s, margin-top 0.4s, background 0.1s, color 0.1s;
   width: 90%;
   padding: 25px 30px;
-  overflow: visible;
+  overflow-y: hidden;
   box-sizing: border-box;
   max-width: 1400px;
 
@@ -33,6 +33,7 @@
 
 .evo_c_multiLayers_container section.selected-layer {
   border: none;
+  overflow: visible;
 
   @media screen and (max-width: $site-breakpoint-md) {
     width: 93%;
