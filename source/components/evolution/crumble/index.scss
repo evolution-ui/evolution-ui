@@ -404,11 +404,12 @@ $c-crumble-media-desktop-HD: 1200px;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include element('description') {
+    @include size(x-small);
     max-height: 0;
     opacity: 0;
     padding: 5px;
     color: white(.8);
-    line-height: $g-vertical-rhythm * 2;
+    line-height: $g-vertical-rhythm * 1.5;
     overflow: hidden;
     transition: max-height 3.5s #{$c-crumble-unfold-duration - .3s} ease-in,
                 opacity .7s #{$c-crumble-unfold-duration - .3s} ease-in;
@@ -417,20 +418,28 @@ $c-crumble-media-desktop-HD: 1200px;
         color: white();
       }
 
+      p {
+        margin-bottom: $g-vertical-rhythm;
+      }
+
       h1, h2, h3, h4, h5, h6 {
         margin: $g-heading-margin;
       }
 
+      h1 {
+        @include size(h1);
+      }
+
       h2 {
-        font-size: $g-heading-2-font-size;
+        @include size(h2);
       }
 
       h3 {
-        font-size: $g-heading-3-font-size;
+        @include size(h3);
       }
 
       h4 {
-        font-size: $g-heading-4-font-size;
+        @include size(h4);
       }
 
       @media screen and (min-width: $c-crumble-media-tablet) {
