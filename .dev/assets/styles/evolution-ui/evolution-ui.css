@@ -2218,7 +2218,7 @@ a.evo_c-modal-trigger {
 .evo_c-form__button {
   font-size: 1.125rem;
   line-height: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.5;
   margin-bottom: 1.5rem; }
 
 .evo_c-form__field.is-focused .evo_c-form__label, .evo_c-form__field.has-value .evo_c-form__label, .evo_c-form__tooltip {
@@ -2394,7 +2394,7 @@ a.evo_c-modal-trigger {
   .evo_c-form__field {
     font-size: 1rem;
     line-height: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 3;
     margin-bottom: 3rem;
     position: relative;
     -ms-flex-pack: center;
@@ -3354,9 +3354,6 @@ a.evo_c-modal-trigger {
     opacity: 1;
     transform: translate(0, -50%); }
 
-/******************************************************************************
-                            Typography Config
-******************************************************************************/
 .evo_c-typo__h1, .evo_c-typo__h2, .evo_c-typo__h3, .evo_c-typo__h4, .evo_c-typo__h5, .evo_c-typo__h6, .evo_c-typo__large, .evo_c-typo__x-large, .evo_c-typo__small, .evo_c-typo__x-small, .evo_h-txt--font-family {
   font-family: 'Roboto', sans-serif; }
 
@@ -3367,9 +3364,6 @@ a.evo_c-modal-trigger {
 .evo_c-typo__large, .evo_c-typo__x-large, .evo_c-typo__small, .evo_c-typo__x-small {
   display: block; }
 
-/******************************************************************************
-                          Typography Component
-******************************************************************************/
 /******************************************************************************
                                   Typography
 ******************************************************************************/
@@ -4228,7 +4222,7 @@ a.evo_c-modal-trigger {
 .evo_c-crumble {
   font-size: 0.875rem;
   line-height: 1.5rem;
-  margin-top: 0rem;
+  margin-top: 0;
   margin-bottom: 1.5rem;
   font-family: "Roboto", sans-serif;
   font-weight: 300; }
@@ -4236,7 +4230,7 @@ a.evo_c-modal-trigger {
     .evo_c-crumble {
       font-size: 1rem;
       line-height: 1.5rem;
-      margin-top: 0rem;
+      margin-top: 0;
       margin-bottom: 1.5rem; } }
   .evo_c-crumble--full-width .evo_c-crumble__item {
     display: block; }
@@ -4416,23 +4410,58 @@ a.evo_c-modal-trigger {
     transform-style: preserve-3d;
     overflow: visible; }
   .evo_c-event__description {
+    font-size: 0.94rem;
     max-height: 0;
     opacity: 0;
     padding: 5px;
     color: rgba(255, 255, 255, 0.8);
-    line-height: 2rem;
+    line-height: 2.25rem;
     overflow: hidden;
     transition: max-height 3.5s 0.4s ease-in, opacity 0.7s 0.4s ease-in; }
+    @media (max-width: 75em) {
+      .evo_c-event__description {
+        font-size: 1rem; } }
+    @media (max-width: 45em) {
+      .evo_c-event__description {
+        font-size: 0.88rem; } }
     .evo_c-event__description * {
       color: white; }
+    .evo_c-event__description p {
+      margin-bottom: 1.5rem; }
     .evo_c-event__description h1, .evo_c-event__description h2, .evo_c-event__description h3, .evo_c-event__description h4, .evo_c-event__description h5, .evo_c-event__description h6 {
       margin: 3rem 0 1.5rem; }
+    .evo_c-event__description h1 {
+      font-size: 3.911rem; }
+      @media (max-width: 75em) {
+        .evo_c-event__description h1 {
+          font-size: 3.052rem; } }
+      @media (max-width: 45em) {
+        .evo_c-event__description h1 {
+          font-size: 2.686rem; } }
     .evo_c-event__description h2 {
-      font-size: 2.44141rem; }
+      font-size: 2.941rem; }
+      @media (max-width: 75em) {
+        .evo_c-event__description h2 {
+          font-size: 2.441rem; } }
+      @media (max-width: 45em) {
+        .evo_c-event__description h2 {
+          font-size: 2.148rem; } }
     .evo_c-event__description h3 {
-      font-size: 1.95312rem; }
+      font-size: 2.211rem; }
+      @media (max-width: 75em) {
+        .evo_c-event__description h3 {
+          font-size: 1.953em; } }
+      @media (max-width: 45em) {
+        .evo_c-event__description h3 {
+          font-size: 1.719rem; } }
     .evo_c-event__description h4 {
-      font-size: 1.5625rem; }
+      font-size: 1.663rem; }
+      @media (max-width: 75em) {
+        .evo_c-event__description h4 {
+          font-size: 1.563rem; } }
+      @media (max-width: 45em) {
+        .evo_c-event__description h4 {
+          font-size: 1.375rem; } }
     @media screen and (min-width: 768px) {
       .evo_c-event__description {
         padding: 15px; } }
