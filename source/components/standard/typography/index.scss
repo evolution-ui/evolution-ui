@@ -1,17 +1,8 @@
-/******************************************************************************
-                            Typography Config
-******************************************************************************/
 
 //------------------------------------------------------------------------------
 //                       Typography SYSTEM config
 //------------------------------------------------------------------------------
 
-
-///
-/// Font scale for headings and extra headings
-///
-/// @access private
-/// @type MAP
 
 $_typography-scales: (
   minor-second:     1.067,
@@ -24,27 +15,13 @@ $_typography-scales: (
   golden-ratio:     1.618
 );
 
-///
-/// List of extra headings
-///
-/// Represent extra headings
-/// @access private
-/// @type LIST
+
 $_typography-scales-bigger:  large, x-large;
 
-///
-/// List of extra headings
-///
-/// Represent extra headings
-/// @access private
-/// @type LIST
+
 $_typography-scales-smaller: small, x-small;
 
-///
-/// Set the 'major-third' scale for headings
-///
-/// @access private
-/// @type String
+
 $_typography-base-scale: map-get($_typography-scales, 'major-third');
 
 
@@ -53,57 +30,26 @@ $_typography-base-scale: map-get($_typography-scales, 'major-third');
 }
 
 %c-typography-margins {
-  margin-top: $g-framework-line-height-base;
-  margin-bottom: $g-framework-line-height-base;
+  margin-top: #{$g-framework-line-height}rem;
+  margin-bottom: #{$g-framework-line-height}rem;
 }
 
 %c-typography-block {
   display: block;
 }
 
-/******************************************************************************
-                          Typography Component
-******************************************************************************/
 
 //------------------------------------------------------------------------------
 //                       Typography SYSTEM
 //------------------------------------------------------------------------------
 
-// @import 'typography-config';
 
-///
-/// Generate the vertical rhythm
-///
-/// @param {Value} $font-size - A valid font size
-/// @param {Value} $line-height [$g-framework-line-height-base] - A value height
-///
-/// @require $g-framework-line-height-base
-///
-/// @return {value}
-///
-///
-
-@function vrhythm( $font-size, $line-height: $g-framework-line-height-base ){
+@function _vrhythm( $font-size, $line-height: $g-framework-line-height ){
   @return ceil( $font-size / $line-height ) * ( $line-height / $font-size )
 }
 
-///
-/// Generate headings (h1 - h6) and extra headings along with reusable classes
-///
-/// @author Gabriele Romeo
-///
-/// @access private
-///
-/// @param {Number} $levels - The number of headings
-/// @param {Boolean} $extraHeading - If true it generates extra headings
-///
-/// @require $_typography-base-scale
-/// @require $g-framework-base-font-size
-/// @require $_typography-scales-smaller
-/// @require $_typography-scales-bigger
-///
 
-@mixin generateHeadings( $levels, $extraHeading: true ){
+@mixin _generateHeadings( $levels, $extraHeading: true ){
 
   $scale-smaller-sizes: $_typography-scales-smaller;
   $scale-bigger-sizes: $_typography-scales-bigger;
@@ -117,7 +63,7 @@ $_typography-base-scale: map-get($_typography-scales, 'major-third');
         @extend %c-typography-margins;
         font-size: #{$font-size}rem;
         font-weight: $g-framework-font-weight;
-        line-height: vrhythm($font-size);
+        line-height: _vrhythm($font-size);
     }
   }
 
@@ -133,7 +79,7 @@ $_typography-base-scale: map-get($_typography-scales, 'major-third');
         @extend %c-typography-margins;
         @extend %c-typography-block;
         font-size: rem($g-framework-base-font-size * $font-size) + 0rem;
-        line-height: vrhythm($font-size);
+        line-height: _vrhythm($font-size);
       }
     }
 
@@ -147,7 +93,7 @@ $_typography-base-scale: map-get($_typography-scales, 'major-third');
         @extend %c-typography-margins;
         @extend %c-typography-block;
         font-size: rem($g-framework-base-font-size / $font-size) + 0rem;
-        line-height: vrhythm($font-size);
+        line-height: _vrhythm($font-size);
       }
     }
 
@@ -160,7 +106,7 @@ $_typography-base-scale: map-get($_typography-scales, 'major-third');
 ******************************************************************************/
 
 
-@include generateHeadings(6);
+@include _generateHeadings(6);
 
 
 @include h('txt--font-family') {
