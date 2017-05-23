@@ -864,7 +864,6 @@ body {
   transition: opacity 0.4s, margin-left 0.4s, margin-top 0.4s, background 0.1s, color 0.1s;
   width: 90%;
   padding: 25px 30px;
-  overflow-y: hidden;
   box-sizing: border-box;
   max-width: 1400px; }
   @media screen and (max-width: 600px) {
@@ -1035,6 +1034,9 @@ body {
     background-size: cover;
     height: 150px;
     width: 150px; }
+    @media screen and (max-width: 768px) {
+      .loading-modal .loading-icon {
+        display: none; } }
   .loading-modal .loading-caption {
     font-size: 1.7em;
     color: #405069;
