@@ -1024,7 +1024,7 @@ body {
   justify-content: center;
   align-items: center;
   background: #a5cfdb;
-  transition: right 1.1s 1.7s, opacity 1.1s 1.7s;
+  transition: right 2s 1.7s, opacity 2s 1.7s;
   opacity: 1;
   z-index: 100000; }
   .loading-modal .loading-icon {
