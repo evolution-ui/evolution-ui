@@ -539,13 +539,13 @@ Evolution UI defines some `global` variables that can exploited within a compone
 $g-framework-font-family: 'Roboto', sans-serif;
 
 /// Represent the base font size used by the Evolution framework
-$g-framework-base-font-size:    16px;
-
-/// Represents  the line-height ratio used by the Evolution framework
-$g-framework-line-height-ratio: 1.5;
+$g-framework-base-font-size: 16px;
 
 /// Represents the base line-height used by the Evolution framework
-$g-framework-line-height-base:  1rem * $g-framework-line-height-ratio;
+$g-framework-line-height: 1.5;
+
+/// Vertical rhythm keeps consistent vertical space between elements
+$g-vertical-rhythm: $g-framework-line-height * $g-framework-base-font-size-rem;
 
 /// Represents the base font-weight used by the Evolution framework
 $g-framework-font-weight: 400;
