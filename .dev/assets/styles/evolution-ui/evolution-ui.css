@@ -5978,7 +5978,11 @@ a.evo_c-modal-trigger {
   z-index: 1; }
 
 .evo_c-carousel__image_reference {
-  opacity: 0; }
+  visibility: hidden; }
+
+img[class*="evo_c-carousel__image"] {
+  width: 100%;
+  height: auto; }
 
 /******************************************************************************
                             Persona Config

@@ -4141,10 +4141,11 @@
 	        var borderDefault = "evo_c-carousel-border-nav__border--default";
 
 	        carousel.addEventListener("click", function (e) {
-	            if (e.target.nodeName === "IMG") {
-	                var clickedLayer = e.target.parentNode.parentNode;
+	            var target = e.target;
+	            if (target.nodeName === "IMG") {
+	                var clickedLayer = target.parentNode.parentNode;
 	            } else {
-	                clickedLayer = e.target.parentNode;
+	                clickedLayer = target.parentNode;
 	            }
 
 	            var targetBorder = clickedLayer.children[0];
