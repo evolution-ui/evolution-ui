@@ -90,3 +90,8 @@
 .evo_c-carousel__image_reference{ //This image should be same dimension as the carousel images in order for carousel images to be responsive
   opacity:0;
 }
+
+img[class*="evo_c-carousel__image"]{
+  width:100%;
+  height:auto;
+}
