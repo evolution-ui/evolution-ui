@@ -4141,10 +4141,15 @@
 	        var borderDefault = "evo_c-carousel-border-nav__border--default";
 
 	        carousel.addEventListener("click", function (e) {
-	            var clickedLayer = e.target.parentNode;
+	            if (e.target.nodeName === "IMG") {
+	                var clickedLayer = e.target.parentNode.parentNode;
+	            } else {
+	                clickedLayer = e.target.parentNode;
+	            }
+
 	            var targetBorder = clickedLayer.children[0];
 	            var topLayerIndex = 0;
-	            var carouselLayers = carousel.children;
+	            var carouselLayers = document.querySelectorAll(".evo_c-carousel-border-nav__layer");
 
 	            for (var i = 0; i < carouselLayers.length; i++) {
 	                if (clickedLayer === carouselLayers[i]) {
@@ -4161,7 +4166,7 @@
 	                    //apply to
 	                    // current and all layers on top of current
 	                    (function hideLayers() {
-	                        var layer = carousel.children[j];
+	                        var layer = document.querySelectorAll(".evo_c-carousel-border-nav__layer")[j];
 	                        var inner = layer.children[1];
 	                        var border = layer.children[0];
 	                        var styles = window.getComputedStyle(layer);
@@ -4182,10 +4187,10 @@
 	            } else if (/active/.test(targetBorder.className)) {
 	                //toggle the default
 	                // classes
-	                for (var k = currentLayerIndex; k < carousel.children.length; k++) {
+	                for (var k = currentLayerIndex; k < 3; k++) {
 	                    //apply to
 	                    // current and all layers below current
-	                    var layer = carousel.children[k];
+	                    var layer = document.querySelectorAll(".evo_c-carousel-border-nav__layer")[k];
 	                    var inner = layer.children[1];
 	                    var border = layer.children[0];
 	                    var styles = window.getComputedStyle(layer);

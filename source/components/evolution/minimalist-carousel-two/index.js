@@ -14,10 +14,15 @@ export default function () {
 
 
         carousel.addEventListener("click", function(e) {
-            var clickedLayer = e.target.parentNode;
+            if(e.target.nodeName==="IMG"){
+                var clickedLayer = e.target.parentNode.parentNode;
+            }else {
+                clickedLayer = e.target.parentNode;
+            }
+
             var targetBorder = clickedLayer.children[0];
             var topLayerIndex = 0;
-            var carouselLayers = carousel.children;
+            var carouselLayers = document.querySelectorAll(".evo_c-carousel-border-nav__layer");
 
             for (var i = 0; i < carouselLayers.length; i++) {
                 if (clickedLayer === carouselLayers[i]) { //target the clicked
@@ -31,7 +36,7 @@ export default function () {
                 for (var j = currentLayerIndex; j >= topLayerIndex; j--) { //apply to
                     // current and all layers on top of current
                     (function hideLayers() {
-                        var layer = carousel.children[j];
+                        var layer = document.querySelectorAll(".evo_c-carousel-border-nav__layer")[j];
                         var inner = layer.children[1];
                         var border = layer.children[0];
                         var styles = window.getComputedStyle(layer);
@@ -50,9 +55,9 @@ export default function () {
                 }
             } else if (/active/.test(targetBorder.className)) { //toggle the default
                 // classes
-                for (var k = currentLayerIndex; k < carousel.children.length; k++) { //apply to
+                for (var k = currentLayerIndex; k < 3; k++) { //apply to
                     // current and all layers below current
-                    var layer = carousel.children[k];
+                    var layer = document.querySelectorAll(".evo_c-carousel-border-nav__layer")[k];
                     var inner = layer.children[1];
                     var border = layer.children[0];
                     var styles = window.getComputedStyle(layer);
