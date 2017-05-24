@@ -1,12 +1,12 @@
-/******************************************************************************
-                            Tooltip Config
-******************************************************************************/
+//------------------------------------------------------------------------------
+//                            Tooltip Config
+//------------------------------------------------------------------------------
 
 $c-tooltip-name: 'tooltip';
 $c-tooltip-container: $c-tooltip-name + '-container';
 
-$reference-component: getBEMReference($c-tooltip-name);
-$c-tooltip-color: get-color('primary');
+$reference-component: null;
+$c-tooltip-color: get-color('primary', 'background');
 
 $c-tooltip-flow-properties: (
   up: (
@@ -72,36 +72,22 @@ $c-tooltip-flow-properties: (
                             Tooltip Component
 ******************************************************************************/
 
-// @import "tooltip-config";
-
-@include block($c-tooltip-container) {
-  position: relative;
-
-  @each $flow in map-keys($c-tooltip-flow-properties) {
-    &:hover > .#{$reference-component}[flow^="#{$flow}"] {
-
-      opacity: .9;
-
-      @if $flow == up or $flow == down {
-        transform: translate(-50%, 0);
-      } @else if $flow == left or $flow == right {
-        transform: translate(0, -50%);
-      }
-    }
-  }
-}
 
 @include block($c-tooltip-name) {
+
+  $reference-component: get-bem-selector()!global;
+
   position: absolute;
   display: block;
   min-width: 30ch;
   max-width: 120ch;
   z-index: 999;
   padding: 0.5em 1em;
+  font-family: $g-framework-font-family;
   font-size: 0.9em;
   color: white();
   text-align: center;
-  background: get-color('primary');
+  background: get-color('primary', 'background');
   box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
   border-radius: 0.2em;
   opacity: 0;
@@ -137,3 +123,22 @@ $c-tooltip-flow-properties: (
     @extend .#{$reference-component}[flow^="up"]
   }
 }
+
+
+@include block($c-tooltip-container) {
+  position: relative;
+
+  @each $flow in map-keys($c-tooltip-flow-properties) {
+    &:hover > .#{$reference-component}[flow^="#{$flow}"] {
+
+      opacity: 1;
+
+      @if $flow == up or $flow == down {
+        transform: translate(-50%, 0);
+      } @else if $flow == left or $flow == right {
+        transform: translate(0, -50%);
+      }
+    }
+  }
+}
+

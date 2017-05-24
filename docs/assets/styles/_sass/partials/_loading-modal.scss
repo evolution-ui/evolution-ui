@@ -1,0 +1,44 @@
+.loading-modal {
+    position: fixed;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background: map-get($site-colors, primary-light);
+    transition: right 2s 1.7s, opacity 2s 1.7s;
+    opacity: 1;
+    z-index: 100000;
+
+    .loading-icon {
+        width: 20%;
+        background-image: url("../images/evolution-loading.svg");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: cover;
+        height: 150px;
+        width: 150px;
+
+        @media screen and (max-width: $site-breakpoint-md) {
+         display: none;
+        }
+    }
+
+    .loading-caption {
+        font-size: 1.7em;
+        color: map-get($site-colors, quaternary);
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+.loading-modal.hidden {
+    right: -200%;
+    opacity: 0;
+}

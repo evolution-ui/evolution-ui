@@ -54,9 +54,13 @@ $c-crumble-media-desktop-HD: 1200px;
 
 @include component( $c-crumble-name ) {
 
-  @include vertical-rhythm(1rem);
+  @include vertical-rhythm(14px);
   font-family: $g-framework-font-family;
   font-weight: $c-crumble-font-weight;
+
+  @media screen and (min-height: $c-crumble-media-tablet) {
+    @include vertical-rhythm(1rem);
+  }
 
   //----------------------------------------------------------------------------
   //                      EVENT DETAILS - Full Width
@@ -158,14 +162,24 @@ $c-crumble-media-desktop-HD: 1200px;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include element('item') {
+
+    $expand-icon: get-bem-selector('icon', 'expand');
+
     position: relative;
-    display: flex;
     align-items: center;
-    background-color: get-color('primary', 'dark');
+    background-color: $g-color-primary-as-background;
     border: 1px solid rgb(206, 206, 206);
+
+      @media screen and (min-width: 375px) {
+        display: flex;
+      }
 
       &:hover {
         background-color: get-color('primary', $opacity: .9);
+      }
+
+      &:hover .#{$expand-icon} {
+        background-color: white(0.10);
       }
 
       //--------------------------------------------------------------------------
@@ -211,15 +225,20 @@ $c-crumble-media-desktop-HD: 1200px;
 
   @include element('tag') {
     position: absolute;
-    left: 10px;
+    left: 0;
     top: 0;
     display: flex;
     height: 100%;
     width: $c-crumble-tag-width;
+    color: black(.7);
     background-color: rgb(196, 196, 179);
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+      @media screen and (min-width: 450px) {
+        left: 10px;
+      }
 
       &:after {
         content: attr(data-tag);
@@ -233,12 +252,17 @@ $c-crumble-media-desktop-HD: 1200px;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include element('span') {
-    padding-left: #{$c-crumble-tag-width + 40px};
+    margin-left: #{$c-crumble-tag-width};
     width: calc(100% - #{$c-crumble-tag-width});
     min-height: $c-crumble-span-min-height;
     display: flex;
     align-items: center;
     color: white();
+    text-shadow: 0 1px 1px rgba(0,0,0,.5);
+
+    @media screen and (min-width: 480px) {
+      margin-left: #{$c-crumble-tag-width + 20px};
+    }
 
     @include state('active') {
       min-height: 0;
@@ -299,6 +323,7 @@ $c-crumble-media-desktop-HD: 1200px;
 @include component($c-crumble-event-name) {
   min-height: 0;
   height: 0;
+  flex-basis: 0;
   background-color: rgb(0, 0, 0);
   overflow: hidden;
   transition: min-height 1s cubic-bezier(0, 1.02, 0, 1);
@@ -313,11 +338,12 @@ $c-crumble-media-desktop-HD: 1200px;
     min-height: $c-crumble-header-height + $c-crumble-body-height;
     height: auto;
     width: 100%;
+    flex-basis: initial;
     overflow: initial;
 
       .#{$event-description} {
         opacity: 1;
-        max-height: 2000px;
+        max-height: 10000px;
       }
   }
 
@@ -338,12 +364,16 @@ $c-crumble-media-desktop-HD: 1200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: $c-crumble-header-height;
+    height: $c-crumble-header-height + 20px;
     text-align: center;
     background-color: get-color('background', 'light');
     transform: rotateX(-10deg);
     transform-origin: 50% 0;
     transform-style: preserve-3d;
+
+    @media screen and (min-width: ) {
+      height: $c-crumble-header-height;
+    }
 
     @include state('rotated-to-zero') {
       @extend %c-crumble-rotate-to-initial;
@@ -374,16 +404,42 @@ $c-crumble-media-desktop-HD: 1200px;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   @include element('description') {
+    @include size(x-small);
     max-height: 0;
     opacity: 0;
     padding: 5px;
     color: white(.8);
+    line-height: $g-vertical-rhythm * 1.5;
     overflow: hidden;
     transition: max-height 3.5s #{$c-crumble-unfold-duration - .3s} ease-in,
                 opacity .7s #{$c-crumble-unfold-duration - .3s} ease-in;
 
       * {
         color: white();
+      }
+
+      p {
+        margin-bottom: $g-vertical-rhythm;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: $g-heading-margin;
+      }
+
+      h1 {
+        @include size(h1);
+      }
+
+      h2 {
+        @include size(h2);
+      }
+
+      h3 {
+        @include size(h3);
+      }
+
+      h4 {
+        @include size(h4);
       }
 
       @media screen and (min-width: $c-crumble-media-tablet) {

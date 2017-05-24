@@ -17,6 +17,7 @@
     - [Let's code with SASS](#lets-code-with-sass)
         - [Make use of comments for improve readability](#make-use-of-comments-for-improve-readability)
         - [How to reference the correct CSS selector](#how-to-reference-the-correct-css-selector)
+        - [Visual Consistency](#visual-consistency)
     - [How to push your component on the repository](#how-to-push-your-component-on-the-repository)
 - [Add a component to the showcase website](#add-a-component-to-the-showcase-website)
 - [Additional resources](#additional-resources)
@@ -438,7 +439,7 @@ Take a look at the following usage examples:
 
 * [Evolution UI - color palette](http://www.sassmeister.com/gist/d384a2c6746a3c4045b49512e6795aa6)
 
-For a complete list of these utilities, take a look at the internal sassdoc. Type in your shell the command: `npm run sassdoc`
+For a complete list of these utilities, take a look at the internal [sassdoc](#sassdoc).
 
 ---------------------------
 
@@ -539,13 +540,13 @@ Evolution UI defines some `global` variables that can exploited within a compone
 $g-framework-font-family: 'Roboto', sans-serif;
 
 /// Represent the base font size used by the Evolution framework
-$g-framework-base-font-size:    16px;
-
-/// Represents  the line-height ratio used by the Evolution framework
-$g-framework-line-height-ratio: 1.5;
+$g-framework-base-font-size: 16px;
 
 /// Represents the base line-height used by the Evolution framework
-$g-framework-line-height-base:  1rem * $g-framework-line-height-ratio;
+$g-framework-line-height: 1.5;
+
+/// Vertical rhythm keeps consistent vertical space between elements
+$g-vertical-rhythm: $g-framework-line-height * $g-framework-base-font-size-rem;
 
 /// Represents the base font-weight used by the Evolution framework
 $g-framework-font-weight: 400;
@@ -803,6 +804,116 @@ Which is much better!
 
 
 **IMPORTANT NOTE**: You don't need to add vendor prefixes to your css rules since Evolution UI makes use of `autoprefixer`.
+
+
+
+### Visual consistency
+
+Evolution UI defines a list of utilities for trying to maintain a good visual consistency through the components.
+
+Let's see how we can exploit them.
+
+
+
+#### Font family
+
+Make use of the `$g-framework-font-family` variable in your component:
+
+```scss
+font-family: $g-framework-font-family;
+```
+
+
+
+#### Font size
+
+The framework provides developers a responsive modular scale for headings and extra-headings.
+
+Within your component you can use the `size($level)` mixin to define a consistent font-size.
+
+For example:
+
+```scss
+
+.title--super-large {
+  @include size(xx-large);
+}
+
+.title {
+  @include size(h1);
+}
+
+.title--small {
+  @include size(x-small);
+}
+
+.paragraph {
+  @include size(p);
+}
+
+```
+
+For a complete list of levels, have a look at the internal [sassdoc](#sassdoc).
+
+
+
+#### Vertical rhythm
+
+Vertical rhythm is the concept of keeping vertical spaces between elements consistent.
+
+To maintain a good vertical rhythm is simple, what you need is to use multiples of the `$g-vertical-rhythm` global variable to set the margins - *top* or *bottom* - of an item.
+
+For example:
+
+```scss
+
+.title--super-large {
+  @include size(xx-large);
+  margin-top: $g-vertical-rhythm;
+  margin-bottom: $g-vertical-rhythm * 2;
+}
+
+```
+
+
+
+#### Colors
+
+Evolution UI provides the `get-color` function to extract one of the available colors in the Evolution UI color scheme. The complete color palette of Evolution UI can be found in the [sassdoc](#sassdoc) . Using the predefined  `get-color` function, you can extract a desired color and its variants with ease.
+
+Moreover, in Evolution UI there exist a list of global variables, having the form `g-color-[type]` , that can be used within any component's parts. 
+
+In particular, the variables ending with the `as-background` suffix are useful to define background colors.
+
+For example:
+
+```scss
+@include block('my-component') {
+  background-color: $g-color-primary-as-background;
+  
+  @include element('hand') {
+    color: $g-color-accent-1-light;
+  } 
+}
+```
+
+or
+
+```scss
+@include block('my-component') {
+  background-color: get-color(primary, background);
+    
+  @include element('hand') {
+    color: get-color(accent, light);
+  } 
+}
+```
+
+
+
+For a complete list of colors, have a look at the internal [sassdoc](#sassdoc).
+
+
 
 ### How to push your component on the repository
 

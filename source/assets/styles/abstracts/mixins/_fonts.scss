@@ -1,0 +1,33 @@
+
+///
+/// Generate a scaled and modular heading
+///
+/// @param {Number} $level - An heading or extra-heading level (h1-h4) or (x-large, xx-large) or (x-small, xx-small)
+/// @access public
+/// @example scss - Usage
+///
+///  .title {
+///     @include size(h1);
+///   }
+///
+///
+/// @example css - CSS output
+///
+///  .title {
+///     font-size: 3.911rem;
+///  }
+///
+///
+/// @link http://typographyhandbook.com/ - More Info about the Modular scale
+///
+
+
+@mixin size($level) {
+  font-size: map-get($g-type-scale-large, $level);
+  @media (max-width: $g-breakpoint-medium) {
+     font-size: map-get($g-type-scale-medium, $level);
+  }
+  @media (max-width: $g-breakpoint-small) {
+     font-size: map-get($g-type-scale-small, $level);
+  }
+}

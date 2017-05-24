@@ -38,19 +38,20 @@ $g-framework-font-family: 'Roboto', sans-serif;
 /// @type Number
 $g-framework-base-font-size:    16px;
 
+
 ///
-/// Represents the line-height ratio used by the Evolution framework.
+/// Represents the base font size in rem used by the Evolution framework.
 /// You can exploit it in your components
 /// @access public
 /// @type Number
-$g-framework-line-height-ratio: 1.5;
+$g-framework-base-font-size-rem:  (16px / $g-framework-base-font-size) * 1rem;
 
 ///
 /// Represents the base line-height used by the Evolution framework.
 /// You can exploit it in your components
 /// @access public
 /// @type Number
-$g-framework-line-height-base:  1rem * $g-framework-line-height-ratio;
+$g-framework-line-height: 1.5;
 
 ///
 /// Represents the base font-weight used by the Evolution framework.
@@ -71,134 +72,87 @@ $g-letter-spacing: 0.03em;
 /// You can exploit it in your components
 /// @access public
 /// @type Number
-$g-vertical-rhythm: 1rem;
-
-//
-// Utility function used to calculate the font scale below
-//
-@function _pow($base, $exp) {
-  $value: 1;
-  @if $exp > 0 {
-    @for $i from 1 through $exp {
-      $value: $value * $base;
-    }
-  }
-  @else if $exp < 0 {
-    @for $i from 1 through -$exp {
-      $value: $value / $base;
-    }
-  }
-  @return $value;
-}
-
-//
-// Utility function used to calculate the font scale below
-//
-@function _rem($size) {
-  $remSize: $size / $g-framework-base-font-size;
-  @return #{$remSize}rem;
-}
+$g-vertical-rhythm: $g-framework-line-height * $g-framework-base-font-size-rem;
 
 ///
-/// Represents the modular scale for headings
+/// Represents the responsive modular scale for headings on large screen > (75em = 1200px)
 ///
 /// @access public
+/// @link http://www.modularscale.com/?1.25&em&1.33&web&text
 /// @type MAP
 
-$g-framework-scales: (
-  minor-second:     1.067,
-  major-second:     1.125,
-  minor-third:      1.200,
-  major-third:      1.250,
-  perfect-fourth:   1.333,
-  augmented-fourth: 1.414,
-  perfect-fift:     1.5,
-  golden-ratio:     1.618
+$g-type-scale-large: (
+  xx-large: 6.919rem,
+  x-large: 5.202rem,
+  h1: 3.911rem,
+  h2: 2.941rem,
+  h3: 2.211rem,
+  h4: 1.663rem,
+  p: 1.25rem,
+  x-small: 0.94rem,
+  xx-small: 0.707rem
 );
 
-$_tp-scl: map-get($g-framework-scales, 'major-third');
 
 ///
-/// Represents the extra extra large heading defined within Evolution UI
+/// Represents the responsive modular scale for headings on medium screen > (45em = 720px) < 75em
+///
 /// @access public
-/// @type Color
-$g-heading-xx-large-font-size: _rem(_pow($_tp-scl, 7) * $g-framework-base-font-size);
+/// @link http://www.modularscale.com/?1.25&em&1.25&web&text
+/// @type MAP
+
+$g-type-scale-medium: (
+  xx-large: 4.768rem,
+  x-large: 3.815rem,
+  h1: 3.052rem,
+  h2: 2.441rem,
+  h3: 1.953em,
+  h4: 1.563rem,
+  p: 1.25rem,
+  x-small: 1rem,
+  xx-small: 0.8rem
+);
+
 
 ///
-/// Represents the extra large heading defined within Evolution UI
+/// Represents the responsive modular scale for headings on small screen < (45em = 720px)
+///
 /// @access public
-/// @type Color
-$g-heading-x-large-font-size: _rem(_pow($_tp-scl, 6) * $g-framework-base-font-size);
+/// @link http://www.modularscale.com/?1.1&em&1.25&web&text
+/// @type MAP
+
+$g-type-scale-small: (
+  xx-large: 4.196rem,
+  x-large: 3.357rem,
+  h1: 2.686rem,
+  h2: 2.148rem,
+  h3: 1.719rem,
+  h4: 1.375rem,
+  p: 1.1rem,
+  x-small: 0.88rem,
+  xx-small: 0.704rem
+);
 
 ///
-/// Represents the heading (H1) defined within Evolution UI
+/// Represents the responsive breakpoint for medium screen (45em = 720px)
 /// @access public
-/// @type Color
-$g-heading-1-font-size: _rem(_pow($_tp-scl, 5) * $g-framework-base-font-size);
+///
+$g-breakpoint-medium: 75em;
 
 ///
-/// Represents the heading (H2) defined within Evolution UI
+/// Represents the responsive breakpoint for small screen (45em = 720px)
 /// @access public
-/// @type Color
-$g-heading-2-font-size: _rem(_pow($_tp-scl, 4) * $g-framework-base-font-size);
-
 ///
-/// Represents the heading (H3) defined within Evolution UI
-/// @access public
-/// @type Color
-$g-heading-3-font-size: _rem(_pow($_tp-scl, 3) * $g-framework-base-font-size);
+$g-breakpoint-small: 45em;
 
 
-///
-/// Represents the heading (H4) defined within Evolution UI
-/// @access public
-/// @type Color
-$g-heading-4-font-size: _rem(_pow($_tp-scl, 2) * $g-framework-base-font-size);
-
-
-///
-/// Represents the heading (H5) defined within Evolution UI
-/// @access public
-/// @type Color
-$g-heading-5-font-size: _rem(_pow($_tp-scl, 1) * $g-framework-base-font-size);
-
-
-///
-/// Represents the heading (H6) defined within Evolution UI
-/// @access public
-/// @type Color
-$g-heading-6-font-size: _rem(_pow($_tp-scl, 0) * $g-framework-base-font-size);
-
-///
-/// Represents the x small defined within Evolution UI
-/// @access public
-/// @type Color
-$g-heading-x-small-font-size: _rem(_pow($_tp-scl, -1) * $g-framework-base-font-size);
-
-///
-/// Represents the x small defined within Evolution UI
-/// @access public
-/// @type Color
-$g-heading-xx-small-font-size: _rem(_pow($_tp-scl, -2) * $g-framework-base-font-size);
-
-///
 /// Represents the heading's margins (top and bottom) defined by Evolution UI
 /// for maintaining a good vertical rhythm
 /// @access public
 /// @type Color
-$g-heading-margin: ($g-framework-line-height-base * 2) 0 ($g-framework-line-height-base);
+$g-heading-margin: ($g-vertical-rhythm * 2) 0 ($g-vertical-rhythm);
 
 
-//@debug '#{$g-heading-xx-large-font-size}';
-//@debug '#{$g-heading-x-large-font-size}';
-//@debug '#{$g-heading-1-font-size}';
-//@debug '#{$g-heading-2-font-size}';
-//@debug '#{$g-heading-3-font-size}';
-//@debug '#{$g-heading-4-font-size}';
-//@debug '#{$g-heading-5-font-size}';
-//@debug '#{$g-heading-6-font-size}';
-//@debug '#{$g-heading-x-small-font-size}';
-//@debug '#{$g-heading-xx-small-font-size}';
 //@debug '#{$g-heading-margin}';
 
 // -----------------------------------------------------------------------------
