@@ -2,8 +2,6 @@
                         Minimalist Carousel Two Config
 ******************************************************************************/
 
-$c-minimalist-carousel-two: 'minimalist-carousel-two';
-
 /******************************************************************************
                         Minimalist Carousel Two Component
 ******************************************************************************/
@@ -16,15 +14,15 @@ $c-minimalist-carousel-two: 'minimalist-carousel-two';
 
 .evo_c-carousel-border-nav{
   position:relative;
-  min-height:375px;
   z-index:1;
+  margin:40px
 }
 
 .evo_c-carousel-border-nav__layer{
   position:absolute;
+  top:-15px;
+  left:-35px;
   margin:30px;
-  width:480px;
-  height:320px;
 }
 
 .evo_c-carousel-border-nav__border{
@@ -48,10 +46,8 @@ $c-minimalist-carousel-two: 'minimalist-carousel-two';
 }
 
 .evo_c-carousel-border-nav__inner{
-  width:100%;
-  height:100%;
   border-left:10px solid white;
-  border-bottom:9px solid white;
+  border-bottom:10px solid white;
 }
 
 .evo_c-carousel-border-nav__inner--default{
@@ -67,16 +63,13 @@ $c-minimalist-carousel-two: 'minimalist-carousel-two';
 }
 
 .evo_c-carousel-border-nav__inner--one{
-  background-image: url("../../images/evolution-ui/evolution/minimalist-carousel-two/forest.jpg");
-  background-size: cover;
+  background-color:white;
 }
 .evo_c-carousel-border-nav__inner--two{
-  background-image: url("../../images/evolution-ui/evolution/minimalist-carousel-two/snail.jpg");
-  background-size: cover;
+  background-color:white;
 }
 .evo_c-carousel-border-nav__inner--three {
-  background-image: url("../../images/evolution-ui/evolution/minimalist-carousel-two/treetrunk.jpg");
-  background-size: cover;
+  background-color:white;
 }
 
 .evo_c-minimalist-carousel__layer--one {
@@ -90,6 +83,10 @@ $c-minimalist-carousel-two: 'minimalist-carousel-two';
 }
 
 .evo_c-minimalist-carousel__layer--three {
-  transform: translate(4px, -5px);
+  transform: translate(4px, -2px);
   z-index: 1;
+}
+
+.evo_c-carousel__image_reference{ //This image should be same dimension as the carousel images in order for carousel images to be responsive
+  opacity:0;
 }
