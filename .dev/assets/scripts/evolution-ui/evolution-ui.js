@@ -4585,6 +4585,7 @@
 	            if (editorField.style.display === "block") {
 	                if (exposeSearch.getInputPixelWidth(searchInput) < searchBoxWidth) {
 	                    editorField.style.display = "none";
+	                    searchInput.focus();
 	                }
 	            }
 	        },
@@ -4617,12 +4618,12 @@
 	        //Prevents code from running if component
 	        // doesn't exist in html
 
-	        editorField.addEventListener("keyup", function () {
+	        editorField.addEventListener("keydown", function () {
 	            var bound = exposeSearch.handleKeyPress.bind(editorField);
 	            bound();
 	        });
 
-	        searchInput.addEventListener("keyup", function () {
+	        searchInput.addEventListener("keydown", function () {
 	            var bound = exposeSearch.handleKeyPress.bind(searchInput);
 	            bound();
 	        });

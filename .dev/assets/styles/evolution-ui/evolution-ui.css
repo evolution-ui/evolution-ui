@@ -6622,7 +6622,9 @@ a.evo_c-modal-trigger {
   margin: 0;
   border: none;
   border-bottom: 2px solid  #56C5DE;
-  cursor: pointer; }
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px; }
 
 .evo_c-searchBar__searchInput:focus {
   outline: none !important;
