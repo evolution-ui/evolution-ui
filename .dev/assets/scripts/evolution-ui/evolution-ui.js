@@ -4604,12 +4604,15 @@
 	         },*/
 	        handleKeyPress: function handleKeyPress() {
 	            exposeSearch.expandIconCheck();
-	            exposeSearch.hideEditorWhenInputVisible();
 	            //exposeSearch.toggleEditorShortCut();
 	            if (this === searchInput) {
 	                exposeSearch.placeInEditor();
+	                exposeSearch.hideEditorWhenInputVisible();
 	            } else {
-	                exposeSearch.editorToSearch();
+	                setTimeout(function () {
+	                    exposeSearch.editorToSearch();
+	                    exposeSearch.hideEditorWhenInputVisible();
+	                }, 100);
 	            }
 	        }
 	    };
