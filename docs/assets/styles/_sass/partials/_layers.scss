@@ -33,7 +33,7 @@
 
 .evo_c_multiLayers_container section.selected-layer {
   border: none;
-  overflow: visible;
+  // overflow: visible;
 
   @media screen and (max-width: $site-breakpoint-md) {
     width: 93%;
