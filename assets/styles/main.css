@@ -872,8 +872,7 @@ body {
       padding: 25px 20px; } }
 
 .evo_c_multiLayers_container section.selected-layer {
-  border: none;
-  overflow: visible; }
+  border: none; }
   @media screen and (max-width: 768px) {
     .evo_c_multiLayers_container section.selected-layer {
       width: 93%; } }
