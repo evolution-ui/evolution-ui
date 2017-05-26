@@ -20,6 +20,8 @@
 - name: 'Chenfeng Lai'
   image: 'chenfeng-ikon.jpg'
   urlGH: 'https://github.com/kubbafox'
+  urlFB: "#"
+  urlLI: "#"
   description: "\"Ambition is priceless.\" <br /> <em>- Wale</em>"
   thumbnail-image: 'chenfeng.jpg'
   location: "Delaware, USA"
@@ -27,6 +29,8 @@
 - name: 'Aashish Nagpal'
   image: 'aashish-ikon.jpg'
   urlGH: 'https://github.com/aashishnagpal'
+  urlFB: "#"
+  urlLI: "#"
   description: "\"The swiftest way to expand your limits is to push to the edges of your limits.\" <br /> <em>- Robin Sharma</em>"
   thumbnail-image: 'aashish.jpg'
   location: "Delhi/NCR, India"
@@ -34,6 +38,8 @@
 - name: 'Sebastian Ramirez-Brunner'
   image: 'sebastian-ikon.jpg'
   urlGH: 'https://github.com/sebastianrb'
+  urlFB: "https://www.facebook.com/sebastian.ramirezbrunner"
+  urlLI: "https://www.linkedin.com/in/sebastian-ramirez-brunner/"
   description: "\"Work hard, be kind, and amazing things will happen.\" <br /> <em>- Conan O\'Brien</em>"
   thumbnail-image: 'sebastian.jpg'
   location: "New York City, USA"
@@ -41,6 +47,8 @@
 - name: 'Gabriele Romeo'
   image: 'gabriele-ikon.jpg'
   urlGH: 'https://github.com/GabrieleRomeo'
+  urlFB: "#"
+  urlLI: "#"
   description: "\"Success is not final, failure is not fatal: it is the courage to continue that counts.\" <br /> <em>- Winston Churchill</em>"
   thumbnail-image: 'gabriele.jpeg'
   location: "Piemonte, Italy"
