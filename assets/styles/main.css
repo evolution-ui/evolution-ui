@@ -623,7 +623,6 @@ body {
   left: 0;
   width: 320px;
   height: 100%;
-  z-index: 9999;
   background-color: #eb74aa;
   transform: translate3d(-320px, 0, 0);
   transition: transform 0.33s ease, height 0.33s ease, border-bottom 0.33s ease;
@@ -652,6 +651,10 @@ body {
       .site-sidebar-nav.bottom-hidden {
         height: 0%;
         overflow: hidden; } }
+  @media screen and (min-width: 960px) and (min-width: 960px) {
+    .site-sidebar-nav {
+      z-index: 9999; } }
+
 .site-sidebar-list {
   list-style: none;
   padding: 0;
