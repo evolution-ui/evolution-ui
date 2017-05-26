@@ -42,7 +42,8 @@ body {
   overflow-y: scroll;
   max-width: 1600px;
   margin-top: 16px;
-  margin: 16px auto 0; }
+  margin: 16px auto 0;
+  overflow-x: hidden; }
 
 hr,
 p,
@@ -577,7 +578,7 @@ body {
   display: inline-block;
   position: fixed;
   bottom: 30px;
-  left: 50px;
+  left: 80px;
   z-index: 10000;
   padding: 18px 16px;
   border: 0;
@@ -614,6 +615,9 @@ body {
   @media screen and (min-width: 960px) {
     .site-sidebar-toggle {
       display: none; } }
+  @media screen and (max-width: 480px) {
+    .site-sidebar-toggle {
+      left: 45px; } }
 .site-sidebar-nav {
   position: fixed;
   top: 16px;
@@ -788,7 +792,7 @@ body {
   width: 120px;
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  right: 40px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -811,7 +815,11 @@ body {
   @media screen and (max-width: 960px) {
     .up-down-scroll {
       bottom: 30px;
-      right: 50px; } }
+      right: 80px; } }
+  @media screen and (max-width: 480px) {
+    .up-down-scroll {
+      bottom: 30px;
+      right: 45px; } }
 
 .up-down-scroll__scroll-up,
 .up-down-scroll__scroll-down {
