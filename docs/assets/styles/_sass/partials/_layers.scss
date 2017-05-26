@@ -35,6 +35,10 @@
   border: none;
   // overflow: visible;
 
+  &.overflow-visible {
+    overflow: visible;
+  }
+
   @media screen and (max-width: $site-breakpoint-md) {
     width: 93%;
   }
