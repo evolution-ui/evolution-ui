@@ -873,6 +873,8 @@ body {
 
 .evo_c_multiLayers_container section.selected-layer {
   border: none; }
+  .evo_c_multiLayers_container section.selected-layer.overflow-visible {
+    overflow: visible; }
   @media screen and (max-width: 768px) {
     .evo_c_multiLayers_container section.selected-layer {
       width: 93%; } }
