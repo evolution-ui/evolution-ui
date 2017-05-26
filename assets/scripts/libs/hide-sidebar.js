@@ -16,7 +16,7 @@
        // console.log(footer.offsetHeight);
        var pertinentSidebar = $('.selected-layer .site-sidebar-nav')[0];
        var lastComponentDistanceFromTop = $('.selected-layer .site-content > *:last-child').offset().top;
-       if(body.scrollTop > lastComponentDistanceFromTop - 100) {
+       if(body.scrollTop > lastComponentDistanceFromTop - 100 || $(document).scrollTop() > lastComponentDistanceFromTop - 100) {
             pertinentSidebar.classList.add("bottom-hidden");
        } else {
             pertinentSidebar.classList.remove("bottom-hidden");
