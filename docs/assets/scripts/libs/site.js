@@ -131,7 +131,7 @@ exports.default = function () {
   var sections = document.querySelectorAll('.selected-layer .site-section');
   var fixedHeader = document.querySelector('.evo_c-scrollspy');
   var spy = document.getElementById('evo_c-scrollspy-indicator');
-  var topOffset = siteMain ? $('.selected-layer').find(".js-site-sidebar").offset().top : 0;
+  var topOffset = siteMain ? $('.selected-layer').find(".js-site-sidebar").offset().top + 40: 0;
 
   $('.evo_c_multiLayers_layer').on('click', function(event) {
     // event.preventDefault();

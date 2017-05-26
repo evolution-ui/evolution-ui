@@ -3,7 +3,7 @@
     width: 120px;
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 40px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -30,7 +30,12 @@
 
     @media screen and (max-width: $site-breakpoint-lg) {
         bottom: 30px;
-        right: 50px;
+        right: 80px;
+    }
+
+    @media screen and (max-width: $site-breakpoint-xs) {
+        bottom: 30px;
+        right: 45px;
     }
 }
 

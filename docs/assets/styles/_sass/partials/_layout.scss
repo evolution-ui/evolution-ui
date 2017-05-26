@@ -639,7 +639,7 @@ $site-sidebar-nav-zindex: 9999;
     display: inline-block;
     position: fixed;
     bottom: 30px;
-    left: 50px;
+    left: 80px;
     z-index: $site-sidebar-toggle-zindex;
     padding: $site-sidebar-toggle-padding;
     border: 0;
@@ -694,6 +694,10 @@ $site-sidebar-nav-zindex: 9999;
     // Sidebar Toggle Breakpoints
     @include media-query($site-breakpoint-lg) {
       display: none;
+    }
+
+    @media screen and (max-width: $site-breakpoint-xs) {
+        left: 45px;
     }
   }
 
