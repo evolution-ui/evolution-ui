@@ -708,7 +708,7 @@ $site-sidebar-nav-zindex: 9999;
     left: 0;
     width: $site-sidebar-nav-width;
     height: 100%;
-    z-index: $site-sidebar-nav-zindex;
+    // z-index: $site-sidebar-nav-zindex;
     background-color: $site-sidebar-nav-background-color;
     transform: translate3d(-$site-sidebar-nav-width, 0, 0);
     transition: transform $site-transition-timing-function, height $site-transition-timing-function, border-bottom $site-transition-timing-function;
@@ -744,6 +744,10 @@ $site-sidebar-nav-zindex: 9999;
         height: 0%;
         // border-bottom: 4px solid map-get($site-colors, primary);
         overflow: hidden;
+      }
+
+      @include media-query($site-breakpoint-lg) {
+        z-index: $site-sidebar-nav-zindex;
       }
     }
   }
