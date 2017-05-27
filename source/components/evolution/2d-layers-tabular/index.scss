@@ -1,0 +1,168 @@
+
+$c-2dlayer-tabular-name: 'layer-tabular';
+$c-2dlayer-tabular-width: 14rem;
+
+.layer-tabular-wrapper {
+  position: relative;
+  margin: 0 auto 5rem;
+  width: 44rem;
+  height: 10rem;
+  font-size: 1rem;
+}
+
+
+.layer-tabular-wrapper div {
+  color: get-color('secondary', 'dark');
+  border-radius: $g-framework-borders-radius;
+}
+
+@include c( $c-2dlayer-tabular-name ){
+  position: absolute;
+  width: $c-2dlayer-tabular-width;
+  border-radius: 2px;
+  background-color: get-color('primary', 'base');
+  border: 1px solid get-color('primary', 'base');
+  outline: none;
+  transition: top ease-out 0.5s, left ease-out 0.5s, width cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  &:hover header {
+    cursor: pointer;
+  }
+
+  @include e('content'){
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    header {
+      text-transform: capitalize;
+      padding: 0 2rem 2rem 2rem;
+      height: 3.2rem;
+      line-height: 3.2rem;
+    }
+    @include m('close'){
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: 12px;
+      right: 8px;
+      opacity: 0;
+      background-image: url("../../images/evolution-ui/evolution/2d-layers-tabular/ic_close.png");
+      background-size: cover;
+      cursor: pointer;
+      transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s;
+      z-index: 1;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    @include m('done'){
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background-image: url("../../images/evolution-ui/evolution/2d-layers-tabular/done.png");
+      background-size: cover;
+      cursor: pointer;
+      z-index: 1;
+    }
+  }
+}
+.evo_c-layer-tabular .active {
+  transition: height cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+
+.visited {
+  background-color: #D7E4E2;
+  border-color: #D9DEDD;
+}
+.visited header {
+  color: #A7AEAC;
+}
+
+.evo_c-layer-tabular .active article, .evo_c-layer-tabular .active .evo_c-layer-tabular__description {
+  white-space: normal;
+  line-height: 20px;
+  text-align: left;
+  padding: 0px 3rem 0 2rem;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+
+.evo_c-layer-tabular .active .evo_c-layer-tabular__description {
+  padding: 1rem 0 0 2rem;
+}
+
+.evo_c-layer-tabular .active header {
+  cursor: auto !important;
+  pointer-events: none !important;
+  background-color: get-color('primary', 'base');
+  overflow: hidden;
+  height: 3.2rem;
+  line-height: 3.2rem;
+}
+
+.active .evo_c-layer-tabular__content--close {
+  opacity: 1;
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.on-top {
+  z-index: 101;
+}
+
+
+#layer1-tabular {
+  top: 0;
+  left: 0;
+}
+
+#layer2-tabular {
+  top: 0;
+  left: 15rem;
+}
+
+#layer3-tabular {
+  top: 0;
+  left: 30rem;
+}
+
+#layer4-tabular {
+  top: 4rem;
+  left: 0;
+}
+
+#layer5-tabular {
+  top: 4rem;
+  left: 15rem;
+}
+
+#layer6-tabular {
+  top: 4rem;
+  left: 30rem;
+}
+
+#hidden_layer-tabular {
+  top: 9rem;
+  left: 0;
+  opacity: 0;
+}
+
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.visible {
+  opacity: 1 !important;
+  transition:         opacity .5s ease-out;
+  -moz-transition:    opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+}
+

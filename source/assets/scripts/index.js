@@ -14,6 +14,7 @@ import tabs from '../../components/standard/tabs';
 
 /* Evolution Components */
 import twoDLayers from '../../components/evolution/2d-layers';
+import twoDLayersTabular from '../../components/evolution/2d-layers-tabular';
 import {layerAnimations, layerDragAndDrop} from '../../components/evolution/3d-layers';
 import bookmarklet from '../../components/evolution/bookmarklet';
 import crumble from '../../components/evolution/crumble';
@@ -51,6 +52,7 @@ documentReady(
   tabs,
   /* Evolution Components */
   twoDLayers,
+  twoDLayersTabular,
   bookmarklet,
   crumble,
   dotValidator,
