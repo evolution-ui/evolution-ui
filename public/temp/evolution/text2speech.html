@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="author" content="Sebastian Nagy">
+  <title>Text2Speech</title>
+  <meta name="description" content="Use Speech API to read the text on page">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+  <link href="../../styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div>
+    <!--SECTION FOR Text2Speech-->
+    <section class="evo_c-text2speech" id="text2speech">
+      <h1>Text to Speech (Innovative)</h1>
+      <p>The Text2Speech component, reads all data which gets selected by the user. It uses the Web Speech API. It can be used
+        by using the commands <span class="evo_c-text2speech"> Shift+b </span> to get started and <span class="evo_c-text2speech">  Shift+v </span>        to cancel or the control panel <span class="evo_c-text2speech">on the left side.</span> Select first the text and then
+        <span class="evo_c-text2speech"> push the start/stop button</span>
+      </p>
+      <h4>Text from BrainyQuote</h4>
+      <article>
+        Successful people maintain a positive focus in life no matter what is going on around them. They stay focused on their past
+        successes rather than their past failures, and on the next action steps they need to take to get them closer to the
+        fulfillment of their goals rather than all the other distractions that life presents to them. Jack Canfield. I've
+        missed more than 9000 shots in my career. I've lost almost 300 games. 26 times, I've been trusted to take the game
+        winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed. Michael
+        Jordan. Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what
+        you believe is great work. And the only way to do great work is to love what you do. If you haven't found it yet,
+        keep looking. Don't settle. As with all matters of the heart, you'll know when you find it. Steve Jobs.
+      </article>
+
+
+    </section>
+  </div>
+
+  <div class="evo_c-text2speech__controller">
+
+    <label class="evo_c-text2speech__lbl" for="evo_c-text2speech--toggle"></label>
+    <input class="evo_c-text2speech--toggle" id="evo_c-text2speech--toggle" type="checkbox">
+    <div class="close icon"></div>
+    <div class="evo_c-text2speech__controller-container">
+      <h3>Text 2 Speech</h3>
+      <input class="evo_c-text2speech__inp_statusRead evo_c-text2speech--read-flex" name="statusRead" type="text" value="status" readonly placeholder="status">
+
+      <input class="evo_c-text2speech__btn_startRead evo_c-text2speech--read-flex-button" name="start" type="button" value="Start &#x00A; Reading">
+      <input class="evo_c-text2speech__btn_stopRead evo_c-text2speech--read-flex-button" name="stop" type="button" value="Stop &#x00A; Reading">
+      <div class="evo_c-text2speech__main-content">
+
+        <p class="evo_c-text2speech__read-instr"><i class="material-icons evo_c-text2speech__material-icons">&#xE87F;</i> Instruction!</p>
+        <ul>
+          <li>Select the text you want to get read.</li>
+          <li>Use the buttons to start and stop,</li>
+          or
+          <li>Use the Shift+B key to start and Shift+V to stop the reading.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../scripts/app.js" type="text/javascript"></script>
+</body>
+
+</html>
