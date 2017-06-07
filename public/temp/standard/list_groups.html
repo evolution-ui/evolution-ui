@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Joseph M. Matembu">
+    <title>List Group Component</title>
+    <meta name="description" content="A standard component used to group content in lists.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400,700" rel="stylesheet">
+    <link href="../../styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <section style="padding: 50px;">
+
+      <article style="margin-bottom: 70px">
+        <h3>Basic List Group</h3>
+        <p>Create an ordered or unordered list with a class of <code>evo_c-list-group</code>. Add <code>evo_c-list-group__item</code> on each list item.</p>
+          <ul class="evo_c-list-group">
+            <li class="evo_c-list-group__item">Item 1</li>
+            <li class="evo_c-list-group__item">Item 2</li>
+            <li class="evo_c-list-group__item">Item 3</li>
+            <li class="evo_c-list-group__item">Item 4</li>
+            <li class="evo_c-list-group__item">Item 5</li>
+          </ul>
+      </article>
+
+      <article style="margin-bottom: 70px">
+        <h3>List Group with Icons</h3>
+        <p>Simply add icons of your choice to list items.</p>
+          <ul class="evo_c-list-group">
+            <li class="evo_c-list-group__item"><i class="material-icons">face</i> Item 1</li>
+            <li class="evo_c-list-group__item"><i class="material-icons">star_border</i> Item 2</li>
+            <li class="evo_c-list-group__item"><i class="material-icons">face</i> Item 3</li>
+            <li class="evo_c-list-group__item"><i class="material-icons">star_border</i> Item 4</li>
+            <li class="evo_c-list-group__item"><i class="material-icons">face</i> Item 5</li>
+          </ul>
+      </article>
+      <article style="margin-bottom: 70px">
+        <h3>List Group with Labels</h3>
+        <p>Add class of <code>.evo_c-list-group__label</code> to the element being used as a label.</p>
+          <ul class="evo_c-list-group">
+            <li class="evo_c-list-group__item">Item 1 <span class="evo_c-list-group__label h-bck__accent2--base">6</span></li>
+            <li class="evo_c-list-group__item">Item 2 <span class="evo_c-list-group__label h-bck__secondary--base">123</span></li>
+            <li class="evo_c-list-group__item">Item 3 <span class="evo_c-list-group__label h-bck__primary--base">99</span></li>
+            <li class="evo_c-list-group__item">Item 4 <span class="evo_c-list-group__label h-bck__background--base">5</span></li>
+            <li class="evo_c-list-group__item">Item 5 <span class="evo_c-list-group__label h-bck__secondary--base">1</span></li>
+          </ul>
+      </article>
+
+      <article style="margin-bottom: 70px">
+        <h3>List Group as Links</h3>
+        <p>You can create a list of links instead. To show an active list item, add the <code>.su_active</code> class to it.</p>
+          <div class="evo_c-list-group ">
+            <a href="#" class="evo_c-list-group__item s_is-active">Item 1</a>
+            <a href="#" class="evo_c-list-group__item">Item 2</a>
+            <a href="#" class="evo_c-list-group__item">Item 3</a>
+            <a href="#" class="evo_c-list-group__item">Item 4</a>
+            <a href="#" class="evo_c-list-group__item">Item 5</a>
+          </div>
+      </article>
+
+      <article style="margin-bottom: 70px">
+        <h3>Content List Group with Image</h3>
+        <p>Create a list with your custom content. Simply add your content within the <code>li</code> items.</p>
+        <div class="su_code-example">
+          <ul class="evo_c-list-group">
+            <li class="evo_c-list-group__item">
+              <img src="../../images/components/list_group/face.jpg">
+              <h4>John Doe</h4>
+              <p>To fourth divide good. Multiply also subdue may all fill hath place can&#39;t place brought second tree. Beast created were.</p>
+            </li>
+            <li class="evo_c-list-group__item">
+              <img src="../../images/components/list_group/face.jpg">
+              <h4>John Doe</h4>
+              <p>To fourth divide good. Multiply also subdue may all fill hath place can&#39;t place brought second tree. Beast created were.</p>
+            </li>
+            <li class="evo_c-list-group__item">
+              <img src="../../images/components/list_group/face.jpg">
+              <h4>John Doe</h4>
+              <p>Living blessed in second. Deep abundantly fly hath midst fly the, spirit cattle rule life stars grass form lights fruitful.</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article style="margin-bottom: 70px">
+        <h3>Content List Group with Rounded Image</h3>
+        <p>The same as above, but with rounded images. You will need to apply <code>.su_img-rounded</code> class to each image.</p>
+        <div class="su_code-example">
+          <ul class="evo_c-list-group">
+            <li class="evo_c-list-group__item">
+              <img class="evo_h-rounded" src="../../images/components/list_group/face.jpg">
+              <h4>John Doe</h4>
+              <p>To fourth divide good. Multiply also subdue may all fill hath place can&#39;t place brought second tree. Beast created were.</p>
+            </li>
+            <li class="evo_c-list-group__item">
+              <img class="evo_h-rounded" src="../../images/components/list_group/face.jpg">
+              <h4>John Doe</h4>
+              <p>To fourth divide good. Multiply also subdue may all fill hath place can&#39;t place brought second tree. Beast created were.</p>
+            </li>
+            <li class="evo_c-list-group__item">
+              <img class="evo_h-rounded" src="../../images/components/list_group/face.jpg">
+              <h4>John Doe</h4>
+              <p>Living blessed in second. Deep abundantly fly hath midst fly the, spirit cattle rule life stars grass form lights fruitful.</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article style="margin-bottom: 70px">
+        <h3>List Group with content in Columns</h3>
+        <p>Divide your content into simple columns. Each list item should have the <code>.evo_s-has-columns</code> class. You can then separate your content by wrapping it around a span or div element with a class of <code>evo_c-list-group__col</code>. To create a grid instead, see our grid structure instead.</p>
+        <div class="su_code-example">
+          <ul class="evo_c-list-group">
+            <li class="evo_c-list-group__item evo_s-has-columns">
+              <div class="evo_c-list-group__col">
+                <p>Living blessed in second.</p>
+              </div>
+              <div class="evo_c-list-group__col">
+                <p>Deep abundantly fly hath midst fly.</p>
+              </div>
+            </li>
+            <li class="evo_c-list-group__item evo_s-has-columns">
+              <div class="evo_c-list-group__col"><p>Fish morning day the living darkness fowl</p></div>
+              <div class="evo_c-list-group__col"><p>Living blessed in second. </p></div>
+              <div class="evo_c-list-group__col"><p>Fish morning day the living darkness.</p></div>
+            </li>
+            <li class="evo_c-list-group__item evo_s-has-columns">
+              <div class="evo_c-list-group__col"><p>Fish morning day.</p></div>
+              <div class="evo_c-list-group__col"><p>Living blessed in second.</p></div>
+              <div class="evo_c-list-group__col"><p>Living blessed in second.</p></div>
+              <div class="evo_c-list-group__col"><p>Fish morning day the living darkness.</p></div>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+  <script type="text/javascript" src="../../scripts/app.js"></script>
+  </body>
+</html>

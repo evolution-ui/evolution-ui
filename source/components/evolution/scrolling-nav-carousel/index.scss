@@ -1,0 +1,66 @@
+/******************************************************************************
+                        Scrolling Nav Carousel Component
+******************************************************************************/
+
+@include component('scrolling-nav') {
+		/*container for whole carousel*/
+		@include element('container') {
+			width:30em;
+		}
+		/*ul container for sliders*/
+		@include element('list') {
+			position: relative;
+		    height: 20em;
+		    padding: 0;
+		    margin: 0;
+		    list-style-type: none;
+		    overflow: hidden;
+		}
+		/*each slider's style*/
+		@include element('item') {
+			position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+
+		    img {
+		    	width: 100%;
+			    height: 100%;
+			    transform: translateY(0);
+			    transition: transform .5s;
+		    }
+		}
+		/*notifier's style*/
+		@include element('notifier') {
+			display: flex;
+		    justify-content: center;
+		    margin: 1em auto;
+		    list-style-type: none;
+		    li {
+		    	margin: 0 .5em;
+			    width: 2em;
+			    height: .5em;
+			    background: get-color('secondary','light');
+			    &.is-current {
+			    	background: get-color('secondary','dark');
+			    }
+		    }
+		}
+		
+}
+
+
+  .is-pre {
+  	img {
+  		width: 100%;
+	    height: 100%;
+	    transform: translateY(-100%);
+	    transition: transform 1s;
+  	}
+   
+  }
+
+
+  
+  

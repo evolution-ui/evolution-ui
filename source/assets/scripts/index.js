@@ -36,7 +36,7 @@ import {singleInputForm, minimalistForm} from '../../components/evolution/single
 import svgPagination from '../../components/evolution/svg-pagination';
 // import text2Speech from '../../components/evolution/text-2-speech';
 import versatileTable from '../../components/evolution/versatile-table';
-
+import scrollingNavCarousel from '../../components/evolution/scrolling-nav-carousel';
 
 documentReady(
   /* Standard Components */
@@ -73,6 +73,7 @@ documentReady(
   singleInputForm,
   minimalistForm,
   svgPagination,
+  scrollingNavCarousel,
   // text2Speech,
   versatileTable,
 
