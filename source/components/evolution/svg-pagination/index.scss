@@ -2,13 +2,36 @@
                         SVG Pagination Config
 ******************************************************************************/
 
-@mixin c-svg-dot-commonStyle {
+@mixin c-svg-dot-strokeStyle {
          opacity: 0;
          fill: none;
-         stroke:#65c5de;
+         stroke:get-color('primary','light');
          stroke-linecap: round;
          stroke-linejoin: round;
          transition: stroke-dashoffset .7s, opacity .7s;
+ }
+
+ @mixin c-svg-dot-itemStyle {
+        li {
+            &.is-active {
+              a {
+                  opacity: .5;
+                }
+          }
+
+      svg {
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: 2;
+      }
+    }
+ }
+
+ @mixin c-svg-dot-activeShapeStyle {
+    opacity: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset .5s, opacity .5s;
  }
 
 /******************************************************************************
@@ -20,7 +43,8 @@
 //                             SVG Pagination
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.evo_c-svg-dot--default {
+@include component('svg-dot') {
+    @include modifier('default') {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -42,110 +66,25 @@
        background-color:rgba(255, 255, 255, 0.3);
        outline: none;
        background: rgba(0, 0, 0, .3);
-       transition: opacity 0.3s ease;
+       transition: opacity 0.5s;
        &:focus {
           outline: none;
        }
        &:hover {
           opacity: .5;
        }
-     }
-    }
-  }
-
-  .evo_c-svg-dot--cross,
-  .evo_c-svg-dot--sector,
-  .evo_c-svg-dot--square,
-  .evo_c-svg-dot--check {
-    li {
-    &.is-active {
-      a {
-          opacity: .5;
-        }
-    }
-
-      svg {
+     } 
+     svg {
          position: absolute;
          top: 0;
          left: 0;
          z-index: 2;
-      }
-    }
-  }
-
-  /*cross style pagination*/
-
-  .evo_c-svg-dot--cross {
-     li {
-      svg {
-        line {
-          @include c-svg-dot-commonStyle;
-        }
-      }
      }
-  }
-  .evo_c-svg-dot--ellipse {
-     li {
-      svg {
-        ellipse {
-          @include c-svg-dot-commonStyle;
-          stroke-width: 2;
-          stroke-dasharray: 39;
-          stroke-dashoffset: 39;
-        }
-      }
      }
-  }
-  .evo_c-svg-dot--square {
-     li {
-      svg {
-        polygon {
-          @include c-svg-dot-commonStyle;
-          stroke-width: 2;
-          stroke-dasharray: 39;
-          stroke-dashoffset: 39;
-        }
-      }
-     }
-  }
-
-
-
-  .evo_c-svg-dot--square
-    li {
-      svg {
-       polygon {
-          stroke-width: 5;
-          stroke-linecap: square;
-          stroke-dasharray: 120;
-          stroke-dashoffset: 120;
-          }
-      }
     }
-
-  .evo_c-svg-dot--ellipse
-    li {
-      svg {
-        ellipse {
-              transform-origin: center center;
-              transform: rotate(-45deg);
-        }
-      }
-    }
-
-
-
-  .evo_c-svg-dot--cross li.is-active svg line,
-  .evo_c-svg-dot--ellipse li.is-active svg ellipse,
-  .evo_c-svg-dot--square li.is-active svg polygon {
-    opacity: 1;
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset .7s, opacity .7s;
-  }
-
-
-  /*sector pagination style*/
-  .evo_c-svg-dot--sector {
+      /*draw sector  pagination*/
+    @include modifier('sector') {
+   
     li {
         svg {
             position: absolute;
@@ -158,49 +97,127 @@
             circle {
                 opacity: 0;
                 fill: none;
-                stroke:#65c5de;
+                stroke:get-color('primary','light');
                 stroke-width: 16px;
                 stroke-dasharray: 0 25;
                 transform-origin: center center;
                 transform: rotate(-90deg);
-                transition: stroke-dasharray 0.5s linear, opacity 0.5s;
+                transition: stroke-dasharray 0.5s, opacity 0.5s;
             }
         }
-    &.is-active {
+            &.is-active {
+              a {
+                  opacity: .5;
+                }
+              svg {
+                circle {
+                  opacity: 1;
+                  stroke-dasharray: 50 25;
+                  transition: stroke-dasharray .5s, opacity 0.5s;
+                }
+              }
+            }
+        }
+      
+    }
+ /*draw cross  pagination*/
+    @include modifier('cross') {
+        li {
+          svg {
+            line {
+              @include c-svg-dot-strokeStyle;
+              stroke-width: 2;
+            }
+          }
+          &.is-active {
+           a {
+                opacity: .5;
+             }
+            svg {
+              line {
+                 @include c-svg-dot-activeShapeStyle;
+              }
+            }
+          }
+        }
+    }
+ /*draw square pagination*/
+    @include modifier('square') {
+        li {
+          svg {
+            polygon {
+              @include c-svg-dot-strokeStyle;
+              stroke-width: 5;
+              stroke-linecap: square;
+              stroke-dasharray: 120;
+              stroke-dashoffset: 120;
+            }
+          }
+          &.is-active {
+            a {
+                  opacity: .5;
+                }
+            svg {
+              polygon {
+                 @include c-svg-dot-activeShapeStyle;
+              }
+            }
+          }
+        }
+
+    }
+/*draw square check*/
+    @include modifier('check') {
+
+          li {
+          svg {
+             path {
+                  fill:none;
+                  stroke:#fff;
+                  stroke-width: 4;
+                  transition:.5s;
+             }
+          }
+            &.is-active {
+            a {
+                  opacity: .5;
+                }
+              svg {
+                 path {
+                     stroke:#65c5de;
+                      d: path("M6,12 Q10,35 28,10");
+                 }
+              }
+          }
+        }
+    }
+
+    @include modifier('ellipse') {
+
+     li {
       svg {
-        circle {
-          opacity: 1;
-          stroke-dasharray: 50 25;
-          transition: stroke-dasharray .5s linear, opacity 0.5s;
+        ellipse {
+          @include c-svg-dot-strokeStyle;
+          stroke-width: 2;
+          stroke-dasharray: 39;
+          stroke-dashoffset: 39;
+          transform-origin: center center;
+          transform: rotate(-45deg);
         }
       }
-    }
-  }
-  }
-
-  /*draw check*/
-  .evo_c-svg-dot--check {
-    li {
-      svg {
-         path {
-              fill:none;
-              stroke:#fff;
-              stroke-width: 4;
-              transition:.5s;
-         }
-      }
-    }
-  }
-
-  .evo_c-svg-dot--check {
-    li {
-    &.is-active {
-        svg {
-           path {
-               stroke:#65c5de;
-                d: path("M6,12 Q10,35 28,10");
-           }
+       &.is-active {
+           a {
+               opacity: .5;
+          }
+          svg {
+              ellipse {
+                @include c-svg-dot-activeShapeStyle;
+              }
+          }
         }
-    }
+     }
+
     }
   }
+
+  
